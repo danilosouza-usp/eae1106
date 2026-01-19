@@ -10,5 +10,17 @@
   },
   "references.qmd": {
     "references.html": "e0daae9a"
+  },
+  "fundamentos.qmd": {
+    "fundamentos.html": "1a1bc74c"
+  },
+  "numpy.qmd": {
+    "numpy.html": "2c3a7185"
+  },
+  "oop.qmd": {
+    "oop.html": "1c27c84d"
+  },
+  "intror.qmd": {
+    "intror.html": "05939090"
   }
 }

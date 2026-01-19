@@ -2,41 +2,55 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "EAE1106 - M�todos Computacionais para Economia",
+    "title": "EAE1106 - Métodos Computacionais para Economia",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Este é o material da disciplina EAE1106 — Métodos Computacionais para Economia, ministrada no Departamento de Economia da USP.\nO curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente Python, com uma breve introdução a R ao final do semestre.",
     "crumbs": [
-      "Preface"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Métodos Computacionais para Economia</span>"
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "fundamentos.html",
+    "href": "fundamentos.html",
+    "title": "2  Fundamentos de computação",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "Alfabetização computacional e lógica básica",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fundamentos de computação</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
+    "objectID": "numpy.html",
+    "href": "numpy.html",
+    "title": "3  Arrays, matrizes e álgebra linear",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "References"
+      "Computação numérica, análise de dados e visualização",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+    ]
+  },
+  {
+    "objectID": "oop.html",
+    "href": "oop.html",
+    "title": "4  Introdução à programação orientada a objetos (OOP)",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "Temas complementares",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introdução à programação orientada a objetos (OOP)</span>"
+    ]
+  },
+  {
+    "objectID": "intror.html",
+    "href": "intror.html",
+    "title": "5  Introdução ao R",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "Temas complementares",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Introdução ao R</span>"
     ]
   }
 ]

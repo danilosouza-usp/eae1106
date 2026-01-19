@@ -1,0 +1,7 @@
+---
+title: "Métodos Computacionais para Economia"
+---
+
+Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
+
+O curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente **Python**, com uma breve introdução a **R** ao final do semestre.

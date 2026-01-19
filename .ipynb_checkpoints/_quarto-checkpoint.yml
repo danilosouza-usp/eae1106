@@ -2,11 +2,12 @@ project:
   type: book
   output-dir: docs
 
+lang: pt-BR
+
 book:
   title: "EAE1106 - Métodos Computacionais para Economia"
   author: "Danilo Souza"
   date: "18/01/2026"
-  lang: pt
   
   chapters:
     - preface.qmd
