@@ -38,9 +38,11 @@ format:
     theme:
       - cosmo
       - brand
+    number-sections: true
     toc: true
     toc-location: right
     toc-depth: 3
+    code-fold: false
     css: styles.css
 
     author-meta: "Danilo Souza"

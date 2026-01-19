@@ -25,7 +25,29 @@
     "href": "numpy.html",
     "title": "3  Arrays, matrizes e álgebra linear",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.",
+    "text": "3.1 O que é o NumPy?\nUma das principais aplicações para o Python bla bla bla\nNumPy (Numerical Python) é o pacote fundamental para computação científica em Python. Essa biblioteca é peça fundamental em outras bibliotecas igualmente importantes, como o Pandas e o Matplotlib. É uma biblioteca Python que tem como principal objeto o ndarray, um array multidimensional que guarda bastante semelhança com a ideia de vetores e matrizes, embora seja um objeto específico dentro da linguagem, com suas características e métodos próprios. O pacote contém também uma variedade de rotinas para operações rápidas em arrays, incluindo matemática, lógica, álgebra linear básica, operações estatísticas básicas e muito mais.\nMas o que é de fato um ndarray? É um objeto multidimensional que nos permite armazenar dados de forma sequencial e que podem ser acessados via indexação. Ué, mas isso é muito parecido com uma lista (ou um conjunto de listas). Qual a diferença então?\nSão muitas as qualidades do NumPy que fazem dele a melhor escolha quanto o assunto é lidar com objetos sequenciais, multidimensionais, e com os quais queremos operar tal qual vetores e matrizes. Mas chega de lenga lenga, vamos ao trabalho!",
+    "crumbs": [
+      "Computação numérica, análise de dados e visualização",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#o-que-é-o-numpy",
+    "href": "numpy.html#o-que-é-o-numpy",
+    "title": "3  Arrays, matrizes e álgebra linear",
+    "section": "",
+    "text": "NumPy arrays têm um tamanho fixo na criação, ao contrário das listas, que podem crescer. Alterar o tamanho de um ndarray criará um novo array e excluirá o original.\nTodos os elementos em um array devem ser do mesmo tipo de dados, diferentemente de listas, que são objetos mais genéricos. Isso facilita a gestão de memória e torna operações com esse tipo de objeto ordens de magnitude mais rápidas do que se utilizássemos listas.\nA maior velocidade e eficiência de armazenamento fazem do NumPy uma das bibliotecas mais utilizadas em aplicações matemáticas e científicas. Saber apenas as ferramentas nativas do Python, como listas, hoje já não é mais suficiente.",
+    "crumbs": [
+      "Computação numérica, análise de dados e visualização",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+    ]
+  },
+  {
+    "objectID": "numpy.html#elementos-básicos-do-numpy",
+    "href": "numpy.html#elementos-básicos-do-numpy",
+    "title": "3  Arrays, matrizes e álgebra linear",
+    "section": "3.2 Elementos básicos do NumPy",
+    "text": "3.2 Elementos básicos do NumPy\nAntes de tudo, é preciso importar o NumPy, já que se trata de uma biblioteca não nativa do Python.\n\nimport numpy as np",
     "crumbs": [
       "Computação numérica, análise de dados e visualização",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
