@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "EAE1106 - Métodos Computacionais para Economia"
+  author: "Danilo Souza"
+  date: "18/01/2026"
+  lang: pt
+  
+  chapters:
+    - preface.qmd
+    - part: "Alfabetização computacional e lógica básica"
+      chapters:
+        - fundamentos.qmd
+    - part: "Computação numérica, análise de dados e visualização"
+      chapters:
+        - numpy.qmd
+    - part: "Temas complementares"
+      chapters:
+        - oop.qmd
+        - intror.qmd
+      
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
