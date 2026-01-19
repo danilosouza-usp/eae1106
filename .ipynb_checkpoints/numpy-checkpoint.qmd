@@ -133,6 +133,23 @@ O NumPy fornece alguns métodos úteis que, apesar de não receberem nenhum argu
 * `dtype` retorna o tipo de dado contido no array;
 * `size` retorna o número total de elementos contidos no array.
 
+```{python}
+X1 = np.array([[1,2,3], [4,5,6], [7,8,9]]) 
+X2 = X1.flatten() # O método flatten reduz um array de n-dimensões em um array de uma única dimensão
+
+print('Array X1 =\n',X1)
+print('\nDimensões de X1 = ', X1.ndim)
+print('Shape de X1 = ', X1.shape)
+print('Tipo de dado em X1 = ', X1.dtype)
+print('Número de elementos em X1 = ', X1.size)
+
+print('\n\nArray X2 =\n',X2)
+print('\nDimensões de X2 = ', X2.ndim)
+print('Shape de X2 = ', X2.shape)
+print('Tipo de dado em X2 = ', X2.dtype)
+print('Número de elementos em X2 = ', X2.size)
+```
+
 
 
 

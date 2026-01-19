@@ -28,6 +28,7 @@ Antes de tudo, é preciso importar o `NumPy`, já que se trata de uma biblioteca
 import numpy as np
 ```
 
+
 ### Arrays unidimensionais
 
 Comecemos criando um `numpy.ndarray` do zero, contendo os números 1, 2 e 3. Podemos fazê-lo da seguinte forma:
@@ -133,13 +134,416 @@ O NumPy fornece alguns métodos úteis que, apesar de não receberem nenhum argu
 * `dtype` retorna o tipo de dado contido no array;
 * `size` retorna o número total de elementos contidos no array.
 
+```{python}
+X1 = np.array([[1,2,3], [4,5,6], [7,8,9]]) 
+X2 = X1.flatten() # O método flatten reduz um array de n-dimensões em um array de uma única dimensão
+
+print('Array X1 =\n',X1)
+print('\nDimensões de X1 = ', X1.ndim)
+print('Shape de X1 = ', X1.shape)
+print('Tipo de dado em X1 = ', X1.dtype)
+print('Número de elementos em X1 = ', X1.size)
+
+print('\n\nArray X2 =\n',X2)
+print('\nDimensões de X2 = ', X2.ndim)
+print('Shape de X2 = ', X2.shape)
+print('Tipo de dado em X2 = ', X2.dtype)
+print('Número de elementos em X2 = ', X2.size)
+```
+
+Um método interessante de arrays é o `reshape(x,y)` que reorganiza um array existente de acordo com os argumentos `x` e `y`:
+
+```{python}
+X = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]) 
+
+print('Array X1 4x4 =\n',X)
+print('\n X1 reorganizado em 2x8 =\n',X.reshape(2,8))
+print('\n X1 reorganizado em 8x2 =\n',X.reshape(8,2))
+```
+
+## Operações básicas com arrays
+
+### Operações aritméticas simples
+
+Dois tipos de operações que serão úteis para arrays de qualquer dimensão são:
+
+1. Operações entre um array e um único número.
+
+2. Operações entre dois arrays da mesma forma.
+
+Quando realizamos operações em um array usando um único número, simplesmente aplicamos essa operação a cada elemento do array. Isso vale tanto para arrays unidimensionais (vetores) quanto multidimensionais (por ex., matrizes).
+
+```{python}
+x = np.array([1,2,3], dtype=int)
+print("x =\n", x)
+print("\n2 + x =\n", 2 + x)
+print("\n2 - x =\n", 2 - x)
+print("\n2 * x =\n", 2 * x)
+print("\nx / 2 =\n", x / 2)
+```
+
+```{python}
+X = np.ones((2, 2), dtype=int)
+
+print("X =\n", X)
+print("\n2 + X =\n", 2 + X)
+print("\n2 - X =\n", 2 - X)
+print("\n2 * X =\n", 2 * X)
+print("\nX / 2 =\n", X / 2)
+```
+
+Para operações entre dois arrays de mesmo tamanho, basta aplicar a operação elemento a elemento (_elementwise_, em inglês) entre os arrays.
+
+```{python}
+x = np.array([2, 4, 6], dtype=int)
+y = np.array([2, 2, 1], dtype=int)
+
+print("x =\n", x)
+print("\ny =\n", y)
+print("\nx + y =\n", x + y)
+print("\nx - y =\n", x - y)
+```
+
+```{python}
+X = np.array([[2, 4], [6, 8]], dtype=int)
+Y = np.array([[2, 2], [2, 2]], dtype=int)
+
+print("X =\n", X)
+print("\nY =\n", Y)
+print("\nX + Y =\n", X + Y)
+print("\nX - Y =\n", X - Y)
+```
+
+As operações de multiplicação e divisão entre arrays são um pouco diferentes. São duas as possibilidades: 
+
+* Multiplicação e divisão elemento a elemento.
+* Multiplicação entre arrays usando a lógica de matriz e "divisão" usando a lógica de matriz inversa.
+
+Para realizar as operações _elementwise_ basta utilizar os sinais usuais de `*` e `/`, independentemente do número de dimesões do array.
 
 
+```{python}
+print('Vetores x e y:')
+print('x =',x)
+print('y =',y)
+print("\n x * y =\n", x * y)
+print("\n x / y =\n", x / y)
+
+print('\nMatrizes X e Y:')
+print('X =\n',X)
+print('Y =\n',Y)
+print("\n X * Y =\n", X * Y)
+print("\n X / Y =\n", X / Y)
+```
+
+A **multiplicação** de matriz com matriz, do jeito que a gente conhece do Ensino Médio é feita usando o símbolo `@` (ou através da função `np.dot()`):
+
+```{python}
+X= np.array([[1, 2], [3, 4]], dtype=int)
+Y= np.array([[10, 20], [30, 40]], dtype=int)
+
+print('X =\n',X)
+print('Y =\n',Y)
+print('\nX * Y =\n', X @ Y)
+print('\nX * Y =\n', np.dot(X,Y))
+```
+
+Para calcular a inversa de uma matriz utilizando o NumPy é preciso um pouco mais de estrutura e de conhecimento acerca do subpacote `linalg` que nos traz funções para realizar operações de álgebra linear. Falaremos disso já já!
+
+### Funções universais
+
+As funções universais no Numpy são funções matemáticas simples. É apenas um termo que demos às funções matemáticas na biblioteca Numpy, que cobrem uma ampla variedade de operações. Essas funções incluem funções trigonométricas padrão, funções para operações aritméticas, manipulação de números complexos, funções estatísticas, etc. Essas funções possuem como características principais:
+
+* Elas executam operações de array elemento por elemento.
+* Elas suportam vários recursos, como conversão de tipos.
+* As funções universais são objetos que pertencem à classe `numpy.ufunc`.
+* As funções do Python também podem ser criadas como uma função universal usando a função da biblioteca `frompyfunc`.
+* Algumas funções universais são chamadas automaticamente quando o operador aritmético correspondente é usado em arrays. Por exemplo, quando a adição de dois arrays é executada em elementos usando o operador '+', então `np.add()` é chamado internamente.
+
+Dentre as principais funções universais matemáticas estão:
+
+* `sin`, `cos`, `tan`: calcular seno, cosseno e tangente de ângulos.
+* `hypot`: calcule a hipotenusa do triângulo retângulo dado.
+* `arcsinh`, `arcosh`, `arctanh`: calcular seno hiperbólico inverso, cosseno e tangente.
+* `deg2rad`: converter grau em radianos.
+* `rad2deg`: converter radianos em graus.
+
+Dentre as principais funções universais estatísticas estão:
+
+* `amin`, `amax`: retorna o mínimo ou máximo de um array ou ao longo de um eixo.
+* `ptp`: retorna o intervalo de valores (máximo-mínimo) de um array ou ao longo de um eixo.
+* `sum`: retorna a soma de valores de um array ao longo de um eixo.
+* `percentile(a, p, eixo)`: calcular o p-ésimo percentil da matriz ou ao longo do eixo especificado.
+* `median`: calcular a mediana dos dados ao longo do eixo especificado.
+* `mean`: calcular a média dos dados ao longo do eixo especificado.
+* `var`: calcular a variância de dados ao longo do eixo especificado.
+* `log`: calcular o log dos dados ao longo do eixo especificado.
+
+Alguns exemplos:
+
+```{python}
+angulos_notaveis_deg = np.array([30,45,60])
+angulos_notaveis_rad = np.deg2rad(angulos_notaveis_deg)
+
+seno_notaveis = [np.round(elem,2) for elem in np.sin(angulos_notaveis_rad)]
+cosseno_notaveis = [np.round(elem,2) for elem in np.cos(angulos_notaveis_rad)]
+tangente_notaveis = [np.round(elem,2) for elem in np.tan(angulos_notaveis_rad)]
+
+print('Seno, cosseno e tangente de 30 graus: ',seno_notaveis[0],', ',cosseno_notaveis[0],' e ',tangente_notaveis[0])
+print('Seno, cosseno e tangente de 45 graus: ',seno_notaveis[1],', ',cosseno_notaveis[1],' e ',tangente_notaveis[1])
+print('Seno, cosseno e tangente de 60 graus: ',seno_notaveis[2],', ',cosseno_notaveis[2],' e ',tangente_notaveis[2])
+```
+
+```{python}
+x = np.array([1,2,3,4,5])
+
+print('Array x = ',x)
+print('\nMínimo de x = ',np.amin(x))
+print('Máximo de x = ',np.amax(x))
+print('Intervalo de x = ',np.ptp(x))
+print('Soma de x = ',np.sum(x))
+print('Média de x = ',np.mean(x))
+print('Log de x = ',[np.round(elem,2) for elem in np.log(x)])
+```
+
+### Arrays e listas
+
+Agora que já vimos um pouco de operações básicas, podemos entender um pouco melhor a diferença de desempenho entre arrays e listas. Considere um array de dez milhões de números inteiros e uma lista equivalente:
 
 
+```{python}
+my_array = np.arange(10000000)
+my_list = list(range(10000000))
+```
+
+Agora vamos multiplicar, elemento a elemento, todos os números por 2 e salvar o resultado correspondente. Utilizaremos a função `time` do pacote `time`para fazer a medição do tempo utilizado pelos dois métodos.
 
 
+```{python}
+import time 
+
+# arrays
+start_array = time.time()
+my_array2 = my_array * 2
+end_array   = time.time()
 
 
+# listas
+start_lista = time.time()
+my_list2 = [x * 2 for x in my_list] 
+end_lista   = time.time()
+
+ratio = (end_lista - start_lista) / (end_array - start_array)
+```
+
+Qual abordagem será que levou menos tempo?
+
+```{python}
+print('Tempo necessário para a realização dos cálculos utilizando arrays: {:.4f} segundos'.format(end_array - start_array))
+print('Tempo necessário para a realização dos cálculos utilizando listas: {:.4f} segundos'.format(end_lista - start_lista))
+print('\nA abordagem de listas demorou {:.0f}x mais tempo! Esqueça listas e use arrays ;)'.format(ratio - 1))
+```
+
+## Aplicação: solução de sistema de equações lineares
+
+Chega de exemplos vazios, vamos usar o NumPy para resolver um problema concreto e que nos é muito familiar: a solução de sistemas de equações lineares. Considere o sistema linear de equações dado por
+
+$$ A\cdot \vec{x} = \vec{b} $$
+
+tal que $A$ é a matriz de coeficientes, $\vec{x}$ é o vetor de incógnitas e $\vec{b}$ o vetor de constantes.
+
+### Algoritmo de eliminação de Gauss-Jordan
+
+Segundo [Hubbard e Hubbard (2015)](https://matrixeditions.com/5thUnifiedApproach.html), uma matriz de coeficientes $A$ é representada em sua forma escalonada reduzida por linhas (_reduced row echelon form_, em inglês) se
+
+* Em toda e qualquer linha, a primeira entrada diferente de zero é igual a 1 (1 _pivotal_).
+* O 1 _pivotal_ de uma linha mais abaixo está sempre à direita de um outro 1 _pivotal_ de alguma linha acima.
+* Em toda e qualquer coluna que contém um 1 _pivotal_, todas as outras entradas são iguais a zero.
+* Toda linha contendo apenas zeros está no fim da matriz.
+
+À partir dessa definição, é possível mostrar que para qualquer matriz $A$, existe uma matriz $\tilde{A}$ na forma escalonada reduzida por linhas que pode ser obtida à partir de operações elementares nas linhas de A. Além disso, é possível mostrar também que $\tilde{A}$ é única. Ao algoritmo utilizado para encontrar $\tilde{A}$ é dado o nome de **Algoritmo de Eliminação de Gauss-Jordan**.
+
+<br>
+
+<div class="warning" style='background-color:#FFFFFF; color: #000000; border: solid #000000 4px; padding:0.7em;'>
+<b>ALGORITMO DE ELIMINAÇÃO DE GAUSS-JORDAN</b>
+
+Para levar uma matriz $A$ a sua forma escalonada reduzida por linhas $\tilde{A}$ devemos seguir os seguintes passos:
+
+<br>
+
+1. Encontre a primeira coluna que não é composta apenas de zeros, chame isso de primeira coluna pivotal e chame sua primeira entrada diferente de zero de pivô. Se o pivô não for na primeira linha, mova a linha que a contém para o topo da matriz.
+
+<br>
+
+2. Divida a primeira linha inteira pelo pivô, de modo que a primeira entrada da primeira coluna pivotal seja igual a 1.
+
+<br>
+
+3. Adicione múltiplos apropriados da primeira linha às outras linhas para garantir que todas as outras entradas da primeira coluna pivotal sejam iguais a 0. O 1 na primeira coluna é agora um pivô 1.
+
+<br>
+
+4. Escolha a próxima coluna que contém pelo menos uma entrada diferente de zero abaixo da primeira linha e coloque a linha que contém o novo pivô na posição da segunda linha. Faça do pivô um pivô 1: divida a linha inteira pelo pivô e adicione múltiplos apropriados desta linha às outras linhas abaixo, para tornar todas as outras entradas desta coluna iguais a 0.
+
+<br>
+
+5. Repita o processo até que a matriz esteja em sua forma escalonada reduzida por linhas. 
+
+</div>
+
+<br>
+
+Assuma o caso em que a matriz de coeficiente $A$ e o vetor de constantes $b$ são tais que a matriz ampliada é dada por:
+
+$$\left[\begin{array}{ccc|c} 2 & 2 & 1 & 1 \\ 1 & 3 & 1 & 2 \\ 1 & 2 & 2 & -1 \end{array}\right] $$
+
+* Passo 1: Defina a matriz M
+
+```{python}
+M = np.array([(2, 2, 1, 1),
+              (1, 3, 1, 2),
+              (1, 2, 2, -1)],dtype=float)
+print('Matriz ampliada =\n',M)
+```
+
+* Passo 2: Divida a linha 1 pelo primeiro elemento da primeira linha
+
+```{python}
+M[0,:] = M[0,:] / M[0,0]
+
+print(M)
+```
+
+* Passo 3: Subtraia a linha 1 da linha 2 e da linha 3 
+
+```{python}
+M[1,:] = M[1,:] - M[0,:]
+M[2,:] = M[2,:] - M[0,:]
+
+print(M)
+```
+
+* Passo 4: Divida a linha 2 pelo segundo elemento da segunda linha
+
+```{python}
+M[1,:] = M[1,:] / M[1,1]
+
+print(M)
+```
+
+* Passo 5: Subtraia a linha 2 da linha 3
+
+```{python}
+M[2,:] = M[2,:] - M[1,:]
+
+print(M)
+```
+
+* Passo 6: Divida a linha 3 pelo terceiro elemento da terceira linha
+
+```{python}
+M[2,:] = M[2,:] / M[2,2]
+
+print(M)
+```
+
+* Passo 7: Multiplique a linha 3 pelo terceiro elemento da segunda linha e subtraia da linha 2
+
+```{python}
+M[1,:] = M[1,:] - M[1,2] * M[2,:]
+
+print(M)
+```
+
+* Passo 8: Multiplique a linha 3 pelo terceiro elemento da primeira linha e subtraia da linha 1
+
+```{python}
+M[0,:] = M[0,:] - M[0,2] * M[2,:]
+
+print(M)
+```
+
+* Passo 9: Subtraia a linha 2 da linha 1
+
+```{python}
+M[0,:] = M[0,:] - M[1,:]
+
+print(M)
+```
+
+Temos a nossa matriz em sua forma escalonada reduzida por linhas! A solução do sistema é tal que:
+
+```{python}
+print('A solução de x1 é: {:.2f}'.format(M[0,3]))
+print('A solução de x2 é: {:.2f}'.format(M[1,3]))
+print('A solução de x3 é: {:.2f}'.format(M[2,3]))
+```
+
+Uma forma mais simples de chegar na forma escalonada reduzida por linhas é através do pacote `SymPy` e das funções `Matrix` e `rref`:
+
+```{python}
+import sympy
+
+M_sympy = sympy.Matrix([(2, 2, 1, 1),
+                        (1, 3, 1, 2),
+                        (1, 2, 2, -1)])
+
+M_sympy.rref()[0]
+```
+
+### Solução de sistemas exatamente identificados
+
+Uma outra forma de resolver sistemas de equações exatamente identificados, quando o número de incógnitas é igual ao número de equações (i.e., matriz $A$ é quadrada) é através da matriz inversa de $A$. Para o caso em que $A^{-1}$ existe, o sistema é tal que
+
+$$ \vec{x} = A^{-1} \cdot \vec{b} $$
+
+Para que seja possível fazer dessa forma, $A$ deve ser uma matriz quadrada e seu determinante ser diferente de $0$. Mais uma vez assuma o caso em que $A$ e $\vec{b}$ são dados por:
+
+$$A = \begin{bmatrix} 2 & 2 & 1 \\ 1 & 3 & 1 \\ 1 & 2 & 2 \end{bmatrix} \quad \quad \vec{b} = \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} $$
+
+O primeiro passo é conferir se a matrix $A$ é quadrada. Podemos fazer isso usando a função `numpy.shape()`
 
 
+```{python}
+b = np.array([1, 2, -1])
+A = np.array([(2, 2, 1), (1, 3, 1), (1, 2, 2)])
+
+np.shape(A)[0] == np.shape(A)[1]
+```
+
+O próximo passo é ver se o determinante da matriz é igual a 0 e para isso usamos um função do subpacote de álgebra linera do numpy, `numpy.linalg.det()`:
+
+```{python}
+print('A =')
+print(A)
+
+print('\nDeterminante = ',np.round(np.linalg.det(A)))
+```
+
+Como ambas as condições são satisfeitas, por fim basta calcular a inversa da matriz $A$ com `numpy.linalg.inv()` e multiplicar por $\vec{b}$ para chegar nos valores de `x`, `y` e `z` que solucionam o sistema de equações.
+
+```{python}
+print('A =')
+print(A)
+
+print("\nInversa de A = ")
+print(np.linalg.inv(A))
+```
+
+```{python}
+solution = np.linalg.inv(A) @ b
+solution
+```
+
+```{python}
+print('A solução de x1 é: {:.2f}'.format(solution[0]))
+print('A solução de x2 é: {:.2f}'.format(solution[1]))
+print('A solução de x3 é: {:.2f}'.format(solution[2]))
+```
+
+Uma última alternativa para resolver o sistema $A\cdot \vec{x} = \vec{b}$, é utilizar a função `solve` do subpacote de álgebra linear do `NumPy`. Essa função faz o processo de resolução do sistema de forma direta e nos cospe o vetor de resultado.
+
+```{python}
+np.linalg.solve(A,b)
+```
