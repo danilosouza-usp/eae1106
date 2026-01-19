@@ -6,12 +6,12 @@ lang: pt-BR
 
 book:
   title: "EAE1106 - Métodos Computacionais para Economia"
-  author: "Danilo Souza"
+  author: "[Danilo Souza](https://www.danilosouza.com/)"
   reader-mode: true
 
   page-footer:
-    left: ""
-    right: "Esse livro foi feito com <a href="https://quarto.org/">Quarto</a>".
+    left: "© 2026 [Danilo Souza](https://www.danilosouza.com/) · Departamento de Economia · FEA-USP"
+    right: "Material da disciplina **EAE1106 — Métodos Computacionais para Economia** · Feito com [Quarto](https://quarto.org/)"
   
   chapters:
     - index.qmd
@@ -41,6 +41,7 @@ format:
     toc: true
     toc-location: right
     toc-depth: 3
+    css: styles.css
 
     author-meta: "Danilo Souza"
     
