@@ -44,6 +44,7 @@ format:
     toc-depth: 3
     code-fold: false
     css: styles.css
+    highlight-style: pygments
 
     author-meta: "Danilo Souza"
     

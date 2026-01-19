@@ -4,75 +4,85 @@
     "href": "index.html",
     "title": "EAE1106 - Métodos Computacionais para Economia",
     "section": "",
-    "text": "Este é o material da disciplina EAE1106 — Métodos Computacionais para Economia, ministrada no Departamento de Economia da USP.\nO curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente Python, com uma breve introdução a R ao final do semestre.",
+    "text": "Bem-vindo\nEste é o material da disciplina EAE1106 — Métodos Computacionais para Economia, ministrada no Departamento de Economia da USP.\nO curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente Python, com uma breve introdução a R ao final do semestre.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Métodos Computacionais para Economia</span>"
+      "Bem-vindo"
+    ]
+  },
+  {
+    "objectID": "index.html#agradecimentos-e-reprodução",
+    "href": "index.html#agradecimentos-e-reprodução",
+    "title": "EAE1106 - Métodos Computacionais para Economia",
+    "section": "Agradecimentos e reprodução",
+    "text": "Agradecimentos e reprodução\nEsse material deve muito a X, Y e Z\nEsse material foi construído bla bla bla. Qualquer erro é de responsabilidade exclusiva do autor. Todo e qualquer feedback é muito bem-vindo.",
+    "crumbs": [
+      "Bem-vindo"
     ]
   },
   {
     "objectID": "fundamentos.html",
     "href": "fundamentos.html",
-    "title": "2  Fundamentos de computação",
+    "title": "1  Fundamentos de computação",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
       "Alfabetização computacional e lógica básica",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Fundamentos de computação</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Fundamentos de computação</span>"
     ]
   },
   {
     "objectID": "numpy.html",
     "href": "numpy.html",
-    "title": "3  Arrays, matrizes e álgebra linear",
+    "title": "2  Arrays, matrizes e álgebra linear",
     "section": "",
-    "text": "3.1 O que é o NumPy?\nUma das principais aplicações para o Python bla bla bla\nNumPy (Numerical Python) é o pacote fundamental para computação científica em Python. Essa biblioteca é peça fundamental em outras bibliotecas igualmente importantes, como o Pandas e o Matplotlib. É uma biblioteca Python que tem como principal objeto o ndarray, um array multidimensional que guarda bastante semelhança com a ideia de vetores e matrizes, embora seja um objeto específico dentro da linguagem, com suas características e métodos próprios. O pacote contém também uma variedade de rotinas para operações rápidas em arrays, incluindo matemática, lógica, álgebra linear básica, operações estatísticas básicas e muito mais.\nMas o que é de fato um ndarray? É um objeto multidimensional que nos permite armazenar dados de forma sequencial e que podem ser acessados via indexação. Ué, mas isso é muito parecido com uma lista (ou um conjunto de listas). Qual a diferença então?\nSão muitas as qualidades do NumPy que fazem dele a melhor escolha quanto o assunto é lidar com objetos sequenciais, multidimensionais, e com os quais queremos operar tal qual vetores e matrizes. Mas chega de lenga lenga, vamos ao trabalho!",
+    "text": "2.1 O que é o NumPy?\nUma das principais aplicações para o Python bla bla bla\nNumPy (Numerical Python) é o pacote fundamental para computação científica em Python. Essa biblioteca é peça fundamental em outras bibliotecas igualmente importantes, como o Pandas e o Matplotlib. É uma biblioteca Python que tem como principal objeto o ndarray, um array multidimensional que guarda bastante semelhança com a ideia de vetores e matrizes, embora seja um objeto específico dentro da linguagem, com suas características e métodos próprios. O pacote contém também uma variedade de rotinas para operações rápidas em arrays, incluindo matemática, lógica, álgebra linear básica, operações estatísticas básicas e muito mais.\nMas o que é de fato um ndarray? É um objeto multidimensional que nos permite armazenar dados de forma sequencial e que podem ser acessados via indexação. Ué, mas isso é muito parecido com uma lista (ou um conjunto de listas). Qual a diferença então?\nSão muitas as qualidades do NumPy que fazem dele a melhor escolha quanto o assunto é lidar com objetos sequenciais, multidimensionais, e com os quais queremos operar tal qual vetores e matrizes. Mas chega de lenga lenga, vamos ao trabalho!",
     "crumbs": [
       "Computação numérica, análise de dados e visualização",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
     ]
   },
   {
     "objectID": "numpy.html#o-que-é-o-numpy",
     "href": "numpy.html#o-que-é-o-numpy",
-    "title": "3  Arrays, matrizes e álgebra linear",
+    "title": "2  Arrays, matrizes e álgebra linear",
     "section": "",
     "text": "NumPy arrays têm um tamanho fixo na criação, ao contrário das listas, que podem crescer. Alterar o tamanho de um ndarray criará um novo array e excluirá o original.\nTodos os elementos em um array devem ser do mesmo tipo de dados, diferentemente de listas, que são objetos mais genéricos. Isso facilita a gestão de memória e torna operações com esse tipo de objeto ordens de magnitude mais rápidas do que se utilizássemos listas.\nA maior velocidade e eficiência de armazenamento fazem do NumPy uma das bibliotecas mais utilizadas em aplicações matemáticas e científicas. Saber apenas as ferramentas nativas do Python, como listas, hoje já não é mais suficiente.",
     "crumbs": [
       "Computação numérica, análise de dados e visualização",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
     ]
   },
   {
     "objectID": "numpy.html#elementos-básicos-do-numpy",
     "href": "numpy.html#elementos-básicos-do-numpy",
-    "title": "3  Arrays, matrizes e álgebra linear",
-    "section": "3.2 Elementos básicos do NumPy",
-    "text": "3.2 Elementos básicos do NumPy\nAntes de tudo, é preciso importar o NumPy, já que se trata de uma biblioteca não nativa do Python.\n\nimport numpy as np\n\n\n3.2.1 Arrays unidimensionais\nComecemos criando um numpy.ndarray do zero, contendo os números 1, 2 e 3. Podemos fazê-lo da seguinte forma:\n\na = np.array([1, 2, 3])\nprint(a)\nprint(type(a))\n\n[1 2 3]\n&lt;class 'numpy.ndarray'&gt;\n\n\nA sintaxe é essa mesma: um par de colchetes dentro dos parênteses. Se tentarmos passar sem os colchetes, o Python retornará um erro.\n\na = np.array(1, 2, 3)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[3], line 1\n----&gt; 1 a = np.array(1, 2, 3)\n\nTypeError: array() takes from 1 to 2 positional arguments but 3 were given\n\n\n\nDa mesma forma que uma sequência de 3 números inteiros, podemos criar um numpy.ndarray que repete 3 vezes o número 0 ou 3 vezes o número 1.\n\na = np.zeros(3)\nb = np.ones(3)\n\nprint(a)\nprint(b)\n\n[0. 0. 0.]\n[1. 1. 1.]\n\n\nNote que em ambos os casos os números aparecem com o ponto da casa decimal, o que é um indicativo de que estão armazenados como valores do tipo float. E se quiséssemos criar esses mesmos arrays, mas especificando que os números são inteiros, i.e., do tipo int?\n\na = np.zeros(3, dtype=int)\nb = np.ones(3, dtype=int)\n\nprint(a)\nprint(b)\n\n[0 0 0]\n[1 1 1]\n\n\nA função numpy.linspace(x,y,z) nos permite criar um array que vai de x até y, com z elementos igualmente espaçados.\n\na = np.linspace(0,8,5, dtype=int)\n\nprint(a)\n\n[0 2 4 6 8]\n\n\nPodemos acessar os elementos de um array qualquer utilizando a mesma ideia de indexação de listas:\n\nprint('Array a =',a)\nprint('\\nPrimeiro elemento de a = ',a[0])\nprint('Segundo elemento de a = ',a[1])\nprint('Último elemento de a = ',a[-1])\nprint('Dois primeiros elementos de a = ',a[0:2])\n\nArray a = [0 2 4 6 8]\n\nPrimeiro elemento de a =  0\nSegundo elemento de a =  2\nÚltimo elemento de a =  8\nDois primeiros elementos de a =  [0 2]\n\n\n\n\n3.2.2 Arrays multidimensionais\nComo falamos anteriormente, um objeto do tipo numpy.ndarray é um array n-dimensional (por isso o nd em ndarray). Até agora trabalhamos apenas com uma dimensão, mas para as nossas aplicações é particularmente interessante o caso em que o número de dimensões é igual a 2, i.e., para o caso em que o array assume a forma de uma matriz.\nPodemos criar esse tipo de array usando a mesma lógica de antes, com pequenas alterações na sintaxe:\n\nA_22 = np.array([[1, 2], [3, 4]], dtype=int)\n\nprint('Matriz A =\\n',A_22)\n\nMatriz A =\n [[1 2]\n [3 4]]\n\n\nO NumPy nos oferece algumas funções interessantes para criarmos matrizes específicas:\n\nprint('Matriz identidade 2x2 =\\n',np.eye(2,dtype=int))\nprint('\\nMatriz diagonal 3x3 =\\n',np.diag([1,2,3]))\n\nMatriz identidade 2x2 =\n [[1 0]\n [0 1]]\n\nMatriz diagonal 3x3 =\n [[1 0 0]\n [0 2 0]\n [0 0 3]]\n\n\nPodemos criar a matriz transposta de uma dada matriz utilizando a função np.transpose() (ou apenas o método .T):\n\nprint('Matriz A =\\n',A_22)\nprint('\\nTransposta da matriz A =\\n',np.transpose(A_22))\nprint('\\nTransposta da matriz A =\\n',A_22.T)\n\nMatriz A =\n [[1 2]\n [3 4]]\n\nTransposta da matriz A =\n [[1 3]\n [2 4]]\n\nTransposta da matriz A =\n [[1 3]\n [2 4]]\n\n\nAssim como em arrays unidimensionais, podemos acessar os elementos de uma matriz utilizando indexação, mas agora em 2 dimensões:\n\nA = np.array([[1,2,3], [4,5,6], [7,8,9]])\n\nprint('Matriz A =\\n',A)\nprint('\\nElemento 11 de A = ',A[0,0])\nprint('Elemento 23 de A = ',A[1,2])\nprint('Primeira linha de A = ',A[0,:])\nprint('Segunda coluna de A = ',A[:,1])\nprint('\\nSubmatriz de A delimitada pelos elementos 22 e 33 =\\n',A[1:,1:])\n\nMatriz A =\n [[1 2 3]\n [4 5 6]\n [7 8 9]]\n\nElemento 11 de A =  1\nElemento 23 de A =  6\nPrimeira linha de A =  [1 2 3]\nSegunda coluna de A =  [2 5 8]\n\nSubmatriz de A delimitada pelos elementos 22 e 33 =\n [[5 6]\n [8 9]]\n\n\n\n\n3.2.3 Propriedades de arrays\nO NumPy fornece alguns métodos úteis que, apesar de não receberem nenhum argumento, nos permitem acessar algumas das características dos arrays que criamos.\n\nndim retorna o número de dimensões do array;\nshape retorna o tamanho do array em cada uma de suas dimensões;\ndtype retorna o tipo de dado contido no array;\nsize retorna o número total de elementos contidos no array.",
+    "title": "2  Arrays, matrizes e álgebra linear",
+    "section": "2.2 Elementos básicos do NumPy",
+    "text": "2.2 Elementos básicos do NumPy\nAntes de tudo, é preciso importar o NumPy, já que se trata de uma biblioteca não nativa do Python.\n\nimport numpy as np\n\n\n2.2.1 Arrays unidimensionais\nComecemos criando um numpy.ndarray do zero, contendo os números 1, 2 e 3. Podemos fazê-lo da seguinte forma:\n\na = np.array([1, 2, 3])\nprint(a)\nprint(type(a))\n\n[1 2 3]\n&lt;class 'numpy.ndarray'&gt;\n\n\nA sintaxe é essa mesma: um par de colchetes dentro dos parênteses. Se tentarmos passar sem os colchetes, o Python retornará um erro.\n\na = np.array(1, 2, 3)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[3], line 1\n----&gt; 1 a = np.array(1, 2, 3)\n\nTypeError: array() takes from 1 to 2 positional arguments but 3 were given\n\n\n\nDa mesma forma que uma sequência de 3 números inteiros, podemos criar um numpy.ndarray que repete 3 vezes o número 0 ou 3 vezes o número 1.\n\na = np.zeros(3)\nb = np.ones(3)\n\nprint(a)\nprint(b)\n\n[0. 0. 0.]\n[1. 1. 1.]\n\n\nNote que em ambos os casos os números aparecem com o ponto da casa decimal, o que é um indicativo de que estão armazenados como valores do tipo float. E se quiséssemos criar esses mesmos arrays, mas especificando que os números são inteiros, i.e., do tipo int?\n\na = np.zeros(3, dtype=int)\nb = np.ones(3, dtype=int)\n\nprint(a)\nprint(b)\n\n[0 0 0]\n[1 1 1]\n\n\nA função numpy.linspace(x,y,z) nos permite criar um array que vai de x até y, com z elementos igualmente espaçados.\n\na = np.linspace(0,8,5, dtype=int)\n\nprint(a)\n\n[0 2 4 6 8]\n\n\nPodemos acessar os elementos de um array qualquer utilizando a mesma ideia de indexação de listas:\n\nprint('Array a =',a)\nprint('\\nPrimeiro elemento de a = ',a[0])\nprint('Segundo elemento de a = ',a[1])\nprint('Último elemento de a = ',a[-1])\nprint('Dois primeiros elementos de a = ',a[0:2])\n\nArray a = [0 2 4 6 8]\n\nPrimeiro elemento de a =  0\nSegundo elemento de a =  2\nÚltimo elemento de a =  8\nDois primeiros elementos de a =  [0 2]\n\n\n\n\n2.2.2 Arrays multidimensionais\nComo falamos anteriormente, um objeto do tipo numpy.ndarray é um array n-dimensional (por isso o nd em ndarray). Até agora trabalhamos apenas com uma dimensão, mas para as nossas aplicações é particularmente interessante o caso em que o número de dimensões é igual a 2, i.e., para o caso em que o array assume a forma de uma matriz.\nPodemos criar esse tipo de array usando a mesma lógica de antes, com pequenas alterações na sintaxe:\n\nA_22 = np.array([[1, 2], [3, 4]], dtype=int)\n\nprint('Matriz A =\\n',A_22)\n\nMatriz A =\n [[1 2]\n [3 4]]\n\n\nO NumPy nos oferece algumas funções interessantes para criarmos matrizes específicas:\n\nprint('Matriz identidade 2x2 =\\n',np.eye(2,dtype=int))\nprint('\\nMatriz diagonal 3x3 =\\n',np.diag([1,2,3]))\n\nMatriz identidade 2x2 =\n [[1 0]\n [0 1]]\n\nMatriz diagonal 3x3 =\n [[1 0 0]\n [0 2 0]\n [0 0 3]]\n\n\nPodemos criar a matriz transposta de uma dada matriz utilizando a função np.transpose() (ou apenas o método .T):\n\nprint('Matriz A =\\n',A_22)\nprint('\\nTransposta da matriz A =\\n',np.transpose(A_22))\nprint('\\nTransposta da matriz A =\\n',A_22.T)\n\nMatriz A =\n [[1 2]\n [3 4]]\n\nTransposta da matriz A =\n [[1 3]\n [2 4]]\n\nTransposta da matriz A =\n [[1 3]\n [2 4]]\n\n\nAssim como em arrays unidimensionais, podemos acessar os elementos de uma matriz utilizando indexação, mas agora em 2 dimensões:\n\nA = np.array([[1,2,3], [4,5,6], [7,8,9]])\n\nprint('Matriz A =\\n',A)\nprint('\\nElemento 11 de A = ',A[0,0])\nprint('Elemento 23 de A = ',A[1,2])\nprint('Primeira linha de A = ',A[0,:])\nprint('Segunda coluna de A = ',A[:,1])\nprint('\\nSubmatriz de A delimitada pelos elementos 22 e 33 =\\n',A[1:,1:])\n\nMatriz A =\n [[1 2 3]\n [4 5 6]\n [7 8 9]]\n\nElemento 11 de A =  1\nElemento 23 de A =  6\nPrimeira linha de A =  [1 2 3]\nSegunda coluna de A =  [2 5 8]\n\nSubmatriz de A delimitada pelos elementos 22 e 33 =\n [[5 6]\n [8 9]]\n\n\n\n\n2.2.3 Propriedades de arrays\nO NumPy fornece alguns métodos úteis que, apesar de não receberem nenhum argumento, nos permitem acessar algumas das características dos arrays que criamos.\n\nndim retorna o número de dimensões do array;\nshape retorna o tamanho do array em cada uma de suas dimensões;\ndtype retorna o tipo de dado contido no array;\nsize retorna o número total de elementos contidos no array.",
     "crumbs": [
       "Computação numérica, análise de dados e visualização",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
     ]
   },
   {
     "objectID": "oop.html",
     "href": "oop.html",
-    "title": "4  Introdução à programação orientada a objetos (OOP)",
+    "title": "3  Introdução à programação orientada a objetos (OOP)",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
       "Temas complementares",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introdução à programação orientada a objetos (OOP)</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introdução à programação orientada a objetos (OOP)</span>"
     ]
   },
   {
     "objectID": "intror.html",
     "href": "intror.html",
-    "title": "5  Introdução ao R",
+    "title": "4  Introdução ao R",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
       "Temas complementares",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Introdução ao R</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introdução ao R</span>"
     ]
   }
 ]

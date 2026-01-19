@@ -1,91 +1,92 @@
 /* Aumenta a largura máxima do conteúdo principal */
 .page-columns {
-  grid-template-columns:
-    1fr
-    minmax(0, min(960px, 90vw))
-    1fr;
+    grid-template-columns:
+        1fr
+        minmax(0, min(960px, 90vw))
+        1fr;
 }
 
 /* Quando há TOC à direita */
 .page-columns.toc-right {
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, min(960px, 90vw))
-    minmax(0, 300px);
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, min(960px, 90vw))
+        minmax(0, 300px);
 }
 
 /* Código e figuras podem usar mais espaço */
 .content pre,
 .content figure {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* Formatação do código */
 code {
-  color: #373a3c;
+    color: #373a3c;
 }
 
 code a:any-link {
-  text-decoration: underline;
-  text-decoration-color: #ccc;
+    text-decoration: underline;
+    text-decoration-color: #ccc;
 }
 
 pre {
-  background-image: linear-gradient(160deg,#f8f8f8 0,#f1f1f1 100%);
+    background-image: linear-gradient(160deg,#f8f8f8 0,#f1f1f1 100%);
+}
+
+/* Bloco de saída de código*/
+.cell-output {
+    background-color: #f7f7f8;
+    border-left: 3px solid #d0d0d0;
+    padding: 0.35rem 0.6rem;
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+}
+
+/* Output textual */
+.cell-output pre {
+    font-family: "Source Code Pro", Consolas, monospace;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    background: none;
+    border: none;
+    box-shadow: none;  
 }
 
 /* Caixas pedagógicas */
 
 .box {
-  border-left: 4px solid;
-  padding: 1rem 1.2rem;
-  margin: 1.5rem 0;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+    border-left: 4px solid;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
 }
 
 /* Título das caixas */
 .box-title {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-/* Definição */
-.box-definition {
-  border-color: #2c7be5;
-  background-color: #f4f8ff;
-}
-
-.box-definition .box-title {
-  color: #2c7be5;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 /* Exemplo */
 .box-example {
-  border-color: #00a67d;
-  background-color: #f3fbf8;
+    border-color: #00a67d;
+    background-color: #f3fbf8;
 }
 
 .box-example .box-title {
-  color: #00a67d;
-}
-
-/* Aplicação econômica */
-.box-application {
-  border-color: #f0ad4e;
-  background-color: #fff8ee;
-}
-
-.box-application .box-title {
-  color: #f0ad4e;
+    color: #00a67d;
 }
 
 /* Exercício */
 .box-exercise {
-  border-color: #6f42c1;
-  background-color: #f7f4fc;
+    border-color: #6f42c1;
+    background-color: #f7f4fc;
 }
 
 .box-exercise .box-title {
-  color: #6f42c1;
+    color: #6f42c1;
 }
