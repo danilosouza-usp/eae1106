@@ -19,6 +19,11 @@ book:
     - part: "Alfabetização computacional e lógica básica"
       chapters:
         - fundamentos.qmd
+        - primeiros_passos.qmd
+        - inteligencia_artificial.qmd
+        - objetos.qmd
+        - iteracao.qmd
+        - funcoes.qmd
         
     - part: "Computação numérica, análise de dados e visualização"
       chapters:

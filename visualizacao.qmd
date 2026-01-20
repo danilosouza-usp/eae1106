@@ -1,0 +1,9 @@
+# Visualização
+
+Uma das principais aplicações para o Python bla bla bla
+
+---
+
+## O que é o NumPy?
+
+NumPy (**Num**erical **Py**thon) é o pacote fundamental 

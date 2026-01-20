@@ -22,5 +22,26 @@
   },
   "intror.qmd": {
     "intror.html": "05939090"
+  },
+  "primeiros_passos.qmd": {
+    "primeiros_passos.html": "e30ecfe9"
+  },
+  "inteligencia_artificial.qmd": {
+    "inteligencia_artificial.html": "f0832f16"
+  },
+  "objetos.qmd": {
+    "objetos.html": "d49b6ceb"
+  },
+  "iteracao.qmd": {
+    "iteracao.html": "6e804b8a"
+  },
+  "funcoes.qmd": {
+    "funcoes.html": "5febf33e"
+  },
+  "pandas.qmd": {
+    "pandas.html": "d2fa3181"
+  },
+  "visualizacao.qmd": {
+    "visualizacao.html": "b9c63eca"
   }
 }
