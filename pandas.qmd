@@ -4,6 +4,527 @@ Uma das principais aplicações para o Python bla bla bla
 
 ---
 
-## O que é o NumPy?
+## O que é o Pandas?
 
-NumPy (**Num**erical **Py**thon) é o pacote fundamental 
+Pandas é uma biblioteca que contém objetos específicos e ferramentas próprias a esses objetos que permitem realizar limpeza, organização e análise de dados de forma bastante eficiente no Python. Não à toa, é uma das bibliotecas mais utilizadas na linguagem hoje em dia, um pré-requisito para a maior parte das aplicações de ciência dos dados e aprendizado de máquina.
+
+Embora o Pandas se utilize em grande medida da estrutura e lógica do NumPy e seus arrays, a biblioteca é projetada para trabalhar com dados tabulares e heterogêneos. Como já vimos, o NumPy é mais adequado para trabalhar com dados homogêneos e em sua maior parte numéricos.
+
+São dois os objetos particulares ao Pandas: `Series` e `DataFrame`.
+
+Você pode pensar em uma série como uma "coluna" de dados, como uma sequência de observações em uma única variável. Por outro lado, um DataFrame é um objeto bidimensional para armazenar colunas de dados relacionadas, assim como uma tabela, com linhas e colunas, no Microsoft Excel.
+
+## Objetos no Pandas
+
+Primeiro passo é importar o Pandas.
+
+
+```{python}
+import pandas as pd
+```
+
+Uma vez importado, vamos começar criando duas listas: uma contendo o número de pessoas ocupadas (em mil pessoas) no Brasil de 2012 a 2021 e outra contendo exatamente o intervalo de anos. 
+
+
+```{python}
+pessoas_ocupadas = [90593,92170,92962,92366,90174,92228,93534,95515,87225,95747]
+anos = list(range(2012,2021+1))
+
+print(pessoas_ocupadas)
+print(anos)
+```
+
+Para criar uma série basta utilizar a função `pandas.Series`, que recebe como argumento os valores da série e os índices da série, que serão justamente os valores que identificam cada linha.
+
+
+```{python}
+series_pessoas_ocup = pd.Series(data=pessoas_ocupadas,index=anos)
+
+print(type(series_pessoas_ocup),'\n')
+print(series_pessoas_ocup)
+```
+
+Já para o caso de um DataFrame, podemos criá-lo através da função `pandas.DataFrame`. Essa função recebe os dados que irão compor as colunas de dados de diversas formas, mas umas das mais intuitivas é através da utilização de dicionários. Seguindo o exemplo anterior, vamos criar um DataFrame com as informações de pessoas ocupadas, desocupadas, dentro e fora da força de trabalho.
+
+Primeiro passo é definir o dicionário com esses dados. 
+
+
+```{python}
+dados = {
+    'ocupadas': [90593,92170,92962,92366,90174,92228,93534,95515,87225,95747],
+    'desocupadas': [6730,6151,6555,9222,12476,12453,12413,11903,14412,12011],
+    'na forca': [97322,98321,99516,101588,102650,104682,105947,107418,101637,107758],
+    'fora da forca': [58007,59244,60162,60092,60953,60777,61299,61579,69042,64525]
+}
+
+print(dados)
+```
+
+Agora basta definir o DataFrame usando como argumento esse dicionários `dados`.
+
+
+```{python}
+dados_emprego = pd.DataFrame(data=dados,index=anos)
+
+print(type(dados_emprego),'\n')
+dados_emprego
+```
+
+## _DataFrames_: o coração do Pandas
+
+### Importação de dados externos
+
+Agora que já apresentamos os dois tipos de objetos e como criá-los na mão, vamos avançar e trabalhar com dados trazidos de algum arquivo externo. É comum nos depararmos com arquivos do tipo `.csv` e é com ele que trabalharemos no Pandas, embora o Pandas seja flexível e nos permita trazer para dentro do Python arquivos de várias terminações como `.txt`, `.xlsx`, `.json`, `.dta`, etc.
+
+A ideia daqui para frente é trabalhar com os dados do site [Our World in Data](https://ourworldindata.org/) sobre número de casos de covid-19, mortes e excesso de mortes atrelados à doença, e número de doses de vacina aplicadas ao redor do mundo desde o início da pandemia, em fevereiro de 2020. Esses dados são atualizados semanalmente e disponibilizados na plataforma Kaggle. O arquivo específico com o qual trabalharemos está disponível no Moodle e deve ser baixado para a sua máquina local.
+
+Mas antes de aprendermos como trabalhar com um dataframe e as funcionalidades que o Pandas nos traz precisamos ler o arquivo com os nossos dados. Comecemos pela função `os.chdir` do pacote `os` para mudar o diretório base do Python para o diretório no qual o nosso arquivo se encontra:
+
+
+```{python}
+import os
+
+# Qual o diretório no qual o Python está trabalhando? A função getcwd() nos diz isso
+print('Diretório inicial: {}'.format(os.getcwd()))
+
+# Vamos mudar para o nosso diretório atual
+os.chdir('D:/Dropbox/Projetos e trabalhos/FEAUSP/Cursos/EAE1106 - Metodos Computacionais para Economistas/Aulas/2024_2')
+print('Diretório final: {}'.format(os.getcwd()))
+```
+
+Quais são os arquivos disponíveis nesse diretório? A função `os.listdir()` lista as pastas e arquivos disponíveis no diretório que estamos trabalhando.
+
+
+```{python}
+os.listdir()
+```
+
+Legal, Agora utilizaremos a função `pandas.read_csv` para ler o arquivo `owid-covid-data_top10.csv`. Esse arquivo contém as informações para os 10 países com o maior número reportado de casos de covid-19.
+
+
+```{python}
+df_covid = pd.read_csv('owid-covid-data_top10.csv', sep=',', encoding='utf8')
+type(df_covid)
+```
+
+### Características básicas
+
+Alguns métodos específicos ao objeto DataFrame nos são incrivelmente úteis quando queremos ter uma leitura rápida do que acabamos de gerar.
+
+* `df.info()` nos retorna algumas informações técnicas do dataframe `df`, como o formato dos dados presentes em cada coluna.
+* `df.head(n)` e `df.tail(n)` nos retornam as `n` primeiras e `n` últimas linhas, respectivamente.
+* `df.describe()` nos retorna uma tabela de estatísticas descritivas das colunas numéricas.
+
+Vejamos o que esses métodos nos retornam no nosso caso:
+
+
+```{python}
+df_covid.info(memory_usage='deep')
+```
+
+```{python}
+df_covid.head(2) # método para apresentar apenas as primeiras duas linhas do dataframe
+```
+
+Ué, mas não são 67 colunas? Onde estão todas elas?
+Por padrão o pandas mostra apenas uma parcela do total, para alterar essas opções basta utilizar a função `pd.set_option` e mudar o argumento relacionado ao número máximo de colunas.
+
+
+```{python}
+pd.set_option('display.max_columns', 100)
+df_covid.head(2)
+```
+
+```{python}
+df_covid.describe()
+```
+
+Uma outra coisa que pode ser bastante interessante é saber quantas vezes os valores de determinada variável se repetem. Quantas vezes cada país da base de dados aparece no DataFrame?
+
+```{python}
+df_covid['location'].value_counts()
+```
+
+```{python}
+df_covid['location'].value_counts(normalize=True,dropna=False)
+```
+
+Por fim, podemos ordenar o DataFrame de acordo com uma coluna ou um conjunto de colunas.
+Qual eram os países com o maior número de novos casos de covid reportados no dia 1 de março de 2022?
+
+```{python}
+df_covid[df_covid['date']=='2022-03-01'].sort_values(by=['new_cases'], ascending=False)
+```
+
+Note que no código acima utilizamos uma forma de filtragem dos dados com base em uma condição, que é a data ser igual a 01 de março de 2022. Vamos ir com calma e mostrar todos os passos para realizar indexação, seleção e filtragem em dataframes agora.
+
+### Indexação, seleção e filtragem
+
+Podemos selecionar um intervalo particular de linhas do DataFrame usando a lógica de indexação de sempre.
+
+
+```{python}
+df_covid[0:2]
+```
+
+Utilizando a função `.iloc` podemos selecionar linhas e colunas com os índices numéricos. E se quisermos, por exemplo, comparar o número total de casos de todos os países ao longo do tempo, mantendo apenas as variáveis `location`, `date` e `total_cases`?
+
+
+```{python}
+df_covid.iloc[:,2:5]
+```
+
+Podemos fazer exatamente a mesma coisa com a função `.loc` e utilizando uma mistura de índices numéricos para as linhas e seleção das colunas através de seus nomes.
+
+
+```{python}
+df_covid.loc[:, ['location','date','total_cases']]
+```
+
+Uma terceira forma de fazer esse exercício de seleção de uma parte de um DataFrame já criado é através da criação de um novo DataFrame que mantenha apenas as colunas `location`, `date` e `total_cases`.
+
+
+```{python}
+columns_to_keep = ['location','date','total_cases']
+df_covid2 = df_covid[columns_to_keep]
+
+df_covid2.head(2)
+```
+
+Podemos inclusive alterar o nome das colunas desse novo DataFrame de forma bem direta.
+
+
+```{python}
+df_covid2.columns = ['localizacao','data','casos']
+df_covid2.head()
+```
+
+É possível redefinir o índice desse novo DataFrame para ser igual ao país.
+
+
+```{python}
+df_covid2.set_index('localizacao', inplace=True)
+df_covid2.head(2)
+```
+
+Por fim, podemos selecionar parte específica de um DataFrame utilizando testes booleanos sobre valores de linhas e colunas.
+
+* Selecionar apenas os dados brasileiros
+
+
+```{python}
+df_covid[df_covid['location']=='Brazil']
+```
+
+* Selecionar os dados brasileiros e apenas à partir do momento em que o número de casos se tornou maior do que 10 milhões
+
+
+```{python}
+df_covid[(df_covid['location']=='Brazil') & (df_covid['total_cases']>=10000000)]
+```
+
+* Selecionar os dados do Brasil e Estados Unidos
+
+
+```{python}
+df_covid[df_covid['iso_code'].isin(['BRA','USA'])]
+```
+
+### Operações com colunas numéricas
+
+
+Criar novas colunas a partir de operações sobre aquelas que já existem é bastante simples. Além disso, vamos manter apenas os dados para o Brasil para melhor visualizar os resultados.
+
+
+```{python}
+df_covid_br = df_covid[df_covid['iso_code']=='BRA'].reset_index()
+```
+
+Agora já podemos brincar com as colunas numéricas e mostrar o resultado dos cálculos.
+
+* Coluna com o aumento percentual de casos a cada dia
+
+
+```{python}
+df_covid_br['new_cases_percentage'] = df_covid_br['new_cases'] / df_covid_br['total_cases']
+
+columns_to_show = ['date','total_cases','new_cases','new_cases_percentage']
+df_covid_br[columns_to_show]
+```
+
+* Coluna com o log do total de casos
+
+
+```{python}
+import numpy as np
+df_covid_br['log_total_cases'] = np.log(df_covid_br['total_cases'])
+
+columns_to_show = ['date','total_cases','log_total_cases']
+df_covid_br[columns_to_show]
+```
+
+* Coluna com o total de casos em milhares
+
+
+```{python}
+df_covid_br['total_cases_th'] = df_covid_br['total_cases'] / 1000
+
+columns_to_show = ['date','total_cases','total_cases_th']
+df_covid_br[columns_to_show]
+```
+
+* Subtrair a média do número de novos casos da coluna de novos casos para encontrar o desvio em relação à média.
+
+
+```{python}
+df_covid_br['new_cases_demean'] = df_covid_br['new_cases'] - df_covid_br['new_cases'].mean()
+
+columns_to_show = ['date','new_cases','new_cases_demean']
+df_covid_br[columns_to_show]
+```
+
+Para realizar outras operações simples de soma, subtração, multiplicação e divisão a lógica é a mesma, independente de ser uma operação entre colunas ou de uma coluna com um escalar. Para operações mais complexas, no entanto, o método `.apply` em conjunto com funções anônimas do tipo `lambda` constituem uma ferramenta poderosíssima.
+
+* Elevar o número de novos casos ao quadrado e dividir o resultado por 1 milhão.
+
+
+```{python}
+df_covid_br['total_cases_sq'] = df_covid_br['total_cases'].apply(lambda x: (x**2)/ 1e6)
+
+columns_to_show = ['date','total_cases','total_cases_sq']
+df_covid_br[columns_to_show]
+```
+
+Para visualizar melhor, vamos focar no último valor, representado pelo índice 738.
+
+
+```{python}
+print(df_covid_br.loc[738,'total_cases'])
+print(df_covid_br.loc[738,'total_cases_sq'])
+print((df_covid_br.loc[738,'total_cases'] ** 2) / 1000000)
+```
+
+Dei apenas exemplos super simples, mas note a força que o método `apply` tem quando trabalhado em conjunto com as funções `lambda`. O céu é o limite.
+
+### Operações com colunas contendo strings
+
+O Pandas também nos fornece métodos e funções bastante interessantes para trabalhar com dados do tipo `string`. Vamos começar com um exemplo simples: transformando a nossa coluna com o nome dos países para um coluna com letras minúsculas apenas. Para trabalhar com essas funções/métodos precisamos primeiro dizer ao Pandas que a coluna de interesse receberá operações específicas a strings.
+
+
+```{python}
+df_covid_br['lower_location'] = df_covid_br['location'].str.lower()
+
+columns_to_show = ['iso_code','continent','location','lower_location','date']
+df_covid_br[columns_to_show]
+```
+
+Podemos aplicar a maior parte dos métodos de strings que já vimos (`replace`,`starswith`,`strip`,`extract`, etc.) utilizando essa sintaxe. Uma outra operação interessante, para, por exemplo, separar em colunas distintas o primeiro e o último nome de uma pessoa é realizada através do método `split`. Vamos tentar fazer isso com a coluna do continente.
+
+
+```{python}
+df_covid_br[['continent_1', 'continent_2']] = df_covid_br['continent'].str.split(pat=' ',n=1, expand=True, regex=False)
+
+columns_to_show = ['iso_code','continent','continent_1','continent_2','location','lower_location','date']
+df_covid_br[columns_to_show]
+```
+
+Vamos olhar com calma esse resultado e os argumentos que utilizamos dentro do método `split`.
+
+* _pat_: determina os caracteres que serão utilizados para fazer a divisão do string.
+* _n_: limita o número de divisões a serem feitas no string.
+* _expand_: caso o valor desse argumento seja igual a `True`, a divisão do string irá gerar _n+1_ novas colunas no dataframe.
+* _regex_: determina se o padrão _pat_, utilizado para a divisão do string, deve ser entendido como uma expressão regular ou não.
+
+Bacana né? Esse método `split` nos permite fazer muita coisa legal com colunas de texto!
+
+Por fim, uma outra funcionalidade interessante é a possibilidade de criação de novas colunas de strings utilizando dicionários. Podemos, por exemplo, utilizar essa funcionalidade para criar uma nova coluna que mostre se o número de novos casos por milhão está no quartil superior naquele dia ou não. 
+
+
+```{python}
+df_covid_br['new_cases_per_million'].describe()
+```
+
+
+```{python}
+# criando coluna a partir de list comprehension
+df_covid_br['quartil_superior_bool'] = [True if elem>=254.279 else False for elem in df_covid_br['new_cases_per_million']]
+
+
+# criando coluna a partir de um dicionario
+quartil_superior = {
+    True:'Acima do 3º quartil de novos casos por milhão',
+    False:'Abaixo'
+}
+
+df_covid_br['quartil_superior_cat'] = df_covid_br['quartil_superior_bool'].apply(lambda x: quartil_superior[x])
+```
+
+E qual é o resultado final?
+
+
+```{python}
+df_covid_br[['date','new_cases_per_million','quartil_superior_bool','quartil_superior_cat']]
+```
+
+### Agrupamento e junção de DataFrames
+
+
+Suponha que queiramos calcular médias mensais de novos casos e novos casos por milhão e salvar isso em um novo dataframe. Para essa operação podemos utilizar o famoso `groupby`. Vamos fazer isso para os dados brasileiros e norte-americanos de forma separada.
+
+
+```{python}
+df_covid['ano_mes'] = df_covid['date'].str[0:7]
+columns_to_keep = ['location','ano_mes','new_cases','new_cases_per_million']
+
+df_covid_br = df_covid[df_covid['iso_code']=='BRA'][columns_to_keep]
+df_covid_us = df_covid[df_covid['iso_code']=='USA'][columns_to_keep]
+
+df_covid_br.head(2)
+```
+
+
+```{python}
+df_covid_br_mensal = df_covid_br.groupby(by=['location','ano_mes'], as_index=False).mean()
+df_covid_us_mensal = df_covid_us.groupby(by=['location','ano_mes'], as_index=False).mean()
+
+df_covid_br_mensal
+```
+
+Note que fizemos um dataframe para o Brasil e outro para os Estados Unidos. Podíamos ter feito tudo junto? Podíamos. Mas fizemos dessa forma justamente para mostrar outra funcionalidade bastante importante quando trabalhamos com bases de dados: a junção de duas bases diferentes. Essa junção de bases distintas pode ser realizada utilizando duas funções distintas: `concat` e `merge`. 
+
+A função `concat` "soma" duas bases, criando uma nova base que apenas junta as linhas dos diferentes dataframes. Isso é muito útil, por exemplo, quando geramos dataframes dentro de um loop e queremos ir juntando cada novo dataframe a um grande e único.
+
+
+```{python}
+df_covid_concat = pd.concat(objs=[df_covid_br_mensal, df_covid_us_mensal]).reset_index(drop=True)
+
+df_covid_concat
+```
+
+Já a função `merge` une duas bases de acordo com colunas identificadoras. Vamos juntar as bases do Brasil e EUA utilizando a coluna de ano-mês como identificadora.
+
+
+```{python}
+df_covid_merge = pd.merge(df_covid_br_mensal, df_covid_us_mensal, how='inner', on=['ano_mes'])
+
+df_covid_merge
+```
+
+Que legal! Tome um tempo em casa para entender as particularidades dessa função `merge`, elas são muitas.
+
+Mas note que existiam colunas com o mesmo nome nas bases. Por padrão o pandas renomeia essas colunas com `_x` e `_y`. Vamos renomear essas colunas utilizando dicionários, uma forma alternativa ao que fizemos anteriormente.
+
+
+```{python}
+df_covid_merge.drop(columns=['location_x','location_y'], inplace=True)
+
+dict_rename = {
+    'new_cases_x':'nc_br',
+    'new_cases_per_million_x':'ncpm_br',
+    'new_cases_y':'nc_us',
+    'new_cases_per_million_y':'ncpm_us'
+}
+
+df_covid_merge.rename(columns=dict_rename, inplace=True)
+
+df_covid_merge
+```
+
+### Exportando o DataFrame
+
+Por fim, a última coisa que gostaríamos de aprender nesse aulão de Pandas é como salvar o dataframe, resultado de todas as nossas operações, para um novo `csv` ou arquivo de qualquer outro tipo. Assim como tínhamos funções do tipo `read_csv` para trazer arquivos de fora, temos métodos do tipo `to_csv` para salvar um dado dataframe em um novo arquivo a ser utilizado em outros softwares.
+
+A sintaxe é bastante simples:
+
+
+```{python}
+df_covid_merge.to_csv('df_resultado_aula_pandas.csv', sep=',', encoding='utf8', index=False)
+
+os.listdir()
+```
+
+Olha o arquivo que geramos aí, minha gente! 
+
+Tente exportar o dataframe em outros formatos e importá-lo em outros softwares. Lembre-se, assim como quando queremos aprender novas línguas como inglês, alemão ou mandarim, em programação a fluência chega apenas com muito treino, tentativa e erro.
+
+
+## Eficiência e _dtypes_
+
+DataFrames podem ser objetos bastante pesados, com milhões de linhas e milhares de colunas. Isso por vezes pode ser um problemão para nós. Existem bibliotecas que servem ao propósito de trabalhar de forma mais eficiente com bases de dados muito grandes (e.g., [`Dask`](https://www.dask.org/)), mas algumas funções dentro do próprio Pandas já conseguem nos ajudar bastante em grande parte das situações.
+
+Vamos começar relendo a base completa de dados da covid com os 10 países com o maior número de casos. Além disso, imagine que por um descuido nosso tenhamos replicado todas as entradas por 10 vezes seguidas. Qual é o tamanho dessa base e quantos bytes de memória foram alocados para esse objeto?
+
+
+```{python}
+df_covid_duplicada = pd.DataFrame()
+
+for i in range(0,10):
+    df_covid_duplicada = pd.concat([df_covid_duplicada, df_covid]).reset_index(drop=True)
+
+df_covid_duplicada.info(memory_usage='deep')
+```
+
+O DataFrame `df_covid_duplicada` possui $76,630$ linhas, 67 colunas e está usando 64.6 MB da nossa memória RAM. O primeiro passo para tornar o objeto mais eficiente é ver se encontramos linhas duplicadas em todas suas colunas, que não nos trazem nenhuma nova informação mas carregam desnecessariamente nossos pentes de memória. Para esse fim utilizaremos a função `drop_duplicates`.
+
+
+```{python}
+df_covid_duplicada.drop_duplicates(inplace=True)
+
+df_covid_duplicada.info(memory_usage='deep')
+```
+
+Legal, conseguimos dropar as linhas duplicadas e reduzimos o comprometimento de memória de 64.6 MB para 6.5MB.
+
+No entanto, os tipos de dados de cada coluna não nos parecem os mais adequados. Uma coluna do tipo `float64` consume 4x mais memória do que uma coluna do tipo `float16` e 8x mais memória do que uma coluna do tipo `int8`, por exemplo. Da mesma forma, uma coluna do tipo `object` consome muito mais memória do que uma coluna que o Pandas entende como do tipo categórica em grande parte dos casos. Mas o que são esses tipos todos?
+
+* **int8 / uint8**: consome 1 byte (8-bit) de memória, o valor numérico deve ser inteiro e estar no intervalo $[-128 , 127]$ / $[0 , 255]$
+* **int16 / uint16**: consome 2 bytes de memória, o valor numérico deve ser inteiro e estar no intervalo $[-32768 , 32768]$ / $[0,65535]$
+* **int32 / uint32**: consome 4 bytes de memória e aceita valores numéricos inteiros com até 10 dígitos, da ordem de 2 bilhões.
+* **int64 / uint64**: consome 8 bytes de memória e aceita valores numéricos inteiros ainda maiores.
+* **float16 / float32 / float64**: consome 2, 4 e 8 bytes de memória, respectivamente, e aceita valores com casas decimais delimitado pelos mesmos intervalos dos tipos anteriores.
+* **bool**: consome 1 byte de memória e aceita apenas dois valores `True` e `False`.
+* **object**: o quanto consome de memória pode variar, mas, por aceitar valores numéricos e strings de todo tipo, consome ao menos 8 bytes de memória.
+* **category**: o quanto consome de memória pode variar e depende da relação entre o número de valores únicos na coluna e o número de linhas de dados.
+
+Beleza, devemos fugir do tipo `object` e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? A função `astype` é nossa companheira nesse caso.
+
+Voltando ao nosso dataframe original, as colunas `iso_code`, `continent` e `location` podem ser transformadas em colunas do tipo categórica sem nenhuma perda de informação. Comecemos por elas.
+
+
+```{python}
+columns_to_cat = ['iso_code','continent','location']
+
+for c in columns_to_cat:
+    df_covid_duplicada[c] = df_covid_duplicada[c].astype('category')
+```
+
+O quanto isso nos ajudou?
+
+
+```{python}
+df_covid_duplicada.info(memory_usage='deep')
+```
+
+Caramba! Esse pequena alteração reduziu o comprometimento de memória em aproximadamente $20\%$.
+
+Vamos tentar transformar as colunas de `total_cases`, `new_cases`, `total_deaths` e `new_deaths` em colunas do tipo `int32` ao invés de `float64` já que são colunas sabidamente de números inteiros. Não esqueça de lidar com os valores missing antes, já que dados do tipo `int` não aceitam `NaN` ou `infty` como valores.
+
+
+```{python}
+columns_to_int = ['total_cases','new_cases','total_deaths','new_deaths']
+
+for c in columns_to_int:
+    df_covid_duplicada[c] = df_covid_duplicada[c].fillna(-1)
+    df_covid_duplicada[c] = df_covid_duplicada[c].astype('int32')
+```
+
+O quanto isso nos ajudou?
+
+
+```{python}
+df_covid_duplicada.info(memory_usage='deep')
+```
+
+Reduzimos mais um pouco o comprometimento de memória, embora a diferença não tenha sido tão grande. Em dataframes com milhões de linhas e milhares de colunas, no entanto, essa redução pode fazer toda a diferença. Dica: dê uma olhada na função `pandas.to_numeric` e no argumento `downcast` caso você não saiba para qual tipo de dado numérico deve ir.
+
+No fim das contas, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna **antes** da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função `read_csv` (ou similar) e passar uma lista de tipo de dados ao argumento `dtype` (exemplo do algoritmo [aqui](https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e)). Tente isso em casa! **E não se esqueça: fuja de dados do tipo `object`!**

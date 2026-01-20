@@ -21,10 +21,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -71,6 +106,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -250,7 +288,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#o-que-é-o-numpy" id="toc-o-que-é-o-numpy" class="nav-link active" data-scroll-target="#o-que-é-o-numpy"><span class="header-section-number">9.1</span> O que é o NumPy?</a></li>
+  <li><a href="#o-que-é-o-matplotlib" id="toc-o-que-é-o-matplotlib" class="nav-link active" data-scroll-target="#o-que-é-o-matplotlib"><span class="header-section-number">9.1</span> O que é o Matplotlib?</a></li>
+  <li><a href="#construindo-nosso-1º-gráfico" id="toc-construindo-nosso-1º-gráfico" class="nav-link" data-scroll-target="#construindo-nosso-1º-gráfico"><span class="header-section-number">9.2</span> Construindo nosso 1º gráfico</a>
+  <ul class="collapse">
+  <li><a href="#base-de-dados" id="toc-base-de-dados" class="nav-link" data-scroll-target="#base-de-dados"><span class="header-section-number">9.2.1</span> Base de dados</a></li>
+  <li><a href="#função-plot" id="toc-função-plot" class="nav-link" data-scroll-target="#função-plot"><span class="header-section-number">9.2.2</span> Função <em>plot</em></a></li>
+  </ul></li>
+  <li><a href="#personalização" id="toc-personalização" class="nav-link" data-scroll-target="#personalização"><span class="header-section-number">9.3</span> Personalização</a></li>
+  <li><a href="#gráficos-múltiplos" id="toc-gráficos-múltiplos" class="nav-link" data-scroll-target="#gráficos-múltiplos"><span class="header-section-number">9.4</span> Gráficos múltiplos</a>
+  <ul class="collapse">
+  <li><a href="#várias-séries-em-um-mesmo-plot" id="toc-várias-séries-em-um-mesmo-plot" class="nav-link" data-scroll-target="#várias-séries-em-um-mesmo-plot"><span class="header-section-number">9.4.1</span> Várias séries em um mesmo <em>plot</em></a></li>
+  <li><a href="#vários-plots-dentro-da-mesma-figura" id="toc-vários-plots-dentro-da-mesma-figura" class="nav-link" data-scroll-target="#vários-plots-dentro-da-mesma-figura"><span class="header-section-number">9.4.2</span> Vários <em>plots</em> dentro da mesma figura</a></li>
+  </ul></li>
+  <li><a href="#outros-tipos-de-gráficos" id="toc-outros-tipos-de-gráficos" class="nav-link" data-scroll-target="#outros-tipos-de-gráficos"><span class="header-section-number">9.5</span> Outros tipos de gráficos</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-de-dispersão-scatter" id="toc-gráfico-de-dispersão-scatter" class="nav-link" data-scroll-target="#gráfico-de-dispersão-scatter"><span class="header-section-number">9.5.1</span> Gráfico de dispersão: <em>scatter</em></a></li>
+  <li><a href="#gráfico-de-barra-bar-e-barh" id="toc-gráfico-de-barra-bar-e-barh" class="nav-link" data-scroll-target="#gráfico-de-barra-bar-e-barh"><span class="header-section-number">9.5.2</span> Gráfico de barra: <em>bar</em> e <em>barh</em></a></li>
+  <li><a href="#histograma-hist" id="toc-histograma-hist" class="nav-link" data-scroll-target="#histograma-hist"><span class="header-section-number">9.5.3</span> Histograma: <em>hist</em></a></li>
+  </ul></li>
+  <li><a href="#seaborn" id="toc-seaborn" class="nav-link" data-scroll-target="#seaborn"><span class="header-section-number">9.6</span> Seaborn</a></li>
+  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly"><span class="header-section-number">9.7</span> Plotly</a></li>
+  <li><a href="#visualização-e-storytelling" id="toc-visualização-e-storytelling" class="nav-link" data-scroll-target="#visualização-e-storytelling"><span class="header-section-number">9.8</span> Visualização e <em>storytelling</em></a></li>
   </ul>
 </nav>
     </div>
@@ -278,9 +336,1546 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Uma das principais aplicações para o Python bla bla bla</p>
 <hr>
-<section id="o-que-é-o-numpy" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="o-que-é-o-numpy"><span class="header-section-number">9.1</span> O que é o NumPy?</h2>
-<p>NumPy (<strong>Num</strong>erical <strong>Py</strong>thon) é o pacote fundamental</p>
+<section id="o-que-é-o-matplotlib" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="o-que-é-o-matplotlib"><span class="header-section-number">9.1</span> O que é o Matplotlib?</h2>
+<p>Matplotlib é uma excelente biblioteca de ferramentas gráficas, projetada para computação científica, que nos permite um grau bastante alto de personalização sobre todos os aspectos da apresentação. Nos permite construir visualizações estáticas em 2D e 3D e exportá-las nos mais diferentes formatos. Embora existam outras bibliotecas (e.g., <a href="https://altair-viz.github.io/">altair</a>, <a href="https://bokeh.org/">bokeh</a>, <a href="https://plotly.com/python/">plotly</a>) que nos permitam construir visualizações dinâmicas e mais complexas, o Matplotlib é uma excelente primeira abordagem no campo de visualização de dados dentro do Python. Para a esmagadora maioria de nossas aplicações, é essa biblioteca que iremos buscar primeiro.</p>
+</section>
+<section id="construindo-nosso-1º-gráfico" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="construindo-nosso-1º-gráfico"><span class="header-section-number">9.2</span> Construindo nosso 1º gráfico</h2>
+<section id="base-de-dados" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="base-de-dados"><span class="header-section-number">9.2.1</span> Base de dados</h3>
+<p>O primeiro passo, como sempre, é importar as funções da biblioteca que iremos utilizar. No caso do matplotlib, em geral estamos interessados no módulo <code>pyplot</code>.</p>
+<div id="ddab2103" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Em relação aos dados, utilizaremos mais uma vez a base com informações relacionadas a covid-19 nos 10 países com o maior número de casos acumulados. Dessa vez, no entanto, nos concentraremos em algumas poucas colunas e na agregação mensal.</p>
+<div id="c4872214" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># substituir esse caminho de diretório pelo caminho que você estiver utilizando no seu computador</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'D:/Dropbox/Projetos e trabalhos/FEAUSP/Cursos/EAE1106 - Metodos Computacionais para Economistas/Aulas/2023_2'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>columns_to_read <span class="op">=</span> [<span class="st">'location'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'date'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'total_cases'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'new_cases'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'total_deaths'</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'new_deaths'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'population'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'people_fully_vaccinated'</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'median_age'</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'aged_65_older'</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'cardiovasc_death_rate'</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'diabetes_prevalence'</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>df_covid <span class="op">=</span> pd.read_csv(<span class="st">'owid-covid-data_top10.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>,usecols<span class="op">=</span>columns_to_read)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df_covid[<span class="st">'ano_mes'</span>] <span class="op">=</span> df_covid[<span class="st">'date'</span>].<span class="bu">str</span>[<span class="dv">0</span>:<span class="dv">7</span>]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>df_covid_mensal <span class="op">=</span> df_covid.groupby(by<span class="op">=</span>[<span class="st">'location'</span>,<span class="st">'ano_mes'</span>], as_index<span class="op">=</span><span class="va">False</span>).agg(total_cases<span class="op">=</span>(<span class="st">'total_cases'</span>, <span class="st">'max'</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                                                                  new_cases<span class="op">=</span>(<span class="st">'new_cases'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                                                                  total_deaths<span class="op">=</span>(<span class="st">'total_deaths'</span>, <span class="st">'max'</span>),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                                                                                  new_deaths<span class="op">=</span>(<span class="st">'new_deaths'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                                                                                  population<span class="op">=</span>(<span class="st">'population'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                                                                                  people_vaccinated<span class="op">=</span>(<span class="st">'people_fully_vaccinated'</span>, <span class="st">'max'</span>),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                                                                                  median_age<span class="op">=</span>(<span class="st">'median_age'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                                                                                  aged_65_older<span class="op">=</span>(<span class="st">'aged_65_older'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                                                                                  cardiovasc_death_rate<span class="op">=</span>(<span class="st">'cardiovasc_death_rate'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                                                                                  diabetes_prevalence<span class="op">=</span>(<span class="st">'diabetes_prevalence'</span>, <span class="st">'mean'</span>))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>df_covid_mensal.info()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 269 entries, 0 to 268
+Data columns (total 12 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   location               269 non-null    object 
+ 1   ano_mes                269 non-null    object 
+ 2   total_cases            269 non-null    float64
+ 3   new_cases              269 non-null    float64
+ 4   total_deaths           255 non-null    float64
+ 5   new_deaths             269 non-null    float64
+ 6   population             269 non-null    float64
+ 7   people_vaccinated      145 non-null    float64
+ 8   median_age             269 non-null    float64
+ 9   aged_65_older          269 non-null    float64
+ 10  cardiovasc_death_rate  269 non-null    float64
+ 11  diabetes_prevalence    269 non-null    float64
+dtypes: float64(10), object(2)
+memory usage: 25.3+ KB</code></pre>
+</div>
+</div>
+<div id="692234c3" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_covid_mensal</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location</th>
+<th data-quarto-table-cell-role="th">ano_mes</th>
+<th data-quarto-table-cell-role="th">total_cases</th>
+<th data-quarto-table-cell-role="th">new_cases</th>
+<th data-quarto-table-cell-role="th">total_deaths</th>
+<th data-quarto-table-cell-role="th">new_deaths</th>
+<th data-quarto-table-cell-role="th">population</th>
+<th data-quarto-table-cell-role="th">people_vaccinated</th>
+<th data-quarto-table-cell-role="th">median_age</th>
+<th data-quarto-table-cell-role="th">aged_65_older</th>
+<th data-quarto-table-cell-role="th">cardiovasc_death_rate</th>
+<th data-quarto-table-cell-role="th">diabetes_prevalence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Brazil</td>
+<td>2020-02</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>213993441.0</td>
+<td>NaN</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Brazil</td>
+<td>2020-03</td>
+<td>5717.0</td>
+<td>5715.0</td>
+<td>201.0</td>
+<td>201.0</td>
+<td>213993441.0</td>
+<td>NaN</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Brazil</td>
+<td>2020-04</td>
+<td>87187.0</td>
+<td>81470.0</td>
+<td>6006.0</td>
+<td>5805.0</td>
+<td>213993441.0</td>
+<td>NaN</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Brazil</td>
+<td>2020-05</td>
+<td>516137.0</td>
+<td>428950.0</td>
+<td>29367.0</td>
+<td>23361.0</td>
+<td>213993441.0</td>
+<td>NaN</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Brazil</td>
+<td>2020-06</td>
+<td>1412669.0</td>
+<td>916328.0</td>
+<td>59792.0</td>
+<td>30425.0</td>
+<td>213993441.0</td>
+<td>NaN</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">264</th>
+<td>United States</td>
+<td>2021-11</td>
+<td>48582403.0</td>
+<td>2547313.0</td>
+<td>781652.0</td>
+<td>34249.0</td>
+<td>332915074.0</td>
+<td>199916776.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">265</th>
+<td>United States</td>
+<td>2021-12</td>
+<td>54810020.0</td>
+<td>6227617.0</td>
+<td>827893.0</td>
+<td>46241.0</td>
+<td>332915074.0</td>
+<td>207510289.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">266</th>
+<td>United States</td>
+<td>2022-01</td>
+<td>74984166.0</td>
+<td>20174146.0</td>
+<td>889490.0</td>
+<td>61597.0</td>
+<td>332915074.0</td>
+<td>212184168.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">267</th>
+<td>United States</td>
+<td>2022-02</td>
+<td>79044330.0</td>
+<td>4060164.0</td>
+<td>950732.0</td>
+<td>61242.0</td>
+<td>332915074.0</td>
+<td>215103151.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">268</th>
+<td>United States</td>
+<td>2022-03</td>
+<td>79265726.0</td>
+<td>221396.0</td>
+<td>958437.0</td>
+<td>7705.0</td>
+<td>332915074.0</td>
+<td>215274110.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+</tbody>
+</table>
+
+<p>269 rows × 12 columns</p>
+</div>
+</div>
+</div>
+<p>Note que temos alguns problemas com valores missing, vamos nesse casos substituí-los por zero.</p>
+<div id="fce6feed" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_covid_mensal.fillna(<span class="dv">0</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_covid_mensal</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location</th>
+<th data-quarto-table-cell-role="th">ano_mes</th>
+<th data-quarto-table-cell-role="th">total_cases</th>
+<th data-quarto-table-cell-role="th">new_cases</th>
+<th data-quarto-table-cell-role="th">total_deaths</th>
+<th data-quarto-table-cell-role="th">new_deaths</th>
+<th data-quarto-table-cell-role="th">population</th>
+<th data-quarto-table-cell-role="th">people_vaccinated</th>
+<th data-quarto-table-cell-role="th">median_age</th>
+<th data-quarto-table-cell-role="th">aged_65_older</th>
+<th data-quarto-table-cell-role="th">cardiovasc_death_rate</th>
+<th data-quarto-table-cell-role="th">diabetes_prevalence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Brazil</td>
+<td>2020-02</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>213993441.0</td>
+<td>0.0</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Brazil</td>
+<td>2020-03</td>
+<td>5717.0</td>
+<td>5715.0</td>
+<td>201.0</td>
+<td>201.0</td>
+<td>213993441.0</td>
+<td>0.0</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Brazil</td>
+<td>2020-04</td>
+<td>87187.0</td>
+<td>81470.0</td>
+<td>6006.0</td>
+<td>5805.0</td>
+<td>213993441.0</td>
+<td>0.0</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Brazil</td>
+<td>2020-05</td>
+<td>516137.0</td>
+<td>428950.0</td>
+<td>29367.0</td>
+<td>23361.0</td>
+<td>213993441.0</td>
+<td>0.0</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Brazil</td>
+<td>2020-06</td>
+<td>1412669.0</td>
+<td>916328.0</td>
+<td>59792.0</td>
+<td>30425.0</td>
+<td>213993441.0</td>
+<td>0.0</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">264</th>
+<td>United States</td>
+<td>2021-11</td>
+<td>48582403.0</td>
+<td>2547313.0</td>
+<td>781652.0</td>
+<td>34249.0</td>
+<td>332915074.0</td>
+<td>199916776.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">265</th>
+<td>United States</td>
+<td>2021-12</td>
+<td>54810020.0</td>
+<td>6227617.0</td>
+<td>827893.0</td>
+<td>46241.0</td>
+<td>332915074.0</td>
+<td>207510289.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">266</th>
+<td>United States</td>
+<td>2022-01</td>
+<td>74984166.0</td>
+<td>20174146.0</td>
+<td>889490.0</td>
+<td>61597.0</td>
+<td>332915074.0</td>
+<td>212184168.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">267</th>
+<td>United States</td>
+<td>2022-02</td>
+<td>79044330.0</td>
+<td>4060164.0</td>
+<td>950732.0</td>
+<td>61242.0</td>
+<td>332915074.0</td>
+<td>215103151.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">268</th>
+<td>United States</td>
+<td>2022-03</td>
+<td>79265726.0</td>
+<td>221396.0</td>
+<td>958437.0</td>
+<td>7705.0</td>
+<td>332915074.0</td>
+<td>215274110.0</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+</tbody>
+</table>
+
+<p>269 rows × 12 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="função-plot" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="função-plot"><span class="header-section-number">9.2.2</span> Função <em>plot</em></h3>
+<p>Com o dataframe criado, podemos plotar o número total de novos casos no Brasil ao longo do tempo usando uma única função: <code>plot</code>. Essa função recebe como argumento os valores do eixo <code>x</code> (no nosso caso a data) e do eixo <code>y</code> (número de novos casos) e nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Por fim é preciso chamar a função <code>show()</code> para mostrar o gráfico que criamos.</p>
+<div id="a68dd07c" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_covid_br <span class="op">=</span> df_covid_mensal[df_covid_mensal[<span class="st">'location'</span>].isin([<span class="st">'Brazil'</span>])].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_covid_br[<span class="st">'ano_mes'</span>]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_covid_br[<span class="st">'new_cases'</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># construção do gráfico</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-6-output-1.png" width="575" height="425" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O gráfico tá feito, mas ficou um pouco feio. Como podemos melhorar?</p>
+<ul>
+<li>Ajustar o que mostramos no eixo X.</li>
+<li>Ajustar a escala do eixo Y.</li>
+<li>Mudar a cor da linha para algo mais agradável.</li>
+<li>Colocar um marcador em cada ponto de dado.</li>
+<li>Adicionar título ao gráfico.</li>
+</ul>
+<p>Sabemos que nossos dados começam em fevereiro de 2020 e vão até março de 2022. Para ajustar o eixo y, porém, é importante conhecer os limites numéricos do número de casos.</p>
+<div id="723a0a8e" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_covid_br.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">total_cases</th>
+<th data-quarto-table-cell-role="th">new_cases</th>
+<th data-quarto-table-cell-role="th">total_deaths</th>
+<th data-quarto-table-cell-role="th">new_deaths</th>
+<th data-quarto-table-cell-role="th">population</th>
+<th data-quarto-table-cell-role="th">people_vaccinated</th>
+<th data-quarto-table-cell-role="th">median_age</th>
+<th data-quarto-table-cell-role="th">aged_65_older</th>
+<th data-quarto-table-cell-role="th">cardiovasc_death_rate</th>
+<th data-quarto-table-cell-role="th">diabetes_prevalence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">count</th>
+<td>2.600000e+01</td>
+<td>2.600000e+01</td>
+<td>26.000000</td>
+<td>26.000000</td>
+<td>26.0</td>
+<td>2.600000e+01</td>
+<td>26.0</td>
+<td>2.600000e+01</td>
+<td>2.600000e+01</td>
+<td>2.600000e+01</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">mean</th>
+<td>1.257560e+07</td>
+<td>1.112912e+06</td>
+<td>333718.576923</td>
+<td>25085.230769</td>
+<td>213993441.0</td>
+<td>4.313415e+07</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">std</th>
+<td>9.654155e+06</td>
+<td>9.019196e+05</td>
+<td>244101.785272</td>
+<td>21076.256589</td>
+<td>0.0</td>
+<td>5.995921e+07</td>
+<td>0.0</td>
+<td>5.434607e-15</td>
+<td>2.411662e-14</td>
+<td>5.434607e-15</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">min</th>
+<td>2.000000e+00</td>
+<td>2.000000e+00</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>213993441.0</td>
+<td>0.000000e+00</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">25%</th>
+<td>4.140463e+06</td>
+<td>3.939348e+05</td>
+<td>127233.000000</td>
+<td>8953.750000</td>
+<td>213993441.0</td>
+<td>0.000000e+00</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">50%</th>
+<td>1.166074e+07</td>
+<td>9.094320e+05</td>
+<td>288658.500000</td>
+<td>22273.500000</td>
+<td>213993441.0</td>
+<td>3.508376e+06</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">75%</th>
+<td>2.127057e+07</td>
+<td>1.483579e+06</td>
+<td>592965.000000</td>
+<td>30504.500000</td>
+<td>213993441.0</td>
+<td>8.424734e+07</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">max</th>
+<td>2.904080e+07</td>
+<td>3.333041e+06</td>
+<td>652216.000000</td>
+<td>82392.000000</td>
+<td>213993441.0</td>
+<td>1.557116e+08</td>
+<td>33.5</td>
+<td>8.552000e+00</td>
+<td>1.779610e+02</td>
+<td>8.110000e+00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Agora podemos usar algumas opções e métodos sobre o <code>plot</code> que criamos dentro da célula para aplicar todas essas alterações sugeridas.</p>
+<div id="772ddf4e" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">18</span>,<span class="dv">24</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'fev/20'</span>,<span class="st">'ago/20'</span>,<span class="st">'fev/21'</span>,<span class="st">'ago/21'</span>,<span class="st">'fev/22'</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1000000</span>,<span class="dv">2000000</span>,<span class="dv">3000000</span>,<span class="dv">4000000</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'0'</span>,<span class="st">'1,000,000'</span>,<span class="st">'2,000,000'</span>,<span class="st">'3,000,000'</span>,<span class="st">'4,000,000'</span>]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>) <span class="co"># Saiba que o código "#1f77b4" é um código hexadecimal de cores. Para entender qual cor esse código representa acesse: https://htmlcolorcodes.com/</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(x_ticks, x_labels)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.yticks(y_ticks, y_labels)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="op">-</span><span class="dv">200000</span>, <span class="dv">4300000</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Número de novos casos mensais de Covid-19 no Brasil'</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-8-output-1.png" width="617" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bem melhor né? Mas ainda dá para melhorar <strong>muito</strong>!</p>
+<p>Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos.</p>
+<p>No método que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.</p>
+</section>
+</section>
+<section id="personalização" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="personalização"><span class="header-section-number">9.3</span> Personalização</h2>
+<p>Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores.</p>
+<div id="ba3616c4" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-9-output-1.png" width="575" height="425" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Legal, mas o que significam todas essas coisas?</p>
+<p>Começamos utilizando a função <code>subplots()</code> do <code>matplotlib.pyplot</code>, que nos retorna dois objetos aos quais damos os nomes de <code>fig</code> e <code>ax</code>. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:</p>
+<ul>
+<li><code>fig</code> é como se fosse um fundo branco.</li>
+<li>Pense em <code>ax</code> como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.</li>
+</ul>
+<div id="6811490f" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fig.set_facecolor(<span class="st">"red"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax.set_facecolor(<span class="st">"blue"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-10-output-1.png" width="581" height="416" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Em essência, a função <code>plot()</code> é na verdade um método de <code>ax</code>.</p>
+<p>Embora fazer esse gráfico simples dessa forma exija um pouco mais de código, o uso explícito de objetos nos dá melhor controle sobre a aparência do objeto e de todas as personalizações possíveis. Isso ficará mais claro à medida que avançarmos.</p>
+<p>Como replicar o 2º gráfico da seção anterior usando essa lógica orientada a objetos?</p>
+<div id="c18a5c7b" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">18</span>,<span class="dv">24</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'fev/20'</span>,<span class="st">'ago/20'</span>,<span class="st">'fev/21'</span>,<span class="st">'ago/21'</span>,<span class="st">'fev/22'</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1000000</span>,<span class="dv">2000000</span>,<span class="dv">3000000</span>,<span class="dv">4000000</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'0'</span>,<span class="st">'1,000,000'</span>,<span class="st">'2,000,000'</span>,<span class="st">'3,000,000'</span>,<span class="st">'4,000,000'</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">200000</span>, <span class="dv">4300000</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Número de novos casos mensais de Covid-19 no Brasil'</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-11-output-1.png" width="617" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Foram várias linhas de código a mais com essa abordagem mais orientada a objeto, mas que no fim nos permite muito mais personalizações. Vamos tentar deixá-lo ainda melhor?</p>
+<p>A ideia por trás de uma figura é sempre a mesma: transmitir alguma informação de forma clara e direta. Seguindo essa ideia e partindo do gráfico inicial, vamos fazer mais algumas alterações uma a uma e ir comparando os resultados.</p>
+<ul>
+<li>Mudar a proporção do gráfico e manter a borda apenas do eixo X</li>
+</ul>
+<div id="674a9175" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de gráfico a ser plotado</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar o resultado</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-12-output-1.png" width="719" height="499" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Colocar linhas de grid para os valores de Y</li>
+</ul>
+<div id="8e6fc84f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de gráfico a ser plotado</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar o resultado</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-13-output-1.png" width="719" height="499" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Mudar os marcadores do eixo x e do eixo y como já havíamos feito.</li>
+</ul>
+<div id="b93c90e6" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de gráfico a ser plotado</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites dos eixos</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">200000</span>, <span class="dv">4300000</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar o resultado</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-14-output-1.png" width="766" height="485" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Adicionar uma linha de referência que representa a média do número de casos ao longo do tempo.</li>
+</ul>
+<div id="b1fe9d43" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de gráfico a ser plotado</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites dos eixos</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">200000</span>, <span class="dv">4300000</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Linha de referência</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>], [y.mean(), y.mean()], <span class="st">'r--'</span>, lw<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Média de novos casos</span><span class="ch">\n</span><span class="st">mensais: </span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(y.mean()),xy<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.10</span><span class="op">*</span>y.mean()),fontsize<span class="op">=</span><span class="fl">9.5</span>,color<span class="op">=</span><span class="st">'r'</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,style<span class="op">=</span><span class="st">'italic'</span>)</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar o resultado</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-15-output-1.png" width="766" height="485" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Deixar o título maior e um pouco afastado do início da figura, juntamente com a fonte dos dados logo abaixo.</li>
+<li>Salvar a figura em formato .png</li>
+</ul>
+<div id="98da38e9" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tipo de gráfico a ser plotado</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'#1f77b4'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites dos eixos</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">200000</span>, <span class="dv">4300000</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Linha de referência</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>], [y.mean(), y.mean()], <span class="st">'r--'</span>, lw<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Média de novos casos</span><span class="ch">\n</span><span class="st">mensais: </span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(y.mean()),xy<span class="op">=</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.10</span><span class="op">*</span>y.mean()),fontsize<span class="op">=</span><span class="fl">9.5</span>,color<span class="op">=</span><span class="st">'r'</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,style<span class="op">=</span><span class="st">'italic'</span>)</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Número de novos casos mensais de COVID19 - Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'casos_covid_br.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-16-output-1.png" width="766" height="543" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Uau, que diferença! Foram muitas linhas de código, mas esse é o preço de um bom gráfico e de uma boa visualização. O controle sobre todos os elementos que compõe uma figura é essencial para que possamos cumprir com o objetivo de tornar visualizações cada vez mais informativas e democráticas.</p>
+</section>
+<section id="gráficos-múltiplos" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="gráficos-múltiplos"><span class="header-section-number">9.4</span> Gráficos múltiplos</h2>
+<p>Uma vez aprendida a forma de construção de um gráfico através da função <code>subplot()</code> é fácil construir figuras que contenham várias séries em um mesmo plot ou vários plots na mesma figura. Vamos começar pelo caso mais simples.</p>
+<section id="várias-séries-em-um-mesmo-plot" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="várias-séries-em-um-mesmo-plot"><span class="header-section-number">9.4.1</span> Várias séries em um mesmo <em>plot</em></h3>
+<p>Uma vez em posse dos dados de casos de covid-19 por país, uma pergunta que surge naturalmente é: como o número de casos reportados diferiu entre os diferentes países? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo <code>ax.plot()</code>? É isso aí!</p>
+<p>Para essa análise vamos primeiro criar a coluna <code>new_cases_per_million</code>, já que comparar o número absoluto de casos entre países com populações muito distintas pode não ser a melhor saída.</p>
+<div id="b1c47d41" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_covid_mensal[<span class="st">'new_cases_per_million'</span>] <span class="op">=</span> (df_covid_mensal[<span class="st">'new_cases'</span>] <span class="op">/</span> df_covid_mensal[<span class="st">'population'</span>]) <span class="op">*</span> <span class="fl">1e6</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_covid_mensal[<span class="st">'total_cases_per_million'</span>] <span class="op">=</span> (df_covid_mensal[<span class="st">'total_cases'</span>] <span class="op">/</span> df_covid_mensal[<span class="st">'population'</span>]) <span class="op">*</span> <span class="fl">1e6</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_covid_mensal[<span class="st">'total_deaths_per_million'</span>] <span class="op">=</span> (df_covid_mensal[<span class="st">'total_deaths'</span>] <span class="op">/</span> df_covid_mensal[<span class="st">'population'</span>]) <span class="op">*</span> <span class="fl">1e6</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df_covid_br <span class="op">=</span> df_covid_mensal[df_covid_mensal[<span class="st">'location'</span>].isin([<span class="st">'Brazil'</span>])].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>df_covid_kr <span class="op">=</span> df_covid_mensal[df_covid_mensal[<span class="st">'location'</span>].isin([<span class="st">'South Korea'</span>])].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_covid_br[<span class="st">'ano_mes'</span>][<span class="op">-</span><span class="dv">26</span>:]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> df_covid_br[<span class="st">'new_cases_per_million'</span>][<span class="op">-</span><span class="dv">26</span>:]</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> df_covid_kr[<span class="st">'new_cases_per_million'</span>][<span class="op">-</span><span class="dv">26</span>:]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="5f4bea23" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">12</span>,<span class="dv">18</span>,<span class="dv">24</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'fev/20'</span>,<span class="st">'ago/20'</span>,<span class="st">'fev/21'</span>,<span class="st">'ago/21'</span>,<span class="st">'fev/22'</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">10000</span>,<span class="dv">20000</span>,<span class="dv">30000</span>,<span class="dv">40000</span>,<span class="dv">50000</span>]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'0'</span>,<span class="st">'10,000'</span>,<span class="st">'20,000'</span>,<span class="st">'30,000'</span>,<span class="st">'40,000'</span>,<span class="st">'50,000'</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="d5019622" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y1, color<span class="op">=</span><span class="st">'#1f77b4'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'o'</span>,markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y2, color<span class="op">=</span><span class="st">'#d62728'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'s'</span>,markersize<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites dos eixos</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">1000</span>, <span class="dv">55000</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Novos casos por 100 habitantes - Brasil e Coréia do Sul'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'cm_covid_br.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-19-output-1.png" width="745" height="543" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Super direto! Mas ainda falta a legenda. Para isso basta adicionar mais uma única linha de código.</p>
+<div id="25bb54d3" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y1, color<span class="op">=</span><span class="st">'#1f77b4'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'o'</span>,markersize<span class="op">=</span><span class="dv">4</span>,label<span class="op">=</span><span class="st">'Brasil'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y2, color<span class="op">=</span><span class="st">'#d62728'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'s'</span>,markersize<span class="op">=</span><span class="dv">4</span>,label<span class="op">=</span><span class="st">'Coréia do Sul'</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Legenda</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'center'</span>,bbox_to_anchor<span class="op">=</span>(<span class="fl">0.3</span>,<span class="fl">0.8</span>),framealpha<span class="op">=</span><span class="dv">0</span>,ncol<span class="op">=</span><span class="dv">2</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>})</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites dos eixos</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">1000</span>, <span class="dv">55000</span>)</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Novos casos por 1,000,000 de habitantes'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'casos_covid_brkr.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-20-output-1.png" width="745" height="543" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Perfeito!</p>
+<p>Vamos tentar agora vários plots dentro da mesma figura?</p>
+</section>
+<section id="vários-plots-dentro-da-mesma-figura" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="vários-plots-dentro-da-mesma-figura"><span class="header-section-number">9.4.2</span> Vários <em>plots</em> dentro da mesma figura</h3>
+<p>Uma outra alternativa ao gráfico acima seria colocar cada série em um plot separado. Para tal, basta alterar os dois primeiros argumentos da função <code>subplots()</code>, que representam o número de linhas e o número de colunas da figura final. Nesse caso, porém, o objeto <code>ax</code> deixará de ser um simples objeto do matplotlib e se torna um <code>numpy.ndarray</code> com vários objetos do matplotlib. Aqui funciona a mesma lógica de indexação de sempre.</p>
+<div id="5a33a3e3" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(num_rows,num_cols, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(ax)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>matplotlib.axes._axes.Axes</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-21-output-2.png" width="730" height="490" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="32ffe6a9" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(num_rows,num_cols, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(ax)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>numpy.ndarray</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-22-output-2.png" width="730" height="490" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Teremos que usar, portanto, algum tipo de loop justamente para poder lidar com as personalizações de cada plot de forma individual.</p>
+<div id="69316521" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(num_rows,num_cols, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(x, y1, color<span class="op">=</span><span class="st">'#1f77b4'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'o'</span>,markersize<span class="op">=</span><span class="dv">4</span>,label<span class="op">=</span><span class="st">'Brasil'</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].plot(x, y2, color<span class="op">=</span><span class="st">'#d62728'</span>,linewidth<span class="op">=</span><span class="dv">2</span>,marker<span class="op">=</span><span class="st">'s'</span>,markersize<span class="op">=</span><span class="dv">4</span>,label<span class="op">=</span><span class="st">'Coréia do Sul'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">2</span>):</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Legenda</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    ax[i].legend(loc<span class="op">=</span><span class="st">'upper left'</span>,bbox_to_anchor<span class="op">=</span>(<span class="fl">0.05</span>,<span class="fl">0.9</span>),framealpha<span class="op">=</span><span class="dv">0</span>,ncol<span class="op">=</span><span class="dv">2</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">10</span>})</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Visibilidade das bordas</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    ax[i].spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    ax[i].spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    ax[i].spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    ax[i].spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    ax[i].spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Linhas de grid</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    ax[i].grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Marcadores dos eixos</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>    ax[i].set_xticks(x_ticks)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>    ax[i].set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>    ax[i].set_yticks(y_ticks)</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    ax[i].set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Limites dos eixos</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>    ax[i].set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">26</span>)</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>    ax[i].set_ylim(<span class="op">-</span><span class="dv">1000</span>, <span class="dv">55000</span>)</span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Novos casos por 100 habitantes'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">195</span>)</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'casos_covid_brkr2.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-23-output-1.png" width="745" height="543" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Como sempre, <strong>o céu é o limite!</strong></p>
+</section>
+</section>
+<section id="outros-tipos-de-gráficos" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="outros-tipos-de-gráficos"><span class="header-section-number">9.5</span> Outros tipos de gráficos</h2>
+<section id="gráfico-de-dispersão-scatter" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="gráfico-de-dispersão-scatter"><span class="header-section-number">9.5.1</span> Gráfico de dispersão: <em>scatter</em></h3>
+<p>No entanto, gráficos de linhas não são os mais indicados quando estamos interessados em avaliar a relação entre duas variáveis e não de uma única variável ao longo do tempo, por exemplo. Para isso temos o <strong>gráfico de dispersão</strong> (<em>scatterplot</em>, em inglês), que nada mais é do que uma forma de representar pares ordenados de pontos ao longo de dois eixos.</p>
+<p>Vamos construir um exemplo de scatterplot utilizando as novas variáveis <code>total_cases_per_million</code> e <code>total_deaths_per_million</code>. É de se esperar que um número maior de casos por habitantes esteja relacionado diretamente com um número maior de mortes por habitantes, o que implicaria em uma relação positiva entre essas duas variáveis. Como ficaria a representação gráfica dessa relação para a média anual por país?</p>
+<div id="788f501d" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_covid_mensal[<span class="st">'ano'</span>] <span class="op">=</span> df_covid_mensal[<span class="st">'ano_mes'</span>].<span class="bu">str</span>[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_covid_anual <span class="op">=</span> df_covid_mensal[[<span class="st">'location'</span>,<span class="st">'ano'</span>,<span class="st">'total_cases_per_million'</span>,<span class="st">'total_deaths_per_million'</span>]]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>df_covid_anual <span class="op">=</span> df_covid_anual.groupby(by<span class="op">=</span>[<span class="st">'location'</span>,<span class="st">'ano'</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_covid_anual[<span class="st">'total_cases_per_million'</span>]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_covid_anual[<span class="st">'total_deaths_per_million'</span>]</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">100000</span>,<span class="dv">200000</span>,<span class="dv">300000</span>]</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'0'</span>,<span class="st">'100,000'</span>,<span class="st">'200,000'</span>,<span class="st">'300,000'</span>]</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">3000</span>]</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'0'</span>,<span class="st">'1,000'</span>,<span class="st">'2,000'</span>,<span class="st">'3,000'</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="132d6e40" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(x,y,color<span class="op">=</span><span class="st">'#1f77b4'</span>,marker<span class="op">=</span><span class="st">'o'</span>,s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcadores dos eixos</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_ticks)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(x_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(y_ticks)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(y_labels, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Limites e título dos eixos</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">50000</span>, <span class="dv">400000</span>)</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="dv">100</span>, <span class="dv">3500</span>)</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Número de casos por milhão de habitantes'</span>,fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Número de mortes por milhão de habitantes'</span>,fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Casos VS Mortes - Top 10 países em casos'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'casos_mortes_scatter.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-25-output-1.png" width="780" height="586" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Parece que tem uma relação positiva de fato. Para bater o martelo sobre a relação para todos os países, no entanto, seria necessário ir atrás de mais dados. Que tal refazer a análise buscando a amostra completa de países e não apenas os 10 países com o maior número absoluto de casos?</p>
+</section>
+<section id="gráfico-de-barra-bar-e-barh" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="gráfico-de-barra-bar-e-barh"><span class="header-section-number">9.5.2</span> Gráfico de barra: <em>bar</em> e <em>barh</em></h3>
+<p>Um outro tipo de gráfico bastante interessante é o gráfico de barra, que serve muito ao propósito, por exemplo, de mostrar diferenças em uma variável de interesse, para um dado instante do tempo, entre regiões ou grupos diferentes. Dentre os 10 países com o maior número de casos, quais países tem a maior proporção da população com 65 anos ou mais?</p>
+<p>Aqui vamos usar apenas as colunas <code>iso_code</code> e <code>aged_65_older</code> para ordenar os países de acordo com a proporção de idosos em sua população. Como já vimos, os valores de <code>aged_65_older</code> são constantes ao longo do tempo no nível país. Podemos então partir da criação de um dataframe que contenha apenas os dados referentes ao último mês de dado e ficar com uma única observação por país.</p>
+<div id="9fc002b9" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_covid_top10 <span class="op">=</span> df_covid_mensal[df_covid_mensal[<span class="st">'ano_mes'</span>]<span class="op">==</span><span class="st">'2022-03'</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_covid_top10 <span class="op">=</span> df_covid_top10[[<span class="st">'location'</span>,<span class="st">'aged_65_older'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df_covid_top10.sort_values([<span class="st">'aged_65_older'</span>],ascending<span class="op">=</span><span class="va">False</span>,ignore_index<span class="op">=</span><span class="va">True</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>df_covid_top10</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location</th>
+<th data-quarto-table-cell-role="th">aged_65_older</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Japan</td>
+<td>27.049</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Italy</td>
+<td>23.021</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Germany</td>
+<td>21.453</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>France</td>
+<td>19.718</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>United Kingdom</td>
+<td>18.517</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>United States</td>
+<td>15.413</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Russia</td>
+<td>14.178</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>South Korea</td>
+<td>13.914</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Brazil</td>
+<td>8.552</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>India</td>
+<td>5.989</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="e357bbac" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para não dar problema com os labels do eixo x serem muito grandes, vamos substituir aqueles que tem nomes compostos</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_covid_top10.loc[<span class="dv">4</span>,<span class="st">'location'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">Kingdom'</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_covid_top10.loc[<span class="dv">5</span>,<span class="st">'location'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">States'</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>df_covid_top10.loc[<span class="dv">7</span>,<span class="st">'location'</span>] <span class="op">=</span> <span class="st">'South</span><span class="ch">\n</span><span class="st">Korea'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>À partir desses dados, podemos construir 2 tipos de gráfico de barras:</p>
+<ul>
+<li>Barra vertical</li>
+</ul>
+<div id="3782e2c2" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_covid_top10[<span class="st">'location'</span>]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_covid_top10[<span class="st">'aged_65_older'</span>]</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.bar(x,y,align<span class="op">=</span><span class="st">'center'</span>,color<span class="op">=</span><span class="st">'#1f77b4'</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Fração da população 65+ - Top 10 países em casos'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'frac65plus_bar.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-28-output-1.png" width="715" height="558" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Barra horizontal</li>
+</ul>
+<div id="affa36cd" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>ax.barh(x,y,align<span class="op">=</span><span class="st">'center'</span>,color<span class="op">=</span><span class="st">'#1f77b4'</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visibilidade das bordas</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Linhas de grid</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Fração da população 65+ - Top 10 países em casos'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'frac65plus_barh.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-29-output-1.png" width="759" height="543" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histograma-hist" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="histograma-hist"><span class="header-section-number">9.5.3</span> Histograma: <em>hist</em></h3>
+<p>O Matplotlib também nos oferece um conjunto bastante grande de gráficos estatísticos, como por exemplo o <em>boxplot</em> e o <em>histograma</em>. Vamos utilizar esse último, através da função <code>hist</code>, para plotar em uma mesma figura histogramas de 4 variáveis diferentes: <code>median_age</code>, <code>aged_65_older</code>, <code>cardiovasc_death_rate</code> e <code>diabetes_prevalence</code>.</p>
+<div id="14b853f5" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_covid_top10 <span class="op">=</span> df_covid_mensal[df_covid_mensal[<span class="st">'ano_mes'</span>]<span class="op">==</span><span class="st">'2022-03'</span>]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>df_covid_top10 <span class="op">=</span> df_covid_top10[[<span class="st">'location'</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'median_age'</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'aged_65_older'</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'cardiovasc_death_rate'</span>,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">'diabetes_prevalence'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>df_covid_top10</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location</th>
+<th data-quarto-table-cell-role="th">median_age</th>
+<th data-quarto-table-cell-role="th">aged_65_older</th>
+<th data-quarto-table-cell-role="th">cardiovasc_death_rate</th>
+<th data-quarto-table-cell-role="th">diabetes_prevalence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Brazil</td>
+<td>33.5</td>
+<td>8.552</td>
+<td>177.961</td>
+<td>8.11</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>France</td>
+<td>42.0</td>
+<td>19.718</td>
+<td>86.060</td>
+<td>4.77</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Germany</td>
+<td>46.6</td>
+<td>21.453</td>
+<td>156.139</td>
+<td>8.31</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>India</td>
+<td>28.2</td>
+<td>5.989</td>
+<td>282.280</td>
+<td>10.39</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Italy</td>
+<td>47.9</td>
+<td>23.021</td>
+<td>113.151</td>
+<td>4.78</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Japan</td>
+<td>48.2</td>
+<td>27.049</td>
+<td>79.370</td>
+<td>5.72</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Russia</td>
+<td>39.6</td>
+<td>14.178</td>
+<td>431.297</td>
+<td>6.18</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>South Korea</td>
+<td>43.4</td>
+<td>13.914</td>
+<td>85.998</td>
+<td>6.80</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>United Kingdom</td>
+<td>40.8</td>
+<td>18.517</td>
+<td>122.137</td>
+<td>4.28</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>United States</td>
+<td>38.3</td>
+<td>15.413</td>
+<td>151.089</td>
+<td>10.79</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="27ef07ce" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(num_rows,num_cols, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Séries a serem plotdas</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].hist(df_covid_top10[<span class="st">'median_age'</span>],color<span class="op">=</span><span class="st">'#1f77b4'</span>,bins<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].hist(df_covid_top10[<span class="st">'aged_65_older'</span>],color<span class="op">=</span><span class="st">'#1f77b4'</span>,bins<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].hist(df_covid_top10[<span class="st">'cardiovasc_death_rate'</span>],color<span class="op">=</span><span class="st">'#1f77b4'</span>,bins<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].hist(df_covid_top10[<span class="st">'diabetes_prevalence'</span>],color<span class="op">=</span><span class="st">'#1f77b4'</span>,bins<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Idade mediana'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Fração pop. 65+'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Taxa de mort. cardiovascular'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Prevalência de diabetes'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">2</span>):</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">2</span>):</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Visibilidade das bordas</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        ax[r,c].spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>        ax[r,c].spines[<span class="st">'right'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>        ax[r,c].spines[<span class="st">'left'</span>].set_visible(<span class="va">False</span>)</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>        ax[r,c].spines[<span class="st">'bottom'</span>].set_visible(<span class="va">True</span>)</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>        ax[r,c].spines[<span class="st">'bottom'</span>].set_alpha(<span class="fl">0.3</span>)</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Linhas de grid</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>        ax[r,c].grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>) </span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Opções do eixo y</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>        ax[r,c].set_yticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>        ax[r,c].set_yticklabels([<span class="st">'0'</span>,<span class="st">'1'</span>,<span class="st">'2'</span>,<span class="st">'3'</span>,<span class="st">'4'</span>], fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>        ax[r,c].set_ylim(<span class="dv">0</span>,<span class="fl">4.5</span>)</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste de espaço entre os vários plots</span></span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>fig.subplots_adjust(hspace <span class="op">=</span> <span class="fl">0.6</span>, wspace <span class="op">=</span> <span class="fl">0.3</span>)</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Características dos países com o maior número de casos de covid19'</span>,y<span class="op">=</span><span class="fl">1.05</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a>plt.text(<span class="dv">0</span>, <span class="fl">13.3</span>,<span class="st">'Fonte: Our World in Data'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'carac_covid_all.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="visualizacao_files/figure-html/cell-31-output-1.png" width="709" height="583" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="seaborn" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="seaborn"><span class="header-section-number">9.6</span> Seaborn</h2>
+</section>
+<section id="plotly" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="plotly"><span class="header-section-number">9.7</span> Plotly</h2>
+</section>
+<section id="visualização-e-storytelling" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="visualização-e-storytelling"><span class="header-section-number">9.8</span> Visualização e <em>storytelling</em></h2>
+<p>É parte importante do dia-a-dia de um economista - e também de grande parte do profissionais pertencentes ao grupo das ciências sociais aplicadas - ser capaz de comunicar os resultados de uma análise ou pesquisa. E como há muito tempo já se sabe, para comunicar e informar, <strong>uma imagem vale mais do que mil palavras</strong>.</p>
+<p>No artigo <a href="https://pubs.aeaweb.org/doi/pdf/10.1257/jep.28.1.209"><em>An Economist’s Guide to Visualizing Data</em></a>, publicado no prestigiado <em>Journal of Economic Perspectives</em> em 2014, o autor <em>Jonathan Schwabish</em> fala sobre a importância de construir visualizações e gráficos que de fato chamem a atenção para aquilo que se deseja comunicar. Ele cita três princípios básicos na construção de uma boa visualização gráfica:</p>
+<p><br></p>
+<ol type="1">
+<li><p><strong>Mostre os dados</strong>. O conjunto de dados é o elemento básico por trás da história que se quer contar. Isso não quer dizer que é preciso mostrar todos os dados disponíveis, alguns gráficos mostram demais e acabam sendo pouco informativos. Mostre os dados, mas o faça da forma mais clara possível.</p></li>
+<li><p><strong>Reduza a sujeira e a desordem gráfica</strong>. O uso de elementos visuais desnecessários ou que distraem, tenderá a reduzir a eficácia do gráfico em comunicar uma mensagem. Pense duas vezes antes de utilizar bordas, linhas de referências muito grossas e escuras, pontos de referência desnecessários nos eixos, cores muito próximas em conjuntos de dados distintos, texturas, etc.</p></li>
+<li><p><strong>Elementos visuais e textuais devem funcionar de forma integrada</strong>. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele. <br></p></li>
+</ol>
+<p>O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível “consertá-las”. Há, no entanto, outras várias fontes de informação sobre visualização (esse <a href="https://datascience.quantecon.org/applications/visualization_rules.html">link</a> é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de <em>storytelling</em>, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro <a href="https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&amp;qid=1668636806&amp;qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&amp;sprefix=story%2Caps%2C557&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1">Storytelling com dados</a> é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. <strong>Personalização</strong> é a palavra chave nessa árdua tarefa de construir um bom gráfico.</p>
 
 
 </section>
