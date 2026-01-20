@@ -20,13 +20,23 @@
     ]
   },
   {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Alfabetização computacional e lógica básica",
+    "section": "",
+    "text": "Este é o material da disciplina EAE1106 — Métodos Computacionais para Economia, ministrada no Departamento de Economia da USP.\nO curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente Python, com uma breve introdução a R ao final do semestre.",
+    "crumbs": [
+      "Alfabetização computacional e lógica básica"
+    ]
+  },
+  {
     "objectID": "fundamentos.html",
     "href": "fundamentos.html",
     "title": "1  Fundamentos de computação",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Fundamentos de computação</span>"
     ]
   },
@@ -37,7 +47,7 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Primeiros passos no Python</span>"
     ]
   },
@@ -48,7 +58,7 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Programação e IA</span>"
     ]
   },
@@ -59,7 +69,7 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tipos primitivos e objetos básicos</span>"
     ]
   },
@@ -70,7 +80,7 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Controle de fluxo e iteração</span>"
     ]
   },
@@ -81,8 +91,18 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "Alfabetização computacional e lógica básica",
+      "alfabetizacao.qmd",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Funções</span>"
+    ]
+  },
+  {
+    "objectID": "pacotes.html",
+    "href": "pacotes.html",
+    "title": "Computação numérica, análise de dados e visualização",
+    "section": "",
+    "text": "Este é o material da disciplina EAE1106 — Métodos Computacionais para Economia, ministrada no Departamento de Economia da USP.\nO curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente Python, com uma breve introdução a R ao final do semestre.",
+    "crumbs": [
+      "Computação numérica, análise de dados e visualização"
     ]
   },
   {
@@ -123,7 +143,7 @@
     "href": "numpy.html#operações-básicas-com-arrays",
     "title": "7  Arrays, matrizes e álgebra linear",
     "section": "7.3 Operações básicas com arrays",
-    "text": "7.3 Operações básicas com arrays\n\n7.3.1 Operações aritméticas simples\nDois tipos de operações que serão úteis para arrays de qualquer dimensão são:\n\nOperações entre um array e um único número.\nOperações entre dois arrays da mesma forma.\n\nQuando realizamos operações em um array usando um único número, simplesmente aplicamos essa operação a cada elemento do array. Isso vale tanto para arrays unidimensionais (vetores) quanto multidimensionais (por ex., matrizes).\n\nx = np.array([1,2,3], dtype=int)\nprint(\"x =\\n\", x)\nprint(\"\\n2 + x =\\n\", 2 + x)\nprint(\"\\n2 - x =\\n\", 2 - x)\nprint(\"\\n2 * x =\\n\", 2 * x)\nprint(\"\\nx / 2 =\\n\", x / 2)\n\nx =\n [1 2 3]\n\n2 + x =\n [3 4 5]\n\n2 - x =\n [ 1  0 -1]\n\n2 * x =\n [2 4 6]\n\nx / 2 =\n [0.5 1.  1.5]\n\n\n\nX = np.ones((2, 2), dtype=int)\n\nprint(\"X =\\n\", X)\nprint(\"\\n2 + X =\\n\", 2 + X)\nprint(\"\\n2 - X =\\n\", 2 - X)\nprint(\"\\n2 * X =\\n\", 2 * X)\nprint(\"\\nX / 2 =\\n\", X / 2)\n\nX =\n [[1 1]\n [1 1]]\n\n2 + X =\n [[3 3]\n [3 3]]\n\n2 - X =\n [[1 1]\n [1 1]]\n\n2 * X =\n [[2 2]\n [2 2]]\n\nX / 2 =\n [[0.5 0.5]\n [0.5 0.5]]\n\n\nPara operações entre dois arrays de mesmo tamanho, basta aplicar a operação elemento a elemento (elementwise, em inglês) entre os arrays.\n\nx = np.array([2, 4, 6], dtype=int)\ny = np.array([2, 2, 1], dtype=int)\n\nprint(\"x =\\n\", x)\nprint(\"\\ny =\\n\", y)\nprint(\"\\nx + y =\\n\", x + y)\nprint(\"\\nx - y =\\n\", x - y)\n\nx =\n [2 4 6]\n\ny =\n [2 2 1]\n\nx + y =\n [4 6 7]\n\nx - y =\n [0 2 5]\n\n\n\nX = np.array([[2, 4], [6, 8]], dtype=int)\nY = np.array([[2, 2], [2, 2]], dtype=int)\n\nprint(\"X =\\n\", X)\nprint(\"\\nY =\\n\", Y)\nprint(\"\\nX + Y =\\n\", X + Y)\nprint(\"\\nX - Y =\\n\", X - Y)\n\nX =\n [[2 4]\n [6 8]]\n\nY =\n [[2 2]\n [2 2]]\n\nX + Y =\n [[ 4  6]\n [ 8 10]]\n\nX - Y =\n [[0 2]\n [4 6]]\n\n\nAs operações de multiplicação e divisão entre arrays são um pouco diferentes. São duas as possibilidades:\n\nMultiplicação e divisão elemento a elemento.\nMultiplicação entre arrays usando a lógica de matriz e “divisão” usando a lógica de matriz inversa.\n\nPara realizar as operações elementwise basta utilizar os sinais usuais de * e /, independentemente do número de dimesões do array.\n\nprint('Vetores x e y:')\nprint('x =',x)\nprint('y =',y)\nprint(\"\\n x * y =\\n\", x * y)\nprint(\"\\n x / y =\\n\", x / y)\n\nprint('\\nMatrizes X e Y:')\nprint('X =\\n',X)\nprint('Y =\\n',Y)\nprint(\"\\n X * Y =\\n\", X * Y)\nprint(\"\\n X / Y =\\n\", X / Y)\n\nVetores x e y:\nx = [2 4 6]\ny = [2 2 1]\n\n x * y =\n [4 8 6]\n\n x / y =\n [1. 2. 6.]\n\nMatrizes X e Y:\nX =\n [[2 4]\n [6 8]]\nY =\n [[2 2]\n [2 2]]\n\n X * Y =\n [[ 4  8]\n [12 16]]\n\n X / Y =\n [[1. 2.]\n [3. 4.]]\n\n\nA multiplicação de matriz com matriz, do jeito que a gente conhece do Ensino Médio é feita usando o símbolo @ (ou através da função np.dot()):\n\nX= np.array([[1, 2], [3, 4]], dtype=int)\nY= np.array([[10, 20], [30, 40]], dtype=int)\n\nprint('X =\\n',X)\nprint('Y =\\n',Y)\nprint('\\nX * Y =\\n', X @ Y)\nprint('\\nX * Y =\\n', np.dot(X,Y))\n\nX =\n [[1 2]\n [3 4]]\nY =\n [[10 20]\n [30 40]]\n\nX * Y =\n [[ 70 100]\n [150 220]]\n\nX * Y =\n [[ 70 100]\n [150 220]]\n\n\nPara calcular a inversa de uma matriz utilizando o NumPy é preciso um pouco mais de estrutura e de conhecimento acerca do subpacote linalg que nos traz funções para realizar operações de álgebra linear. Falaremos disso já já!\n\n\n7.3.2 Funções universais\nAs funções universais no Numpy são funções matemáticas simples. É apenas um termo que demos às funções matemáticas na biblioteca Numpy, que cobrem uma ampla variedade de operações. Essas funções incluem funções trigonométricas padrão, funções para operações aritméticas, manipulação de números complexos, funções estatísticas, etc. Essas funções possuem como características principais:\n\nElas executam operações de array elemento por elemento.\nElas suportam vários recursos, como conversão de tipos.\nAs funções universais são objetos que pertencem à classe numpy.ufunc.\nAs funções do Python também podem ser criadas como uma função universal usando a função da biblioteca frompyfunc.\nAlgumas funções universais são chamadas automaticamente quando o operador aritmético correspondente é usado em arrays. Por exemplo, quando a adição de dois arrays é executada em elementos usando o operador ‘+’, então np.add() é chamado internamente.\n\nDentre as principais funções universais matemáticas estão:\n\nsin, cos, tan: calcular seno, cosseno e tangente de ângulos.\nhypot: calcule a hipotenusa do triângulo retângulo dado.\narcsinh, arcosh, arctanh: calcular seno hiperbólico inverso, cosseno e tangente.\ndeg2rad: converter grau em radianos.\nrad2deg: converter radianos em graus.\n\nDentre as principais funções universais estatísticas estão:\n\namin, amax: retorna o mínimo ou máximo de um array ou ao longo de um eixo.\nptp: retorna o intervalo de valores (máximo-mínimo) de um array ou ao longo de um eixo.\nsum: retorna a soma de valores de um array ao longo de um eixo.\npercentile(a, p, eixo): calcular o p-ésimo percentil da matriz ou ao longo do eixo especificado.\nmedian: calcular a mediana dos dados ao longo do eixo especificado.\nmean: calcular a média dos dados ao longo do eixo especificado.\nvar: calcular a variância de dados ao longo do eixo especificado.\nlog: calcular o log dos dados ao longo do eixo especificado.\n\nAlguns exemplos:\n\nangulos_notaveis_deg = np.array([30,45,60])\nangulos_notaveis_rad = np.deg2rad(angulos_notaveis_deg)\n\nseno_notaveis = [np.round(elem,2) for elem in np.sin(angulos_notaveis_rad)]\ncosseno_notaveis = [np.round(elem,2) for elem in np.cos(angulos_notaveis_rad)]\ntangente_notaveis = [np.round(elem,2) for elem in np.tan(angulos_notaveis_rad)]\n\nprint('Seno, cosseno e tangente de 30 graus: ',seno_notaveis[0],', ',cosseno_notaveis[0],' e ',tangente_notaveis[0])\nprint('Seno, cosseno e tangente de 45 graus: ',seno_notaveis[1],', ',cosseno_notaveis[1],' e ',tangente_notaveis[1])\nprint('Seno, cosseno e tangente de 60 graus: ',seno_notaveis[2],', ',cosseno_notaveis[2],' e ',tangente_notaveis[2])\n\nSeno, cosseno e tangente de 30 graus:  0.5 ,  0.87  e  0.58\nSeno, cosseno e tangente de 45 graus:  0.71 ,  0.71  e  1.0\nSeno, cosseno e tangente de 60 graus:  0.87 ,  0.5  e  1.73\n\n\n\nx = np.array([1,2,3,4,5])\n\nprint('Array x = ',x)\nprint('\\nMínimo de x = ',np.amin(x))\nprint('Máximo de x = ',np.amax(x))\nprint('Intervalo de x = ',np.ptp(x))\nprint('Soma de x = ',np.sum(x))\nprint('Média de x = ',np.mean(x))\nprint('Log de x = ',[np.round(elem,2) for elem in np.log(x)])\n\nArray x =  [1 2 3 4 5]\n\nMínimo de x =  1\nMáximo de x =  5\nIntervalo de x =  4\nSoma de x =  15\nMédia de x =  3.0\nLog de x =  [np.float64(0.0), np.float64(0.69), np.float64(1.1), np.float64(1.39), np.float64(1.61)]\n\n\n\n\n7.3.3 Arrays e listas\nAgora que já vimos um pouco de operações básicas, podemos entender um pouco melhor a diferença de desempenho entre arrays e listas. Considere um array de dez milhões de números inteiros e uma lista equivalente:\n\nmy_array = np.arange(10000000)\nmy_list = list(range(10000000))\n\nAgora vamos multiplicar, elemento a elemento, todos os números por 2 e salvar o resultado correspondente. Utilizaremos a função time do pacote timepara fazer a medição do tempo utilizado pelos dois métodos.\n\nimport time \n\n# arrays\nstart_array = time.time()\nmy_array2 = my_array * 2\nend_array   = time.time()\n\n\n# listas\nstart_lista = time.time()\nmy_list2 = [x * 2 for x in my_list] \nend_lista   = time.time()\n\nratio = (end_lista - start_lista) / (end_array - start_array)\n\nQual abordagem será que levou menos tempo?\n\nprint('Tempo necessário para a realização dos cálculos utilizando arrays: {:.4f} segundos'.format(end_array - start_array))\nprint('Tempo necessário para a realização dos cálculos utilizando listas: {:.4f} segundos'.format(end_lista - start_lista))\nprint('\\nA abordagem de listas demorou {:.0f}x mais tempo! Esqueça listas e use arrays ;)'.format(ratio - 1))\n\nTempo necessário para a realização dos cálculos utilizando arrays: 0.0122 segundos\nTempo necessário para a realização dos cálculos utilizando listas: 0.2890 segundos\n\nA abordagem de listas demorou 23x mais tempo! Esqueça listas e use arrays ;)",
+    "text": "7.3 Operações básicas com arrays\n\n7.3.1 Operações aritméticas simples\nDois tipos de operações que serão úteis para arrays de qualquer dimensão são:\n\nOperações entre um array e um único número.\nOperações entre dois arrays da mesma forma.\n\nQuando realizamos operações em um array usando um único número, simplesmente aplicamos essa operação a cada elemento do array. Isso vale tanto para arrays unidimensionais (vetores) quanto multidimensionais (por ex., matrizes).\n\nx = np.array([1,2,3], dtype=int)\nprint(\"x =\\n\", x)\nprint(\"\\n2 + x =\\n\", 2 + x)\nprint(\"\\n2 - x =\\n\", 2 - x)\nprint(\"\\n2 * x =\\n\", 2 * x)\nprint(\"\\nx / 2 =\\n\", x / 2)\n\nx =\n [1 2 3]\n\n2 + x =\n [3 4 5]\n\n2 - x =\n [ 1  0 -1]\n\n2 * x =\n [2 4 6]\n\nx / 2 =\n [0.5 1.  1.5]\n\n\n\nX = np.ones((2, 2), dtype=int)\n\nprint(\"X =\\n\", X)\nprint(\"\\n2 + X =\\n\", 2 + X)\nprint(\"\\n2 - X =\\n\", 2 - X)\nprint(\"\\n2 * X =\\n\", 2 * X)\nprint(\"\\nX / 2 =\\n\", X / 2)\n\nX =\n [[1 1]\n [1 1]]\n\n2 + X =\n [[3 3]\n [3 3]]\n\n2 - X =\n [[1 1]\n [1 1]]\n\n2 * X =\n [[2 2]\n [2 2]]\n\nX / 2 =\n [[0.5 0.5]\n [0.5 0.5]]\n\n\nPara operações entre dois arrays de mesmo tamanho, basta aplicar a operação elemento a elemento (elementwise, em inglês) entre os arrays.\n\nx = np.array([2, 4, 6], dtype=int)\ny = np.array([2, 2, 1], dtype=int)\n\nprint(\"x =\\n\", x)\nprint(\"\\ny =\\n\", y)\nprint(\"\\nx + y =\\n\", x + y)\nprint(\"\\nx - y =\\n\", x - y)\n\nx =\n [2 4 6]\n\ny =\n [2 2 1]\n\nx + y =\n [4 6 7]\n\nx - y =\n [0 2 5]\n\n\n\nX = np.array([[2, 4], [6, 8]], dtype=int)\nY = np.array([[2, 2], [2, 2]], dtype=int)\n\nprint(\"X =\\n\", X)\nprint(\"\\nY =\\n\", Y)\nprint(\"\\nX + Y =\\n\", X + Y)\nprint(\"\\nX - Y =\\n\", X - Y)\n\nX =\n [[2 4]\n [6 8]]\n\nY =\n [[2 2]\n [2 2]]\n\nX + Y =\n [[ 4  6]\n [ 8 10]]\n\nX - Y =\n [[0 2]\n [4 6]]\n\n\nAs operações de multiplicação e divisão entre arrays são um pouco diferentes. São duas as possibilidades:\n\nMultiplicação e divisão elemento a elemento.\nMultiplicação entre arrays usando a lógica de matriz e “divisão” usando a lógica de matriz inversa.\n\nPara realizar as operações elementwise basta utilizar os sinais usuais de * e /, independentemente do número de dimesões do array.\n\nprint('Vetores x e y:')\nprint('x =',x)\nprint('y =',y)\nprint(\"\\n x * y =\\n\", x * y)\nprint(\"\\n x / y =\\n\", x / y)\n\nprint('\\nMatrizes X e Y:')\nprint('X =\\n',X)\nprint('Y =\\n',Y)\nprint(\"\\n X * Y =\\n\", X * Y)\nprint(\"\\n X / Y =\\n\", X / Y)\n\nVetores x e y:\nx = [2 4 6]\ny = [2 2 1]\n\n x * y =\n [4 8 6]\n\n x / y =\n [1. 2. 6.]\n\nMatrizes X e Y:\nX =\n [[2 4]\n [6 8]]\nY =\n [[2 2]\n [2 2]]\n\n X * Y =\n [[ 4  8]\n [12 16]]\n\n X / Y =\n [[1. 2.]\n [3. 4.]]\n\n\nA multiplicação de matriz com matriz, do jeito que a gente conhece do Ensino Médio é feita usando o símbolo @ (ou através da função np.dot()):\n\nX= np.array([[1, 2], [3, 4]], dtype=int)\nY= np.array([[10, 20], [30, 40]], dtype=int)\n\nprint('X =\\n',X)\nprint('Y =\\n',Y)\nprint('\\nX * Y =\\n', X @ Y)\nprint('\\nX * Y =\\n', np.dot(X,Y))\n\nX =\n [[1 2]\n [3 4]]\nY =\n [[10 20]\n [30 40]]\n\nX * Y =\n [[ 70 100]\n [150 220]]\n\nX * Y =\n [[ 70 100]\n [150 220]]\n\n\nPara calcular a inversa de uma matriz utilizando o NumPy é preciso um pouco mais de estrutura e de conhecimento acerca do subpacote linalg que nos traz funções para realizar operações de álgebra linear. Falaremos disso já já!\n\n\n7.3.2 Funções universais\nAs funções universais no Numpy são funções matemáticas simples. É apenas um termo que demos às funções matemáticas na biblioteca Numpy, que cobrem uma ampla variedade de operações. Essas funções incluem funções trigonométricas padrão, funções para operações aritméticas, manipulação de números complexos, funções estatísticas, etc. Essas funções possuem como características principais:\n\nElas executam operações de array elemento por elemento.\nElas suportam vários recursos, como conversão de tipos.\nAs funções universais são objetos que pertencem à classe numpy.ufunc.\nAs funções do Python também podem ser criadas como uma função universal usando a função da biblioteca frompyfunc.\nAlgumas funções universais são chamadas automaticamente quando o operador aritmético correspondente é usado em arrays. Por exemplo, quando a adição de dois arrays é executada em elementos usando o operador ‘+’, então np.add() é chamado internamente.\n\nDentre as principais funções universais matemáticas estão:\n\nsin, cos, tan: calcular seno, cosseno e tangente de ângulos.\nhypot: calcule a hipotenusa do triângulo retângulo dado.\narcsinh, arcosh, arctanh: calcular seno hiperbólico inverso, cosseno e tangente.\ndeg2rad: converter grau em radianos.\nrad2deg: converter radianos em graus.\n\nDentre as principais funções universais estatísticas estão:\n\namin, amax: retorna o mínimo ou máximo de um array ou ao longo de um eixo.\nptp: retorna o intervalo de valores (máximo-mínimo) de um array ou ao longo de um eixo.\nsum: retorna a soma de valores de um array ao longo de um eixo.\npercentile(a, p, eixo): calcular o p-ésimo percentil da matriz ou ao longo do eixo especificado.\nmedian: calcular a mediana dos dados ao longo do eixo especificado.\nmean: calcular a média dos dados ao longo do eixo especificado.\nvar: calcular a variância de dados ao longo do eixo especificado.\nlog: calcular o log dos dados ao longo do eixo especificado.\n\nAlguns exemplos:\n\nangulos_notaveis_deg = np.array([30,45,60])\nangulos_notaveis_rad = np.deg2rad(angulos_notaveis_deg)\n\nseno_notaveis = [np.round(elem,2) for elem in np.sin(angulos_notaveis_rad)]\ncosseno_notaveis = [np.round(elem,2) for elem in np.cos(angulos_notaveis_rad)]\ntangente_notaveis = [np.round(elem,2) for elem in np.tan(angulos_notaveis_rad)]\n\nprint('Seno, cosseno e tangente de 30 graus: ',seno_notaveis[0],', ',cosseno_notaveis[0],' e ',tangente_notaveis[0])\nprint('Seno, cosseno e tangente de 45 graus: ',seno_notaveis[1],', ',cosseno_notaveis[1],' e ',tangente_notaveis[1])\nprint('Seno, cosseno e tangente de 60 graus: ',seno_notaveis[2],', ',cosseno_notaveis[2],' e ',tangente_notaveis[2])\n\nSeno, cosseno e tangente de 30 graus:  0.5 ,  0.87  e  0.58\nSeno, cosseno e tangente de 45 graus:  0.71 ,  0.71  e  1.0\nSeno, cosseno e tangente de 60 graus:  0.87 ,  0.5  e  1.73\n\n\n\nx = np.array([1,2,3,4,5])\n\nprint('Array x = ',x)\nprint('\\nMínimo de x = ',np.amin(x))\nprint('Máximo de x = ',np.amax(x))\nprint('Intervalo de x = ',np.ptp(x))\nprint('Soma de x = ',np.sum(x))\nprint('Média de x = ',np.mean(x))\nprint('Log de x = ',[np.round(elem,2) for elem in np.log(x)])\n\nArray x =  [1 2 3 4 5]\n\nMínimo de x =  1\nMáximo de x =  5\nIntervalo de x =  4\nSoma de x =  15\nMédia de x =  3.0\nLog de x =  [np.float64(0.0), np.float64(0.69), np.float64(1.1), np.float64(1.39), np.float64(1.61)]\n\n\n\n\n7.3.3 Arrays e listas\nAgora que já vimos um pouco de operações básicas, podemos entender um pouco melhor a diferença de desempenho entre arrays e listas. Considere um array de dez milhões de números inteiros e uma lista equivalente:\n\nmy_array = np.arange(10000000)\nmy_list = list(range(10000000))\n\nAgora vamos multiplicar, elemento a elemento, todos os números por 2 e salvar o resultado correspondente. Utilizaremos a função time do pacote timepara fazer a medição do tempo utilizado pelos dois métodos.\n\nimport time \n\n# arrays\nstart_array = time.time()\nmy_array2 = my_array * 2\nend_array   = time.time()\n\n\n# listas\nstart_lista = time.time()\nmy_list2 = [x * 2 for x in my_list] \nend_lista   = time.time()\n\nratio = (end_lista - start_lista) / (end_array - start_array)\n\nQual abordagem será que levou menos tempo?\n\nprint('Tempo necessário para a realização dos cálculos utilizando arrays: {:.4f} segundos'.format(end_array - start_array))\nprint('Tempo necessário para a realização dos cálculos utilizando listas: {:.4f} segundos'.format(end_lista - start_lista))\nprint('\\nA abordagem de listas demorou {:.0f}x mais tempo! Esqueça listas e use arrays ;)'.format(ratio - 1))\n\nTempo necessário para a realização dos cálculos utilizando arrays: 0.0130 segundos\nTempo necessário para a realização dos cálculos utilizando listas: 0.2836 segundos\n\nA abordagem de listas demorou 21x mais tempo! Esqueça listas e use arrays ;)",
     "crumbs": [
       "Computação numérica, análise de dados e visualização",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Arrays, matrizes e álgebra linear</span>"
@@ -163,25 +183,36 @@
     ]
   },
   {
+    "objectID": "projeto_empirico.html",
+    "href": "projeto_empirico.html",
+    "title": "10  Análise empírica integrada",
+    "section": "",
+    "text": "10.1 O que é o NumPy?\nUma das principais aplicações para o Python bla bla bla\nNumPy (Numerical Python) é o pacote fundamental",
+    "crumbs": [
+      "Computação numérica, análise de dados e visualização",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Análise empírica integrada</span>"
+    ]
+  },
+  {
     "objectID": "oop.html",
     "href": "oop.html",
-    "title": "10  Introdução à programação orientada a objetos (OOP)",
+    "title": "11  Introdução à programação orientada a objetos (OOP)",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
       "Temas complementares",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Introdução à programação orientada a objetos (OOP)</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Introdução à programação orientada a objetos (OOP)</span>"
     ]
   },
   {
     "objectID": "intror.html",
     "href": "intror.html",
-    "title": "11  Introdução ao R",
+    "title": "12  Introdução ao R",
     "section": "",
     "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
       "Temas complementares",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Introdução ao R</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Introdução ao R</span>"
     ]
   }
 ]

@@ -15,8 +15,9 @@ book:
   
   chapters:
     - index.qmd
+    - intro.qmd
     
-    - part: "Alfabetização computacional e lógica básica"
+    - part: alfabetizacao.qmd
       chapters:
         - fundamentos.qmd
         - primeiros_passos.qmd
@@ -25,7 +26,7 @@ book:
         - iteracao.qmd
         - funcoes.qmd
         
-    - part: "Computação numérica, análise de dados e visualização"
+    - part: pacotes.qmd
       chapters:
         - numpy.qmd
         - pandas.qmd
