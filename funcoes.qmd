@@ -40,7 +40,7 @@ Note, mais uma vez, que todo o bloco de código que estiver **identado** e abaix
 Vamos começar criando uma função simples, que tem por objetivo printar uma das frases mais conhecidas da história do cinema:
 
 
-```python
+```{python}
 def frase_cinema():
     print('Que a força esteja com você!')
 ```
@@ -48,7 +48,7 @@ def frase_cinema():
 Note que nesse caso, o parênteses logo após o nome da função está vazio. Isso quer dizer que essa função não recebe argumentos, apenas printa a frase entre aspas sempre que for chamada. Para chamá-la, basta usar o nome `frase_cinema` seguido dos parênteses vazios:
 
 
-```python
+```{python}
 frase_cinema()
 ```
 
@@ -63,7 +63,7 @@ O ponto é que a ideia de função é muito mais poderosa do que simplesmente um
 Vamos então criar uma função que tenha argumentos. 
 
 
-```python
+```{python}
 def my_func(name,place):
     print(f"Olá {name}! Você é de {place}?")
 
@@ -73,7 +73,7 @@ my_func("Emily","Paris")
 O que acontece se você especificar o `place` primeiro e depois o `name`? Vamos descobrir.
 
 
-```python
+```{python}
 my_func("Hawaii","Robert")
 
 ```
@@ -81,7 +81,7 @@ my_func("Hawaii","Robert")
 Meio bizarro, não? A razão é que aqui temos os chamados **argumentos posicionais**. Ou seja, a função vai assumir que o primeiro argumento é o `name` e o segundo é o `place` não importa o que tenhamos passado como argumento. Para lidar com isso, a gente pode atribuir um nome a cada um dos argumentos, ou **palavra-chave**, que aí vai ser a palavra-chave, e não a posição, que vai determinar qual o valor atribuído a cada argumento.
 
 
-```python
+```{python}
 my_func(place="Hawaii",name="Robert")
 ```
 
@@ -90,7 +90,7 @@ Vimos aqui que a posição passou a ser irrelevante porque colocamos os nomes de
 Aqui tem uma função que faz isso.
 
 
-```python
+```{python}
 def total_calc(bill_amount,tip_perc=10):
     
     total = bill_amount*(1 + tip_perc/100)
@@ -109,7 +109,7 @@ Vamos começar fazendo algumas perguntas:
 A resposta é *sim*! E vamos criar essa função imediatamente. Vamos criar uma função simples `my_var_sum()` que retorna a soma de todos os números passados como argumento. No entanto, o número de argumentos pode ser potencialmente diferente cada vez que chamamos a função.
 
 
-```python
+```{python}
 def my_var_sum(*args):
     
     sum = 0
@@ -122,7 +122,7 @@ def my_var_sum(*args):
 Observe como a definição da função agora tem `*args` em vez de apenas o nome do parâmetro. No corpo da função, fazemos um loop em `args` até usarmos todos os argumentos. A função `my_var_sum` retorna a soma de todos os números passados como argumentos. Olha só o que acontece quando chamamos a função com diferentes números de argumentos:
 
 
-```python
+```{python}
 my_var_sum(99,10,54,23)
 my_var_sum(9,87)
 my_var_sum(5,21,36,79,45,65)
@@ -135,7 +135,7 @@ Qual é a diferença entre `*args` e `**kwargs`? A diferença é que você vai p
 O Python vai entender o `**kwargs` como um dicionário. Cada elemento passado é um par chave-valor, e dentro da função você tem que desempacotar o valor da chave. Vamos seguir alguns exemplos.
 
 
-```python
+```{python}
 def myFun(**kwargs):
     
     for key, value in kwargs.items():
@@ -148,7 +148,7 @@ myFun(first='Geeks', mid='for', last='Geeks')
 Podemos misturar os tipos de argumentos (posicionais versus `*args`/`*kwargs`)? Sim, como podemos ver no exemplo seguinte:
 
 
-```python
+```{python}
 def myFun(arg1, **kwargs):
     
     for key, value in kwargs.items():
@@ -164,7 +164,7 @@ As funções podem retornar objetos booleanos também, o que pode ser convenient
 
 
 
-```python
+```{python}
 def is_divisible(x, y):
     
     if x % y == 0:
@@ -180,7 +180,7 @@ is_divisible(6, 4)
 O primeiro passo para replicarmos, na forma de uma função, a aplicação do Teorema Central do Limite da aula anterior é definir uma função que recebe como argumentos a distribuição da varíavel aleatória X, o intervalo no qual a variável está definida e o número de sorteios que faremos em cada amostra. Com o que aprendemos até agora podemos definir a função `func_tcl` abaixo:
 
 
-```python
+```{python}
 def func_tcl(dist=None,intervalo=(0,1),n=100):
     
     if dist == None:
@@ -193,14 +193,16 @@ def func_tcl(dist=None,intervalo=(0,1),n=100):
 Para todos os 3 argumentos definimos valores _default_ que, caso não sejam alterados a função vai utilizá-los em suas operações. Vamos rodar a função com todos os valores _default_ e ver o que acontece:
 
 
-```python
+```{python}
 func_tcl()
 ```
 
 Nesse caso, a execução condicional `if` dentro da função acende já que não passamos nenhuma distribuição como default, apenas o valor `None`. Vamos então repetir o que fizemos na aula passada e utilizar a distribuição uniforme, no intervalo $\left[-40,40\right]$ e sorteando apenas 10 números desta distribuição:
 
 
-```python
+```{python}
+import numpy as np
+
 func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=10)
 ```
 
@@ -209,7 +211,7 @@ func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=10)
 Da mesma forma que podemos ter condições lógicas dentro da função, podemos ter blocos de repetição (`for` e `while`) dentro da função, assim como no caso de `*args`. Vamos olhar para um outro exemplo em que a função recebe uma lista de strings como argumento e faz operações em cada um dos elementos, um a um:
 
 
-```python
+```{python}
 states = [' Alabama ','Georgia!','Georgia','georgia','FlOrIda','south carolina##','West virginia?']
 
 def clean_strings(lista_strings):
@@ -235,7 +237,7 @@ clean_strings(states)
 Agora podemos dar mais um passo e incorporar o loop dentro da função, passando como novo argumento da função o número de amostras com o qual queremos trabalhar:
 
 
-```python
+```{python}
 def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
     
     if dist == None:
@@ -255,7 +257,7 @@ def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
 ```
 
 
-```python
+```{python}
 # utilizamos a função seed mais uma vez para tornar os resultados previsíveis
 np.random.seed(1)
 
@@ -277,7 +279,7 @@ return <expression_list>
 Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado ou não tiver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
 
 
-```python
+```{python}
 def my_func(name,place):
     
     print(f"Olá {name}! Você é de {place}?")
@@ -289,7 +291,7 @@ print(my_func("Jane","Paris"))
 Funções que não contenham o comando `return` sempre retornarão um valor vazio. Quando queremos utilizar uma função com o objetivo de realizar algum tipo de operação e **guardar** o valor dessa operação, não podemos esquecer do `return`. Vejamos o exemplo da função que calcula a raiz quadrada de um número:
 
 
-```python
+```{python}
 def raiz(x):
     
     fx = x**0.5
@@ -299,7 +301,7 @@ print(y)
 ```
 
 
-```python
+```{python}
 def raiz(x):
     
     fx = x**0.5
@@ -314,7 +316,7 @@ print(y)
 Quando você cria uma variável **dentro** de uma função ela é local, ou seja, só existe dentro da própria função. Por exemplo:
 
 
-```python
+```{python}
 def concat_strings(str1,str2):
     
     texto_concatenado = str1 + ' ' + str2
@@ -330,7 +332,9 @@ concat_strings(texto1,texto2)
 Essa função recebe dois argumentos, concatena-os e exibe o resultado em uma única linha de texto. No entanto, assim que a função é encerrada, a variável `texto_concatenado` é deletada. O que acontece se tentarmos acessá-la?
 
 
-```python
+```{python}
+#| error: true
+
 print(texto_concatenado)
 ```
 
@@ -339,7 +343,7 @@ print(texto_concatenado)
 Retomando a função da parte 2:
 
 
-```python
+```{python}
 def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
     
     if dist == None:
@@ -360,7 +364,7 @@ def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
 ```
 
 
-```python
+```{python}
 np.random.seed(1)
 
 func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
@@ -369,14 +373,16 @@ func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
 Como acabamos de ver, se quisermos acessar a variável `mean_of_means` o Python retornará um erro. As variáveis definidas dentro de uma função tem vida curta: elas existem apenas dentro da função!
 
 
-```python
+```{python}
+#| error: true
+
 print(mean_of_means)
 ```
 
 No entanto, agora já sabemos o que a palavra-chave `return` faz dentro de uma função. Vamos utilizá-la!
 
 
-```python
+```{python}
 def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
     
     if dist == None:
@@ -394,7 +400,7 @@ def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
 ```
 
 
-```python
+```{python}
 np.random.seed(1)
 
 func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
@@ -403,7 +409,7 @@ func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
 Maravilha, agora a função nos retorna apenas o que é do nosso interesse: a média das médias. Para chegar, finalmente, no mesmo resultado da aula passada basta colocar essa função dentro de um loop e tacar-lhe pau nesse carrinho, Marcos!
 
 
-```python
+```{python}
 expoentes = [1,2,3,4,5,6,7,8,9,10]
 Y = [2**exp for exp in expoentes]
 
@@ -417,8 +423,7 @@ for y in Y:
 ```
 
 
-```python
-import numpy as np
+```{python}
 for m in means_of_means:
     
     print(np.round(m,2))
@@ -435,7 +440,7 @@ Uma **docstring** é uma string no início de uma função, definida pelo usuár
 Vamos criar como exemplo uma função que printa o tipo do objeto que é passado como argumento:
 
 
-```python
+```{python}
 def imprime_tipo(x):
     
     '''
@@ -449,20 +454,20 @@ def imprime_tipo(x):
 Embora opcional, a documentação é uma **boa prática de programação**. A menos que você consiga se lembrar qual foi o cardápio do bandejão na semana passada, sempre documente seu código. Podemos acessar a documentação de determinada função utilizando o atributo `__doc__`.
 
 
-```python
+```{python}
 print(imprime_tipo.__doc__)
 ```
 
 Isso vale também para funções nativas e definidas em outros pacotes do Python. Por exemplo,
 
 
-```python
+```{python}
 # documentação da função nativa len()
 print(len.__doc__)
 ```
 
 
-```python
+```{python}
 import time
 
 # documentação da função time() dentro do pacote time
@@ -470,7 +475,7 @@ print(time.time.__doc__)
 ```
 
 
-```python
+```{python}
 import numpy as np
 
 # documentação da função uniform() dentro do pacote NumPy
@@ -480,7 +485,7 @@ print(np.random.uniform.__doc__)
 Note do exemplo acima que uma docstring pode conter uma descrição detalhada do funcionamento de uma função, inclusive com exemplos de aplicação. Legal, né? Esse tipo de documentação também está disponível para as bibliotecas como um todo. Isso pode nos ajudar, por exemplo, a conhecer o conteúdo de uma determinada biblioteca.
 
 
-```python
+```{python}
 import numpy as np
 
 # documentação do NumPy
@@ -508,7 +513,7 @@ Usualmente a gente precisa de uma função lambda porque precisamos de uma funç
 A função `filter()` em Python recebe uma função e uma lista como argumentos. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo itens para os quais a função avalia `True`. Aqui está um exemplo de uso da função para filtrar apenas números pares de uma lista.
 
 
-```python
+```{python}
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
 
 new_list = list(filter(lambda x: (x%2 == 0) , my_list))
@@ -521,7 +526,7 @@ print(new_list)
 A função `map()` em Python recebe uma função e uma lista. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo os itens retornados por essa função para cada item. Aqui está um exemplo de uso da função `map()` para dobrar todos os itens em uma lista.
 
 
-```python
+```{python}
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
 
 new_list = list(map(lambda x: x * 2 , my_list))
@@ -530,7 +535,7 @@ print(new_list)
 ```
 
 
-```python
+```{python}
 
 ```
 

@@ -9,7 +9,7 @@ In summary, this book has no content whatsoever.
 Strings não são como números inteiros ou de ponto flutuate. No Python, uma string nada mais é do que uma sequência ordenada de caracteres unicode. Eles são delimitados sempre por aspas (simplas ou duplas). Relembrando nosso primeiro "programa" da aula passada podemos atribuir a uma variável a string _Hello, World_ usando aspas.
 
 
-```python
+```{python}
 str1 = 'Hello, World'
 
 print(str1)
@@ -19,7 +19,7 @@ print(type(str1))
 Usando aspas duplas o resultado seria o mesmo
 
 
-```python
+```{python}
 str2 = "Hello, World"
 
 print(str2)
@@ -29,7 +29,7 @@ print(type(str2))
 Note que podemos também usar uma sequência de três aspas duplas e escrever strings que percorrem várias linhas. 
 
 
-```python
+```{python}
 str3 = """Das Utopias
 
 Se as coisas são inatingíveis...ora!
@@ -49,65 +49,69 @@ print(type(str3))
 Por ser uma sequência de caracteres e não um número, operações aritméticas (em geral) não são permitidas, mas outras operações, como _slicing_, o são. É possível acessar um caracter específico da sequência utilizando a posição desse caractere, utilizando o que chamamos de **índice**. No caso do string _'Hello, World'_, para acessar a segunda letra podemos utilizar colchetes após o string e dentro dele o índice referente à posição do 'e' no string:
 
 
-```python
+```{python}
 print(str1)
 ```
 
 
-```python
+```{python}
 str1[2]
 ```
 
 Ué, mas porque que obtivemos como resposta o caractere 'l', que é o 3º na sequência, e não o 'e', que é o 2º elemento? Aqui vai uma particularidade da sintaxe do Python: **em se tratando de índices, o Python sempre começa a contagem em 0!**. Dessa forma, para acessar o primeiro caractere de _'Hello, World'_ devemos pedir `str1[0]`, para acessar o segundo é preciso pedir `str1[1]` e assim por diante.
 
 
-```python
+```{python}
 str1[1]
 ```
 
 Podemos acessar contando de trás para frente e usando um índice negativo
 
 
-```python
+```{python}
 str1[-11]
 ```
 
 É possível que o índice seja uma expressão, mas deve sempre ser um valor inteiro.
 
 
-```python
+```{python}
 n=0
 str1[n+1]
 ```
 
 
-```python
+```{python}
+#| error: true
+
 str1[1.5]
 ```
 
 Para acessar uma **fatia** (_slice_) do string podemos utilizar um intervalo de índices (inclusive o índice inicial e exclusive o índice final). Por exemplo,
 
 
-```python
+```{python}
 str1[0:5]
 ```
 
 Além de ser possível calcular o número de caracteres em uma sequência string utilizando a função integrada `len()`, podemos "concatenar" ou "somar" strings utilizando apenas o sinal de + 
 
 
-```python
+```{python}
 len(str1)
 ```
 
 
-```python
+```{python}
 str1 + ' --- ' + str2
 ```
 
 Note, porém, que strings são **imutáveis**, de modo que caso queira substituir um dos caracteres dentro de um string é preciso utilizar uma função específica para isso ou criar um novo string derivado do 1º. Apenas tentar substituir um dos caracteres de um string já definido não é permitido.
 
 
-```python
+```{python}
+#| error: true
+
 # Tentemos substituir o 'e' do str1 por 'a'
 str1[1] = 'a'
 ```
@@ -143,7 +147,7 @@ No caso dos métodos, temos que passar o nome da string que foi definida anterio
 Além desses principais, existem outros vários métodos para strings. Esse [link](https://docs.python.org/pt-br/3/library/stdtypes.html#textseq) é um bom ponto de partida para quem quiser conhecer outros exemplos.
 
 
-```python
+```{python}
 str1 = ' Hello, World '
 
 print(str1.upper())
@@ -151,23 +155,23 @@ print(str1.lower())
 ```
 
 
-```python
+```{python}
 print(str1.strip())
 ```
 
 
-```python
+```{python}
 print(str1.startswith(' '))
 print(str1.endswith('d'))
 ```
 
 
-```python
+```{python}
 print(str1.find(','))
 ```
 
 
-```python
+```{python}
 print(str1.replace('Hello','World'))
 ```
 
@@ -176,7 +180,7 @@ print(str1.replace('Hello','World'))
 Um método sobre o qual não falamos, mas que é bastante interessante quando queremos, por exemplo, printar bonitinho o resultado de determinada operação é `s.format()`. Com esse método podemos converter uma variável numérica para uma formato específico e printá-la dentro de um string maior. Imagine, por exemplo, que estejamos interessados em printar o valor de $\pi$ arredondado para 2 casas decimais apenas dentro de um string que diz isso. Podemos implementar isso da seguinte forma
 
 
-```python
+```{python}
 pi = 3.1415926535
 print('O valor de pi arredondado para 2 casas decimais é {:.2f}. Interessante, não?'.format(pi))
 ```
@@ -186,7 +190,7 @@ Os colchetes dentro do string mostram onde que o número deve aparecer. Mais do 
 Podemos também usar mais de um número dentro do mesmo método format. Por exemplo,
 
 
-```python
+```{python}
 print('O valor de pi arredondado para 2 casas decimais é {:.2f}. Com 4 casas decimais, no entanto, o número é um pouco maior e igual a {:.4f}. Interessante, não?'.format(pi,pi))
 ```
 
@@ -199,7 +203,7 @@ As expressões regulares são em essência uma potente linguagem para especifica
 Imagine que você tenha o string abaixo, que mostra o texto de um trecho de uma notícia da CNN sobre o resultado da Pesquisa Datafolha para presidente divulgada em 18/08/2022 (link para a matéria completa [aqui](https://www.cnnbrasil.com.br/politica/pesquisa-datafolha-para-presidente-lula-tem-47-bolsonaro-32/)).
 
 
-```python
+```{python}
 pesquisa = """
 Pesquisa Datafolha divulgada nesta quinta-feira (18) mostra o ex-presidente Luiz Inácio Lula da Silva (PT) à frente, 
 com 47% das intenções de voto na corrida pelo Palácio do Planalto. O presidente Jair Bolsonaro (PL) tem 32%. 
@@ -216,7 +220,7 @@ E se quiséssemos, por exemplo, substituir todas as porcentagens de intenção d
 Os módulos e funções nativas do Python não nos trazem muito material para trabalhar com expressões regulares. Para operar com elas utilizaremos uma biblioteca de comandos chamada `re`. Para trazer para dentro do Python as funcionalidades dessa biblioteca precisamos utilizar a função `import` seguida do nome da biblioteca.
 
 
-```python
+```{python}
 import re
 ```
 
@@ -229,17 +233,17 @@ O mundo das expressões regulares é um mundo gigante e à parte, com conteúdo 
 Mas o que essa coisa bizarra diz de fato? A função buscará todo e qualquer elemento dentro dos colchetes (no caso os dígitos numéricos) que apareça uma ou duas vezes (código dentro dos colchetes) e que seja seguido pelo símbolo de porcentagem. Note que esse é o padrão de qualquer uma das porcentagens no nosso string _pesquisa_. Vamos ver o que acontece se usarmos isso dentro de `re.sub()`.
 
 
-```python
+```{python}
 pesquisa2 = re.sub('[0-9]{1,2}%','ZZZ',pesquisa)
 ```
 
 
-```python
+```{python}
 print(pesquisa)
 ```
 
 
-```python
+```{python}
 print(pesquisa2)
 ```
 
@@ -256,7 +260,7 @@ Como uma string, uma lista é uma sequência de valores. Em uma string, os valor
 Uma lista é delimitada por colchetes e os elementos, ou itens, pertencentes a ela são separados por vírgula. Para definir uma lista com 5 números inteiros, ordenados de forma sequencial e começando em 1 devemos escrever a seguinte linha de código:
 
 
-```python
+```{python}
 lista1 = [1,2,3,4,5]
 
 print(lista1)
@@ -266,7 +270,7 @@ print(type(lista1))
 Podemos definir uma lista de strings, uma lista mista de strings e números, e uma lista composto por outras listas (lista aninhada):
 
 
-```python
+```{python}
 lista2 = ['Danilo Souza','Claudio Lucinda']
 lista3 = ['Turma 2024201',46.0,'Turmas 2024202',49,'Turmas 2024221',81]
 lista4 = [lista1, lista2]
@@ -279,7 +283,7 @@ print(lista4)
 De forma análoga à listas com elementos não vazios, é possível definir uma lista vazia utilizando apenas os colchetes:
 
 
-```python
+```{python}
 lista_vazia = []
 
 print(lista_vazia)
@@ -290,7 +294,7 @@ print(lista_vazia)
 A sintaxe para acessar os elementos de uma lista é a mesma que para acessar os caracteres de uma string: o operador de colchete. A expressão dentro dos colchetes especifica o índice ou o intervalo de índices. **Lembrando que o índice no Python começa em ZERO e não em UM**
 
 
-```python
+```{python}
 print(lista2[0])
 print(lista2[1])
 print(lista3[-1])
@@ -300,7 +304,7 @@ print(lista3[0:2])
 Diferente das strings, listas são mutáveis. Quando o operador de colchete aparece do lado esquerdo de uma atribuição, ele identifica o elemento da lista que será atribuído:
 
 
-```python
+```{python}
 numbers = [42, 123]
 numbers[1] = 5
 numbers
@@ -319,25 +323,25 @@ O segundo elemento de numbers (índice 1), que era 123, agora é 5.
 O operador `in`, que serve ao propósito de testar a existência de determinado elemento dentro de um objeto específico, também funciona com listas:
 
 
-```python
+```{python}
 cheeses = ['Cheddar', 'Gorgonzola', 'Gouda']
 'Edam' in cheeses
 ```
 
 
-```python
+```{python}
 'Brie' in cheeses
 ```
 
 Assim como com strings, é possível calcular o número de elementos em uma lista utilizando a função integrada `len()` e "concatenar" ou "somar" listas utilizando apenas o sinal de + 
 
 
-```python
+```{python}
 print(len(cheeses))
 ```
 
 
-```python
+```{python}
 lista_soma = lista2 + cheeses
 print(lista_soma)
 ```
@@ -362,14 +366,14 @@ As listas também possuem métodos bastante úteis, que nos facilitam a vida em 
 A maior parte dos métodos de listas são nulos; eles alteram a lista e retornam None. Se você escrever `t = t.sort()` por acidente, ficará desapontado com o resultado.
 
 
-```python
+```{python}
 t = ['a', 'b', 'c']
 t.append('d')
 print(t)
 ```
 
 
-```python
+```{python}
 t1 = ['a', 'b', 'c']
 t2 = ['d', 'e']
 t1.extend(t2)
@@ -377,7 +381,7 @@ print(t1)
 ```
 
 
-```python
+```{python}
 t = ['d', 'c', 'e', 'b', 'a']
 t.sort()
 print(t)
@@ -386,7 +390,7 @@ print(t)
 Assim como já explicamos, uma lista é uma sequência de valores e uma string é uma sequência de caracteres, mas uma lista de caracteres não é a mesma coisa que uma string. Para converter uma string em uma lista de caracteres, você pode usar o comando `list`:
 
 
-```python
+```{python}
 s = 'spam'
 t = list(s)
 print(t)
@@ -395,14 +399,14 @@ print(t)
 A função `list` quebra uma string em letras individuais. Se você quiser quebrar uma string em palavras, você pode usar o método `split()`. Esse método admite um argumento adicional, chamado _delimiter_, que especifica quais caracteres podem ser usados para demonstrar os limites das palavras. Isso é muito útil, por exemplo, quando queremos separar um texto em palavras e fazer a contagem de palavras que mais se repetem. Qual caracter deveríamos passar como argumento em `split()` nesse caso?
 
 
-```python
+```{python}
 s = 'pining for the fjords'
 t = s.split(' ')
 print(t)
 ```
 
 
-```python
+```{python}
 s = 'spam-spam-spam'
 t = s.split('-')
 t
@@ -411,7 +415,7 @@ t
 O método `join()` é o contrário de `split()`. Ele toma uma lista de strings e concatena os elementos. `join()`, no entanto, é um método de string, então é preciso invocá-lo no string delimitador (por exemplo, " - ") e passar a lista de strings como parâmetro:
 
 
-```python
+```{python}
 t = ['spam','spam','spam']
 s = ' - '.join(t)
 print(s)
@@ -424,17 +428,17 @@ Além desses principais, existem outros vários métodos para listas. Esse [link
 Agora faremos um pequeno desvio, que será bem útil daqui para frente, para falar de expressões e variáveis **booleanas**. Em resumo, uma expressão booleana é uma expressão que pode ser verdadeira ou falsa e dessa forma assumir apenas dois valores como resultado: **True** e **False**. Os exemplos seguintes usam o operador de igual no Python (==) que compara dois operandos e produz True se forem iguais e False se não forem:
 
 
-```python
+```{python}
 5 == 5
 ```
 
 
-```python
+```{python}
 5 == 6
 ```
 
 
-```python
+```{python}
 lista1 = [1,2,3,4,5]
 lista2 = [5,4,3,2,1]
 
@@ -444,13 +448,13 @@ lista1 == lista2
 _True_ e _False_ são valores especiais que pertencem ao tipo _bool_; não são strings. Além disso, é possível fazer operações aritméticas com variáveis do tipo _bool_ já que o Python entende _True_ como sendo equivalente ao número 1 e _False_ como sendo equivalente ao número 0.
 
 
-```python
+```{python}
 print(type(True))
 print(type(False))
 ```
 
 
-```python
+```{python}
 print(True + True)
 print(True + False)
 print(False + False)
@@ -471,7 +475,7 @@ Há três operadores lógicos: `and`, `or` e `not`. A semântica (significado) d
 Falando estritamente, os operandos dos operadores lógicos devem ser expressões booleanas, mas o Python não é muito estrito. Qualquer número que não seja zero é interpretado como _True_:
 
 
-```python
+```{python}
 42 and True
 ```
 
@@ -482,7 +486,7 @@ Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas a ela 
 Para escrever programas úteis, quase sempre precisamos da capacidade de verificar condições e mudar o comportamento do programa de acordo com elas. Instruções condicionais nos dão esta capacidade. A forma mais simples é a instrução `if`:
 
 
-```python
+```{python}
 x=5
 
 if x > 0:
@@ -494,7 +498,7 @@ A expressão booleana depois do `if` é chamada de condição. Se for verdadeira
 Não há limite para o número de instruções que podem aparecer no corpo de uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil ter um corpo sem instruções (normalmente como um espaço reservado para código que ainda não foi escrito). Neste caso, você pode usar a instrução pass, que não faz nada.
 
 
-```python
+```{python}
 if x < 0:
     pass 
 ```
@@ -504,7 +508,7 @@ if x < 0:
 Uma segunda forma da instrução if é a “execução alternativa”, na qual há duas possibilidades e a condição determina qual será executada. A sintaxe pode ser algo assim:
 
 
-```python
+```{python}
 x = 5
 
 if x % 2 == 0:
@@ -518,7 +522,7 @@ Se o resto quando x for dividido por 2 for 0, então sabemos que x é par e o pr
 Podemos usar a instrução if para testar o tamanho de uma lista também:
 
 
-```python
+```{python}
 lista1 = [1,2,3,4,5]
 
 if len(lista1) > 2:
@@ -532,7 +536,7 @@ else:
 Às vezes, há mais de duas possibilidades e precisamos de mais que dois ramos. Esta forma de expressar uma operação de computação é uma condicional encadeada:
 
 
-```python
+```{python}
 x = 5
 y = 6
 
@@ -553,7 +557,7 @@ Agora falaremos de mais um tipo de objeto básico do Python, a tupla. Uma tupla 
 Em resumo, uma tupla é uma lista de valores separados por vírgulas e em geral delimitado por parênteses (lembre que listas são delimitadas por colchetes):
 
 
-```python
+```{python}
 t = ('a', 'b', 'c', 'd', 'e')
 
 print(type(t))
@@ -562,7 +566,7 @@ print(type(t))
 Um único valor entre parênteses não é uma tupla. Para criar uma tupla com um único elemento, é preciso incluir uma vírgula final após o elemento, com ou sem os parênteses.
 
 
-```python
+```{python}
 t1 = ('a')
 t2 = 'a',
 t3 = ('a',)
@@ -575,13 +579,13 @@ print(type(t3))
 Outra forma de criar uma tupla é com a função integrada `tuple`. Sem argumentos, cria uma tupla vazia. Se os argumentos forem uma sequência (string, lista ou tupla), o resultado é uma tupla com os elementos da sequência:
 
 
-```python
+```{python}
 t = tuple()
 print(t)
 ```
 
 
-```python
+```{python}
 t = tuple('lupins')
 print(t)
 ```
@@ -591,7 +595,7 @@ print(t)
 A maior parte dos operadores de lista também funciona em tuplas. O operador de colchetes indexa um elemento e o operador de fatia seleciona vários elementos.
 
 
-```python
+```{python}
 t = ('a', 'b', 'c', 'd', 'e')
 print(t[0])
 print(t[1:3])
@@ -600,14 +604,16 @@ print(t[1:3])
 Entretanto, se tentar alterar um dos elementos da tupla, vai receber um erro:
 
 
-```python
+```{python}
+#| error: true
+
 t[0] = 'A'
 ```
 
 Como tuplas são imutáveis, você não pode alterar os elementos, mas pode substituir uma tupla por outra.
 
 
-```python
+```{python}
 t = ('A',) + t[1:]
 print(t)
 ```
@@ -615,12 +621,12 @@ print(t)
 Os operadores relacionais funcionam com tuplas e outras sequências. O Python começa comparando o primeiro elemento de cada sequência. Se forem iguais, vai para os próximos elementos, e assim por diante, até que encontre elementos que sejam diferentes. Os elementos subsequentes não são considerados (mesmo se forem muito grandes).
 
 
-```python
+```{python}
 (0, 1, 2) < (0, 3, 4)
 ```
 
 
-```python
+```{python}
 (0, 1, 2000000) < (0, 3, 4)
 ```
 
@@ -629,7 +635,7 @@ Os operadores relacionais funcionam com tuplas e outras sequências. O Python co
 Muitas vezes, é útil trocar os valores de duas variáveis. Com a atribuição convencional, é preciso usar uma variável temporária. Por exemplo, trocar a e b.
 
 
-```python
+```{python}
 a=5
 b=6
 
@@ -643,7 +649,7 @@ print(b)
 Essa solução é trabalhosa; a atribuição de tuplas é mais elegante:
 
 
-```python
+```{python}
 a=5
 b=6
 
@@ -657,14 +663,16 @@ O lado esquerdo é uma tupla de variáveis e o lado direito é uma tupla de expr
 O número de variáveis à esquerda e o número de valores à direita precisam ser iguais:
 
 
-```python
+```{python}
+#| error: true
+
 a, b = 1, 2, 3
 ```
 
 De forma geral, o lado direito pode ter qualquer tipo de sequência (string, lista ou tupla). Por exemplo, para dividir um endereço de email em um nome de usuário e um domínio, você poderia escrever:
 
 
-```python
+```{python}
 addr = 'monty@python.org'
 uname, domain = addr.split('@')
 ```
@@ -672,7 +680,7 @@ uname, domain = addr.split('@')
 O valor de retorno do `split()` é uma lista com dois elementos; o primeiro elemento é atribuído a `uname`, o segundo a `domain`:
 
 
-```python
+```{python}
 print(uname)
 print(domain)
 ```
@@ -682,13 +690,13 @@ print(domain)
 Falando estritamente, uma função só pode retornar um valor, mas se o valor for uma tupla, o efeito é o mesmo que retornar valores múltiplos. Por exemplo, se você quiser dividir dois números inteiros e calcular o quociente e resto, não é eficiente calcular `x/y` e depois `x%y`. É melhor calcular ambos ao mesmo tempo. A função integrada `divmod` toma dois argumentos e devolve uma tupla de dois valores: o quociente e o resto da divisão do primeiro termo pelo segundo termo. Você pode guardar o resultado como uma tupla:
 
 
-```python
+```{python}
 print(7//3)
 print(7%3)
 ```
 
 
-```python
+```{python}
 t = divmod(7, 3)
 
 print(t)
@@ -702,7 +710,7 @@ print(type(t))
 Este exemplo encaixa uma string e uma lista:
 
 
-```python
+```{python}
 s = 'abc'
 t = [0, 1, 2]
 zip(s,t)
@@ -711,7 +719,7 @@ zip(s,t)
 O resultado é um objeto `zip` que sabe como percorrer os pares. O uso mais comum de `zip` é em um loop `for` (falaremos sobre loops mais adiante no curso):
 
 
-```python
+```{python}
 for pair in zip(s, t):
     print(pair)
 ```
@@ -719,14 +727,14 @@ for pair in zip(s, t):
 Um objeto `zip` é um tipo de iterador, ou seja, qualquer objeto que percorre ou itera sobre uma sequência. Iteradores são semelhantes a listas em alguns aspectos, mas, ao contrário de listas, não é possível usar um índice para selecionar um elemento de um iterador. Se quiser usar operadores e métodos de lista, você pode usar um objeto `zip` para fazer uma lista:
 
 
-```python
+```{python}
 list(zip(s, t))
 ```
 
 O resultado é uma lista de tuplas. Neste exemplo, cada tupla contém um caractere da string e o elemento correspondente da lista. Se as sequências não forem do mesmo comprimento, o resultado tem o comprimento da mais curta:
 
 
-```python
+```{python}
 list(zip('Anne', 'Elk'))
 ```
 
@@ -741,7 +749,7 @@ Em linguagem matemática, um dicionário representa um mapeamento de chaves a va
 A função `dict` cria um novo dicionário sem itens. Como `dict` é o nome de uma função integrada, você deve evitar usá-lo como nome de variável.
 
 
-```python
+```{python}
 eng2sp = dict()
 eng2sp
 ```
@@ -749,21 +757,21 @@ eng2sp
 As chaves {} representam um dicionário vazio. Para acrescentar itens ao dicionário, você pode usar colchetes:
 
 
-```python
+```{python}
 eng2sp['one'] = 'uno'
 ```
 
 Esta linha cria um item que mapeia da chave 'one' ao valor 'uno'. Se imprimirmos o dicionário novamente, vemos um par chave-valor com dois pontos entre a chave e o valor:
 
 
-```python
+```{python}
 eng2sp
 ```
 
 Este formato de saída também é um formato de entrada. Por exemplo, você pode criar um dicionário com três itens:
 
 
-```python
+```{python}
 eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 eng2sp
 ```
@@ -771,40 +779,42 @@ eng2sp
 Ué, mas a ordem parece diferente daquela que definimos, não? Se você digitar o mesmo exemplo no seu computador, pode receber um resultado diferente. Em geral, a ordem dos itens em um dicionário é imprevisível. No entanto, isso não é um problema porque os elementos de um dicionário nunca são indexados com índices de números inteiros. Em vez disso, você usa as chaves para procurar os valores correspondentes. A chave `'two'`, por exemplo sempre mapeia ao valor `'dos'`, assim a ordem dos itens não importa.
 
 
-```python
+```{python}
 eng2sp['two']
 ```
 
 Se a chave não estiver no dicionário, você recebe uma exceção:
 
 
-```python
+```{python}
+#| error: true
+
 eng2sp['four']
 ```
 
 Assim como em strings e listas, a função `len` também é compatível com dicionários. Nesse caso ela devolve o número de pares chave-valor.
 
 
-```python
+```{python}
 len(eng2sp)
 ```
 
 O operador `in` funciona em dicionários também. Ele acusa se algo aparece como chave no dicionário (aparecer como valor não é o suficiente).
 
 
-```python
+```{python}
 'one' in eng2sp
 ```
 
 
-```python
+```{python}
 'uno' in eng2sp
 ```
 
 Para ver se algo aparece como um valor em um dicionário, você pode usar o método `values()`, que devolve uma coleção de valores, e então usar o operador `in`:
 
 
-```python
+```{python}
 vals = eng2sp.values()
 'uno' in vals
 ```
@@ -814,7 +824,7 @@ vals = eng2sp.values()
 Podemos adicionar um novo par de chave e valor ao dicionário usando colchetes, mas caso a chave já exista no dicionário, podemos atualizar o valor.
 
 
-```python
+```{python}
 y = {}
 y['one'] = 1
 y['two'] = 2
@@ -822,7 +832,7 @@ print(y)
 ```
 
 
-```python
+```{python}
 y['two'] = 'dos'
 print(y)
 ```
@@ -832,13 +842,13 @@ O valor-chave deve ser um tipo de dados imutável, por essa razão, se você ten
 A instrução `del` pode ser usada para remover uma entrada (par de valor de chave) de um dicionário.
 
 
-```python
+```{python}
 y = {'one': 1, 'two': 2}
 print(y)
 ```
 
 
-```python
+```{python}
 del y['two']
 print(y)
 ```
@@ -846,7 +856,7 @@ print(y)
 Mais uma vez, podemos utilizar a função nativa `len` para retornar o número de entradas (pares de valor de chave) em um dicionário.
 
 
-```python
+```{python}
 x = {'one': 0, 'two': 2}
 print(len(x))
 ```
@@ -854,13 +864,15 @@ print(len(x))
 Tente acessar uma chave que não está em um dicionário e você receberá um erro de exceção do Python. Para lidar com essa exceção, você pode usar mais uma vez o operador `in` que testa se existe uma chave em um dicionário. Esse operador retorna _True_ se o dicionário tiver um valor armazenado sob a chave fornecida e _Falso_ caso contrário.
 
 
-```python
+```{python}
+#| error: true
+
 y = {'one': 1, 'two': 2}
 del y['three']
 ```
 
 
-```python
+```{python}
 'three' in y
 ```
 
@@ -888,7 +900,7 @@ Dentre os principais métodos aplicáveis a dicionários e suas funcionalidades 
 Além desses principais, existem outros vários métodos para dicionários. Esse [link](https://www.geeksforgeeks.org/python-dictionary-methods/) é um bom ponto de partida para quem quiser conhecer outros exemplos.
 
 
-```python
+```{python}
 x = {'one': 0, 'two': 2}
 y = {'one': 1, 'three': 3}
 print(x)
@@ -898,19 +910,19 @@ print(x)
 ```
 
 
-```python
+```{python}
 x = {'one': 1, 'two': 2}
 print(x.keys())
 ```
 
 
-```python
+```{python}
 x = {'one': 1, 'two': 2}
 print(x.items())
 ```
 
 
-```python
+```{python}
 y = {'one': 1, 'two': 2}
 print(y.get('one'))
 print(y.get('three'))
@@ -918,7 +930,7 @@ print(y.get('three', 'The key does not exist.'))
 ```
 
 
-```python
+```{python}
 y = {'one': 1, 'two': 2}
 print(y.setdefault('three', '3'))
 print(y.setdefault('two', 'dos'))
@@ -926,7 +938,7 @@ print(y)
 ```
 
 
-```python
+```{python}
 print(y.setdefault('four'))
 print(y)
 ```
@@ -939,13 +951,13 @@ print(y)
 
 3. Existem duas listas abaixo. Escreva um programa que as converta em um dicionário em que o item de `keys` é a chave e o item de `values` é o valor
 
-```python
+```{python}
 keys = ['Ten', 'Twenty', 'Thirty']
 values = [10, 20, 30]
 ```
 
 **Output esperado do último exercício**
-```python
+```{python}
 {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
 ```
 
