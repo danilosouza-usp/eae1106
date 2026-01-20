@@ -33,7 +33,7 @@ book:
         - visualizacao.qmd
         - projeto_empirico.qmd
         
-    - part: "Temas complementares"
+    - part: complemento.qmd
       chapters:
         - oop.qmd
         - intror.qmd
