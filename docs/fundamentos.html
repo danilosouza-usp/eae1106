@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -245,8 +274,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#o-que-é-um-computador" id="toc-o-que-é-um-computador" class="nav-link active" data-scroll-target="#o-que-é-um-computador"><span class="header-section-number">1.1</span> O que é um computador?</a>
+  <ul class="collapse">
+  <li><a href="#sistema-computacional" id="toc-sistema-computacional" class="nav-link" data-scroll-target="#sistema-computacional"><span class="header-section-number">1.1.1</span> Sistema computacional</a></li>
+  <li><a href="#arquitetura-de-um-computador" id="toc-arquitetura-de-um-computador" class="nav-link" data-scroll-target="#arquitetura-de-um-computador"><span class="header-section-number">1.1.2</span> Arquitetura de um computador</a></li>
+  <li><a href="#capacidade-de-armazenamento" id="toc-capacidade-de-armazenamento" class="nav-link" data-scroll-target="#capacidade-de-armazenamento"><span class="header-section-number">1.1.3</span> Capacidade de armazenamento</a></li>
+  <li><a href="#como-computadores-armazenam-números" id="toc-como-computadores-armazenam-números" class="nav-link" data-scroll-target="#como-computadores-armazenam-números"><span class="header-section-number">1.1.4</span> Como computadores armazenam números</a></li>
+  <li><a href="#formato-de-ponto-flutuante-de-precisão-simples" id="toc-formato-de-ponto-flutuante-de-precisão-simples" class="nav-link" data-scroll-target="#formato-de-ponto-flutuante-de-precisão-simples"><span class="header-section-number">1.1.5</span> Formato de ponto flutuante de precisão simples</a></li>
+  <li><a href="#formato-de-ponto-flutuante-de-precisão-dupla" id="toc-formato-de-ponto-flutuante-de-precisão-dupla" class="nav-link" data-scroll-target="#formato-de-ponto-flutuante-de-precisão-dupla"><span class="header-section-number">1.1.6</span> Formato de ponto flutuante de precisão dupla</a></li>
+  <li><a href="#mas-qual-a-importância-disso-tudo" id="toc-mas-qual-a-importância-disso-tudo" class="nav-link" data-scroll-target="#mas-qual-a-importância-disso-tudo"><span class="header-section-number">1.1.7</span> Mas qual a importância disso tudo?</a></li>
+  </ul></li>
+  <li><a href="#linguagens-de-programação" id="toc-linguagens-de-programação" class="nav-link" data-scroll-target="#linguagens-de-programação"><span class="header-section-number">1.2</span> Linguagens de programação</a>
+  <ul class="collapse">
+  <li><a href="#alto-nível-x-baixo-nível" id="toc-alto-nível-x-baixo-nível" class="nav-link" data-scroll-target="#alto-nível-x-baixo-nível"><span class="header-section-number">1.2.1</span> Alto nível X Baixo nível</a></li>
+  <li><a href="#linguagem-compilada-x-interpretada" id="toc-linguagem-compilada-x-interpretada" class="nav-link" data-scroll-target="#linguagem-compilada-x-interpretada"><span class="header-section-number">1.2.2</span> Linguagem Compilada X Interpretada</a></li>
+  <li><a href="#paradigmas" id="toc-paradigmas" class="nav-link" data-scroll-target="#paradigmas"><span class="header-section-number">1.2.3</span> Paradigmas</a></li>
+  <li><a href="#tipagem" id="toc-tipagem" class="nav-link" data-scroll-target="#tipagem"><span class="header-section-number">1.2.4</span> Tipagem</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -271,8 +322,124 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>In summary, this book has no content whatsoever.</p>
+<hr>
+<section id="o-que-é-um-computador" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="o-que-é-um-computador"><span class="header-section-number">1.1</span> O que é um computador?</h2>
+<p>Um computador realiza duas coisas e apenas duas coisas: faz operações e guarda de forma eficiente o resultado dessas operações. No entanto, ao fazer essas duas coisas de forma extremamente eficiente essa máquina chamada computador nos permite receber, armazenar, processar e transmitir informações. Em essência, o computador nos serve ao propósito de <strong>resolução de problemas</strong>. Isso significa que, através de uma linguagem formal (especificamente operações de computação), podemos formular problemas e <strong>programar</strong> meios de resolver de forma automatizada tais problemas. No fim das contas, programar é o ato de criar programas, isto é, estabelecer uma sequência de instruções em linguagem formal que especifica como executar uma determinada operação no computador.</p>
+<p>Mas antes de avançar na ideia de <strong>programa</strong> e <strong>algoritmos</strong>, quais são as características de um computador como o conhecemos?</p>
+<section id="sistema-computacional" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="sistema-computacional"><span class="header-section-number">1.1.1</span> Sistema computacional</h3>
+<p>Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. Componentes:</p>
+<ul>
+<li><strong>Hardware</strong>: componente física de um sistema de computação, isto é, todos os equipamentos utilizados pelo usuário nas ações de entrada, processamento, armazenamento e saída de dados.</li>
+<li><strong>Software</strong>: componente lógica de um sistema de computação, isto é, séries de instruções que fazem o computador funcionar (programas de computador)</li>
+</ul>
+<p>E por fim o componente humano do sistema, as pessoas, que utilizam o computador basicamente como ferramenta para atingir determinado fim, para <strong>resolver problemas</strong>.</p>
+</section>
+<section id="arquitetura-de-um-computador" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="arquitetura-de-um-computador"><span class="header-section-number">1.1.2</span> Arquitetura de um computador</h3>
+<p>Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias dimensões das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:</p>
+<p><img src="images/arquitetura_VonNeumann.jpg" style="width: 700px; max-width: 100%; height: auto"></p>
+<p>Essencialmente, o hadware que compõe as partes da arquitetura de um computador podem ser dividas em 3 partes:</p>
+<ul>
+<li><p><strong>Dispositivos de entrada e saída</strong>: é através deles que o usuário dialoga com a máquina. Através do teclado e mouse, por exemplo, o usuário fornece informações ao computador a partir das quais processos serão realizados e seus resultados serão percebidos pelos dispositivos de saída (monitor e impressora, por exemplo).</p></li>
+<li><p><strong>Unidade central de processamento (CPU)</strong>: é o cérebro do sistema computacional, é nele que serão executados cálculos e instruções lógicas dos usuários.</p></li>
+<li><p><strong>Memória</strong>: aqui são armazenados os resultados dos cálculos, dados e instruções.</p></li>
+</ul>
+</section>
+<section id="capacidade-de-armazenamento" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="capacidade-de-armazenamento"><span class="header-section-number">1.1.3</span> Capacidade de armazenamento</h3>
+<ul>
+<li><p>Kilobyte: 1024 (2^10) bytes.</p>
+<ul>
+<li>Capacidade de memória dos computadores pessoais muito antigos.</li>
+</ul>
+<p><br></p></li>
+<li><p>Megabyte: aproximadamente, um milhão (2^20) de bytes.</p>
+<ul>
+<li>Memória de computadores pessoais antigos.</li>
+</ul>
+<p><br></p></li>
+<li><p>Gigabyte: aproximadamente, um bilhão (2^30) de bytes.</p>
+<ul>
+<li>Dispositivos de armazenamento (discos rígidos), especialmente SSD</li>
+</ul>
+<p><br></p></li>
+<li><p>Terabyte: aproximadamente, um trilhão (2^40) de bytes.</p>
+<ul>
+<li>Dispositivos de armazenamento para sistemas muito grandes e servidores.</li>
+</ul>
+<p><br></p></li>
+</ul>
+</section>
+<section id="como-computadores-armazenam-números" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="como-computadores-armazenam-números"><span class="header-section-number">1.1.4</span> Como computadores armazenam números</h3>
+<p>Para entender a diferença entre computação de precisão simples e de precisão dupla, é importante entender o papel da precisão na ciência da computação. Imagine realizar um cálculo usando um número irracional (como <span class="math inline">\(\pi\)</span>) e incluindo apenas dois dígitos à direita do ponto decimal (3.14). Você obteria um resultado mais preciso se fizesse o cálculo incluindo dez dígitos à direita do ponto decimal (3,1415926535).</p>
+<p>Para computadores, esse nível de precisão é chamado de precisão e é medido em dígitos binários (bits) em vez de casas decimais. Quanto mais bits usados, maior a precisão. A representação de grandes números em binários de computador requer um padrão para garantir que não haja grandes discrepâncias nos cálculos. Assim, o Instituto de Engenheiros Elétricos e Eletrônicos (IEEE) desenvolveu o Padrão IEEE para Aritmética de Ponto Flutuante (IEEE 754).</p>
+<p>Em geral, um número será representado de forma aproximada com um número fixo de números significantes e escalonado usando um expoente em uma base (usualmente dois, ou 10 ou 16). Esses números possuem a seguinte forma:</p>
+<p><span class="math display">\[ S \times B^e \]</span></p>
+<p>Em que <span class="math inline">\(S\)</span> é o significando, <span class="math inline">\(B\)</span> é um número inteiro maior ou igual a dois, e <span class="math inline">\(e\)</span> um expoente, um número inteiro. Por exemplo: <span class="math inline">\(1.2345=12345 \times 10^{-4}\)</span>. O termo Ponto Flutuante se refere ao fato que o ponto decimal (também chamado de ponto binário) pode flutuar; ou seja, pode ser colocado em qualquer lugar em relação aos dígitos significantes do número. Esta posição é indicada pelo expoente, e a representação em ponto flutuante de um número pode ser pensada como uma forma de notação científica.</p>
+<p>A precisão nessa representação de ponto flutuante é dada pela quantidade de bits dedicado ao armazenamento do significando e do expoente – quanto maior o significando, mais precisa é a representação (menor é o espaço entre dois números), e quanto maior o expoente, mais alto é o maior valor que pode ser representado.</p>
+<p>Existem três componentes do IEEE 754:</p>
+<ul>
+<li>O sinal - 0 representa um número positivo; 1 representa um número negativo.</li>
+<li>O expoente - O expoente é usado para representar expoentes positivos e negativos.</li>
+<li>O significando - Também conhecida como mantissa, a mantissa representa os bits de precisão do número.</li>
+</ul>
+<p>Usando esses componentes, o IEEE 754 representa números de ponto flutuante de duas maneiras: formato de precisão simples e formato de precisão dupla. Embora ainda existam várias maneiras de representar números de ponto flutuante, o IEEE 754 é o mais comum porque geralmente é a representação mais eficiente de valores numéricos.</p>
+</section>
+<section id="formato-de-ponto-flutuante-de-precisão-simples" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="formato-de-ponto-flutuante-de-precisão-simples"><span class="header-section-number">1.1.5</span> Formato de ponto flutuante de precisão simples</h3>
+<p>O formato de ponto flutuante de precisão simples usa 32 bits (um bit pro sinal, 8 pro expoente e 24 pro significando) de memória do computador e pode representar uma ampla gama de valores numéricos. Muitas vezes referido como FP32, esse formato é melhor usado para cálculos que não sofrem um pouco de aproximação.</p>
+</section>
+<section id="formato-de-ponto-flutuante-de-precisão-dupla" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="formato-de-ponto-flutuante-de-precisão-dupla"><span class="header-section-number">1.1.6</span> Formato de ponto flutuante de precisão dupla</h3>
+<p>O formato de ponto flutuante de precisão dupla, por outro lado, ocupa 64 bits (um bit pro sinal, 11 pro expoente e 52 pro significando) da memória do computador e é muito mais preciso do que o formato de precisão simples. Esse formato é frequentemente chamado de FP64 e usado para representar valores que exigem um intervalo maior ou um cálculo mais preciso.</p>
+<p>Embora a precisão dupla permita mais precisão, ela também requer mais recursos computacionais, armazenamento de memória e transferência de dados. O custo de usar esse formato nem sempre faz sentido para todos os cálculos.</p>
+<p><br></p>
+</section>
+<section id="mas-qual-a-importância-disso-tudo" class="level3" data-number="1.1.7">
+<h3 data-number="1.1.7" class="anchored" data-anchor-id="mas-qual-a-importância-disso-tudo"><span class="header-section-number">1.1.7</span> Mas qual a importância disso tudo?</h3>
+<p>Saber como os computadores armazenam números, ou qual a importância da memória no processo de fornecimento de parâmetros de entrada em busca de uma saída específica, nos ajuda enormemente a entender porque, por exemplo, um sistema 32 bits só é capaz de nos fornecer 4GB de memória RAM para armazenamento de cálculos e operações ou mesmo porque podemos ter dificuldade ao tentar abrir no nosso computador local um arquivo com alguns milhões de linhas.</p>
+<p>É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para <strong>resolver problemas</strong> e não como um fim em si (afinal estamos em um curso de economia e não de ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Como já deve ter ficado claro, nesse curso trabalharemos com a linguagem <strong>Python</strong>.</p>
+</section>
+</section>
+<section id="linguagens-de-programação" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="linguagens-de-programação"><span class="header-section-number">1.2</span> Linguagens de programação</h2>
+<p>As linguagens naturais são os idiomas que as pessoas falam, como inglês, espanhol e francês. Elas não foram criadas pelas pessoas (embora as pessoas tentem impor certa ordem a elas); desenvolveram-se naturalmente. As linguagens formais são linguagens criadas pelas pessoas para aplicações específicas. Por exemplo, a notação que os matemáticos usam é uma linguagem formal especialmente boa para denotar relações entre números e símbolos. Os químicos usam uma linguagem formal para representar a estrutura química de moléculas. E o mais importante:</p>
+<p><strong>As linguagens de programação são idiomas formais criados para expressar operações de computação.</strong></p>
+<p>As linguagens formais geralmente têm regras de sintaxe estritas que governam a estrutura de declarações. Por exemplo, na matemática a declaração $3 + 3 = $6 tem uma sintaxe correta, mas não <span class="math inline">\(3 + = 3\$6\)</span>. Na química, H2O é uma fórmula sintaticamente correta, mas 2Zz não é. As regras de sintaxe vêm em duas categorias relativas a símbolos e estrutura. Os símbolos são os elementos básicos da linguagem, como palavras, números e elementos químicos. Um dos problemas com <span class="math inline">\(3 + = 3\$6\)</span> é que o ‘$’ não é um símbolo legítimo na matemática (pelo menos até onde eu sei). De forma similar, 2Zz não é legítimo porque não há nenhum elemento com a abreviatura Zz.</p>
+<p>O segundo tipo de regra de sintaxe refere-se ao modo no qual os símbolos são combinados. A equação 3 + = 3 não é legítima porque, embora + e = sejam símbolos legítimos, não se pode ter um na sequência do outro. De forma similar, em uma fórmula química o subscrito vem depois do nome de elemento, não antes.</p>
+<p>Esta é um@ frase bem estruturada em portuguê$, mas com s*mbolos inválidos.</p>
+<p>Ao ler uma frase em português ou uma declaração em uma linguagem formal, é preciso compreender a estrutura (embora em uma linguagem natural você faça isto de forma subconsciente). Este processo é chamado de análise. Embora as linguagens formais e naturais tenham muitas características em comum – símbolos, estrutura e sintaxe – há algumas diferenças:</p>
+<ol type="1">
+<li><p><strong>Ambiguidade</strong>: as linguagens naturais são cheias de ambiguidade e as pessoas lidam com isso usando pistas contextuais e outras informações. As linguagens formais são criadas para ser quase ou completamente inequívocas, ou seja, qualquer afirmação tem exatamente um significado, independentemente do contexto</p></li>
+<li><p><strong>Redundância</strong>: para compensar a ambiguidade e reduzir equívocos, as linguagens naturais usam muita redundância. Por causa disso, muitas vezes são verborrágicas. As linguagens formais são menos redundantes e mais concisas.</p></li>
+<li><p><strong>Literalidade</strong>: as linguagens naturais são cheias de expressões e metáforas. Se eu digo “caiu a ficha”, provavelmente não há ficha nenhuma na história, nem nada que tenha caído (esta é uma expressão para dizer que alguém entendeu algo depois de certo período de confusão). As linguagens formais têm significados exatamente iguais ao que expressam.</p></li>
+</ol>
+<p>Como todos nós crescemos falando linguagens naturais, às vezes é difícil se ajustar a linguagens formais. As linguagens formais são mais densas que as naturais, então exigem mais tempo para a leitura. Além disso, a estrutura é importante, então nem sempre é melhor ler de cima para baixo e da esquerda para a direita. Em vez disso, aprenda a analisar o programa primeiro, identificando os símbolos e interpretando a estrutura. E os detalhes fazem diferença. Pequenos erros em ortografia e pontuação, que podem não importar tanto nas linguagens naturais, podem fazer uma grande diferença em uma língua formal.</p>
+<section id="alto-nível-x-baixo-nível" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="alto-nível-x-baixo-nível"><span class="header-section-number">1.2.1</span> Alto nível X Baixo nível</h3>
+<p>Na ciência da computação, uma <strong>linguagem de programação de alto nível</strong> é uma linguagem de programação com forte abstração dos detalhes do computador. São linguagens mais próximas das linguagens humanas e mais distantes das linguagens de máquina. Em contraste com as linguagens de programação de baixo nível, ela pode usar elementos de linguagem natural, ser mais fácil de usar, ou pode automatizar (ou até ocultar totalmente) áreas significativas de sistemas de computação (por exemplo, gerenciamento de memória), tornando o processo de desenvolvimento de um programa mais simples e eficiente. Exemplos de linguagens de alto nível: Python, JavaScript.</p>
+<p>Por outro lado, uma <strong>linguagem de baixo nível</strong> é uma linguagem de programação que fornece pouca ou nenhuma abstração de conceitos de programação e está muito próxima de escrever instruções de máquina reais. A palavra “baixo” refere-se à pequena ou inexistente quantidade de abstração entre a linguagem e a linguagem de máquina; por causa disso, as linguagens de baixo nível são às vezes descritas como “próximas do hardware”. Programas escritos em linguagens de baixo nível tendem a ser relativamente não portáteis e dependentes do computador para o qual foram escritas. Exemplo de linguagem de baixo nível: Assembly</p>
+</section>
+<section id="linguagem-compilada-x-interpretada" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="linguagem-compilada-x-interpretada"><span class="header-section-number">1.2.2</span> Linguagem Compilada X Interpretada</h3>
+<p>As <strong>linguagens compiladas</strong> são convertidas diretamente em código de máquina que o processador pode executar. Como resultado, elas tendem a ser mais rápidos e eficientes de executar do que linguagens interpretadas. Eles também dão ao desenvolvedor mais controle sobre os aspectos de hardware, como gerenciamento de memória e uso da CPU. As linguagens compiladas precisam de uma etapa de “construção” – elas precisam ser compiladas manualmente primeiro. Você precisa “reconstruir” o programa toda vez que precisar fazer uma alteração. Exemplos de linguagens compiladas puras: C, C++, Go.</p>
+<p>Uma <strong>linguagem interpretada</strong> é uma linguagem de programação que geralmente é interpretada, sem compilar um programa em instruções de máquina. É aquela em que as instruções não são executadas diretamente pela máquina de destino, mas lidas e executadas, linha por linha, por algum outro programa, um intérprete. As linguagens interpretadas já foram significativamente mais lentas do que as linguagens compiladas. Mas, com o desenvolvimento da compilação just-in-time, essa lacuna está diminuindo. Exemplos de linguagens interpretadas: Python e JavaScript</p>
+</section>
+<section id="paradigmas" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="paradigmas"><span class="header-section-number">1.2.3</span> Paradigmas</h3>
+<p>Podemos dizer que paradigmas de programação são diferentes formas ou estilos em que um determinado programa ou linguagem de programação pode ser organizado. Cada paradigma consiste em certas estruturas, recursos e opiniões sobre como problemas comuns de programação devem ser abordados. Entre os principais paradigmas de programação podemos citar <strong>programação imperativa</strong>, <strong>programação declarativa</strong> e <strong>programação orientada a objetos</strong>. Na programação imperativa, por exemplo, o programador diz como, o quê e em qual ordem exatamente um programa ou rotina deve realizar. É neste paradigma que surgiram os famosos laços de repetição, estruturas condicionais, atribuição de valor à variáveis e controle de estado. Por outro lado, a programção declarativa não há preocupação na maneira ou método de execução de uma determinada rotina, o que importa é que a instrução seja realizada e não a forma como o será. Mais detalhes sobre paradigmas de programação podem ser obtidos <a href="https://www.freecodecamp.org/news/an-introduction-to-programming-paradigms/#what-is-a-programming-paradigm">aqui</a>.</p>
+<p>Python é considerado uma linguagem de programação multi-paradigma, pois suporta orientação de objeto, programação imperativa e, em menor escala, programação funcional.</p>
+</section>
+<section id="tipagem" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="tipagem"><span class="header-section-number">1.2.4</span> Tipagem</h3>
+<p>O Python utiliza tipagem dinâmica e forte, isso significa que o próprio interpretador do Python infere o tipo dos dados que uma variável recebe, sem a necessidade que o usuário da linguagem diga de que tipo determinada variável é. Hoje existem inúmeras linguagens no mercado que são fortemente tipadas, referenciando especificamente o Python para explicar a questão: tipagem forte significa que o interpretador do Python avalia as expressões por conta própria e não faz coerções automáticas (conversões de valores) entre tipos de dados não compatíveis. Ao fazer operações com tipos incompatíveis, o Python não converte automaticamente esses tipos pra você, ele vai dar erro. Isso é bom, pois assim você terá a certeza que o seu resultado é mais consistente.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

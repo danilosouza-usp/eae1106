@@ -1,3 +1,548 @@
 # Controle de fluxo e iteração
 
-In summary, this book has no content whatsoever.
+X bla bla bla
+
+---
+
+## Repetição simples e a instrução _for_
+
+Os computadores muitas vezes são usados para automatizar tarefas repetitivas. A repetição de tarefas idênticas ou semelhantes sem cometer erros é algo que os computadores fazem muito bem e as pessoas não. Em um programa de computador, a repetição também é chamada de iteração.
+
+De maneira um pouco mais formal, iteração significa executar o mesmo bloco de código repetidamente, potencialmente muitas vezes. Uma estrutura de programação que implementa a iteração é chamada de _loop_. A forma mais simples de iteração é a chamada _iteração definida_, em que o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o _loop_ é iniciado.
+
+Para atingir o objetivo proposto pela _iteração definida_ utilizaremos no Python a instrução `for`. Um loop `for` tem duas partes: um cabeçalho especificando a iteração, que termina em dois pontos, e um corpo **identado** que é executado uma vez por iteração. O corpo pode conter qualquer número de instruções, mas o Python só reconhecerá como parte do corpo o código que estiver identado em relação ao cabeçalho.
+
+No Python o `for` tem a cara abaixo
+
+```python
+for <elemento> in <objeto>:
+    <instruções>
+```
+
+Note que `<objeto>` em geral se refere à uma sequência, seja ela uma lista, uma tupla, um string ou qualquer outro objeto pelo qual seja possível percorrer. Para cada `<elemento>` dentro da sequência `<objeto>` o conjunto de instruções em `<instruções>`será executado. Após percorrer todos os elementos pertencentes à sequência `<objeto>`, o Python para a execução do _loop_.
+
+Antes de partir para os exemplos, porém, vamos dar um passo atrás e falar mais sobre algo que apenas citamos algumas aulas atrás que é a importação de bibliotecas de comando e de conjuntos de funções que não estão contidas nas funções e operações nativas do Python. 
+
+### Importando bibliotecas de comandos e conjuntos de funções
+
+Sempre que quisermos trazer algo "de fora",  devemos carregar as bibliotecas específicas, seja por completo ou apenas um subconjunto de suas funções. Fazemos isso por meio do comando ``import``. Vamos utilizar como exemplo a biblioteca `NumPy`, uma das principais bibliotecas de comando do Python em se tratando de operações algébricas e matriciais.
+
+Dedicaremos uma aula inteira para trabalhar com o `NumPy` daqui algumas semanas, mas por hora trabalharemos apenas com as funções geradoras de números aleatórios, em especial a função geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (vocês devem se lembrar das características dessa distribuição das aulas de estatística, mas caso ainda restem dúvidas sempre existe o [Wikipedia](https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_uniforme)).
+
+Há 3 formas de trabalhar com essa função específica, contida no `NumPy`: 
+
+<br>
+
+1. Podemos importar a biblioteca inteira
+
+```{python}
+import numpy
+```
+
+2. Podemos importar a biblioteca inteira mas dando-lhe um "apelido"
+
+```{python}
+import numpy as np
+```
+
+3. Podemos importar apenas a função que nos interessa nesse caso
+
+```{python}
+from numpy.random import uniform
+```
+
+<br>
+
+Qual a diferença entre esses métodos? No Python, sempre que formos utilizar uma função de algum pacote "de fora" é preciso dizer ao Python de onde que essa função está vindo. Se quisermos usar a função `uniform()` através do 1º método, por exemplo, é preciso chamá-la utilizando o nome do pacote, nesse caso `numpy.random.uniform()`. O 2º método encurta esse nome de tal forma que é possível chamar a mesma função usando `np.random.uniform()`. Por fim, no 3º caso basta chamar a função diretamente, isto é, `uniform()`. 
+
+Mas se o 3º caso é mais direto, porque não usá-lo sempre? Por duas razões bem simples: (i) usar a sintaxe dos 2 primeiros casos torna o código mais compreensível e depurável, já que no caso de algum problema de execução sabemos onde procurar a resposta, e (ii) é comum pacotes distintos usarem o mesmo nome para funções que fazem operações distintas, o que pode gerar problemas de incompatibilidade e/ou de executarmos algo diferente daquilo que gostaríamos de executar. 
+
+Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite reduzir linhas desnecessárias de código ao mesmo tempo que facilita a replicabilidade e a atividade de depuração do código.
+
+Voltemos então ao nosso exercício de gerar números aleatórios uniformemente distribuídos:
+
+
+```{python}
+import numpy as np
+```
+
+Imagine agora que estejamos interessados em criar um `for` loop que printa 10 números aleatórios sorteados de uma distribuição uniforme que vai de 0 a 1. Utilizando o objeto `range()` e a lógica de listas:
+
+
+```{python}
+print(range(0,10))
+```
+
+
+```{python}
+print(list(range(0,10)))
+```
+
+
+```{python}
+for i in list(range(0,10)):
+    
+    u = np.random.uniform()
+    print(u)
+```
+
+No _loop_ acima não utilizamos o elemento `i` em nenhum momento, de modo que a lista nos serviu apenas para ditar o número de vezes que gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso 10. Podemos ir um pouco além.
+
+
+```{python}
+for i in list(range(0,10)):
+    
+    u = np.random.uniform()
+    print('Essa é a iteração '+str(i+1)+' e o número sorteado foi: {:.2f}'.format(u)) 
+```
+
+Note que nesse caso utilizamos tanto o elemento _iterável_ `i`, quanto o resultado de cada sorteio individual `u`. 
+
+Como dito anterioremente, o loop `for` funciona com qualquer sequência ou objeto pelo qual seja possível percorrer. Podemos trabalhar, inclusive, com strings e listas como nos exemplos abaixo:
+
+
+```{python}
+str1 = 'Vou nadaaaa'
+
+for c in str1:
+    print(c)
+```
+
+
+```{python}
+lista1 = ['Minha terra tem palmeiras','onde canta o sabiá','seno A cosseno B','seno B cosseno A']
+
+for f in lista1:
+    print(f)
+```
+
+### _for_ loop e instruções condicionais
+
+Podemos utilizar instruções condicionais dentro de um loop `for` também. Mais do que isso, é possível utilizar esse tipo de instrução para interromper a repetição do código, mesmo antes do Python percorrer todos os elementos da sequência alvo.
+
+
+```{python}
+for i in ['foo','bar','baz','qux']:
+    
+    if 'b' in i:
+        break
+    print(i)
+```
+
+Note que no caso acima, o segundo elemento da lista `['foo','bar','baz','qux']` contém a letra 'b' mas o primeiro não. A instrução `if`, portanto, retorna `False` na primeira iteração e `True` na segunda. No momento em que ela retorna `True` o código identado `break` é executado e o loop para aí! Dessa forma, o único termo que a instrução print vai imprimir será o primeiro da lista, isto é, 'foo'.
+
+### Exercício de fixação
+
+<br>
+
+O último teorema de _Fermat_ diz que não há nenhum número inteiro positivo _a,b,c_ tal que 
+
+$$ a^n + b^n = c^n $$
+
+para quaisquer valores de n maiores do que 2.
+
+Use o que você aprendeu com condicionais, operações aritméticas e instruções print para testar se o teorema se mantém, dada a lista de números inteiros abaixo. Note que ao fim de cada iteração, o programa deve exibir "Holy smokes! Fermat was wrong" caso o teorema não valha e "Fermat was right" caso você não tenha refutado um gênio dos tempos modernos.
+
+
+`a = [1,2,3,4,5,6,7,8,9,10]`
+
+`b = [1,2,3,4,5,6,7,8,9,10]`
+
+`n = [3,4,5,6,7,8,9,10,37,52,89,100]`
+
+
+### Usando _enumerate_ e _zip_
+
+Às vezes pode ser útil, dentro de um loop `for`, ter uma variável que muda em cada iteração do loop que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa `enumerate()` para obter um contador e o valor do objeto iterável ao mesmo tempo! Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
+
+
+```{python}
+str1 = 'O Tata é foota, o Tata é foota'
+
+# Algumas linhas de código adicionais para excluir pontuação e transformar o string em uma lista de palavras
+str1 = str1.replace('.','')
+str1 = str1.replace(',','')
+str1 = str1.replace('?','')
+lista1 = str1.split()
+
+for c in lista1:
+    print(c)
+```
+
+Utilizando o `enumerate()` podemos, em uma mesma linha de código, printar não apenas cada string individual da lista, mas também a posição desse string dentro da lista!
+
+
+```{python}
+for count,value in enumerate(lista1):
+    
+    print('Elemento '+str(count)+' = '+value)
+```
+
+Uma outra forma de criar esses mesmos resultados seria utilizando a função nativa `zip()`. Essa função nos permite iterar ao longo de duas ou mais sequências ao mesmo tempo, contanto que as sequências possuam o mesmo comprimento.
+
+
+```{python}
+print(lista1)
+```
+
+
+```{python}
+lista2 = list(range(0,len(lista1)))
+print(lista2)
+```
+
+
+```{python}
+len(lista1) == len(lista2)
+```
+
+
+```{python}
+for count,value in zip(lista2, lista1):
+    
+    print('Elemento '+str(count)+' = '+value)
+```
+
+Embora tenhamos utilizado a função `zip()` para chegar ao mesmo resultado de `enumerate()`, seu escopo de ação é muito mais geral já que nos permite percorrer dois objetos distintos ao mesmo tempo, sejam quais forem esses objetos. A única obrigatoriedade é que esses objetos tenham o mesmo tamanho, nada mais!
+
+
+```{python}
+professores = ['Danilo Souza','Danilo Souza','Claudio Lucinda']
+turmas = ['2024201','2024202','2024221']
+
+for p,t in zip(professores,turmas):
+    
+    print('Nesse curso, a turma '+t+' é de responsabilidade do professor '+p)
+```
+
+### _For_ e _list comprehensions_
+
+_List comprehensions_ é uma das várias formas que o Python nos oferece para de criar, alterar e manipular listas. Sua sintaxe é bastante concisa e nos permite olhar para um exerício de iteração através de algo parecido com uma fórmula. 
+
+Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop `for`:
+
+
+```{python}
+lista1 = [1,4,9,16,25,36,49,64,81,100,121,144,169,196,225]
+lista2 = []
+
+for x in lista1:
+    lista2.append(int(x**0.5))
+    
+print(lista2)
+```
+
+Alternativamente, podemos utilizar _list comprehensions_ através da seguinte sintaxe:
+
+
+```{python}
+lista2 = [int(x**0.5) for x in lista1] 
+
+print(lista2)
+```
+
+Em termos práticos isso funciona como se fosse um loop definido dentro de uma única linha de código. Mas porque aprender as duas formas? Será que alguma delas é mais eficiente? Vamos fazer um teste para esse exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos também a função `time` do pacote `time` para calcular o tempo utilizado por cada um dos métodos.
+
+
+```{python}
+import time 
+lista1 = list(range(1,1000000))
+
+# list comprehension
+start_comp = time.time()
+
+list_comp  = [int(x**0.5) for x in lista1]
+
+end_comp   = time.time()
+
+
+# loop
+start_loop = time.time()
+
+list_loop = []
+for x in lista1:
+    list_loop.append(int(x**0.5))  
+    
+end_loop   = time.time()
+
+ratio = (start_loop - end_loop) / (start_comp - end_comp)
+```
+
+Qual abordagem será que levou menos tempo?
+
+
+```{python}
+print('Tempo necessário para a realização dos cálculos utilizando list comprehensions: {:.4f} segundos'.format(end_comp - start_comp))
+print('Tempo necessário para a realização dos cálculos utilizando loop: {:.4f} segundos'.format(end_loop - start_loop))
+print('\nA abordagem de loop demorou {:.1%} mais tempo! Dê uma chance para list comprehensions ;)'.format(ratio - 1))
+```
+
+## Reatribuição e atualização de variáveis
+
+Pode ser que você já tenha descoberto que é permitido fazer mais de uma atribuição para a mesma variável. Uma nova atribuição faz uma variável existente referir-se a um novo valor (e deixar de referir-se ao valor anterior).
+
+
+```{python}
+x = 5
+print(x)
+```
+
+
+```{python}
+x = 7
+print(7)
+```
+
+A primeira vez que exibimos x, seu valor é 5. Na segunda vez, seu valor é 7.
+
+Neste ponto quero tratar de uma fonte comum de confusão. Como o Python usa o sinal de igual (=) para atribuição, é tentador interpretar uma afirmação como `a = b` como uma proposição matemática de igualdade, isto é, a declaração de que a e b são iguais. Mas esta é uma interpretação equivocada.
+
+Em primeiro lugar, a igualdade é uma relação simétrica e a atribuição não é. Por exemplo, na matemática, se `a=7` então `7=a`. Mas no Python, a instrução `a = 7` é legal e `7 = a` não é. Além disso, na matemática, uma proposição de igualdade é verdadeira ou falsa para sempre. Se `a=b` agora, então `a` sempre será igual a `b`. No Python, uma instrução de atribuição pode tornar duas variáveis iguais, mas elas não precisam se manter assim:
+
+
+```{python}
+a = 5
+b = a # a e b agora são iguais
+
+print('Valor de a: '+str(a)+'\nValor de b: '+str(b))
+
+a = 3 # a e b não são mais iguais
+
+print('\nValor de a: '+str(a)+'\nValor de b: '+str(b))
+```
+
+Quando redefinimos o valor de `a` para 3, não mudamos o valor de `b`, de modo que as variáveis deixam de ser iguais. A reatribuição de variáveis muitas vezes é útil, mas você deve usá-la com prudência. Se os valores das variáveis mudarem frequentemente, isso pode dificultar a leitura e depuração do código.
+
+## Repetição condicional e a instrução _while_
+
+Em programação existem dois tipos de iteração, indefinidas e definidas:
+
+* Com **iteração definida**, o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o loop é iniciado. É o exemplo do `for` loop com o qual trabalhamos anteriormente.
+
+* Com **iteração indefinida**, o número de vezes que o loop é executado não é especificado explicitamente com antecedência. Em vez disso, o bloco designado é executado repetidamente enquanto alguma condição for atendida.
+
+Para interação indefinida, a construção típica do Python é o `while`. A forma mais simples desse loop `while` é a seguinte:
+
+```python
+while <expr>:
+    <instruções>
+```
+
+Em que `instruções` representam uma ou mais linhas de código a serem executadas. Da mesma forma que nas outras estruturas, a **indentação** determina quais linhas vão ser executadas.
+
+A expressão de controle, `<expr>`, normalmente envolve uma ou mais variáveis que são inicializadas antes de iniciar o loop e depois modificadas em algum lugar no corpo do loop. **Você precisa dessa expressão bem pensada, porque é ela que vai determinar o momento em que o loop para**
+
+Quando um loop `while` é encontrado, `<expr>`é avaliado primeiro no contexto booleano. Se for verdadeiro, o corpo do loop é executado. Em seguida `<expr>`, é verificado novamente e, se ainda for verdadeiro, o corpo é executado novamente. Isso continua até `<expr>` se tornar falso, momento em que a execução do programa prossegue para a primeira instrução além do corpo do loop. **Dentro de `<instruções>` você precisa ter algo que modifique algum elemento de `<expr>`. Senão ou o loop não vai rodar ou vai rodar para sempre.** Uma das formas de interromper **à força** a execução de um loop é por meio das teclas `Ctrl+C`.
+
+
+Considere o caso abaixo:
+
+
+```{python}
+n = 5
+
+while n > 0:
+    n = n-1
+    print(n)
+    
+print('\nÀ partir de agora as instruções fora do loop serão executadas.')
+```
+
+Veja o que está acontecendo neste exemplo:
+
+O valor inicial de `n` é 5. A expressão no cabeçalho da instrução `while` na linha 2 é `n > 0`, o que é `True`, então o corpo do loop é executado. Dentro do corpo do loop redefinimos o valor de `n` para que seja igual ao valor anterior de `n` menos 1, e então o novo valor de `n` é impresso.
+
+Quando o corpo do loop termina, a execução do programa retorna ao topo do loop na linha 2 e a expressão é avaliada novamente. Ainda é verdade, então o corpo é executado novamente e 3 é impresso. Isso continua até `n` se tornar 0. Nesse ponto, quando a expressão é testada, ela é falsa (0 não é maior do que 0) e o loop termina. A execução é retomada na primeira instrução após o corpo do loop, no caso a instrução print. Observe que a expressão de controle do loop `while` é testada primeiro, antes que qualquer outra coisa aconteça.
+
+A seguir temos um loop while que usa uma lista:
+
+
+```{python}
+a = ['foo', 'bar', 'baz']
+print(a)
+
+while a:
+    
+    a.pop(-1)
+    print(a)
+```
+
+Quando uma lista é avaliada em contexto booleano, ela é verdadeira se tiver elementos nela e falsa se estiver vazia. Neste exemplo, `a` é verdadeiro desde que tenha elementos nele. Quando todos os itens forem removidos com o método `.pop()` e a lista estiver vazia, `a` será falsa e o loop terminará.
+
+### Formas de Interromper um Loop
+
+Em cada exemplo que você viu até agora, todo o corpo do loop `while` é executado em cada iteração. Python fornece duas palavras-chave que encerram uma iteração de loop prematuramente:
+
+* A instrução Python `break` imediatamente encerra um loop inteiramente. Já vimos como ela funciona no caso do `for` loop e instruções condicionais. 
+
+* A instrução `continue`, por outro lado, encerra imediatamente a iteração do loop atual. A execução salta para o topo do loop e a expressão de controle é reavaliada para determinar se o loop será executado novamente ou terminará.
+
+Um exemplo de `break`:
+
+
+```{python}
+n = 5
+print(n)
+
+while n > 0:
+    n = n - 1
+    if n == 2:
+        break
+    print(n)
+    
+print('Loop ended.')
+```
+
+Um exemplo de `continue`:
+
+
+```{python}
+n = 5
+
+while n > 0:
+    n = n - 1
+    if n == 2:
+        continue
+    print(n)
+print('Loop ended.')
+```
+
+## Aplicação: Teorema Central do Limite
+
+Obs: esse exercício é o mais complexo que fizemos até agora. Nele utilizamos grande parte dos conceitos que estudamos até aqui nesse curso, desde listas a loops e também a importação de bibliotecas de comandos. Você pode pular essa parte por enquanto, mas aconselho que aos poucos você tente replicá-lo, de forma a entender todas suas etapas com o tempo.
+
+
+<br>
+
+O **Teorema Central do Limite** é um resultado super importante em estatística e com aplicações nas mais diversas áreas. Em sua formulação mais simples, o teorema diz que:
+
+<div class="alert alert-block alert-success">  
+<b>A distribuição da média amostral da variável aleatória $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho da amostra, independentemente da distribuição original de X.</b>   
+</div>
+
+Suponha que estejamos amostrando de uma variável aleatória X com média finita e igual a $\mu$ e desvio padrão finito e igual a $\sigma$. Então média e desvio padrão da distribuição amostral são representados por: 
+
+$$\mu_{\bar{X}}=\mu$$
+
+$$\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{N}}$$
+
+Vamos apresentar uma implementação desse Teorema usando Python, em várias partes. A primeira parte mostra como tirar 10 números aleatórios entre -40 e 40, usando o `NumPy`. Mais uma vez utilizaremos a função `uniform()` já que elas sorteia números reais com igual probabilidade dentro de um intervalo especificado.
+
+
+```{python}
+import numpy as np
+
+x = np.random.uniform(-40, 40, 10)
+print(x)
+```
+
+Note que se sorteamos 10 números novamente, o resultado será diferente
+
+
+```{python}
+x = np.random.uniform(-40, 40, 10)
+print(x)
+```
+
+Para tornar o nosso exemplo mais previsível, vamos usar uma função dentro do `NumPy` que faz com o que o sorteio dos números parta do mesmo lugar e, portanto, o resultado seja o mesmo. 
+
+
+```{python}
+np.random.seed(1)
+
+x = np.random.uniform(-40, 40, 10)
+print(x)
+```
+
+
+```{python}
+np.random.seed(1)
+
+x = np.random.uniform(-40, 40, 10)
+print(x)
+```
+
+Feito o sorteio de números aleatórios, o próximo passo é tirar a média desse conjunto de números:
+
+
+```{python}
+np.mean(x)
+```
+
+Como vocês podem notar, a média não deu igual a zero, embora a média da distribuição uniforme com números inteiros que vai de -40 a 40 seja igual a 0. E aí surge a mágica do Teorema Central do Limite. Ainda que uma amostra não tenha a média igual à média populacional, a **média das médias** vai convergindo para zero à medida em que extraímos novas amostras e calculamos novas médias.
+
+Agora vou fazer isso em um loop, sorteando 50 números aleatórios por amostra e primeiro com 10 amostras:
+
+
+```{python}
+# number of sample
+n = 10 
+means = [] 
+
+np.random.seed(1)
+
+for j in list(range(0,n)):
+    
+    lista_sorteio = np.random.uniform(-40, 40, 50)
+    x = np.mean(lista_sorteio)
+    means.append(x)
+
+means = [np.round(elem,2) for elem in means]
+print(means)
+np.mean(means)
+```
+
+Agora com 100 amostras
+
+
+```{python}
+# number of sample
+n = 100 
+means = [] 
+
+np.random.seed(1)
+
+for j in list(range(0,n)):
+    
+    lista_sorteio = np.random.uniform(-40, 40, 50)
+    x = np.mean(lista_sorteio)
+    means.append(x)
+
+means = [np.round(elem,2) for elem in means]
+print(means)
+np.mean(means)
+```
+
+Vamos deixar essa tentativa de aproximar a média das médias de $\mu$ mais automatizada:
+
+
+```{python}
+expoentes = [1,2,3,4,5,6,7,8,9,10]
+N = [2**exp for exp in expoentes]
+
+means = [] 
+
+np.random.seed(1)
+for n in N:
+    
+    means_atual = [] 
+    for j in list(range(0,n)):
+        
+        lista_sorteio = np.random.uniform(-40, 40, 100)
+        x = np.mean(lista_sorteio)
+        means_atual.append(x)
+        
+    means.append(np.mean(means_atual))
+```
+
+
+```{python}
+for m in means:
+    
+    print(np.round(m,2))
+```
+
+Olha só a convergência aí, minha gente!
+
+Note que até aqui a gente só mostrou que a **média das médias converge para a média populacional**. O Teorema, no entanto, é mais completo do que isso. Ele diz que a distribuição da média amostral é uma Normal e, além disso, possui aquelas características em relação à distribuição original. Ainda precisamos de mais algumas aulas para ir além e olhar essas outrs questões do Teorema, mas logo logo chegamos lá.
+
