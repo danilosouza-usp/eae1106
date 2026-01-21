@@ -1,8 +1,6 @@
-# Visualização
+# Visualização {#sec-visualizacao}
 
 Uma das principais aplicações para o Python bla bla bla
-
----
 
 ## O que é o Matplotlib?
 
@@ -779,3 +777,8 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 
 O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível "consertá-las". Há, no entanto, outras várias fontes de informação sobre visualização (esse [link](https://datascience.quantecon.org/applications/visualization_rules.html) é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de _storytelling_, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro [Storytelling com dados](https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&qid=1668636806&qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&sprefix=story%2Caps%2C557&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. **Personalização** é a palavra chave nessa árdua tarefa de construir um bom gráfico.
 
+## Exercícios
+
+1. X
+
+2. X

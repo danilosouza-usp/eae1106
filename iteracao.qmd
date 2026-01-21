@@ -1,8 +1,6 @@
-# Controle de fluxo e iteração
+# Controle de fluxo e iteração {#sec-iteracao}
 
 X bla bla bla
-
----
 
 ## Repetição simples e a instrução _for_
 
@@ -130,26 +128,6 @@ for i in ['foo','bar','baz','qux']:
 ```
 
 Note que no caso acima, o segundo elemento da lista `['foo','bar','baz','qux']` contém a letra 'b' mas o primeiro não. A instrução `if`, portanto, retorna `False` na primeira iteração e `True` na segunda. No momento em que ela retorna `True` o código identado `break` é executado e o loop para aí! Dessa forma, o único termo que a instrução print vai imprimir será o primeiro da lista, isto é, 'foo'.
-
-### Exercício de fixação
-
-<br>
-
-O último teorema de _Fermat_ diz que não há nenhum número inteiro positivo _a,b,c_ tal que 
-
-$$ a^n + b^n = c^n $$
-
-para quaisquer valores de n maiores do que 2.
-
-Use o que você aprendeu com condicionais, operações aritméticas e instruções print para testar se o teorema se mantém, dada a lista de números inteiros abaixo. Note que ao fim de cada iteração, o programa deve exibir "Holy smokes! Fermat was wrong" caso o teorema não valha e "Fermat was right" caso você não tenha refutado um gênio dos tempos modernos.
-
-
-`a = [1,2,3,4,5,6,7,8,9,10]`
-
-`b = [1,2,3,4,5,6,7,8,9,10]`
-
-`n = [3,4,5,6,7,8,9,10,37,52,89,100]`
-
 
 ### Usando _enumerate_ e _zip_
 
@@ -546,3 +524,17 @@ Olha só a convergência aí, minha gente!
 
 Note que até aqui a gente só mostrou que a **média das médias converge para a média populacional**. O Teorema, no entanto, é mais completo do que isso. Ele diz que a distribuição da média amostral é uma Normal e, além disso, possui aquelas características em relação à distribuição original. Ainda precisamos de mais algumas aulas para ir além e olhar essas outrs questões do Teorema, mas logo logo chegamos lá.
 
+## Exercícios
+
+1. O último teorema de _Fermat_ diz que não há nenhum número inteiro positivo _a,b,c_ tal que 
+   $$ a^n + b^n = c^n $$
+   
+   para quaisquer valores de n maiores do que 2.
+   
+   Use o que você aprendeu com condicionais, operações aritméticas e instruções print para testar se o teorema se mantém, dada a lista de números inteiros abaixo. Note que ao fim de cada iteração, o programa deve exibir "Holy smokes! Fermat was wrong" caso o teorema não valha e "Fermat was right" caso você não tenha refutado um gênio dos tempos modernos.
+   
+   * `a = [1,2,3,4,5,6,7,8,9,10]`
+   * `b = [1,2,3,4,5,6,7,8,9,10]`
+   * `n = [3,4,5,6,7,8,9,10,37,52,89,100]`
+
+2. X

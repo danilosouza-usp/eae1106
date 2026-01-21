@@ -1,4 +1,4 @@
-# Computação numérica, análise de dados e visualização {.unnumbered}
+# Computação numérica, análise de dados e visualização {#sec-pacotes .unnumbered}
 
 Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
 

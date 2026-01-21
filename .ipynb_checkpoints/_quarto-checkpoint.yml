@@ -5,9 +5,19 @@ project:
 lang: pt-BR
 
 book:
-  title: "EAE1106 - Métodos Computacionais para Economia"
+  title: "Métodos Computacionais para Economia"
+  subtitle: "Faculdade de Economia, Administração, Contabilidade e Atuaria<br>Universidade de São Paulo"
   author: "[Danilo Souza](https://www.danilosouza.com/)"
+  date: "2026-01-20"
+  date-format: "DD [ de ] MMMM, YYYY"
   reader-mode: true
+
+  repo-url: https://github.com/danilosouza-usp/eae1106
+  repo-actions: [edit]
+
+  sidebar:
+    search: false
+    logo: images/usp-logo.jpg
 
   page-footer:
     left: "© 2026 [Danilo Souza](https://www.danilosouza.com/) · Departamento de Economia · FEA-USP"
@@ -15,8 +25,9 @@ book:
   
   chapters:
     - index.qmd
+    - prefacio.qmd
     
-    - part: "Alfabetização computacional e lógica básica"
+    - part: alfabetizacao.qmd
       chapters:
         - fundamentos.qmd
         - primeiros_passos.qmd
@@ -25,11 +36,14 @@ book:
         - iteracao.qmd
         - funcoes.qmd
         
-    - part: "Computação numérica, análise de dados e visualização"
+    - part: pacotes.qmd
       chapters:
         - numpy.qmd
+        - pandas.qmd
+        - visualizacao.qmd
+        - projeto_empirico.qmd
         
-    - part: "Temas complementares"
+    - part: complemento.qmd
       chapters:
         - oop.qmd
         - intror.qmd
@@ -50,7 +64,7 @@ format:
     code-fold: false
     css: styles.css
     highlight-style: pygments
-
+    link-external-newwindow: true
     author-meta: "Danilo Souza"
     
   pdf:

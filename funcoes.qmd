@@ -1,8 +1,6 @@
-# Funções
+# Funções {#sec-funcoes}
 
 In summary, this book has no content whatsoever.
-
----
 
 ## O que é uma função?
 
@@ -535,7 +533,9 @@ print(new_list)
 ```
 
 
-```{python}
+## Exercícios
 
-```
+1. X
+
+2. X
 

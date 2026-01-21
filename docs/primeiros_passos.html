@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>2&nbsp; Primeiros passos no Python – EAE1106 - Métodos Computacionais para Economia</title>
+<title>2&nbsp; Primeiros passos no Python – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,9 +152,6 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./primeiros_passos.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros passos no Python</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -162,10 +159,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">EAE1106 - Métodos Computacionais para Economia</a> 
+      <a href="./">Métodos Computacionais para Economia</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/danilosouza-usp/eae1106" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo de leitor">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -174,23 +176,18 @@ window.Quarto = {
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Procurar"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bem-vindo</span></a>
+ <span class="menu-text">Sobre este material</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introdução</span></a>
+  <a href="./prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -301,7 +298,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Bibliografia</span></a>
   </div>
 </li>
     </ul>
@@ -332,14 +329,14 @@ window.Quarto = {
   </ul></li>
   <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.3</span> Exercícios</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/primeiros_passos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./primeiros_passos.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros passos no Python</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros passos no Python</span></h1>
+<h1 class="title"><span id="sec-primeiros_passos" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros passos no Python</span></span></h1>
 </div>
 
 
@@ -357,7 +354,6 @@ window.Quarto = {
 
 
 <p>In summary, this book has no content whatsoever.</p>
-<hr>
 <section id="o-python" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="o-python"><span class="header-section-number">2.1</span> O Python</h2>
 <p>Python foi criado no final dos anos oitenta(1989) por Guido van Rossum no Centro de Matemática e Tecnológia da Informação (CWI, Centrum Wiskunde e Informatica), na Holanda, como sucessor da linguagem de programação ABC, capaz de lidar com exceções e interagir com o sistema operacional Amoeba. O nome da língua vem do gosto de seu criador pelos humoristas britânicos Monty Python (fonte: https://blog.vulpi.com.br/python-como-surgiu/)</p>
@@ -623,6 +619,11 @@ window.Quarto = {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -956,7 +957,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/primeiros_passos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

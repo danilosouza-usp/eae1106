@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>1&nbsp; Fundamentos de computação – EAE1106 - Métodos Computacionais para Economia</title>
+<title>1&nbsp; Fundamentos de computação – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,9 +117,6 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./fundamentos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de computação</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -127,10 +124,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">EAE1106 - Métodos Computacionais para Economia</a> 
+      <a href="./">Métodos Computacionais para Economia</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/danilosouza-usp/eae1106" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo de leitor">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -139,23 +141,18 @@ window.Quarto = {
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Procurar"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bem-vindo</span></a>
+ <span class="menu-text">Sobre este material</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introdução</span></a>
+  <a href="./prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -266,7 +263,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Bibliografia</span></a>
   </div>
 </li>
     </ul>
@@ -296,15 +293,16 @@ window.Quarto = {
   <li><a href="#paradigmas" id="toc-paradigmas" class="nav-link" data-scroll-target="#paradigmas"><span class="header-section-number">1.2.3</span> Paradigmas</a></li>
   <li><a href="#tipagem" id="toc-tipagem" class="nav-link" data-scroll-target="#tipagem"><span class="header-section-number">1.2.4</span> Tipagem</a></li>
   </ul></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">1.3</span> Exercícios</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/fundamentos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./fundamentos.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de computação</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de computação</span></h1>
+<h1 class="title"><span id="sec-fundamentos" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de computação</span></span></h1>
 </div>
 
 
@@ -322,7 +320,6 @@ window.Quarto = {
 
 
 <p>In summary, this book has no content whatsoever.</p>
-<hr>
 <section id="o-que-é-um-computador" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="o-que-é-um-computador"><span class="header-section-number">1.1</span> O que é um computador?</h2>
 <p>Um computador realiza duas coisas e apenas duas coisas: faz operações e guarda de forma eficiente o resultado dessas operações. No entanto, ao fazer essas duas coisas de forma extremamente eficiente essa máquina chamada computador nos permite receber, armazenar, processar e transmitir informações. Em essência, o computador nos serve ao propósito de <strong>resolução de problemas</strong>. Isso significa que, através de uma linguagem formal (especificamente operações de computação), podemos formular problemas e <strong>programar</strong> meios de resolver de forma automatizada tais problemas. No fim das contas, programar é o ato de criar programas, isto é, estabelecer uma sequência de instruções em linguagem formal que especifica como executar uma determinada operação no computador.</p>
@@ -436,9 +433,16 @@ window.Quarto = {
 <section id="tipagem" class="level3" data-number="1.2.4">
 <h3 data-number="1.2.4" class="anchored" data-anchor-id="tipagem"><span class="header-section-number">1.2.4</span> Tipagem</h3>
 <p>O Python utiliza tipagem dinâmica e forte, isso significa que o próprio interpretador do Python infere o tipo dos dados que uma variável recebe, sem a necessidade que o usuário da linguagem diga de que tipo determinada variável é. Hoje existem inúmeras linguagens no mercado que são fortemente tipadas, referenciando especificamente o Python para explicar a questão: tipagem forte significa que o interpretador do Python avalia as expressões por conta própria e não faz coerções automáticas (conversões de valores) entre tipos de dados não compatíveis. Ao fazer operações com tipos incompatíveis, o Python não converte automaticamente esses tipos pra você, ele vai dar erro. Isso é bom, pois assim você terá a certeza que o seu resultado é mais consistente.</p>
-
-
 </section>
+</section>
+<section id="exercícios" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.3</span> Exercícios</h2>
+<ol type="1">
+<li><p>X</p></li>
+<li><p>X</p></li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -529,6 +533,11 @@ window.Quarto = {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -862,7 +871,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/fundamentos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

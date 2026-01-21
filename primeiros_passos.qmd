@@ -1,8 +1,7 @@
-# Primeiros passos no Python
+# Primeiros passos no Python {#sec-primeiros_passos}
 
 In summary, this book has no content whatsoever.
 
----
 
 ## O Python
 
@@ -299,13 +298,13 @@ A primeira linha é uma instrução de atribuição que dá um valor a n. A segu
 
 ## Exercícios
 
-1) Inicialize o interpretador do Python e use-o como uma calculadora. Responda as seguintes perguntas:
+1. Inicialize o interpretador do Python e use-o como uma calculadora. Responda as seguintes perguntas:
 
-    a) Quantos segundos há em 42 minutos e 42 segundos?
-    b) Quantas milhas há em 10 quilômetros? Dica: uma milha equivale a 1,61 quilômetro.
-    c) Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o seu passo médio (tempo por milha em minutos e segundos)? Qual é a sua velocidade média em milhas por hora?
+   a. Quantos segundos há em 42 minutos e 42 segundos?
+   a. Quantas milhas há em 10 quilômetros? Dica: uma milha equivale a 1,61 quilômetro.
+   a. Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o seu passo médio (tempo por milha em minutos e segundos)? Qual é a sua velocidade média em milhas por hora?
 
-2) Crie uma conta no StackOverflow e monte seu perfil.
+2. Crie uma conta no StackOverflow e monte seu perfil.
 
 
 

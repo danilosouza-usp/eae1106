@@ -1,8 +1,7 @@
-# Programação e IA
+# Programação e IA {#sec-inteligencia_artificial}
 
 In summary, this book has no content whatsoever.
 
----
 
 ## StackOverflow
 
@@ -13,3 +12,10 @@ O site serve como uma plataforma para os usuários fazerem e responderem pergunt
 Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de respostas. Esse fórum, juntamente com outros sites de perguntas e respostas de programação semelhantes, substituíram globalmente principalmente os livros de programação para referência de programação do dia-a-dia nos anos 2000, e hoje são uma parte importante da programação de computadores. Vocês lembram do nosso gráfico de participação de algumas das principais linguagens no total de perguntas do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?
 
 Mas pera lá, o que significa esse monte de adjetivo? (fontes: [computersciencewiki.org](https://computersciencewiki.org/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [freecodecamp.org](https://www.freecodecamp.org))
+
+
+## Exercícios
+
+1. X
+
+2. X

@@ -1,4 +1,4 @@
-# Alfabetização computacional e lógica básica {.unnumbered}
+# Alfabetização computacional e lógica básica {#sec-alfabetizacao .unnumbered}
 
 Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
 

@@ -1,3 +1,22 @@
+/* Remove o título textual do livro na sidebar (reader-mode) */
+.sidebar .sidebar-title {
+  display: none;
+}
+
+/* Headings */
+
+.quarto-section-identifier {
+  color: #6C6C6C;
+  font-weight: 600;
+}
+
+.content h2.anchored,
+.content h3.anchored,
+.content h4.anchored {
+  color: #2b2b2b;
+  font-weight: 300;
+}
+
 /* Aumenta a largura máxima do conteúdo principal */
 .page-columns {
     grid-template-columns:

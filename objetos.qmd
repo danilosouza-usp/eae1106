@@ -1,4 +1,4 @@
-# Tipos primitivos e objetos básicos
+# Tipos primitivos e objetos básicos {#sec-objetos}
 
 In summary, this book has no content whatsoever.
 
@@ -951,13 +951,10 @@ print(y)
 
 3. Existem duas listas abaixo. Escreva um programa que as converta em um dicionário em que o item de `keys` é a chave e o item de `values` é o valor
 
-```{python}
-keys = ['Ten', 'Twenty', 'Thirty']
-values = [10, 20, 30]
-```
+   ```python
+   keys = ['Ten', 'Twenty', 'Thirty']
+   values = [10, 20, 30]
 
-**Output esperado do último exercício**
-```{python}
-{'Ten': 10, 'Twenty': 20, 'Thirty': 30}
-```
-
+   ### Output esperado
+   {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
+   ```

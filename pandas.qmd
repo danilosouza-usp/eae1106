@@ -1,8 +1,7 @@
-# Gestão e análise de dados
+# Gestão e análise de dados {#sec-pandas}
 
 Uma das principais aplicações para o Python bla bla bla
 
----
 
 ## O que é o Pandas?
 
@@ -528,3 +527,10 @@ df_covid_duplicada.info(memory_usage='deep')
 Reduzimos mais um pouco o comprometimento de memória, embora a diferença não tenha sido tão grande. Em dataframes com milhões de linhas e milhares de colunas, no entanto, essa redução pode fazer toda a diferença. Dica: dê uma olhada na função `pandas.to_numeric` e no argumento `downcast` caso você não saiba para qual tipo de dado numérico deve ir.
 
 No fim das contas, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna **antes** da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função `read_csv` (ou similar) e passar uma lista de tipo de dados ao argumento `dtype` (exemplo do algoritmo [aqui](https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e)). Tente isso em casa! **E não se esqueça: fuja de dados do tipo `object`!**
+
+
+## Exercícios
+
+1. X
+
+2. X

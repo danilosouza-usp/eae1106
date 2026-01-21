@@ -1,8 +1,6 @@
-# Arrays, matrizes e álgebra linear
+# Arrays, matrizes e álgebra linear {#sec-numpy}
 
 Uma das principais aplicações para o Python bla bla bla
-
----
 
 ## O que é o NumPy?
 
@@ -18,7 +16,6 @@ Mas o que é de fato um `ndarray`? É um objeto multidimensional que nos permite
 
 São muitas as qualidades do `NumPy` que fazem dele a melhor escolha quanto o assunto é lidar com objetos sequenciais, multidimensionais, e com os quais queremos operar tal qual vetores e matrizes. Mas chega de lenga lenga, vamos ao trabalho!
 
----
 
 ## Elementos básicos do NumPy
 
@@ -547,3 +544,9 @@ Uma última alternativa para resolver o sistema $A\cdot \vec{x} = \vec{b}$, é u
 ```{python}
 np.linalg.solve(A,b)
 ```
+
+## Exercícios
+
+1. X
+
+2. X

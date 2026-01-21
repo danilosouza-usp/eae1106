@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>8&nbsp; Gestão e análise de dados – EAE1106 - Métodos Computacionais para Economia</title>
+<title>8&nbsp; Gestão e análise de dados – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,9 +155,6 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pacotes.html">Computação numérica, análise de dados e visualização</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gestão e análise de dados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -165,10 +162,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/usp-logo.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">EAE1106 - Métodos Computacionais para Economia</a> 
+      <a href="./">Métodos Computacionais para Economia</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/danilosouza-usp/eae1106" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo de leitor">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -177,23 +179,18 @@ window.Quarto = {
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Procurar"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bem-vindo</span></a>
+ <span class="menu-text">Sobre este material</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introdução</span></a>
+  <a href="./prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -304,7 +301,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Bibliografia</span></a>
   </div>
 </li>
     </ul>
@@ -330,15 +327,16 @@ window.Quarto = {
   <li><a href="#exportando-o-dataframe" id="toc-exportando-o-dataframe" class="nav-link" data-scroll-target="#exportando-o-dataframe"><span class="header-section-number">8.3.7</span> Exportando o DataFrame</a></li>
   </ul></li>
   <li><a href="#eficiência-e-dtypes" id="toc-eficiência-e-dtypes" class="nav-link" data-scroll-target="#eficiência-e-dtypes"><span class="header-section-number">8.4</span> Eficiência e <em>dtypes</em></a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">8.5</span> Exercícios</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/pandas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pacotes.html">Computação numérica, análise de dados e visualização</a></li><li class="breadcrumb-item"><a href="./pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gestão e análise de dados</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gestão e análise de dados</span></h1>
+<h1 class="title"><span id="sec-pandas" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gestão e análise de dados</span></span></h1>
 </div>
 
 
@@ -356,7 +354,6 @@ window.Quarto = {
 
 
 <p>Uma das principais aplicações para o Python bla bla bla</p>
-<hr>
 <section id="o-que-é-o-pandas" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="o-que-é-o-pandas"><span class="header-section-number">8.1</span> O que é o Pandas?</h2>
 <p>Pandas é uma biblioteca que contém objetos específicos e ferramentas próprias a esses objetos que permitem realizar limpeza, organização e análise de dados de forma bastante eficiente no Python. Não à toa, é uma das bibliotecas mais utilizadas na linguagem hoje em dia, um pré-requisito para a maior parte das aplicações de ciência dos dados e aprendizado de máquina.</p>
@@ -367,11 +364,11 @@ window.Quarto = {
 <section id="objetos-no-pandas" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="objetos-no-pandas"><span class="header-section-number">8.2</span> Objetos no Pandas</h2>
 <p>Primeiro passo é importar o Pandas.</p>
-<div id="fdaf89ac" class="cell" data-execution_count="1">
+<div id="232ef85e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Uma vez importado, vamos começar criando duas listas: uma contendo o número de pessoas ocupadas (em mil pessoas) no Brasil de 2012 a 2021 e outra contendo exatamente o intervalo de anos.</p>
-<div id="5056b235" class="cell" data-execution_count="2">
+<div id="2b14684b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pessoas_ocupadas <span class="op">=</span> [<span class="dv">90593</span>,<span class="dv">92170</span>,<span class="dv">92962</span>,<span class="dv">92366</span>,<span class="dv">90174</span>,<span class="dv">92228</span>,<span class="dv">93534</span>,<span class="dv">95515</span>,<span class="dv">87225</span>,<span class="dv">95747</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>anos <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2012</span>,<span class="dv">2021</span><span class="op">+</span><span class="dv">1</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -383,7 +380,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Para criar uma série basta utilizar a função <code>pandas.Series</code>, que recebe como argumento os valores da série e os índices da série, que serão justamente os valores que identificam cada linha.</p>
-<div id="d25a98b8" class="cell" data-execution_count="3">
+<div id="fcb1ca71" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>series_pessoas_ocup <span class="op">=</span> pd.Series(data<span class="op">=</span>pessoas_ocupadas,index<span class="op">=</span>anos)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(series_pessoas_ocup),<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -406,7 +403,7 @@ dtype: int64</code></pre>
 </div>
 <p>Já para o caso de um DataFrame, podemos criá-lo através da função <code>pandas.DataFrame</code>. Essa função recebe os dados que irão compor as colunas de dados de diversas formas, mas umas das mais intuitivas é através da utilização de dicionários. Seguindo o exemplo anterior, vamos criar um DataFrame com as informações de pessoas ocupadas, desocupadas, dentro e fora da força de trabalho.</p>
 <p>Primeiro passo é definir o dicionário com esses dados.</p>
-<div id="421327aa" class="cell" data-execution_count="4">
+<div id="211e9ec3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ocupadas'</span>: [<span class="dv">90593</span>,<span class="dv">92170</span>,<span class="dv">92962</span>,<span class="dv">92366</span>,<span class="dv">90174</span>,<span class="dv">92228</span>,<span class="dv">93534</span>,<span class="dv">95515</span>,<span class="dv">87225</span>,<span class="dv">95747</span>],</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'desocupadas'</span>: [<span class="dv">6730</span>,<span class="dv">6151</span>,<span class="dv">6555</span>,<span class="dv">9222</span>,<span class="dv">12476</span>,<span class="dv">12453</span>,<span class="dv">12413</span>,<span class="dv">11903</span>,<span class="dv">14412</span>,<span class="dv">12011</span>],</span>
@@ -420,7 +417,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Agora basta definir o DataFrame usando como argumento esse dicionários <code>dados</code>.</p>
-<div id="ce487b39" class="cell" data-execution_count="5">
+<div id="508e532d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dados_emprego <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>dados,index<span class="op">=</span>anos)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(dados_emprego),<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -528,7 +525,7 @@ dtype: int64</code></pre>
 <p>Agora que já apresentamos os dois tipos de objetos e como criá-los na mão, vamos avançar e trabalhar com dados trazidos de algum arquivo externo. É comum nos depararmos com arquivos do tipo <code>.csv</code> e é com ele que trabalharemos no Pandas, embora o Pandas seja flexível e nos permita trazer para dentro do Python arquivos de várias terminações como <code>.txt</code>, <code>.xlsx</code>, <code>.json</code>, <code>.dta</code>, etc.</p>
 <p>A ideia daqui para frente é trabalhar com os dados do site <a href="https://ourworldindata.org/">Our World in Data</a> sobre número de casos de covid-19, mortes e excesso de mortes atrelados à doença, e número de doses de vacina aplicadas ao redor do mundo desde o início da pandemia, em fevereiro de 2020. Esses dados são atualizados semanalmente e disponibilizados na plataforma Kaggle. O arquivo específico com o qual trabalharemos está disponível no Moodle e deve ser baixado para a sua máquina local.</p>
 <p>Mas antes de aprendermos como trabalhar com um dataframe e as funcionalidades que o Pandas nos traz precisamos ler o arquivo com os nossos dados. Comecemos pela função <code>os.chdir</code> do pacote <code>os</code> para mudar o diretório base do Python para o diretório no qual o nosso arquivo se encontra:</p>
-<div id="6f3a6680" class="cell" data-execution_count="6">
+<div id="931a6c27" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual o diretório no qual o Python está trabalhando? A função getcwd() nos diz isso</span></span>
@@ -543,7 +540,7 @@ Diretório final: D:\Dropbox\Projetos e trabalhos\FEAUSP\Cursos\EAE1106 - Metodo
 </div>
 </div>
 <p>Quais são os arquivos disponíveis nesse diretório? A função <code>os.listdir()</code> lista as pastas e arquivos disponíveis no diretório que estamos trabalhando.</p>
-<div id="dbd76a01" class="cell" data-execution_count="7">
+<div id="aec85b59" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>os.listdir()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>['df_resultado_aula_pandas.csv',
@@ -586,7 +583,7 @@ Diretório final: D:\Dropbox\Projetos e trabalhos\FEAUSP\Cursos\EAE1106 - Metodo
 </div>
 </div>
 <p>Legal, Agora utilizaremos a função <code>pandas.read_csv</code> para ler o arquivo <code>owid-covid-data_top10.csv</code>. Esse arquivo contém as informações para os 10 países com o maior número reportado de casos de covid-19.</p>
-<div id="cc0491af" class="cell" data-execution_count="8">
+<div id="ddd046f0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_covid <span class="op">=</span> pd.read_csv(<span class="st">'owid-covid-data_top10.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df_covid)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -603,7 +600,7 @@ Diretório final: D:\Dropbox\Projetos e trabalhos\FEAUSP\Cursos\EAE1106 - Metodo
 <li><code>df.describe()</code> nos retorna uma tabela de estatísticas descritivas das colunas numéricas.</li>
 </ul>
 <p>Vejamos o que esses métodos nos retornam no nosso caso:</p>
-<div id="86c0addd" class="cell" data-execution_count="9">
+<div id="92818290" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_covid.info(memory_usage<span class="op">=</span><span class="st">'deep'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -682,7 +679,7 @@ dtypes: float64(62), object(5)
 memory usage: 5.7 MB</code></pre>
 </div>
 </div>
-<div id="5913413b" class="cell" data-execution_count="10">
+<div id="718aa7da" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_covid.head(<span class="dv">2</span>) <span class="co"># método para apresentar apenas as primeiras duas linhas do dataframe</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -772,7 +769,7 @@ memory usage: 5.7 MB</code></pre>
 </div>
 </div>
 <p>Ué, mas não são 67 colunas? Onde estão todas elas? Por padrão o pandas mostra apenas uma parcela do total, para alterar essas opções basta utilizar a função <code>pd.set_option</code> e mudar o argumento relacionado ao número máximo de colunas.</p>
-<div id="8eb963b0" class="cell" data-execution_count="11">
+<div id="c25247e7" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="dv">100</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_covid.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -999,7 +996,7 @@ memory usage: 5.7 MB</code></pre>
 </div>
 </div>
 </div>
-<div id="2d585f59" class="cell" data-execution_count="12">
+<div id="3bdae0ad" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_covid.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -1601,7 +1598,7 @@ memory usage: 5.7 MB</code></pre>
 </div>
 </div>
 <p>Uma outra coisa que pode ser bastante interessante é saber quantas vezes os valores de determinada variável se repetem. Quantas vezes cada país da base de dados aparece no DataFrame?</p>
-<div id="0814aabb" class="cell" data-execution_count="13">
+<div id="89d19db6" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_covid[<span class="st">'location'</span>].value_counts()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>location
@@ -1618,7 +1615,7 @@ Brazil            739
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="044e2cbc" class="cell" data-execution_count="14">
+<div id="66e9c057" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_covid[<span class="st">'location'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>,dropna<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>location
@@ -1636,7 +1633,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Por fim, podemos ordenar o DataFrame de acordo com uma coluna ou um conjunto de colunas. Qual eram os países com o maior número de novos casos de covid reportados no dia 1 de março de 2022?</p>
-<div id="3bf1d215" class="cell" data-execution_count="15">
+<div id="1b12fa07" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_covid[df_covid[<span class="st">'date'</span>]<span class="op">==</span><span class="st">'2022-03-01'</span>].sort_values(by<span class="op">=</span>[<span class="st">'new_cases'</span>], ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -2427,7 +2424,7 @@ Name: proportion, dtype: float64</code></pre>
 <section id="indexação-seleção-e-filtragem" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="indexação-seleção-e-filtragem"><span class="header-section-number">8.3.3</span> Indexação, seleção e filtragem</h3>
 <p>Podemos selecionar um intervalo particular de linhas do DataFrame usando a lógica de indexação de sempre.</p>
-<div id="fdbf2a54" class="cell" data-execution_count="16">
+<div id="693acdd9" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_covid[<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
@@ -2654,7 +2651,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Utilizando a função <code>.iloc</code> podemos selecionar linhas e colunas com os índices numéricos. E se quisermos, por exemplo, comparar o número total de casos de todos os países ao longo do tempo, mantendo apenas as variáveis <code>location</code>, <code>date</code> e <code>total_cases</code>?</p>
-<div id="503c1e8e" class="cell" data-execution_count="17">
+<div id="009aba8a" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_covid.iloc[:,<span class="dv">2</span>:<span class="dv">5</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
@@ -2744,7 +2741,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Podemos fazer exatamente a mesma coisa com a função <code>.loc</code> e utilizando uma mistura de índices numéricos para as linhas e seleção das colunas através de seus nomes.</p>
-<div id="56cbd79b" class="cell" data-execution_count="18">
+<div id="79050784" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_covid.loc[:, [<span class="st">'location'</span>,<span class="st">'date'</span>,<span class="st">'total_cases'</span>]]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
@@ -2834,7 +2831,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Uma terceira forma de fazer esse exercício de seleção de uma parte de um DataFrame já criado é através da criação de um novo DataFrame que mantenha apenas as colunas <code>location</code>, <code>date</code> e <code>total_cases</code>.</p>
-<div id="9a4e2a56" class="cell" data-execution_count="19">
+<div id="d30c69f3" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>columns_to_keep <span class="op">=</span> [<span class="st">'location'</span>,<span class="st">'date'</span>,<span class="st">'total_cases'</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_covid2 <span class="op">=</span> df_covid[columns_to_keep]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2872,7 +2869,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Podemos inclusive alterar o nome das colunas desse novo DataFrame de forma bem direta.</p>
-<div id="61e03dac" class="cell" data-execution_count="20">
+<div id="65199528" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_covid2.columns <span class="op">=</span> [<span class="st">'localizacao'</span>,<span class="st">'data'</span>,<span class="st">'casos'</span>]</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_covid2.head()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -2926,7 +2923,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>É possível redefinir o índice desse novo DataFrame para ser igual ao país.</p>
-<div id="7670abe9" class="cell" data-execution_count="21">
+<div id="4993835d" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_covid2.set_index(<span class="st">'localizacao'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df_covid2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -2967,7 +2964,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Selecionar apenas os dados brasileiros</li>
 </ul>
-<div id="7f4df280" class="cell" data-execution_count="22">
+<div id="43b34517" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_covid[df_covid[<span class="st">'location'</span>]<span class="op">==</span><span class="st">'Brazil'</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
@@ -3827,7 +3824,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Selecionar os dados brasileiros e apenas à partir do momento em que o número de casos se tornou maior do que 10 milhões</li>
 </ul>
-<div id="3e1b4634" class="cell" data-execution_count="23">
+<div id="527d4338" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_covid[(df_covid[<span class="st">'location'</span>]<span class="op">==</span><span class="st">'Brazil'</span>) <span class="op">&amp;</span> (df_covid[<span class="st">'total_cases'</span>]<span class="op">&gt;=</span><span class="dv">10000000</span>)]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
@@ -4687,7 +4684,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Selecionar os dados do Brasil e Estados Unidos</li>
 </ul>
-<div id="e4f71aa7" class="cell" data-execution_count="24">
+<div id="e724519f" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_covid[df_covid[<span class="st">'iso_code'</span>].isin([<span class="st">'BRA'</span>,<span class="st">'USA'</span>])]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
@@ -5548,14 +5545,14 @@ Name: proportion, dtype: float64</code></pre>
 <section id="operações-com-colunas-numéricas" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="operações-com-colunas-numéricas"><span class="header-section-number">8.3.4</span> Operações com colunas numéricas</h3>
 <p>Criar novas colunas a partir de operações sobre aquelas que já existem é bastante simples. Além disso, vamos manter apenas os dados para o Brasil para melhor visualizar os resultados.</p>
-<div id="0d489c16" class="cell" data-execution_count="25">
+<div id="b07729f6" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df_covid_br <span class="op">=</span> df_covid[df_covid[<span class="st">'iso_code'</span>]<span class="op">==</span><span class="st">'BRA'</span>].reset_index()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Agora já podemos brincar com as colunas numéricas e mostrar o resultado dos cálculos.</p>
 <ul>
 <li>Coluna com o aumento percentual de casos a cada dia</li>
 </ul>
-<div id="e66d4bcf" class="cell" data-execution_count="26">
+<div id="3960a044" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'new_cases_percentage'</span>] <span class="op">=</span> df_covid_br[<span class="st">'new_cases'</span>] <span class="op">/</span> df_covid_br[<span class="st">'total_cases'</span>]</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'date'</span>,<span class="st">'total_cases'</span>,<span class="st">'new_cases'</span>,<span class="st">'new_cases_percentage'</span>]</span>
@@ -5662,7 +5659,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Coluna com o log do total de casos</li>
 </ul>
-<div id="189c6931" class="cell" data-execution_count="27">
+<div id="561ee1fb" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'log_total_cases'</span>] <span class="op">=</span> np.log(df_covid_br[<span class="st">'total_cases'</span>])</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5758,7 +5755,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Coluna com o total de casos em milhares</li>
 </ul>
-<div id="b64b3597" class="cell" data-execution_count="28">
+<div id="ab3c2b92" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'total_cases_th'</span>] <span class="op">=</span> df_covid_br[<span class="st">'total_cases'</span>] <span class="op">/</span> <span class="dv">1000</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'date'</span>,<span class="st">'total_cases'</span>,<span class="st">'total_cases_th'</span>]</span>
@@ -5853,7 +5850,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Subtrair a média do número de novos casos da coluna de novos casos para encontrar o desvio em relação à média.</li>
 </ul>
-<div id="303740a6" class="cell" data-execution_count="29">
+<div id="d5a5162d" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'new_cases_demean'</span>] <span class="op">=</span> df_covid_br[<span class="st">'new_cases'</span>] <span class="op">-</span> df_covid_br[<span class="st">'new_cases'</span>].mean()</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'date'</span>,<span class="st">'new_cases'</span>,<span class="st">'new_cases_demean'</span>]</span>
@@ -5949,7 +5946,7 @@ Name: proportion, dtype: float64</code></pre>
 <ul>
 <li>Elevar o número de novos casos ao quadrado e dividir o resultado por 1 milhão.</li>
 </ul>
-<div id="19e0720b" class="cell" data-execution_count="30">
+<div id="97a9d43d" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'total_cases_sq'</span>] <span class="op">=</span> df_covid_br[<span class="st">'total_cases'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: (x<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span> <span class="fl">1e6</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'date'</span>,<span class="st">'total_cases'</span>,<span class="st">'total_cases_sq'</span>]</span>
@@ -6042,7 +6039,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Para visualizar melhor, vamos focar no último valor, representado pelo índice 738.</p>
-<div id="ab5129cd" class="cell" data-execution_count="31">
+<div id="2e01b229" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_covid_br.loc[<span class="dv">738</span>,<span class="st">'total_cases'</span>])</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_covid_br.loc[<span class="dv">738</span>,<span class="st">'total_cases_sq'</span>])</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((df_covid_br.loc[<span class="dv">738</span>,<span class="st">'total_cases'</span>] <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">1000000</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6057,7 +6054,7 @@ Name: proportion, dtype: float64</code></pre>
 <section id="operações-com-colunas-contendo-strings" class="level3" data-number="8.3.5">
 <h3 data-number="8.3.5" class="anchored" data-anchor-id="operações-com-colunas-contendo-strings"><span class="header-section-number">8.3.5</span> Operações com colunas contendo strings</h3>
 <p>O Pandas também nos fornece métodos e funções bastante interessantes para trabalhar com dados do tipo <code>string</code>. Vamos começar com um exemplo simples: transformando a nossa coluna com o nome dos países para um coluna com letras minúsculas apenas. Para trabalhar com essas funções/métodos precisamos primeiro dizer ao Pandas que a coluna de interesse receberá operações específicas a strings.</p>
-<div id="aad262d1" class="cell" data-execution_count="32">
+<div id="ff78a7dd" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'lower_location'</span>] <span class="op">=</span> df_covid_br[<span class="st">'location'</span>].<span class="bu">str</span>.lower()</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'iso_code'</span>,<span class="st">'continent'</span>,<span class="st">'location'</span>,<span class="st">'lower_location'</span>,<span class="st">'date'</span>]</span>
@@ -6174,7 +6171,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>Podemos aplicar a maior parte dos métodos de strings que já vimos (<code>replace</code>,<code>starswith</code>,<code>strip</code>,<code>extract</code>, etc.) utilizando essa sintaxe. Uma outra operação interessante, para, por exemplo, separar em colunas distintas o primeiro e o último nome de uma pessoa é realizada através do método <code>split</code>. Vamos tentar fazer isso com a coluna do continente.</p>
-<div id="d4e27493" class="cell" data-execution_count="33">
+<div id="f0ec8c57" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[[<span class="st">'continent_1'</span>, <span class="st">'continent_2'</span>]] <span class="op">=</span> df_covid_br[<span class="st">'continent'</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">' '</span>,n<span class="op">=</span><span class="dv">1</span>, expand<span class="op">=</span><span class="va">True</span>, regex<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>columns_to_show <span class="op">=</span> [<span class="st">'iso_code'</span>,<span class="st">'continent'</span>,<span class="st">'continent_1'</span>,<span class="st">'continent_2'</span>,<span class="st">'location'</span>,<span class="st">'lower_location'</span>,<span class="st">'date'</span>]</span>
@@ -6323,7 +6320,7 @@ Name: proportion, dtype: float64</code></pre>
 </ul>
 <p>Bacana né? Esse método <code>split</code> nos permite fazer muita coisa legal com colunas de texto!</p>
 <p>Por fim, uma outra funcionalidade interessante é a possibilidade de criação de novas colunas de strings utilizando dicionários. Podemos, por exemplo, utilizar essa funcionalidade para criar uma nova coluna que mostre se o número de novos casos por milhão está no quartil superior naquele dia ou não.</p>
-<div id="9411040e" class="cell" data-execution_count="34">
+<div id="2d140657" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'new_cases_per_million'</span>].describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>count     737.000000
@@ -6337,7 +6334,7 @@ max      1341.859000
 Name: new_cases_per_million, dtype: float64</code></pre>
 </div>
 </div>
-<div id="2860ac3a" class="cell" data-execution_count="35">
+<div id="560d781c" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criando coluna a partir de list comprehension</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'quartil_superior_bool'</span>] <span class="op">=</span> [<span class="va">True</span> <span class="cf">if</span> elem<span class="op">&gt;=</span><span class="fl">254.279</span> <span class="cf">else</span> <span class="va">False</span> <span class="cf">for</span> elem <span class="kw">in</span> df_covid_br[<span class="st">'new_cases_per_million'</span>]]</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -6351,7 +6348,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 <span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>df_covid_br[<span class="st">'quartil_superior_cat'</span>] <span class="op">=</span> df_covid_br[<span class="st">'quartil_superior_bool'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: quartil_superior[x])</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>E qual é o resultado final?</p>
-<div id="559cf841" class="cell" data-execution_count="36">
+<div id="173328d8" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df_covid_br[[<span class="st">'date'</span>,<span class="st">'new_cases_per_million'</span>,<span class="st">'quartil_superior_bool'</span>,<span class="st">'quartil_superior_cat'</span>]]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
@@ -6456,7 +6453,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 <section id="agrupamento-e-junção-de-dataframes" class="level3" data-number="8.3.6">
 <h3 data-number="8.3.6" class="anchored" data-anchor-id="agrupamento-e-junção-de-dataframes"><span class="header-section-number">8.3.6</span> Agrupamento e junção de DataFrames</h3>
 <p>Suponha que queiramos calcular médias mensais de novos casos e novos casos por milhão e salvar isso em um novo dataframe. Para essa operação podemos utilizar o famoso <code>groupby</code>. Vamos fazer isso para os dados brasileiros e norte-americanos de forma separada.</p>
-<div id="d64c1351" class="cell" data-execution_count="37">
+<div id="7cd83def" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df_covid[<span class="st">'ano_mes'</span>] <span class="op">=</span> df_covid[<span class="st">'date'</span>].<span class="bu">str</span>[<span class="dv">0</span>:<span class="dv">7</span>]</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>columns_to_keep <span class="op">=</span> [<span class="st">'location'</span>,<span class="st">'ano_mes'</span>,<span class="st">'new_cases'</span>,<span class="st">'new_cases_per_million'</span>]</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -6499,7 +6496,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="21aa63b7" class="cell" data-execution_count="38">
+<div id="955b8920" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df_covid_br_mensal <span class="op">=</span> df_covid_br.groupby(by<span class="op">=</span>[<span class="st">'location'</span>,<span class="st">'ano_mes'</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>df_covid_us_mensal <span class="op">=</span> df_covid_us.groupby(by<span class="op">=</span>[<span class="st">'location'</span>,<span class="st">'ano_mes'</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -6709,7 +6706,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 </div>
 <p>Note que fizemos um dataframe para o Brasil e outro para os Estados Unidos. Podíamos ter feito tudo junto? Podíamos. Mas fizemos dessa forma justamente para mostrar outra funcionalidade bastante importante quando trabalhamos com bases de dados: a junção de duas bases diferentes. Essa junção de bases distintas pode ser realizada utilizando duas funções distintas: <code>concat</code> e <code>merge</code>.</p>
 <p>A função <code>concat</code> “soma” duas bases, criando uma nova base que apenas junta as linhas dos diferentes dataframes. Isso é muito útil, por exemplo, quando geramos dataframes dentro de um loop e queremos ir juntando cada novo dataframe a um grande e único.</p>
-<div id="52bc606b" class="cell" data-execution_count="39">
+<div id="c0212931" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_covid_concat <span class="op">=</span> pd.concat(objs<span class="op">=</span>[df_covid_br_mensal, df_covid_us_mensal]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>df_covid_concat</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -7106,7 +7103,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 </div>
 </div>
 <p>Já a função <code>merge</code> une duas bases de acordo com colunas identificadoras. Vamos juntar as bases do Brasil e EUA utilizando a coluna de ano-mês como identificadora.</p>
-<div id="b962157e" class="cell" data-execution_count="40">
+<div id="b5ddcc42" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df_covid_merge <span class="op">=</span> pd.merge(df_covid_br_mensal, df_covid_us_mensal, how<span class="op">=</span><span class="st">'inner'</span>, on<span class="op">=</span>[<span class="st">'ano_mes'</span>])</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>df_covid_merge</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -7396,7 +7393,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 </div>
 <p>Que legal! Tome um tempo em casa para entender as particularidades dessa função <code>merge</code>, elas são muitas.</p>
 <p>Mas note que existiam colunas com o mesmo nome nas bases. Por padrão o pandas renomeia essas colunas com <code>_x</code> e <code>_y</code>. Vamos renomear essas colunas utilizando dicionários, uma forma alternativa ao que fizemos anteriormente.</p>
-<div id="3e2f670f" class="cell" data-execution_count="41">
+<div id="19871823" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df_covid_merge.drop(columns<span class="op">=</span>[<span class="st">'location_x'</span>,<span class="st">'location_y'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>dict_rename <span class="op">=</span> {</span>
@@ -7644,7 +7641,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 <h3 data-number="8.3.7" class="anchored" data-anchor-id="exportando-o-dataframe"><span class="header-section-number">8.3.7</span> Exportando o DataFrame</h3>
 <p>Por fim, a última coisa que gostaríamos de aprender nesse aulão de Pandas é como salvar o dataframe, resultado de todas as nossas operações, para um novo <code>csv</code> ou arquivo de qualquer outro tipo. Assim como tínhamos funções do tipo <code>read_csv</code> para trazer arquivos de fora, temos métodos do tipo <code>to_csv</code> para salvar um dado dataframe em um novo arquivo a ser utilizado em outros softwares.</p>
 <p>A sintaxe é bastante simples:</p>
-<div id="54a4b146" class="cell" data-execution_count="42">
+<div id="90fd6028" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df_covid_merge.to_csv(<span class="st">'df_resultado_aula_pandas.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>os.listdir()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -7696,7 +7693,7 @@ Name: new_cases_per_million, dtype: float64</code></pre>
 <h2 data-number="8.4" class="anchored" data-anchor-id="eficiência-e-dtypes"><span class="header-section-number">8.4</span> Eficiência e <em>dtypes</em></h2>
 <p>DataFrames podem ser objetos bastante pesados, com milhões de linhas e milhares de colunas. Isso por vezes pode ser um problemão para nós. Existem bibliotecas que servem ao propósito de trabalhar de forma mais eficiente com bases de dados muito grandes (e.g., <a href="https://www.dask.org/"><code>Dask</code></a>), mas algumas funções dentro do próprio Pandas já conseguem nos ajudar bastante em grande parte das situações.</p>
 <p>Vamos começar relendo a base completa de dados da covid com os 10 países com o maior número de casos. Além disso, imagine que por um descuido nosso tenhamos replicado todas as entradas por 10 vezes seguidas. Qual é o tamanho dessa base e quantos bytes de memória foram alocados para esse objeto?</p>
-<div id="a0a2500b" class="cell" data-execution_count="43">
+<div id="92757460" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df_covid_duplicada <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>):</span>
@@ -7782,7 +7779,7 @@ memory usage: 61.2 MB</code></pre>
 </div>
 </div>
 <p>O DataFrame <code>df_covid_duplicada</code> possui <span class="math inline">\(76,630\)</span> linhas, 67 colunas e está usando 64.6 MB da nossa memória RAM. O primeiro passo para tornar o objeto mais eficiente é ver se encontramos linhas duplicadas em todas suas colunas, que não nos trazem nenhuma nova informação mas carregam desnecessariamente nossos pentes de memória. Para esse fim utilizaremos a função <code>drop_duplicates</code>.</p>
-<div id="6265b935" class="cell" data-execution_count="44">
+<div id="a2224657" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df_covid_duplicada.drop_duplicates(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>df_covid_duplicada.info(memory_usage<span class="op">=</span><span class="st">'deep'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -7878,14 +7875,14 @@ memory usage: 6.2 MB</code></pre>
 </ul>
 <p>Beleza, devemos fugir do tipo <code>object</code> e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? A função <code>astype</code> é nossa companheira nesse caso.</p>
 <p>Voltando ao nosso dataframe original, as colunas <code>iso_code</code>, <code>continent</code> e <code>location</code> podem ser transformadas em colunas do tipo categórica sem nenhuma perda de informação. Comecemos por elas.</p>
-<div id="1cfe9ae6" class="cell" data-execution_count="45">
+<div id="55b13ab0" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>columns_to_cat <span class="op">=</span> [<span class="st">'iso_code'</span>,<span class="st">'continent'</span>,<span class="st">'location'</span>]</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> columns_to_cat:</span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    df_covid_duplicada[c] <span class="op">=</span> df_covid_duplicada[c].astype(<span class="st">'category'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>O quanto isso nos ajudou?</p>
-<div id="e96dfe23" class="cell" data-execution_count="46">
+<div id="6a32e72b" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>df_covid_duplicada.info(memory_usage<span class="op">=</span><span class="st">'deep'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -7967,7 +7964,7 @@ memory usage: 5.0 MB</code></pre>
 </div>
 <p>Caramba! Esse pequena alteração reduziu o comprometimento de memória em aproximadamente <span class="math inline">\(20\%\)</span>.</p>
 <p>Vamos tentar transformar as colunas de <code>total_cases</code>, <code>new_cases</code>, <code>total_deaths</code> e <code>new_deaths</code> em colunas do tipo <code>int32</code> ao invés de <code>float64</code> já que são colunas sabidamente de números inteiros. Não esqueça de lidar com os valores missing antes, já que dados do tipo <code>int</code> não aceitam <code>NaN</code> ou <code>infty</code> como valores.</p>
-<div id="335f2c7b" class="cell" data-execution_count="47">
+<div id="3c34cb74" class="cell" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>columns_to_int <span class="op">=</span> [<span class="st">'total_cases'</span>,<span class="st">'new_cases'</span>,<span class="st">'total_deaths'</span>,<span class="st">'new_deaths'</span>]</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> columns_to_int:</span>
@@ -7975,7 +7972,7 @@ memory usage: 5.0 MB</code></pre>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    df_covid_duplicada[c] <span class="op">=</span> df_covid_duplicada[c].astype(<span class="st">'int32'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>O quanto isso nos ajudou?</p>
-<div id="b8aca0b6" class="cell" data-execution_count="48">
+<div id="f857f2cf" class="cell" data-execution_count="48">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df_covid_duplicada.info(memory_usage<span class="op">=</span><span class="st">'deep'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -8057,6 +8054,13 @@ memory usage: 4.9 MB</code></pre>
 </div>
 <p>Reduzimos mais um pouco o comprometimento de memória, embora a diferença não tenha sido tão grande. Em dataframes com milhões de linhas e milhares de colunas, no entanto, essa redução pode fazer toda a diferença. Dica: dê uma olhada na função <code>pandas.to_numeric</code> e no argumento <code>downcast</code> caso você não saiba para qual tipo de dado numérico deve ir.</p>
 <p>No fim das contas, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna <strong>antes</strong> da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função <code>read_csv</code> (ou similar) e passar uma lista de tipo de dados ao argumento <code>dtype</code> (exemplo do algoritmo <a href="https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e">aqui</a>). Tente isso em casa! <strong>E não se esqueça: fuja de dados do tipo <code>object</code>!</strong></p>
+</section>
+<section id="exercícios" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">8.5</span> Exercícios</h2>
+<ol type="1">
+<li><p>X</p></li>
+<li><p>X</p></li>
+</ol>
 
 
 </section>
@@ -8149,6 +8153,11 @@ memory usage: 4.9 MB</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -8482,7 +8491,7 @@ memory usage: 4.9 MB</code></pre>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/pandas.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

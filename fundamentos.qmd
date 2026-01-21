@@ -1,8 +1,7 @@
-# Fundamentos de computação
+# Fundamentos de computação {#sec-fundamentos}
 
 In summary, this book has no content whatsoever.
 
----
 
 ## O que é um computador?
 
@@ -150,5 +149,9 @@ Python é considerado uma linguagem de programação multi-paradigma, pois supor
 O Python utiliza tipagem dinâmica e forte, isso significa que o próprio interpretador do Python infere o tipo dos dados que uma variável recebe, sem a necessidade que o usuário da linguagem diga de que tipo determinada variável é. Hoje existem inúmeras linguagens no mercado que são fortemente tipadas, referenciando especificamente o Python para explicar a questão: tipagem forte significa que o interpretador do Python avalia as expressões por conta própria e não faz coerções automáticas (conversões de valores) entre tipos de dados não compatíveis. Ao fazer operações com tipos incompatíveis, o Python não converte automaticamente esses tipos pra você, ele vai dar erro. Isso é bom, pois assim você terá a certeza que o seu resultado é mais consistente.
 
 
+## Exercícios
 
+1. X
+
+2. X
 

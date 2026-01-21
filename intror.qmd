@@ -1,3 +1,10 @@
-# Introdução ao R
+# Introdução ao R {#sec-intror}
 
 In summary, this book has no content whatsoever.
+
+
+## Exercícios
+
+1. X
+
+2. X

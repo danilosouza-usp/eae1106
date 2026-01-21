@@ -1,9 +1,14 @@
-# Análise empírica integrada
+# Análise empírica integrada {#sec-projeto_empirico}
 
 Uma das principais aplicações para o Python bla bla bla
 
----
 
 ## O que é o NumPy?
 
 NumPy (**Num**erical **Py**thon) é o pacote fundamental 
+
+## Exercícios
+
+1. X
+
+2. X
