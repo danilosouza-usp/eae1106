@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>3&nbsp; Programação e IA – Métodos Computacionais para Economia</title>
+<title>12&nbsp; Introdução ao R – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./objetos.html" rel="next">
-<link href="./primeiros_passos.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./oop.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./inteligencia_artificial.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Programação e IA</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./intror.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -184,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inteligencia_artificial.html" class="sidebar-item-text sidebar-link active">
+  <a href="./inteligencia_artificial.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Programação e IA</span></span></a>
   </div>
 </li>
@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intror.html" class="sidebar-item-text sidebar-link">
+  <a href="./intror.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></span></a>
   </div>
 </li>
@@ -282,21 +282,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">3.1</span> Introdução</a>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">12.1</span> Introdução</a>
   <ul class="collapse">
-  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">12.1.1</span> RStudio</a></li>
+  <li><a href="#pacotes-de-terceiros" id="toc-pacotes-de-terceiros" class="nav-link" data-scroll-target="#pacotes-de-terceiros"><span class="header-section-number">12.1.2</span> Pacotes de terceiros</a></li>
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</a></li>
   </ul></li>
-  <li><a href="#stackoverflow" id="toc-stackoverflow" class="nav-link" data-scroll-target="#stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.3</span> Exercícios</a></li>
+  <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</a>
+  <ul class="collapse">
+  <li><a href="#diferenças-de-sintaxe-em-relação-ao-python" id="toc-diferenças-de-sintaxe-em-relação-ao-python" class="nav-link" data-scroll-target="#diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</a></li>
+  <li><a href="#r-como-calculadora" id="toc-r-como-calculadora" class="nav-link" data-scroll-target="#r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</a></li>
+  </ul></li>
+  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">12.3</span> Objetos</a>
+  <ul class="collapse">
+  <li><a href="#vetores-e-matrizes" id="toc-vetores-e-matrizes" class="nav-link" data-scroll-target="#vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">12.3.2</span> Dataframes</a></li>
+  </ul></li>
+  <li><a href="#iteração" id="toc-iteração" class="nav-link" data-scroll-target="#iteração"><span class="header-section-number">12.4</span> Iteração</a></li>
+  <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções"><span class="header-section-number">12.5</span> Funções</a></li>
+  <li><a href="#gestão-e-análise-de-dados" id="toc-gestão-e-análise-de-dados" class="nav-link" data-scroll-target="#gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</a>
+  <ul class="collapse">
+  <li><a href="#manipulação-e-pipelines" id="toc-manipulação-e-pipelines" class="nav-link" data-scroll-target="#manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</a></li>
+  <li><a href="#visualização" id="toc-visualização" class="nav-link" data-scroll-target="#visualização"><span class="header-section-number">12.6.2</span> Visualização</a></li>
+  </ul></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">12.7</span> Exercícios</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/inteligencia_artificial.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/intror.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./alfabetizacao.html">Alfabetização computacional e lógica básica</a></li><li class="breadcrumb-item"><a href="./inteligencia_artificial.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Programação e IA</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./intror.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-inteligencia_artificial" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Programação e IA</span></span></h1>
+<h1 class="title"><span id="sec-intror" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></span></h1>
 </div>
 
 
@@ -313,28 +331,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introdução" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">3.1</span> Introdução</h2>
-<section id="pré-requisitos" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</h3>
-<p>Embora as funções e estruturas necessárias para a realização de <em>loops</em> no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.</p>
+<section id="introdução" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">12.1</span> Introdução</h2>
+<section id="rstudio" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">12.1.1</span> RStudio</h3>
+<p>Assim como no Python, programar em R depende de um ambiente que pode ser configurado de várias formas. Você pode trabalhar com o R em sua forma pura, mas usualmente utilizamos alguma IDE que facilite o processo. E no mundo das IDEs que suportam o R, o <code>RStudio</code> talvez seja a principal. Para instalar o <code>RStudio</code> é preciso primeiro instalar o R. A partir daí, basta baixar o programa para o seu sistema operacional e seguir as configurações padrão do instalador para que o <code>RStudio</code> se torne o programa padrão para arquivos vinculados à linguagem.</p>
+<p>Em termos de layout, o <code>RStudio</code> se parece muito com o <code>Spyder</code>: um ambiente integrado que nos permite escrever o código e acompanhar de maneira simultânea os objetos criados e o resultado daquilo que rodamos.</p>
+</section>
+<section id="pacotes-de-terceiros" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="pacotes-de-terceiros"><span class="header-section-number">12.1.2</span> Pacotes de terceiros</h3>
+<p>Bla bla bla</p>
+</section>
+<section id="pré-requisitos" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</h3>
+<p>Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyverse, que não é nativo do R, e inclui todo um conjunto de pacotes que facilitam a vida daqueles que trabalham com análise e gestão de dados.</p>
 <ul>
-<li><code>numpy</code></li>
+<li><code>tidyverse</code></li>
+<li><code>summarytools</code></li>
+<li><code>data.table</code></li>
+<li><code>ggplot2</code></li>
 </ul>
-<div id="85d72e64" class="cell" data-message="false" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="stackoverflow" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</h2>
-<p><a href="https://stackoverflow.com/">Stack Overflow</a> é um site de perguntas e respostas, um fórum, para programadores profissionais e entusiastas. É o site principal da Stack Exchange Network. Foi criado em 2008 por Jeff Atwood e Joel Spolsky.Ele apresenta perguntas e respostas sobre uma ampla gama de tópicos em programação de computadores. Ele foi criado para ser uma alternativa mais aberta aos sites anteriores de perguntas e respostas, como o Experts-Exchange. O Stack Overflow foi vendido para a Prosus, um conglomerado de internet para consumidores com sede na Holanda, em 2 de junho de 2021 por US$ 1,8 bilhão.</p>
-<p>O site serve como uma plataforma para os usuários fazerem e responderem perguntas e, por meio de associação e participação ativa, votarem em perguntas e respostas semelhantes ao Reddit e editarem perguntas e respostas de maneira semelhante a um wiki. Os usuários do Stack Overflow podem ganhar pontos de reputação e “emblemas”; por exemplo, uma pessoa recebe 10 pontos de reputação por receber um voto “para cima” em uma pergunta ou resposta a uma pergunta, e pode receber medalhas por suas valiosas contribuições, o que representa uma gamificação do tradicional Q&amp;A local na internet. Os usuários desbloqueiam novos privilégios com um aumento na reputação, como a capacidade de votar, comentar e até editar as postagens de outras pessoas.</p>
-<p>Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de respostas. Esse fórum, juntamente com outros sites de perguntas e respostas de programação semelhantes, substituíram globalmente principalmente os livros de programação para referência de programação do dia-a-dia nos anos 2000, e hoje são uma parte importante da programação de computadores. Vocês lembram do nosso gráfico de participação de algumas das principais linguagens no total de perguntas do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?</p>
-<p>Mas pera lá, o que significa esse monte de adjetivo? (fontes: <a href="https://computersciencewiki.org/">computersciencewiki.org</a>, <a href="https://www.geeksforgeeks.org/">geeksforgeeks.org</a>, <a href="https://www.freecodecamp.org">freecodecamp.org</a>)</p>
+<section id="primeiros-passos" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</h2>
+<section id="diferenças-de-sintaxe-em-relação-ao-python" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</h3>
 </section>
-<section id="exercícios" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.3</span> Exercícios</h2>
+<section id="r-como-calculadora" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</h3>
+</section>
+</section>
+<section id="objetos" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="objetos"><span class="header-section-number">12.3</span> Objetos</h2>
+<section id="vetores-e-matrizes" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</h3>
+</section>
+<section id="dataframes" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">12.3.2</span> Dataframes</h3>
+</section>
+</section>
+<section id="iteração" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="iteração"><span class="header-section-number">12.4</span> Iteração</h2>
+</section>
+<section id="funções" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="funções"><span class="header-section-number">12.5</span> Funções</h2>
+</section>
+<section id="gestão-e-análise-de-dados" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</h2>
+<section id="manipulação-e-pipelines" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</h3>
+</section>
+<section id="visualização" class="level3" data-number="12.6.2">
+<h3 data-number="12.6.2" class="anchored" data-anchor-id="visualização"><span class="header-section-number">12.6.2</span> Visualização</h3>
+</section>
+</section>
+<section id="exercícios" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">12.7</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>
@@ -751,13 +810,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./primeiros_passos.html" class="pagination-link" aria-label="Primeiros passos no Python">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros passos no Python</span></span>
+      <a href="./oop.html" class="pagination-link" aria-label="Introdução à programação orientada a objetos (OOP)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./objetos.html" class="pagination-link" aria-label="Tipos primitivos e objetos básicos">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tipos primitivos e objetos básicos</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Bibliografia">
+        <span class="nav-page-text">Bibliografia</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -769,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/inteligencia_artificial.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/intror.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

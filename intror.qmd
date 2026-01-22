@@ -16,7 +16,7 @@ Bla bla bla
 
 Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyverse, que não é nativo do R, e inclui todo um conjunto de pacotes que facilitam a vida daqueles que trabalham com análise e gestão de dados.
 
-- `tydiverse`
+- `tidyverse`
 - `summarytools`
 - `data.table`
 - `ggplot2`
@@ -25,7 +25,7 @@ Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyvers
 #| message: false
 #| warning: false
 
-library(tydiverse)
+library(tidyverse)
 library(summarytools)
 library(data.table)
 library(ggplot2)
