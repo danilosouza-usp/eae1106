@@ -1,6 +1,27 @@
 # Introdução à programação orientada a objetos (OOP) {#sec-oop}
 
-In summary, this book has no content whatsoever.
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `os`
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `plotly`
+
+```{python}
+#| message: false
+#| warning: false
+
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sbs
+import plotly as ply
+```
 
 
 ## Exercícios

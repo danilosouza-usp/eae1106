@@ -1,6 +1,23 @@
 # Gestão e análise de dados {#sec-pandas}
 
-Uma das principais aplicações para o Python bla bla bla
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `numpy`
+- `pandas`
+- `os`
+
+```{python}
+#| message: false
+#| warning: false
+
+import numpy as np
+import pandas as pd
+import os
+```
 
 
 ## O que é o Pandas?
@@ -15,14 +32,7 @@ Você pode pensar em uma série como uma "coluna" de dados, como uma sequência 
 
 ## Objetos no Pandas
 
-Primeiro passo é importar o Pandas.
-
-
-```{python}
-import pandas as pd
-```
-
-Uma vez importado, vamos começar criando duas listas: uma contendo o número de pessoas ocupadas (em mil pessoas) no Brasil de 2012 a 2021 e outra contendo exatamente o intervalo de anos. 
+Vamos começar criando duas listas: uma contendo o número de pessoas ocupadas (em mil pessoas) no Brasil de 2012 a 2021 e outra contendo exatamente o intervalo de anos. 
 
 
 ```{python}

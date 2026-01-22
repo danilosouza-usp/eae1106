@@ -1,6 +1,19 @@
 # Programação e IA {#sec-inteligencia_artificial}
 
-In summary, this book has no content whatsoever.
+## Introdução
+
+### Pré-requisitos
+
+Embora as funções e estruturas necessárias para a realização de _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.
+
+- `numpy`
+
+```{python}
+#| message: false
+#| warning: false
+
+import numpy as np
+```
 
 
 ## StackOverflow

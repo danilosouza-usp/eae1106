@@ -1,6 +1,27 @@
 # Visualização {#sec-visualizacao}
 
-Uma das principais aplicações para o Python bla bla bla
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `os`
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `plotly`
+
+```{python}
+#| message: false
+#| warning: false
+
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sbs
+import plotly as ply
+```
 
 ## O que é o Matplotlib?
 
@@ -9,15 +30,6 @@ Matplotlib é uma excelente biblioteca de ferramentas gráficas, projetada para 
 ## Construindo nosso 1º gráfico
 
 ### Base de dados
-
-O primeiro passo, como sempre, é importar as funções da biblioteca que iremos utilizar. No caso do matplotlib, em geral estamos interessados no módulo `pyplot`.
-
-
-```{python}
-import os
-import pandas as pd
-import matplotlib.pyplot as plt
-```
 
 Em relação aos dados, utilizaremos mais uma vez a base com informações relacionadas a covid-19 nos 10 países com o maior número de casos acumulados. Dessa vez, no entanto, nos concentraremos em algumas poucas colunas e na agregação mensal.
 

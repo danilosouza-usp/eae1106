@@ -316,9 +316,8 @@ window.Quarto = {
   <li><a href="#porque-escolher" id="toc-porque-escolher" class="nav-link" data-scroll-target="#porque-escolher"><span class="header-section-number">2.1.1</span> Porque escolher</a></li>
   <li><a href="#como-instalar" id="toc-como-instalar" class="nav-link" data-scroll-target="#como-instalar"><span class="header-section-number">2.1.2</span> Como instalar</a></li>
   <li><a href="#anaconda-e-suas-particularidades" id="toc-anaconda-e-suas-particularidades" class="nav-link" data-scroll-target="#anaconda-e-suas-particularidades"><span class="header-section-number">2.1.3</span> Anaconda e suas particularidades</a></li>
-  <li><a href="#instalando-pacotes" id="toc-instalando-pacotes" class="nav-link" data-scroll-target="#instalando-pacotes"><span class="header-section-number">2.1.4</span> Instalando pacotes</a></li>
-  <li><a href="#ides" id="toc-ides" class="nav-link" data-scroll-target="#ides"><span class="header-section-number">2.1.5</span> IDEs</a></li>
-  <li><a href="#spyder-x-jupyter" id="toc-spyder-x-jupyter" class="nav-link" data-scroll-target="#spyder-x-jupyter"><span class="header-section-number">2.1.6</span> Spyder X Jupyter</a></li>
+  <li><a href="#ides" id="toc-ides" class="nav-link" data-scroll-target="#ides"><span class="header-section-number">2.1.4</span> IDEs</a></li>
+  <li><a href="#spyder-x-jupyter" id="toc-spyder-x-jupyter" class="nav-link" data-scroll-target="#spyder-x-jupyter"><span class="header-section-number">2.1.5</span> Spyder X Jupyter</a></li>
   </ul></li>
   <li><a href="#construindo-o-primeiro-programa" id="toc-construindo-o-primeiro-programa" class="nav-link" data-scroll-target="#construindo-o-primeiro-programa"><span class="header-section-number">2.2</span> Construindo o primeiro programa</a>
   <ul class="collapse">
@@ -326,6 +325,7 @@ window.Quarto = {
   <li><a href="#instruções-de-atribuição" id="toc-instruções-de-atribuição" class="nav-link" data-scroll-target="#instruções-de-atribuição"><span class="header-section-number">2.2.2</span> Instruções de atribuição</a></li>
   <li><a href="#nomes-de-variáveis" id="toc-nomes-de-variáveis" class="nav-link" data-scroll-target="#nomes-de-variáveis"><span class="header-section-number">2.2.3</span> Nomes de variáveis</a></li>
   <li><a href="#expressões-e-instruções" id="toc-expressões-e-instruções" class="nav-link" data-scroll-target="#expressões-e-instruções"><span class="header-section-number">2.2.4</span> Expressões e instruções</a></li>
+  <li><a href="#pacotes-de-terceiros-e-funções-não-nativas" id="toc-pacotes-de-terceiros-e-funções-não-nativas" class="nav-link" data-scroll-target="#pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.2.5</span> Pacotes de terceiros e funções não-nativas</a></li>
   </ul></li>
   <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.3</span> Exercícios</a></li>
   </ul>
@@ -392,20 +392,8 @@ window.Quarto = {
 <p><br> <img src="images/anaconda_navigator.jpg" style="width: 800px; max-width: 100%; height: auto; border: 3px solid black"> <br></p>
 <p>É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse <a href="https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share">vídeo</a> é um bom começo.</p>
 </section>
-<section id="instalando-pacotes" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="instalando-pacotes"><span class="header-section-number">2.1.4</span> Instalando pacotes</h3>
-<p>Para instalar novos pacotes para o Python precisamos fazê-lo via prompt de comando. O Anaconda nos fornece um prompt de comando próprio, o <strong>Anaconda Prompt</strong> que facilita a instalação desses pacotes através dos comandos <code>conda</code> ou <code>pip</code>. Vamos instalar como exemplo o pacote <a href="https://github.com/tqdm/tqdm#installation"><code>tqdm</code></a>, que nos permite criar barras de progresso em atividades repetidas.</p>
-<ol type="1">
-<li>Abra o <strong>Anaconda prompt</strong>.</li>
-<li>Veja se o pacote já não está instalado: digite <code>conda list</code>.</li>
-<li>Você pode utilizar 2 comandos distintos para instalar o pacote: <code>conda install tqdm</code> ou <code>pip install tqdm</code>.</li>
-</ol>
-<p>Note também que alguns dos principais pacotes sobre os quais falarei ao longo do curso, <em>NumPy, SciPy, Matplotlib e Pandas</em>, já vem instalados com o Anaconda, o que não é verdade no Python puro. Mais do que mostrar o que temos instalado na nossa máquina local, o comando <code>conda list</code> nos mostra as versões de cada uma das bibliotecas disponíveis e qual o ambiente utilizado em sua instalação.</p>
-<p><br></p>
-<p><strong>Diferença entre <em>conda</em> e <em>pip</em></strong>: falar mais sobre a diferença entre esses dois comandos populares para instalação de pacotes vai um pouco além do escopo desse curso. De forma bastante resumida, podemos dizer que o <code>pip</code> é um gerenciador de pacotes que nos permite instalar qualquer biblioteca escrita em Python e disponível no <em>Python Package Index</em> (PyPI), o principal repositório de pacotes para a linguagem. O <code>conda</code>, no entanto, é mais do que um simples gerenciador de pacotes já que é possível fazer diferentes instalações em diferentes ambientes de modo a reduzir problemas de incompatibilidade entre versões. Além disso, através do <code>conda</code> podemos instalar pacotes escritos em outras linguagens também, como R e C++. Por outro lado, é possível que você demore mais e tenha problemas para instalar alguns pacotes utilizando o <code>conda</code>. Aos que quiserem saber um pouco mais sobre a diferença entre esses dois métodos para instalação, esses links (<a href="https://www.anaconda.com/blog/understanding-conda-and-pip">1</a> e <a href="https://pythonspeed.com/articles/conda-vs-pip/">2</a>) podem ser um bom começo.</p>
-</section>
-<section id="ides" class="level3" data-number="2.1.5">
-<h3 data-number="2.1.5" class="anchored" data-anchor-id="ides"><span class="header-section-number">2.1.5</span> IDEs</h3>
+<section id="ides" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="ides"><span class="header-section-number">2.1.4</span> IDEs</h3>
 <p>IDE é um acrônimo para Integrated Development Environment, em português, Ambiente de Desenvolvimento Integrado. Ele é um programa que reúne ferramentas necessárias para a construção de outros softwares. A utilização de um IDE ajuda muito os programadores e empresas, pois torna mais rápido o desenvolvimento de aplicações, aumentando a produtividade e reduzindo custos. Existem IDE’s específicas para plataformas, e outras que são mais flexíveis. As mais famosas são o Sublime Text e o Visual Studio Code.</p>
 <p>Quais são os componentes típicos de uma IDE?</p>
 <ul>
@@ -423,24 +411,24 @@ window.Quarto = {
 <li>Reduz a quantidade de bugs e falhas no código-fonte;</li>
 <li>Reúne diversas ferramentas em um só lugar.</li>
 </ul>
-<section id="spyder" class="level4" data-number="2.1.5.1">
-<h4 data-number="2.1.5.1" class="anchored" data-anchor-id="spyder"><span class="header-section-number">2.1.5.1</span> Spyder</h4>
+<section id="spyder" class="level4" data-number="2.1.4.1">
+<h4 data-number="2.1.4.1" class="anchored" data-anchor-id="spyder"><span class="header-section-number">2.1.4.1</span> Spyder</h4>
 <p>O Spyder é uma ferramenta leve, simples e ao mesmo tempo poderosa. É um IDE Python de código aberto que conta com elementos avançados de edição, depuração e testes interativos. Ele é bastante utilizado para o aprendizado de Data Science, apesar de não fornecer ferramentas tão avançadas nesse sentido como outras disponíveis. Mas ele é prático e seu depurador destaca bem funções, variáveis e erros. Conta também com um recurso de exploração de variáveis, que exibe os conteúdos armazenados dentro de cada uma. Isso poupa a escrita de comandos de impressão de variáveis na tela.</p>
 <p>Disponível com a instalação do <a href="https://www.anaconda.com/products/distribution">Anaconda</a>, uma das maiores e mais utilizadas plataformas de distribuição do Python.</p>
 </section>
-<section id="jupyter" class="level4" data-number="2.1.5.2">
-<h4 data-number="2.1.5.2" class="anchored" data-anchor-id="jupyter"><span class="header-section-number">2.1.5.2</span> Jupyter</h4>
+<section id="jupyter" class="level4" data-number="2.1.4.2">
+<h4 data-number="2.1.4.2" class="anchored" data-anchor-id="jupyter"><span class="header-section-number">2.1.4.2</span> Jupyter</h4>
 <p>É um IDE Python gratuito, utilizado principalmente na análise e ciência de dados. Ele é fácil e intuitivo, proporcionando um bom ambiente para iniciantes em Python. Também conta com muitos materiais de referência, tornando-se um dos IDEs mais utilizados pela comunidade. Ele trabalha muito bem com grandes conjuntos de dados. Além disso, é ótimo para a estética do código e atua como uma. É possível visualizar e editar facilmente seu código para deixá-lo mais atraente e apresentável.</p>
 <p>Além de tudo isso, a estrutura do Jupyter serve muito ao propósito de tornar o código mais facilmente replicável, já que é possível intercalar células de comentários e explicações em linguagem Markdown com células de código propriamente dito, seguidas do resultado (ou erros) das instruções. Ele possui ainda integrações com HTML, por exemplo, que fazem a diferença principalmente na hora de apresentar projetos ou utilizá-los para o aprendizado. O material aula a aula do nosso curso, por exemplo, foi inteiramente desenvolvido e criado no Jupyter!</p>
 </section>
-<section id="google-colaboratory" class="level4" data-number="2.1.5.3">
-<h4 data-number="2.1.5.3" class="anchored" data-anchor-id="google-colaboratory"><span class="header-section-number">2.1.5.3</span> Google Colaboratory</h4>
+<section id="google-colaboratory" class="level4" data-number="2.1.4.3">
+<h4 data-number="2.1.4.3" class="anchored" data-anchor-id="google-colaboratory"><span class="header-section-number">2.1.4.3</span> Google Colaboratory</h4>
 <p>O <a href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colaboratory</a>, carinhosamente chamado de Colab, é um serviço de nuvem gratuito hospedado pelo próprio Google para incentivar a pesquisa de Aprendizado de Máquina e Inteligência Artificial.</p>
 <p>É uma ferramenta que permite que você misture código fonte (geralmente em python) e texto rico (geralmente em markdown) com imagens e o resultado desse código, assim como o próprio Jupyter e sua estrutura de <em>notebooks</em> (“cadernos” em inglês). Uma diferença importante é que no caso do Colab os recursos computacionais utilizados para a execução do código são os da Google e não do seu computador. Apesar da versão gratuita disponibilizar apenas algo como 12GB de RAM, é possível ampliar essa capacidade de processamento da máquina virtual por uma conta paga que começa em $5 mensais.</p>
 </section>
 </section>
-<section id="spyder-x-jupyter" class="level3" data-number="2.1.6">
-<h3 data-number="2.1.6" class="anchored" data-anchor-id="spyder-x-jupyter"><span class="header-section-number">2.1.6</span> Spyder X Jupyter</h3>
+<section id="spyder-x-jupyter" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="spyder-x-jupyter"><span class="header-section-number">2.1.5</span> Spyder X Jupyter</h3>
 <p>Alguns dos pacotes mais utilizados no Python hoje em dia, como <em>Pandas</em> e <em>Matplotlib</em>, já vem instalados com o Anaconda, o que não é verdade na distribuição pura do Python. Além disso, alguns dos programas mais utilizados para interagir com a linguagem, como o <em>Spyder</em> e o <em>Jupyter Notebook</em> também. Tanto o <em>Spyder</em> quanto o <em>Jupyter</em> são ótimas IDEs para trabalhar com o Python, embora cada um tenha suas particularidades.</p>
 <p>Existem vários comparativos entre essas duas formas (e tantas outras) de trabalhar com o Python (<a href="https://ritza.co/articles/pycharm-vs-spyder-vs-jupyter-vs-visual-studio-vs-anaconda-vs-intellij/">1</a>, <a href="https://www.datacamp.com/tutorial/data-science-python-ide">2</a> e <a href="https://www.kaggle.com/getting-started/271133">3</a>), mas no nosso caso talvez seja mais produtivo se formos direto para ambos os programas!</p>
 <p>Acabamos de ver que uma das diferenças mais relevantes para nós, iniciantes na linguagem, ao usar o <em>Spyder</em> ou o <em>Jupyter</em> é a dificuldade, no segundo caso, de fazer uma gestão mais direta das variáveis criadas e da memória utilizada por cada uma delas. É possível, no entanto, superar essa dificuldade através de uma biblioteca que pode ser bastante útil para nós, o <code>nbextensions</code> (documentação <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html">aqui</a> e <a href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator">aqui</a>).</p>
@@ -514,6 +502,50 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> n <span class="op">=</span> <span class="dv">17</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(n)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A primeira linha é uma instrução de atribuição que dá um valor a n.&nbsp;A segunda linha é uma instrução de exibição que exibe o valor de n.&nbsp;Quando você digita uma instrução, o interpretador a executa, o que significa que ele faz o que a instrução diz. Em geral, instruções não têm valores.</p>
+</section>
+<section id="pacotes-de-terceiros-e-funções-não-nativas" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.2.5</span> Pacotes de terceiros e funções não-nativas</h3>
+<section id="como-instalar-1" class="level4" data-number="2.2.5.1">
+<h4 data-number="2.2.5.1" class="anchored" data-anchor-id="como-instalar-1"><span class="header-section-number">2.2.5.1</span> Como instalar</h4>
+<p>Para instalar novos pacotes para o Python precisamos fazê-lo via prompt de comando. O Anaconda nos fornece um prompt de comando próprio, o <strong>Anaconda Prompt</strong> que facilita a instalação desses pacotes através dos comandos <code>conda</code> ou <code>pip</code>. Vamos instalar como exemplo o pacote <a href="https://github.com/tqdm/tqdm#installation"><code>tqdm</code></a>, que nos permite criar barras de progresso em atividades repetidas.</p>
+<ol type="1">
+<li>Abra o <strong>Anaconda prompt</strong>.</li>
+<li>Veja se o pacote já não está instalado: digite <code>conda list</code>.</li>
+<li>Você pode utilizar 2 comandos distintos para instalar o pacote: <code>conda install tqdm</code> ou <code>pip install tqdm</code>.</li>
+</ol>
+<p>Note também que alguns dos principais pacotes sobre os quais falarei ao longo do curso, <em>NumPy, SciPy, Matplotlib e Pandas</em>, já vem instalados com o Anaconda, o que não é verdade no Python puro. Mais do que mostrar o que temos instalado na nossa máquina local, o comando <code>conda list</code> nos mostra as versões de cada uma das bibliotecas disponíveis e qual o ambiente utilizado em sua instalação.</p>
+<p><br></p>
+<p><strong>Diferença entre <em>conda</em> e <em>pip</em></strong>: falar mais sobre a diferença entre esses dois comandos populares para instalação de pacotes vai um pouco além do escopo desse curso. De forma bastante resumida, podemos dizer que o <code>pip</code> é um gerenciador de pacotes que nos permite instalar qualquer biblioteca escrita em Python e disponível no <em>Python Package Index</em> (PyPI), o principal repositório de pacotes para a linguagem. O <code>conda</code>, no entanto, é mais do que um simples gerenciador de pacotes já que é possível fazer diferentes instalações em diferentes ambientes de modo a reduzir problemas de incompatibilidade entre versões. Além disso, através do <code>conda</code> podemos instalar pacotes escritos em outras linguagens também, como R e C++. Por outro lado, é possível que você demore mais e tenha problemas para instalar alguns pacotes utilizando o <code>conda</code>. Aos que quiserem saber um pouco mais sobre a diferença entre esses dois métodos para instalação, esses links (<a href="https://www.anaconda.com/blog/understanding-conda-and-pip">1</a> e <a href="https://pythonspeed.com/articles/conda-vs-pip/">2</a>) podem ser um bom começo.</p>
+</section>
+<section id="como-importar" class="level4" data-number="2.2.5.2">
+<h4 data-number="2.2.5.2" class="anchored" data-anchor-id="como-importar"><span class="header-section-number">2.2.5.2</span> Como importar</h4>
+<p>Sempre que quisermos trazer algo “de fora”, devemos carregar as bibliotecas específicas, seja por completo ou apenas um subconjunto de suas funções. Fazemos isso por meio do comando <code>import</code>. Vamos utilizar como exemplo a biblioteca <code>NumPy</code>, uma das principais bibliotecas de comando do Python em se tratando de operações algébricas e matriciais.</p>
+<p>Dedicaremos uma aula inteira para trabalhar com o <code>NumPy</code> daqui algumas semanas, mas por hora trabalharemos apenas com as funções geradoras de números aleatórios, em especial a função geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (vocês devem se lembrar das características dessa distribuição das aulas de estatística, mas caso ainda restem dúvidas sempre existe o <a href="https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_uniforme">Wikipedia</a>).</p>
+<p>Há 3 formas de trabalhar com essa função específica, contida no <code>NumPy</code>:</p>
+<p><br></p>
+<ol type="1">
+<li>Podemos importar a biblioteca inteira</li>
+</ol>
+<div id="3f66c5c7" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>Podemos importar a biblioteca inteira mas dando-lhe um “apelido”</li>
+</ol>
+<div id="2b150a70" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="3" type="1">
+<li>Podemos importar apenas a função que nos interessa nesse caso</li>
+</ol>
+<div id="0792f714" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>Qual a diferença entre esses métodos? No Python, sempre que formos utilizar uma função de algum pacote “de fora” é preciso dizer ao Python de onde que essa função está vindo. Se quisermos usar a função <code>uniform()</code> através do 1º método, por exemplo, é preciso chamá-la utilizando o nome do pacote, nesse caso <code>numpy.random.uniform()</code>. O 2º método encurta esse nome de tal forma que é possível chamar a mesma função usando <code>np.random.uniform()</code>. Por fim, no 3º caso basta chamar a função diretamente, isto é, <code>uniform()</code>.</p>
+<p>Mas se o 3º caso é mais direto, porque não usá-lo sempre? Por duas razões bem simples: (i) usar a sintaxe dos 2 primeiros casos torna o código mais compreensível e depurável, já que no caso de algum problema de execução sabemos onde procurar a resposta, e (ii) é comum pacotes distintos usarem o mesmo nome para funções que fazem operações distintas, o que pode gerar problemas de incompatibilidade e/ou de executarmos algo diferente daquilo que gostaríamos de executar.</p>
+<p>Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite reduzir linhas desnecessárias de código ao mesmo tempo que facilita a replicabilidade e a atividade de depuração do código.</p>
+</section>
 </section>
 </section>
 <section id="exercícios" class="level2" data-number="2.3">

@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -247,8 +282,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#o-que-é-o-numpy" id="toc-o-que-é-o-numpy" class="nav-link active" data-scroll-target="#o-que-é-o-numpy"><span class="header-section-number">10.1</span> O que é o NumPy?</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">10.2</span> Exercícios</a></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">10.1</span> Introdução</a>
+  <ul class="collapse">
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</a></li>
+  </ul></li>
+  <li><a href="#o-que-é-o-numpy" id="toc-o-que-é-o-numpy" class="nav-link" data-scroll-target="#o-que-é-o-numpy"><span class="header-section-number">10.2</span> O que é o NumPy?</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">10.3</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/projeto_empirico.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -274,13 +313,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Uma das principais aplicações para o Python bla bla bla</p>
-<section id="o-que-é-o-numpy" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="o-que-é-o-numpy"><span class="header-section-number">10.1</span> O que é o NumPy?</h2>
+<section id="introdução" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">10.1</span> Introdução</h2>
+<section id="pré-requisitos" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</h3>
+<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
+<ul>
+<li><code>os</code></li>
+<li><code>pandas</code></li>
+<li><code>matplotlib</code></li>
+<li><code>seaborn</code></li>
+<li><code>plotly</code></li>
+</ul>
+<div id="9084bdb5" class="cell" data-message="false" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sbs</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> ply</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="o-que-é-o-numpy" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="o-que-é-o-numpy"><span class="header-section-number">10.2</span> O que é o NumPy?</h2>
 <p>NumPy (<strong>Num</strong>erical <strong>Py</strong>thon) é o pacote fundamental</p>
 </section>
-<section id="exercícios" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">10.2</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">10.3</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>

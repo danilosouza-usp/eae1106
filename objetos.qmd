@@ -1,8 +1,20 @@
 # Tipos primitivos e objetos básicos {#sec-objetos}
 
-In summary, this book has no content whatsoever.
+## Introdução
 
----
+### Pré-requisitos
+
+Nesse capítulo você utilizará essencialmente funções nativas do Python. No entanto, para trabalhar com padrões textuais de forma mais profunda utilizaremos pacotes externos:
+
+- `re`
+
+```{python}
+#| message: false
+#| warning: false
+
+import re
+```
+
 
 ## Strings
 
@@ -217,14 +229,7 @@ print(pesquisa)
 
 E se quiséssemos, por exemplo, substituir todas as porcentagens de intenção de voto por 'ZZZ'? Note que as porcentagens são diferentes e não há uma repetição dos números que nos permita usar o `str.replace()` de uma vez só. No entanto, todas as porcentagens são representadas por 1 ou 2 números inteiros seguidos do símbolo $\%$. Nesse caso, o mais indicado é utilizar as expressões regulares.
 
-Os módulos e funções nativas do Python não nos trazem muito material para trabalhar com expressões regulares. Para operar com elas utilizaremos uma biblioteca de comandos chamada `re`. Para trazer para dentro do Python as funcionalidades dessa biblioteca precisamos utilizar a função `import` seguida do nome da biblioteca.
-
-
-```{python}
-import re
-```
-
-Falaremos mais sobre importação de bibliotecas de comandos e funções mais a frente, mas por hora tenha na cabeça que para utilizar um conjunto de instruções disponível em alguma biblioteca importada é preciso utilizar o nome da biblioteca seguido de ponto e do nome da função dessa biblioteca que você quer utilizar. No caso, para realizar a substituição das porcentagens no string _pesquisa_ utilizaremos a função `sub()` de dentro da biblioteca `re`. Mas o que devemos colocar como input dessa função?
+Os módulos e funções nativas do Python não nos trazem muito material para trabalhar com expressões regulares. Para operar com elas utilizaremos uma biblioteca de comandos chamada `re`. Falaremos mais sobre importação de bibliotecas de comandos e funções mais a frente, mas por hora tenha na cabeça que para utilizar um conjunto de instruções disponível em alguma biblioteca importada é preciso utilizar o nome da biblioteca seguido de ponto e do nome da função dessa biblioteca que você quer utilizar. No caso, para realizar a substituição das porcentagens no string _pesquisa_ utilizaremos a função `sub()` de dentro da biblioteca `re`. Mas o que devemos colocar como input dessa função?
 
 O mundo das expressões regulares é um mundo gigante e à parte, com conteúdo suficiente para preencher um outro curso. De forma geral, a combinação entre metacaracteres e caracteres literais é o que dá o padrão do texto pelo qual procuramos. Alguns dos metacaracteres-padrão são `. ? * + ^ | [ ] { } ( ) \`, cada um realizando uma função específica. Para o nosso caso utilizaremos basicamente a expressão regular dada por 
 

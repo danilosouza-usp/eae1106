@@ -1,6 +1,27 @@
 # Análise empírica integrada {#sec-projeto_empirico}
 
-Uma das principais aplicações para o Python bla bla bla
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `os`
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `plotly`
+
+```{python}
+#| message: false
+#| warning: false
+
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sbs
+import plotly as ply
+```
 
 
 ## O que é o NumPy?

@@ -1,6 +1,57 @@
 # Introdução ao R {#sec-intror}
 
-In summary, this book has no content whatsoever.
+## Introdução
+
+### RStudio
+
+Assim como no Python, programar em R depende de um ambiente que pode ser configurado de várias formas. Você pode trabalhar com o R em sua forma pura, mas usualmente utilizamos alguma IDE que facilite o processo. E no mundo das IDEs que suportam o R, o `RStudio` talvez seja a principal. Para instalar o `RStudio` é preciso primeiro instalar o R. A partir daí, basta baixar o programa para o seu sistema operacional e seguir as configurações padrão do instalador para que o `RStudio` se torne o programa padrão para arquivos vinculados à linguagem.
+
+Em termos de layout, o `RStudio` se parece muito com o `Spyder`: um ambiente integrado que nos permite escrever o código e acompanhar de maneira simultânea os objetos criados e o resultado daquilo que rodamos.
+
+### Pacotes de terceiros
+
+Bla bla bla
+
+### Pré-requisitos
+
+Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyverse, que não é nativo do R, e inclui todo um conjunto de pacotes que facilitam a vida daqueles que trabalham com análise e gestão de dados.
+
+- `tydiverse`
+- `summarytools`
+- `data.table`
+- `ggplot2`
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tydiverse)
+library(summarytools)
+library(data.table)
+library(ggplot2)
+```
+
+## Primeiros passos
+
+### Diferenças de sintaxe em relação ao Python
+
+### R como calculadora
+
+## Objetos
+
+### Vetores e matrizes
+
+### Dataframes
+
+## Iteração
+
+## Funções
+
+## Gestão e análise de dados
+
+### Manipulação e pipelines
+
+### Visualização
 
 
 ## Exercícios

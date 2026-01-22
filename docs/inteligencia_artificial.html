@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -247,8 +282,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#stackoverflow" id="toc-stackoverflow" class="nav-link active" data-scroll-target="#stackoverflow"><span class="header-section-number">3.1</span> StackOverflow</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.2</span> Exercícios</a></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">3.1</span> Introdução</a>
+  <ul class="collapse">
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</a></li>
+  </ul></li>
+  <li><a href="#stackoverflow" id="toc-stackoverflow" class="nav-link" data-scroll-target="#stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.3</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/inteligencia_artificial.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -274,16 +313,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
-<section id="stackoverflow" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="stackoverflow"><span class="header-section-number">3.1</span> StackOverflow</h2>
+<section id="introdução" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">3.1</span> Introdução</h2>
+<section id="pré-requisitos" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</h3>
+<p>Embora as funções e estruturas necessárias para a realização de <em>loops</em> no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.</p>
+<ul>
+<li><code>numpy</code></li>
+</ul>
+<div id="ad910d55" class="cell" data-message="false" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="stackoverflow" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</h2>
 <p><a href="https://stackoverflow.com/">Stack Overflow</a> é um site de perguntas e respostas, um fórum, para programadores profissionais e entusiastas. É o site principal da Stack Exchange Network. Foi criado em 2008 por Jeff Atwood e Joel Spolsky.Ele apresenta perguntas e respostas sobre uma ampla gama de tópicos em programação de computadores. Ele foi criado para ser uma alternativa mais aberta aos sites anteriores de perguntas e respostas, como o Experts-Exchange. O Stack Overflow foi vendido para a Prosus, um conglomerado de internet para consumidores com sede na Holanda, em 2 de junho de 2021 por US$ 1,8 bilhão.</p>
 <p>O site serve como uma plataforma para os usuários fazerem e responderem perguntas e, por meio de associação e participação ativa, votarem em perguntas e respostas semelhantes ao Reddit e editarem perguntas e respostas de maneira semelhante a um wiki. Os usuários do Stack Overflow podem ganhar pontos de reputação e “emblemas”; por exemplo, uma pessoa recebe 10 pontos de reputação por receber um voto “para cima” em uma pergunta ou resposta a uma pergunta, e pode receber medalhas por suas valiosas contribuições, o que representa uma gamificação do tradicional Q&amp;A local na internet. Os usuários desbloqueiam novos privilégios com um aumento na reputação, como a capacidade de votar, comentar e até editar as postagens de outras pessoas.</p>
 <p>Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de respostas. Esse fórum, juntamente com outros sites de perguntas e respostas de programação semelhantes, substituíram globalmente principalmente os livros de programação para referência de programação do dia-a-dia nos anos 2000, e hoje são uma parte importante da programação de computadores. Vocês lembram do nosso gráfico de participação de algumas das principais linguagens no total de perguntas do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?</p>
 <p>Mas pera lá, o que significa esse monte de adjetivo? (fontes: <a href="https://computersciencewiki.org/">computersciencewiki.org</a>, <a href="https://www.geeksforgeeks.org/">geeksforgeeks.org</a>, <a href="https://www.freecodecamp.org">freecodecamp.org</a>)</p>
 </section>
-<section id="exercícios" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.2</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.3</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>

@@ -64,21 +64,6 @@ Além disso, o anaconda traz consigo o Anaconda Navigator, um ambiente _user-fri
 
 É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse [vídeo](https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share) é um bom começo.
 
-### Instalando pacotes
-
-Para instalar novos pacotes para o Python precisamos fazê-lo via prompt de comando. O Anaconda nos fornece um prompt de comando próprio, o __Anaconda Prompt__ que facilita a instalação desses pacotes através dos comandos `conda` ou `pip`. Vamos instalar como exemplo o pacote [`tqdm`](https://github.com/tqdm/tqdm#installation), que nos permite criar barras de progresso em atividades repetidas.
-
-1. Abra o __Anaconda prompt__.
-2. Veja se o pacote já não está instalado: digite `conda list`. 
-3. Você pode utilizar 2 comandos distintos para instalar o pacote: `conda install tqdm` ou `pip install tqdm`.
-
-Note também que alguns dos principais pacotes sobre os quais falarei ao longo do curso, _NumPy, SciPy, Matplotlib e Pandas_, já vem instalados com o Anaconda, o que não é verdade no Python puro. Mais do que mostrar o que temos instalado na nossa máquina local, o comando `conda list` nos mostra as versões de cada uma das bibliotecas disponíveis e qual o ambiente utilizado em sua instalação.
-
-<br>
-
-**Diferença entre _conda_ e _pip_**: falar mais sobre a diferença entre esses dois comandos populares para instalação de pacotes vai um pouco além do escopo desse curso. De forma bastante resumida, podemos dizer que o `pip` é um gerenciador de pacotes que nos permite instalar qualquer biblioteca escrita em Python e disponível no _Python Package Index_ (PyPI), o principal repositório de pacotes para a linguagem. O `conda`, no entanto, é mais do que um simples gerenciador de pacotes já que é possível fazer diferentes instalações em diferentes ambientes de modo a reduzir problemas de incompatibilidade entre versões. Além disso, através do `conda` podemos instalar pacotes escritos em outras linguagens também, como R e C++. Por outro lado, é possível que você demore mais e tenha problemas para instalar alguns pacotes utilizando o `conda`. Aos que quiserem saber um pouco mais sobre a diferença entre esses dois métodos para instalação, esses links ([1](https://www.anaconda.com/blog/understanding-conda-and-pip) e [2](https://pythonspeed.com/articles/conda-vs-pip/)) podem ser um bom começo.
-
-
 ### IDEs
 
 IDE é um acrônimo para Integrated Development Environment, em português, Ambiente de Desenvolvimento Integrado. Ele é um programa que reúne ferramentas necessárias para a construção de outros softwares. A utilização de um IDE ajuda muito os programadores e empresas, pois torna mais rápido o desenvolvimento de aplicações, aumentando a produtividade e reduzindo custos. Existem IDE's específicas para plataformas, e outras que são mais flexíveis. As mais famosas são o Sublime Text e o Visual Studio Code. 
@@ -294,6 +279,58 @@ Uma instrução é uma unidade de código que tem um efeito, como criar uma vari
 ```
 
 A primeira linha é uma instrução de atribuição que dá um valor a n. A segunda linha é uma instrução de exibição que exibe o valor de n. Quando você digita uma instrução, o interpretador a executa, o que significa que ele faz o que a instrução diz. Em geral, instruções não têm valores.
+
+### Pacotes de terceiros e funções não-nativas
+
+#### Como instalar
+
+Para instalar novos pacotes para o Python precisamos fazê-lo via prompt de comando. O Anaconda nos fornece um prompt de comando próprio, o __Anaconda Prompt__ que facilita a instalação desses pacotes através dos comandos `conda` ou `pip`. Vamos instalar como exemplo o pacote [`tqdm`](https://github.com/tqdm/tqdm#installation), que nos permite criar barras de progresso em atividades repetidas.
+
+1. Abra o __Anaconda prompt__.
+2. Veja se o pacote já não está instalado: digite `conda list`. 
+3. Você pode utilizar 2 comandos distintos para instalar o pacote: `conda install tqdm` ou `pip install tqdm`.
+
+Note também que alguns dos principais pacotes sobre os quais falarei ao longo do curso, _NumPy, SciPy, Matplotlib e Pandas_, já vem instalados com o Anaconda, o que não é verdade no Python puro. Mais do que mostrar o que temos instalado na nossa máquina local, o comando `conda list` nos mostra as versões de cada uma das bibliotecas disponíveis e qual o ambiente utilizado em sua instalação.
+
+<br>
+
+**Diferença entre _conda_ e _pip_**: falar mais sobre a diferença entre esses dois comandos populares para instalação de pacotes vai um pouco além do escopo desse curso. De forma bastante resumida, podemos dizer que o `pip` é um gerenciador de pacotes que nos permite instalar qualquer biblioteca escrita em Python e disponível no _Python Package Index_ (PyPI), o principal repositório de pacotes para a linguagem. O `conda`, no entanto, é mais do que um simples gerenciador de pacotes já que é possível fazer diferentes instalações em diferentes ambientes de modo a reduzir problemas de incompatibilidade entre versões. Além disso, através do `conda` podemos instalar pacotes escritos em outras linguagens também, como R e C++. Por outro lado, é possível que você demore mais e tenha problemas para instalar alguns pacotes utilizando o `conda`. Aos que quiserem saber um pouco mais sobre a diferença entre esses dois métodos para instalação, esses links ([1](https://www.anaconda.com/blog/understanding-conda-and-pip) e [2](https://pythonspeed.com/articles/conda-vs-pip/)) podem ser um bom começo.
+
+#### Como importar
+
+Sempre que quisermos trazer algo "de fora",  devemos carregar as bibliotecas específicas, seja por completo ou apenas um subconjunto de suas funções. Fazemos isso por meio do comando ``import``. Vamos utilizar como exemplo a biblioteca `NumPy`, uma das principais bibliotecas de comando do Python em se tratando de operações algébricas e matriciais.
+
+Dedicaremos uma aula inteira para trabalhar com o `NumPy` daqui algumas semanas, mas por hora trabalharemos apenas com as funções geradoras de números aleatórios, em especial a função geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (vocês devem se lembrar das características dessa distribuição das aulas de estatística, mas caso ainda restem dúvidas sempre existe o [Wikipedia](https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_uniforme)).
+
+Há 3 formas de trabalhar com essa função específica, contida no `NumPy`: 
+
+<br>
+
+1. Podemos importar a biblioteca inteira
+
+```{python}
+import numpy
+```
+
+2. Podemos importar a biblioteca inteira mas dando-lhe um "apelido"
+
+```{python}
+import numpy as np
+```
+
+3. Podemos importar apenas a função que nos interessa nesse caso
+
+```{python}
+from numpy.random import uniform
+```
+
+<br>
+
+Qual a diferença entre esses métodos? No Python, sempre que formos utilizar uma função de algum pacote "de fora" é preciso dizer ao Python de onde que essa função está vindo. Se quisermos usar a função `uniform()` através do 1º método, por exemplo, é preciso chamá-la utilizando o nome do pacote, nesse caso `numpy.random.uniform()`. O 2º método encurta esse nome de tal forma que é possível chamar a mesma função usando `np.random.uniform()`. Por fim, no 3º caso basta chamar a função diretamente, isto é, `uniform()`. 
+
+Mas se o 3º caso é mais direto, porque não usá-lo sempre? Por duas razões bem simples: (i) usar a sintaxe dos 2 primeiros casos torna o código mais compreensível e depurável, já que no caso de algum problema de execução sabemos onde procurar a resposta, e (ii) é comum pacotes distintos usarem o mesmo nome para funções que fazem operações distintas, o que pode gerar problemas de incompatibilidade e/ou de executarmos algo diferente daquilo que gostaríamos de executar. 
+
+Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite reduzir linhas desnecessárias de código ao mesmo tempo que facilita a replicabilidade e a atividade de depuração do código.
 
 
 ## Exercícios

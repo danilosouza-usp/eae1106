@@ -1,6 +1,21 @@
 # Funções {#sec-funcoes}
 
-In summary, this book has no content whatsoever.
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `numpy`
+- `time`
+
+```{python}
+#| message: false
+#| warning: false
+
+import numpy as np
+import time
+```
 
 ## O que é uma função?
 
@@ -199,8 +214,6 @@ Nesse caso, a execução condicional `if` dentro da função acende já que não
 
 
 ```{python}
-import numpy as np
-
 func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=10)
 ```
 
@@ -466,16 +479,12 @@ print(len.__doc__)
 
 
 ```{python}
-import time
-
 # documentação da função time() dentro do pacote time
 print(time.time.__doc__)
 ```
 
 
 ```{python}
-import numpy as np
-
 # documentação da função uniform() dentro do pacote NumPy
 print(np.random.uniform.__doc__)
 ```
@@ -484,8 +493,6 @@ Note do exemplo acima que uma docstring pode conter uma descrição detalhada do
 
 
 ```{python}
-import numpy as np
-
 # documentação do NumPy
 print(np.__doc__)
 ```

@@ -1,6 +1,19 @@
 # Controle de fluxo e iteração {#sec-iteracao}
 
-X bla bla bla
+## Introdução
+
+### Pré-requisitos
+
+Embora as funções e estruturas necessárias para a realização de _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.
+
+- `numpy`
+
+```{python}
+#| message: false
+#| warning: false
+
+import numpy as np
+```
 
 ## Repetição simples e a instrução _for_
 
@@ -18,51 +31,6 @@ for <elemento> in <objeto>:
 ```
 
 Note que `<objeto>` em geral se refere à uma sequência, seja ela uma lista, uma tupla, um string ou qualquer outro objeto pelo qual seja possível percorrer. Para cada `<elemento>` dentro da sequência `<objeto>` o conjunto de instruções em `<instruções>`será executado. Após percorrer todos os elementos pertencentes à sequência `<objeto>`, o Python para a execução do _loop_.
-
-Antes de partir para os exemplos, porém, vamos dar um passo atrás e falar mais sobre algo que apenas citamos algumas aulas atrás que é a importação de bibliotecas de comando e de conjuntos de funções que não estão contidas nas funções e operações nativas do Python. 
-
-### Importando bibliotecas de comandos e conjuntos de funções
-
-Sempre que quisermos trazer algo "de fora",  devemos carregar as bibliotecas específicas, seja por completo ou apenas um subconjunto de suas funções. Fazemos isso por meio do comando ``import``. Vamos utilizar como exemplo a biblioteca `NumPy`, uma das principais bibliotecas de comando do Python em se tratando de operações algébricas e matriciais.
-
-Dedicaremos uma aula inteira para trabalhar com o `NumPy` daqui algumas semanas, mas por hora trabalharemos apenas com as funções geradoras de números aleatórios, em especial a função geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (vocês devem se lembrar das características dessa distribuição das aulas de estatística, mas caso ainda restem dúvidas sempre existe o [Wikipedia](https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_uniforme)).
-
-Há 3 formas de trabalhar com essa função específica, contida no `NumPy`: 
-
-<br>
-
-1. Podemos importar a biblioteca inteira
-
-```{python}
-import numpy
-```
-
-2. Podemos importar a biblioteca inteira mas dando-lhe um "apelido"
-
-```{python}
-import numpy as np
-```
-
-3. Podemos importar apenas a função que nos interessa nesse caso
-
-```{python}
-from numpy.random import uniform
-```
-
-<br>
-
-Qual a diferença entre esses métodos? No Python, sempre que formos utilizar uma função de algum pacote "de fora" é preciso dizer ao Python de onde que essa função está vindo. Se quisermos usar a função `uniform()` através do 1º método, por exemplo, é preciso chamá-la utilizando o nome do pacote, nesse caso `numpy.random.uniform()`. O 2º método encurta esse nome de tal forma que é possível chamar a mesma função usando `np.random.uniform()`. Por fim, no 3º caso basta chamar a função diretamente, isto é, `uniform()`. 
-
-Mas se o 3º caso é mais direto, porque não usá-lo sempre? Por duas razões bem simples: (i) usar a sintaxe dos 2 primeiros casos torna o código mais compreensível e depurável, já que no caso de algum problema de execução sabemos onde procurar a resposta, e (ii) é comum pacotes distintos usarem o mesmo nome para funções que fazem operações distintas, o que pode gerar problemas de incompatibilidade e/ou de executarmos algo diferente daquilo que gostaríamos de executar. 
-
-Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite reduzir linhas desnecessárias de código ao mesmo tempo que facilita a replicabilidade e a atividade de depuração do código.
-
-Voltemos então ao nosso exercício de gerar números aleatórios uniformemente distribuídos:
-
-
-```{python}
-import numpy as np
-```
 
 Imagine agora que estejamos interessados em criar um `for` loop que printa 10 números aleatórios sorteados de uma distribuição uniforme que vai de 0 a 1. Utilizando o objeto `range()` e a lógica de listas:
 

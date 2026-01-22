@@ -1,6 +1,23 @@
 # Arrays, matrizes e álgebra linear {#sec-numpy}
 
-Uma das principais aplicações para o Python bla bla bla
+## Introdução
+
+### Pré-requisitos
+
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+
+- `numpy`
+- `time`
+- `sympy`
+
+```{python}
+#| message: false
+#| warning: false
+
+import numpy as np
+import sympy
+import time
+```
 
 ## O que é o NumPy?
 
@@ -18,13 +35,6 @@ São muitas as qualidades do `NumPy` que fazem dele a melhor escolha quanto o as
 
 
 ## Elementos básicos do NumPy
-
-Antes de tudo, é preciso importar o `NumPy`, já que se trata de uma biblioteca não nativa do Python.
-
-```{python}
-import numpy as np
-```
-
 
 ### Arrays unidimensionais
 
