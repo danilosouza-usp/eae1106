@@ -286,8 +286,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</a></li>
   </ul></li>
-  <li><a href="#stackoverflow" id="toc-stackoverflow" class="nav-link" data-scroll-target="#stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.3</span> Exercícios</a></li>
+  <li><a href="#o-que-é-inteligência-artificial" id="toc-o-que-é-inteligência-artificial" class="nav-link" data-scroll-target="#o-que-é-inteligência-artificial"><span class="header-section-number">3.2</span> O que é Inteligência Artificial?</a></li>
+  <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt"><span class="header-section-number">3.3</span> ChatGPT</a>
+  <ul class="collapse">
+  <li><a href="#acesso-à-plataforma-e-primeiro-uso" id="toc-acesso-à-plataforma-e-primeiro-uso" class="nav-link" data-scroll-target="#acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.3.1</span> Acesso à plataforma e primeiro uso</a></li>
+  <li><a href="#conceitos-básicos-de-engenharia-de-prompt" id="toc-conceitos-básicos-de-engenharia-de-prompt" class="nav-link" data-scroll-target="#conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.3.2</span> Conceitos básicos de engenharia de prompt</a></li>
+  <li><a href="#alguns-exemplos" id="toc-alguns-exemplos" class="nav-link" data-scroll-target="#alguns-exemplos"><span class="header-section-number">3.3.3</span> Alguns exemplos</a></li>
+  <li><a href="#integração-com-ferramentas-e-apis-externas" id="toc-integração-com-ferramentas-e-apis-externas" class="nav-link" data-scroll-target="#integração-com-ferramentas-e-apis-externas"><span class="header-section-number">3.3.4</span> Integração com ferramentas e APIs externas</a></li>
+  </ul></li>
+  <li><a href="#stackoverflow" id="toc-stackoverflow" class="nav-link" data-scroll-target="#stackoverflow"><span class="header-section-number">3.4</span> StackOverflow</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">3.5</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/inteligencia_artificial.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -315,26 +323,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introdução" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">3.1</span> Introdução</h2>
+<p>Por mais que se conheça a sintaxe e estrutura de uma linguagem de programação, construir um código eficiente pode não ser das tarefas mais fáceis. Além disso, traduzir um código de uma determinada linguagem para outra linguagem pode ser igualmente difícil, mesmo com sintaxes parecidas.</p>
+<p>Utilizar a Inteligência Artificial para fazer isso pela gente pode nos economizar um tempo valioso. Antes de entender a aplicabilidade dos modelos de inteligência artificial no mundo da programação, é preciso primeiro definir inteligência artificial e, principalmente, sua vertente generativa.</p>
+<div id="fig-meme2" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meme2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/IA.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meme2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Meme 2
+</figcaption>
+</figure>
+</div>
 <section id="pré-requisitos" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">3.1.1</span> Pré-requisitos</h3>
 <p>Embora as funções e estruturas necessárias para a realização de <em>loops</em> no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.</p>
 <ul>
 <li><code>numpy</code></li>
 </ul>
-<div id="85d72e64" class="cell" data-message="false" data-execution_count="1">
+<div id="d066a3ac" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="stackoverflow" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="stackoverflow"><span class="header-section-number">3.2</span> StackOverflow</h2>
+<section id="o-que-é-inteligência-artificial" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="o-que-é-inteligência-artificial"><span class="header-section-number">3.2</span> O que é Inteligência Artificial?</h2>
+<p>Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.</p>
+<p>Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava nos dados originais. Em essência, os sistema de IAG são sistemas de IA com um escopo mais restrito e bem definido.</p>
+<p>Dentro do grupo de modelos de IAG estão os famosos GPTs, como o <a href="https://chatgpt.com/">ChatGPT</a> e o <a href="https://gemini.google.com/">Gemini</a>. Os GPTs são modelos da classe dos <em>Large Language Models</em> (LLM), que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, “raciocina” em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo “prever” o conteúdo textual que melhor se encaixa ao conteúdo fornecido no prompt inicial.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Curiosidade">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Curiosidade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Você sabe o que significa GPT? É a sigla para <strong>Generative Pre-trained Transformer</strong>, que resume as características dos modelos por trás de sistemas como o ChatGPT. <em>Generative</em> faz referência a modelos de IAG, que tem como objetivo principal criar conteúdo novo a partir de um dado conjunto de informações. <em>Pre-trained</em> faz referência ao fato do modelo ser pré-treinado em um grande volume de dados textuais genéricos, em geral de domínio público como o Wikipedia, até uma determinada data de corte. Por fim, <em>Transformer</em> é uma classe de modelos mais recentes, desenvolvidos inicialmente pelas equipes de pesquisa do Google, com certas particularidades que os tornam altamente eficientes e assertivos em tarefas que envolvem mensagens de entrada em formato de texto.</p>
+</div>
+</div>
+</section>
+<section id="chatgpt" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="chatgpt"><span class="header-section-number">3.3</span> ChatGPT</h2>
+<section id="acesso-à-plataforma-e-primeiro-uso" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.3.1</span> Acesso à plataforma e primeiro uso</h3>
+</section>
+<section id="conceitos-básicos-de-engenharia-de-prompt" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.3.2</span> Conceitos básicos de engenharia de prompt</h3>
+<p>Instruções, contexto, persona, exemplos, formato de saída</p>
+</section>
+<section id="alguns-exemplos" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="alguns-exemplos"><span class="header-section-number">3.3.3</span> Alguns exemplos</h3>
+</section>
+<section id="integração-com-ferramentas-e-apis-externas" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="integração-com-ferramentas-e-apis-externas"><span class="header-section-number">3.3.4</span> Integração com ferramentas e APIs externas</h3>
+<p>Nem sempre precisamos de um browser para utilizar o ChatGPT. O acesso às diferentes versões pode ser realizado através de uma Interface de Programação de Aplicações, ou API em inglês. Uma API é um conjunto de regras e protocolos que configuram uma forma simplificada de comunicação entre diferentes softwares. É possível, por exemplo, acessar as funcionalidades da ferramenta dentro de um código da linguagem de programação Python.</p>
+<p>No caso do ChatGPT, para acessar a API é preciso se registrar nesse <a href="https://platform.openai.com/">link</a> e garantir uma chave de acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por conta de sobrecarga dos servidores e uso inadequado, hoje é preciso pagar pelo uso da API.</p>
+<p>Usuários que assinam a versão paga do ChatGPT não têm acesso direto à API. Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final do mês, é cobrado pelo número e complexidade das demandas. É possível configurar limites de uso de modo a evitar gastos maiores do que o esperado. O preço é diferente para modelos diferentes. https://openai.com/api/pricing/</p>
+<p>Exemplo</p>
+</section>
+</section>
+<section id="stackoverflow" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="stackoverflow"><span class="header-section-number">3.4</span> StackOverflow</h2>
 <p><a href="https://stackoverflow.com/">Stack Overflow</a> é um site de perguntas e respostas, um fórum, para programadores profissionais e entusiastas. É o site principal da Stack Exchange Network. Foi criado em 2008 por Jeff Atwood e Joel Spolsky.Ele apresenta perguntas e respostas sobre uma ampla gama de tópicos em programação de computadores. Ele foi criado para ser uma alternativa mais aberta aos sites anteriores de perguntas e respostas, como o Experts-Exchange. O Stack Overflow foi vendido para a Prosus, um conglomerado de internet para consumidores com sede na Holanda, em 2 de junho de 2021 por US$ 1,8 bilhão.</p>
 <p>O site serve como uma plataforma para os usuários fazerem e responderem perguntas e, por meio de associação e participação ativa, votarem em perguntas e respostas semelhantes ao Reddit e editarem perguntas e respostas de maneira semelhante a um wiki. Os usuários do Stack Overflow podem ganhar pontos de reputação e “emblemas”; por exemplo, uma pessoa recebe 10 pontos de reputação por receber um voto “para cima” em uma pergunta ou resposta a uma pergunta, e pode receber medalhas por suas valiosas contribuições, o que representa uma gamificação do tradicional Q&amp;A local na internet. Os usuários desbloqueiam novos privilégios com um aumento na reputação, como a capacidade de votar, comentar e até editar as postagens de outras pessoas.</p>
 <p>Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de respostas. Esse fórum, juntamente com outros sites de perguntas e respostas de programação semelhantes, substituíram globalmente principalmente os livros de programação para referência de programação do dia-a-dia nos anos 2000, e hoje são uma parte importante da programação de computadores. Vocês lembram do nosso gráfico de participação de algumas das principais linguagens no total de perguntas do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?</p>
 <p>Mas pera lá, o que significa esse monte de adjetivo? (fontes: <a href="https://computersciencewiki.org/">computersciencewiki.org</a>, <a href="https://www.geeksforgeeks.org/">geeksforgeeks.org</a>, <a href="https://www.freecodecamp.org">freecodecamp.org</a>)</p>
 </section>
-<section id="exercícios" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.3</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">3.5</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>

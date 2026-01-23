@@ -361,7 +361,7 @@ window.Quarto = {
 <ul>
 <li><code>numpy</code></li>
 </ul>
-<div id="ff2bf2d6" class="cell" data-message="false" data-execution_count="1">
+<div id="1561eead" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -376,58 +376,58 @@ window.Quarto = {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>instruções<span class="op">&gt;</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note que <code>&lt;objeto&gt;</code> em geral se refere à uma sequência, seja ela uma lista, uma tupla, um string ou qualquer outro objeto pelo qual seja possível percorrer. Para cada <code>&lt;elemento&gt;</code> dentro da sequência <code>&lt;objeto&gt;</code> o conjunto de instruções em <code>&lt;instruções&gt;</code>será executado. Após percorrer todos os elementos pertencentes à sequência <code>&lt;objeto&gt;</code>, o Python para a execução do <em>loop</em>.</p>
 <p>Imagine agora que estejamos interessados em criar um <code>for</code> loop que printa 10 números aleatórios sorteados de uma distribuição uniforme que vai de 0 a 1. Utilizando o objeto <code>range()</code> e a lógica de listas:</p>
-<div id="9e783be0" class="cell" data-execution_count="2">
+<div id="e30218ab" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>range(0, 10)</code></pre>
 </div>
 </div>
-<div id="5538a456" class="cell" data-execution_count="3">
+<div id="086635d2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
 </div>
 </div>
-<div id="013be79d" class="cell" data-execution_count="4">
+<div id="e2839875" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> np.random.uniform()</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(u)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.13449372938873105
-0.19488700609431575
-0.7070259452421365
-0.11729129160465257
-0.8194501609507038
-0.24532074278432425
-0.3877906936952713
-0.6690225090171451
-0.7561729050430717
-0.6902865509071007</code></pre>
+<pre><code>0.6716980062106704
+0.5219138008980072
+0.7082891877019043
+0.5814384229817042
+0.5240233376887353
+0.352316339388574
+0.8993720625404948
+0.04659112721942382
+0.15158144610855706
+0.4506678787793321</code></pre>
 </div>
 </div>
 <p>No <em>loop</em> acima não utilizamos o elemento <code>i</code> em nenhum momento, de modo que a lista nos serviu apenas para ditar o número de vezes que gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso 10. Podemos ir um pouco além.</p>
-<div id="2192a8aa" class="cell" data-execution_count="5">
+<div id="92592dd1" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> np.random.uniform()</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Essa é a iteração '</span><span class="op">+</span><span class="bu">str</span>(i<span class="op">+</span><span class="dv">1</span>)<span class="op">+</span><span class="st">' e o número sorteado foi: </span><span class="sc">{:.2f}</span><span class="st">'</span>.<span class="bu">format</span>(u)) </span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Essa é a iteração 1 e o número sorteado foi: 0.13
-Essa é a iteração 2 e o número sorteado foi: 0.15
-Essa é a iteração 3 e o número sorteado foi: 0.34
-Essa é a iteração 4 e o número sorteado foi: 0.97
-Essa é a iteração 5 e o número sorteado foi: 0.13
-Essa é a iteração 6 e o número sorteado foi: 0.33
-Essa é a iteração 7 e o número sorteado foi: 0.35
-Essa é a iteração 8 e o número sorteado foi: 0.03
-Essa é a iteração 9 e o número sorteado foi: 0.58
-Essa é a iteração 10 e o número sorteado foi: 0.47</code></pre>
+<pre><code>Essa é a iteração 1 e o número sorteado foi: 0.63
+Essa é a iteração 2 e o número sorteado foi: 0.99
+Essa é a iteração 3 e o número sorteado foi: 0.64
+Essa é a iteração 4 e o número sorteado foi: 0.13
+Essa é a iteração 5 e o número sorteado foi: 0.31
+Essa é a iteração 6 e o número sorteado foi: 0.14
+Essa é a iteração 7 e o número sorteado foi: 0.70
+Essa é a iteração 8 e o número sorteado foi: 0.70
+Essa é a iteração 9 e o número sorteado foi: 0.86
+Essa é a iteração 10 e o número sorteado foi: 0.30</code></pre>
 </div>
 </div>
 <p>Note que nesse caso utilizamos tanto o elemento <em>iterável</em> <code>i</code>, quanto o resultado de cada sorteio individual <code>u</code>.</p>
 <p>Como dito anterioremente, o loop <code>for</code> funciona com qualquer sequência ou objeto pelo qual seja possível percorrer. Podemos trabalhar, inclusive, com strings e listas como nos exemplos abaixo:</p>
-<div id="9822ce0f" class="cell" data-execution_count="6">
+<div id="cf7c9cfc" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>str1 <span class="op">=</span> <span class="st">'Vou nadaaaa'</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> str1:</span>
@@ -446,7 +446,7 @@ a
 a</code></pre>
 </div>
 </div>
-<div id="3a6b5f74" class="cell" data-execution_count="7">
+<div id="89fc7035" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="st">'Minha terra tem palmeiras'</span>,<span class="st">'onde canta o sabiá'</span>,<span class="st">'seno A cosseno B'</span>,<span class="st">'seno B cosseno A'</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> lista1:</span>
@@ -461,7 +461,7 @@ seno B cosseno A</code></pre>
 <section id="for-loop-e-instruções-condicionais" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="for-loop-e-instruções-condicionais"><span class="header-section-number">5.2.1</span> <em>for</em> loop e instruções condicionais</h3>
 <p>Podemos utilizar instruções condicionais dentro de um loop <code>for</code> também. Mais do que isso, é possível utilizar esse tipo de instrução para interromper a repetição do código, mesmo antes do Python percorrer todos os elementos da sequência alvo.</p>
-<div id="554330ed" class="cell" data-execution_count="8">
+<div id="e3841fc0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="st">'foo'</span>,<span class="st">'bar'</span>,<span class="st">'baz'</span>,<span class="st">'qux'</span>]:</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'b'</span> <span class="kw">in</span> i:</span>
@@ -476,7 +476,7 @@ seno B cosseno A</code></pre>
 <section id="usando-enumerate-e-zip" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="usando-enumerate-e-zip"><span class="header-section-number">5.2.2</span> Usando <em>enumerate</em> e <em>zip</em></h3>
 <p>Às vezes pode ser útil, dentro de um loop <code>for</code>, ter uma variável que muda em cada iteração do loop que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa <code>enumerate()</code> para obter um contador e o valor do objeto iterável ao mesmo tempo! Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.</p>
-<div id="197ffbd4" class="cell" data-execution_count="9">
+<div id="fa782330" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>str1 <span class="op">=</span> <span class="st">'O Tata é foota, o Tata é foota'</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Algumas linhas de código adicionais para excluir pontuação e transformar o string em uma lista de palavras</span></span>
@@ -499,7 +499,7 @@ foota</code></pre>
 </div>
 </div>
 <p>Utilizando o <code>enumerate()</code> podemos, em uma mesma linha de código, printar não apenas cada string individual da lista, mas também a posição desse string dentro da lista!</p>
-<div id="1d76da19" class="cell" data-execution_count="10">
+<div id="5b81bd76" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> count,value <span class="kw">in</span> <span class="bu">enumerate</span>(lista1):</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Elemento '</span><span class="op">+</span><span class="bu">str</span>(count)<span class="op">+</span><span class="st">' = '</span><span class="op">+</span>value)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -515,26 +515,26 @@ Elemento 7 = foota</code></pre>
 </div>
 </div>
 <p>Uma outra forma de criar esses mesmos resultados seria utilizando a função nativa <code>zip()</code>. Essa função nos permite iterar ao longo de duas ou mais sequências ao mesmo tempo, contanto que as sequências possuam o mesmo comprimento.</p>
-<div id="555771db" class="cell" data-execution_count="11">
+<div id="9c4fd9f9" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lista1)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['O', 'Tata', 'é', 'foota', 'o', 'Tata', 'é', 'foota']</code></pre>
 </div>
 </div>
-<div id="a8f3fd21" class="cell" data-execution_count="12">
+<div id="fcec28a7" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lista2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(lista1)))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lista2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0, 1, 2, 3, 4, 5, 6, 7]</code></pre>
 </div>
 </div>
-<div id="e5cd45d8" class="cell" data-execution_count="13">
+<div id="2e56d3eb" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(lista1) <span class="op">==</span> <span class="bu">len</span>(lista2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="e10b6836" class="cell" data-execution_count="14">
+<div id="3dc31383" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> count,value <span class="kw">in</span> <span class="bu">zip</span>(lista2, lista1):</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Elemento '</span><span class="op">+</span><span class="bu">str</span>(count)<span class="op">+</span><span class="st">' = '</span><span class="op">+</span>value)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -550,7 +550,7 @@ Elemento 7 = foota</code></pre>
 </div>
 </div>
 <p>Embora tenhamos utilizado a função <code>zip()</code> para chegar ao mesmo resultado de <code>enumerate()</code>, seu escopo de ação é muito mais geral já que nos permite percorrer dois objetos distintos ao mesmo tempo, sejam quais forem esses objetos. A única obrigatoriedade é que esses objetos tenham o mesmo tamanho, nada mais!</p>
-<div id="8181c6b5" class="cell" data-execution_count="15">
+<div id="8909dff6" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>professores <span class="op">=</span> [<span class="st">'Danilo Souza'</span>,<span class="st">'Danilo Souza'</span>,<span class="st">'Claudio Lucinda'</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>turmas <span class="op">=</span> [<span class="st">'2024201'</span>,<span class="st">'2024202'</span>,<span class="st">'2024221'</span>]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -568,7 +568,7 @@ Nesse curso, a turma 2024221 é de responsabilidade do professor Claudio Lucinda
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="for-e-list-comprehensions"><span class="header-section-number">5.2.3</span> <em>For</em> e <em>list comprehensions</em></h3>
 <p><em>List comprehensions</em> é uma das várias formas que o Python nos oferece para de criar, alterar e manipular listas. Sua sintaxe é bastante concisa e nos permite olhar para um exerício de iteração através de algo parecido com uma fórmula.</p>
 <p>Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop <code>for</code>:</p>
-<div id="c508b581" class="cell" data-execution_count="16">
+<div id="bf947d85" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>,<span class="dv">36</span>,<span class="dv">49</span>,<span class="dv">64</span>,<span class="dv">81</span>,<span class="dv">100</span>,<span class="dv">121</span>,<span class="dv">144</span>,<span class="dv">169</span>,<span class="dv">196</span>,<span class="dv">225</span>]</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>lista2 <span class="op">=</span> []</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -581,7 +581,7 @@ Nesse curso, a turma 2024221 é de responsabilidade do professor Claudio Lucinda
 </div>
 </div>
 <p>Alternativamente, podemos utilizar <em>list comprehensions</em> através da seguinte sintaxe:</p>
-<div id="d698cee0" class="cell" data-execution_count="17">
+<div id="fb726e26" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>lista2 <span class="op">=</span> [<span class="bu">int</span>(x<span class="op">**</span><span class="fl">0.5</span>) <span class="cf">for</span> x <span class="kw">in</span> lista1] </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lista2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -590,7 +590,7 @@ Nesse curso, a turma 2024221 é de responsabilidade do professor Claudio Lucinda
 </div>
 </div>
 <p>Em termos práticos isso funciona como se fosse um loop definido dentro de uma única linha de código. Mas porque aprender as duas formas? Será que alguma delas é mais eficiente? Vamos fazer um teste para esse exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos também a função <code>time</code> do pacote <code>time</code> para calcular o tempo utilizado por cada um dos métodos.</p>
-<div id="d9943d23" class="cell" data-execution_count="18">
+<div id="997432d6" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">1000000</span>))</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -614,15 +614,15 @@ Nesse curso, a turma 2024221 é de responsabilidade do professor Claudio Lucinda
 <span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> (start_loop <span class="op">-</span> end_loop) <span class="op">/</span> (start_comp <span class="op">-</span> end_comp)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Qual abordagem será que levou menos tempo?</p>
-<div id="28759e36" class="cell" data-execution_count="19">
+<div id="9e81dce1" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Tempo necessário para a realização dos cálculos utilizando list comprehensions: </span><span class="sc">{:.4f}</span><span class="st"> segundos'</span>.<span class="bu">format</span>(end_comp <span class="op">-</span> start_comp))</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Tempo necessário para a realização dos cálculos utilizando loop: </span><span class="sc">{:.4f}</span><span class="st"> segundos'</span>.<span class="bu">format</span>(end_loop <span class="op">-</span> start_loop))</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">A abordagem de loop demorou </span><span class="sc">{:.1%}</span><span class="st"> mais tempo! Dê uma chance para list comprehensions ;)'</span>.<span class="bu">format</span>(ratio <span class="op">-</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0941 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1222 segundos
+<pre><code>Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0895 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1188 segundos
 
-A abordagem de loop demorou 29.9% mais tempo! Dê uma chance para list comprehensions ;)</code></pre>
+A abordagem de loop demorou 32.8% mais tempo! Dê uma chance para list comprehensions ;)</code></pre>
 </div>
 </div>
 </section>
@@ -630,14 +630,14 @@ A abordagem de loop demorou 29.9% mais tempo! Dê uma chance para list comprehen
 <section id="reatribuição-e-atualização-de-variáveis" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="reatribuição-e-atualização-de-variáveis"><span class="header-section-number">5.3</span> Reatribuição e atualização de variáveis</h2>
 <p>Pode ser que você já tenha descoberto que é permitido fazer mais de uma atribuição para a mesma variável. Uma nova atribuição faz uma variável existente referir-se a um novo valor (e deixar de referir-se ao valor anterior).</p>
-<div id="a44e6b3b" class="cell" data-execution_count="20">
+<div id="690c631f" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="34dc9bdb" class="cell" data-execution_count="21">
+<div id="602e3a36" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">7</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -647,7 +647,7 @@ A abordagem de loop demorou 29.9% mais tempo! Dê uma chance para list comprehen
 <p>A primeira vez que exibimos x, seu valor é 5. Na segunda vez, seu valor é 7.</p>
 <p>Neste ponto quero tratar de uma fonte comum de confusão. Como o Python usa o sinal de igual (=) para atribuição, é tentador interpretar uma afirmação como <code>a = b</code> como uma proposição matemática de igualdade, isto é, a declaração de que a e b são iguais. Mas esta é uma interpretação equivocada.</p>
 <p>Em primeiro lugar, a igualdade é uma relação simétrica e a atribuição não é. Por exemplo, na matemática, se <code>a=7</code> então <code>7=a</code>. Mas no Python, a instrução <code>a = 7</code> é legal e <code>7 = a</code> não é. Além disso, na matemática, uma proposição de igualdade é verdadeira ou falsa para sempre. Se <code>a=b</code> agora, então <code>a</code> sempre será igual a <code>b</code>. No Python, uma instrução de atribuição pode tornar duas variáveis iguais, mas elas não precisam se manter assim:</p>
-<div id="177971ae" class="cell" data-execution_count="22">
+<div id="d72e9cce" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="co"># a e b agora são iguais</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -680,7 +680,7 @@ Valor de b: 5</code></pre>
 <p>A expressão de controle, <code>&lt;expr&gt;</code>, normalmente envolve uma ou mais variáveis que são inicializadas antes de iniciar o loop e depois modificadas em algum lugar no corpo do loop. <strong>Você precisa dessa expressão bem pensada, porque é ela que vai determinar o momento em que o loop para</strong></p>
 <p>Quando um loop <code>while</code> é encontrado, <code>&lt;expr&gt;</code>é avaliado primeiro no contexto booleano. Se for verdadeiro, o corpo do loop é executado. Em seguida <code>&lt;expr&gt;</code>, é verificado novamente e, se ainda for verdadeiro, o corpo é executado novamente. Isso continua até <code>&lt;expr&gt;</code> se tornar falso, momento em que a execução do programa prossegue para a primeira instrução além do corpo do loop. <strong>Dentro de <code>&lt;instruções&gt;</code> você precisa ter algo que modifique algum elemento de <code>&lt;expr&gt;</code>. Senão ou o loop não vai rodar ou vai rodar para sempre.</strong> Uma das formas de interromper <strong>à força</strong> a execução de um loop é por meio das teclas <code>Ctrl+C</code>.</p>
 <p>Considere o caso abaixo:</p>
-<div id="d522941d" class="cell" data-execution_count="23">
+<div id="7eba3a60" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -702,7 +702,7 @@ Valor de b: 5</code></pre>
 <p>O valor inicial de <code>n</code> é 5. A expressão no cabeçalho da instrução <code>while</code> na linha 2 é <code>n &gt; 0</code>, o que é <code>True</code>, então o corpo do loop é executado. Dentro do corpo do loop redefinimos o valor de <code>n</code> para que seja igual ao valor anterior de <code>n</code> menos 1, e então o novo valor de <code>n</code> é impresso.</p>
 <p>Quando o corpo do loop termina, a execução do programa retorna ao topo do loop na linha 2 e a expressão é avaliada novamente. Ainda é verdade, então o corpo é executado novamente e 3 é impresso. Isso continua até <code>n</code> se tornar 0. Nesse ponto, quando a expressão é testada, ela é falsa (0 não é maior do que 0) e o loop termina. A execução é retomada na primeira instrução após o corpo do loop, no caso a instrução print. Observe que a expressão de controle do loop <code>while</code> é testada primeiro, antes que qualquer outra coisa aconteça.</p>
 <p>A seguir temos um loop while que usa uma lista:</p>
-<div id="7999181c" class="cell" data-execution_count="24">
+<div id="7bc87ab5" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="st">'foo'</span>, <span class="st">'bar'</span>, <span class="st">'baz'</span>]</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -726,7 +726,7 @@ Valor de b: 5</code></pre>
 <li><p>A instrução <code>continue</code>, por outro lado, encerra imediatamente a iteração do loop atual. A execução salta para o topo do loop e a expressão de controle é reavaliada para determinar se o loop será executado novamente ou terminará.</p></li>
 </ul>
 <p>Um exemplo de <code>break</code>:</p>
-<div id="b98f2a62" class="cell" data-execution_count="25">
+<div id="76a615d3" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -745,7 +745,7 @@ Loop ended.</code></pre>
 </div>
 </div>
 <p>Um exemplo de <code>continue</code>:</p>
-<div id="461ab8d7" class="cell" data-execution_count="26">
+<div id="cc703649" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -776,27 +776,27 @@ Loop ended.</code></pre>
 <p><span class="math display">\[\mu_{\bar{X}}=\mu\]</span></p>
 <p><span class="math display">\[\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{N}}\]</span></p>
 <p>Vamos apresentar uma implementação desse Teorema usando Python, em várias partes. A primeira parte mostra como tirar 10 números aleatórios entre -40 e 40, usando o <code>NumPy</code>. Mais uma vez utilizaremos a função <code>uniform()</code> já que elas sorteia números reais com igual probabilidade dentro de um intervalo especificado.</p>
-<div id="d857e32f" class="cell" data-execution_count="27">
+<div id="6c75e769" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">10</span>)</span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ 12.79648801 -33.71332014   4.96895322  24.42001967 -35.97116412
- -23.37799992 -22.45445699  18.35276129  -8.64366437 -14.83425506]</code></pre>
+<pre><code>[ 25.86697378  11.71182573   1.97971134 -28.67192758  35.06697969
+  28.11966557  32.00668     -4.80478405  20.61130977 -34.40115174]</code></pre>
 </div>
 </div>
 <p>Note que se sorteamos 10 números novamente, o resultado será diferente</p>
-<div id="048d1668" class="cell" data-execution_count="28">
+<div id="a7799242" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">10</span>)</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ 32.15209106  16.57809806  -3.90680522  32.97669969 -30.83769987
-  25.08908275  24.42136622  -2.97991708  -8.97702315  23.23800179]</code></pre>
+<pre><code>[-18.92739031  20.6894848   27.82432869  28.68052605 -35.5412422
+  -2.20290797  20.61410983  17.51395781  18.77150067 -38.39782459]</code></pre>
 </div>
 </div>
 <p>Para tornar o nosso exemplo mais previsível, vamos usar uma função dentro do <code>NumPy</code> que faz com o que o sorteio dos números parta do mesmo lugar e, portanto, o resultado seja o mesmo.</p>
-<div id="c4a7135c" class="cell" data-execution_count="29">
+<div id="593bf3d5" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">10</span>)</span>
@@ -806,7 +806,7 @@ Loop ended.</code></pre>
  -32.61291242 -25.09918309 -12.35514184  -8.25860206   3.10533872]</code></pre>
 </div>
 </div>
-<div id="c3183066" class="cell" data-execution_count="30">
+<div id="0eef65dd" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">10</span>)</span>
@@ -817,7 +817,7 @@ Loop ended.</code></pre>
 </div>
 </div>
 <p>Feito o sorteio de números aleatórios, o próximo passo é tirar a média desse conjunto de números:</p>
-<div id="fdde5995" class="cell" data-execution_count="31">
+<div id="6ca7edef" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>np.mean(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>np.float64(-14.829655377323416)</code></pre>
@@ -825,7 +825,7 @@ Loop ended.</code></pre>
 </div>
 <p>Como vocês podem notar, a média não deu igual a zero, embora a média da distribuição uniforme com números inteiros que vai de -40 a 40 seja igual a 0. E aí surge a mágica do Teorema Central do Limite. Ainda que uma amostra não tenha a média igual à média populacional, a <strong>média das médias</strong> vai convergindo para zero à medida em que extraímos novas amostras e calculamos novas médias.</p>
 <p>Agora vou fazer isso em um loop, sorteando 50 números aleatórios por amostra e primeiro com 10 amostras:</p>
-<div id="a4650ea9" class="cell" data-execution_count="32">
+<div id="63f00bad" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of sample</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span> </span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> [] </span>
@@ -849,7 +849,7 @@ Loop ended.</code></pre>
 </div>
 </div>
 <p>Agora com 100 amostras</p>
-<div id="4e07c362" class="cell" data-execution_count="33">
+<div id="2f5dc6cd" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of sample</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span> </span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> [] </span>
@@ -873,7 +873,7 @@ Loop ended.</code></pre>
 </div>
 </div>
 <p>Vamos deixar essa tentativa de aproximar a média das médias de <span class="math inline">\(\mu\)</span> mais automatizada:</p>
-<div id="784ca3ab" class="cell" data-execution_count="34">
+<div id="a9c3ef5b" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>expoentes <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> [<span class="dv">2</span><span class="op">**</span>exp <span class="cf">for</span> exp <span class="kw">in</span> expoentes]</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -891,7 +891,7 @@ Loop ended.</code></pre>
 <span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a>    means.append(np.mean(means_atual))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d37af57b" class="cell" data-execution_count="35">
+<div id="b58613dd" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> means:</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(np.<span class="bu">round</span>(m,<span class="dv">2</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>

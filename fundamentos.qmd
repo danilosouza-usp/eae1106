@@ -23,7 +23,7 @@ E por fim o componente humano do sistema, as pessoas, que utilizam o computador 
 
 Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias dimensões das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:
 
-<img src="images/arquitetura_VonNeumann.jpg" style="width: 700px; max-width: 100%; height: auto" />
+![Diagrama que representa o funcionamento da arquitetura Von-Neumann](images/arquitetura_VonNeumann.jpg){#fig-arquitetura width=700px max-width=100% fig-align="center"}
 
 Essencialmente, o hadware que compõe as partes da arquitetura de um computador podem ser dividas em 3 partes:
 

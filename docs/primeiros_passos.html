@@ -364,23 +364,59 @@ window.Quarto = {
 <p>Assim como tudo na vida, o Python é uma linguagem de programação com muitas qualidades mas que também possui seus defeitos (em geral ligados à velocidade de execução dos programas). Em sendo uma linguagem de alto nível, é uma linguagem bastante indicada, por exemplo, para aplicações que demandam replicabilidade, dada a facilidade de escrever e interpretar o código. Por outro lado, aplicações que demandam uma interação mais eficiente entre o código e o gerenciamento de memória da máquina, por exemplo, podem se beneficiar de outras linguagens.</p>
 <p>No entanto, o conjunto de qualidades do Python e as inúmeras bibliotecas que foram desenvolvidas nos últimos anos parecem ter mais do que compensado as falhas da linguagem. Hoje o Python é uma das principais linguagens de programação (senão a principal) quando o assunto é ciência dos dados e aprendizado de máquina (<em>data science</em> e <em>machine learning</em>, respectivamente). É também uma das principais linguagens de programação por trás de vários dos sistemas de grandes empresas, como Uber, GoldmanSachs, Netflix e Google (fonte: <a href="https://brainstation.io/career-guides/who-uses-python-today">link</a>).</p>
 <p>Por todos esses fatores, Python é uma das linguagens com a comunidade mais ativa em fóruns online voltados à programação e é a <strong>linguagem que mais cresce no mundo</strong>. As figuras abaixo ilustram bem esse crescimento da linguagem nos últimos anos:</p>
-<p><img src="images/pypl_index.jpg" style="width: 800px; max-width: 100%; height: auto"> <img src="images/stackoverflow_trends.jpg" style="width: 800px; max-width: 100%; height: auto"></p>
+<div id="fig-pypl" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pypl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/pypl_index.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pypl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Indíce PyPL de popularidade de linguagens
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="como-instalar" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="como-instalar"><span class="header-section-number">2.1.2</span> Como instalar</h3>
 <p>Existe mais de uma forma de instalar o Python no seu sistema e ainda mais formas de interagir com a linguagem. Você pode baixar o Python <em>puro</em> (https://www.python.org/downloads/) e instalá-lo diretamente em sua máquina, porém, essa distribuição vem com poucos pacotes já instalados e instalá-los um a um requer paciência. Além disso, a instalação do Python puro pode demandar algumas alterações em configurações do sistema via prompt de comando do Windows, por exemplo, para que seja possível dialogar com a linguagem.</p>
-<p><br> <img src="images/i_have_no_idea.jpg" style="width: 500px; max-width: 100%; height: auto"> <br><br></p>
+<div id="fig-meme1" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meme1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/i_have_no_idea.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="500">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meme1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.2: Meme
+</figcaption>
+</figure>
+</div>
 <p>Uma forma mais simples de instalar o Python em seu computador é através da distribuição Anaconda (https://www.anaconda.com/). Além de ser gratuita e conter vários dos pacotes que iremos utilizar, ela nos fornece diversas ferramentas que facilitam nossa interação com a linguagem. É hoje uma das distribuições do Python mais populares no mundo! <strong>Recomendo fortemente utilizar esse caminho</strong>.</p>
 <p><em>O passo a passo a seguir foi feito para o sistema Windows 10. Embora o caminho seja parecido, podem haver algumas divergências em relação ao passo a passo para sistemas Linux e MacOS.</em></p>
 <p><br></p>
 <ol type="1">
 <li>Baixar e instalar o Anaconda é fácil. Basta acessar a aba de downloads no site do Anaconda (https://www.anaconda.com/download), fornecer um email para cadastro e baixar o arquivo executável necessário para a instalação a depender do seu sistema operacional.</li>
 </ol>
-<p><br> <img src="images/anaconda_download.jpg" style="width: 800px; max-width: 100%; height: auto; border: 3px solid black"> <br></p>
+<div id="fig-anaconda1" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anaconda1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/anaconda_download.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anaconda1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.3: Tela de download da distribuição Anaconda
+</figcaption>
+</figure>
+</div>
 <ol start="2" type="1">
 <li>Depois de baixado, basta clicar duas vezes sobre o arquivo e ir acompanhando o instalador, mantendo sempre as opções padrão e escolhendo a opção de instalar para todos os usuários do computador, o que requer acesso de administrador.</li>
 </ol>
-<p><br> <img src="images/anaconda_install.jpg" style="width: 400px; max-width: 100%; height: auto; border: 3px solid black"> <br></p>
+<div id="fig-anaconda2" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anaconda2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/anaconda_install.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anaconda2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.4: Tela de instalação da distribuição Anaconda
+</figcaption>
+</figure>
+</div>
 <ol start="3" type="1">
 <li>Pronto, o Anaconda está instalado e os principais pacotes e programas que utilizaremos também! <br><br></li>
 </ol>
@@ -389,7 +425,16 @@ window.Quarto = {
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="anaconda-e-suas-particularidades"><span class="header-section-number">2.1.3</span> Anaconda e suas particularidades</h3>
 <p>Como dito acima, anaconda é uma distribuição do Python para computação científica (e.g, ciência de dados e aprendizado de máquina), que visa simplificar o gerenciamento e a implantação de pacotes. As versões de pacotes no Anaconda são gerenciadas pelo sistema de gerenciamento de pacotes <em>conda</em>. Através do <em>conda</em> é possível criar ambientes e instalar pacotes distintos de forma a evitar incompatibilidades entre versões de pacotes já instalados.</p>
 <p>Além disso, o anaconda traz consigo o Anaconda Navigator, um ambiente <em>user-friendly</em> para a gestão de pacotes e aplicativos necessários para a utilização do Python sem que seja preciso ter qualquer conhecimento acerca da utilização correta de terminais (e.g, <em>prompt de comando</em> do Windows). Ao abrir o Anaconda Navigator no Windows, você deve ver algo assim</p>
-<p><br> <img src="images/anaconda_navigator.jpg" style="width: 800px; max-width: 100%; height: auto; border: 3px solid black"> <br></p>
+<div id="fig-anaconda3" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anaconda3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/anaconda_navigator.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anaconda3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.5: Tela inicial do Anaconda Navigator
+</figcaption>
+</figure>
+</div>
 <p>É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse <a href="https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share">vídeo</a> é um bom começo.</p>
 </section>
 <section id="ides" class="level3" data-number="2.1.4">
@@ -526,19 +571,19 @@ window.Quarto = {
 <ol type="1">
 <li>Podemos importar a biblioteca inteira</li>
 </ol>
-<div id="f726be35" class="cell" data-execution_count="1">
+<div id="635d5fe3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li>Podemos importar a biblioteca inteira mas dando-lhe um “apelido”</li>
 </ol>
-<div id="2338c0ba" class="cell" data-execution_count="2">
+<div id="81dd52bc" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="1">
 <li>Podemos importar apenas a função que nos interessa nesse caso</li>
 </ol>
-<div id="4701ae0e" class="cell" data-execution_count="3">
+<div id="18cea162" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>

@@ -2,6 +2,12 @@
 
 ## Introdução
 
+Por mais que se conheça a sintaxe e estrutura de uma linguagem de programação, construir um código eficiente pode não ser das tarefas mais fáceis. Além disso, traduzir um código de uma determinada linguagem para outra linguagem pode ser igualmente difícil, mesmo com sintaxes parecidas.
+
+Utilizar a Inteligência Artificial para fazer isso pela gente pode nos economizar um tempo valioso. Antes de entender a aplicabilidade dos modelos de inteligência artificial no mundo da programação, é preciso primeiro definir inteligência artificial e, principalmente, sua vertente generativa.
+
+![Meme 2](images/IA.jpg){#fig-meme2 width=700px max-width=100% fig-align="center"}
+
 ### Pré-requisitos
 
 Embora as funções e estruturas necessárias para a realização de _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.
@@ -14,6 +20,42 @@ Embora as funções e estruturas necessárias para a realização de _loops_ no 
 
 import numpy as np
 ```
+
+## O que é Inteligência Artificial?
+
+Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.
+
+Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava nos dados originais. Em essência, os sistema de IAG são sistemas de IA com um escopo mais restrito e bem definido.
+
+Dentro do grupo de modelos de IAG estão os famosos GPTs, como o [ChatGPT](https://chatgpt.com/) e o [Gemini](https://gemini.google.com/). Os GPTs são modelos da classe dos _Large Language Models_ (LLM), que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, "raciocina" em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo "prever" o conteúdo textual que melhor se encaixa ao conteúdo fornecido no prompt inicial.
+
+::: {.callout-note title="Curiosidade" icon=false}
+Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transformer**, que resume as características dos modelos por trás de sistemas como o ChatGPT. _Generative_ faz referência a modelos de IAG, que tem como objetivo principal criar conteúdo novo a partir de um dado conjunto de informações. _Pre-trained_ faz referência ao fato do modelo ser pré-treinado em um grande volume de dados textuais genéricos, em geral de domínio público como o Wikipedia, até uma determinada data de corte. Por fim, _Transformer_ é uma classe de modelos mais recentes, desenvolvidos inicialmente pelas equipes de pesquisa do Google, com certas particularidades que os tornam altamente eficientes e assertivos em tarefas que envolvem mensagens de entrada em formato de texto.
+:::
+
+## ChatGPT
+
+### Acesso à plataforma e primeiro uso
+
+### Conceitos básicos de engenharia de prompt
+
+Instruções, contexto, persona, exemplos, formato de saída
+
+### Alguns exemplos
+
+### Integração com ferramentas e APIs externas
+
+Nem sempre precisamos de um browser para utilizar o ChatGPT. O acesso às diferentes versões pode ser realizado através de uma Interface de Programação de Aplicações, ou API em inglês. Uma API é um conjunto de regras e protocolos que configuram uma forma simplificada de comunicação entre diferentes softwares. É possível, por exemplo, acessar as funcionalidades da ferramenta dentro de um código da linguagem de programação Python.
+
+No caso do ChatGPT, para acessar a API é preciso se registrar nesse [link](https://platform.openai.com/) e garantir uma chave de acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por conta de sobrecarga dos servidores e uso inadequado, hoje é preciso pagar pelo uso da API.
+
+Usuários que assinam a versão paga do ChatGPT não têm acesso direto à API.
+Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final do mês, é cobrado pelo número e complexidade das demandas.
+É possível configurar limites de uso de modo a evitar gastos maiores do que o esperado.
+O preço é diferente para modelos diferentes.
+https://openai.com/api/pricing/
+
+Exemplo
 
 
 ## StackOverflow

@@ -19,17 +19,14 @@ No entanto, o conjunto de qualidades do Python e as inúmeras bibliotecas que fo
 
 Por todos esses fatores, Python é uma das linguagens com a comunidade mais ativa em fóruns online voltados à programação e é a **linguagem que mais cresce no mundo**. As figuras abaixo ilustram bem esse crescimento da linguagem nos últimos anos:
 
-<img src="images/pypl_index.jpg" style="width: 800px; max-width: 100%; height: auto"/>
-<img src="images/stackoverflow_trends.jpg" style="width: 800px; max-width: 100%; height: auto"/>
+![Indíce PyPL de popularidade de linguagens](images/pypl_index.jpg){#fig-pypl width=700px max-width=100% fig-align="center"}
 
 
 ### Como instalar
 
 Existe mais de uma forma de instalar o Python no seu sistema e ainda mais formas de interagir com a linguagem. Você pode baixar o Python _puro_ (https://www.python.org/downloads/) e instalá-lo diretamente em sua máquina, porém, essa distribuição vem com poucos pacotes já instalados e instalá-los um a um requer paciência. Além disso, a instalação do Python puro pode demandar algumas alterações em configurações do sistema via prompt de comando do Windows, por exemplo, para que seja possível dialogar com a linguagem.
 
-<br>
-<img src="images/i_have_no_idea.jpg" style="width: 500px; max-width: 100%; height: auto"/>
-<br><br>
+![Meme](images/i_have_no_idea.jpg){#fig-meme1 width=500px max-width=100% fig-align="center"}
 
 Uma forma mais simples de instalar o Python em seu computador é através da distribuição Anaconda (https://www.anaconda.com/). Além de ser gratuita e conter vários dos pacotes que iremos utilizar, ela nos fornece diversas ferramentas que facilitam nossa interação com a linguagem. É hoje uma das distribuições do Python mais populares no mundo! **Recomendo fortemente utilizar esse caminho**.
 
@@ -39,15 +36,11 @@ _O passo a passo a seguir foi feito para o sistema Windows 10. Embora o caminho 
 
 1. Baixar e instalar o Anaconda é fácil. Basta acessar a aba de downloads no site do Anaconda (https://www.anaconda.com/download), fornecer um email para cadastro e baixar o arquivo executável necessário para a instalação a depender do seu sistema operacional.
 
-<br>
-<img src="images/anaconda_download.jpg" style="width: 800px; max-width: 100%; height: auto; border: 3px solid black"/>
-<br>
+![Tela de download da distribuição Anaconda](images/anaconda_download.jpg){#fig-anaconda1 width=800px max-width=100% fig-align="center"}
 
 2. Depois de baixado, basta clicar duas vezes sobre o arquivo e ir acompanhando o instalador, mantendo sempre as opções padrão e escolhendo a opção de instalar para todos os usuários do computador, o que requer acesso de administrador.
 
-<br>
-<img src="images/anaconda_install.jpg" style="width: 400px; max-width: 100%; height: auto; border: 3px solid black"/>
-<br>
+![Tela de instalação da distribuição Anaconda](images/anaconda_install.jpg){#fig-anaconda2 width=400px max-width=100% fig-align="center"}
 
 3. Pronto, o Anaconda está instalado e os principais pacotes e programas que utilizaremos também!
 <br><br>
@@ -58,9 +51,7 @@ Como dito acima, anaconda é uma distribuição do Python para computação cien
 
 Além disso, o anaconda traz consigo o Anaconda Navigator, um ambiente _user-friendly_ para a gestão de pacotes e aplicativos necessários para a utilização do Python sem que seja preciso ter qualquer conhecimento acerca da utilização correta de terminais (e.g, _prompt de comando_ do Windows). Ao abrir o Anaconda Navigator no Windows, você deve ver algo assim
 
-<br>
-<img src="images/anaconda_navigator.jpg" style="width: 800px; max-width: 100%; height: auto; border: 3px solid black"/>
-<br>
+![Tela inicial do Anaconda Navigator](images/anaconda_navigator.jpg){#fig-anaconda3 width=800px max-width=100% fig-align="center"}
 
 É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse [vídeo](https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share) é um bom começo.
 
