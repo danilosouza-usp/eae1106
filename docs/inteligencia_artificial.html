@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">3.1</span> Introdução</h2>
 <p>Por mais que se conheça a sintaxe e estrutura de uma linguagem de programação, construir um código eficiente pode não ser das tarefas mais fáceis. Além disso, traduzir um código de uma determinada linguagem para outra linguagem pode ser igualmente difícil, mesmo com sintaxes parecidas.</p>
 <p>Utilizar a Inteligência Artificial para fazer isso pela gente pode nos economizar um tempo valioso. Antes de entender a aplicabilidade dos modelos de inteligência artificial no mundo da programação, é preciso primeiro definir inteligência artificial e, principalmente, sua vertente generativa.</p>
-<div id="fig-meme2" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<div id="fig-meme2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-meme2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/IA.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -341,7 +341,7 @@ Figura&nbsp;3.1: Meme 2
 <ul>
 <li><code>numpy</code></li>
 </ul>
-<div id="d066a3ac" class="cell" data-message="false" data-execution_count="1">
+<div id="c2b2709b" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -351,10 +351,10 @@ Figura&nbsp;3.1: Meme 2
 <p>Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.</p>
 <p>Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava nos dados originais. Em essência, os sistema de IAG são sistemas de IA com um escopo mais restrito e bem definido.</p>
 <p>Dentro do grupo de modelos de IAG estão os famosos GPTs, como o <a href="https://chatgpt.com/">ChatGPT</a> e o <a href="https://gemini.google.com/">Gemini</a>. Os GPTs são modelos da classe dos <em>Large Language Models</em> (LLM), que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, “raciocina” em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo “prever” o conteúdo textual que melhor se encaixa ao conteúdo fornecido no prompt inicial.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Curiosidade">
+<div class="callout callout-style-default callout-note callout-titled" title="Curiosidade">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Nota</span>Curiosidade
@@ -369,10 +369,22 @@ Figura&nbsp;3.1: Meme 2
 <h2 data-number="3.3" class="anchored" data-anchor-id="chatgpt"><span class="header-section-number">3.3</span> ChatGPT</h2>
 <section id="acesso-à-plataforma-e-primeiro-uso" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.3.1</span> Acesso à plataforma e primeiro uso</h3>
+<p>O acesso à ferramenta é feito pelo <a href="https://chatgpt.com/">site</a> ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo.</p>
+<p>Colar imagens</p>
+<p>As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões e outras funcionalidades.</p>
+<p>Colar imagens</p>
+<p>Nem sempre as ferramentas de inteligência artificial, como o ChatGPT, são indicadas. Questões como acurácia, verificabilidade e uso de dados sensíveis são relevantes na hora de definir se o ChatGPT é a ferramenta mais indicada para uma aplicação específica.</p>
+<p>Colar imagens</p>
 </section>
 <section id="conceitos-básicos-de-engenharia-de-prompt" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.3.2</span> Conceitos básicos de engenharia de prompt</h3>
-<p>Instruções, contexto, persona, exemplos, formato de saída</p>
+<p><em>Prompt Engineering</em> (ou engenharia de prompt) é o processo de estruturar uma mensagem de entrada de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.</p>
+<ul>
+<li><p><strong>Clareza</strong>: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções.</p></li>
+<li><p><strong>Especificidade</strong>: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.</p></li>
+</ul>
+<p>No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico.</p>
+<p>COLAR IMAGEM</p>
 </section>
 <section id="alguns-exemplos" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="alguns-exemplos"><span class="header-section-number">3.3.3</span> Alguns exemplos</h3>

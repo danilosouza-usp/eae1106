@@ -29,7 +29,7 @@ Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentem
 
 Dentro do grupo de modelos de IAG estão os famosos GPTs, como o [ChatGPT](https://chatgpt.com/) e o [Gemini](https://gemini.google.com/). Os GPTs são modelos da classe dos _Large Language Models_ (LLM), que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, "raciocina" em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo "prever" o conteúdo textual que melhor se encaixa ao conteúdo fornecido no prompt inicial.
 
-::: {.callout-note title="Curiosidade" icon=false}
+::: {.callout-note title="Curiosidade"}
 Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transformer**, que resume as características dos modelos por trás de sistemas como o ChatGPT. _Generative_ faz referência a modelos de IAG, que tem como objetivo principal criar conteúdo novo a partir de um dado conjunto de informações. _Pre-trained_ faz referência ao fato do modelo ser pré-treinado em um grande volume de dados textuais genéricos, em geral de domínio público como o Wikipedia, até uma determinada data de corte. Por fim, _Transformer_ é uma classe de modelos mais recentes, desenvolvidos inicialmente pelas equipes de pesquisa do Google, com certas particularidades que os tornam altamente eficientes e assertivos em tarefas que envolvem mensagens de entrada em formato de texto.
 :::
 
@@ -37,9 +37,32 @@ Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transfo
 
 ### Acesso à plataforma e primeiro uso
 
+O acesso à ferramenta é feito pelo [site](https://chatgpt.com/) ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo.
+
+Colar imagens
+
+As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões e outras funcionalidades.
+
+Colar imagens
+
+
+Nem sempre as ferramentas de inteligência artificial, como o ChatGPT, são indicadas. Questões como acurácia, verificabilidade e uso de dados sensíveis são relevantes na hora de definir se o ChatGPT é a ferramenta mais indicada para uma aplicação específica.
+
+Colar imagens
+
+
 ### Conceitos básicos de engenharia de prompt
 
-Instruções, contexto, persona, exemplos, formato de saída
+_Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma mensagem de entrada de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.
+
+- **Clareza**: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções. 
+
+- **Especificidade**: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.
+
+No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico.
+
+ COLAR IMAGEM
+
 
 ### Alguns exemplos
 

@@ -1,15 +1,19 @@
 # Sobre este material {.unnumbered}
 
-Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
+Este é o material da disciplina [**EAE1106 — Métodos Computacionais para Economia**](https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=eae1106), ministrada no Departamento de Economia da USP. Tal disciplina faz parte da grade de matérias obrigatórias e é oferecida no 3º semestre do Bacharelado em Ciências Econômicas.
 
-O curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente **Python**, com uma breve introdução a **R** ao final do semestre.
+A disciplina tem o objetivo de introduzir os estudantes ao raciocínio computacional, aos conceitos relevantes de computação, e às suas aplicações para resolver problemas relevantes no campo da Economia. Para tanto, o curso utilizará a principalmente a linguagem de programação **Python**, amplamente utilizada em diversas áreas das ciências e do mercado de trabalho. Espera-se que ao final do curso o estudante tenha, além do domínio sobre a sintaxe da linguagem utilizada no curso, capacidade de formular e resolver problemas desde a sua concepção até a forma de apresentação, numérica e visual, das análises.
 
 ## Histórico de atualizações
 
 Este website é atualizado continuamente, refletindo _feedbacks_ a respeito do conteúdo e incorporação de novos pacotes e atualizações.
 
+- **23 de Fevereiro, 2026**: Disponibilização da primeira versão do material, com a integridade dos capítulos 1-6.
+
 ## Agradecimentos e reprodução
 
-Esse material deve muito a X, Y e Z
+Esse material deve muito ao Prof. [Claudio Ribeiro de Lucinda](https://www.claudiolucinda.net/). Parte importante do conteúdo foi desenvolvida de forma conjunta entre eu e o Prof. Claudio ao longo do segundo semestre de 2022, ano em que o curso foi oferecido pela primeira vez como uma matéria obrigatória de 30h no Bacharelado em Ciências Econômicas da FEA-USP. Agradecimento especial a Tomás Polido Garcia, que, enquanto monitor da matéria no primeiro semestre de 2026, ajudou muito na elaboração de exercícios e *feedbacks* em relação aos capítulos após a conversão do curso em uma matéria de 60h.
 
-Esse material foi construído bla bla bla. Qualquer erro é de responsabilidade exclusiva do autor. Todo e qualquer feedback é muito bem-vindo.
+Este material é de propriedade intelectual do autor e não deve ser copiado ou reproduzido para fins comerciais. Não houve, até o momento, revisão técnica do material, de modo que o uso para fins acadêmicos é de inteira responsabilidade daquele que decidir por assim utilizar o material. Qualquer erro é de responsabilidade exclusiva do autor do material. 
+
+Todo feedback é muito bem-vindo, inclusive através de sugestões e _issues_ via GitHub. Caso queira, você pode me contactar em: danilosouza\@ usp.br

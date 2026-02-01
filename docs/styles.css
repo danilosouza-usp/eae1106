@@ -52,7 +52,8 @@ code a:any-link {
 div.sourceCode {
     border-radius: 5px;
     margin-bottom: 0.5rem;
-    overflow: hidden;   /* ESSENCIAL */
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 pre.sourceCode {
@@ -84,10 +85,36 @@ pre.sourceCode {
 }
 
 /* Lista de pré-requisitos*/
+.content p code,
 .content ul code {
     background: #F2F6FC;
     color: #2563EB;
-    padding: 0.15em 0.5em;
+    padding: 0.15em 0.3em 0.15em 0.3em;
     border-radius: 5px;
     font-size: 0.9em;
+}
+
+/* Tipografia dos callouts = texto normal */
+.content .callout-body-container,
+.content .callout-body-container p,
+.content .callout-body-container li {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Padding já ajustado por você */
+.content .callout-body-container {
+    padding: 0.75rem 1rem;
+}
+
+/* Header do callout */
+.content .callout-header {
+    padding: 0.35rem 1rem;
+}
+
+/* Título */
+.content .callout-title-container {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
 }
