@@ -1,6 +1,17 @@
 # Computação numérica, análise de dados e visualização {#sec-pacotes .unnumbered}
 
-Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
+Após a introdução à lógica de programação e aos principais conceitos da linguagem Python, esta parte do curso concentra-se na aplicação prática dessas ideias em tarefas típicas de análise empírica. O objetivo é apresentar as principais bibliotecas utilizadas para computação numérica, manipulação de dados e visualização, e mostrar como elas se articulam em um fluxo de trabalho único e coerente.
 
-O curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente **Python**, com uma breve introdução a **R** ao final do semestre.
+Nesta etapa, trabalharemos com três bibliotecas centrais do ecossistema Python: `NumPy`, `Pandas` e `Matplotlib`, além de outras ferramentas complementares. O objetivo é fornecer uma base sólida para trabalhar com dados reais e organizar análises de forma reproduzível. Listo abaixo alguns dos principais conceitos trabalhados nos capítulos que compõe esta parte do curso:
+
+- **Capítulo 7 -- Arrays, matrizes e álgebra linear**. Introduz estruturas numéricas fundamentais, como vetores e matrizes, e operações básicas e avançadas de álgebra linear, que formam a base da computação numérica em Python. A principal biblioteca utilizada aqui é o `NumPy`.
+
+- **Capítulo 8 -- Gestão e análise de dados**. Apresenta ferramentas para organizar, transformar e analisar bases de dados estruturadas, incluindo importação de dados, manipulação de colunas, agregações, junções e reorganização de dataframes. A principal biblioteca utilizada aqui é o `Pandas`.
+
+- **Capítulo 9 — Visualização de dados**. Discute a construção de gráficos utilizando o Matplotlib e bibliotecas complementares, explorando diferentes tipos de visualizações e princípios básicos para comunicar informações de forma clara e informativa. A principal biblioteca utilizada aqui é o `Matplotlib`, mas falaremos também de outros ecossistemas importantes no mundo da visualização, como `Seaborn` e `Plotly`.
+
+- **Capítulo 10 — Análise empírica integrada**. Integra os conteúdos anteriores em um fluxo completo de análise, abordando organização de projetos, limpeza de dados, análises descritivas, visualização e interpretação de resultados empíricos. A ideia principal deste capítulo é implementar um projeto de análise de dados do início ao fim, incorporando as bibliotecas, funções e conceitos aprendidos nos três capítulos anteriores.
+
+Juntos, esses quatro capítulos fornecem uma visão integrada das principais ferramentas e práticas utilizadas em análise de dados com Python. Ao final desta parte do curso, mais do que dominar bibliotecas específicas, o aluno deverá ser capaz de estruturar e executar uma análise empírica completa -- desde a organização dos dados e a realização de operações numéricas até a visualização e interpretação dos resultados -- utilizando um fluxo de trabalho coerente, reproduzível e adequado a aplicações empíricas em economia.
+
 

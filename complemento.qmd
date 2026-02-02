@@ -1,6 +1,14 @@
 # Temas complementares {#sec-complemento .unnumbered}
 
-Este é o material da disciplina **EAE1106 — Métodos Computacionais para Economia**, ministrada no Departamento de Economia da USP.
+Após o desenvolvimento dos fundamentos da lógica de programação e a aplicação prática dessas ideias em análise de dados com Python, a parte final do curso tem como objetivo ampliar o repertório conceitual do aluno e apresentar outros paradigmas e ferramentas amplamente utilizados em análise empírica.
 
-O curso tem como objetivo introduzir lógica de programação e análise de dados utilizando principalmente **Python**, com uma breve introdução a **R** ao final do semestre.
+Esta etapa não tem como objetivo aprofundar tecnicamente todos os temas abordados, mas sim introduzir conceitos-chave que ajudam o aluno a compreender diferentes estilos de programação e a transitar entre linguagens e ecossistemas distintos. Em particular, são abordados o paradigma de programação orientada a objetos e uma breve introdução à linguagem R, muito utilizada em economia e a linguagem a ser utilizada nos curso de Econometria do Bacharelado em Ciências Econômicas da FEA-USP.
+
+Listo abaixo os principais conceitos trabalhados nos capítulos que compõem esta parte final do curso:
+
+- **Capítulo 11 -- Introdução à programação orientada a objetos (OOP)**. Apresenta os princípios básicos da programação orientada a objetos, com foco em em atributos e classes. O objetivo é introduzir uma forma alternativa de estruturar programas, destacando quando e por que esse paradigma é utilizado, bem como suas vantagens em projetos mais complexos.
+
+- **Capítulo 12 -- Introdução ao R**. Introduz a linguagem R, discutindo sua sintaxe básica, principais tipos de objetos e semelhanças e diferenças em relação ao Python. O capítulo apresenta também o ecossistema do `tidyverse`, incluindo ferramentas para manipulação e visualização de dados, e enfatiza o uso de pipelines como forma de organizar análises empíricas.
+
+Juntos, esses capítulos finais têm como objetivo expandir a visão do estudante sobre programação e análise de dados, mostrando que diferentes linguagens e paradigmas podem ser utilizados para resolver problemas semelhantes. Ao final do curso, espera-se que o aluno tenha desenvolvido não apenas familiaridade com Python, mas também a capacidade de reconhecer padrões comuns entre linguagens, facilitando o aprendizado autônomo de novas ferramentas ao longo de sua formação acadêmica e profissional.
 
