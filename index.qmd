@@ -2,7 +2,7 @@
 
 Este é o material da disciplina [**EAE1106 — Métodos Computacionais para Economia**](https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=eae1106), ministrada no Departamento de Economia da USP. Tal disciplina faz parte da grade de matérias obrigatórias e é oferecida no 3º semestre do Bacharelado em Ciências Econômicas.
 
-A disciplina tem o objetivo de introduzir os estudantes ao raciocínio computacional, aos conceitos relevantes de computação, e às suas aplicações para resolver problemas relevantes no campo da Economia. Para tanto, o curso utilizará a principalmente a linguagem de programação **Python**, amplamente utilizada em diversas áreas das ciências e do mercado de trabalho. Espera-se que ao final do curso o estudante tenha, além do domínio sobre a sintaxe da linguagem utilizada no curso, capacidade de formular e resolver problemas desde a sua concepção até a forma de apresentação, numérica e visual, das análises.
+A disciplina tem o objetivo de introduzir os estudantes ao raciocínio computacional, aos conceitos relevantes de computação, e às suas aplicações para resolver problemas relevantes no campo da Economia. Para tanto, o curso utilizará principalmente a linguagem de programação **Python**, amplamente utilizada em diversas áreas das ciências e do mercado de trabalho. Espera-se que ao final do curso o estudante tenha, além do domínio sobre a sintaxe da linguagem utilizada no curso, capacidade de formular e resolver problemas desde a sua concepção até a forma de apresentação, numérica e visual, das análises.
 
 ## Histórico de atualizações
 
@@ -16,4 +16,11 @@ Esse material deve muito ao Prof. [Claudio Ribeiro de Lucinda](https://www.claud
 
 Este material é de propriedade intelectual do autor e não deve ser copiado ou reproduzido para fins comerciais. Não houve, até o momento, revisão técnica do material, de modo que o uso para fins acadêmicos é de inteira responsabilidade daquele que decidir por assim utilizar o material. Qualquer erro é de responsabilidade exclusiva do autor do material. 
 
-Todo feedback é muito bem-vindo, inclusive através de sugestões e _issues_ via GitHub. Caso queira, você pode me contactar em: danilosouza\@ usp.br
+Todo feedback é muito bem-vindo, inclusive através de sugestões e _issues_ via GitHub. Caso queira, você pode me contactar em: danilosouza\@usp.br
+<br><br>
+
+::: {style="text-align: right;"}
+Danilo Souza <br>
+Prof. Associado em Economia <br>
+FEAUSP, Fevereiro 2026
+:::

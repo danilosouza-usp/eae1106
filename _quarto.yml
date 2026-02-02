@@ -11,6 +11,7 @@ book:
   date: "2026-01-20"
   date-format: "DD [ de ] MMMM, YYYY"
   reader-mode: true
+  cover-image: images/python_code.png
 
   repo-url: https://github.com/danilosouza-usp/eae1106
   repo-actions: [edit,issue]
@@ -66,7 +67,6 @@ format:
     highlight-style: pygments
     link-external-newwindow: true
     author-meta: "Danilo Souza"
-    mermaid: {}
     
   pdf:
     documentclass: scrreprt
