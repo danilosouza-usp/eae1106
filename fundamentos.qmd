@@ -1,27 +1,48 @@
 # Fundamentos de computação {#sec-fundamentos}
 
-In summary, this book has no content whatsoever.
+## Introdução
 
+Antes de escrever qualquer linha de código, é importante entender o ambiente no qual a programação acontece. Programar não é apenas aprender uma linguagem específica, mas também compreender como o computador organiza arquivos, executa comandos e interage com o sistema operacional. Muitos dos erros e dificuldades enfrentados por iniciantes em programação não estão relacionados à lógica do código em si, mas ao uso do computador como ferramenta de trabalho: navegar por diretórios, localizar arquivos, executar programas e interpretar mensagens do sistema. Esses aspectos são frequentemente tratados como triviais, mas são fundamentais para o uso eficiente de qualquer linguagem de programação.
 
-## O que é um computador?
+Neste capítulo, o objetivo é construir uma base mínima de alfabetização computacional, apresentando conceitos essenciais sobre funcionamento do computador, organização de arquivos, uso do terminal e o papel das linguagens de programação. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina. 
 
-Um computador realiza duas coisas e apenas duas coisas: faz operações e guarda de forma eficiente o resultado dessas operações. No entanto, ao fazer essas duas coisas de forma extremamente eficiente essa máquina chamada computador nos permite receber, armazenar, processar e transmitir informações. Em essência, o computador nos serve ao propósito de **resolução de problemas**. Isso significa que, através de uma linguagem formal (especificamente operações de computação), podemos formular problemas e **programar** meios de resolver de forma automatizada tais problemas. No fim das contas, programar é o ato de criar programas, isto é, estabelecer uma sequência de instruções em linguagem formal que especifica como executar uma determinada operação no computador. 
+![Meme 2](images/IA.jpg){#fig-meme2 width=700px max-width=100% fig-align="center"}
 
-Mas antes de avançar na ideia de **programa** e **algoritmos**, quais são as características de um computador como o conhecemos?
+### Pré-requisitos
+
+Neste capítulo introdutório não utilizaremos nenhum programa ou linguagem. Ele foi escrito para que mesmo o aluno sem nenhum tipo de conhecimento em computação e com o mínimo de conhecimento a respeito de operações matemática elementares tenha capacidade de acompanhar. Basta curiosidade!
+
+## O que é computação e por que ela importa?
+
+## Como um computador funciona
+
+Um computador realiza duas coisas e apenas duas coisas: faz operações e guarda de forma eficiente o resultado dessas operações. No entanto, ao fazer essas duas coisas de forma extremamente eficiente essa máquina chamada computador nos permite receber, armazenar, processar e transmitir informações. Em essência, o computador nos serve ao propósito de **resolução de problemas**. Isso significa que, através de uma linguagem formal (especificamente operações de computação), podemos formular problemas e programar meios de resolver de forma automatizada tais problemas. No fim das contas, programar é o ato de criar programas, isto é, estabelecer uma sequência de instruções em linguagem formal que especifica como executar uma determinada operação no computador. 
+
+Mas antes de avançar na ideia de programa e algoritmos, quais são as características de um computador como o conhecemos?
 
 ### Sistema computacional
 
-Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações.
+Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. São três os principais componentes que formam um sistema computacional:
 Componentes: 
 
-* **Hardware**: componente física de um sistema de computação, isto é, todos os equipamentos utilizados pelo usuário nas ações de entrada, processamento, armazenamento e saída de dados.
-* **Software**: componente lógica de um sistema de computação, isto é, séries de instruções que fazem o computador funcionar (programas de computador)
+* **Hardware**: componente físico de um sistema de computação, isto é, todos os equipamentos utilizados pelo usuário nas ações de entrada, processamento, armazenamento e saída de dados. Exemplos:
+   - Teclado, mouse, impressora
+   - Unidade central de processamento (CPU, em inglês) ou processador
+   - Placa mãe
+   - Placa de vídeo (GPU)
+   - Memória RAM
+   - Disco rígido de armazenamento
 
-E por fim o componente humano do sistema, as pessoas, que utilizam o computador basicamente como ferramenta para atingir determinado fim, para **resolver problemas**.
+* **Software**: componente lógico de um sistema de computação, isto é, séries de instruções que fazem o computador funcionar. São os famosos programas de computador, que podem ser (i) proprietários e utilizáveis a partir da compra de uma licença ou (ii) gratuitos. Exemplos:
+   - Editores de texto (e.g., Microsoft Word)
+   - Editor de planilhas (e.g., Microsoft Excel)
+   - Browsers para navegação na internet (e.g., Safari e Google Chrome)
+
+* **Componente humano**: as pessoas, que utilizam o computador basicamente como ferramenta para atingir determinado fim, para resolver problemas. Sem a ação de um indivíduo o sistema computacional não funciona, já que (ainda) depende das instruções e direcionamento humano para definir o que o software deve fazer e como deve interagir com o hardware.
 
 ### Arquitetura de um computador
 
-Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias dimensões das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:
+Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias áreas das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:
 
 ![Diagrama que representa o funcionamento da arquitetura Von-Neumann](images/arquitetura_VonNeumann.jpg){#fig-arquitetura width=700px max-width=100% fig-align="center"}
 
@@ -29,9 +50,19 @@ Essencialmente, o hadware que compõe as partes da arquitetura de um computador 
 
 * **Dispositivos de entrada e saída**: é através deles que o usuário dialoga com a máquina. Através do teclado e mouse, por exemplo, o usuário fornece informações ao computador a partir das quais processos serão realizados e seus resultados serão percebidos pelos dispositivos de saída (monitor e impressora, por exemplo).
 
-* **Unidade central de processamento (CPU)**: é o cérebro do sistema computacional, é nele que serão executados cálculos e instruções lógicas dos usuários. 
+* **Processador ou CPU**: é o cérebro do sistema computacional, é nele que serão executados cálculos e instruções lógicas dos usuários. 
 
-* **Memória**: aqui são armazenados os resultados dos cálculos, dados e instruções.
+* **Memória**: aqui são armazenados temporariamente os resultados dos cálculos, dados e instruções. Esse armazenamento na memória, porém, não é feito de forma permanente, ele serve apenas como suporte ao processador. É como se o processador utilizasse a memória de caderno de anotações, retomando o resultado dos cálculos já realizados sempre que necessário. 
+
+::: {.callout-important title="Importante"}
+Não confunda _memória_ com o que chamamos de _armazenamento_. A memória do computador, normalmente na forma da chamada memória RAM (sigla para _Random Access Memory_), é responsável por armazenar temporariamente os dados de dos programas que estão em uso, permitindo acesso rápido pelo processador. É também chamada de memória volátil: todo o seu conteúdo é perdido quando o computador é desligado.
+
+Já as informações armazenadas no disco rígido (_Hard Disk Drive_, HDD) ou na unidade de estado sólido (_Solid-State Drive_, SSD) não são perdidas quando o computador é desligado. Esses dispositivos mantêm os dados armazenados de forma persistente, funcionando como a "memória de longo prazo" do computador. Por isso, esse tipo de armazenamento é chamado de memória não volátil.
+
+Fazendo uma analogia com o funcionamento do nosso cérebro, a memória RAM armazena informações de curto prazo, como o que você almoçou hoje. Esse tipo de informação é importante ao longo do dia, por exemplo para saber se você já se alimentou bem ou se ainda está longe da sua meta diária de proteína, mas costuma ser esquecida depois que você dorme.
+
+Já o HDD ou SSD armazena informações de longo prazo, como memórias da infância ou experiências passadas. Essas informações não são utilizadas constantemente no dia a dia, mas permanecem disponíveis e podem ser úteis em conversas com amigos ou como aprendizado acumulado, por exemplo na hora de decidir como cuidar dos seus filhos quando chegar a hora.
+:::
 
     
 ### Capacidade de armazenamento
