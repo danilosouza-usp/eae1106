@@ -6,7 +6,7 @@ Antes de escrever qualquer linha de código, é importante entender o ambiente n
 
 Neste capítulo, o objetivo é construir uma base mínima de alfabetização computacional, apresentando conceitos essenciais sobre funcionamento do computador, organização de arquivos, uso do terminal e o papel das linguagens de programação. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina. 
 
-![Meme 2](images/IA.jpg){#fig-meme2 width=700px max-width=100% fig-align="center"}
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
 
 ### Pré-requisitos
 
@@ -33,10 +33,14 @@ Componentes:
    - Memória RAM
    - Disco rígido de armazenamento
 
+<br>
+
 * **Software**: componente lógico de um sistema de computação, isto é, séries de instruções que fazem o computador funcionar. São os famosos programas de computador, que podem ser (i) proprietários e utilizáveis a partir da compra de uma licença ou (ii) gratuitos. Exemplos:
    - Editores de texto (e.g., Microsoft Word)
    - Editor de planilhas (e.g., Microsoft Excel)
    - Browsers para navegação na internet (e.g., Safari e Google Chrome)
+
+<br>
 
 * **Componente humano**: as pessoas, que utilizam o computador basicamente como ferramenta para atingir determinado fim, para resolver problemas. Sem a ação de um indivíduo o sistema computacional não funciona, já que (ainda) depende das instruções e direcionamento humano para definir o que o software deve fazer e como deve interagir com o hardware.
 
@@ -64,72 +68,92 @@ Fazendo uma analogia com o funcionamento do nosso cérebro, a memória RAM armaz
 Já o HDD ou SSD armazena informações de longo prazo, como memórias da infância ou experiências passadas. Essas informações não são utilizadas constantemente no dia a dia, mas permanecem disponíveis e podem ser úteis em conversas com amigos ou como aprendizado acumulado, por exemplo na hora de decidir como cuidar dos seus filhos quando chegar a hora.
 :::
 
-    
-### Capacidade de armazenamento
+### Bits e bytes
 
-* Kilobyte: 1024 (2^10) bytes.
-    + Capacidade de memória dos computadores pessoais muito antigos.
-    
-   <br>
-   
-* Megabyte: aproximadamente, um milhão (2^20) de bytes.
-    + Memória de computadores pessoais antigos.
-    
-   <br>
-     
-     
-* Gigabyte: aproximadamente, um bilhão (2^30) de bytes.
-    + Dispositivos de armazenamento (discos rígidos), especialmente SSD
-    
-   <br>
-    
-* Terabyte: aproximadamente, um trilhão (2^40) de bytes.
-    + Dispositivos de armazenamento para sistemas muito grandes e servidores.
-    
-   <br>
-     
-### Como computadores armazenam números
+Para entender como um computador armazena e processa informações, é necessário compreender o conceito de sistema binário ou sistema de base 2^[Para entender um pouco mais sobre a história do sistema binário acesse o [link](https://imasters.com.br/tecnologia/a-historia-do-codigo-binario-a-base-da-computacao-moderna).]. Diferentemente do sistema decimal, que utilizamos no dia a dia e possui dez dígitos (de 0 a 9), os computadores operam utilizando apenas dois estados possíveis: 0 e 1. Pense nisso como um interruptor, em que 1 representa o estado "ligado" e 0 o estado "desligado". Os processadores atuais de um computador são resultado da junção de bilhões desses minúsculos "interruptores", também chamados de transistores.
 
-Para entender a diferença entre computação de precisão simples e de precisão dupla, é importante entender o papel da precisão na ciência da computação. Imagine realizar um cálculo usando um número irracional (como $\pi$) e incluindo apenas dois dígitos à direita do ponto decimal (3.14). Você obteria um resultado mais preciso se fizesse o cálculo incluindo dez dígitos à direita do ponto decimal (3,1415926535).
+Esses dois estados, 0 ou 1, também são chamados de bits (do inglês _binary digits_). Um bit representa a menor unidade de informação que um computador pode armazenar. Qualquer informação processada por um computador -- números, textos, imagens ou vídeos -- é, em última instância, representada como uma sequência de bits. 
 
-Para computadores, esse nível de precisão é chamado de precisão e é medido em dígitos binários (bits) em vez de casas decimais. Quanto mais bits usados, maior a precisão. A representação de grandes números em binários de computador requer um padrão para garantir que não haja grandes discrepâncias nos cálculos. Assim, o Instituto de Engenheiros Elétricos e Eletrônicos (IEEE) desenvolveu o Padrão IEEE para Aritmética de Ponto Flutuante (IEEE 754).
+Como trabalhar com bits individualmente seria pouco prático, eles são agrupados em unidades maiores chamadas de bytes. Um byte é composto por 8 bits e permite representar um conjunto maior de valores. Um byte pode representar 256 ($2^8 = 256$) combinações diferentes, o que é suficiente para representar todas as letras maiúsculas e minúsculas, números e símbolos básicos do alfabeto inglês. Não à toa, o byte se tornou a unidade padrão de medida quando o assunto é capacidade de armazenar informação em um computador. A Tabela @tbl-binario mostra como converter alguns números do sistema decimal para o sistema binário de 8 bits, em que cada dígito dibário indica a presença ou ausência de uma potência de 2.
 
-Em geral, um número será representado de forma aproximada com um número fixo de números significantes e escalonado usando um expoente em uma base (usualmente dois, ou 10 ou 16). Esses números possuem a seguinte forma:
+| Número decimal | Número binário | Cálculo para conversão                                                                                        |
+|:--------------:|:--------------:|:-------------------------------------------------------------------------------------------------------------:|
+| 0              | 00000000       | $0\cdot 2^7 + 0\cdot 2^6 + 0\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 0\cdot 2^0 = 0$   |
+| 1              | 00000001       | $0\cdot 2^7 + 0\cdot 2^6 + 0\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0 = 1$   |
+| 5              | 00000101       | $0\cdot 2^7 + 0\cdot 2^6 + 0\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0 = 5$   |
+| 48             | 00110000       | $0\cdot 2^7 + 0\cdot 2^6 + 1\cdot 2^5 + 1\cdot 2^4 + 0\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 0\cdot 2^0 = 48$  |
+| 137            | 10001001       | $1\cdot 2^7 + 0\cdot 2^6 + 0\cdot 2^5 + 0\cdot 2^4 + 1\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0 = 137$ |
+| 255            | 11111111       | $1\cdot 2^7 + 1\cdot 2^6 + 1\cdot 2^5 + 1\cdot 2^4 + 1\cdot 2^3 + 1\cdot 2^2 + 1\cdot 2^1 + 1\cdot 2^0 = 255$ |
 
-$$ S \times B^e $$
+: Representação de números decimais no sistema binário e detalhamento do cálculo para conversão. {#tbl-binario tbl-colwidths="[20,20,60]" .hover}
 
-Em que $S$ é o significando, $B$ é um número inteiro maior ou igual a dois, e $e$ um expoente, um número inteiro. Por exemplo:
-$1.2345=12345 \times 10^{-4}$. O termo Ponto Flutuante se refere ao fato que o ponto decimal (também chamado de ponto binário) pode flutuar; ou seja, pode ser colocado em qualquer lugar em relação aos dígitos significantes do número. Esta posição é indicada pelo expoente, e a representação em ponto flutuante de um número pode ser pensada como uma forma de notação científica. 
+A partir dos bytes, surgem unidades maiores, amplamente utilizadas para medir o tamanho de arquivos, a quantidade de memória e a capacidade de armazenamento: quilobytes, megabytes, gigabytes, terabytes e petabytes. Essas unidades indicam, essencialmente, quantos bytes são necessários para representar uma determinada quantidade de informação.
 
-A precisão nessa representação de ponto flutuante é dada pela quantidade de bits dedicado ao armazenamento do significando e do expoente -- quanto maior o significando, mais precisa é a representação (menor é o espaço entre dois números), e quanto maior o expoente, mais alto é o maior valor que pode ser representado.
+- Kilobyte (KB): $1{,}024$ (ou $2^{10}$) bytes.
+- Megabyte (MB): $1{,}048{,}576$ (ou $2^{20}$) bytes.
+- Gigabyte (GB): $1{,}073{,}741{,}824$ (ou $2^{30}$) bytes.
+- Terabyte (TB): $1{,}099{,}511{,}627{,}776$ (ou $2^{40}$) bytes.
+- Petabyte (PB): $1{,}125{,}899{,}906{,}842{,}624$ (ou $2^{50}$) bytes.
+- Exabyte, Zettabyte, Yottabyte...
 
-Existem três componentes do IEEE 754:
+Compreender bits e bytes é fundamental para entender por que arquivos têm tamanhos diferentes, por que algumas operações exigem mais memória do que outras e por que certas tarefas computacionais são mais custosas do ponto de vista de processamento.
 
-* O sinal - 0 representa um número positivo; 1 representa um número negativo.
-* O expoente - O expoente é usado para representar expoentes positivos e negativos. 
-* O significando - Também conhecida como mantissa, a mantissa representa os bits de precisão do número.
+  
+### Processamento, memória e armazenamento na prática
 
-Usando esses componentes, o IEEE 754 representa números de ponto flutuante de duas maneiras: formato de precisão simples e formato de precisão dupla. Embora ainda existam várias maneiras de representar números de ponto flutuante, o IEEE 754 é o mais comum porque geralmente é a representação mais eficiente de valores numéricos.
+Podemos entender o funcionamento de um computador como um fluxo contínuo de **leitura**, **processamento** e **armazenamento** de bits. Quando observamos as especificações de um computador pessoal, é comum encontrar informações como número de núcleos do processador (_cores_), frequência do processador em gigahertz (GHz), quantidade de memória RAM e capacidade de armazenamento em disco. Esses números descrevem, essencialmente, a velocidade e a escala com que o computador consegue manipular grandes volumes de informação binária em cada etapa desse fluxo contínuo.
 
-### Formato de ponto flutuante de precisão simples
+**Processamento** refere-se à execução de instruções sobre dados representados em bits. O processador é o componente responsável por realizar operações elementares que, em última instância, são operações lógicas sobre sequências de zeros e uns. A frequência do processador indica aproximadamente quantos ciclos de processamento podem ser realizados por segundo. Frequências mais altas permitem que mais instruções sejam executadas em menos tempo, embora o desempenho final dependa também da organização do código, do tipo de tarefa e do acesso à memória. Além disso, processadores modernos possuem múltiplos _cores_ ou núcleos. O uso de múltiplos núcleos permite paralelismo, isto é, a execução simultânea de diferentes partes de uma tarefa, de forma análoga a dividir um trabalho entre várias pessoas para concluí-lo mais rapidamente.
 
-O formato de ponto flutuante de precisão simples usa 32 bits (um bit pro sinal, 8 pro expoente e 24 pro significando) de memória do computador e pode representar uma ampla gama de valores numéricos. Muitas vezes referido como FP32, esse formato é melhor usado para cálculos que não sofrem um pouco de aproximação.
+**Memória (RAM)** é o espaço onde os dados e instruções ficam armazenados temporariamente enquanto estão sendo processados. É na memória RAM que o computador mantém os bytes que serão acessados repetidamente pelo processador. Quanto maior a quantidade de RAM disponível, maior é o volume de dados que pode ser mantido "em uso" ao mesmo tempo. Quando a RAM é insuficiente, o computador passa a usar o disco como apoio, o que reduz drasticamente o desempenho.
 
-### Formato de ponto flutuante de precisão dupla
+**Armazenamento**, por sua vez, diz respeito ao local onde os dados são guardados de forma permanente. HDDs e SSDs armazenam grandes volumes de bytes mesmo quando o computador está desligado. A diferença principal é que SSDs permitem acesso muito mais rápido aos dados, reduzindo o tempo necessário para carregar programas, abrir arquivos e transferir grandes conjuntos de dados para a memória.
 
-O formato de ponto flutuante de precisão dupla, por outro lado, ocupa 64 bits (um bit pro sinal, 11 pro expoente e 52 pro significando) da memória do computador e é muito mais preciso do que o formato de precisão simples. Esse formato é frequentemente chamado de FP64 e usado para representar valores que exigem um intervalo maior ou um cálculo mais preciso.
+Vistos em conjunto, processamento, memória e armazenamento formam um sistema integrado: dados são lidos do disco, carregados na memória, processados pela CPU e, quando necessário, gravados novamente no armazenamento. Para tarefas simples, esse fluxo passa despercebido. Para programação, análise de dados e computação numérica compreender essas etapas ajuda a interpretar erros, gargalos de desempenho e limitações práticas do ambiente computacional.
 
-Embora a precisão dupla permita mais precisão, ela também requer mais recursos computacionais, armazenamento de memória e transferência de dados. O custo de usar esse formato nem sempre faz sentido para todos os cálculos.
+::: {.callout-tip title="O que significam as especificações do seu computador?"}
 
-<br>
+Considere um computador com processador com 16 núcleos e frequência de 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem como ele lida com bits e bytes em diferentes etapas do processamento.
 
-### Mas qual a importância disso tudo?
+- **16 núcleos (cores)** indicam que o processador pode executar várias tarefas ao mesmo tempo. Em aplicações que permitem paralelismo -- como certas operações numéricas ou análises sobre grandes conjuntos de dados -- isso é semelhante a dividir o trabalho entre dezesseis pessoas em vez de apenas uma.
 
-Saber como os computadores armazenam números, ou qual a importância da memória no processo de fornecimento de parâmetros de entrada em busca de uma saída específica, nos ajuda enormemente a entender porque, por exemplo, um sistema 32 bits só é capaz de nos fornecer 4GB de memória RAM para armazenamento de cálculos e operações ou mesmo porque podemos ter dificuldade ao tentar abrir no nosso computador local um arquivo com alguns milhões de linhas. 
+- **3.2 GHz** refere-se à velocidade com que cada núcleo executa instruções elementares. Em termos simples, indica quantos passos o processador consegue dar por segundo ao manipular dados representados em sistema binário.
 
-É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para **resolver problemas** e não como um fim em si (afinal estamos em um curso de economia e não de ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Como já deve ter ficado claro, nesse curso trabalharemos com a linguagem **Python**.
+- **32 GB de RAM** significam que até esse volume de dados pode permanecer disponível para acesso rápido enquanto programas estão em execução. Bases de dados grandes, matrizes extensas e múltiplos processos consomem memória rapidamente.
+
+- **1 TB de SSD** indica a capacidade de armazenamento permanente.
+
+Em análise de dados e programação, problemas de desempenho raramente estão ligados apenas à velocidade do processador. Com frequência, eles surgem porque os dados são grandes demais para caber na memória ou porque operações são realizadas de forma pouco eficiente. Entender essas especificações ajuda a interpretar erros, lentidão e limitações práticas do ambiente computacional.
+:::
+
+## Arquivos e diretórios
+
+Mais do que armazenar informação, é importante entender _onde_ e _como_ a informação é armazenada. Assim como na vida cotidiana, é preciso ter organização no armazenamento para saber como e onde procurar determinada informação no computador. Se você é uma pessoa organizada, você sabe que o iogurte estará sempre guardada na geladeira e em algum pote fechado, não é preciso procurar debaixo do chuveiro em um saco de pão.
+
+### Estrutura hierárquica
+
+Os diretórios servem justamente para organizar o armazenamento do computador. É como se você pudesse separar o seu SSD primeiro em cômodos, depois em armários dentro de cada cômodo, em gavetas dentro de cada armário e assim por diante. Formalmente, um diretório pode ser entendido como uma pasta que contém arquivos e outros diretórios, formando uma estrutura hierárquica. Essa organização permite localizar, acessar e manipular arquivos de forma sistemática, especialmente em projetos maiores.
+
+- falar de Pastas dentro de pastas
+
+- falar Caminhos absolutos e caminhos relativos
+
+### Extensões de arquivos
+
+Para além do _onde_, a informação em si pode ser armazenada de várias formas. Você pode guardar o iogurte em uma jarra de vidro ou mantê-lo no recipiente original. Um conjunto de informação é armazenada em um arquivo que pode ter vários formatos. Uma simples tabela com 1000 linhas e 20 colunas pode ser armazenada no formato de um CSV, JSON, XLSX, etc. 
+
+- Falar de extensões de arquivos, dando o exemplo do CSV que é separado por virgulas e do JSON, que tem a cara de um "dicionário"
 
 
+Mas qual a importância disso tudo? Saber como os computadores armazenam números ou a forma como os arquivos e diretórios são organizados e acessados pelo sistema operacional, nos ajuda enormemente a entender porque, por exemplo, um sistema 32 bits só é capaz de nos fornecer 4GB de memória RAM para armazenamento de cálculos e operações ou mesmo porque podemos ter dificuldade ao tentar abrir no nosso computador local um arquivo com alguns milhões de linhas. 
+
+É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para resolver problemas e não como um fim em si (deixemos isso para a ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Precisamos de uma linguagem de programação.
+
+## Termninal
+
+O terminal é uma interface textual que permite interagir diretamente com o sistema operacional por meio de comandos. Diferentemente de interfaces gráficas, no terminal o usuário descreve explicitamente o que deseja que o computador faça.
+
+Embora possa parecer intimidador à primeira vista, o terminal é uma ferramenta poderosa e amplamente utilizada em ambientes de programação e análise de dados. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e automatizar tarefas simples.
 
 ## Linguagens de programação 
 

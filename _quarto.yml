@@ -67,6 +67,7 @@ format:
     highlight-style: pygments
     link-external-newwindow: true
     author-meta: "Danilo Souza"
+    reference-location: document
     
   pdf:
     documentclass: scrreprt

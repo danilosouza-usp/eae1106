@@ -118,3 +118,17 @@ pre.sourceCode {
     font-weight: 700;
     letter-spacing: 0.03em;
 }
+
+/* Tabelas */
+table.table thead th {
+  background-color: #eef2fb;
+  color: #2f2f2f;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  border-bottom: 2px solid #d6def3;
+}
+
+table td .math {
+  font-size: 0.9em;
+}
