@@ -12,8 +12,6 @@ Este capítulo introduz conceitos fundamentais sobre o funcionamento de computad
 
 Neste capítulo introdutório não utilizaremos nenhum programa ou linguagem. Ele foi escrito para que mesmo o aluno sem nenhum tipo de conhecimento em computação e com o mínimo de conhecimento a respeito de operações matemática elementares tenha capacidade de acompanhar. Basta curiosidade!
 
-## O que é computação e por que ela importa?
-
 ## Como um computador funciona
 
 Um computador realiza duas coisas e apenas duas coisas: faz operações e guarda de forma eficiente o resultado dessas operações. No entanto, ao fazer essas duas coisas de forma extremamente eficiente essa máquina chamada computador nos permite receber, armazenar, processar e transmitir informações. Em essência, o computador nos serve ao propósito de **resolução de problemas**. Isso significa que, através de uma linguagem formal (especificamente operações de computação), podemos formular problemas e programar meios de resolver de forma automatizada tais problemas. No fim das contas, programar é o ato de criar programas, isto é, estabelecer uma sequência de instruções em linguagem formal que especifica como executar uma determinada operação no computador. 
@@ -153,21 +151,73 @@ Nesse exemplo, `projeto` é um diretório que está dentro da partição C e que
 
 ### Extensões de arquivos
 
-Para além do _onde_, a informação em si pode ser armazenada de várias formas. Você pode guardar o iogurte em uma jarra de vidro ou mantê-lo no recipiente original. Um conjunto de informação é armazenada em um arquivo que pode ter vários formatos. Uma simples tabela com 1000 linhas e 20 colunas pode ser armazenada no formato de um CSV, JSON, XLSX, etc. 
+Para além do _onde_, a informação em si pode ser armazenada de várias formas. Você pode guardar o iogurte em uma jarra de vidro ou mantê-lo no recipiente original. Um conjunto de informação é armazenada em um arquivo que pode ter vários formatos ou **extensões**. A extensão do arquivo corresponde ao sufixo após o ponto no nome do arquivo e indica como os dados estão organizados internamente e quais programas sabem interpretá-los corretamente. Do ponto de vista conceitual, a extensão não "muda" o dado em si, mas define a estrutura lógica usada para representar a informação. O mesmo conjunto de informações pode ser salvo em formatos diferentes, dependendo do objetivo (leitura humana, processamento automático, troca entre sistemas etc.).
 
-- Falar de extensões de arquivos, dando o exemplo do CSV que é separado por virgulas e do JSON, que tem a cara de um "dicionário"
+Um formato muito comum em análise de dados é o CSV (`.csv`, _Comma-Separated Values_). Trata-se de um arquivo de texto em que os dados são organizados em linhas e colunas, sendo as colunas separadas por um delimitador, geralmente uma vírgula. Cada linha representa uma observação e a primeira linha costuma conter os nomes das variáveis. Arquivos CSV são amplamente utilizados porque (i) são simples e legíveis; (ii) podem ser abertos em editores de texto, planilhas e softwares estatísticos; e (iii) são facilmente importados por linguagens como Python.
 
+Outro formato bastante utilizado é o JSON (`.json`, _JavaScript Object Notation_). Embora também seja um arquivo de texto, sua estrutura é diferente. Em vez de linhas e colunas, os dados são organizados como pares chave–valor, de forma semelhante a um dicionário, podendo conter listas e estruturas aninhadas. Esse formato é muito usado para troca de dados entre sistemas e aplicações, além do uso para armazenamento de configurações.
 
-Mas qual a importância disso tudo? Saber como os computadores armazenam números ou a forma como os arquivos e diretórios são organizados e acessados pelo sistema operacional, nos ajuda enormemente a entender porque, por exemplo, um sistema 32 bits só é capaz de nos fornecer 4GB de memória RAM para armazenamento de cálculos e operações ou mesmo porque podemos ter dificuldade ao tentar abrir no nosso computador local um arquivo com alguns milhões de linhas. 
+Outras extensões comuns incluem:
 
-É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para resolver problemas e não como um fim em si (deixemos isso para a ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Precisamos de uma linguagem de programação.
+- `.txt`: texto simples, sem estrutura fixa.
+- `.xlsx`: arquivos de planilha do Microsoft Excel.
+- `.py`: arquivos de código Python.
+
+É importante enfatizar que a extensão não garante o conteúdo do arquivo: um `.csv` mal formatado pode não ser lido corretamente, e um arquivo `.txt` pode conter dados altamente estruturados. Ainda assim, seguir convenções de extensão é essencial para organização de projetos, reprodutibilidade e interoperabilidade entre ferramentas. Considere a tabela de notas abaixo:
+
+| nome   | nusp     | ingresso | materia | media |
+|:------:|:--------:|:--------:|:-------:|:-----:|
+| Joao   | 12345678 | 2026     | EAE1106 | 8     |
+| Miguel | 5253678  | 2023     | EAE1106 | 4     |
+| Alice  | 9743678  | 2025     | EAE1106 | 9     |
+
+O armazenamento desses dados em formato CSV e JSON é feito da seguinte maneira:
+
+- Formato CSV
+
+   ```text
+   nome,nusp,ingresso,materia,media
+   Joao,12345678,2026,EAE1106,8
+   Miguel,52543678,2023,EAE1106,4
+   Alice,9743678,2025,EAE1106,9
+   ```
+- Formato JSON
+
+   ```text
+   [
+   {
+      "nome": "Joao",
+      "nusp": 12345678,
+      "ingresso": 2026,
+      "materia": "EAE1106",
+      "media": 8
+   },
+   {
+      "nome": "Miguel",
+      "nusp": 52543678,
+      "ingresso": 2023,
+      "materia": "EAE1106",
+      "media": 4
+   },
+   {
+      "nome": "Alice",
+      "nusp": 9743678,
+      "ingresso": 2025,
+      "materia": "EAE1106",
+      "media": "9"
+   }
+   ]
+   ```
+
+Mas qual a importância disso tudo? Entender como os computadores armazenam números e como arquivos e diretórios são organizados e acessados pelo sistema operacional ajuda a compreender limitações e comportamentos observados na prática. Por exemplo, explica por que um sistema de 32 bits é capaz de alocar apenas até 4 GB de memória RAM ou por que arquivos com milhões de linhas podem ser difíceis de abrir ou processar em um computador local.
+
+Ter um conhecimento mínimo sobre o funcionamento do computador e sobre como os programas interagem com sua arquitetura permite entender o que ocorre "por trás das cortinas". Com isso, podemos usar o computador como uma ferramenta para resolver problemas — e não como um fim em si. Para chegar a esse ponto, precisamos de meios formais para nos comunicar com o sistema operacional e, posteriormente, expressar instruções de forma lógica e precisa.
 
 ## Terminal
 
-#### Terminal
+Um passo intermediário entre o funcionamento interno do computador e as linguagens de programação é o terminal. O terminal é uma interface textual que permite interagir diretamente com o sistema operacional por meio de comandos simples. Em vez de clicar em ícones ou navegar por menus gráficos, o usuário descreve explicitamente o que deseja que o computador faça.
 
-O terminal é uma interface textual que permite interagir com o sistema operacional por meio de comandos. Diferente de interfaces gráficas (como clicar em ícones), no terminal você descreve explicitamente o que deseja que o computador faça. A Figura @fig-terminal mostra como é o ambiente usual do terminal nos dois principais sistemas operacionais do mercado.
-
+O uso do terminal torna visíveis conceitos introduzidos na seção anterior, como arquivos e diretórios, além de fornecer um primeiro contato com a lógica de comandos que será essencial ao longo do curso. A Figura @fig-terminal ilustra o ambiente típico do terminal nos dois principais sistemas operacionais em uso atualmente.
 
 ::: {#fig-terminal layout-ncol=2 width=700px max-width=100% fig-align="center"}
 
@@ -195,13 +245,15 @@ No exemplo do painel A da Figura @fig-terminal, `cd "C:\projeto"` muda o ambient
 Exemplo de uso do terminal para mudar o ambiente atual
 :::
 
-Mesmo que você utilize interfaces gráficas, compreender o terminal facilita a compreensão de como o computador está organizado. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e instalar novos pacotes de comandos.
+Mesmo que você utilize interfaces gráficas, compreender o terminal facilita o entendimento de como o computador está organizado e de como o sistema operacional executa tarefas básicas. Ao longo do curso, o terminal será utilizado principalmente para executar programas, navegar entre diretórios e instalar novos pacotes e ferramentas.
+
+Apesar de útil, o terminal ainda exige que as instruções sejam dadas comando a comando, de forma relativamente limitada e pouco reutilizável. Para resolver problemas mais gerais e automatizar tarefas de forma sistemática, é necessário um nível adicional de abstração.
 
 ## Linguagens de programação 
 
-As linguagens naturais são os idiomas que as pessoas falam, como inglês, espanhol e francês. Elas não foram criadas pelas pessoas (embora as pessoas tentem impor certa ordem a elas); desenvolveram-se naturalmente. As linguagens formais são linguagens criadas pelas pessoas para aplicações específicas. Por exemplo, a notação que os matemáticos usam é uma linguagem formal especialmente boa para denotar relações entre números e símbolos. Os químicos usam uma linguagem formal para representar a estrutura química de moléculas. E o mais importante:
+Para atingir esse nível adicional de abstração, precisamos de um meio de comunicar instruções ao computador de maneira precisa e sem ambiguidades. Esse meio são as linguagens de programação, que definem regras formais para descrever operações, decisões e cálculos que o computador pode executar. Para entender por que essas linguagens precisam ser tão rigorosas, é útil compará-las com outras formas de linguagem usadas pelos seres humanos.
 
-**As linguagens de programação são idiomas formais criados para expressar operações de computação.**
+As linguagens naturais são os idiomas que as pessoas falam, como português, inglês e espanhol. Elas não foram criadas deliberadamente, mas se desenvolveram ao longo do tempo, incorporando ambiguidades, exceções e variações de significado. As linguagens formais, por outro lado, são linguagens criadas pelas pessoas para aplicações específicas. Por exemplo, a notação usada pelos matemáticos é uma linguagem formal adequada para representar relações entre números e símbolos; químicos utilizam linguagens formais para representar a estrutura de moléculas. Um outro tipo de linguagem formal, essencial para este curso, são as linguagens de programação, que foram projetadas para comunicar instruções a um computador de maneira inequívoca.
 
 As linguagens formais geralmente têm regras de sintaxe estritas que governam a estrutura de declarações. Por exemplo, na matemática a declaração $3 + 3 = $6 tem uma sintaxe correta, mas não $3 + = 3\$6$. Na química, H2O é uma fórmula sintaticamente correta, mas 2Zz não é. As regras de sintaxe vêm em duas categorias relativas a símbolos e estrutura. Os símbolos são os elementos básicos da linguagem, como palavras, números e elementos químicos. Um dos problemas com $3 + = 3\$6$ é que o '\$' não é um símbolo legítimo na matemática (pelo menos até onde eu sei). De forma similar, 2Zz não é legítimo porque não há nenhum elemento com a abreviatura Zz.
 
