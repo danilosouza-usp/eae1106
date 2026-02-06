@@ -4,7 +4,7 @@
 
 Antes de escrever qualquer linha de código, é importante entender o ambiente no qual a programação acontece. Programar não é apenas aprender uma linguagem específica, mas também compreender como o computador organiza arquivos, executa comandos e interage com o sistema operacional. Muitos dos erros e dificuldades enfrentados por iniciantes em programação não estão relacionados à lógica do código em si, mas ao uso do computador como ferramenta de trabalho: navegar por diretórios, localizar arquivos, executar programas e interpretar mensagens do sistema. Esses aspectos são frequentemente tratados como triviais, mas são fundamentais para o uso eficiente de qualquer linguagem de programação.
 
-Neste capítulo, o objetivo é construir uma base mínima de alfabetização computacional, apresentando conceitos essenciais sobre funcionamento do computador, organização de arquivos, uso do terminal e o papel das linguagens de programação. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina. 
+Este capítulo introduz conceitos fundamentais sobre o funcionamento de computadores, a representação de informações em bits e bytes, a organização de arquivos e a forma como interagimos com o sistema operacional via terminal. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina. 
 
 ![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
 
@@ -22,8 +22,7 @@ Mas antes de avançar na ideia de programa e algoritmos, quais são as caracter�
 
 ### Sistema computacional
 
-Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. São três os principais componentes que formam um sistema computacional:
-Componentes: 
+Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. Tais sistemas são compostos por 3 principais elementos: hardware, software e o componente humano. O hardware inclui os componentes físicos enquanto o software é o conjunto de instruções que diz ao hardware o que fazer. No entanto, o software não elabora e decide sozinho o tipo de instrução a ser enviada ao hardware, é só através do componente humano que as instruções e objetivos são definidos. 
 
 * **Hardware**: componente físico de um sistema de computação, isto é, todos os equipamentos utilizados pelo usuário nas ações de entrada, processamento, armazenamento e saída de dados. Exemplos:
    - Teclado, mouse, impressora
@@ -46,7 +45,7 @@ Componentes:
 
 ### Arquitetura de um computador
 
-Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias áreas das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:
+A arquitetura de um computador define como os componentes estão interconectados e como eles colaboram para executar tarefas. Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias áreas das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:
 
 ![Diagrama que representa o funcionamento da arquitetura Von-Neumann](images/arquitetura_VonNeumann.jpg){#fig-arquitetura width=700px max-width=100% fig-align="center"}
 
@@ -96,7 +95,7 @@ A partir dos bytes, surgem unidades maiores, amplamente utilizadas para medir o 
 - Petabyte (PB): $1{,}125{,}899{,}906{,}842{,}624$ (ou $2^{50}$) bytes.
 - Exabyte, Zettabyte, Yottabyte...
 
-Compreender bits e bytes é fundamental para entender por que arquivos têm tamanhos diferentes, por que algumas operações exigem mais memória do que outras e por que certas tarefas computacionais são mais custosas do ponto de vista de processamento.
+Compreender bits e bytes é fundamental para entender por que arquivos têm tamanhos diferentes, por que algumas operações exigem mais memória do que outras e por que certas tarefas computacionais são mais custosas do ponto de vista de processamento. Esses agrupamentos de bits (bytes) são as unidades básicas que a memória e o armazenamento usam para guardar informação. A próxima seção explica o papel desses componentes e como eles impactam o desempenho prático.
 
   
 ### Processamento, memória e armazenamento na prática
@@ -132,11 +131,25 @@ Mais do que armazenar informação, é importante entender _onde_ e _como_ a inf
 
 ### Estrutura hierárquica
 
-Os diretórios servem justamente para organizar o armazenamento do computador. É como se você pudesse separar o seu SSD primeiro em cômodos, depois em armários dentro de cada cômodo, em gavetas dentro de cada armário e assim por diante. Formalmente, um diretório pode ser entendido como uma pasta que contém arquivos e outros diretórios, formando uma estrutura hierárquica. Essa organização permite localizar, acessar e manipular arquivos de forma sistemática, especialmente em projetos maiores.
+Os diretórios servem justamente para organizar o armazenamento do computador. É como se você pudesse separar o seu SSD primeiro em cômodos, depois em armários dentro de cada cômodo, em gavetas dentro de cada armário e assim por diante. Formalmente, um diretório pode ser entendido como um contêiner no qual arquivos e outros diretórios podem estar organizados, formando uma estrutura hierárquica. Essa organização permite localizar, acessar e manipular arquivos de forma sistemática, especialmente em projetos maiores.
 
-- falar de Pastas dentro de pastas
+Por exemplo, a organização de um projeto de análise de dados pode ter a seguinte forma:
 
-- falar Caminhos absolutos e caminhos relativos
+```text
+C:\
+└── projeto\
+    ├── data\
+    │   └── dados.csv
+    ├── scripts\
+    │   └── analise.py
+    └── resultados\
+        └── figura1.png
+```
+
+Nesse exemplo, `projeto` é um diretório que está dentro da partição C e que contém outros diretórios. O arquivo `dados.csv`, por exemplo, está dentro do diretório `data`, que é um diretório localizado dentro do diretório `projeto`. Para acessar esse arquivo `dados.csv` dentro dessa estrutura hierárquica de diretórios utilizamos duas formas principais: o caminho absoluto ou o caminho relativo.
+
+- **Caminho absoluto**: descreve a localização completa a partir da raiz do sistema de arquivos. Nesse caso, o caminho absoluto seria `C:\projeto\data\dados.csv`.
+- **Caminho relativo**: descreve a localização em relação ao diretório atual. Isso quer dizer que, se estivermos trabalhando em um programa a partir do diretório `projeto`, para acessar o arquivo de dados basta descrever o caminho relativo a partir dali: `data/dados.csv`.
 
 ### Extensões de arquivos
 
@@ -149,11 +162,40 @@ Mas qual a importância disso tudo? Saber como os computadores armazenam número
 
 É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para resolver problemas e não como um fim em si (deixemos isso para a ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Precisamos de uma linguagem de programação.
 
-## Termninal
+## Terminal
 
-O terminal é uma interface textual que permite interagir diretamente com o sistema operacional por meio de comandos. Diferentemente de interfaces gráficas, no terminal o usuário descreve explicitamente o que deseja que o computador faça.
+#### Terminal
 
-Embora possa parecer intimidador à primeira vista, o terminal é uma ferramenta poderosa e amplamente utilizada em ambientes de programação e análise de dados. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e automatizar tarefas simples.
+O terminal é uma interface textual que permite interagir com o sistema operacional por meio de comandos. Diferente de interfaces gráficas (como clicar em ícones), no terminal você descreve explicitamente o que deseja que o computador faça. A Figura @fig-terminal mostra como é o ambiente usual do terminal nos dois principais sistemas operacionais do mercado.
+
+
+::: {#fig-terminal layout-ncol=2 width=700px max-width=100% fig-align="center"}
+
+![Windows](images/terminal_windows.jpg)
+
+![MacOS](images/terminal_macos.jpeg)
+
+Interface usual do terminal
+:::
+
+Comandos básicos no terminal (ou prompt de comando) do Windows incluem:
+
+- `dir`: lista arquivos e diretórios no ambiente atual
+- `cd`: muda de diretório
+- `mkdir`: cria um novo diretório
+
+No exemplo do painel A da Figura @fig-terminal, `cd "C:\projeto"` muda o ambiente atual do diretório `C:\Users\user` para `C:\projeto`. Note, porém, que se a pasta `projeto` estiver em outra partição do seu armazenamento, é preciso primeiro mudar para essa partição para depois utilizar o comando `cd`. A Figura @fig-cmd ilustra esses dois casos.
+
+::: {#fig-cmd layout-ncol=2 width=700px max-width=100% fig-align="center"}
+
+![Diretório na mesma partição](images/cmd1.jpg)
+
+![Diretório em outra partição](images/cmd2.jpg)
+
+Exemplo de uso do terminal para mudar o ambiente atual
+:::
+
+Mesmo que você utilize interfaces gráficas, compreender o terminal facilita a compreensão de como o computador está organizado. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e instalar novos pacotes de comandos.
 
 ## Linguagens de programação 
 

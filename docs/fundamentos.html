@@ -293,7 +293,7 @@ window.Quarto = {
   <li><a href="#estrutura-hierárquica" id="toc-estrutura-hierárquica" class="nav-link" data-scroll-target="#estrutura-hierárquica"><span class="header-section-number">1.4.1</span> Estrutura hierárquica</a></li>
   <li><a href="#extensões-de-arquivos" id="toc-extensões-de-arquivos" class="nav-link" data-scroll-target="#extensões-de-arquivos"><span class="header-section-number">1.4.2</span> Extensões de arquivos</a></li>
   </ul></li>
-  <li><a href="#termninal" id="toc-termninal" class="nav-link" data-scroll-target="#termninal"><span class="header-section-number">1.5</span> Termninal</a></li>
+  <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal"><span class="header-section-number">1.5</span> Terminal</a></li>
   <li><a href="#linguagens-de-programação" id="toc-linguagens-de-programação" class="nav-link" data-scroll-target="#linguagens-de-programação"><span class="header-section-number">1.6</span> Linguagens de programação</a>
   <ul class="collapse">
   <li><a href="#alto-nível-x-baixo-nível" id="toc-alto-nível-x-baixo-nível" class="nav-link" data-scroll-target="#alto-nível-x-baixo-nível"><span class="header-section-number">1.6.1</span> Alto nível X Baixo nível</a></li>
@@ -330,8 +330,8 @@ window.Quarto = {
 <section id="introdução" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1.1</span> Introdução</h2>
 <p>Antes de escrever qualquer linha de código, é importante entender o ambiente no qual a programação acontece. Programar não é apenas aprender uma linguagem específica, mas também compreender como o computador organiza arquivos, executa comandos e interage com o sistema operacional. Muitos dos erros e dificuldades enfrentados por iniciantes em programação não estão relacionados à lógica do código em si, mas ao uso do computador como ferramenta de trabalho: navegar por diretórios, localizar arquivos, executar programas e interpretar mensagens do sistema. Esses aspectos são frequentemente tratados como triviais, mas são fundamentais para o uso eficiente de qualquer linguagem de programação.</p>
-<p>Neste capítulo, o objetivo é construir uma base mínima de alfabetização computacional, apresentando conceitos essenciais sobre funcionamento do computador, organização de arquivos, uso do terminal e o papel das linguagens de programação. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina.</p>
-<div id="fig-olddesk" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<p>Este capítulo introduz conceitos fundamentais sobre o funcionamento de computadores, a representação de informações em bits e bytes, a organização de arquivos e a forma como interagimos com o sistema operacional via terminal. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina.</p>
+<div id="fig-olddesk" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-olddesk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/old_desktop.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -355,7 +355,7 @@ Figura&nbsp;1.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <p>Mas antes de avançar na ideia de programa e algoritmos, quais são as características de um computador como o conhecemos?</p>
 <section id="sistema-computacional" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sistema-computacional"><span class="header-section-number">1.3.1</span> Sistema computacional</h3>
-<p>Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. São três os principais componentes que formam um sistema computacional: Componentes:</p>
+<p>Um sistema computacional é resultado da integração de componentes atuando como uma entidade, com o propósito de processar dados, isto é, realizar algum tipo de operação lógica envolvendo os dados, de modo a produzir diferentes níveis de informações. Tais sistemas são compostos por 3 principais elementos: hardware, software e o componente humano. O hardware inclui os componentes físicos enquanto o software é o conjunto de instruções que diz ao hardware o que fazer. No entanto, o software não elabora e decide sozinho o tipo de instrução a ser enviada ao hardware, é só através do componente humano que as instruções e objetivos são definidos.</p>
 <ul>
 <li><strong>Hardware</strong>: componente físico de um sistema de computação, isto é, todos os equipamentos utilizados pelo usuário nas ações de entrada, processamento, armazenamento e saída de dados. Exemplos:
 <ul>
@@ -383,8 +383,8 @@ Figura&nbsp;1.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 </section>
 <section id="arquitetura-de-um-computador" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="arquitetura-de-um-computador"><span class="header-section-number">1.3.2</span> Arquitetura de um computador</h3>
-<p>Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias áreas das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:</p>
-<div id="fig-arquitetura" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<p>A arquitetura de um computador define como os componentes estão interconectados e como eles colaboram para executar tarefas. Os computadores, como os conhecemos hoje, são estruturados em cima da lógica proposta inicialmente por John Von Neumann, matemático húngaro que viveu durante a primeira metade do século XX e que contribuiu imensamente em várias áreas das ciências. Embora tenhamos hoje uma complexidade maior nos elementos que compõe a arquitetura de um computador, a estrutura básica por trás dos computadores mais modernos continua sendo aquela proposta por Von Neumann. Essa arquitetura pode ser representado pelo diagrama abaixo:</p>
+<div id="fig-arquitetura" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-arquitetura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/arquitetura_VonNeumann.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -486,7 +486,7 @@ Tabela&nbsp;1.1: Representação de números decimais no sistema binário e deta
 <li>Petabyte (PB): <span class="math inline">\(1{,}125{,}899{,}906{,}842{,}624\)</span> (ou <span class="math inline">\(2^{50}\)</span>) bytes.</li>
 <li>Exabyte, Zettabyte, Yottabyte…</li>
 </ul>
-<p>Compreender bits e bytes é fundamental para entender por que arquivos têm tamanhos diferentes, por que algumas operações exigem mais memória do que outras e por que certas tarefas computacionais são mais custosas do ponto de vista de processamento.</p>
+<p>Compreender bits e bytes é fundamental para entender por que arquivos têm tamanhos diferentes, por que algumas operações exigem mais memória do que outras e por que certas tarefas computacionais são mais custosas do ponto de vista de processamento. Esses agrupamentos de bits (bytes) são as unidades básicas que a memória e o armazenamento usam para guardar informação. A próxima seção explica o papel desses componentes e como eles impactam o desempenho prático.</p>
 </section>
 <section id="processamento-memória-e-armazenamento-na-prática" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="processamento-memória-e-armazenamento-na-prática"><span class="header-section-number">1.3.4</span> Processamento, memória e armazenamento na prática</h3>
@@ -522,10 +522,20 @@ Tabela&nbsp;1.1: Representação de números decimais no sistema binário e deta
 <p>Mais do que armazenar informação, é importante entender <em>onde</em> e <em>como</em> a informação é armazenada. Assim como na vida cotidiana, é preciso ter organização no armazenamento para saber como e onde procurar determinada informação no computador. Se você é uma pessoa organizada, você sabe que o iogurte estará sempre guardada na geladeira e em algum pote fechado, não é preciso procurar debaixo do chuveiro em um saco de pão.</p>
 <section id="estrutura-hierárquica" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="estrutura-hierárquica"><span class="header-section-number">1.4.1</span> Estrutura hierárquica</h3>
-<p>Os diretórios servem justamente para organizar o armazenamento do computador. É como se você pudesse separar o seu SSD primeiro em cômodos, depois em armários dentro de cada cômodo, em gavetas dentro de cada armário e assim por diante. Formalmente, um diretório pode ser entendido como uma pasta que contém arquivos e outros diretórios, formando uma estrutura hierárquica. Essa organização permite localizar, acessar e manipular arquivos de forma sistemática, especialmente em projetos maiores.</p>
+<p>Os diretórios servem justamente para organizar o armazenamento do computador. É como se você pudesse separar o seu SSD primeiro em cômodos, depois em armários dentro de cada cômodo, em gavetas dentro de cada armário e assim por diante. Formalmente, um diretório pode ser entendido como um contêiner no qual arquivos e outros diretórios podem estar organizados, formando uma estrutura hierárquica. Essa organização permite localizar, acessar e manipular arquivos de forma sistemática, especialmente em projetos maiores.</p>
+<p>Por exemplo, a organização de um projeto de análise de dados pode ter a seguinte forma:</p>
+<pre class="text"><code>C:\
+└── projeto\
+    ├── data\
+    │   └── dados.csv
+    ├── scripts\
+    │   └── analise.py
+    └── resultados\
+        └── figura1.png</code></pre>
+<p>Nesse exemplo, <code>projeto</code> é um diretório que está dentro da partição C e que contém outros diretórios. O arquivo <code>dados.csv</code>, por exemplo, está dentro do diretório <code>data</code>, que é um diretório localizado dentro do diretório <code>projeto</code>. Para acessar esse arquivo <code>dados.csv</code> dentro dessa estrutura hierárquica de diretórios utilizamos duas formas principais: o caminho absoluto ou o caminho relativo.</p>
 <ul>
-<li><p>falar de Pastas dentro de pastas</p></li>
-<li><p>falar Caminhos absolutos e caminhos relativos</p></li>
+<li><strong>Caminho absoluto</strong>: descreve a localização completa a partir da raiz do sistema de arquivos. Nesse caso, o caminho absoluto seria <code>C:\projeto\data\dados.csv</code>.</li>
+<li><strong>Caminho relativo</strong>: descreve a localização em relação ao diretório atual. Isso quer dizer que, se estivermos trabalhando em um programa a partir do diretório <code>projeto</code>, para acessar o arquivo de dados basta descrever o caminho relativo a partir dali: <code>data/dados.csv</code>.</li>
 </ul>
 </section>
 <section id="extensões-de-arquivos" class="level3" data-number="1.4.2">
@@ -538,10 +548,74 @@ Tabela&nbsp;1.1: Representação de números decimais no sistema binário e deta
 <p>É importante ter o conhecimento mínimo de como funciona um computador e como os programas que iremos utilizar interagem com as partes da arquitetura do computador para entendermos o que está ocorrendo atrás das cortinas. Dessa forma, podemos nos concentrar exclusivamente no que nos interessa, isto é, utilizar o computador como ferramenta para resolver problemas e não como um fim em si (deixemos isso para a ciência da computação). Para tal precisamos de alguma linguagem lógica/formal que nos permita enviar as intruções para o computador e obter as respostas desejadas. Precisamos de uma linguagem de programação.</p>
 </section>
 </section>
-<section id="termninal" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="termninal"><span class="header-section-number">1.5</span> Termninal</h2>
-<p>O terminal é uma interface textual que permite interagir diretamente com o sistema operacional por meio de comandos. Diferentemente de interfaces gráficas, no terminal o usuário descreve explicitamente o que deseja que o computador faça.</p>
-<p>Embora possa parecer intimidador à primeira vista, o terminal é uma ferramenta poderosa e amplamente utilizada em ambientes de programação e análise de dados. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e automatizar tarefas simples.</p>
+<section id="terminal" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="terminal"><span class="header-section-number">1.5</span> Terminal</h2>
+<section id="terminal-1" class="level4" data-number="1.5.0.1">
+<h4 data-number="1.5.0.1" class="anchored" data-anchor-id="terminal-1"><span class="header-section-number">1.5.0.1</span> Terminal</h4>
+<p>O terminal é uma interface textual que permite interagir com o sistema operacional por meio de comandos. Diferente de interfaces gráficas (como clicar em ícones), no terminal você descreve explicitamente o que deseja que o computador faça. A Figura <a href="#fig-terminal" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> mostra como é o ambiente usual do terminal nos dois principais sistemas operacionais do mercado.</p>
+<div id="fig-terminal" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/terminal_windows.jpg" class="img-fluid figure-img"></p>
+<figcaption>Windows</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/terminal_macos.jpeg" class="img-fluid figure-img"></p>
+<figcaption>MacOS</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.3: Interface usual do terminal
+</figcaption>
+</figure>
+</div>
+<p>Comandos básicos no terminal (ou prompt de comando) do Windows incluem:</p>
+<ul>
+<li><code>dir</code>: lista arquivos e diretórios no ambiente atual</li>
+<li><code>cd</code>: muda de diretório</li>
+<li><code>mkdir</code>: cria um novo diretório</li>
+</ul>
+<p>No exemplo do painel A da Figura <a href="#fig-terminal" class="quarto-xref">Figura&nbsp;<span>1.3</span></a>, <code>cd "C:\projeto"</code> muda o ambiente atual do diretório <code>C:\Users\user</code> para <code>C:\projeto</code>. Note, porém, que se a pasta <code>projeto</code> estiver em outra partição do seu armazenamento, é preciso primeiro mudar para essa partição para depois utilizar o comando <code>cd</code>. A Figura <a href="#fig-cmd" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> ilustra esses dois casos.</p>
+<div id="fig-cmd" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cmd1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Diretório na mesma partição</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cmd2.jpg" class="img-fluid figure-img"></p>
+<figcaption>Diretório em outra partição</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cmd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.4: Exemplo de uso do terminal para mudar o ambiente atual
+</figcaption>
+</figure>
+</div>
+<p>Mesmo que você utilize interfaces gráficas, compreender o terminal facilita a compreensão de como o computador está organizado. Ao longo do curso, ele será utilizado principalmente para executar programas, navegar entre diretórios e instalar novos pacotes de comandos.</p>
+</section>
 </section>
 <section id="linguagens-de-programação" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="linguagens-de-programação"><span class="header-section-number">1.6</span> Linguagens de programação</h2>
