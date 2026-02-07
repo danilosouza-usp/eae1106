@@ -1,15 +1,19 @@
 # Primeiros passos no Python {#sec-primeiros_passos}
 
-In summary, this book has no content whatsoever.
+## Introdução
+
+Escrever uma introdução aqui 
+
+![Meu cachorro Clayton dando seus primeiros passos em Python.](images/clayton_coding.png){#fig-clayton width=700px max-width=100% fig-align="center"}
+
+### Pré-requisitos
+
+Neste capítulo aprenderemos como instalar o Python e outros pacotes. Ele foi escrito para que o aluno que acompanhou e absorveu o conteúdo do capítulo anterior, sobre fundamentos de computação, tenha capacidade de acompanhar.
 
 
 ## O Python
 
 Python foi criado no final dos anos oitenta(1989) por Guido van Rossum no Centro de Matemática e Tecnológia da Informação (CWI, Centrum Wiskunde e Informatica), na Holanda, como sucessor da linguagem de programação ABC, capaz de lidar com exceções e interagir com o sistema operacional Amoeba. O nome da língua vem do gosto de seu criador pelos humoristas britânicos Monty Python (fonte: https://blog.vulpi.com.br/python-como-surgiu/)
-
-**Python é uma linguagem de programação de alto-nível, interpretada, multi-paradigma, e que usa tipagem dinâmica e forte.** 
-
-bla bla bla
 
 ### Porque escolher
 
@@ -25,8 +29,6 @@ Por todos esses fatores, Python é uma das linguagens com a comunidade mais ativ
 ### Como instalar
 
 Existe mais de uma forma de instalar o Python no seu sistema e ainda mais formas de interagir com a linguagem. Você pode baixar o Python _puro_ (https://www.python.org/downloads/) e instalá-lo diretamente em sua máquina, porém, essa distribuição vem com poucos pacotes já instalados e instalá-los um a um requer paciência. Além disso, a instalação do Python puro pode demandar algumas alterações em configurações do sistema via prompt de comando do Windows, por exemplo, para que seja possível dialogar com a linguagem.
-
-![Meme](images/i_have_no_idea.jpg){#fig-meme1 width=500px max-width=100% fig-align="center"}
 
 Uma forma mais simples de instalar o Python em seu computador é através da distribuição Anaconda (https://www.anaconda.com/). Além de ser gratuita e conter vários dos pacotes que iremos utilizar, ela nos fornece diversas ferramentas que facilitam nossa interação com a linguagem. É hoje uma das distribuições do Python mais populares no mundo! **Recomendo fortemente utilizar esse caminho**.
 
@@ -100,28 +102,12 @@ O [Google Colaboratory](https://colab.research.google.com/notebooks/intro.ipynb)
 
 É uma ferramenta que permite que você misture código fonte (geralmente em python) e texto rico (geralmente em markdown) com imagens e o resultado desse código, assim como o próprio Jupyter e sua estrutura de _notebooks_ ("cadernos" em inglês). Uma diferença importante é que no caso do Colab os recursos computacionais utilizados para a execução do código são os da Google e não do seu computador. Apesar da versão gratuita disponibilizar apenas algo como 12GB de RAM, é possível ampliar essa capacidade de processamento da máquina virtual por uma conta paga que começa em \$5 mensais.
 
-
-### Spyder X Jupyter
-
-Alguns dos pacotes mais utilizados no Python hoje em dia, como _Pandas_ e _Matplotlib_, já vem instalados com o Anaconda, o que não é verdade na distribuição pura do Python. Além disso, alguns dos programas mais utilizados para interagir com a linguagem, como o _Spyder_ e o _Jupyter Notebook_ também. Tanto o _Spyder_ quanto o _Jupyter_ são ótimas IDEs para trabalhar com o Python, embora cada um tenha suas particularidades.
-
-Existem vários comparativos entre essas duas formas (e tantas outras) de trabalhar com o Python ([1](https://ritza.co/articles/pycharm-vs-spyder-vs-jupyter-vs-visual-studio-vs-anaconda-vs-intellij/), [2](https://www.datacamp.com/tutorial/data-science-python-ide) e [3](https://www.kaggle.com/getting-started/271133)), mas no nosso caso talvez seja mais produtivo se formos direto para ambos os programas!
-
-Acabamos de ver que uma das diferenças mais relevantes para nós, iniciantes na linguagem, ao usar o _Spyder_ ou o _Jupyter_ é a dificuldade, no segundo caso, de fazer uma gestão mais direta das variáveis criadas e da memória utilizada por cada uma delas. É possível, no entanto, superar essa dificuldade através de uma biblioteca que pode ser bastante útil para nós, o `nbextensions` (documentação [aqui](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html) e [aqui](https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator)).
-
-Vamos primeiro instalar essa biblioteca e mais uma outra biblioteca auxiliar que nos permitirá ter um controle maior sobre as extensões. Rode os comandos abaixo no _Anaconda Prompt_
-
-1. `pip install jupyter_contrib_nbextensions` 
-2. `pip install jupyter_nbextensions_configurator`
-
-Note que uma nova aba _Nbextensions_ foi criada na "Home Page" do Jupyter Notebook. Ali é possível ativar e desativar as extensões que possam ser interessante ao nosso propósito. Agora já podemos brincar um pouco com tudo que ela pode nos fornecer!
-
 ## Construindo o primeiro programa
 
 Tradicionalmente, o primeiro programa que se escreve em uma nova linguagem chama-se “Hello, World!”, porque tudo o que faz é exibir as palavras “Hello, World!” na tela. No Python, ele se parece com isto:
 
 
-```python
+```{python}
 print('Hello, World!')
 ```
 
@@ -133,34 +119,34 @@ Este é um exemplo de uma instrução print (instrução de impressão), embora 
 Depois do “Hello, World”, o próximo passo é a aritmética. O Python tem operadores, que são símbolos especiais representando operações de computação, como adição e multiplicação. Os operadores +, - e \* executam a adição, a subtração e a multiplicação, Finalmente, o operador \*\* executa a exponenciação; isto é, eleva um número a uma potência, como nos seguintes exemplos:
 
 
-```python
+```{python}
 40 + 2
 ```
 
 
-```python
+```{python}
 43 - 1
 ```
 
 
-```python
+```{python}
 6 * 7
 ```
 
 
-```python
+```{python}
 84 / 2
 ```
 
 
-```python
+```{python}
 6 ** 2 + 6
 ```
 
 Em algumas outras linguagens, o ^ é usado para a exponenciação, mas no Python é um operador bitwise, chamado XOR. Se não tiver familiaridade com operadores bitwise, o resultado o surpreenderá. Não abordaremos operadores bitwise neste curso, mas você pode ler sobre eles em http://wiki.python.org/moin/BitwiseOperators.
 
 
-```python
+```{python}
 6 ^ 2
 ```
 
@@ -171,17 +157,17 @@ Esses valores pertencem a tipos diferentes: 2 é um número inteiro, 42.0 é um 
 Se não tiver certeza sobre qual é o tipo de certo valor, o interpretador pode dizer isso a você:
 
 
-```python
+```{python}
 type(2)
 ```
 
 
-```python
+```{python}
 type(42.0)
 ```
 
 
-```python
+```{python}
 type('Hello World')
 ```
 
@@ -190,7 +176,7 @@ Nesses resultados, a palavra "class" \(classe\) é usada no sentido de categoria
 E valores como '2' e '42.0'? Parecem números, mas estão entre aspas como se fossem strings:
 
 
-```python
+```{python}
 type('2')
 ```
 
@@ -201,13 +187,17 @@ Um dos recursos mais eficientes de uma linguagem de programação é a capacidad
 Uma instrução de atribuição cria uma nova variável e dá um valor a ela:
 
 
-```python
+```{python}
 message = 'And now for something completely different'
 n = 17
 pi = 3.141592653589793
 ```
 
 Esse exemplo faz três atribuições. A primeira atribui uma string a uma nova variável chamada message; a segunda dá o número inteiro 17 a n; a terceira atribui o valor (aproximado) de $\pi$ a pi. Uma forma comum de representar variáveis por escrito é colocar o nome com uma flecha apontando para o seu valor. Este tipo de número é chamado de diagrama de estado porque mostra o estado no qual cada uma das variáveis está (pense nele como o estado de espírito da variável). 
+
+### Leitura de erros
+
+Bla bla bla
 
 ### Nomes de variáveis
 
@@ -216,17 +206,20 @@ Os programadores geralmente escolhem nomes significativos para as suas variávei
 Se você der um nome ilegal a uma variável, recebe um erro de sintaxe:
 
 
-```python
+```{python}
+#| error: true
 76trombones = 'big parade'
 ```
 
 
-```python
+```{python}
+#| error: true
 more@ = 1000000
 ```
 
 
-```python
+```{python}
+#| error: true
 class = 'Advanced Theoretical Zymurgy'
 ```
 
@@ -251,12 +244,12 @@ Você não precisa memorizar essa lista. Na maior parte dos ambientes de desenvo
 Uma expressão é uma combinação de valores, variáveis e operadores. Um valor por si mesmo é considerado uma expressão, assim como uma variável, portanto as expressões seguintes são todas legais:
 
 
-```python
+```{python}
 n
 ```
 
 
-```python
+```{python}
 n + 25
 ```
 
@@ -264,9 +257,9 @@ Quando você digita uma expressão no prompt, o interpretador a avalia, ou seja,
 
 Uma instrução é uma unidade de código que tem um efeito, como criar uma variável ou exibir um valor.
 
-```python
->>> n = 17
->>> print(n)
+```{python}
+n = 17
+print(n)
 ```
 
 A primeira linha é uma instrução de atribuição que dá um valor a n. A segunda linha é uma instrução de exibição que exibe o valor de n. Quando você digita uma instrução, o interpretador a executa, o que significa que ele faz o que a instrução diz. Em geral, instruções não têm valores.
@@ -332,7 +325,7 @@ Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite re
    a. Quantas milhas há em 10 quilômetros? Dica: uma milha equivale a 1,61 quilômetro.
    a. Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o seu passo médio (tempo por milha em minutos e segundos)? Qual é a sua velocidade média em milhas por hora?
 
-2. Crie uma conta no StackOverflow e monte seu perfil.
+
 
 
 
