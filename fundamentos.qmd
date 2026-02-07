@@ -309,7 +309,40 @@ Neste curso, utilizaremos Python, uma linguagem de programação de alto nível,
 
 ## Exercícios
 
-1. X
+1. Um arquivo de dados possui 10 milhões de linhas e 80 colunas, com todas as células contendo valores numéricos. Suponha que cada valor numérico ocupe 8 bytes na memória.
+   a. Faça uma estimativa aproximada da quantidade de memória RAM (em GB) necessária para carregar esse arquivo inteiro na memória.
+   b. Explique por que um computador com pouca memória RAM pode ter dificuldade para trabalhar com esse arquivo, mesmo que o arquivo "caiba" no disco rígido.
 
-2. X
+2. Sobre o sistema binário responda:
+   a. Converta o número decimal 13 para a representação binária.
+   b. Converta o número binário 101101 para decimal.
+   c. Argumente, em poucas linhas, sobre a vantagem de computadores utilizarem o sistema binário em vez do sistema decimal.
 
+3. Considere a seguinte estrutura de diretórios:
+
+   ```text
+   D:/home/usuario/projeto/
+   ├── dados/
+   │   └── alunos.csv
+   │   └── professores.csv
+   │   └── materias.csv
+   ├── scripts/
+   │   └── analise.py
+   │   └── amostra_final.py
+   └── resultados/
+      └── figura.png
+      └── tabela.csv
+   ```
+
+   a. Escreva o caminho absoluto para o acessar o arquivo `materias.csv`.
+   a. Suponha que você esteja no diretório scripts. Escreva o caminho relativo para acessar `materias.csv`. Dica: a pasta dados e scripts estão no mesmo nível hierárquico.
+
+4. Considere a matemática como uma linguagem formal, com regras bem definidas de escrita (sintaxe) e de significado (semântica). Suponha que o objetivo seja calcular as raízes de uma equação do segundo grau da forma $ax^2 + bx + c = 0$. Para tal você utilizará a fórmula de Bháskara.
+
+   a. Suponha que você opte por programar essa fórmula tal qual apresentada abaixo em uma determinada linguagem de programação. Qual seria a saída esperada? Discuta o resultado.
+
+      $$x = \frac{-b \ge \sqrt{b^2 - 4ac}}{2a}$$
+
+   a. Suponha que você opte por programar essa fórmula tal qual apresentada abaixo em uma determinada linguagem de programação. Qual seria a saída esperada? Discuta o resultado.
+
+      $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2}$$
