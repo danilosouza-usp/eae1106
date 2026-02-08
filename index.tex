@@ -217,12 +217,12 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
+\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
 \definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
-\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \makeatother
 \usepackage{bookmark}
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, opacityback=0, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, toptitle=1mm, breakable, toprule=.15mm, leftrule=.75mm, colback=white, titlerule=0mm, coltitle=black, arc=.35mm, rightrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, left=2mm, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, opacityback=0, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, toptitle=1mm, breakable, toprule=.15mm, leftrule=.75mm, colback=white, titlerule=0mm, coltitle=black, arc=.35mm, rightrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -1501,12 +1501,12 @@ diretamente no computador.
 \section{Introdução}\label{introduuxe7uxe3o-1}
 
 Criado em 1989 por Guido van Rossum no Centro de Matemática e Tecnológia
-da Informação na Holanda, o Python é uma linguagem de programação de
-alto nível, amplamente utilizada em ciência de dados, estatística e
-desenvolvimento científico em geral. Ao longo desta disciplina, Python
-será utilizado como ferramenta central para manipular dados, realizar
-cálculos numéricos, produzir gráficos e implementar rotinas que aparecem
-com frequência em trabalhos empíricos em economia.
+da Informação na Holanda, o Python é uma linguagem de programação
+amplamente utilizada em ciência de dados, estatística e desenvolvimento
+científico em geral. Ao longo desta disciplina, Python será utilizado
+como ferramenta central para manipular dados, realizar cálculos
+numéricos, produzir gráficos e implementar rotinas que aparecem com
+frequência em trabalhos empíricos em economia.
 
 Neste momento inicial do curso, o objetivo não é compreender toda a
 linguagem nem escrever programas complexos. O foco desta aula é muito
@@ -1546,7 +1546,10 @@ Ao final deste capítulo, espera-se que você seja capaz de:
 
 Essas competências serão usadas continuamente ao longo do curso e são
 essenciais para o desenvolvimento em tópicos futuros, como construção de
-funções, manipulação de objetos, análise de dados e visualização.
+funções, manipulação de objetos, análise de dados e visualização. Antes
+de aprender novos comandos, no entanto, é fundamental compreender o
+ambiente no qual o programa roda e como ocorre a interação entre o
+usuário e o interpretador.
 
 \subsection{Pré-requisitos}\label{pruxe9-requisitos-1}
 
@@ -1675,7 +1678,7 @@ Anaconda. Janeiro de 2026}
 \subsection{Anaconda e suas
 particularidades}\label{anaconda-e-suas-particularidades}
 
-Como dito acima, anaconda é uma distribuição do Python para computação
+Como dito acima, Anaconda é uma distribuição do Python para computação
 científica (e.g, ciência de dados e aprendizado de máquina), que visa
 simplificar o gerenciamento e a implantação de pacotes. As versões de
 pacotes no Anaconda são gerenciadas pelo sistema de gerenciamento de
@@ -1683,12 +1686,11 @@ pacotes \emph{conda}. Através do \emph{conda} é possível criar ambientes
 e instalar pacotes distintos de forma a evitar incompatibilidades entre
 versões de pacotes já instalados.
 
-Além disso, o anaconda traz consigo o Anaconda Navigator, um ambiente
+Além disso, o Anaconda traz consigo o Anaconda Navigator, um ambiente
 \emph{user-friendly} para a gestão de pacotes e aplicativos necessários
 para a utilização do Python sem que seja preciso ter qualquer
-conhecimento acerca da utilização correta de terminais (e.g,
-\emph{prompt de comando} do Windows). Ao abrir o Anaconda Navigator no
-Windows, você deve ver algo assim
+conhecimento acerca da utilização correta de terminais. Ao abrir o
+Anaconda Navigator no Windows, você deve ver algo assim:
 
 \begin{figure}
 
@@ -1706,19 +1708,21 @@ Janeiro de 2026}
 É possível instalar pacotes e fazer muito mais coisa diretamente pelo
 Anaconda Navigator. Para os que tiverem interesse em saber um pouco
 mais, esse
-\href{https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share}{vídeo}
-é um bom começo.
+\href{https://www.anaconda.com/docs/getting-started/main}{link} é um bom
+começo.
 
 \subsection{IDEs}\label{ides}
 
-IDE é um acrônimo para Integrated Development Environment, em português,
-Ambiente de Desenvolvimento Integrado. Ele é um programa que reúne
-ferramentas necessárias para a construção de outros softwares. A
-utilização de um IDE ajuda muito os programadores e empresas, pois torna
-mais rápido o desenvolvimento de aplicações, aumentando a produtividade
-e reduzindo custos. Existem IDE's específicas para plataformas, e outras
-que são mais flexíveis. As mais famosas são o Sublime Text e o Visual
-Studio Code.
+Com Anaconda ou sem Anaconda, interagir diretamente com a linguagem
+ainda depende do uso de um ambiente próprio para esse fim, como no caso
+das chamadas IDEs. IDE é um acrônimo para Integrated Development
+Environment, em português, Ambiente de Desenvolvimento Integrado. Ele é
+um programa que reúne ferramentas necessárias para a construção de
+outros softwares. A utilização de um IDE ajuda muito os programadores e
+empresas, pois torna mais rápido o desenvolvimento de aplicações,
+aumentando a produtividade e reduzindo custos. Existem IDE's específicas
+para plataformas, e outras que são mais flexíveis. As mais famosas são o
+Sublime Text e o Visual Studio Code.
 
 Quais são os componentes típicos de uma IDE?
 
@@ -1818,9 +1822,13 @@ conta paga que começa em \$5 mensais.
 \section{Construindo o primeiro
 programa}\label{construindo-o-primeiro-programa}
 
-Tradicionalmente, o primeiro programa que se escreve em uma nova
-linguagem chama-se ``Hello, World!'', porque tudo o que faz é exibir as
-palavras ``Hello, World!'' na tela. No Python, ele se parece com isto:
+Uma vez entendido o papel do ambiente de programação, o próximo passo é
+escrever e executar instruções simples. Isso permite observar
+diretamente como o Python interpreta o código e produz resultados,
+estabelecendo a base para todo o restante do curso. Tradicionalmente, o
+primeiro programa que se escreve em uma nova linguagem chama-se
+\emph{``Hello, World!''}, porque tudo o que faz é exibir as palavras
+\emph{``Hello, World!''} na tela. No Python, ele se parece com isto:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1836,17 +1844,16 @@ Este é um exemplo de uma instrução print (instrução de impressão),
 embora na realidade ela não imprima nada em papel. Ela exibe um
 resultado na tela. As aspas apenas marcam o começo e o fim do texto a
 ser exibido; elas não aparecem no resultado. Os parênteses indicam que o
-print é uma função. No Python 2, a instrução print é ligeiramente
-diferente; ela não é uma função, portanto não usa parênteses.
+print é uma função.
 
 \subsection{Operadores aritméticos}\label{operadores-aritmuxe9ticos}
 
-Depois do ``Hello, World'', o próximo passo é a aritmética. O Python tem
-operadores, que são símbolos especiais representando operações de
-computação, como adição e multiplicação. Os operadores +, - e * executam
-a adição, a subtração e a multiplicação, Finalmente, o operador **
-executa a exponenciação; isto é, eleva um número a uma potência, como
-nos seguintes exemplos:
+Depois do \emph{``Hello, World''}, o próximo passo natural é a
+aritmética. O Python tem operadores, que são símbolos especiais
+representando operações de computação, como adição e multiplicação. Os
+operadores \(+\), \(-\) e \(*\) executam a adição, a subtração e a
+multiplicação, Finalmente, o operador \(**\) executa a exponenciação;
+isto é, eleva um número a uma potência, como nos seguintes exemplos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1898,11 +1905,11 @@ nos seguintes exemplos:
 42
 \end{verbatim}
 
-Em algumas outras linguagens, o \^{} é usado para a exponenciação, mas
-no Python é um operador bitwise, chamado XOR. Se não tiver familiaridade
-com operadores bitwise, o resultado o surpreenderá. Não abordaremos
-operadores bitwise neste curso, mas você pode ler sobre eles em
-http://wiki.python.org/moin/BitwiseOperators.
+Em algumas outras linguagens, o \(\^\) é usado para a exponenciação, mas
+no Python é um operador \emph{bitwise}, chamado XOR. Se não tiver
+familiaridade com operadores bitwise, o resultado o surpreenderá. Não
+abordaremos operadores bitwise neste curso, mas você pode ler sobre eles
+em http://wiki.python.org/moin/BitwiseOperators.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1914,74 +1921,16 @@ http://wiki.python.org/moin/BitwiseOperators.
 4
 \end{verbatim}
 
-Um valor é uma das coisas básicas com as quais um programa trabalha,
-como uma letra ou um número. Alguns valores que vimos até agora foram 2,
-42.0 e `Hello, World!'.
+\subsection{Instruções e
+variáveis}\label{instruuxe7uxf5es-e-variuxe1veis}
 
-Esses valores pertencem a tipos diferentes: 2 é um número inteiro, 42.0
-é um número de ponto flutuante e `Hello, World!' é uma string, assim
-chamada porque as letras que contém estão em uma sequência em cadeia.
-
-Se não tiver certeza sobre qual é o tipo de certo valor, o interpretador
-pode dizer isso a você:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{type}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-int
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{type}\NormalTok{(}\FloatTok{42.0}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-float
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{type}\NormalTok{(}\StringTok{\textquotesingle{}Hello World\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-str
-\end{verbatim}
-
-Nesses resultados, a palavra ``class'' (classe) é usada no sentido de
-categoria; um tipo é uma categoria de valores. Como se poderia esperar,
-números inteiros pertencem ao tipo \emph{int}, strings pertencem ao tipo
-\emph{str} e os números de ponto flutuante pertencem ao tipo
-\emph{float}.
-
-E valores como `2' e `42.0'? Parecem números, mas estão entre aspas como
-se fossem strings:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{type}\NormalTok{(}\StringTok{\textquotesingle{}2\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-str
-\end{verbatim}
-
-Um dos recursos mais eficientes de uma linguagem de programação é a
-capacidade de manipular variáveis. Uma variável é um nome que se refere
-a um valor.
-
-\subsection{Instruções de
-atribuição}\label{instruuxe7uxf5es-de-atribuiuxe7uxe3o}
-
-Uma instrução de atribuição cria uma nova variável e dá um valor a ela:
+Uma instrução é uma unidade básica de código que produz algum efeito,
+como criar uma variável ou exibir um valor na tela. Entre os recursos
+mais importantes de uma linguagem de programação está a possibilidade de
+trabalhar com variáveis, que permitem armazenar e reutilizar informações
+ao longo do código. Uma variável pode ser entendida como um nome que faz
+referência a um valor. No Python, uma variável é criada por meio de uma
+instrução de atribuição, feita a partir de um sinal de igual.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1992,17 +1941,97 @@ Uma instrução de atribuição cria uma nova variável e dá um valor a ela:
 \end{Shaded}
 
 Esse exemplo faz três atribuições. A primeira atribui uma string a uma
-nova variável chamada message; a segunda dá o número inteiro 17 a n; a
-terceira atribui o valor (aproximado) de \(\pi\) a pi. Uma forma comum
-de representar variáveis por escrito é colocar o nome com uma flecha
-apontando para o seu valor. Este tipo de número é chamado de diagrama de
-estado porque mostra o estado no qual cada uma das variáveis está (pense
-nele como o estado de espírito da variável).
+nova variável chamada \texttt{message}; a segunda dá o número inteiro
+\(17\) a \texttt{n}; a terceira atribui o valor (aproximado) de \(\pi\)
+a \texttt{pi}. Uma vez definida, você pode chamar a variável e fazer
+operações com o valor a ela atribuído apenas referenciando o seu nome.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OperatorTok{+} \DecValTok{25}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OperatorTok{=}\NormalTok{ n}\OperatorTok{*}\DecValTok{2} \OperatorTok{+} \DecValTok{16}
+\BuiltInTok{print}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+50
+\end{verbatim}
+
+Os programadores geralmente escolhem nomes significativos para as suas
+variáveis -- eles documentam o uso da variável. Nomes de variáveis podem
+ser tão longos quanto você queira. Podem conter tanto letras como
+números, mas não podem começar com um número. O caractere de sublinhar
+(\_) pode aparecer em um nome. Muitas vezes é usado em nomes com várias
+palavras, como \emph{full\_name}.
+
+Se você der um nome ilegal a uma variável, recebe um erro de sintaxe:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{76}\ErrorTok{trombones} \OperatorTok{=} \StringTok{\textquotesingle{}big parade\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Highlighting}
+\textcolor{black}{SyntaxError: invalid decimal literal (3381618747.py, line 1)}
+\textcolor{black}{  }\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[11]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{    }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{76trombones = 'big parade'}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{     \textasciicaret{}}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{SyntaxError}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{:}\textcolor{QuartoInternalColor2}{ invalid decimal literal}
+\end{Highlighting}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class} \OperatorTok{=} \StringTok{\textquotesingle{}Advanced Theoretical Zymurgy\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Highlighting}
+\textcolor{black}{SyntaxError: invalid syntax (3803549429.py, line 1)}
+\textcolor{black}{  }\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[12]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{    }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{class = 'Advanced Theoretical Zymurgy'}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{          \textasciicaret{}}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{SyntaxError}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{:}\textcolor{QuartoInternalColor2}{ invalid syntax}
+\end{Highlighting}
+
+\texttt{76trombones} é ilegal porque começa com um número. Mas o que há
+de errado com \texttt{class}?
+
+A questão é que class é uma das palavras-chave do Python. O
+interpretador usa palavras-chave para reconhecer a estrutura do programa
+e elas não podem ser usadas como nomes de variável. O Python 3 tem estas
+palavras-chave:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{and}         \KeywordTok{del}         \ImportTok{from}        \VariableTok{None}        \VariableTok{True}
+\ImportTok{as}          \ControlFlowTok{elif}        \KeywordTok{global}      \KeywordTok{nonlocal}    \ControlFlowTok{try}
+\ControlFlowTok{assert}      \ControlFlowTok{else}        \ControlFlowTok{if}          \KeywordTok{not}         \ControlFlowTok{while}
+\ControlFlowTok{break}       \ControlFlowTok{except}      \ImportTok{import}      \KeywordTok{or}          \ControlFlowTok{with}
+\KeywordTok{class}       \VariableTok{False}       \KeywordTok{in}          \ControlFlowTok{pass}        \ControlFlowTok{yield}
+\ControlFlowTok{continue}    \ControlFlowTok{finally}     \KeywordTok{is}          \ControlFlowTok{raise}
+\KeywordTok{def}         \ControlFlowTok{for}         \KeywordTok{lambda}      \ControlFlowTok{return}
+\end{Highlighting}
+\end{Shaded}
+
+Você não precisa memorizar essa lista. Na maior parte dos ambientes de
+desenvolvimento, as palavras-chave são exibidas em uma cor diferente; se
+você tentar usar uma como nome de variável, vai perceber.
 
 \subsection{Leitura de erros}\label{leitura-de-erros}
 
-Você já deve ter percebido que quando um programa em Python encontra um
-problema, ele interrompe a execução e exibe uma mensagem de erro. Essa
+Você viu anteriormente que quando o Python se depara com algum erro no
+código ele interrompe a execução e exibe uma mensagem de erro. Essa
 mensagem não é aleatória: ela segue uma estrutura relativamente
 padronizada e contém informações úteis para diagnosticar o que
 aconteceu. De forma geral, uma mensagem de erro em Python possui três
@@ -2053,125 +2082,10 @@ automático. A habilidade de interpretar mensagens de erro é uma das
 competências mais importantes em programação e será exercitada
 continuamente ao longo do curso.
 
-\subsection{Nomes de variáveis}\label{nomes-de-variuxe1veis}
-
-Os programadores geralmente escolhem nomes significativos para as suas
-variáveis -- eles documentam o uso da variável. Nomes de variáveis podem
-ser tão longos quanto você queira. Podem conter tanto letras como
-números, mas não podem começar com um número. É legal usar letras
-maiúsculas, mas a convenção é usar apenas letras minúsculas para nomes
-de variáveis. O caractere de sublinhar (\_) pode aparecer em um nome.
-Muitas vezes é usado em nomes com várias palavras, como
-\emph{your\_name} ou \emph{airspeed\_of\_unladen\_swallow}.
-
-Se você der um nome ilegal a uma variável, recebe um erro de sintaxe:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{76}\ErrorTok{trombones} \OperatorTok{=} \StringTok{\textquotesingle{}big parade\textquotesingle{}}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Highlighting}
-\textcolor{black}{SyntaxError: invalid decimal literal (3381618747.py, line 1)}
-\textcolor{black}{  }\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[14]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{    }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{76trombones = 'big parade'}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{     \textasciicaret{}}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{SyntaxError}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{:}\textcolor{QuartoInternalColor2}{ invalid decimal literal}
-\end{Highlighting}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class} \OperatorTok{=} \StringTok{\textquotesingle{}Advanced Theoretical Zymurgy\textquotesingle{}}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Highlighting}
-\textcolor{black}{SyntaxError: invalid syntax (3803549429.py, line 1)}
-\textcolor{black}{  }\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[15]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{    }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{class = 'Advanced Theoretical Zymurgy'}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{          \textasciicaret{}}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{SyntaxError}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{:}\textcolor{QuartoInternalColor2}{ invalid syntax}
-\end{Highlighting}
-
-\texttt{76trombones} é ilegal porque começa com um número. Mas o que há
-de errado com \texttt{class}?
-
-A questão é que class é uma das palavras-chave do Python. O
-interpretador usa palavras-chave para reconhecer a estrutura do programa
-e elas não podem ser usadas como nomes de variável. O Python 3 tem estas
-palavras-chave:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{and}         \KeywordTok{del}         \ImportTok{from}        \VariableTok{None}        \VariableTok{True}
-\ImportTok{as}          \ControlFlowTok{elif}        \KeywordTok{global}      \KeywordTok{nonlocal}    \ControlFlowTok{try}
-\ControlFlowTok{assert}      \ControlFlowTok{else}        \ControlFlowTok{if}          \KeywordTok{not}         \ControlFlowTok{while}
-\ControlFlowTok{break}       \ControlFlowTok{except}      \ImportTok{import}      \KeywordTok{or}          \ControlFlowTok{with}
-\KeywordTok{class}       \VariableTok{False}       \KeywordTok{in}          \ControlFlowTok{pass}        \ControlFlowTok{yield}
-\ControlFlowTok{continue}    \ControlFlowTok{finally}     \KeywordTok{is}          \ControlFlowTok{raise}
-\KeywordTok{def}         \ControlFlowTok{for}         \KeywordTok{lambda}      \ControlFlowTok{return}
-\end{Highlighting}
-\end{Shaded}
-
-Você não precisa memorizar essa lista. Na maior parte dos ambientes de
-desenvolvimento, as palavras-chave são exibidas em uma cor diferente; se
-você tentar usar uma como nome de variável, vai perceber.
-
-\subsection{Expressões e
-instruções}\label{expressuxf5es-e-instruuxe7uxf5es}
-
-Uma expressão é uma combinação de valores, variáveis e operadores. Um
-valor por si mesmo é considerado uma expressão, assim como uma variável,
-portanto as expressões seguintes são todas legais:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-17
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n }\OperatorTok{+} \DecValTok{25}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-42
-\end{verbatim}
-
-Quando você digita uma expressão no prompt, o interpretador a avalia, ou
-seja, ele encontra o valor da expressão. Neste exemplo, o n tem o valor
-17 e n + 25 tem o valor 42.
-
-Uma instrução é uma unidade de código que tem um efeito, como criar uma
-variável ou exibir um valor.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n }\OperatorTok{=} \DecValTok{17}
-\BuiltInTok{print}\NormalTok{(n)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-17
-\end{verbatim}
-
-A primeira linha é uma instrução de atribuição que dá um valor a n.~A
-segunda linha é uma instrução de exibição que exibe o valor de n.~Quando
-você digita uma instrução, o interpretador a executa, o que significa
-que ele faz o que a instrução diz. Em geral, instruções não têm valores.
-
-\subsection{Pacotes de terceiros e funções
+\section{Pacotes de terceiros e funções
 não-nativas}\label{pacotes-de-terceiros-e-funuxe7uxf5es-nuxe3o-nativas}
 
-\subsubsection{Como instalar}\label{como-instalar-1}
+\subsection{Como instalar}\label{como-instalar-1}
 
 Para instalar novos pacotes para o Python precisamos fazê-lo via prompt
 de comando. O Anaconda nos fornece um prompt de comando próprio, o
@@ -2219,7 +2133,7 @@ esses links
 \href{https://pythonspeed.com/articles/conda-vs-pip/}{2}) podem ser um
 bom começo.
 
-\subsubsection{Como importar}\label{como-importar}
+\subsection{Como importar}\label{como-importar}
 
 Sempre que quisermos trazer algo ``de fora'', devemos carregar as
 bibliotecas específicas, seja por completo ou apenas um subconjunto de
@@ -2317,8 +2231,7 @@ operacionais estabelecidas aqui.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Inicialize o interpretador do Python e use-o como uma calculadora.
-  Responda as seguintes perguntas:
+  Utilize o Python para responder as seguintes perguntas:
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
@@ -2330,8 +2243,50 @@ operacionais estabelecidas aqui.
     quilômetro.
   \item
     Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o
-    seu passo médio (tempo por milha em minutos e segundos)? Qual é a
-    sua velocidade média em milhas por hora?
+    \_pace\_\_ médio (tempo por quilômetro em minutos e segundos)?
+  \end{enumerate}
+\item
+  Crie uma variável chamada \texttt{salario\_mensal} com valor igual a
+  \(3500\).
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Crie uma variável chamada \texttt{rendimento\_anual} que seja
+    construída a partir de \texttt{salario\_mensal} e considere o
+    recebimento do 13º salário no mês de dezembro. Utilize uma instrução
+    para exibir \texttt{rendimento\_anual} na tela.
+  \item
+    Calcule e exiba na tela o valor do rendimento anual após o pagamento
+    de impostos, considerando a incidência de uma alíquota média de
+    \(16.5\%\).
+  \end{enumerate}
+\item
+  Explique, com suas próprias palavras, a diferença entre escrever
+  código em um editor de texto simples e escrever código em uma IDE ou
+  ambiente interativo. Sua resposta deve mencionar pelo menos dois
+  recursos que facilitam o aprendizado em IDEs.
+\item
+  Considere o código abaixo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Resultado:"}
+\NormalTok{resultado }\OperatorTok{==} \DecValTok{10} \OperatorTok{+} \DecValTok{5}\ErrorTok{S}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Execute o código e identifique o tipo e posição do(s) erro(s) no
+    código.
+  \item
+    Explique com suas palavras o que está de errado.
+  \item
+    Corrija o(s) erro(s) e execute novamente.
   \end{enumerate}
 \end{enumerate}
 
@@ -2417,7 +2372,7 @@ foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se
 o modelo tivesse por objetivo ``prever'' o conteúdo textual que melhor
 se encaixa ao conteúdo fornecido no prompt inicial.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, opacityback=0, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, toptitle=1mm, breakable, toprule=.15mm, leftrule=.75mm, colback=white, titlerule=0mm, coltitle=black, arc=.35mm, rightrule=.15mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -3949,7 +3904,7 @@ Este exemplo encaixa uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x274271a56c0>
+<zip at 0x253ad4bc3c0>
 \end{verbatim}
 
 O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
@@ -4523,16 +4478,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.6042503157007204
-0.19594168784794375
-0.07774525422612166
-0.4966267772360393
-0.9657441674112354
-0.7824328082984203
-0.8528551903795256
-0.42873915227115
-0.054226044755280034
-0.9051722110086946
+0.29164503542297404
+0.21352965658111556
+0.6044440739112925
+0.9988634120536987
+0.07202982387887857
+0.7842085168422767
+0.47131725213610376
+0.18871203998941122
+0.16538784702873532
+0.6796430348354517
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4550,16 +4505,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.55
-Essa é a iteração 2 e o número sorteado foi: 0.89
-Essa é a iteração 3 e o número sorteado foi: 0.30
-Essa é a iteração 4 e o número sorteado foi: 0.08
-Essa é a iteração 5 e o número sorteado foi: 0.01
-Essa é a iteração 6 e o número sorteado foi: 0.36
-Essa é a iteração 7 e o número sorteado foi: 0.54
-Essa é a iteração 8 e o número sorteado foi: 0.85
-Essa é a iteração 9 e o número sorteado foi: 0.60
-Essa é a iteração 10 e o número sorteado foi: 0.91
+Essa é a iteração 1 e o número sorteado foi: 0.70
+Essa é a iteração 2 e o número sorteado foi: 0.55
+Essa é a iteração 3 e o número sorteado foi: 0.03
+Essa é a iteração 4 e o número sorteado foi: 0.63
+Essa é a iteração 5 e o número sorteado foi: 0.16
+Essa é a iteração 6 e o número sorteado foi: 0.16
+Essa é a iteração 7 e o número sorteado foi: 0.23
+Essa é a iteração 8 e o número sorteado foi: 0.82
+Essa é a iteração 9 e o número sorteado foi: 0.99
+Essa é a iteração 10 e o número sorteado foi: 0.95
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4864,10 +4819,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0924 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1342 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0945 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1318 segundos
 
-A abordagem de loop demorou 45.2% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 39.4% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5175,8 +5130,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[ 25.04254876  39.13292118 -34.10320873   7.98808389  -6.19412265
-  -9.41983739  16.45316909  22.01876984   4.06598553  28.64742778]
+[ 39.78362511  36.19708288   7.93143329  33.06461166 -28.3014496
+  37.95146752 -39.29933034 -16.40429996 -24.41634817 -33.7351637 ]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5189,8 +5144,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[-20.67195679  37.42291898 -32.82646465  22.54149846 -16.26723255
-  28.99418671 -25.38793008  26.98928088  34.56438026  12.77177268]
+[  0.6090722   -4.42157637 -19.03978434  35.13996846   8.44683229
+  31.50607219 -14.52547817 -14.60582248 -19.09079862 -16.26319048]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5756,8 +5711,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[ 11.70428946  -5.69374285 -35.77695054  28.18562849   2.55099036
- -22.74735758   1.0920684   26.0240136   -0.49549272  32.51270909]
+[-33.84403591  29.06318802  12.28358251 -14.7098211   -8.83775274
+ -20.93048515 -19.20980016   6.54905271  17.96697044  35.95339626]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7315,10 +7270,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0133 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.2903 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0121 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2829 segundos
 
-A abordagem de listas demorou 21x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações

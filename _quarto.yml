@@ -71,6 +71,7 @@ format:
     
   pdf:
     documentclass: scrreprt
+    pdf-engine: xelatex
 
 
 

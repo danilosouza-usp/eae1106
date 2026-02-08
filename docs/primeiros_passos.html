@@ -324,14 +324,16 @@ window.Quarto = {
   <li><a href="#construindo-o-primeiro-programa" id="toc-construindo-o-primeiro-programa" class="nav-link" data-scroll-target="#construindo-o-primeiro-programa"><span class="header-section-number">2.3</span> Construindo o primeiro programa</a>
   <ul class="collapse">
   <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link" data-scroll-target="#operadores-aritméticos"><span class="header-section-number">2.3.1</span> Operadores aritméticos</a></li>
-  <li><a href="#instruções-de-atribuição" id="toc-instruções-de-atribuição" class="nav-link" data-scroll-target="#instruções-de-atribuição"><span class="header-section-number">2.3.2</span> Instruções de atribuição</a></li>
+  <li><a href="#instruções-e-variáveis" id="toc-instruções-e-variáveis" class="nav-link" data-scroll-target="#instruções-e-variáveis"><span class="header-section-number">2.3.2</span> Instruções e variáveis</a></li>
   <li><a href="#leitura-de-erros" id="toc-leitura-de-erros" class="nav-link" data-scroll-target="#leitura-de-erros"><span class="header-section-number">2.3.3</span> Leitura de erros</a></li>
-  <li><a href="#nomes-de-variáveis" id="toc-nomes-de-variáveis" class="nav-link" data-scroll-target="#nomes-de-variáveis"><span class="header-section-number">2.3.4</span> Nomes de variáveis</a></li>
-  <li><a href="#expressões-e-instruções" id="toc-expressões-e-instruções" class="nav-link" data-scroll-target="#expressões-e-instruções"><span class="header-section-number">2.3.5</span> Expressões e instruções</a></li>
-  <li><a href="#pacotes-de-terceiros-e-funções-não-nativas" id="toc-pacotes-de-terceiros-e-funções-não-nativas" class="nav-link" data-scroll-target="#pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.3.6</span> Pacotes de terceiros e funções não-nativas</a></li>
   </ul></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">2.4</span> Conclusão</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.5</span> Exercícios</a></li>
+  <li><a href="#pacotes-de-terceiros-e-funções-não-nativas" id="toc-pacotes-de-terceiros-e-funções-não-nativas" class="nav-link" data-scroll-target="#pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.4</span> Pacotes de terceiros e funções não-nativas</a>
+  <ul class="collapse">
+  <li><a href="#como-instalar-1" id="toc-como-instalar-1" class="nav-link" data-scroll-target="#como-instalar-1"><span class="header-section-number">2.4.1</span> Como instalar</a></li>
+  <li><a href="#como-importar" id="toc-como-importar" class="nav-link" data-scroll-target="#como-importar"><span class="header-section-number">2.4.2</span> Como importar</a></li>
+  </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">2.5</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.6</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/primeiros_passos.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -359,7 +361,7 @@ window.Quarto = {
 
 <section id="introdução" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">2.1</span> Introdução</h2>
-<p>Criado em 1989 por Guido van Rossum no Centro de Matemática e Tecnológia da Informação na Holanda, o Python é uma linguagem de programação de alto nível, amplamente utilizada em ciência de dados, estatística e desenvolvimento científico em geral. Ao longo desta disciplina, Python será utilizado como ferramenta central para manipular dados, realizar cálculos numéricos, produzir gráficos e implementar rotinas que aparecem com frequência em trabalhos empíricos em economia.</p>
+<p>Criado em 1989 por Guido van Rossum no Centro de Matemática e Tecnológia da Informação na Holanda, o Python é uma linguagem de programação amplamente utilizada em ciência de dados, estatística e desenvolvimento científico em geral. Ao longo desta disciplina, Python será utilizado como ferramenta central para manipular dados, realizar cálculos numéricos, produzir gráficos e implementar rotinas que aparecem com frequência em trabalhos empíricos em economia.</p>
 <p>Neste momento inicial do curso, o objetivo não é compreender toda a linguagem nem escrever programas complexos. O foco desta aula é muito mais operacional: aprender a executar comandos simples, entender como o ambiente de programação funciona e desenvolver familiaridade com a lógica básica de interação com o computador por meio de código. É importante destacar que programar não é memorizar comandos, mas aprender a ler, testar e corrigir código. Erros farão parte do processo desde o início. Isso não indica falta de habilidade nem desconhecimento do conteúdo; pelo contrário, erros são a principal fonte de informação sobre como o programa está sendo interpretado pelo computador.</p>
 <div id="fig-clayton" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -377,7 +379,7 @@ Figura&nbsp;2.1: Meu cachorro Clayton dando seus primeiros passos em Python.
 <li>Reconhecer mensagens de erro e localizar a origem do problema.</li>
 <li>Desenvolver uma postura ativa de experimentação e verificação.</li>
 </ul>
-<p>Essas competências serão usadas continuamente ao longo do curso e são essenciais para o desenvolvimento em tópicos futuros, como construção de funções, manipulação de objetos, análise de dados e visualização.</p>
+<p>Essas competências serão usadas continuamente ao longo do curso e são essenciais para o desenvolvimento em tópicos futuros, como construção de funções, manipulação de objetos, análise de dados e visualização. Antes de aprender novos comandos, no entanto, é fundamental compreender o ambiente no qual o programa roda e como ocorre a interação entre o usuário e o interpretador.</p>
 <section id="pré-requisitos" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">2.1.1</span> Pré-requisitos</h3>
 <p>Este foi escrito para que o aluno que acompanhou e absorveu o conteúdo do capítulo anterior, sobre fundamentos de computação, seja plenamente capaz de acompanhar. Não há outros pré-requisitos.</p>
@@ -435,8 +437,8 @@ Figura&nbsp;2.4: Tela de instalação da distribuição Anaconda. Janeiro de 202
 </section>
 <section id="anaconda-e-suas-particularidades" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="anaconda-e-suas-particularidades"><span class="header-section-number">2.2.2</span> Anaconda e suas particularidades</h3>
-<p>Como dito acima, anaconda é uma distribuição do Python para computação científica (e.g, ciência de dados e aprendizado de máquina), que visa simplificar o gerenciamento e a implantação de pacotes. As versões de pacotes no Anaconda são gerenciadas pelo sistema de gerenciamento de pacotes <em>conda</em>. Através do <em>conda</em> é possível criar ambientes e instalar pacotes distintos de forma a evitar incompatibilidades entre versões de pacotes já instalados.</p>
-<p>Além disso, o anaconda traz consigo o Anaconda Navigator, um ambiente <em>user-friendly</em> para a gestão de pacotes e aplicativos necessários para a utilização do Python sem que seja preciso ter qualquer conhecimento acerca da utilização correta de terminais (e.g, <em>prompt de comando</em> do Windows). Ao abrir o Anaconda Navigator no Windows, você deve ver algo assim</p>
+<p>Como dito acima, Anaconda é uma distribuição do Python para computação científica (e.g, ciência de dados e aprendizado de máquina), que visa simplificar o gerenciamento e a implantação de pacotes. As versões de pacotes no Anaconda são gerenciadas pelo sistema de gerenciamento de pacotes <em>conda</em>. Através do <em>conda</em> é possível criar ambientes e instalar pacotes distintos de forma a evitar incompatibilidades entre versões de pacotes já instalados.</p>
+<p>Além disso, o Anaconda traz consigo o Anaconda Navigator, um ambiente <em>user-friendly</em> para a gestão de pacotes e aplicativos necessários para a utilização do Python sem que seja preciso ter qualquer conhecimento acerca da utilização correta de terminais. Ao abrir o Anaconda Navigator no Windows, você deve ver algo assim:</p>
 <div id="fig-anaconda3" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anaconda3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -447,11 +449,11 @@ Figura&nbsp;2.5: Tela inicial do Anaconda Navigator. Janeiro de 2026
 </figcaption>
 </figure>
 </div>
-<p>É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse <a href="https://anaconda.cloud/getting-started-with-anaconda-distribution?src=share">vídeo</a> é um bom começo.</p>
+<p>É possível instalar pacotes e fazer muito mais coisa diretamente pelo Anaconda Navigator. Para os que tiverem interesse em saber um pouco mais, esse <a href="https://www.anaconda.com/docs/getting-started/main">link</a> é um bom começo.</p>
 </section>
 <section id="ides" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="ides"><span class="header-section-number">2.2.3</span> IDEs</h3>
-<p>IDE é um acrônimo para Integrated Development Environment, em português, Ambiente de Desenvolvimento Integrado. Ele é um programa que reúne ferramentas necessárias para a construção de outros softwares. A utilização de um IDE ajuda muito os programadores e empresas, pois torna mais rápido o desenvolvimento de aplicações, aumentando a produtividade e reduzindo custos. Existem IDE’s específicas para plataformas, e outras que são mais flexíveis. As mais famosas são o Sublime Text e o Visual Studio Code.</p>
+<p>Com Anaconda ou sem Anaconda, interagir diretamente com a linguagem ainda depende do uso de um ambiente próprio para esse fim, como no caso das chamadas IDEs. IDE é um acrônimo para Integrated Development Environment, em português, Ambiente de Desenvolvimento Integrado. Ele é um programa que reúne ferramentas necessárias para a construção de outros softwares. A utilização de um IDE ajuda muito os programadores e empresas, pois torna mais rápido o desenvolvimento de aplicações, aumentando a produtividade e reduzindo custos. Existem IDE’s específicas para plataformas, e outras que são mais flexíveis. As mais famosas são o Sublime Text e o Visual Studio Code.</p>
 <p>Quais são os componentes típicos de uma IDE?</p>
 <ul>
 <li><p><strong>Editor de código-fonte</strong>: Permite edição do código nas linguagens de programação suportadas pelo IDE.</p></li>
@@ -487,106 +489,125 @@ Figura&nbsp;2.5: Tela inicial do Anaconda Navigator. Janeiro de 2026
 </section>
 <section id="construindo-o-primeiro-programa" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="construindo-o-primeiro-programa"><span class="header-section-number">2.3</span> Construindo o primeiro programa</h2>
-<p>Tradicionalmente, o primeiro programa que se escreve em uma nova linguagem chama-se “Hello, World!”, porque tudo o que faz é exibir as palavras “Hello, World!” na tela. No Python, ele se parece com isto:</p>
-<div id="c3c7c64a" class="cell" data-execution_count="1">
+<p>Uma vez entendido o papel do ambiente de programação, o próximo passo é escrever e executar instruções simples. Isso permite observar diretamente como o Python interpreta o código e produz resultados, estabelecendo a base para todo o restante do curso. Tradicionalmente, o primeiro programa que se escreve em uma nova linguagem chama-se <em>“Hello, World!”</em>, porque tudo o que faz é exibir as palavras <em>“Hello, World!”</em> na tela. No Python, ele se parece com isto:</p>
+<div id="7da6b89c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello, World!'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello, World!</code></pre>
 </div>
 </div>
-<p>Este é um exemplo de uma instrução print (instrução de impressão), embora na realidade ela não imprima nada em papel. Ela exibe um resultado na tela. As aspas apenas marcam o começo e o fim do texto a ser exibido; elas não aparecem no resultado. Os parênteses indicam que o print é uma função. No Python 2, a instrução print é ligeiramente diferente; ela não é uma função, portanto não usa parênteses.</p>
+<p>Este é um exemplo de uma instrução print (instrução de impressão), embora na realidade ela não imprima nada em papel. Ela exibe um resultado na tela. As aspas apenas marcam o começo e o fim do texto a ser exibido; elas não aparecem no resultado. Os parênteses indicam que o print é uma função.</p>
 <section id="operadores-aritméticos" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="operadores-aritméticos"><span class="header-section-number">2.3.1</span> Operadores aritméticos</h3>
-<p>Depois do “Hello, World”, o próximo passo é a aritmética. O Python tem operadores, que são símbolos especiais representando operações de computação, como adição e multiplicação. Os operadores +, - e * executam a adição, a subtração e a multiplicação, Finalmente, o operador ** executa a exponenciação; isto é, eleva um número a uma potência, como nos seguintes exemplos:</p>
-<div id="c13f5623" class="cell" data-execution_count="2">
+<p>Depois do <em>“Hello, World”</em>, o próximo passo natural é a aritmética. O Python tem operadores, que são símbolos especiais representando operações de computação, como adição e multiplicação. Os operadores <span class="math inline">\(+\)</span>, <span class="math inline">\(-\)</span> e <span class="math inline">\(*\)</span> executam a adição, a subtração e a multiplicação, Finalmente, o operador <span class="math inline">\(**\)</span> executa a exponenciação; isto é, eleva um número a uma potência, como nos seguintes exemplos:</p>
+<div id="4ffc8955" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">40</span> <span class="op">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>42</code></pre>
 </div>
 </div>
-<div id="bf0d372d" class="cell" data-execution_count="3">
+<div id="8f957647" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">43</span> <span class="op">-</span> <span class="dv">1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>42</code></pre>
 </div>
 </div>
-<div id="56f5913f" class="cell" data-execution_count="4">
+<div id="ec1cad34" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">7</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>42</code></pre>
 </div>
 </div>
-<div id="e31abe93" class="cell" data-execution_count="5">
+<div id="75580871" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">84</span> <span class="op">/</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>42.0</code></pre>
 </div>
 </div>
-<div id="4fdeb30f" class="cell" data-execution_count="6">
+<div id="8a3dbecf" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">6</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>42</code></pre>
 </div>
 </div>
-<p>Em algumas outras linguagens, o ^ é usado para a exponenciação, mas no Python é um operador bitwise, chamado XOR. Se não tiver familiaridade com operadores bitwise, o resultado o surpreenderá. Não abordaremos operadores bitwise neste curso, mas você pode ler sobre eles em http://wiki.python.org/moin/BitwiseOperators.</p>
-<div id="55982de0" class="cell" data-execution_count="7">
+<p>Em algumas outras linguagens, o <span class="math inline">\(\^\)</span> é usado para a exponenciação, mas no Python é um operador <em>bitwise</em>, chamado XOR. Se não tiver familiaridade com operadores bitwise, o resultado o surpreenderá. Não abordaremos operadores bitwise neste curso, mas você pode ler sobre eles em http://wiki.python.org/moin/BitwiseOperators.</p>
+<div id="2d300e34" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>4</code></pre>
 </div>
 </div>
-<p>Um valor é uma das coisas básicas com as quais um programa trabalha, como uma letra ou um número. Alguns valores que vimos até agora foram 2, 42.0 e ‘Hello, World!’.</p>
-<p>Esses valores pertencem a tipos diferentes: 2 é um número inteiro, 42.0 é um número de ponto flutuante e ‘Hello, World!’ é uma string, assim chamada porque as letras que contém estão em uma sequência em cadeia.</p>
-<p>Se não tiver certeza sobre qual é o tipo de certo valor, o interpretador pode dizer isso a você:</p>
-<div id="2f4840cb" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>int</code></pre>
-</div>
-</div>
-<div id="4617f9e2" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="fl">42.0</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>float</code></pre>
-</div>
-</div>
-<div id="c8db8c12" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="st">'Hello World'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>str</code></pre>
-</div>
-</div>
-<p>Nesses resultados, a palavra “class” (classe) é usada no sentido de categoria; um tipo é uma categoria de valores. Como se poderia esperar, números inteiros pertencem ao tipo <em>int</em>, strings pertencem ao tipo <em>str</em> e os números de ponto flutuante pertencem ao tipo <em>float</em>.</p>
-<p>E valores como ‘2’ e ‘42.0’? Parecem números, mas estão entre aspas como se fossem strings:</p>
-<div id="59a8e792" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="st">'2'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>str</code></pre>
-</div>
-</div>
-<p>Um dos recursos mais eficientes de uma linguagem de programação é a capacidade de manipular variáveis. Uma variável é um nome que se refere a um valor.</p>
 </section>
-<section id="instruções-de-atribuição" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="instruções-de-atribuição"><span class="header-section-number">2.3.2</span> Instruções de atribuição</h3>
-<p>Uma instrução de atribuição cria uma nova variável e dá um valor a ela:</p>
-<div id="8166d6a9" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">'And now for something completely different'</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.141592653589793</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="instruções-e-variáveis" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="instruções-e-variáveis"><span class="header-section-number">2.3.2</span> Instruções e variáveis</h3>
+<p>Uma instrução é uma unidade básica de código que produz algum efeito, como criar uma variável ou exibir um valor na tela. Entre os recursos mais importantes de uma linguagem de programação está a possibilidade de trabalhar com variáveis, que permitem armazenar e reutilizar informações ao longo do código. Uma variável pode ser entendida como um nome que faz referência a um valor. No Python, uma variável é criada por meio de uma instrução de atribuição, feita a partir de um sinal de igual.</p>
+<div id="fe18332a" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">'And now for something completely different'</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.141592653589793</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Esse exemplo faz três atribuições. A primeira atribui uma string a uma nova variável chamada message; a segunda dá o número inteiro 17 a n; a terceira atribui o valor (aproximado) de <span class="math inline">\(\pi\)</span> a pi. Uma forma comum de representar variáveis por escrito é colocar o nome com uma flecha apontando para o seu valor. Este tipo de número é chamado de diagrama de estado porque mostra o estado no qual cada uma das variáveis está (pense nele como o estado de espírito da variável).</p>
+<p>Esse exemplo faz três atribuições. A primeira atribui uma string a uma nova variável chamada <code>message</code>; a segunda dá o número inteiro <span class="math inline">\(17\)</span> a <code>n</code>; a terceira atribui o valor (aproximado) de <span class="math inline">\(\pi\)</span> a <code>pi</code>. Uma vez definida, você pode chamar a variável e fazer operações com o valor a ela atribuído apenas referenciando o seu nome.</p>
+<div id="48066ee7" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">+</span> <span class="dv">25</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>42</code></pre>
+</div>
+</div>
+<div id="24703fb2" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> n<span class="op">*</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">16</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>50</code></pre>
+</div>
+</div>
+<p>Os programadores geralmente escolhem nomes significativos para as suas variáveis – eles documentam o uso da variável. Nomes de variáveis podem ser tão longos quanto você queira. Podem conter tanto letras como números, mas não podem começar com um número. O caractere de sublinhar (_) pode aparecer em um nome. Muitas vezes é usado em nomes com várias palavras, como <em>full_name</em>.</p>
+<p>Se você der um nome ilegal a uma variável, recebe um erro de sintaxe:</p>
+<div id="c5553c05" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dv">76</span><span class="er">trombones</span> <span class="op">=</span> <span class="st">'big parade'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[11]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-red-fg">    </span><span class="ansi-red-fg">76trombones = 'big parade'</span>
+     ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid decimal literal
+</pre>
+</div>
+</div>
+</div>
+<div id="60d4e625" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="op">=</span> <span class="st">'Advanced Theoretical Zymurgy'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-red-fg">    </span><span class="ansi-red-fg">class = 'Advanced Theoretical Zymurgy'</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+</div>
+<p><code>76trombones</code> é ilegal porque começa com um número. Mas o que há de errado com <code>class</code>?</p>
+<p>A questão é que class é uma das palavras-chave do Python. O interpretador usa palavras-chave para reconhecer a estrutura do programa e elas não podem ser usadas como nomes de variável. O Python 3 tem estas palavras-chave:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span>         <span class="kw">del</span>         <span class="im">from</span>        <span class="va">None</span>        <span class="va">True</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>          <span class="cf">elif</span>        <span class="kw">global</span>      <span class="kw">nonlocal</span>    <span class="cf">try</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span>      <span class="cf">else</span>        <span class="cf">if</span>          <span class="kw">not</span>         <span class="cf">while</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">break</span>       <span class="cf">except</span>      <span class="im">import</span>      <span class="kw">or</span>          <span class="cf">with</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span>       <span class="va">False</span>       <span class="kw">in</span>          <span class="cf">pass</span>        <span class="cf">yield</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="cf">continue</span>    <span class="cf">finally</span>     <span class="kw">is</span>          <span class="cf">raise</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span>         <span class="cf">for</span>         <span class="kw">lambda</span>      <span class="cf">return</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Você não precisa memorizar essa lista. Na maior parte dos ambientes de desenvolvimento, as palavras-chave são exibidas em uma cor diferente; se você tentar usar uma como nome de variável, vai perceber.</p>
 </section>
 <section id="leitura-de-erros" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="leitura-de-erros"><span class="header-section-number">2.3.3</span> Leitura de erros</h3>
-<p>Você já deve ter percebido que quando um programa em Python encontra um problema, ele interrompe a execução e exibe uma mensagem de erro. Essa mensagem não é aleatória: ela segue uma estrutura relativamente padronizada e contém informações úteis para diagnosticar o que aconteceu. De forma geral, uma mensagem de erro em Python possui três componentes principais:</p>
+<p>Você viu anteriormente que quando o Python se depara com algum erro no código ele interrompe a execução e exibe uma mensagem de erro. Essa mensagem não é aleatória: ela segue uma estrutura relativamente padronizada e contém informações úteis para diagnosticar o que aconteceu. De forma geral, uma mensagem de erro em Python possui três componentes principais:</p>
 <ol type="1">
 <li><strong>O tipo do erro</strong>. Indica a natureza do problema (por exemplo, <code>SyntaxError</code>, <code>NameError</code>, <code>TypeError</code>). Esse é o ponto de partida para entender que tipo de falha ocorreu.</li>
 <li><strong>A descrição do erro</strong>. Uma frase curta que detalha o problema detectado pelo interpretador, como <em>“invalid syntax”</em> ou <em>“name is not defined”</em>.</li>
 <li><strong>A localização do erro</strong>. Normalmente inclui o arquivo, a linha do código e, em alguns casos, um indicador visual apontando o ponto exato onde o Python identificou o problema.</li>
 </ol>
 <p>Considere o seguinte exemplo:</p>
-<div id="2f15c131" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Olá mundo"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="661ab62d" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Olá mundo"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 1</span>
@@ -599,75 +620,11 @@ Figura&nbsp;2.5: Tela inicial do Anaconda Navigator. Janeiro de 2026
 </div>
 <p>Ao executar esse código, o Python retorna um erro do tipo <code>_IncompleteInputError</code>. Logo após o tipo há uma breve descrição do erro, que nesse caso é <code>incomplete input</code>. Isso ocorre porque o parêntese de fechamento está ausente, tornando o código inválido do ponto de vista da linguagem. A própria mensagem de erro replica a linha de código com problema e indica a posição em que há o problema de sintaxe. Com o tempo, esse processo de indentificar o tipo, entender o erro para além do tipo e a provável localização no código torna-se quase automático. A habilidade de interpretar mensagens de erro é uma das competências mais importantes em programação e será exercitada continuamente ao longo do curso.</p>
 </section>
-<section id="nomes-de-variáveis" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="nomes-de-variáveis"><span class="header-section-number">2.3.4</span> Nomes de variáveis</h3>
-<p>Os programadores geralmente escolhem nomes significativos para as suas variáveis – eles documentam o uso da variável. Nomes de variáveis podem ser tão longos quanto você queira. Podem conter tanto letras como números, mas não podem começar com um número. É legal usar letras maiúsculas, mas a convenção é usar apenas letras minúsculas para nomes de variáveis. O caractere de sublinhar (_) pode aparecer em um nome. Muitas vezes é usado em nomes com várias palavras, como <em>your_name</em> ou <em>airspeed_of_unladen_swallow</em>.</p>
-<p>Se você der um nome ilegal a uma variável, recebe um erro de sintaxe:</p>
-<div id="f26279db" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">76</span><span class="er">trombones</span> <span class="op">=</span> <span class="st">'big parade'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[14]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-red-fg">    </span><span class="ansi-red-fg">76trombones = 'big parade'</span>
-     ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid decimal literal
-</pre>
-</div>
-</div>
-</div>
-<div id="2f2de824" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="op">=</span> <span class="st">'Advanced Theoretical Zymurgy'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-red-fg">    </span><span class="ansi-red-fg">class = 'Advanced Theoretical Zymurgy'</span>
-          ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
-</div>
-</div>
-</div>
-<p><code>76trombones</code> é ilegal porque começa com um número. Mas o que há de errado com <code>class</code>?</p>
-<p>A questão é que class é uma das palavras-chave do Python. O interpretador usa palavras-chave para reconhecer a estrutura do programa e elas não podem ser usadas como nomes de variável. O Python 3 tem estas palavras-chave:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span>         <span class="kw">del</span>         <span class="im">from</span>        <span class="va">None</span>        <span class="va">True</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>          <span class="cf">elif</span>        <span class="kw">global</span>      <span class="kw">nonlocal</span>    <span class="cf">try</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span>      <span class="cf">else</span>        <span class="cf">if</span>          <span class="kw">not</span>         <span class="cf">while</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">break</span>       <span class="cf">except</span>      <span class="im">import</span>      <span class="kw">or</span>          <span class="cf">with</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span>       <span class="va">False</span>       <span class="kw">in</span>          <span class="cf">pass</span>        <span class="cf">yield</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">continue</span>    <span class="cf">finally</span>     <span class="kw">is</span>          <span class="cf">raise</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span>         <span class="cf">for</span>         <span class="kw">lambda</span>      <span class="cf">return</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Você não precisa memorizar essa lista. Na maior parte dos ambientes de desenvolvimento, as palavras-chave são exibidas em uma cor diferente; se você tentar usar uma como nome de variável, vai perceber.</p>
 </section>
-<section id="expressões-e-instruções" class="level3" data-number="2.3.5">
-<h3 data-number="2.3.5" class="anchored" data-anchor-id="expressões-e-instruções"><span class="header-section-number">2.3.5</span> Expressões e instruções</h3>
-<p>Uma expressão é uma combinação de valores, variáveis e operadores. Um valor por si mesmo é considerado uma expressão, assim como uma variável, portanto as expressões seguintes são todas legais:</p>
-<div id="66dd4ccf" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>17</code></pre>
-</div>
-</div>
-<div id="0db8f072" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">+</span> <span class="dv">25</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>42</code></pre>
-</div>
-</div>
-<p>Quando você digita uma expressão no prompt, o interpretador a avalia, ou seja, ele encontra o valor da expressão. Neste exemplo, o n tem o valor 17 e n + 25 tem o valor 42.</p>
-<p>Uma instrução é uma unidade de código que tem um efeito, como criar uma variável ou exibir um valor.</p>
-<div id="1728d8a1" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>17</code></pre>
-</div>
-</div>
-<p>A primeira linha é uma instrução de atribuição que dá um valor a n.&nbsp;A segunda linha é uma instrução de exibição que exibe o valor de n.&nbsp;Quando você digita uma instrução, o interpretador a executa, o que significa que ele faz o que a instrução diz. Em geral, instruções não têm valores.</p>
-</section>
-<section id="pacotes-de-terceiros-e-funções-não-nativas" class="level3" data-number="2.3.6">
-<h3 data-number="2.3.6" class="anchored" data-anchor-id="pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.3.6</span> Pacotes de terceiros e funções não-nativas</h3>
-<section id="como-instalar-1" class="level4" data-number="2.3.6.1">
-<h4 data-number="2.3.6.1" class="anchored" data-anchor-id="como-instalar-1"><span class="header-section-number">2.3.6.1</span> Como instalar</h4>
+<section id="pacotes-de-terceiros-e-funções-não-nativas" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="pacotes-de-terceiros-e-funções-não-nativas"><span class="header-section-number">2.4</span> Pacotes de terceiros e funções não-nativas</h2>
+<section id="como-instalar-1" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="como-instalar-1"><span class="header-section-number">2.4.1</span> Como instalar</h3>
 <p>Para instalar novos pacotes para o Python precisamos fazê-lo via prompt de comando. O Anaconda nos fornece um prompt de comando próprio, o <strong>Anaconda Prompt</strong> que facilita a instalação desses pacotes através dos comandos <code>conda</code> ou <code>pip</code>. Vamos instalar como exemplo o pacote <a href="https://github.com/tqdm/tqdm#installation"><code>tqdm</code></a>, que nos permite criar barras de progresso em atividades repetidas.</p>
 <ol type="1">
 <li>Abra o <strong>Anaconda prompt</strong>.</li>
@@ -675,52 +632,62 @@ Figura&nbsp;2.5: Tela inicial do Anaconda Navigator. Janeiro de 2026
 <li>Você pode utilizar 2 comandos distintos para instalar o pacote: <code>conda install tqdm</code> ou <code>pip install tqdm</code>.</li>
 </ol>
 <p>Note também que alguns dos principais pacotes sobre os quais falarei ao longo do curso, <em>NumPy, SciPy, Matplotlib e Pandas</em>, já vem instalados com o Anaconda, o que não é verdade no Python puro. Mais do que mostrar o que temos instalado na nossa máquina local, o comando <code>conda list</code> nos mostra as versões de cada uma das bibliotecas disponíveis e qual o ambiente utilizado em sua instalação.</p>
-<p><br></p>
 <p><strong>Diferença entre <em>conda</em> e <em>pip</em></strong>: falar mais sobre a diferença entre esses dois comandos populares para instalação de pacotes vai um pouco além do escopo desse curso. De forma bastante resumida, podemos dizer que o <code>pip</code> é um gerenciador de pacotes que nos permite instalar qualquer biblioteca escrita em Python e disponível no <em>Python Package Index</em> (PyPI), o principal repositório de pacotes para a linguagem. O <code>conda</code>, no entanto, é mais do que um simples gerenciador de pacotes já que é possível fazer diferentes instalações em diferentes ambientes de modo a reduzir problemas de incompatibilidade entre versões. Além disso, através do <code>conda</code> podemos instalar pacotes escritos em outras linguagens também, como R e C++. Por outro lado, é possível que você demore mais e tenha problemas para instalar alguns pacotes utilizando o <code>conda</code>. Aos que quiserem saber um pouco mais sobre a diferença entre esses dois métodos para instalação, esses links (<a href="https://www.anaconda.com/blog/understanding-conda-and-pip">1</a> e <a href="https://pythonspeed.com/articles/conda-vs-pip/">2</a>) podem ser um bom começo.</p>
 </section>
-<section id="como-importar" class="level4" data-number="2.3.6.2">
-<h4 data-number="2.3.6.2" class="anchored" data-anchor-id="como-importar"><span class="header-section-number">2.3.6.2</span> Como importar</h4>
+<section id="como-importar" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="como-importar"><span class="header-section-number">2.4.2</span> Como importar</h3>
 <p>Sempre que quisermos trazer algo “de fora”, devemos carregar as bibliotecas específicas, seja por completo ou apenas um subconjunto de suas funções. Fazemos isso por meio do comando <code>import</code>. Vamos utilizar como exemplo a biblioteca <code>NumPy</code>, uma das principais bibliotecas de comando do Python em se tratando de operações algébricas e matriciais.</p>
 <p>Dedicaremos uma aula inteira para trabalhar com o <code>NumPy</code> daqui algumas semanas, mas por hora trabalharemos apenas com as funções geradoras de números aleatórios, em especial a função geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (vocês devem se lembrar das características dessa distribuição das aulas de estatística, mas caso ainda restem dúvidas sempre existe o <a href="https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_uniforme">Wikipedia</a>).</p>
 <p>Há 3 formas de trabalhar com essa função específica, contida no <code>NumPy</code>:</p>
-<p><br></p>
 <ol type="1">
 <li>Podemos importar a biblioteca inteira</li>
 </ol>
-<div id="3ba02190" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="dc743720" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li>Podemos importar a biblioteca inteira mas dando-lhe um “apelido”</li>
 </ol>
-<div id="b710c66d" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="3c334597" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="1">
 <li>Podemos importar apenas a função que nos interessa nesse caso</li>
 </ol>
-<div id="48aeb62c" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="459e3660" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><br></p>
 <p>Qual a diferença entre esses métodos? No Python, sempre que formos utilizar uma função de algum pacote “de fora” é preciso dizer ao Python de onde que essa função está vindo. Se quisermos usar a função <code>uniform()</code> através do 1º método, por exemplo, é preciso chamá-la utilizando o nome do pacote, nesse caso <code>numpy.random.uniform()</code>. O 2º método encurta esse nome de tal forma que é possível chamar a mesma função usando <code>np.random.uniform()</code>. Por fim, no 3º caso basta chamar a função diretamente, isto é, <code>uniform()</code>.</p>
 <p>Mas se o 3º caso é mais direto, porque não usá-lo sempre? Por duas razões bem simples: (i) usar a sintaxe dos 2 primeiros casos torna o código mais compreensível e depurável, já que no caso de algum problema de execução sabemos onde procurar a resposta, e (ii) é comum pacotes distintos usarem o mesmo nome para funções que fazem operações distintas, o que pode gerar problemas de incompatibilidade e/ou de executarmos algo diferente daquilo que gostaríamos de executar.</p>
 <p>Na maioria das vezes, acabamos utilizando o 2º método, já que isso permite reduzir linhas desnecessárias de código ao mesmo tempo que facilita a replicabilidade e a atividade de depuração do código.</p>
 </section>
 </section>
-</section>
-<section id="conclusão" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">2.4</span> Conclusão</h2>
+<section id="conclusão" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">2.5</span> Conclusão</h2>
 <p>Neste capítulo, você aprendeu a executar seus primeiros comandos em Python, a interagir com o ambiente de programação e a interpretar mensagens básicas de erro. Mais importante do que os comandos específicos é o desenvolvimento de uma postura adequada frente ao código: testar, observar, errar, corrigir e testar novamente. Nos próximos capítulos, introduziremos objetos básicos da linguagem, como números, textos e listas, sempre construindo sobre as habilidades operacionais estabelecidas aqui.</p>
 </section>
-<section id="exercícios" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">2.5</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">2.6</span> Exercícios</h2>
 <ol type="1">
-<li><p>Inicialize o interpretador do Python e use-o como uma calculadora. Responda as seguintes perguntas:</p>
+<li><p>Utilize o Python para responder as seguintes perguntas:</p>
 <ol type="a">
 <li>Quantos segundos há em 42 minutos e 42 segundos?</li>
 <li>Quantas milhas há em 10 quilômetros? Dica: uma milha equivale a 1,61 quilômetro.</li>
-<li>Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o seu passo médio (tempo por milha em minutos e segundos)? Qual é a sua velocidade média em milhas por hora?</li>
+<li>Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o _pace__ médio (tempo por quilômetro em minutos e segundos)?</li>
+</ol></li>
+<li><p>Crie uma variável chamada <code>salario_mensal</code> com valor igual a <span class="math inline">\(3500\)</span>.</p>
+<ol type="a">
+<li>Crie uma variável chamada <code>rendimento_anual</code> que seja construída a partir de <code>salario_mensal</code> e considere o recebimento do 13º salário no mês de dezembro. Utilize uma instrução para exibir <code>rendimento_anual</code> na tela.</li>
+<li>Calcule e exiba na tela o valor do rendimento anual após o pagamento de impostos, considerando a incidência de uma alíquota média de <span class="math inline">\(16.5\%\)</span>.</li>
+</ol></li>
+<li><p>Explique, com suas próprias palavras, a diferença entre escrever código em um editor de texto simples e escrever código em uma IDE ou ambiente interativo. Sua resposta deve mencionar pelo menos dois recursos que facilitam o aprendizado em IDEs.</p></li>
+<li><p>Considere o código abaixo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Resultado:"</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">==</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">5</span><span class="er">S</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="a">
+<li>Execute o código e identifique o tipo e posição do(s) erro(s) no código.</li>
+<li>Explique com suas palavras o que está de errado.</li>
+<li>Corrija o(s) erro(s) e execute novamente.</li>
 </ol></li>
 </ol>
 
