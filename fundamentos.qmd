@@ -303,9 +303,11 @@ Por fim, as linguagens diferem quanto à forma como tratam os tipos de dados. Em
 
 Tipagem dinâmica reduz a quantidade de código inicial e facilita experimentação, mas exige atenção adicional para evitar erros lógicos já que o usuário não define explicitamente o tipo do dado. No entanto, a tipagem forte reduz a chance de resultados inesperados por conta de tipos definidos ou convertidos de forma equivocada já que a linguagem não tenta corrigir o erro por conta própria.
 
-### Python
+## Conclusão
 
-Neste curso, utilizaremos Python, uma linguagem de programação de alto nível, interpretada, multiparadigma e de tipagem dinâmica e forte. Python é amplamente utilizada em análise de dados, ciência de dados, automação, aprendizado de máquina e pesquisa empírica em Economia. Seu principal atrativo é permitir que o aluno foque na lógica do problema, e não em detalhes de implementação de baixo nível, além de contar com um ecossistema extenso de bibliotecas científicas. No próximo capítulo, deixaremos o nível conceitual e começaremos a programar de fato: escrever código, executar comandos, interpretar erros e manipular dados diretamente no computador.
+Neste capítulo, foram apresentados os fundamentos básicos sobre o funcionamento de um sistema computacional, incluindo arquitetura, memória, organização de arquivos, interação com o sistema operacional e o papel das linguagens de programação. Esses conceitos fornecem a base necessária para compreender como o computador executa instruções e por que certas limitações surgem na prática.
+
+A partir daqui, o curso passa a utilizar Python como linguagem de trabalho. Python é uma linguagem de alto nível, interpretada e multiparadigma que é amplamente empregada em análise de dados e pesquisa empírica em Economia, pois permite expressar soluções de forma clara e concisa, além de oferecer um amplo conjunto de bibliotecas científicas. No próximo capítulo, iniciaremos o trabalho prático: escrever código em Python, executar programas, interpretar erros e manipular dados diretamente no computador.
 
 ## Exercícios
 
