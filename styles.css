@@ -61,6 +61,10 @@ pre.sourceCode {
     padding: 0.35rem 0.6rem;
 }
 
+li pre.sourceCode code {
+    background-image: linear-gradient(160deg,#f8f8f8 0,#f1f1f1 100%);
+}
+
 /* Bloco de saída de código*/
 .cell-output {
     background-color: #f7f7f8;

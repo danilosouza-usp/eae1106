@@ -2,32 +2,38 @@
 
 ## Introdução
 
-Por mais que se conheça a sintaxe e estrutura de uma linguagem de programação, construir um código eficiente pode não ser das tarefas mais fáceis. Além disso, traduzir um código de uma determinada linguagem para outra linguagem pode ser igualmente difícil, mesmo com sintaxes parecidas.
+A incorporação recente de ferramentas de inteligência artificial ao desenvolvimento de software alterou significativamente a forma como programas são escritos, depurados e documentados. Em particular, modelos de linguagem treinados em grandes volumes de código passaram a ser capazes de gerar trechos de programas, explicar erros e sugerir soluções alternativas de forma quase imediata.
 
-Utilizar a Inteligência Artificial para fazer isso pela gente pode nos economizar um tempo valioso. Antes de entender a aplicabilidade dos modelos de inteligência artificial no mundo da programação, é preciso primeiro definir inteligência artificial e, principalmente, sua vertente generativa.
+Neste curso, a inteligência artificial não será tratada como um atalho para "pular" a aprendizagem de programação, mas como um instrumento complementar. O objetivo é utilizá-la para apoiar o entendimento da sintaxe, acelerar tarefas mecânicas e auxiliar na identificação de erros, sempre preservando o domínio conceitual do código pelo aluno.
 
-![Meme 2](images/IA.jpg){#fig-meme2 width=700px max-width=100% fig-align="center"}
+![Turma de EAE1106 do primeiro semestre de 2072. Imagem criada por IA.](images/IA.png){#fig-ia width=700px max-width=100% fig-align="center"}
+
+Antes de discutir como usar essas ferramentas de forma produtiva, é necessário definir IA e aprender como acessar seus recursos. Só então podemos avançar para entender o que a IA faz bem, o que faz mal e quais riscos surgem quando ela é usada sem critério, especialmente em um contexto de formação em métodos computacionais.
 
 ### Pré-requisitos
 
-Embora as funções e estruturas necessárias para a realização de _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.
-
-- `numpy`
-
-```{python}
-#| message: false
-#| warning: false
-
-import numpy as np
-```
+Este foi escrito para que o aluno que acompanhou e absorveu o conteúdo do dois capítulos anteriores seja plenamente capaz de acompanhar. Não há outros pré-requisitos.
 
 ## O que é Inteligência Artificial?
 
 Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.
 
-Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava nos dados originais. Em essência, os sistema de IAG são sistemas de IA com um escopo mais restrito e bem definido.
+Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava presente nos dados originais. Em essência, os sistemas de IAG são sistemas de IA com um escopo mais restrito e bem definido.
 
-Dentro do grupo de modelos de IAG estão os famosos GPTs, como o [ChatGPT](https://chatgpt.com/) e o [Gemini](https://gemini.google.com/). Os GPTs são modelos da classe dos _Large Language Models_ (LLM), que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, "raciocina" em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo "prever" o conteúdo textual que melhor se encaixa ao conteúdo fornecido no prompt inicial.
+No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor muito rápido. No entanto, a IA não entende objetivos de aprendizagem, não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso acrítico dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.
+
+## _Large Language Models (LLMs)_
+
+Dentro do grupo de modelos de IAG estão os famosos GPTs, como o [ChatGPT](https://chatgpt.com/) e o [Gemini](https://gemini.google.com/). Os GPTs são modelos da classe dos _Large Language Models_, que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, "raciocina" em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo prever a próxima palavra (ou token) em um texto, dadas as palavras anteriores. Quando aplicados a código, esses modelos exploram regularidades presentes em milhões de exemplos de programas escritos por humanos.
+
+É importante destacar que, embora extremamente úteis para programação, esses modelos:
+
+- Não executam o código que geram.
+- Não verificam automaticamente se o código está correto.
+- Não "sabem" matemática, economia ou programação no sentido humano.
+- Por vezes tendem a escolher respostas mais complexas e complicada do que o necessário.
+
+No fundo, tais modelos apenas produzem sequências plausíveis de texto com base em padrões estatísticos. Isso explica por que respostas podem parecer convincentes, mas conter erros lógicos, uso inadequado de funções ou soluções incompatíveis com o nível do curso. Essa limitação torna essencial que o aluno atue como validador ativo de qualquer resposta produzida por IA.
 
 ::: {.callout-note title="Curiosidade"}
 Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transformer**, que resume as características dos modelos por trás de sistemas como o ChatGPT. _Generative_ faz referência a modelos de IAG, que tem como objetivo principal criar conteúdo novo a partir de um dado conjunto de informações. _Pre-trained_ faz referência ao fato do modelo ser pré-treinado em um grande volume de dados textuais genéricos, em geral de domínio público como o Wikipedia, até uma determinada data de corte. Por fim, _Transformer_ é uma classe de modelos mais recentes, desenvolvidos inicialmente pelas equipes de pesquisa do Google, com certas particularidades que os tornam altamente eficientes e assertivos em tarefas que envolvem mensagens de entrada em formato de texto.
@@ -53,7 +59,9 @@ Colar imagens
 
 ### Conceitos básicos de engenharia de prompt
 
-_Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma mensagem de entrada de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.
+Um prompt é a instrução ou pergunta fornecida à ferramenta de IA. A qualidade da resposta depende fortemente da clareza, do contexto e das restrições explícitas incluídas no prompt. Prompts vagos tendem a gerar respostas genéricas ou excessivamente complexas. Já prompts bem formulados permitem que a IA produza respostas mais alinhadas ao objetivo desejado.
+
+_Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma prompt de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.
 
 - **Clareza**: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções. 
 
@@ -63,8 +71,6 @@ No fim das contas, um bom prompt é aquele que oferece as instruções corretas 
 
  COLAR IMAGEM
 
-
-### Alguns exemplos
 
 ### Integração com ferramentas e APIs externas
 
@@ -80,17 +86,29 @@ https://openai.com/api/pricing/
 
 Exemplo
 
+## Riscos e limitações do uso de IA 
 
-## StackOverflow
+O principal risco do uso de IA no aprendizado de programação é a ilusão de compreensão. Códigos gerados automaticamente podem funcionar, mas isso não implica que o aluno compreenda sua lógica ou consiga reproduzi-la em outra situação.
 
-[Stack Overflow](https://stackoverflow.com/) é um site de perguntas e respostas, um fórum, para programadores profissionais e entusiastas. É o site principal da Stack Exchange Network. Foi criado em 2008 por Jeff Atwood e Joel Spolsky.Ele apresenta perguntas e respostas sobre uma ampla gama de tópicos em programação de computadores. Ele foi criado para ser uma alternativa mais aberta aos sites anteriores de perguntas e respostas, como o Experts-Exchange. O Stack Overflow foi vendido para a Prosus, um conglomerado de internet para consumidores com sede na Holanda, em 2 de junho de 2021 por US$ 1,8 bilhão.
+Outros riscos relevantes incluem:
 
-O site serve como uma plataforma para os usuários fazerem e responderem perguntas e, por meio de associação e participação ativa, votarem em perguntas e respostas semelhantes ao Reddit e editarem perguntas e respostas de maneira semelhante a um wiki. Os usuários do Stack Overflow podem ganhar pontos de reputação e "emblemas"; por exemplo, uma pessoa recebe 10 pontos de reputação por receber um voto "para cima" em uma pergunta ou resposta a uma pergunta, e pode receber medalhas por suas valiosas contribuições, o que representa uma gamificação do tradicional Q&A local na internet. Os usuários desbloqueiam novos privilégios com um aumento na reputação, como a capacidade de votar, comentar e até editar as postagens de outras pessoas.
+- Geração de código incompatível com o problema e nível de conhecimento.
+- Soluções ineficientes ou computacionalmente custosas.
+- Erros semânticos, que não impedem o código de rodar, mas geram resultados incorretos em vista dos objetivos.
 
-Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de respostas. Esse fórum, juntamente com outros sites de perguntas e respostas de programação semelhantes, substituíram globalmente principalmente os livros de programação para referência de programação do dia-a-dia nos anos 2000, e hoje são uma parte importante da programação de computadores. Vocês lembram do nosso gráfico de participação de algumas das principais linguagens no total de perguntas do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?
+Por esses motivos, qualquer código sugerido por IA deve ser:
 
-Mas pera lá, o que significa esse monte de adjetivo? (fontes: [computersciencewiki.org](https://computersciencewiki.org/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [freecodecamp.org](https://www.freecodecamp.org))
+- Lido com atenção.
+- Executado e testado.
+- Comparado com o que foi visto em aula.
 
+A regra prática é simples: se você não conseguir reconstruir ou adaptar a solução sem a ferramenta de IA, então você não compreendeu a resposta recebida e a ferramenta não deveria ter sido utilizada daquela forma ou para aquele problema.
+
+## Conclusão
+
+A IA representa uma mudança fundamental na forma como programamos, mas não elimina a necessidade de compreender os fundamentos da computação. Neste curso, a IA deve ser encarada como uma ferramenta auxiliar, útil para esclarecer dúvidas, acelerar tarefas mecânicas e apoiar o processo de aprendizagem, desde que usada de forma crítica e consciente.
+
+O domínio de programação em Python exige prática, leitura de código, compreensão de erros e construção gradual de raciocínio algorítmico. Nenhuma ferramenta de IA substitui esse processo. Quando usada corretamente, no entanto, ela pode torná-lo mais eficiente e menos frustrante. Nos próximos capítulos, o foco retorna integralmente ao desenvolvimento dessas habilidades fundamentais, que serão a base para todas as aplicações computacionais em Economia ao longo do curso.
 
 ## Exercícios
 

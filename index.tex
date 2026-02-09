@@ -217,13 +217,13 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
-\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
 \definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
 \definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
+\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, left=2mm, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, left=2mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2273,7 +2273,7 @@ operacionais estabelecidas aqui.
 \begin{Shaded}
 \begin{Highlighting}[]
 \BuiltInTok{print}\NormalTok{(}\StringTok{"Resultado:"}
-\NormalTok{resultado }\OperatorTok{==} \DecValTok{10} \OperatorTok{+} \DecValTok{5}\ErrorTok{S}
+\NormalTok{resultado }\OperatorTok{==} \DecValTok{10} \OperatorTok{+} \DecValTok{5}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2294,48 +2294,43 @@ operacionais estabelecidas aqui.
 
 \section{Introdução}\label{introduuxe7uxe3o-2}
 
-Por mais que se conheça a sintaxe e estrutura de uma linguagem de
-programação, construir um código eficiente pode não ser das tarefas mais
-fáceis. Além disso, traduzir um código de uma determinada linguagem para
-outra linguagem pode ser igualmente difícil, mesmo com sintaxes
-parecidas.
+A incorporação recente de ferramentas de inteligência artificial ao
+desenvolvimento de software alterou significativamente a forma como
+programas são escritos, depurados e documentados. Em particular, modelos
+de linguagem treinados em grandes volumes de código passaram a ser
+capazes de gerar trechos de programas, explicar erros e sugerir soluções
+alternativas de forma quase imediata.
 
-Utilizar a Inteligência Artificial para fazer isso pela gente pode nos
-economizar um tempo valioso. Antes de entender a aplicabilidade dos
-modelos de inteligência artificial no mundo da programação, é preciso
-primeiro definir inteligência artificial e, principalmente, sua vertente
-generativa.
+Neste curso, a inteligência artificial não será tratada como um atalho
+para ``pular'' a aprendizagem de programação, mas como um instrumento
+complementar. O objetivo é utilizá-la para apoiar o entendimento da
+sintaxe, acelerar tarefas mecânicas e auxiliar na identificação de
+erros, sempre preservando o domínio conceitual do código pelo aluno.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=7.29167in,height=\textheight,keepaspectratio]{images/IA.jpg}
+\includegraphics[width=7.29167in,height=\textheight,keepaspectratio]{images/IA.png}
 
 }
 
-\caption{\label{fig-meme2}Meme 2}
+\caption{\label{fig-ia}Turma de EAE1106 do primeiro semestre de 2072.
+Imagem criada por IA.}
 
 \end{figure}%
 
+Antes de discutir como usar essas ferramentas de forma produtiva, é
+necessário definir IA e aprender como acessar seus recursos. Só então
+podemos avançar para entender o que a IA faz bem, o que faz mal e quais
+riscos surgem quando ela é usada sem critério, especialmente em um
+contexto de formação em métodos computacionais.
+
 \subsection{Pré-requisitos}\label{pruxe9-requisitos-2}
 
-Embora as funções e estruturas necessárias para a realização de
-\emph{loops} no Python sejam nativas na linguagem, para algumas das
-aplicações utilizaremos um dos pacotes externos que nos permitem
-trabalhar com números aleatórios.
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{numpy}
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
-\end{Highlighting}
-\end{Shaded}
+Este foi escrito para que o aluno que acompanhou e absorveu o conteúdo
+do dois capítulos anteriores seja plenamente capaz de acompanhar. Não há
+outros pré-requisitos.
 
 \section{O que é Inteligência
 Artificial?}\label{o-que-uxe9-inteliguxeancia-artificial}
@@ -2357,22 +2352,62 @@ Embora se discuta Inteligência Artificial há algum tempo, apenas mais
 recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou
 espaço no debate e nos modelos de uso comercial. Diferentemente dos
 algoritmos mais gerais de inteligência artificial, os modelos de IAG são
-projetados para a criação de algo novo, que não estava nos dados
-originais. Em essência, os sistema de IAG são sistemas de IA com um
-escopo mais restrito e bem definido.
+projetados para a criação de algo novo, que não estava presente nos
+dados originais. Em essência, os sistemas de IAG são sistemas de IA com
+um escopo mais restrito e bem definido.
+
+No mundo da programação, ferramentas de IAG são especialmente eficazes
+em tarefas como escrever estruturas sintáticas comuns, explicar
+mensagens de erro frequentes ou converter descrições em linguagem
+natural para código simples. Essas características fazem com que a IAG
+seja útil como um assistente de programação, semelhante a um monitor
+muito rápido. No entanto, a IA não entende objetivos de aprendizagem,
+não conhece a sequência didática adotada e não distingue soluções
+apropriadas de soluções excessivamente complexas para o nível do aluno.
+Por esse motivo, o uso acrítico dessas ferramentas pode gerar
+dependência, dificultar a internalização de conceitos básicos como tipos
+de dados, controle de fluxo e escopo de variáveis.
+
+\section{\texorpdfstring{\emph{Large Language Models
+(LLMs)}}{Large Language Models (LLMs)}}\label{large-language-models-llms}
 
 Dentro do grupo de modelos de IAG estão os famosos GPTs, como o
 \href{https://chatgpt.com/}{ChatGPT} e o
 \href{https://gemini.google.com/}{Gemini}. Os GPTs são modelos da classe
-dos \emph{Large Language Models} (LLM), que compreendem e geram conteúdo
+dos \emph{Large Language Models}, que compreendem e geram conteúdo
 textual novo com base em uma etapa de pré-treino em grande volume de
 textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de
 entrada, ``raciocina'' em cima do texto fornecido e dos dados nos quais
 foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se
-o modelo tivesse por objetivo ``prever'' o conteúdo textual que melhor
-se encaixa ao conteúdo fornecido no prompt inicial.
+o modelo tivesse por objetivo prever a próxima palavra (ou token) em um
+texto, dadas as palavras anteriores. Quando aplicados a código, esses
+modelos exploram regularidades presentes em milhões de exemplos de
+programas escritos por humanos.
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, breakable, opacitybacktitle=0.6, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, left=2mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, arc=.35mm, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, rightrule=.15mm, opacityback=0, coltitle=black]
+É importante destacar que, embora extremamente úteis para programação,
+esses modelos:
+
+\begin{itemize}
+\tightlist
+\item
+  Não executam o código que geram.
+\item
+  Não verificam automaticamente se o código está correto.
+\item
+  Não ``sabem'' matemática, economia ou programação no sentido humano.
+\item
+  Por vezes tendem a escolher respostas mais complexas e complicada do
+  que o necessário.
+\end{itemize}
+
+No fundo, tais modelos apenas produzem sequências plausíveis de texto
+com base em padrões estatísticos. Isso explica por que respostas podem
+parecer convincentes, mas conter erros lógicos, uso inadequado de
+funções ou soluções incompatíveis com o nível do curso. Essa limitação
+torna essencial que o aluno atue como validador ativo de qualquer
+resposta produzida por IA.
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2419,13 +2454,20 @@ Colar imagens
 \subsection{Conceitos básicos de engenharia de
 prompt}\label{conceitos-buxe1sicos-de-engenharia-de-prompt}
 
+Um prompt é a instrução ou pergunta fornecida à ferramenta de IA. A
+qualidade da resposta depende fortemente da clareza, do contexto e das
+restrições explícitas incluídas no prompt. Prompts vagos tendem a gerar
+respostas genéricas ou excessivamente complexas. Já prompts bem
+formulados permitem que a IA produza respostas mais alinhadas ao
+objetivo desejado.
+
 \emph{Prompt Engineering} (ou engenharia de prompt) é o processo de
-estruturar uma mensagem de entrada de forma a auxiliar a compreensão dos
-modelos de linguagem e ampliar a assertividade e eficiência das
-respostas. Apesar de ser uma área em expansão, que conta com várias
-estratégias para a construção de prompts altamente personalizados para
-cada aplicação, são duas as características essenciais que devem estar
-presentes em todo prompt: clareza e especificidade.
+estruturar uma prompt de forma a auxiliar a compreensão dos modelos de
+linguagem e ampliar a assertividade e eficiência das respostas. Apesar
+de ser uma área em expansão, que conta com várias estratégias para a
+construção de prompts altamente personalizados para cada aplicação, são
+duas as características essenciais que devem estar presentes em todo
+prompt: clareza e especificidade.
 
 \begin{itemize}
 \item
@@ -2450,8 +2492,6 @@ elementos ajudam nesse processo de construir um prompt mais claro e
 específico.
 
 COLAR IMAGEM
-
-\subsection{Alguns exemplos}\label{alguns-exemplos}
 
 \subsection{Integração com ferramentas e APIs
 externas}\label{integrauxe7uxe3o-com-ferramentas-e-apis-externas}
@@ -2479,44 +2519,59 @@ https://openai.com/api/pricing/
 
 Exemplo
 
-\section{StackOverflow}\label{stackoverflow}
+\section{Riscos e limitações do uso de
+IA}\label{riscos-e-limitauxe7uxf5es-do-uso-de-ia}
 
-\href{https://stackoverflow.com/}{Stack Overflow} é um site de perguntas
-e respostas, um fórum, para programadores profissionais e entusiastas. É
-o site principal da Stack Exchange Network. Foi criado em 2008 por Jeff
-Atwood e Joel Spolsky.Ele apresenta perguntas e respostas sobre uma
-ampla gama de tópicos em programação de computadores. Ele foi criado
-para ser uma alternativa mais aberta aos sites anteriores de perguntas e
-respostas, como o Experts-Exchange. O Stack Overflow foi vendido para a
-Prosus, um conglomerado de internet para consumidores com sede na
-Holanda, em 2 de junho de 2021 por US\$ 1,8 bilhão.
+O principal risco do uso de IA no aprendizado de programação é a ilusão
+de compreensão. Códigos gerados automaticamente podem funcionar, mas
+isso não implica que o aluno compreenda sua lógica ou consiga
+reproduzi-la em outra situação.
 
-O site serve como uma plataforma para os usuários fazerem e responderem
-perguntas e, por meio de associação e participação ativa, votarem em
-perguntas e respostas semelhantes ao Reddit e editarem perguntas e
-respostas de maneira semelhante a um wiki. Os usuários do Stack Overflow
-podem ganhar pontos de reputação e ``emblemas''; por exemplo, uma pessoa
-recebe 10 pontos de reputação por receber um voto ``para cima'' em uma
-pergunta ou resposta a uma pergunta, e pode receber medalhas por suas
-valiosas contribuições, o que representa uma gamificação do tradicional
-Q\&A local na internet. Os usuários desbloqueiam novos privilégios com
-um aumento na reputação, como a capacidade de votar, comentar e até
-editar as postagens de outras pessoas.
+Outros riscos relevantes incluem:
 
-Em março de 2021, o Stack Overflow tinha mais de 14 milhões de usuários
-registrados e recebeu mais de 21 milhões de perguntas e 31 milhões de
-respostas. Esse fórum, juntamente com outros sites de perguntas e
-respostas de programação semelhantes, substituíram globalmente
-principalmente os livros de programação para referência de programação
-do dia-a-dia nos anos 2000, e hoje são uma parte importante da
-programação de computadores. Vocês lembram do nosso gráfico de
-participação de algumas das principais linguagens no total de perguntas
-do StackOverflow? Qual linguagem está em 1º lugar desde o fim de 2018?
+\begin{itemize}
+\tightlist
+\item
+  Geração de código incompatível com o problema e nível de conhecimento.
+\item
+  Soluções ineficientes ou computacionalmente custosas.
+\item
+  Erros semânticos, que não impedem o código de rodar, mas geram
+  resultados incorretos em vista dos objetivos.
+\end{itemize}
 
-Mas pera lá, o que significa esse monte de adjetivo? (fontes:
-\href{https://computersciencewiki.org/}{computersciencewiki.org},
-\href{https://www.geeksforgeeks.org/}{geeksforgeeks.org},
-\href{https://www.freecodecamp.org}{freecodecamp.org})
+Por esses motivos, qualquer código sugerido por IA deve ser:
+
+\begin{itemize}
+\tightlist
+\item
+  Lido com atenção.
+\item
+  Executado e testado.
+\item
+  Comparado com o que foi visto em aula.
+\end{itemize}
+
+A regra prática é simples: se você não conseguir reconstruir ou adaptar
+a solução sem a ferramenta de IA, então você não compreendeu a resposta
+recebida e a ferramenta não deveria ter sido utilizada daquela forma ou
+para aquele problema.
+
+\section{Conclusão}\label{conclusuxe3o-2}
+
+A IA representa uma mudança fundamental na forma como programamos, mas
+não elimina a necessidade de compreender os fundamentos da computação.
+Neste curso, a IA deve ser encarada como uma ferramenta auxiliar, útil
+para esclarecer dúvidas, acelerar tarefas mecânicas e apoiar o processo
+de aprendizagem, desde que usada de forma crítica e consciente.
+
+O domínio de programação em Python exige prática, leitura de código,
+compreensão de erros e construção gradual de raciocínio algorítmico.
+Nenhuma ferramenta de IA substitui esse processo. Quando usada
+corretamente, no entanto, ela pode torná-lo mais eficiente e menos
+frustrante. Nos próximos capítulos, o foco retorna integralmente ao
+desenvolvimento dessas habilidades fundamentais, que serão a base para
+todas as aplicações computacionais em Economia ao longo do curso.
 
 \section{Exercícios}\label{exercuxedcios-2}
 
@@ -3904,7 +3959,7 @@ Este exemplo encaixa uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x253ad4bc3c0>
+<zip at 0x1d48816c280>
 \end{verbatim}
 
 O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
@@ -4478,16 +4533,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.29164503542297404
-0.21352965658111556
-0.6044440739112925
-0.9988634120536987
-0.07202982387887857
-0.7842085168422767
-0.47131725213610376
-0.18871203998941122
-0.16538784702873532
-0.6796430348354517
+0.1444052125317974
+0.5909202843096588
+0.13973735968355772
+0.7888300047095249
+0.9486926281441185
+0.9463582374825376
+0.2669838294935529
+0.7002173509402727
+0.8890366425202412
+0.2655385706828166
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4505,16 +4560,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.70
-Essa é a iteração 2 e o número sorteado foi: 0.55
-Essa é a iteração 3 e o número sorteado foi: 0.03
-Essa é a iteração 4 e o número sorteado foi: 0.63
-Essa é a iteração 5 e o número sorteado foi: 0.16
-Essa é a iteração 6 e o número sorteado foi: 0.16
-Essa é a iteração 7 e o número sorteado foi: 0.23
-Essa é a iteração 8 e o número sorteado foi: 0.82
-Essa é a iteração 9 e o número sorteado foi: 0.99
-Essa é a iteração 10 e o número sorteado foi: 0.95
+Essa é a iteração 1 e o número sorteado foi: 0.45
+Essa é a iteração 2 e o número sorteado foi: 0.35
+Essa é a iteração 3 e o número sorteado foi: 0.10
+Essa é a iteração 4 e o número sorteado foi: 0.18
+Essa é a iteração 5 e o número sorteado foi: 0.92
+Essa é a iteração 6 e o número sorteado foi: 0.55
+Essa é a iteração 7 e o número sorteado foi: 0.36
+Essa é a iteração 8 e o número sorteado foi: 0.96
+Essa é a iteração 9 e o número sorteado foi: 0.74
+Essa é a iteração 10 e o número sorteado foi: 0.51
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4819,10 +4874,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0945 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1318 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0879 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1235 segundos
 
-A abordagem de loop demorou 39.4% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 40.6% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5130,8 +5185,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[ 39.78362511  36.19708288   7.93143329  33.06461166 -28.3014496
-  37.95146752 -39.29933034 -16.40429996 -24.41634817 -33.7351637 ]
+[-23.11810818  36.1452797    8.66981528  27.41815177  21.38538497
+  35.52387528 -22.80313498  -3.04216861 -29.68098623  33.78149535]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5144,8 +5199,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[  0.6090722   -4.42157637 -19.03978434  35.13996846   8.44683229
-  31.50607219 -14.52547817 -14.60582248 -19.09079862 -16.26319048]
+[ 19.8409675   11.83813164  -7.65233896   9.0884221  -15.75966473
+  -1.82310271   9.18504446 -12.9512202   -5.72805842  -6.32238436]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5711,8 +5766,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[-33.84403591  29.06318802  12.28358251 -14.7098211   -8.83775274
- -20.93048515 -19.20980016   6.54905271  17.96697044  35.95339626]
+[ -8.89614938  33.50501893  -3.87948079  12.16647843  -9.92784789
+ -30.25184055  33.00293795 -17.71318123   8.90371936 -25.77481606]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7270,8 +7325,8 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0121 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.2829 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0122 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2871 segundos
 
 A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}

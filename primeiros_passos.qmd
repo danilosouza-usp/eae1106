@@ -280,7 +280,7 @@ Neste capítulo, você aprendeu a executar seus primeiros comandos em Python, a 
 
    ```python
    print("Resultado:"
-   resultado == 10 + 5S
+   resultado == 10 + 5
    ```
 
    a. Execute o código e identifique o tipo e posição do(s) erro(s) no código.
