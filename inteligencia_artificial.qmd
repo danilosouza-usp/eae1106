@@ -43,18 +43,83 @@ Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transfo
 
 ### Acesso à plataforma e primeiro uso
 
-O acesso à ferramenta é feito pelo [site](https://chatgpt.com/) ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo.
+O acesso à ferramenta é feito pelo [site](https://chatgpt.com/) ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo. A Figura @fig-chatgpt apresenta o layout base do ChatGPT em seu website.
 
-Colar imagens
+::: {#fig-chatgpt layout-ncol=2 width=700px max-width=100% fig-align="center"}
+
+![Tela inicial](images/chatgpt1.jpg)
+
+![Pergunta e resposta](images/chatgpt2.jpeg)
+
+Layout do aplicativo web do ChatGPT. Fevereiro de 2026.
+:::
 
 As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões e outras funcionalidades.
 
-Colar imagens
-
+![Planos e valores do ChatGPT. Fevereiro de 2026.](images/chatgpt3.png){#fig-chatgptplus width=700px max-width=100% fig-align="center"}
 
 Nem sempre as ferramentas de inteligência artificial, como o ChatGPT, são indicadas. Questões como acurácia, verificabilidade e uso de dados sensíveis são relevantes na hora de definir se o ChatGPT é a ferramenta mais indicada para uma aplicação específica.
 
-Colar imagens
+```{mermaid}
+%%{init: {
+  "theme": "base",
+  "flowchart": {
+    "padding": 30,
+    "nodeSpacing": 50,
+    "rankSpacing": 40
+  },
+  "themeVariables": {
+    "fontSize": "16px"
+  }
+}}%%
+
+flowchart TB
+    A[Acurácia é importante?]
+    B[Resultados são verificáveis?] 
+    C[Utiliza dados sigilosos ou sensíveis?]
+    D[ChatGPT é indicado!]
+    N1[Arriscado utilizar ChatGPT]
+    N2[Imprudente utilizar ChatGPT]
+    N3[Difícil utilizar ChatGPT]
+
+    s1["SIM"]
+    n1["NÃO"]
+    s2["SIM"]
+    n2["NÃO"]
+    s3["SIM"]
+    n3["NÃO"]
+
+    A --> s1 --> N1
+    A --> n1 --> B
+
+    B --> n2 --> N2
+    B --> s2 --> C
+
+    C --> s3 --> N3
+    C --> n3 --> D
+
+    %% Estilo opcional para reforçar aparência de árvore de decisão
+    classDef decision fill:#cfe2ff,color:#000000,stroke:#0d6efd,stroke-width:0px;
+    classDef allow fill:#d1e7dd,color:#000000,stroke:#198754,stroke-width:2px
+    classDef deny fill:#f8d7da,color:#000000,stroke:#dc3545,stroke-width:2px;
+    classDef choice fill:#ffffff,color:#000000,stroke:#ffffff,stroke-width:0px;
+
+    class A,B,C decision;
+    class D allow;
+    class N1,N2,N3 deny;
+    class s1,n1,s2,n2,s3,n3 choice;
+
+    %% Arredondamento
+    style A rx:15,ry:15;
+    style B rx:15,ry:15
+    style C rx:15,ry:15
+    style D rx:15,ry:15
+    style N1 rx:15,ry:15
+    style N2 rx:15,ry:15
+    style N3 rx:15,ry:15
+
+    linkStyle default stroke-width:1px
+```
 
 
 ### Conceitos básicos de engenharia de prompt
@@ -67,24 +132,17 @@ _Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma p
 
 - **Especificidade**: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.
 
-No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico.
+No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico: instruções, contexto, exemplos e formato de saída (Figura @fig-prompt). Lembre, o objetivo é ser claro e específico, orientando o modelo a responder aquilo que queremos que ele responda.
 
- COLAR IMAGEM
-
+![Elementos desejáveis dentro de um prompt](images/prompts.jpg){#fig-prompt width=700px max-width=100% fig-align="center"}
 
 ### Integração com ferramentas e APIs externas
 
 Nem sempre precisamos de um browser para utilizar o ChatGPT. O acesso às diferentes versões pode ser realizado através de uma Interface de Programação de Aplicações, ou API em inglês. Uma API é um conjunto de regras e protocolos que configuram uma forma simplificada de comunicação entre diferentes softwares. É possível, por exemplo, acessar as funcionalidades da ferramenta dentro de um código da linguagem de programação Python.
 
-No caso do ChatGPT, para acessar a API é preciso se registrar nesse [link](https://platform.openai.com/) e garantir uma chave de acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por conta de sobrecarga dos servidores e uso inadequado, hoje é preciso pagar pelo uso da API.
+No caso do ChatGPT, para acessar a API é preciso se registrar nesse [link](https://platform.openai.com/) e garantir uma chave de acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por conta de sobrecarga dos servidores e uso inadequado, hoje é preciso pagar pelo uso da API.^[Existem diversas outras ferramentas que oferecem serviços parecidos e até mais eficazes em alguns projetos que envolvem programação e códigos, como o [Claude](https://claude.ai/) ou mesmo o [Gemini](https://ai.google.dev/gemini-api/docs?hl=pt-br). Tudo vai depender das suas preferências e do seu bolso.]
 
-Usuários que assinam a versão paga do ChatGPT não têm acesso direto à API.
-Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final do mês, é cobrado pelo número e complexidade das demandas.
-É possível configurar limites de uso de modo a evitar gastos maiores do que o esperado.
-O preço é diferente para modelos diferentes.
-https://openai.com/api/pricing/
-
-Exemplo
+Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final do mês, é cobrado pelo número e complexidade das demandas. É possível configurar limites de uso de modo a evitar gastos maiores do que o esperado. O preço é diferente para modelos diferentes. https://openai.com/api/pricing/
 
 ## Riscos e limitações do uso de IA 
 

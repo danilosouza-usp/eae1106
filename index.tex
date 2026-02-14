@@ -217,12 +217,12 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
-\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \makeatother
 \usepackage{bookmark}
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, left=2mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, toprule=.15mm, breakable, rightrule=.15mm, opacityback=0, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, bottomrule=.15mm, colback=white, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toprule=.15mm, breakable, rightrule=.15mm, opacityback=0, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, bottomrule=.15mm, colback=white, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -1905,7 +1905,7 @@ isto é, eleva um número a uma potência, como nos seguintes exemplos:
 42
 \end{verbatim}
 
-Em algumas outras linguagens, o \(\^\) é usado para a exponenciação, mas
+Em algumas outras linguagens, o \(^\) é usado para a exponenciação, mas
 no Python é um operador \emph{bitwise}, chamado XOR. Se não tiver
 familiaridade com operadores bitwise, o resultado o surpreenderá. Não
 abordaremos operadores bitwise neste curso, mas você pode ler sobre eles
@@ -2407,7 +2407,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, toptitle=1mm, bottomrule=.15mm, titlerule=0mm, breakable, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, arc=.35mm, opacityback=0, colback=white, toprule=.15mm, rightrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, toprule=.15mm, breakable, rightrule=.15mm, opacityback=0, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, bottomrule=.15mm, colback=white, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2433,23 +2433,54 @@ O acesso à ferramenta é feito pelo \href{https://chatgpt.com/}{site} ou
 pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google
 Store. A plataforma se parece com um chat qualquer, assim como um
 aplicativo de mensagens. A diferença é que quem responde é o próprio
-modelo.
+modelo. A Figura Figura~\ref{fig-chatgpt} apresenta o layout base do
+ChatGPT em seu website.
 
-Colar imagens
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/chatgpt1.jpg}}
+
+\subcaption{\label{}Tela inicial}
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/chatgpt2.jpeg}}
+
+\subcaption{\label{}Pergunta e resposta}
+\end{minipage}%
+
+\caption{\label{fig-chatgpt}Layout do aplicativo web do ChatGPT.
+Fevereiro de 2026.}
+
+\end{figure}%
 
 As requisições ao modelo são gratuitas, porém, com acesso limitado às
 versões mais recentes. A OpenAI, empresa por trás do ChatGPT, oferece
 alguns planos pagos que dão direito a uso ilimitado dessas novas versões
 e outras funcionalidades.
 
-Colar imagens
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=7.29167in,height=\textheight,keepaspectratio]{images/chatgpt3.png}
+
+}
+
+\caption{\label{fig-chatgptplus}Planos e valores do ChatGPT. Fevereiro
+de 2026.}
+
+\end{figure}%
 
 Nem sempre as ferramentas de inteligência artificial, como o ChatGPT,
 são indicadas. Questões como acurácia, verificabilidade e uso de dados
 sensíveis são relevantes na hora de definir se o ChatGPT é a ferramenta
 mais indicada para uma aplicação específica.
 
-Colar imagens
+\includegraphics[width=10.67in,height=9.04in]{inteligencia_artificial_files/figure-latex/mermaid-figure-1.png}
 
 \subsection{Conceitos básicos de engenharia de
 prompt}\label{conceitos-buxe1sicos-de-engenharia-de-prompt}
@@ -2489,9 +2520,21 @@ prompt: clareza e especificidade.
 No fim das contas, um bom prompt é aquele que oferece as instruções
 corretas ao modelo, que então devolve a resposta esperada. Alguns
 elementos ajudam nesse processo de construir um prompt mais claro e
-específico.
+específico: instruções, contexto, exemplos e formato de saída (Figura
+Figura~\ref{fig-prompt}). Lembre, o objetivo é ser claro e específico,
+orientando o modelo a responder aquilo que queremos que ele responda.
 
-COLAR IMAGEM
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=7.29167in,height=\textheight,keepaspectratio]{images/prompts.jpg}
+
+}
+
+\caption{\label{fig-prompt}Elementos desejáveis dentro de um prompt}
+
+\end{figure}%
 
 \subsection{Integração com ferramentas e APIs
 externas}\label{integrauxe7uxe3o-com-ferramentas-e-apis-externas}
@@ -2508,16 +2551,18 @@ No caso do ChatGPT, para acessar a API é preciso se registrar nesse
 \href{https://platform.openai.com/}{link} e garantir uma chave de
 acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por
 conta de sobrecarga dos servidores e uso inadequado, hoje é preciso
-pagar pelo uso da API.
+pagar pelo uso da API.\footnote{Existem diversas outras ferramentas que
+  oferecem serviços parecidos e até mais eficazes em alguns projetos que
+  envolvem programação e códigos, como o
+  \href{https://claude.ai/}{Claude} ou mesmo o
+  \href{https://ai.google.dev/gemini-api/docs?hl=pt-br}{Gemini}. Tudo
+  vai depender das suas preferências e do seu bolso.}
 
-Usuários que assinam a versão paga do ChatGPT não têm acesso direto à
-API. Para utilizar a API, o usuário cadastra um cartão de crédito e, ao
-final do mês, é cobrado pelo número e complexidade das demandas. É
-possível configurar limites de uso de modo a evitar gastos maiores do
-que o esperado. O preço é diferente para modelos diferentes.
+Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final
+do mês, é cobrado pelo número e complexidade das demandas. É possível
+configurar limites de uso de modo a evitar gastos maiores do que o
+esperado. O preço é diferente para modelos diferentes.
 https://openai.com/api/pricing/
-
-Exemplo
 
 \section{Riscos e limitações do uso de
 IA}\label{riscos-e-limitauxe7uxf5es-do-uso-de-ia}
@@ -3959,7 +4004,7 @@ Este exemplo encaixa uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x1d48816c280>
+<zip at 0x24b9a285480>
 \end{verbatim}
 
 O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
@@ -4533,16 +4578,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.1444052125317974
-0.5909202843096588
-0.13973735968355772
-0.7888300047095249
-0.9486926281441185
-0.9463582374825376
-0.2669838294935529
-0.7002173509402727
-0.8890366425202412
-0.2655385706828166
+0.05054851796704596
+0.04123071953079649
+0.5067400011357042
+0.751664250765616
+0.22726086133800605
+0.20683930201193845
+0.6877816352703884
+0.8083564903503913
+0.9166457519604166
+0.6023966650334401
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4560,16 +4605,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.45
-Essa é a iteração 2 e o número sorteado foi: 0.35
-Essa é a iteração 3 e o número sorteado foi: 0.10
-Essa é a iteração 4 e o número sorteado foi: 0.18
-Essa é a iteração 5 e o número sorteado foi: 0.92
-Essa é a iteração 6 e o número sorteado foi: 0.55
-Essa é a iteração 7 e o número sorteado foi: 0.36
-Essa é a iteração 8 e o número sorteado foi: 0.96
-Essa é a iteração 9 e o número sorteado foi: 0.74
-Essa é a iteração 10 e o número sorteado foi: 0.51
+Essa é a iteração 1 e o número sorteado foi: 0.99
+Essa é a iteração 2 e o número sorteado foi: 0.96
+Essa é a iteração 3 e o número sorteado foi: 0.60
+Essa é a iteração 4 e o número sorteado foi: 0.57
+Essa é a iteração 5 e o número sorteado foi: 0.89
+Essa é a iteração 6 e o número sorteado foi: 0.66
+Essa é a iteração 7 e o número sorteado foi: 0.80
+Essa é a iteração 8 e o número sorteado foi: 0.65
+Essa é a iteração 9 e o número sorteado foi: 0.59
+Essa é a iteração 10 e o número sorteado foi: 0.11
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4874,10 +4919,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0879 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1235 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0940 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1234 segundos
 
-A abordagem de loop demorou 40.6% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 31.3% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5185,8 +5230,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[-23.11810818  36.1452797    8.66981528  27.41815177  21.38538497
-  35.52387528 -22.80313498  -3.04216861 -29.68098623  33.78149535]
+[ 22.85781881   8.22297984  16.80974929 -25.05844376  25.86884191
+ -20.30396433  -6.84360551  15.30392108  12.97155145 -19.32129174]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5199,8 +5244,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[ 19.8409675   11.83813164  -7.65233896   9.0884221  -15.75966473
-  -1.82310271   9.18504446 -12.9512202   -5.72805842  -6.32238436]
+[  4.85557782 -38.97337363   6.62480042 -13.37155591   2.46713124
+  -9.45071618  24.13652871  -8.63288231  10.16175861  -2.9976376 ]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5766,8 +5811,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[ -8.89614938  33.50501893  -3.87948079  12.16647843  -9.92784789
- -30.25184055  33.00293795 -17.71318123   8.90371936 -25.77481606]
+[ 35.6796348   23.76606799  -9.94123648   9.54840462 -14.91948354
+  17.12708736  27.64184913  -1.89516023   2.94807482  22.31166181]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7325,10 +7370,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0122 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.2871 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0132 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2966 segundos
 
-A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 21x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações
