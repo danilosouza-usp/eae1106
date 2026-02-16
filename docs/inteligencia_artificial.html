@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -260,7 +289,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#acesso-à-plataforma-e-primeiro-uso" id="toc-acesso-à-plataforma-e-primeiro-uso" class="nav-link" data-scroll-target="#acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.4.1</span> Acesso à plataforma e primeiro uso</a></li>
   <li><a href="#conceitos-básicos-de-engenharia-de-prompt" id="toc-conceitos-básicos-de-engenharia-de-prompt" class="nav-link" data-scroll-target="#conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.4.2</span> Conceitos básicos de engenharia de prompt</a></li>
-  <li><a href="#integração-com-ferramentas-e-apis-externas" id="toc-integração-com-ferramentas-e-apis-externas" class="nav-link" data-scroll-target="#integração-com-ferramentas-e-apis-externas"><span class="header-section-number">3.4.3</span> Integração com ferramentas e APIs externas</a></li>
   </ul></li>
   <li><a href="#riscos-e-limitações-do-uso-de-ia" id="toc-riscos-e-limitações-do-uso-de-ia" class="nav-link" data-scroll-target="#riscos-e-limitações-do-uso-de-ia"><span class="header-section-number">3.5</span> Riscos e limitações do uso de IA</a></li>
   <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">3.6</span> Conclusão</a></li>
@@ -314,7 +342,7 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 <h2 data-number="3.2" class="anchored" data-anchor-id="o-que-é-inteligência-artificial"><span class="header-section-number">3.2</span> O que é Inteligência Artificial?</h2>
 <p>Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.</p>
 <p>Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava presente nos dados originais. Em essência, os sistemas de IAG são sistemas de IA com um escopo mais restrito e bem definido.</p>
-<p>No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor muito rápido. No entanto, a IA não entende objetivos de aprendizagem, não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso acrítico dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.</p>
+<p>No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor humano muito rápido. No entanto, a IA não entende objetivos de aprendizagem, não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.</p>
 </section>
 <section id="large-language-models-llms" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="large-language-models-llms"><span class="header-section-number">3.3</span> <em>Large Language Models (LLMs)</em></h2>
@@ -345,7 +373,7 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 <h2 data-number="3.4" class="anchored" data-anchor-id="chatgpt"><span class="header-section-number">3.4</span> ChatGPT</h2>
 <section id="acesso-à-plataforma-e-primeiro-uso" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.4.1</span> Acesso à plataforma e primeiro uso</h3>
-<p>O acesso à ferramenta é feito pelo <a href="https://chatgpt.com/">site</a> ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo. A Figura <a href="#fig-chatgpt" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-chatgpt</span></a> apresenta o layout base do ChatGPT em seu website.</p>
+<p>O acesso à ferramenta é feito pelo <a href="https://chatgpt.com/">site</a> ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo. Assim, para fazer algum questionamento ou pedir algum auxílio com o seu código, por exemplo, basta digitar na caixa de entrada a mensagem que resume aquilo que se deseja que o modelo responda. A Figura <a href="#fig-chatgpt" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-chatgpt</span></a> apresenta o layout base e como realizar uma requisição ao ChatGPT através do website.</p>
 <div id="fig-chatgpt" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chatgpt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -361,7 +389,7 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/chatgpt2.jpeg" class="img-fluid figure-img"></p>
+<p><img src="images/chatgpt2.jpg" class="img-fluid figure-img"></p>
 <figcaption>Pergunta e resposta</figcaption>
 </figure>
 </div>
@@ -373,18 +401,23 @@ Figura&nbsp;3.2: Layout do aplicativo web do ChatGPT. Fevereiro de 2026.
 </figcaption>
 </figure>
 </div>
-<p>As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões e outras funcionalidades.</p>
+<p>As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes do modelo, com maior capacidade de processamento, eficácia e assertividade nas respostas. É plenamente possível utilizar a versão gratuita para requisições esporádicas e mais simples, que não envolvam mídias como aúdio ou imagens. Usuários mais intensos e que demandam respostas mais confiáveis podem se frustar com as funcionalidades da versão gratuita. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões do modelo e outras funcionalidades.</p>
 <div id="fig-chatgptplus" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chatgptplus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/chatgpt3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+<img src="images/chatgpt3.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chatgptplus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3.3: Planos e valores do ChatGPT. Fevereiro de 2026.
 </figcaption>
 </figure>
 </div>
-<p>Nem sempre as ferramentas de inteligência artificial, como o ChatGPT, são indicadas. Questões como acurácia, verificabilidade e uso de dados sensíveis são relevantes na hora de definir se o ChatGPT é a ferramenta mais indicada para uma aplicação específica.</p>
+<p>No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Independentemente do contexto, as três perguntas abaixo ajudam a compreender se na sua aplicação, modelos de IAG são úteis e indicados ou se podem gerar respostas pouco eficazes e até mesmo problemas com ética e compartilhamento de dados.</p>
+<ol type="1">
+<li><p><strong>A acurácia é um requisito central da sua aplicação?</strong> Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas <span class="math inline">\(100%\)</span> corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente.</p></li>
+<li><p><strong>Os resultados são verificáveis?</strong> Ferramentas como o ChatGPT não substituem conhecimento humano especializado. Por serem modelos, podem produzir respostas semanticamente plausíveis, mas incorretas ou desalinhadas do objetivo pretendido. A verificação exige domínio mínimo do tema tratado. Como regra prática: evite solicitar algo que você não tenha condições de conferir, validar ou testar posteriormente.</p></li>
+<li><p><strong>Dados da apicação são sensíveis ou protegidos?</strong> O compartilhamento de dados confidenciais com ferramentas de IAG pode implicar riscos jurídicos e, a depender da natureza da informação, pode inclusive configurar infração legal. Sempre avalie cuidadosamente se os dados utilizados estão protegidos por normas de sigilo, contratos ou legislação específica antes de inseri-los em qualquer sistema externo.</p></li>
+</ol>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -393,12 +426,12 @@ Figura&nbsp;3.3: Planos e valores do ChatGPT. Fevereiro de 2026.
 <pre class="mermaid mermaid-js">%%{init: {
   "theme": "base",
   "flowchart": {
-    "padding": 30,
-    "nodeSpacing": 50,
+    "padding": 20,
+    "nodeSpacing": 30,
     "rankSpacing": 40
   },
   "themeVariables": {
-    "fontSize": "16px"
+    "fontSize": "18px"
   }
 }}%%
 
@@ -428,7 +461,7 @@ flowchart TB
     C --&gt; n3 --&gt; D
 
     %% Estilo opcional para reforçar aparência de árvore de decisão
-    classDef decision fill:#cfe2ff,color:#000000,stroke:#0d6efd,stroke-width:0px;
+    classDef decision fill:#f7f7f7,color:#000000,stroke-width:0px;
     classDef allow fill:#d1e7dd,color:#000000,stroke:#198754,stroke-width:2px
     classDef deny fill:#f8d7da,color:#000000,stroke:#dc3545,stroke-width:2px;
     classDef choice fill:#ffffff,color:#000000,stroke:#ffffff,stroke-width:0px;
@@ -457,7 +490,7 @@ flowchart TB
 </section>
 <section id="conceitos-básicos-de-engenharia-de-prompt" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.4.2</span> Conceitos básicos de engenharia de prompt</h3>
-<p>Um prompt é a instrução ou pergunta fornecida à ferramenta de IA. A qualidade da resposta depende fortemente da clareza, do contexto e das restrições explícitas incluídas no prompt. Prompts vagos tendem a gerar respostas genéricas ou excessivamente complexas. Já prompts bem formulados permitem que a IA produza respostas mais alinhadas ao objetivo desejado.</p>
+<p>Como você já deve ter percebido, a qualidade da resposta da ferramenta de IAG depende fortemente da clareza, do contexto e das restrições explícitas incluídas na instrução (ou pergunta) enviada pelo usuário, isto é, depende da qualidade do <em>prompt</em>. Prompts vagos tendem a gerar respostas genéricas ou excessivamente complexas. Já prompts bem formulados permitem que a IA produza respostas mais alinhadas ao objetivo desejado.</p>
 <p><em>Prompt Engineering</em> (ou engenharia de prompt) é o processo de estruturar uma prompt de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.</p>
 <ul>
 <li><p><strong>Clareza</strong>: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções.</p></li>
@@ -467,19 +500,13 @@ flowchart TB
 <div id="fig-prompt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-prompt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/prompts.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+<img src="images/prompts.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prompt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3.4: Elementos desejáveis dentro de um prompt
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="integração-com-ferramentas-e-apis-externas" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="integração-com-ferramentas-e-apis-externas"><span class="header-section-number">3.4.3</span> Integração com ferramentas e APIs externas</h3>
-<p>Nem sempre precisamos de um browser para utilizar o ChatGPT. O acesso às diferentes versões pode ser realizado através de uma Interface de Programação de Aplicações, ou API em inglês. Uma API é um conjunto de regras e protocolos que configuram uma forma simplificada de comunicação entre diferentes softwares. É possível, por exemplo, acessar as funcionalidades da ferramenta dentro de um código da linguagem de programação Python.</p>
-<p>No caso do ChatGPT, para acessar a API é preciso se registrar nesse <a href="https://platform.openai.com/">link</a> e garantir uma chave de acesso. A OpenAI já forneceu limites gratuitos para teste da API. Por conta de sobrecarga dos servidores e uso inadequado, hoje é preciso pagar pelo uso da API.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Para utilizar a API, o usuário cadastra um cartão de crédito e, ao final do mês, é cobrado pelo número e complexidade das demandas. É possível configurar limites de uso de modo a evitar gastos maiores do que o esperado. O preço é diferente para modelos diferentes. https://openai.com/api/pricing/</p>
 </section>
 </section>
 <section id="riscos-e-limitações-do-uso-de-ia" class="level2" data-number="3.5">
@@ -491,13 +518,7 @@ Figura&nbsp;3.4: Elementos desejáveis dentro de um prompt
 <li>Soluções ineficientes ou computacionalmente custosas.</li>
 <li>Erros semânticos, que não impedem o código de rodar, mas geram resultados incorretos em vista dos objetivos.</li>
 </ul>
-<p>Por esses motivos, qualquer código sugerido por IA deve ser:</p>
-<ul>
-<li>Lido com atenção.</li>
-<li>Executado e testado.</li>
-<li>Comparado com o que foi visto em aula.</li>
-</ul>
-<p>A regra prática é simples: se você não conseguir reconstruir ou adaptar a solução sem a ferramenta de IA, então você não compreendeu a resposta recebida e a ferramenta não deveria ter sido utilizada daquela forma ou para aquele problema.</p>
+<p>Por esses motivos, qualquer código sugerido por IA deve ser lido com atenção, executado e testado, e comparado com o que foi visto em aula. A regra prática é simples: se você não conseguir reconstruir ou adaptar a solução sem a ferramenta de IA, então você não compreendeu a resposta recebida e a ferramenta não deveria ter sido utilizada daquela forma ou para aquele problema.</p>
 </section>
 <section id="conclusão" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">3.6</span> Conclusão</h2>
@@ -512,12 +533,6 @@ Figura&nbsp;3.4: Elementos desejáveis dentro de um prompt
 </ol>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Existem diversas outras ferramentas que oferecem serviços parecidos e até mais eficazes em alguns projetos que envolvem programação e códigos, como o <a href="https://claude.ai/">Claude</a> ou mesmo o <a href="https://ai.google.dev/gemini-api/docs?hl=pt-br">Gemini</a>. Tudo vai depender das suas preferências e do seu bolso.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
