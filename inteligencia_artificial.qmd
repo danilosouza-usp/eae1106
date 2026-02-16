@@ -20,7 +20,7 @@ Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da 
 
 Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava presente nos dados originais. Em essência, os sistemas de IAG são sistemas de IA com um escopo mais restrito e bem definido.
 
-No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor humano muito rápido. No entanto, a IA não entende objetivos de aprendizagem, não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.
+No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor humano muito rápido. No entanto, modelos como o ChatGPT não "sabem" programação no sentido humano. Eles operam prevendo sequências de texto com base em padrões estatísticos aprendidos durante a fase de treinamento do modelo. Isso significa que essas ferramentas podem produzir respostas plausíveis, mas não necessariamente verdadeiras. Além disso, a IAG não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.
 
 ## _Large Language Models (LLMs)_
 
@@ -28,7 +28,7 @@ Dentro do grupo de modelos de IAG estão os famosos GPTs, como o [ChatGPT](https
 
 É importante destacar que, embora extremamente úteis para programação, esses modelos:
 
-- Não executam o código que geram.
+- Não executam o código que geram. Eles produzem sequências de texto estatisticamente plausíveis.
 - Não verificam automaticamente se o código está correto.
 - Não "sabem" matemática, economia ou programação no sentido humano.
 - Por vezes tendem a escolher respostas mais complexas e complicada do que o necessário.
@@ -45,7 +45,7 @@ Você sabe o que significa GPT? É a sigla para **Generative Pre-trained Transfo
 
 O acesso à ferramenta é feito pelo [site](https://chatgpt.com/) ou pelo aplicativo móvel, disponível gratuitamente na Apple Store ou Google Store. A plataforma se parece com um chat qualquer, assim como um aplicativo de mensagens. A diferença é que quem responde é o próprio modelo. Assim, para fazer algum questionamento ou pedir algum auxílio com o seu código, por exemplo, basta digitar na caixa de entrada a mensagem que resume aquilo que se deseja que o modelo responda. A Figura @fig-chatgpt apresenta o layout base e como realizar uma requisição ao ChatGPT através do website.
 
-::: {#fig-chatgpt layout-ncol=2 width=700px max-width=100% fig-align="center"}
+::: {#fig-chatgpt layout-nrow=2 width=800px max-width=100% fig-align="center"}
 
 ![Tela inicial](images/chatgpt1.jpg)
 
@@ -58,7 +58,7 @@ As requisições ao modelo são gratuitas, porém, com acesso limitado às vers�
 
 ![Planos e valores do ChatGPT. Fevereiro de 2026.](images/chatgpt3.jpg){#fig-chatgptplus width=700px max-width=100% fig-align="center"}
 
-No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Independentemente do contexto, as três perguntas abaixo ajudam a compreender se na sua aplicação, modelos de IAG são úteis e indicados ou se podem gerar respostas pouco eficazes e até mesmo problemas com ética e compartilhamento de dados.
+No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Existem limitações importantes que, se não compreendidas, podem gerar respostas pouco eficazes, incorretas e até mesmo implicar problemas legais. Diante dessas limitações, o uso da ferramenta em qualquer aplicação deve ser precedido por três perguntas básicas, listadas abaixo. Se qualquer uma dessas condições não for satisfeita, o uso da ferramenta deve ser reavaliado ou evitado.
 
 1. **A acurácia é um requisito central da sua aplicação?** Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas $100%$ corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente. 
 
@@ -70,12 +70,12 @@ No entanto, nem sempre as ferramentas de inteligência artificial são indicadas
 %%{init: {
   "theme": "base",
   "flowchart": {
-    "padding": 20,
+    "padding": 10,
     "nodeSpacing": 30,
     "rankSpacing": 40
   },
   "themeVariables": {
-    "fontSize": "18px"
+    "fontSize": "20px"
   }
 }}%%
 
@@ -105,7 +105,7 @@ flowchart TB
     C --> n3 --> D
 
     %% Estilo opcional para reforçar aparência de árvore de decisão
-    classDef decision fill:#f7f7f7,color:#000000,stroke-width:0px;
+    classDef decision fill:#f0f0f0,color:#000000,stroke-width:0px;
     classDef allow fill:#d1e7dd,color:#000000,stroke:#198754,stroke-width:2px
     classDef deny fill:#f8d7da,color:#000000,stroke:#dc3545,stroke-width:2px;
     classDef choice fill:#ffffff,color:#000000,stroke:#ffffff,stroke-width:0px;
@@ -116,15 +116,15 @@ flowchart TB
     class s1,n1,s2,n2,s3,n3 choice;
 
     %% Arredondamento
-    style A rx:15,ry:15;
-    style B rx:15,ry:15
-    style C rx:15,ry:15
-    style D rx:15,ry:15
-    style N1 rx:15,ry:15
-    style N2 rx:15,ry:15
-    style N3 rx:15,ry:15
+    style A rx:10,ry:10;
+    style B rx:10,ry:10;
+    style C rx:10,ry:10;
+    style D rx:10,ry:10;
+    style N1 rx:10,ry:10;
+    style N2 rx:10,ry:10;
+    style N3 rx:10,ry:10;
 
-    linkStyle default stroke-width:1px
+    linkStyle default stroke-width:1px;
 ```
 
 ### Conceitos básicos de engenharia de prompt
@@ -140,6 +140,18 @@ _Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma p
 No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico: instruções, contexto, exemplos e formato de saída (Figura @fig-prompt). Lembre, o objetivo é ser claro e específico, orientando o modelo a responder aquilo que queremos que ele responda.
 
 ![Elementos desejáveis dentro de um prompt](images/prompts.jpg){#fig-prompt width=800px max-width=100% fig-align="center"}
+
+### Exemplo de uso em programação
+
+A melhor forma de compreender essas diretrizes é aplicá-las na prática. A Figura @fig-bhaskara mostra o caso em que o ChatGPT é instruído a gerar um código em Python, comentado e que produza uma função (tema do Capítulo @sec-funcoes) que calcule as raízes de uma equação de segundo grau. O prompt possui instruções, contexto e orientações bem definidas em relação ao formato de saída. Note que, no caso de raízes complexas, a ferramenta é instruída a emitir uma mensagem de erro no console da IDE utilizada.
+
+![Exemplo de uso do ChatGPT em programação](images/chatgpt_bhaskara.jpg){#fig-bhaskara width=800px max-width=100% fig-align="center"}
+
+Um prompt ligeiramente diferente, com um grau menor de clareza e espaço para ambiguidades, pode produzir resultados com a sintaxe correta mas semanticamente errados, isto é, que "rodem" mas levem a uma conclusão errada. No exemplo abaixo (Figura @fig-bhaskara2), o prompt foi alterado de forma deliberada para pedir que a função "retorne a raiz" ao invés de "retorne as raízes". Na maioria das vezes, a ferramenta não vai apontar o erro matemático, produzindo como resposta um código com a sintaxe correta mas que produza uma resposta matematicamente incorreta. A Figura @fig-bhaskara3 confronta o ChatGPT, que explica a decisão em relação a resposta anterior.
+
+![Exemplo de instrução incorreta](images/chatgpt_bhaskara2.jpg){#fig-bhaskara2 width=800px max-width=100% fig-align="center"}
+
+![Justificativa do ChatGPT para a resposta anterior](images/chatgpt_bhaskara3.jpg){#fig-bhaskara3 width=800px max-width=100% fig-align="center"}
 
 ## Riscos e limitações do uso de IA 
 

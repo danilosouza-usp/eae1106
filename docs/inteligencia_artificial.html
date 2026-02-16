@@ -289,6 +289,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#acesso-à-plataforma-e-primeiro-uso" id="toc-acesso-à-plataforma-e-primeiro-uso" class="nav-link" data-scroll-target="#acesso-à-plataforma-e-primeiro-uso"><span class="header-section-number">3.4.1</span> Acesso à plataforma e primeiro uso</a></li>
   <li><a href="#conceitos-básicos-de-engenharia-de-prompt" id="toc-conceitos-básicos-de-engenharia-de-prompt" class="nav-link" data-scroll-target="#conceitos-básicos-de-engenharia-de-prompt"><span class="header-section-number">3.4.2</span> Conceitos básicos de engenharia de prompt</a></li>
+  <li><a href="#exemplo-de-uso-em-programação" id="toc-exemplo-de-uso-em-programação" class="nav-link" data-scroll-target="#exemplo-de-uso-em-programação"><span class="header-section-number">3.4.3</span> Exemplo de uso em programação</a></li>
   </ul></li>
   <li><a href="#riscos-e-limitações-do-uso-de-ia" id="toc-riscos-e-limitações-do-uso-de-ia" class="nav-link" data-scroll-target="#riscos-e-limitações-do-uso-de-ia"><span class="header-section-number">3.5</span> Riscos e limitações do uso de IA</a></li>
   <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">3.6</span> Conclusão</a></li>
@@ -322,7 +323,7 @@ window.Quarto = {
 <h2 data-number="3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">3.1</span> Introdução</h2>
 <p>A incorporação recente de ferramentas de inteligência artificial ao desenvolvimento de software alterou significativamente a forma como programas são escritos, depurados e documentados. Em particular, modelos de linguagem treinados em grandes volumes de código passaram a ser capazes de gerar trechos de programas, explicar erros e sugerir soluções alternativas de forma quase imediata.</p>
 <p>Neste curso, a inteligência artificial não será tratada como um atalho para “pular” a aprendizagem de programação, mas como um instrumento complementar. O objetivo é utilizá-la para apoiar o entendimento da sintaxe, acelerar tarefas mecânicas e auxiliar na identificação de erros, sempre preservando o domínio conceitual do código pelo aluno.</p>
-<div id="fig-ia" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-ia" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/IA.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -342,14 +343,14 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 <h2 data-number="3.2" class="anchored" data-anchor-id="o-que-é-inteligência-artificial"><span class="header-section-number">3.2</span> O que é Inteligência Artificial?</h2>
 <p>Definir IA é uma tarefa difícil, já que se trata de uma área da ciência da computação bastante ampla que, a depender do contexto, envolve um conjunto de modelos e aplicações diferentes. Em todos os casos, porém, é uma área responsável por criar sistemas capazes de executar tarefas que requerem inteligência humana, como aprendizado, raciocínio, reconhecimento de padrões, processamento de áudio, vídeo e linguagem. Esses sistemas são construídos à partir de uma grande amostra de dados, nos quais diferentes modelos são treinados e à partir dos quais é possível construir previsões e análises sobre conjuntos de dados novos. Podemos citar alguns exemplos que, em geral, são aplicações de sistemas de IA: sistemas de recomendação, robótica, diagnóstico médico, sistema de previsão, automação.</p>
 <p>Embora se discuta Inteligência Artificial há algum tempo, apenas mais recentemente a chamada Inteligência Artificial Generativa (IAG) ganhou espaço no debate e nos modelos de uso comercial. Diferentemente dos algoritmos mais gerais de inteligência artificial, os modelos de IAG são projetados para a criação de algo novo, que não estava presente nos dados originais. Em essência, os sistemas de IAG são sistemas de IA com um escopo mais restrito e bem definido.</p>
-<p>No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor humano muito rápido. No entanto, a IA não entende objetivos de aprendizagem, não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.</p>
+<p>No mundo da programação, ferramentas de IAG são especialmente eficazes em tarefas como escrever estruturas sintáticas comuns, explicar mensagens de erro frequentes ou converter descrições em linguagem natural para código simples. Essas características fazem com que a IAG seja útil como um assistente de programação, semelhante a um monitor humano muito rápido. No entanto, modelos como o ChatGPT não “sabem” programação no sentido humano. Eles operam prevendo sequências de texto com base em padrões estatísticos aprendidos durante a fase de treinamento do modelo. Isso significa que essas ferramentas podem produzir respostas plausíveis, mas não necessariamente verdadeiras. Além disso, a IAG não conhece a sequência didática adotada e não distingue soluções apropriadas de soluções excessivamente complexas para o nível do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode gerar dependência, dificultar a internalização de conceitos básicos como tipos de dados, controle de fluxo e escopo de variáveis.</p>
 </section>
 <section id="large-language-models-llms" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="large-language-models-llms"><span class="header-section-number">3.3</span> <em>Large Language Models (LLMs)</em></h2>
 <p>Dentro do grupo de modelos de IAG estão os famosos GPTs, como o <a href="https://chatgpt.com/">ChatGPT</a> e o <a href="https://gemini.google.com/">Gemini</a>. Os GPTs são modelos da classe dos <em>Large Language Models</em>, que compreendem e geram conteúdo textual novo com base em uma etapa de pré-treino em grande volume de textos. Nesses modelos, o sistema recebe uma mensagem (prompt) de entrada, “raciocina” em cima do texto fornecido e dos dados nos quais foi pré-treinado, e retorna uma mensagem de saída em resposta. É como se o modelo tivesse por objetivo prever a próxima palavra (ou token) em um texto, dadas as palavras anteriores. Quando aplicados a código, esses modelos exploram regularidades presentes em milhões de exemplos de programas escritos por humanos.</p>
 <p>É importante destacar que, embora extremamente úteis para programação, esses modelos:</p>
 <ul>
-<li>Não executam o código que geram.</li>
+<li>Não executam o código que geram. Eles produzem sequências de texto estatisticamente plausíveis.</li>
 <li>Não verificam automaticamente se o código está correto.</li>
 <li>Não “sabem” matemática, economia ou programação no sentido humano.</li>
 <li>Por vezes tendem a escolher respostas mais complexas e complicada do que o necessário.</li>
@@ -378,7 +379,7 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chatgpt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/chatgpt1.jpg" class="img-fluid figure-img"></p>
@@ -386,7 +387,9 @@ Figura&nbsp;3.1: Turma de EAE1106 do primeiro semestre de 2072. Imagem criada po
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/chatgpt2.jpg" class="img-fluid figure-img"></p>
@@ -402,7 +405,7 @@ Figura&nbsp;3.2: Layout do aplicativo web do ChatGPT. Fevereiro de 2026.
 </figure>
 </div>
 <p>As requisições ao modelo são gratuitas, porém, com acesso limitado às versões mais recentes do modelo, com maior capacidade de processamento, eficácia e assertividade nas respostas. É plenamente possível utilizar a versão gratuita para requisições esporádicas e mais simples, que não envolvam mídias como aúdio ou imagens. Usuários mais intensos e que demandam respostas mais confiáveis podem se frustar com as funcionalidades da versão gratuita. A OpenAI, empresa por trás do ChatGPT, oferece alguns planos pagos que dão direito a uso ilimitado dessas novas versões do modelo e outras funcionalidades.</p>
-<div id="fig-chatgptplus" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-chatgptplus" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chatgptplus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/chatgpt3.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -412,7 +415,7 @@ Figura&nbsp;3.3: Planos e valores do ChatGPT. Fevereiro de 2026.
 </figcaption>
 </figure>
 </div>
-<p>No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Independentemente do contexto, as três perguntas abaixo ajudam a compreender se na sua aplicação, modelos de IAG são úteis e indicados ou se podem gerar respostas pouco eficazes e até mesmo problemas com ética e compartilhamento de dados.</p>
+<p>No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Existem limitações importantes que, se não compreendidas, podem gerar respostas pouco eficazes, incorretas e até mesmo implicar problemas legais. Diante dessas limitações, o uso da ferramenta em qualquer aplicação deve ser precedido por três perguntas básicas, listadas abaixo. Se qualquer uma dessas condições não for satisfeita, o uso da ferramenta deve ser reavaliado ou evitado.</p>
 <ol type="1">
 <li><p><strong>A acurácia é um requisito central da sua aplicação?</strong> Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas <span class="math inline">\(100%\)</span> corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente.</p></li>
 <li><p><strong>Os resultados são verificáveis?</strong> Ferramentas como o ChatGPT não substituem conhecimento humano especializado. Por serem modelos, podem produzir respostas semanticamente plausíveis, mas incorretas ou desalinhadas do objetivo pretendido. A verificação exige domínio mínimo do tema tratado. Como regra prática: evite solicitar algo que você não tenha condições de conferir, validar ou testar posteriormente.</p></li>
@@ -426,12 +429,12 @@ Figura&nbsp;3.3: Planos e valores do ChatGPT. Fevereiro de 2026.
 <pre class="mermaid mermaid-js">%%{init: {
   "theme": "base",
   "flowchart": {
-    "padding": 20,
+    "padding": 10,
     "nodeSpacing": 30,
     "rankSpacing": 40
   },
   "themeVariables": {
-    "fontSize": "18px"
+    "fontSize": "20px"
   }
 }}%%
 
@@ -461,7 +464,7 @@ flowchart TB
     C --&gt; n3 --&gt; D
 
     %% Estilo opcional para reforçar aparência de árvore de decisão
-    classDef decision fill:#f7f7f7,color:#000000,stroke-width:0px;
+    classDef decision fill:#f0f0f0,color:#000000,stroke-width:0px;
     classDef allow fill:#d1e7dd,color:#000000,stroke:#198754,stroke-width:2px
     classDef deny fill:#f8d7da,color:#000000,stroke:#dc3545,stroke-width:2px;
     classDef choice fill:#ffffff,color:#000000,stroke:#ffffff,stroke-width:0px;
@@ -472,15 +475,15 @@ flowchart TB
     class s1,n1,s2,n2,s3,n3 choice;
 
     %% Arredondamento
-    style A rx:15,ry:15;
-    style B rx:15,ry:15
-    style C rx:15,ry:15
-    style D rx:15,ry:15
-    style N1 rx:15,ry:15
-    style N2 rx:15,ry:15
-    style N3 rx:15,ry:15
+    style A rx:10,ry:10;
+    style B rx:10,ry:10;
+    style C rx:10,ry:10;
+    style D rx:10,ry:10;
+    style N1 rx:10,ry:10;
+    style N2 rx:10,ry:10;
+    style N3 rx:10,ry:10;
 
-    linkStyle default stroke-width:1px
+    linkStyle default stroke-width:1px;
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -497,13 +500,48 @@ flowchart TB
 <li><p><strong>Especificidade</strong>: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.</p></li>
 </ul>
 <p>No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico: instruções, contexto, exemplos e formato de saída (Figura <a href="#fig-prompt" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-prompt</span></a>). Lembre, o objetivo é ser claro e específico, orientando o modelo a responder aquilo que queremos que ele responda.</p>
-<div id="fig-prompt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-prompt" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-prompt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/prompts.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prompt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3.4: Elementos desejáveis dentro de um prompt
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="exemplo-de-uso-em-programação" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="exemplo-de-uso-em-programação"><span class="header-section-number">3.4.3</span> Exemplo de uso em programação</h3>
+<p>A melhor forma de compreender essas diretrizes é aplicá-las na prática. A Figura <a href="#fig-bhaskara" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-bhaskara</span></a> mostra o caso em que o ChatGPT é instruído a gerar um código em Python, comentado e que produza uma função (tema do Capítulo <a href="#sec-funcoes" class="quarto-xref"><span class="quarto-unresolved-ref">sec-funcoes</span></a>) que calcule as raízes de uma equação de segundo grau. O prompt possui instruções, contexto e orientações bem definidas em relação ao formato de saída. Note que, no caso de raízes complexas, a ferramenta é instruída a emitir uma mensagem de erro no console da IDE utilizada.</p>
+<div id="fig-bhaskara" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bhaskara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/chatgpt_bhaskara.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bhaskara-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.5: Exemplo de uso do ChatGPT em programação
+</figcaption>
+</figure>
+</div>
+<p>Um prompt ligeiramente diferente, com um grau menor de clareza e espaço para ambiguidades, pode produzir resultados com a sintaxe correta mas semanticamente errados, isto é, que “rodem” mas levem a uma conclusão errada. No exemplo abaixo (Figura <a href="#fig-bhaskara2" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-bhaskara2</span></a>), o prompt foi alterado de forma deliberada para pedir que a função “retorne a raiz” ao invés de “retorne as raízes”. Na maioria das vezes, a ferramenta não vai apontar o erro matemático, produzindo como resposta um código com a sintaxe correta mas que produza uma resposta matematicamente incorreta. A Figura <a href="#fig-bhaskara3" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-bhaskara3</span></a> confronta o ChatGPT, que explica a decisão em relação a resposta anterior.</p>
+<div id="fig-bhaskara2" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bhaskara2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/chatgpt_bhaskara2.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bhaskara2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.6: Exemplo de instrução incorreta
+</figcaption>
+</figure>
+</div>
+<div id="fig-bhaskara3" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bhaskara3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/chatgpt_bhaskara3.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bhaskara3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.7: Justificativa do ChatGPT para a resposta anterior
 </figcaption>
 </figure>
 </div>

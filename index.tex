@@ -217,13 +217,13 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
-\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
+\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, bottomrule=.15mm, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, arc=.35mm, left=2mm, titlerule=0mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, opacitybacktitle=0.6]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, bottomrule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, arc=.35mm, left=2mm, titlerule=0mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, opacitybacktitle=0.6]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2361,8 +2361,12 @@ em tarefas como escrever estruturas sintáticas comuns, explicar
 mensagens de erro frequentes ou converter descrições em linguagem
 natural para código simples. Essas características fazem com que a IAG
 seja útil como um assistente de programação, semelhante a um monitor
-humano muito rápido. No entanto, a IA não entende objetivos de
-aprendizagem, não conhece a sequência didática adotada e não distingue
+humano muito rápido. No entanto, modelos como o ChatGPT não ``sabem''
+programação no sentido humano. Eles operam prevendo sequências de texto
+com base em padrões estatísticos aprendidos durante a fase de
+treinamento do modelo. Isso significa que essas ferramentas podem
+produzir respostas plausíveis, mas não necessariamente verdadeiras. Além
+disso, a IAG não conhece a sequência didática adotada e não distingue
 soluções apropriadas de soluções excessivamente complexas para o nível
 do aluno. Por esse motivo, o uso indiscriminado dessas ferramentas pode
 gerar dependência, dificultar a internalização de conceitos básicos como
@@ -2390,7 +2394,8 @@ esses modelos:
 \begin{itemize}
 \tightlist
 \item
-  Não executam o código que geram.
+  Não executam o código que geram. Eles produzem sequências de texto
+  estatisticamente plausíveis.
 \item
   Não verificam automaticamente se o código está correto.
 \item
@@ -2407,7 +2412,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, bottomrule=.15mm, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, arc=.35mm, left=2mm, titlerule=0mm, opacitybacktitle=0.6, toprule=.15mm, leftrule=.75mm, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, opacitybacktitle=0.6]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2441,14 +2446,14 @@ requisição ao ChatGPT através do website.
 
 \begin{figure}
 
-\begin{minipage}{0.50\linewidth}
+\begin{minipage}{\linewidth}
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/chatgpt1.jpg}}
 
 \subcaption{\label{}Tela inicial}
 \end{minipage}%
-%
-\begin{minipage}{0.50\linewidth}
+\newline
+\begin{minipage}{\linewidth}
 
 \pandocbounded{\includegraphics[keepaspectratio]{images/chatgpt2.jpg}}
 
@@ -2484,10 +2489,12 @@ de 2026.}
 \end{figure}%
 
 No entanto, nem sempre as ferramentas de inteligência artificial são
-indicadas. Independentemente do contexto, as três perguntas abaixo
-ajudam a compreender se na sua aplicação, modelos de IAG são úteis e
-indicados ou se podem gerar respostas pouco eficazes e até mesmo
-problemas com ética e compartilhamento de dados.
+indicadas. Existem limitações importantes que, se não compreendidas,
+podem gerar respostas pouco eficazes, incorretas e até mesmo implicar
+problemas legais. Diante dessas limitações, o uso da ferramenta em
+qualquer aplicação deve ser precedido por três perguntas básicas,
+listadas abaixo. Se qualquer uma dessas condições não for satisfeita, o
+uso da ferramenta deve ser reavaliado ou evitado.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2519,7 +2526,7 @@ problemas com ética e compartilhamento de dados.
   sistema externo.
 \end{enumerate}
 
-\includegraphics[width=9.34in,height=8.11in]{inteligencia_artificial_files/figure-latex/mermaid-figure-1.png}
+\includegraphics[width=8.25in,height=7.56in]{inteligencia_artificial_files/figure-latex/mermaid-figure-1.png}
 
 \subsection{Conceitos básicos de engenharia de
 prompt}\label{conceitos-buxe1sicos-de-engenharia-de-prompt}
@@ -2573,6 +2580,66 @@ orientando o modelo a responder aquilo que queremos que ele responda.
 }
 
 \caption{\label{fig-prompt}Elementos desejáveis dentro de um prompt}
+
+\end{figure}%
+
+\subsection{Exemplo de uso em
+programação}\label{exemplo-de-uso-em-programauxe7uxe3o}
+
+A melhor forma de compreender essas diretrizes é aplicá-las na prática.
+A Figura Figura~\ref{fig-bhaskara} mostra o caso em que o ChatGPT é
+instruído a gerar um código em Python, comentado e que produza uma
+função (tema do Capítulo Capítulo~\ref{sec-funcoes}) que calcule as
+raízes de uma equação de segundo grau. O prompt possui instruções,
+contexto e orientações bem definidas em relação ao formato de saída.
+Note que, no caso de raízes complexas, a ferramenta é instruída a emitir
+uma mensagem de erro no console da IDE utilizada.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{images/chatgpt_bhaskara.jpg}
+
+}
+
+\caption{\label{fig-bhaskara}Exemplo de uso do ChatGPT em programação}
+
+\end{figure}%
+
+Um prompt ligeiramente diferente, com um grau menor de clareza e espaço
+para ambiguidades, pode produzir resultados com a sintaxe correta mas
+semanticamente errados, isto é, que ``rodem'' mas levem a uma conclusão
+errada. No exemplo abaixo (Figura Figura~\ref{fig-bhaskara2}), o prompt
+foi alterado de forma deliberada para pedir que a função ``retorne a
+raiz'' ao invés de ``retorne as raízes''. Na maioria das vezes, a
+ferramenta não vai apontar o erro matemático, produzindo como resposta
+um código com a sintaxe correta mas que produza uma resposta
+matematicamente incorreta. A Figura Figura~\ref{fig-bhaskara3} confronta
+o ChatGPT, que explica a decisão em relação a resposta anterior.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{images/chatgpt_bhaskara2.jpg}
+
+}
+
+\caption{\label{fig-bhaskara2}Exemplo de instrução incorreta}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{images/chatgpt_bhaskara3.jpg}
+
+}
+
+\caption{\label{fig-bhaskara3}Justificativa do ChatGPT para a resposta
+anterior}
 
 \end{figure}%
 
@@ -4006,7 +4073,7 @@ Este exemplo encaixa uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x18a47b153c0>
+<zip at 0x139f436c7c0>
 \end{verbatim}
 
 O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
@@ -4580,16 +4647,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.17055372063117813
-0.2771149245108616
-0.06931446340384906
-0.913025687396639
-0.12142196358779567
-0.5146455139289492
-0.8485874767709781
-0.7511989224265974
-0.7617748379607562
-0.0029253187838853556
+0.0836762933290246
+0.23876154878549205
+0.6128086740683063
+0.561753859756684
+0.6371639720552132
+0.026824226278314378
+0.5875131405903431
+0.45733122710160423
+0.7562217186316439
+0.02266512661522624
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4607,16 +4674,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.30
-Essa é a iteração 2 e o número sorteado foi: 0.47
-Essa é a iteração 3 e o número sorteado foi: 0.50
-Essa é a iteração 4 e o número sorteado foi: 0.95
-Essa é a iteração 5 e o número sorteado foi: 0.20
-Essa é a iteração 6 e o número sorteado foi: 0.84
-Essa é a iteração 7 e o número sorteado foi: 0.73
-Essa é a iteração 8 e o número sorteado foi: 0.02
-Essa é a iteração 9 e o número sorteado foi: 0.79
-Essa é a iteração 10 e o número sorteado foi: 0.69
+Essa é a iteração 1 e o número sorteado foi: 0.55
+Essa é a iteração 2 e o número sorteado foi: 0.50
+Essa é a iteração 3 e o número sorteado foi: 0.15
+Essa é a iteração 4 e o número sorteado foi: 0.03
+Essa é a iteração 5 e o número sorteado foi: 0.57
+Essa é a iteração 6 e o número sorteado foi: 0.43
+Essa é a iteração 7 e o número sorteado foi: 0.83
+Essa é a iteração 8 e o número sorteado foi: 0.71
+Essa é a iteração 9 e o número sorteado foi: 0.97
+Essa é a iteração 10 e o número sorteado foi: 0.86
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4921,10 +4988,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0909 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1259 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0907 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1213 segundos
 
-A abordagem de loop demorou 38.5% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 33.8% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5232,8 +5299,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[ 14.56466887 -31.03121739  26.92339042   0.10847119 -38.99845765
- -10.81956309 -29.20496096  39.02784715   7.22187203  39.67554787]
+[-29.78080984 -27.05612035 -19.67334367  35.17755314   0.79721796
+ -11.91097287 -20.7951788  -21.6228065  -14.73135112 -35.27003627]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5246,8 +5313,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[-19.45610183 -29.30218731 -36.68660375  35.44190371 -28.77129845
- -13.61885206 -20.73244311 -19.38930208  23.63658118  25.19751671]
+[-10.59883498 -34.5452191  -27.72313783 -23.40094556  31.20721064
+ -21.35159922  34.28236781  22.92417802  -7.92748585 -22.12695775]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5813,8 +5880,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[ 19.5133098   19.62799421  15.47116106 -11.98368221  -2.35977961
- -36.24174737  31.9805726   -2.12299181  11.57830146  35.80457071]
+[ 38.59330775  12.14886073   2.42751072 -38.71506465  15.9097662
+  -0.51602799 -35.14982153 -35.85473345  12.05034344  38.41577484]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7372,10 +7439,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0131 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.3107 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0139 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2943 segundos
 
-A abordagem de listas demorou 23x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 20x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações
