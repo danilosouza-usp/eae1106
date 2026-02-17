@@ -217,13 +217,13 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
+\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
-\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
-\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-important-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2412,7 +2412,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, coltitle=black, left=2mm, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, titlerule=0mm, opacityback=0, colback=white, rightrule=.15mm, bottomrule=.15mm, arc=.35mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2526,7 +2526,7 @@ uso da ferramenta deve ser reavaliado ou evitado.
   sistema externo.
 \end{enumerate}
 
-\includegraphics[width=8.25in,height=7.56in]{inteligencia_artificial_files/figure-latex/mermaid-figure-1.png}
+\includegraphics[width=8.19in,height=6.8in]{inteligencia_artificial_files/figure-latex/mermaid-figure-1.png}
 
 \subsection{Conceitos básicos de engenharia de
 prompt}\label{conceitos-buxe1sicos-de-engenharia-de-prompt}
@@ -2692,20 +2692,45 @@ todas as aplicações computacionais em Economia ao longo do curso.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  X
+  Considere um conjunto de dados hipotético contendo informações
+  pessoais (nomes, datas de nascimento, renda). Explique em quais etapas
+  e como você usaria ferramentas de IA generativa para auxiliar na
+  análise desses dados. Quais são os principais riscos legais e éticos
+  envolvidos?
 \item
-  X
+  Considere o código do exercício 4 do capítulo 3. Peça ao ChatGPT para
+  explicar o(s) erro(s) contidos no script. Como você reescreveria o
+  código, agora sem erros de sintaxe e/ou semântica?
+\item
+  Discorra sobre porque a atividade de programação é uma aplicação na
+  qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a
+  produtividade.
 \end{enumerate}
 
 \chapter{Tipos primitivos e objetos básicos}\label{sec-objetos}
 
 \section{Introdução}\label{introduuxe7uxe3o-3}
 
+Este capítulo introduz os elementos fundamentais com os quais o Python
+trabalha: valores, tipos e objetos. Em qualquer programa, manipulamos
+dados --- números, textos, valores lógicos --- e precisamos compreender
+como esses dados são representados, armazenados e transformados. Antes
+de trabalhar com estruturas mais complexas, é necessário dominar os
+tipos primitivos e entender que, em Python, tudo é um objeto.
+
+Começaremos discutindo os tipos primitivos, que constituem a base de
+toda manipulação de dados e determinam a forma como a informação é
+armazenada, quais operações são permitidas e como o valor ocupa a
+memória. Em seguida, generalizaremos para a noção de objeto e
+discutiremos como propriedades e métodos estruturam o comportamento
+desses valores.
+
 \subsection{Pré-requisitos}\label{pruxe9-requisitos-3}
 
-Nesse capítulo você utilizará essencialmente funções nativas do Python.
-No entanto, para trabalhar com padrões textuais de forma mais profunda
-utilizaremos pacotes externos:
+Nesse capítulo utilizaremos essencialmente funções nativas do Python. No
+entanto, para trabalhar com padrões textuais de forma mais profunda
+utilizaremos alguns pacotes externos, em especial para lidar com as
+chamadas \emph{expressões regulares}.
 
 \begin{itemize}
 \tightlist
@@ -2719,7 +2744,25 @@ utilizaremos pacotes externos:
 \end{Highlighting}
 \end{Shaded}
 
-\section{Strings}\label{strings}
+\section{Tipos primitivos}\label{tipos-primitivos}
+
+São três as principais formas de armazenar um valor, um pedaço de
+informação, no Python: um número, um elemento textual ou uma variável
+\emph{booleana}. No caso de elementos numéricos, são dois os tipos de
+dados: \texttt{int}, que representa um número inteiro, e \texttt{float},
+que é um número que possui uma parte inteira mas também uma parte
+decimal. Elementos textuais são sempre armazenados sob a forma de um
+\texttt{str}, que é a abreviação de \emph{string}. Por fim, um dado do
+tipo \emph{booleano} é um dado que pode ser assumir apenas dois valores:
+\textbf{True} e \textbf{False}.
+
+\section{Objetos básicos}\label{objetos-buxe1sicos}
+
+Em Python, \emph{tudo} é um objeto. E um objeto nada mais é do que um
+elemento dentro da linguagem que possui (i) um tipo, (ii) um valor
+atribuído, (iii) um conjunto de métodos associados.
+
+\subsection{Strings}\label{strings}
 
 Strings não são como números inteiros ou de ponto flutuate. No Python,
 uma string nada mais é do que uma sequência ordenada de caracteres
@@ -2790,7 +2833,7 @@ Mario Quintana
 <class 'str'>
 \end{verbatim}
 
-\subsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas}
+\subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas}
 
 Por ser uma sequência de caracteres e não um número, operações
 aritméticas (em geral) não são permitidas, mas outras operações, como
@@ -2940,7 +2983,7 @@ Apenas tentar substituir um dos caracteres de um string já definido não
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: 'str' object does not support item assignment}
 \end{Highlighting}
 
-\subsection{Métodos de strings}\label{muxe9todos-de-strings}
+\subsubsection{Métodos de strings}\label{muxe9todos-de-strings}
 
 As strings oferecem métodos que executam várias operações úteis. Um
 método é em essência uma sequência de instruções encapsuladas dentro de
@@ -3040,7 +3083,7 @@ False
  World, World 
 \end{verbatim}
 
-\subsection{Formatação e a instrução
+\subsubsection{Formatação e a instrução
 print}\label{formatauxe7uxe3o-e-a-instruuxe7uxe3o-print}
 
 Um método sobre o qual não falamos, mas que é bastante interessante
@@ -3084,7 +3127,7 @@ exemplo,
 O valor de pi arredondado para 2 casas decimais é 3.14. Com 4 casas decimais, no entanto, o número é um pouco maior e igual a 3.1416. Interessante, não?
 \end{verbatim}
 
-\subsection{Introdução a expressões
+\subsubsection{Introdução a expressões
 regulares}\label{introduuxe7uxe3o-a-expressuxf5es-regulares}
 
 Por vezes queremos encontrar um padrão específico de texto (e.g., placas
@@ -3215,10 +3258,7 @@ referência introdutória é o livro
 \href{https://www.amazon.com.br/Express\%C3\%B5es-Regulares-Uma-Abordagem-Divertida/dp/8575224743}{Expressões
 Regulares: Uma Abordagem Divertida}.
 
-\textbf{Se eu pudesse dar um conselho para o meu eu de 15 anos atrás
-seria: beba água e estude expressões regulares.}
-
-\section{Listas}\label{listas}
+\subsection{Listas}\label{listas}
 
 Como uma string, uma lista é uma sequência de valores. Em uma string, os
 valores são caracteres; em uma lista, eles podem ser de qualquer tipo.
@@ -3282,7 +3322,7 @@ uma lista vazia utilizando apenas os colchetes:
 []
 \end{verbatim}
 
-\subsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-1}
+\subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-1}
 
 A sintaxe para acessar os elementos de uma lista é a mesma que para
 acessar os caracteres de uma string: o operador de colchete. A expressão
@@ -3386,7 +3426,7 @@ lista utilizando a função integrada \texttt{len()} e ``concatenar'' ou
 ['Danilo Souza', 'Claudio Lucinda', 'Cheddar', 'Gorgonzola', 'Gouda']
 \end{verbatim}
 
-\subsection{Métodos de listas}\label{muxe9todos-de-listas}
+\subsubsection{Métodos de listas}\label{muxe9todos-de-listas}
 
 As listas também possuem métodos bastante úteis, que nos facilitam a
 vida em várias dimensões. Dentre os principais métodos aplicáveis a
@@ -3522,261 +3562,6 @@ Além desses principais, existem outros vários métodos para listas. Esse
 \href{https://developers.google.com/edu/python/lists}{link} é um bom
 ponto de partida para quem quiser conhecer outros exemplos.
 
-\subsection{Operadores lógicos e variáveis
-booleanas}\label{operadores-luxf3gicos-e-variuxe1veis-booleanas}
-
-Agora faremos um pequeno desvio, que será bem útil daqui para frente,
-para falar de expressões e variáveis \textbf{booleanas}. Em resumo, uma
-expressão booleana é uma expressão que pode ser verdadeira ou falsa e
-dessa forma assumir apenas dois valores como resultado: \textbf{True} e
-\textbf{False}. Os exemplos seguintes usam o operador de igual no Python
-(==) que compara dois operandos e produz True se forem iguais e False se
-não forem:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{5} \OperatorTok{==} \DecValTok{5}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{5} \OperatorTok{==} \DecValTok{6}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-False
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
-\NormalTok{lista2 }\OperatorTok{=}\NormalTok{ [}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]}
-
-\NormalTok{lista1 }\OperatorTok{==}\NormalTok{ lista2}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-False
-\end{verbatim}
-
-\emph{True} e \emph{False} são valores especiais que pertencem ao tipo
-\emph{bool}; não são strings. Além disso, é possível fazer operações
-aritméticas com variáveis do tipo \emph{bool} já que o Python entende
-\emph{True} como sendo equivalente ao número 1 e \emph{False} como sendo
-equivalente ao número 0.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(}\VariableTok{True}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(}\VariableTok{False}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-<class 'bool'>
-<class 'bool'>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\VariableTok{True} \OperatorTok{+} \VariableTok{True}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\VariableTok{True} \OperatorTok{+} \VariableTok{False}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\VariableTok{False} \OperatorTok{+} \VariableTok{False}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-2
-1
-0
-\end{verbatim}
-
-O operador == é um dos operadores relacionais dentro do Python, os
-outros são:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{x != y}: x não é igual a y
-\item
-  \textbf{x \textgreater{} y}: x é maior que y
-\item
-  \textbf{x \textless{} y}: x é menor que y
-\item
-  \textbf{x \textgreater= y}: x é maior ou igual a y
-\item
-  \textbf{x \textless= y}: x é menor ou igual a y
-\end{enumerate}
-
-Embora essas operações provavelmente sejam familiares para você, os
-símbolos do Python são diferentes dos símbolos matemáticos. Um erro
-comum é usar apenas um sinal de igual (=) em vez de um sinal duplo (==).
-Lembre-se de que = é um operador de atribuição e == é um operador
-relacional. Não existe =\textgreater{} ou =\textless.
-
-Há três operadores lógicos: \texttt{and}, \texttt{or} e \texttt{not}. A
-semântica (significado) destes operadores é semelhante ao seu
-significado em inglês. Por exemplo,
-\texttt{x\textgreater{}=0\ and\ x\textless{}=10} só é verdade se x for
-maior que 0 \textbf{e} menor que 10.
-\texttt{n\%2\ ==\ 0\ or\ n\%3\ ==\ 0} é verdadeiro se uma ou as duas
-condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível
-por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e
-o operador módulo, tente brincar um pouco com \texttt{//} e com
-\texttt{\%}). Finalmente, o operador \texttt{not} nega uma expressão
-booleana, então \texttt{not\ (x\ \textgreater{}\ y)} é verdade se
-\texttt{x\ \textgreater{}\ y} for falso, isto é, se x for menor que ou
-igual a y.
-
-Falando estritamente, os operandos dos operadores lógicos devem ser
-expressões booleanas, mas o Python não é muito estrito. Qualquer número
-que não seja zero é interpretado como \emph{True}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{42} \KeywordTok{and} \VariableTok{True}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas
-a ela que podem ser confusas. Assim, pode ser uma boa ideia evitá-la (a
-menos que você tenha certeza absoluta do que está fazendo).
-
-\subsection{Execução condicional}\label{execuuxe7uxe3o-condicional}
-
-Para escrever programas úteis, quase sempre precisamos da capacidade de
-verificar condições e mudar o comportamento do programa de acordo com
-elas. Instruções condicionais nos dão esta capacidade. A forma mais
-simples é a instrução \texttt{if}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x}\OperatorTok{=}\DecValTok{5}
-
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textgreater{}} \DecValTok{0}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é positivo\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-x é positivo
-\end{verbatim}
-
-A expressão booleana depois do \texttt{if} é chamada de condição. Se for
-verdadeira, a instrução indentada é executada. Se não, nada acontece.
-\emph{Aqui vale mais um adendo}: uma característica muito importante da
-sintaxe do Python é justamente a \textbf{identação}. Diferentemente de
-outras linguagens de programação, a identação exerce papel importante
-aqui, já que é através dela que se determina onde se inicia e onde
-termina um bloco de código, que pode ser uma expressão condicional ou
-mesmo uma função, como veremos mais a frente. Além de economizar várias
-chaves (``\{'' e ``\}'') e vários ``end'', a identação exerce um papel
-estético importante ao permitir uma melhor visualização do código como
-um todo.
-
-Não há limite para o número de instruções que podem aparecer no corpo de
-uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil
-ter um corpo sem instruções (normalmente como um espaço reservado para
-código que ainda não foi escrito). Neste caso, você pode usar a
-instrução pass, que não faz nada.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textless{}} \DecValTok{0}\NormalTok{:}
-    \ControlFlowTok{pass} 
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Execução alternativa}\label{execuuxe7uxe3o-alternativa}
-
-Uma segunda forma da instrução if é a ``execução alternativa'', na qual
-há duas possibilidades e a condição determina qual será executada. A
-sintaxe pode ser algo assim:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=} \DecValTok{5}
-
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é par\textquotesingle{}}\NormalTok{)}
-\ControlFlowTok{else}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é ímpar\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-x é ímpar
-\end{verbatim}
-
-Se o resto quando x for dividido por 2 for 0, então sabemos que x é par
-e o programa exibe uma mensagem adequada. Se a condição for falsa, o
-segundo conjunto de instruções é executado. Como a condição deve ser
-verdadeira ou falsa, exatamente uma das alternativas será executada. As
-alternativas são chamadas de ramos (branches), porque são ramos no fluxo
-da execução.
-
-Podemos usar a instrução if para testar o tamanho de uma lista também:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
-
-\ControlFlowTok{if} \BuiltInTok{len}\NormalTok{(lista1) }\OperatorTok{\textgreater{}} \DecValTok{2}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem mais de dois elementos\textquotesingle{}}\NormalTok{)}
-\ControlFlowTok{else}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem menos de dois elementos\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-lista1 tem mais de dois elementos
-\end{verbatim}
-
-\subsection{Condicionais encadeadas}\label{condicionais-encadeadas}
-
-Às vezes, há mais de duas possibilidades e precisamos de mais que dois
-ramos. Esta forma de expressar uma operação de computação é uma
-condicional encadeada:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=} \DecValTok{5}
-\NormalTok{y }\OperatorTok{=} \DecValTok{6}
-
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textless{}}\NormalTok{ y:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é menor do que y\textquotesingle{}}\NormalTok{)}
-\ControlFlowTok{elif}\NormalTok{ x }\OperatorTok{\textgreater{}}\NormalTok{ y:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é maior do que y\textquotesingle{}}\NormalTok{)}
-\ControlFlowTok{else}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x e y são iguais\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-x é menor do que y
-\end{verbatim}
-
-\texttt{elif} é uma abreviatura de ``else if''. Novamente, exatamente um
-ramo será executado. Não há nenhum limite para o número de instruções
-elif. Se houver uma cláusula else, ela deve estar no fim, mas não é
-preciso haver uma. Cada condição é verificada em ordem. Se a primeira
-for falsa, a próxima é verificada, e assim por diante. Se uma delas for
-verdadeira, o ramo correspondente é executado e a instrução é encerrada.
-Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro
-é executado.
-
 \section{Tuplas}\label{tuplas}
 
 Agora falaremos de mais um tipo de objeto básico do Python, a tupla. Uma
@@ -3882,7 +3667,7 @@ erro:
 \textcolor{black}{TypeError: 'tuple' object does not support item assignment}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[58]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[47]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{t}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{0}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{ = }\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{A}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: 'tuple' object does not support item assignment}
 \end{Highlighting}
@@ -3984,7 +3769,7 @@ precisam ser iguais:
 \textcolor{black}{ValueError: too many values to unpack (expected 2)}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{ValueError}\textcolor{QuartoInternalColor2}{                                Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[64]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[53]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ a, b = }\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor3}{3}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{ValueError}\textcolor{QuartoInternalColor2}{: too many values to unpack (expected 2)}
 \end{Highlighting}
@@ -4073,7 +3858,7 @@ Este exemplo encaixa uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x139f436c7c0>
+<zip at 0x1bad7434cc0>
 \end{verbatim}
 
 O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
@@ -4229,7 +4014,7 @@ Se a chave não estiver no dicionário, você recebe uma exceção:
 \textcolor{black}{KeyError: 'four'}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{                                  Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[78]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[67]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{eng2sp}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{four}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{: 'four'}
 \end{Highlighting}
@@ -4378,7 +4163,7 @@ valor armazenado sob a chave fornecida e \emph{Falso} caso contrário.
 \textcolor{black}{KeyError: 'three'}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{                                  Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[88]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 2}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[77]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 2}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{      1}\textcolor{QuartoInternalColor2}{ y = \{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{one}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{: }\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{two}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{: }\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{\}}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor7}{del}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{y}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{three}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{: 'three'}
@@ -4518,6 +4303,19 @@ None
 {'one': 1, 'two': 2, 'three': '3', 'four': None}
 \end{verbatim}
 
+\section{Conclusão}\label{conclusuxe3o-3}
+
+Neste capítulo, introduzimos os tipos primitivos do Python --
+\texttt{int}, \texttt{float}, \texttt{str} e \texttt{bool} -- e
+analisamos como eles representam números, textos e valores lógicos.
+Discutimos operações fundamentais, indexação, e generalizamos para a
+noção de objeto, destacando que, em Python, todo valor é um objeto com
+tipo, identidade e métodos associados. Esse entendimento é pré-requisito
+para estruturas mais complexas e para o uso de controle de fluxo. A
+partir daqui, passaremos a trabalhar com coleções de objetos e com
+operações iterativas, expandindo o escopo dos programas que conseguimos
+construir.
+
 \section{Exercícios}\label{exercuxedcios-3}
 
 \begin{enumerate}
@@ -4531,17 +4329,14 @@ None
   Usando a lista do exercício anterior, use uma função de lista para
   retornar o número de veze que \texttt{apple} ocorre.
 \item
-  Existem duas listas abaixo. Escreva um programa que as converta em um
-  dicionário em que o item de \texttt{keys} é a chave e o item de
-  \texttt{values} é o valor
+  Considere as duas listas abaixo. Escreva um programa que as converta
+  em um dicionário em que os itens de \texttt{keys} correspondam às
+  chaves do dicionários e os itens de \texttt{values} os valores.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{keys }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Ten\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Twenty\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Thirty\textquotesingle{}}\NormalTok{]}
 \NormalTok{values }\OperatorTok{=}\NormalTok{ [}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{]}
-
-\CommentTok{\#\#\# Output esperado}
-\NormalTok{\{}\StringTok{\textquotesingle{}Ten\textquotesingle{}}\NormalTok{: }\DecValTok{10}\NormalTok{, }\StringTok{\textquotesingle{}Twenty\textquotesingle{}}\NormalTok{: }\DecValTok{20}\NormalTok{, }\StringTok{\textquotesingle{}Thirty\textquotesingle{}}\NormalTok{: }\DecValTok{30}\NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 \end{enumerate}
@@ -4568,6 +4363,221 @@ trabalhar com números aleatórios.
 \ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
 \end{Highlighting}
 \end{Shaded}
+
+\section{Execução condicional}\label{execuuxe7uxe3o-condicional}
+
+\subsection{Expressões booleanas}\label{expressuxf5es-booleanas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \OperatorTok{==} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+True
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \OperatorTok{==} \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+False
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
+\NormalTok{lista2 }\OperatorTok{=}\NormalTok{ [}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+
+\NormalTok{lista1 }\OperatorTok{==}\NormalTok{ lista2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+False
+\end{verbatim}
+
+O operador == é um dos operadores relacionais dentro do Python, os
+outros são:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{x != y}: x não é igual a y
+\item
+  \textbf{x \textgreater{} y}: x é maior que y
+\item
+  \textbf{x \textless{} y}: x é menor que y
+\item
+  \textbf{x \textgreater= y}: x é maior ou igual a y
+\item
+  \textbf{x \textless= y}: x é menor ou igual a y
+\end{enumerate}
+
+Embora essas operações provavelmente sejam familiares para você, os
+símbolos do Python são diferentes dos símbolos matemáticos. Um erro
+comum é usar apenas um sinal de igual (=) em vez de um sinal duplo (==).
+Lembre-se de que = é um operador de atribuição e == é um operador
+relacional. Não existe =\textgreater{} ou =\textless.
+
+Há três operadores lógicos: \texttt{and}, \texttt{or} e \texttt{not}. A
+semântica (significado) destes operadores é semelhante ao seu
+significado em inglês. Por exemplo,
+\texttt{x\textgreater{}=0\ and\ x\textless{}=10} só é verdade se x for
+maior que 0 \textbf{e} menor que 10.
+\texttt{n\%2\ ==\ 0\ or\ n\%3\ ==\ 0} é verdadeiro se uma ou as duas
+condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível
+por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e
+o operador módulo, tente brincar um pouco com \texttt{//} e com
+\texttt{\%}). Finalmente, o operador \texttt{not} nega uma expressão
+booleana, então \texttt{not\ (x\ \textgreater{}\ y)} é verdade se
+\texttt{x\ \textgreater{}\ y} for falso, isto é, se x for menor que ou
+igual a y.
+
+Falando estritamente, os operandos dos operadores lógicos devem ser
+expressões booleanas, mas o Python não é muito estrito. Qualquer número
+que não seja zero é interpretado como \emph{True}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{42} \KeywordTok{and} \VariableTok{True}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+True
+\end{verbatim}
+
+Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas
+a ela que podem ser confusas. Assim, pode ser uma boa ideia evitá-la (a
+menos que você tenha certeza absoluta do que está fazendo).
+
+\subsection{\texorpdfstring{Operador
+\texttt{if}}{Operador if}}\label{operador-if}
+
+Para escrever programas úteis, quase sempre precisamos da capacidade de
+verificar condições e mudar o comportamento do programa de acordo com
+elas. Instruções condicionais nos dão esta capacidade. A forma mais
+simples é a instrução \texttt{if}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{=}\DecValTok{5}
+
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textgreater{}} \DecValTok{0}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é positivo\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+x é positivo
+\end{verbatim}
+
+A expressão booleana depois do \texttt{if} é chamada de condição. Se for
+verdadeira, a instrução indentada é executada. Se não, nada acontece.
+\emph{Aqui vale mais um adendo}: uma característica muito importante da
+sintaxe do Python é justamente a \textbf{identação}. Diferentemente de
+outras linguagens de programação, a identação exerce papel importante
+aqui, já que é através dela que se determina onde se inicia e onde
+termina um bloco de código, que pode ser uma expressão condicional ou
+mesmo uma função, como veremos mais a frente. Além de economizar várias
+chaves (``\{'' e ``\}'') e vários ``end'', a identação exerce um papel
+estético importante ao permitir uma melhor visualização do código como
+um todo.
+
+Não há limite para o número de instruções que podem aparecer no corpo de
+uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil
+ter um corpo sem instruções (normalmente como um espaço reservado para
+código que ainda não foi escrito). Neste caso, você pode usar a
+instrução pass, que não faz nada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textless{}} \DecValTok{0}\NormalTok{:}
+    \ControlFlowTok{pass} 
+\end{Highlighting}
+\end{Shaded}
+
+Uma segunda forma da instrução if é a ``execução alternativa'', na qual
+há duas possibilidades e a condição determina qual será executada. A
+sintaxe pode ser algo assim:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=} \DecValTok{5}
+
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é par\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é ímpar\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+x é ímpar
+\end{verbatim}
+
+Se o resto quando x for dividido por 2 for 0, então sabemos que x é par
+e o programa exibe uma mensagem adequada. Se a condição for falsa, o
+segundo conjunto de instruções é executado. Como a condição deve ser
+verdadeira ou falsa, exatamente uma das alternativas será executada. As
+alternativas são chamadas de ramos (branches), porque são ramos no fluxo
+da execução.
+
+Podemos usar a instrução if para testar o tamanho de uma lista também:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
+
+\ControlFlowTok{if} \BuiltInTok{len}\NormalTok{(lista1) }\OperatorTok{\textgreater{}} \DecValTok{2}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem mais de dois elementos\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem menos de dois elementos\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+lista1 tem mais de dois elementos
+\end{verbatim}
+
+\subsection{Condicionais encadeadas}\label{condicionais-encadeadas}
+
+Às vezes, há mais de duas possibilidades e precisamos de mais que dois
+ramos. Esta forma de expressar uma operação de computação é uma
+condicional encadeada:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=} \DecValTok{5}
+\NormalTok{y }\OperatorTok{=} \DecValTok{6}
+
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textless{}}\NormalTok{ y:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é menor do que y\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{elif}\NormalTok{ x }\OperatorTok{\textgreater{}}\NormalTok{ y:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é maior do que y\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x e y são iguais\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+x é menor do que y
+\end{verbatim}
+
+\texttt{elif} é uma abreviatura de ``else if''. Novamente, exatamente um
+ramo será executado. Não há nenhum limite para o número de instruções
+elif. Se houver uma cláusula else, ela deve estar no fim, mas não é
+preciso haver uma. Cada condição é verificada em ordem. Se a primeira
+for falsa, a próxima é verificada, e assim por diante. Se uma delas for
+verdadeira, o ramo correspondente é executado e a instrução é encerrada.
+Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro
+é executado.
 
 \section{\texorpdfstring{Repetição simples e a instrução
 \emph{for}}{Repetição simples e a instrução for}}\label{repetiuxe7uxe3o-simples-e-a-instruuxe7uxe3o-for}
@@ -4647,16 +4657,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.0836762933290246
-0.23876154878549205
-0.6128086740683063
-0.561753859756684
-0.6371639720552132
-0.026824226278314378
-0.5875131405903431
-0.45733122710160423
-0.7562217186316439
-0.02266512661522624
+0.5365891216258812
+0.08829718222969662
+0.730657402206783
+0.3692255921913009
+0.09571238763245693
+0.5352466701057146
+0.43017316358567903
+0.5319426443236145
+0.8504395061625925
+0.7740422372797463
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4674,16 +4684,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.55
-Essa é a iteração 2 e o número sorteado foi: 0.50
-Essa é a iteração 3 e o número sorteado foi: 0.15
-Essa é a iteração 4 e o número sorteado foi: 0.03
-Essa é a iteração 5 e o número sorteado foi: 0.57
-Essa é a iteração 6 e o número sorteado foi: 0.43
-Essa é a iteração 7 e o número sorteado foi: 0.83
-Essa é a iteração 8 e o número sorteado foi: 0.71
-Essa é a iteração 9 e o número sorteado foi: 0.97
-Essa é a iteração 10 e o número sorteado foi: 0.86
+Essa é a iteração 1 e o número sorteado foi: 0.75
+Essa é a iteração 2 e o número sorteado foi: 0.33
+Essa é a iteração 3 e o número sorteado foi: 0.95
+Essa é a iteração 4 e o número sorteado foi: 0.97
+Essa é a iteração 5 e o número sorteado foi: 0.59
+Essa é a iteração 6 e o número sorteado foi: 0.33
+Essa é a iteração 7 e o número sorteado foi: 0.72
+Essa é a iteração 8 e o número sorteado foi: 0.40
+Essa é a iteração 9 e o número sorteado foi: 0.42
+Essa é a iteração 10 e o número sorteado foi: 0.20
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4988,10 +4998,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0907 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1213 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.1060 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1459 segundos
 
-A abordagem de loop demorou 33.8% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 37.6% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5299,8 +5309,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[-29.78080984 -27.05612035 -19.67334367  35.17755314   0.79721796
- -11.91097287 -20.7951788  -21.6228065  -14.73135112 -35.27003627]
+[-23.99812303 -20.88233856  29.26431657 -26.84325664   7.17425394
+  -6.82439473 -31.60784142 -21.55282856  35.21021139   2.00198912]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5313,8 +5323,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[-10.59883498 -34.5452191  -27.72313783 -23.40094556  31.20721064
- -21.35159922  34.28236781  22.92417802  -7.92748585 -22.12695775]
+[-20.79341808  26.39257907  -9.79560708  29.34242418 -34.76629508
+  36.68431382  14.28519017  -0.05560947  11.89362899  26.19835807]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5880,8 +5890,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[ 38.59330775  12.14886073   2.42751072 -38.71506465  15.9097662
-  -0.51602799 -35.14982153 -35.85473345  12.05034344  38.41577484]
+[  7.01118753 -25.6619259   32.58614466  -8.82723262 -21.57478247
+  35.93620975  23.99973113  21.60767309  -9.87429815 -18.53949832]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7439,10 +7449,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0139 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.2943 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0134 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2959 segundos
 
-A abordagem de listas demorou 20x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 21x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações

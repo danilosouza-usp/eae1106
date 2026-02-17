@@ -2,9 +2,13 @@
 
 ## Introdução
 
+Este capítulo introduz os elementos fundamentais com os quais o Python trabalha: valores, tipos e objetos. Em qualquer programa, manipulamos dados — números, textos, valores lógicos — e precisamos compreender como esses dados são representados, armazenados e transformados. Antes de trabalhar com estruturas mais complexas, é necessário dominar os tipos primitivos e entender que, em Python, tudo é um objeto.
+
+Começaremos discutindo os tipos primitivos, que constituem a base de toda manipulação de dados e determinam a forma como a informação é armazenada, quais operações são permitidas e como o valor ocupa a memória. Em seguida, generalizaremos para a noção de objeto e discutiremos como propriedades e métodos estruturam o comportamento desses valores.
+
 ### Pré-requisitos
 
-Nesse capítulo você utilizará essencialmente funções nativas do Python. No entanto, para trabalhar com padrões textuais de forma mais profunda utilizaremos pacotes externos:
+Nesse capítulo utilizaremos essencialmente funções nativas do Python. No entanto, para trabalhar com padrões textuais de forma mais profunda utilizaremos alguns pacotes externos, em especial para lidar com as chamadas _expressões regulares_.
 
 - `re`
 
@@ -15,8 +19,15 @@ Nesse capítulo você utilizará essencialmente funções nativas do Python. No 
 import re
 ```
 
+## Tipos primitivos
 
-## Strings
+São três as principais formas de armazenar um valor, um pedaço de informação, no Python: um número, um elemento textual ou uma variável _booleana_. No caso de elementos numéricos, são dois os tipos de dados: `int`, que representa um número inteiro, e `float`, que é um número que possui uma parte inteira mas também uma parte decimal. Elementos textuais são sempre armazenados sob a forma de um `str`, que é a abreviação de _string_. Por fim, um dado do tipo _booleano_ é um dado que pode ser assumir apenas dois valores: **True** e **False**.  
+
+## Objetos básicos
+
+Em Python, _tudo_ é um objeto. E um objeto nada mais é do que um elemento dentro da linguagem que possui (i) um tipo, (ii) um valor atribuído, (iii) um conjunto de métodos associados.
+
+### Strings
 
 Strings não são como números inteiros ou de ponto flutuate. No Python, uma string nada mais é do que uma sequência ordenada de caracteres unicode. Eles são delimitados sempre por aspas (simplas ou duplas). Relembrando nosso primeiro "programa" da aula passada podemos atribuir a uma variável a string _Hello, World_ usando aspas.
 
@@ -56,7 +67,7 @@ print(str3)
 print(type(str3))
 ```
 
-### Operações básicas
+#### Operações básicas
 
 Por ser uma sequência de caracteres e não um número, operações aritméticas (em geral) não são permitidas, mas outras operações, como _slicing_, o são. É possível acessar um caracter específico da sequência utilizando a posição desse caractere, utilizando o que chamamos de **índice**. No caso do string _'Hello, World'_, para acessar a segunda letra podemos utilizar colchetes após o string e dentro dele o índice referente à posição do 'e' no string:
 
@@ -128,7 +139,7 @@ Note, porém, que strings são **imutáveis**, de modo que caso queira substitui
 str1[1] = 'a'
 ```
 
-### Métodos de strings
+#### Métodos de strings
 
 As strings oferecem métodos que executam várias operações úteis. Um método é em essência uma sequência de instruções encapsuladas dentro de um único comando que recebe argumentos e devolve um valor. Embora a sintaxe seja diferente, a ideia é a mesma quando falamos de funções, objeto do nosso estudo daqui algumas aulas.
 
@@ -187,7 +198,7 @@ print(str1.find(','))
 print(str1.replace('Hello','World'))
 ```
 
-### Formatação e a instrução print
+#### Formatação e a instrução print
 
 Um método sobre o qual não falamos, mas que é bastante interessante quando queremos, por exemplo, printar bonitinho o resultado de determinada operação é `s.format()`. Com esse método podemos converter uma variável numérica para uma formato específico e printá-la dentro de um string maior. Imagine, por exemplo, que estejamos interessados em printar o valor de $\pi$ arredondado para 2 casas decimais apenas dentro de um string que diz isso. Podemos implementar isso da seguinte forma
 
@@ -206,7 +217,7 @@ Podemos também usar mais de um número dentro do mesmo método format. Por exem
 print('O valor de pi arredondado para 2 casas decimais é {:.2f}. Com 4 casas decimais, no entanto, o número é um pouco maior e igual a {:.4f}. Interessante, não?'.format(pi,pi))
 ```
 
-### Introdução a expressões regulares
+#### Introdução a expressões regulares
 
 Por vezes queremos encontrar um padrão específico de texto (e.g., placas de carro, e-mails ou números de telefone) dentro de um texto maior, para realizar algum tipo de coleta, limpeza ou mesmo substituição que um simples `str.replace()` não dá conta. Para realizar tal ação podemos utilizar as famosas **Expressões Regulares**, também conhecidas como _Regular Expressions_ no inglês, ou simplesmente _Regex_. 
 
@@ -256,9 +267,8 @@ Conseguimos exatamente o que a gente queria. Boa, time!
 
 Pare um pouco e pense sobre a aplicabilidade dessa ferramenta dentro de um mundo repleto de dados não-estruturados, como tweets e notícias. **O potencial de uso é gigante!** Mas como dissemos, o mundo de _regex_ é muito grande e existem cursos e livros que se dedicam integralmente a estudar essa linguagem de padrões textuais. Uma boa referência introdutória é o livro [Expressões Regulares: Uma Abordagem Divertida](https://www.amazon.com.br/Express%C3%B5es-Regulares-Uma-Abordagem-Divertida/dp/8575224743). 
 
-**Se eu pudesse dar um conselho para o meu eu de 15 anos atrás seria: beba água e estude expressões regulares.**
 
-## Listas
+### Listas
 
 Como uma string, uma lista é uma sequência de valores. Em uma string, os valores são caracteres; em uma lista, eles podem ser de qualquer tipo. Podemos ter uma lista de strings, uma lista de valores numéricos ou mesmo uma lista de listas, combinando strings, números e mesmo outros tipos de objetos que ainda veremos, como tuplas, dicionários e dataframes. 
 
@@ -294,7 +304,7 @@ lista_vazia = []
 print(lista_vazia)
 ```
 
-### Operações básicas
+#### Operações básicas
 
 A sintaxe para acessar os elementos de uma lista é a mesma que para acessar os caracteres de uma string: o operador de colchete. A expressão dentro dos colchetes especifica o índice ou o intervalo de índices. **Lembrando que o índice no Python começa em ZERO e não em UM**
 
@@ -351,7 +361,7 @@ lista_soma = lista2 + cheeses
 print(lista_soma)
 ```
 
-### Métodos de listas
+#### Métodos de listas
 
 As listas também possuem métodos bastante úteis, que nos facilitam a vida em várias dimensões. Dentre os principais métodos aplicáveis a listas e suas funcionalidades podemos citar:
 <br><br>
@@ -427,133 +437,6 @@ print(s)
 ```
 
 Além desses principais, existem outros vários métodos para listas. Esse [link](https://developers.google.com/edu/python/lists) é um bom ponto de partida para quem quiser conhecer outros exemplos.
-
-### Operadores lógicos e variáveis booleanas
-
-Agora faremos um pequeno desvio, que será bem útil daqui para frente, para falar de expressões e variáveis **booleanas**. Em resumo, uma expressão booleana é uma expressão que pode ser verdadeira ou falsa e dessa forma assumir apenas dois valores como resultado: **True** e **False**. Os exemplos seguintes usam o operador de igual no Python (==) que compara dois operandos e produz True se forem iguais e False se não forem:
-
-
-```{python}
-5 == 5
-```
-
-
-```{python}
-5 == 6
-```
-
-
-```{python}
-lista1 = [1,2,3,4,5]
-lista2 = [5,4,3,2,1]
-
-lista1 == lista2
-```
-
-_True_ e _False_ são valores especiais que pertencem ao tipo _bool_; não são strings. Além disso, é possível fazer operações aritméticas com variáveis do tipo _bool_ já que o Python entende _True_ como sendo equivalente ao número 1 e _False_ como sendo equivalente ao número 0.
-
-
-```{python}
-print(type(True))
-print(type(False))
-```
-
-
-```{python}
-print(True + True)
-print(True + False)
-print(False + False)
-```
-
-O operador == é um dos operadores relacionais dentro do Python, os outros são:
-
-1. **x != y**: x não é igual a y
-2. **x > y**: x é maior que y
-3. **x < y**: x é menor que y
-4. **x >= y**: x é maior ou igual a y
-5. **x <= y**: x é menor ou igual a y
-
-Embora essas operações provavelmente sejam familiares para você, os símbolos do Python são diferentes dos símbolos matemáticos. Um erro comum é usar apenas um sinal de igual (=) em vez de um sinal duplo (==). Lembre-se de que = é um operador de atribuição e == é um operador relacional. Não existe => ou =<.
-
-Há três operadores lógicos: `and`, `or` e `not`. A semântica (significado) destes operadores é semelhante ao seu significado em inglês. Por exemplo, `x>=0 and x<=10` só é verdade se x for maior que 0 **e** menor que 10. `n%2 == 0 or n%3 == 0` é verdadeiro se uma ou as duas condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e o operador módulo, tente brincar um pouco com `//` e com `%`). Finalmente, o operador `not` nega uma expressão booleana, então `not (x > y)` é verdade se `x > y` for falso, isto é, se x for menor que ou igual a y.
-
-Falando estritamente, os operandos dos operadores lógicos devem ser expressões booleanas, mas o Python não é muito estrito. Qualquer número que não seja zero é interpretado como _True_:
-
-
-```{python}
-42 and True
-```
-
-Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas a ela que podem ser confusas. Assim, pode ser uma boa ideia evitá-la (a menos que você tenha certeza absoluta do que está fazendo).
-
-### Execução condicional
-
-Para escrever programas úteis, quase sempre precisamos da capacidade de verificar condições e mudar o comportamento do programa de acordo com elas. Instruções condicionais nos dão esta capacidade. A forma mais simples é a instrução `if`:
-
-
-```{python}
-x=5
-
-if x > 0:
-    print('x é positivo')
-```
-
-A expressão booleana depois do `if` é chamada de condição. Se for verdadeira, a instrução indentada é executada. Se não, nada acontece. _Aqui vale mais um adendo_: uma característica muito importante da sintaxe do Python é justamente a **identação**. Diferentemente de outras linguagens de programação, a identação exerce papel importante aqui, já que é através dela que se determina onde se inicia e onde termina um bloco de código, que pode ser uma expressão condicional ou mesmo uma função, como veremos mais a frente. Além de economizar várias chaves ("{" e "}") e vários "end", a identação exerce um papel estético importante ao permitir uma melhor visualização do código como um todo.
-
-Não há limite para o número de instruções que podem aparecer no corpo de uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil ter um corpo sem instruções (normalmente como um espaço reservado para código que ainda não foi escrito). Neste caso, você pode usar a instrução pass, que não faz nada.
-
-
-```{python}
-if x < 0:
-    pass 
-```
-
-### Execução alternativa
-
-Uma segunda forma da instrução if é a “execução alternativa”, na qual há duas possibilidades e a condição determina qual será executada. A sintaxe pode ser algo assim:
-
-
-```{python}
-x = 5
-
-if x % 2 == 0:
-    print('x é par')
-else:
-    print('x é ímpar')
-```
-
-Se o resto quando x for dividido por 2 for 0, então sabemos que x é par e o programa exibe uma mensagem adequada. Se a condição for falsa, o segundo conjunto de instruções é executado. Como a condição deve ser verdadeira ou falsa, exatamente uma das alternativas será executada. As alternativas são chamadas de ramos (branches), porque são ramos no fluxo da execução.
-
-Podemos usar a instrução if para testar o tamanho de uma lista também:
-
-
-```{python}
-lista1 = [1,2,3,4,5]
-
-if len(lista1) > 2:
-    print('lista1 tem mais de dois elementos')
-else:
-    print('lista1 tem menos de dois elementos')
-```
-
-### Condicionais encadeadas
-
-Às vezes, há mais de duas possibilidades e precisamos de mais que dois ramos. Esta forma de expressar uma operação de computação é uma condicional encadeada:
-
-
-```{python}
-x = 5
-y = 6
-
-if x < y:
-    print('x é menor do que y')
-elif x > y:
-    print('x é maior do que y')
-else:
-    print('x e y são iguais')
-```
-
-`elif` é uma abreviatura de "else if". Novamente, exatamente um ramo será executado. Não há nenhum limite para o número de instruções elif. Se houver uma cláusula else, ela deve estar no fim, mas não é preciso haver uma. Cada condição é verificada em ordem. Se a primeira for falsa, a próxima é verificada, e assim por diante. Se uma delas for verdadeira, o ramo correspondente é executado e a instrução é encerrada. Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro é executado.
 
 ## Tuplas
 
@@ -948,18 +831,19 @@ print(y.setdefault('four'))
 print(y)
 ```
 
+## Conclusão
+
+Neste capítulo, introduzimos os tipos primitivos do Python -- `int`, `float`, `str` e `bool` -- e analisamos como eles representam números, textos e valores lógicos. Discutimos operações fundamentais, indexação, e generalizamos para a noção de objeto, destacando que, em Python, todo valor é um objeto com tipo, identidade e métodos associados. Esse entendimento é pré-requisito para estruturas mais complexas e para o uso de controle de fluxo. A partir daqui, passaremos a trabalhar com coleções de objetos e com operações iterativas, expandindo o escopo dos programas que conseguimos construir.
+
 ## Exercícios
 
 1. Considere a seguinte lista: `fruit = ['pear', 'orange', 'apple', 'grapefruit', 'apple', 'pear']`. Use uma função de lista para dizer o índice da primeira ocorrência de `apple`
 
 2. Usando a lista do exercício anterior, use uma função de lista para retornar o número de veze que `apple` ocorre.
 
-3. Existem duas listas abaixo. Escreva um programa que as converta em um dicionário em que o item de `keys` é a chave e o item de `values` é o valor
+3. Considere as duas listas abaixo. Escreva um programa que as converta em um dicionário em que os itens de `keys` correspondam às chaves do dicionários e os itens de `values` os valores.
 
    ```python
    keys = ['Ten', 'Twenty', 'Thirty']
    values = [10, 20, 30]
-
-   ### Output esperado
-   {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
    ```

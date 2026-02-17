@@ -75,7 +75,7 @@ No entanto, nem sempre as ferramentas de inteligência artificial são indicadas
     "rankSpacing": 40
   },
   "themeVariables": {
-    "fontSize": "20px"
+    "fontSize": "19px"
   }
 }}%%
 
@@ -173,6 +173,8 @@ O domínio de programação em Python exige prática, leitura de código, compre
 
 ## Exercícios
 
-1. X
+1. Considere um conjunto de dados hipotético contendo informações pessoais (nomes, datas de nascimento, renda). Explique em quais etapas e como você usaria ferramentas de IA generativa para auxiliar na análise desses dados. Quais são os principais riscos legais e éticos envolvidos?
 
-2. X
+2. Considere o código do exercício 4 do capítulo 3. Peça ao ChatGPT para explicar o(s) erro(s) contidos no script. Como você reescreveria o código, agora sem erros de sintaxe e/ou semântica?
+
+3. Discorra sobre porque a atividade de programação é uma aplicação na qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a produtividade.
