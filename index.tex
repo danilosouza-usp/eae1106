@@ -217,13 +217,13 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
 \definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
-\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
+\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-important-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, rightrule=.15mm, colback=white, toprule=.15mm]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, rightrule=.15mm, colback=white, toprule=.15mm]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2412,7 +2412,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, toprule=.15mm, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, breakable, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, coltitle=black, bottomtitle=1mm, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, opacityback=0, leftrule=.75mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, rightrule=.15mm, colback=white, toprule=.15mm]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2713,10 +2713,25 @@ todas as aplicações computacionais em Economia ao longo do curso.
 
 Este capítulo introduz os elementos fundamentais com os quais o Python
 trabalha: valores, tipos e objetos. Em qualquer programa, manipulamos
-dados --- números, textos, valores lógicos --- e precisamos compreender
+dados -- números, textos, valores lógicos -- e precisamos compreender
 como esses dados são representados, armazenados e transformados. Antes
 de trabalhar com estruturas mais complexas, é necessário dominar os
-tipos primitivos e entender que, em Python, tudo é um objeto.
+tipos primitivos e entender que, em Python, tudo é um objeto. Todo
+grande algoritmo e programa é construído a partir dos mesmos pequenos
+blocos.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{images/piramides.jpeg}
+
+}
+
+\caption{\label{fig-olddesk}Blocos que formam a Grande Pirâmide de Gizé
+e Pirâmide de Quéops ao fundo, 2024.}
+
+\end{figure}%
 
 Começaremos discutindo os tipos primitivos, que constituem a base de
 toda manipulação de dados e determinam a forma como a informação é
@@ -2728,7 +2743,7 @@ desses valores.
 \subsection{Pré-requisitos}\label{pruxe9-requisitos-3}
 
 Nesse capítulo utilizaremos essencialmente funções nativas do Python. No
-entanto, para trabalhar com padrões textuais de forma mais profunda
+entanto, para trabalhar com padrões textuais de forma mais profunda,
 utilizaremos alguns pacotes externos, em especial para lidar com as
 chamadas \emph{expressões regulares}.
 
@@ -2746,32 +2761,90 @@ chamadas \emph{expressões regulares}.
 
 \section{Tipos primitivos}\label{tipos-primitivos}
 
-São três as principais formas de armazenar um valor, um pedaço de
-informação, no Python: um número, um elemento textual ou uma variável
-\emph{booleana}. No caso de elementos numéricos, são dois os tipos de
-dados: \texttt{int}, que representa um número inteiro, e \texttt{float},
-que é um número que possui uma parte inteira mas também uma parte
-decimal. Elementos textuais são sempre armazenados sob a forma de um
-\texttt{str}, que é a abreviação de \emph{string}. Por fim, um dado do
-tipo \emph{booleano} é um dado que pode ser assumir apenas dois valores:
-\textbf{True} e \textbf{False}.
+Antes de introduzirmos a noção geral de objeto, é fundamental
+compreender os tipos mais elementares de dados disponíveis no Python, a
+partir dos quais todas as estruturas mais complexas são construídas. Um
+tipo de dado define a forma como a linguagem armazena e interpreta um
+valor, isto é, um pedaço de informação que pode representar um número,
+um texto ou um valor lógico. No caso de dados numéricos, há dois tipos
+principais: \texttt{int}, utilizado para números inteiros, e
+\texttt{float}, empregado para números com parte decimal. Informações
+textuais são armazenadas no tipo \texttt{str} (abreviação de
+\emph{string}). Por fim, valores lógicos pertencem ao tipo \texttt{bool}
+e podem assumir apenas dois estados possíveis: \emph{True} ou
+\emph{False}.
+
+\begin{itemize}
+\item
+  \texttt{int}: representa números inteiros, que podem ser positivos,
+  negativos ou zero. Como discutido no Capítulo~\ref{sec-fundamentos}, é
+  fácil representar um número inteiro no sistema binário. Em um sistema
+  de 8 bits, por exemplo, é possível representar valores entre 0 e 255
+  no conjunto dos inteiros não negativos. O tamanho de um número
+  inteiro, no entanto, não é fixo em 8 bits, ele pode crescer até 64
+  bits conforme necessário e a memória disponível.
+\item
+  \texttt{float}: representa números com parte inteira e parte decimal.
+  Esses valores são armazenados internamente em ponto flutuante binário,
+  o que implica aproximação computacional na maioria dos casos e demanda
+  um certo número de bits para representar a parte inteira e um outro
+  númro de bits para representar o decimal. Isso ocorre tanto para
+  números aparentemente simples, como \(2.5\) ou \(0.0390625\), quanto
+  para dízimas periódicas, como \(0.333...\), ou números irracionais,
+  como o \(\pi\). Como regra geral, quanto maior a precisão desejada,
+  maior o custo em memória. Essa relação entre precisão, armazenamento e
+  memória será retomada em um capítulo posterior.
+\item
+  \texttt{str}: utilizado para armazenar informações textuais, esse tipo
+  representa sequências ordenadas de caracteres. Em outras palavras, a
+  ordem importa: o string ``abc'' é diferente do string ``bca''. No
+  Python, qualquer valor delimitado por aspas simples ou aspas duplas é
+  considerado um string dentro da linguagem.
+\item
+  \texttt{bool}: armazena valores lógicos, que frequentemente são
+  resultado de algum tipo de comparação. Valores booleanos serão
+  essenciais quando estudarmos estruturas de controle, como instruções
+  condicionais e métodos de iteração no próximo capítulo.
+\end{itemize}
+
+Compreender os tipos primitivos, suas propriedades e finalidades é
+essencial para evitar erros comuns, como a tentativa de realizar
+operações entre tipos incompatíveis. Além disso, o comportamento de um
+operador depende diretamente do tipo dos valores envolvidos. Lembre-se,
+o Python é uma linguagem de tipagem forte, o que significa que não
+realiza conversões automáticas entre strings e números quando a operação
+é ambígua. Assim, enquanto o operador \texttt{+} na expressão
+\texttt{\textquotesingle{}5\textquotesingle{}\ +\ \textquotesingle{}5\textquotesingle{}}
+funciona como um operador de concatenação de strings, no caso de
+\texttt{5\ +\ 5} ele representa uma soma aritmética simples. Tome
+bastante cuidado com isso.
+
+A seguir, generalizaremos essa discussão ao introduzir a noção de
+objeto, que permite compreender como o Python organiza internamente
+todos esses valores.
 
 \section{Objetos básicos}\label{objetos-buxe1sicos}
 
-Em Python, \emph{tudo} é um objeto. E um objeto nada mais é do que um
-elemento dentro da linguagem que possui (i) um tipo, (ii) um valor
-atribuído, (iii) um conjunto de métodos associados.
+Em Python, \emph{tudo} é um objeto. Isso significa que qualquer valor --
+seja um número, um texto ou um valor lógico -- possui uma estrutura
+interna bem definida. De forma simplificada, um objeto é caracterizado
+por três elementos: (i) um tipo, que determina sua categoria; (ii) um
+valor, que corresponde à informação que ele representa; e (iii) um
+conjunto de métodos, isto é, operações específicas que podem ser
+aplicadas a ele.
 
 \subsection{Strings}\label{strings}
 
-Strings não são como números inteiros ou de ponto flutuate. No Python,
-uma string nada mais é do que uma sequência ordenada de caracteres
-unicode. Eles são delimitados sempre por aspas (simplas ou duplas).
-Relembrando nosso primeiro ``programa'' da aula passada podemos atribuir
-a uma variável a string \emph{Hello, World} usando aspas.
+As strings ilustram de forma clara essa noção. Diferentemente de números
+inteiros ou de ponto flutuante, que representam quantidades numéricas,
+uma string representa uma sequência ordenada de caracteres. A ordem dos
+caracteres é relevante, e cada string é delimitada por aspas simples ou
+duplas. Relembrando nosso primeiro ``programa'' da aula passada, podemos
+atribuir a uma variável a string \emph{`Hello, World'} usando aspas:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\#\# Uso de aspas simples}
 \NormalTok{str1 }\OperatorTok{=} \StringTok{\textquotesingle{}Hello, World\textquotesingle{}}
 
 \BuiltInTok{print}\NormalTok{(str1)}
@@ -2784,10 +2857,9 @@ Hello, World
 <class 'str'>
 \end{verbatim}
 
-Usando aspas duplas o resultado seria o mesmo
-
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\#\# Uso de aspas duplas}
 \NormalTok{str2 }\OperatorTok{=} \StringTok{"Hello, World"}
 
 \BuiltInTok{print}\NormalTok{(str2)}
@@ -2800,8 +2872,10 @@ Hello, World
 <class 'str'>
 \end{verbatim}
 
-Note que podemos também usar uma sequência de três aspas duplas e
-escrever strings que percorrem várias linhas.
+Podemos ainda utilizar uma sequência de três aspas duplas e escrever
+strings que percorram várias linhas. Isso é bastante útil na
+documentação de funções personalizadas, como veremos no
+Capítulo~\ref{sec-funcoes}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2836,131 +2910,96 @@ Mario Quintana
 \subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas}
 
 Por ser uma sequência de caracteres e não um número, operações
-aritméticas (em geral) não são permitidas, mas outras operações, como
-\emph{slicing}, o são. É possível acessar um caracter específico da
-sequência utilizando a posição desse caractere, utilizando o que
-chamamos de \textbf{índice}. No caso do string \emph{`Hello, World'},
-para acessar a segunda letra podemos utilizar colchetes após o string e
-dentro dele o índice referente à posição do `e' no string:
+aritméticas, em geral, não são permitidas, mas outras operações o são.
+Uma dessas operações é chamada de \emph{slicing} ou fatiamento, que nos
+permite acessar um caracter ou uma sequência de caracteres específicos
+do string utilizando a posição -- também chamada de índice -- desse(s)
+caractere(s). No caso do string \emph{`Hello, World'}, para acessar a
+segunda letra podemos utilizar colchetes após o string e dentro dele o
+índice referente à posição do `e' no string:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \BuiltInTok{print}\NormalTok{(str1)}
+\BuiltInTok{print}\NormalTok{(str1[}\DecValTok{2}\NormalTok{])}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 Hello, World
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1[}\DecValTok{2}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-'l'
+l
 \end{verbatim}
 
 Ué, mas porque que obtivemos como resposta o caractere `l', que é o 3º
 na sequência, e não o `e', que é o 2º elemento? Aqui vai uma
-particularidade da sintaxe do Python: \textbf{em se tratando de índices,
-o Python sempre começa a contagem em 0!}. Dessa forma, para acessar o
+particularidade da sintaxe do Python: em se tratando de índices, o
+Python sempre começa a contagem em 0. Dessa forma, para acessar o
 primeiro caractere de \emph{`Hello, World'} devemos pedir
 \texttt{str1{[}0{]}}, para acessar o segundo é preciso pedir
-\texttt{str1{[}1{]}} e assim por diante.
+\texttt{str1{[}1{]}} e assim por diante. Além disso, podemos acessar
+contando de trás para frente e usando um índice negativo. Finalmente, é
+possível que o índice seja substituído por uma expressão, que deve
+sempre retornar como resultado um número inteiro.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{str1[}\DecValTok{1}\NormalTok{]}
+\CommentTok{\# Extração do segundo caractere do string pelo índice positivo}
+\BuiltInTok{print}\NormalTok{(str1[}\DecValTok{1}\NormalTok{])}
+
+\CommentTok{\# Extração do segundo caractere do string pelo índice negativo}
+\BuiltInTok{print}\NormalTok{(str1[}\OperatorTok{{-}}\DecValTok{11}\NormalTok{])}
+
+\CommentTok{\# Extração do segundo caractere do string através de uma expressão}
+\NormalTok{n }\OperatorTok{=} \DecValTok{0}
+\BuiltInTok{print}\NormalTok{(str1[n}\OperatorTok{+}\DecValTok{1}\NormalTok{])}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-'e'
+e
+e
+e
 \end{verbatim}
 
-Podemos acessar contando de trás para frente e usando um índice negativo
+Para extrair não um único caractere, mas uma sequência (ou fatia) de
+caracteres do string podemos utilizar um intervalo de índices, que
+inclui o caractere representado pelo índice inicial mas exclui o
+caractere representado pelo índice final. Para extrair a primeira
+palavra do string \emph{`Hello, World'}, por exemplo, devemos utilizar o
+intervalo que começa em 0 (posição do `H') e termina em 5 (posição da
+vírgula).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{str1[}\OperatorTok{{-}}\DecValTok{11}\NormalTok{]}
+\BuiltInTok{print}\NormalTok{(str1[}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{])}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-'e'
+Hello
 \end{verbatim}
 
-É possível que o índice seja uma expressão, mas deve sempre ser um valor
-inteiro.
+Para além do fatiamento, é possível utilizar o operador aritmético
+\texttt{+} como uma forma de ``somar'' strings. Formalmente, o que essa
+operação faz é concatenar os strings, transformando múltiplos strings em
+um novo objeto do tipo \texttt{str} que replica a ordem do primeiro
+string, seguido dos caracteres ordenados do segundo (e terceiro,
+quarto,\ldots) string.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{n}\OperatorTok{=}\DecValTok{0}
-\NormalTok{str1[n}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{uniao\_str }\OperatorTok{=}\NormalTok{ str1 }\OperatorTok{+} \StringTok{\textquotesingle{} {-}{-}{-} \textquotesingle{}} \OperatorTok{+}\NormalTok{ str2}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(uniao\_str))}
+\BuiltInTok{print}\NormalTok{(uniao\_str)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-'e'
+<class 'str'>
+Hello, World --- Hello, World
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1[}\FloatTok{1.5}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Highlighting}
-\textcolor{black}{TypeError: string indices must be integers, not 'float'}
-\textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[10]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{str1}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{1.5}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: string indices must be integers, not 'float'}
-\end{Highlighting}
-
-Para acessar uma \textbf{fatia} (\emph{slice}) do string podemos
-utilizar um intervalo de índices (inclusive o índice inicial e exclusive
-o índice final). Por exemplo,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1[}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-'Hello'
-\end{verbatim}
-
-Além de ser possível calcular o número de caracteres em uma sequência
-string utilizando a função integrada \texttt{len()}, podemos
-``concatenar'' ou ``somar'' strings utilizando apenas o sinal de +
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{len}\NormalTok{(str1)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-12
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1 }\OperatorTok{+} \StringTok{\textquotesingle{} {-}{-}{-} \textquotesingle{}} \OperatorTok{+}\NormalTok{ str2}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-'Hello, World --- Hello, World'
-\end{verbatim}
-
-Note, porém, que strings são \textbf{imutáveis}, de modo que caso queira
+Note, porém, que strings são \emph{imutáveis}, de modo que caso queira
 substituir um dos caracteres dentro de um string é preciso utilizar uma
 função específica para isso ou criar um novo string derivado do 1º.
 Apenas tentar substituir um dos caracteres de um string já definido não
@@ -2977,7 +3016,7 @@ Apenas tentar substituir um dos caracteres de um string já definido não
 \textcolor{black}{TypeError: 'str' object does not support item assignment}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[14]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 2}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[9]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 2}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{      1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor5}{# Tentemos substituir o 'e' do str1 por 'a'}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{str1}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{1}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{ = }\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{a}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: 'str' object does not support item assignment}
@@ -2993,112 +3032,91 @@ objeto do nosso estudo daqui algumas aulas.
 
 No caso dos métodos, temos que passar o nome da string que foi definida
 anteriormente seguida de `.' e depois do comando relacionado ao método
-específico. Dentre os principais métodos aplicáveis a strings e suas
-funcionalidades podemos citar:
+específico. Considere um string de exemplo nomeado como
+\texttt{str\_example}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{str\_example}\OperatorTok{=}\StringTok{\textquotesingle{} Hello, World\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+Dentre os principais métodos aplicáveis a strings e suas funcionalidades
+podemos citar:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{str\_example.upper()}: devolve a string `str\_example' toda em
-  letras maiúsculas.
+  \textbf{str\_example.upper()} e \textbf{str\_example.lower()}: devolve
+  a string \texttt{str\_example} toda em letras maiúsculas ou
+  minúsculas, respectivamente.
+
+  ::: \{.cell execution\_count=11\}
+  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.upper())\ \ print(str\_example.lower())}
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{HELLO,\ WORLD\ \ \ hello,\ world} ::: :::
 \item
-  \textbf{str\_example.lower()}: devolve a string `str\_example' toda em
-  letras minúsculas.
+  \textbf{str\_example.strip()}: devolve a string retirando possíveis
+  espaços em branco no início e no fim da string.
+
+  ::: \{.cell execution\_count=12\}
+  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.strip())}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{Hello,\ World} :::
+  :::
 \item
-  \textbf{str\_example.strip()}: devolve a string `str\_example'
-  retirando possíveis espaços em branco no início e no fim da string.
-\item
-  \textbf{str\_example.startswith(`xyz')}: testa se a string
-  `str\_example' começa com a string `xyz'.
-\item
-  \textbf{str\_example.endswith(`xyz')}: testa se a string
-  `str\_example' termina com a string `xyz'.
+  \textbf{str\_example.startswith(`xyz')} e
+  \textbf{str\_example.endswith(`xyz')}: testa se a string começa ou
+  termina, respectivamente, com os caracteres `xyz'.
+
+  ::: \{.cell execution\_count=13\}
+  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.startswith(\textquotesingle{}\ \textquotesingle{}))\ \ print(str\_example.endswith(\textquotesingle{}d\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{True\ \ True} ::: :::
 \item
   \textbf{str\_example.find(`xyz')}: procura a string `xyz' dentro de
-  `str\_example' e retorna o primeiro índice onde `xyz' começa ou
+  \texttt{str\_example} e retorna o primeiro índice onde `xyz' começa ou
   retorna -1 se nada for encontrado.
+
+  ::: \{.cell execution\_count=14\}
+  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.find(\textquotesingle{},\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{6} ::: :::
 \item
   \textbf{str\_example.replace(`old',`new')}: retorna uma string nova
-  onde todas as ocorrências de `old' encontradas em `str\_example' serão
-  substituídas por `new'.
+  onde todas as ocorrências de `old' encontradas serão substituídas por
+  `new'.
+
+  ::: \{.cell execution\_count=15\}
+  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.replace(\textquotesingle{}Hello\textquotesingle{},\textquotesingle{}World\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{World,\ World} :::
+  :::
 \end{enumerate}
 
 Além desses principais, existem outros vários métodos para strings. Esse
 \href{https://docs.python.org/pt-br/3/library/stdtypes.html\#textseq}{link}
 é um bom ponto de partida para quem quiser conhecer outros exemplos.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1 }\OperatorTok{=} \StringTok{\textquotesingle{} Hello, World \textquotesingle{}}
-
-\BuiltInTok{print}\NormalTok{(str1.upper())}
-\BuiltInTok{print}\NormalTok{(str1.lower())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- HELLO, WORLD 
- hello, world 
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(str1.strip())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Hello, World
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(str1.startswith(}\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(str1.endswith(}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-False
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(str1.find(}\StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-6
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(str1.replace(}\StringTok{\textquotesingle{}Hello\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}World\textquotesingle{}}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- World, World 
-\end{verbatim}
-
 \subsubsection{Formatação e a instrução
 print}\label{formatauxe7uxe3o-e-a-instruuxe7uxe3o-print}
 
 Um método sobre o qual não falamos, mas que é bastante interessante
-quando queremos, por exemplo, printar bonitinho o resultado de
-determinada operação é \texttt{s.format()}. Com esse método podemos
-converter uma variável numérica para uma formato específico e printá-la
-dentro de um string maior. Imagine, por exemplo, que estejamos
-interessados em printar o valor de \(\pi\) arredondado para 2 casas
-decimais apenas dentro de um string que diz isso. Podemos implementar
-isso da seguinte forma
+quando queremos, por exemplo, printar o resultado de determinada
+operação é \texttt{s.format()}. Com esse método podemos converter uma
+variável numérica para uma formato específico e printá-la dentro de um
+string maior. Imagine, por exemplo, que estejamos interessados em
+printar o valor de \(\pi\) arredondado para 2 casas decimais apenas
+dentro de um string que diz isso. Podemos implementar isso da seguinte
+forma
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pi }\OperatorTok{=} \FloatTok{3.1415926535}
-\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}O valor de pi arredondado para 2 casas decimais é }\SpecialCharTok{\{:.2f\}}\StringTok{. Interessante, não?\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(pi))}
+\NormalTok{string\_base}\OperatorTok{=}\StringTok{\textquotesingle{}O valor de pi arredondado para 2 casas decimais é }\SpecialCharTok{\{:.2f\}}\StringTok{. Interessante, não?\textquotesingle{}}
+
+\BuiltInTok{print}\NormalTok{(string\_base.}\BuiltInTok{format}\NormalTok{(pi))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3114,19 +3132,6 @@ detalhes de todas as formatações possíveis, mas podemos ver um pouco
 mais disso
 \href{https://www.w3schools.com/python/ref_string_format.asp}{aqui}.
 
-Podemos também usar mais de um número dentro do mesmo método format. Por
-exemplo,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}O valor de pi arredondado para 2 casas decimais é }\SpecialCharTok{\{:.2f\}}\StringTok{. Com 4 casas decimais, no entanto, o número é um pouco maior e igual a }\SpecialCharTok{\{:.4f\}}\StringTok{. Interessante, não?\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(pi,pi))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-O valor de pi arredondado para 2 casas decimais é 3.14. Com 4 casas decimais, no entanto, o número é um pouco maior e igual a 3.1416. Interessante, não?
-\end{verbatim}
-
 \subsubsection{Introdução a expressões
 regulares}\label{introduuxe7uxe3o-a-expressuxf5es-regulares}
 
@@ -3134,17 +3139,17 @@ Por vezes queremos encontrar um padrão específico de texto (e.g., placas
 de carro, e-mails ou números de telefone) dentro de um texto maior, para
 realizar algum tipo de coleta, limpeza ou mesmo substituição que um
 simples \texttt{str.replace()} não dá conta. Para realizar tal ação
-podemos utilizar as famosas \textbf{Expressões Regulares}, também
+podemos utilizar as famosas \emph{Expressões Regulares}, também
 conhecidas como \emph{Regular Expressions} no inglês, ou simplesmente
 \emph{Regex}.
 
 As expressões regulares são em essência uma potente linguagem para
 especificar padrões de texto. De forma mais detalhada, é uma composição
-dos chamados \textbf{metacaracteres}, caracteres com funções especiais,
-que, agrupados entre si e em conjunto com caracteres literais, formam
-uma sequência, uma expressão. Essa expressão é interpretada como uma
-regra que indicará sucesso se uma entrada de dados qualquer casar com
-essa regra, ou seja, obedecer exatamente a todas as suas condições.
+dos chamados metacaracteres, caracteres com funções especiais, que,
+agrupados entre si e em conjunto com caracteres literais, formam uma
+sequência, uma expressão. Essa expressão é interpretada como uma regra
+que indicará sucesso se uma entrada de dados qualquer casar com essa
+regra, ou seja, obedecer exatamente a todas as suas condições.
 
 Imagine que você tenha o string abaixo, que mostra o texto de um trecho
 de uma notícia da CNN sobre o resultado da Pesquisa Datafolha para
@@ -3160,7 +3165,6 @@ presidente divulgada em 18/08/2022 (link para a matéria completa
 
 \StringTok{Na sequência, aparecem Ciro Gomes (PDT), com 7\%; Simone Tebet (MDB), com 2\%, e Vera Lúcia (PSTU), com 1\%.}
 \StringTok{"""}
-
 \BuiltInTok{print}\NormalTok{(pesquisa)}
 \end{Highlighting}
 \end{Shaded}
@@ -3214,26 +3218,7 @@ o que acontece se usarmos isso dentro de \texttt{re.sub()}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pesquisa2 }\OperatorTok{=}\NormalTok{ re.sub(}\StringTok{\textquotesingle{}[0{-}9]\{1,2\}\%\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ZZZ\textquotesingle{}}\NormalTok{,pesquisa)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(pesquisa)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-Pesquisa Datafolha divulgada nesta quinta-feira (18) mostra o ex-presidente Luiz Inácio Lula da Silva (PT) à frente, 
-com 47% das intenções de voto na corrida pelo Palácio do Planalto. O presidente Jair Bolsonaro (PL) tem 32%. 
-O primeiro turno das eleições acontece em 2 de outubro.
-
-Na sequência, aparecem Ciro Gomes (PDT), com 7%; Simone Tebet (MDB), com 2%, e Vera Lúcia (PSTU), com 1%.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \BuiltInTok{print}\NormalTok{(pesquisa2)}
 \end{Highlighting}
 \end{Shaded}
@@ -3250,11 +3235,11 @@ Na sequência, aparecem Ciro Gomes (PDT), com ZZZ; Simone Tebet (MDB), com ZZZ, 
 Conseguimos exatamente o que a gente queria. Boa, time!
 
 Pare um pouco e pense sobre a aplicabilidade dessa ferramenta dentro de
-um mundo repleto de dados não-estruturados, como tweets e notícias.
-\textbf{O potencial de uso é gigante!} Mas como dissemos, o mundo de
-\emph{regex} é muito grande e existem cursos e livros que se dedicam
-integralmente a estudar essa linguagem de padrões textuais. Uma boa
-referência introdutória é o livro
+um mundo repleto de dados não-estruturados, como tweets e notícias. O
+potencial de uso é gigante! Mas como dissemos, o mundo de \emph{regex} é
+muito grande e existem cursos e livros que se dedicam integralmente a
+estudar essa linguagem de padrões textuais. Uma boa referência
+introdutória é o livro
 \href{https://www.amazon.com.br/Express\%C3\%B5es-Regulares-Uma-Abordagem-Divertida/dp/8575224743}{Expressões
 Regulares: Uma Abordagem Divertida}.
 
@@ -3276,14 +3261,14 @@ devemos escrever a seguinte linha de código:
 \begin{Highlighting}[]
 \NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
 
-\BuiltInTok{print}\NormalTok{(lista1)}
 \BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(lista1))}
+\BuiltInTok{print}\NormalTok{(lista1)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1, 2, 3, 4, 5]
 <class 'list'>
+[1, 2, 3, 4, 5]
 \end{verbatim}
 
 Podemos definir uma lista de strings, uma lista mista de strings e
@@ -3291,8 +3276,8 @@ números, e uma lista composto por outras listas (lista aninhada):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{lista2 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Claudio Lucinda\textquotesingle{}}\NormalTok{]}
-\NormalTok{lista3 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Turma 2024201\textquotesingle{}}\NormalTok{,}\FloatTok{46.0}\NormalTok{,}\StringTok{\textquotesingle{}Turmas 2024202\textquotesingle{}}\NormalTok{,}\DecValTok{49}\NormalTok{,}\StringTok{\textquotesingle{}Turmas 2024221\textquotesingle{}}\NormalTok{,}\DecValTok{81}\NormalTok{]}
+\NormalTok{lista2 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Artur Viaro\textquotesingle{}}\NormalTok{]}
+\NormalTok{lista3 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Turma 2026101\textquotesingle{}}\NormalTok{,}\FloatTok{43.0}\NormalTok{,}\StringTok{\textquotesingle{}Turmas 2026102\textquotesingle{}}\NormalTok{,}\DecValTok{25}\NormalTok{,}\StringTok{\textquotesingle{}Turmas 2026121\textquotesingle{}}\NormalTok{,}\DecValTok{39}\NormalTok{,}\StringTok{\textquotesingle{}Turmas 2026122\textquotesingle{}}\NormalTok{,}\DecValTok{45}\NormalTok{]}
 \NormalTok{lista4 }\OperatorTok{=}\NormalTok{ [lista1, lista2]}
 
 \BuiltInTok{print}\NormalTok{(lista2)}
@@ -3302,9 +3287,9 @@ números, e uma lista composto por outras listas (lista aninhada):
 \end{Shaded}
 
 \begin{verbatim}
-['Danilo Souza', 'Claudio Lucinda']
-['Turma 2024201', 46.0, 'Turmas 2024202', 49, 'Turmas 2024221', 81]
-[[1, 2, 3, 4, 5], ['Danilo Souza', 'Claudio Lucinda']]
+['Danilo Souza', 'Artur Viaro']
+['Turma 2026101', 43.0, 'Turmas 2026102', 25, 'Turmas 2026121', 39, 'Turmas 2026122', 45]
+[[1, 2, 3, 4, 5], ['Danilo Souza', 'Artur Viaro']]
 \end{verbatim}
 
 De forma análoga à listas com elementos não vazios, é possível definir
@@ -3325,9 +3310,9 @@ uma lista vazia utilizando apenas os colchetes:
 \subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-1}
 
 A sintaxe para acessar os elementos de uma lista é a mesma que para
-acessar os caracteres de uma string: o operador de colchete. A expressão
-dentro dos colchetes especifica o índice ou o intervalo de índices.
-\textbf{Lembrando que o índice no Python começa em ZERO e não em UM}
+acessar os caracteres de uma string. A expressão dentro dos colchetes
+especifica o índice ou o intervalo de índices. Lembrando que o índice no
+Python começa em ZERO e não em UM.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3340,20 +3325,24 @@ dentro dos colchetes especifica o índice ou o intervalo de índices.
 
 \begin{verbatim}
 Danilo Souza
-Claudio Lucinda
-81
-['Turma 2024201', 46.0]
+Artur Viaro
+45
+['Turma 2026101', 43.0]
 \end{verbatim}
 
-Diferente das strings, listas são mutáveis. Quando o operador de
+Diferente das strings, no entanto, listas são objetos mutáveis, isto é,
+objetos que podem ser alterados internamente. Quando o operador de
 colchete aparece do lado esquerdo de uma atribuição, ele identifica o
-elemento da lista que será atribuído:
+elemento da lista que será atribuído. No exemplo abaixo, O segundo
+elemento da lista \texttt{numbers} (índice 1), que era 123 na atribuição
+inicial, passa a ser 5 após a substituição do elemento na lista.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{numbers }\OperatorTok{=}\NormalTok{ [}\DecValTok{42}\NormalTok{, }\DecValTok{123}\NormalTok{]}
 \NormalTok{numbers[}\DecValTok{1}\NormalTok{] }\OperatorTok{=} \DecValTok{5}
-\NormalTok{numbers}
+
+\BuiltInTok{print}\NormalTok{(numbers)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3361,134 +3350,134 @@ elemento da lista que será atribuído:
 [42, 5]
 \end{verbatim}
 
-O segundo elemento de numbers (índice 1), que era 123, agora é 5.
-
 Índices de listas funcionam da mesma forma que os índices de strings:
 
 \begin{itemize}
 \item
   Qualquer expressão de números inteiros pode ser usada como índice.
 \item
-  Se tentar ler ou escrever um elemento que não existe, você recebe um
-  \texttt{IndexError}.
+  Caso você tente extrair ou sobrescrever um elemento que não existe,
+  você receberá um erro do tipo \texttt{IndexError}.
 \item
   Se um índice tiver um valor negativo, ele conta de trás para a frente,
   a partir do final da lista.
 \end{itemize}
 
-O operador \texttt{in}, que serve ao propósito de testar a existência de
-determinado elemento dentro de um objeto específico, também funciona com
-listas:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{cheeses }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Cheddar\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Gorgonzola\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Gouda\textquotesingle{}}\NormalTok{]}
-\CommentTok{\textquotesingle{}Edam\textquotesingle{}} \KeywordTok{in}\NormalTok{ cheeses}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-False
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\textquotesingle{}Brie\textquotesingle{}} \KeywordTok{in}\NormalTok{ cheeses}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-False
-\end{verbatim}
-
 Assim como com strings, é possível calcular o número de elementos em uma
 lista utilizando a função integrada \texttt{len()} e ``concatenar'' ou
-``somar'' listas utilizando apenas o sinal de +
+``somar'' listas utilizando apenas o operador aritmético \texttt{+}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{len}\NormalTok{(cheeses))}
+\NormalTok{produtos\_mercado }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}alface\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}tomate\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}arroz\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ovos\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}carne moída\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}sabão líquido\textquotesingle{}}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{len}\NormalTok{(produtos\_mercado))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-3
+6
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{lista\_soma }\OperatorTok{=}\NormalTok{ lista2 }\OperatorTok{+}\NormalTok{ cheeses}
-\BuiltInTok{print}\NormalTok{(lista\_soma)}
+\NormalTok{novos\_produtos }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}papel higiênico\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}pasta de dente\textquotesingle{}}\NormalTok{]}
+
+\NormalTok{lista\_concatenada }\OperatorTok{=}\NormalTok{ produtos\_mercado }\OperatorTok{+}\NormalTok{ novos\_produtos}
+\BuiltInTok{print}\NormalTok{(lista\_concatenada)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-['Danilo Souza', 'Claudio Lucinda', 'Cheddar', 'Gorgonzola', 'Gouda']
+['alface', 'tomate', 'arroz', 'ovos', 'carne moída', 'sabão líquido', 'papel higiênico', 'pasta de dente']
 \end{verbatim}
 
 \subsubsection{Métodos de listas}\label{muxe9todos-de-listas}
 
 As listas também possuem métodos bastante úteis, que nos facilitam a
-vida em várias dimensões. Dentre os principais métodos aplicáveis a
-listas e suas funcionalidades podemos citar:
+vida em várias dimensões. Considere uma lista de exemplo nomeada como
+\texttt{list\_example}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list\_example}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Dentre os principais métodos aplicáveis a listas e suas funcionalidades
+podemos citar:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
   \textbf{lista\_example.append()}: adiciona um novo elemento ao fim da
   lista ``lista\_example''.
+
+  ::: \{.cell execution\_count=27\} ``` \{.python .cell-code\}
+  list\_example.append(`g')
+
+  print(list\_example) ```
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
+  ::: :::
 \item
   \textbf{lista\_example.extend(lista2)}: toma a lista
   ``lista\_example'' como argumento e adiciona todos os elementos de
   lista2 como novos elementos da lista inicial.
+
+  ::: \{.cell execution\_count=28\} ``` \{.python .cell-code\} l2 =
+  {[}`e',`d',`f'{]} list\_example.extend(l2)
+
+  print(list\_example) ```
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}g\textquotesingle{},\ \textquotesingle{}e\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}f\textquotesingle{}{]}}
+  ::: :::
 \item
   \textbf{lista\_example.sort()}: classifica os elementos de
   ``lista\_example'' em ordem ascendente.
+
+  ::: \{.cell execution\_count=29\} ``` \{.python .cell-code\}
+  list\_example.sort()
+
+  print(list\_example) ```
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}e\textquotesingle{},\ \textquotesingle{}f\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
+  ::: :::
 \item
   \textbf{lista\_example.remove(x)}: exclui o elemento igual a ``x'' de
   ``lista\_example''. É um método bastante útil quando queremos excluir
   um elemento específico, mas não sabemos sua posição dentro da lista.
+
+  ::: \{.cell execution\_count=30\} ``` \{.python .cell-code\}
+  list\_example.remove(`e')
+
+  print(list\_example) ```
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}f\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
+  ::: :::
 \end{enumerate}
 
-A maior parte dos métodos de listas são nulos; eles alteram a lista e
-retornam None. Se você escrever \texttt{t\ =\ t.sort()} por acidente,
-ficará desapontado com o resultado.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{]}
-\NormalTok{t.append(}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(t)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-['a', 'b', 'c', 'd']
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{t1 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{]}
-\NormalTok{t2 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{]}
-\NormalTok{t1.extend(t2)}
-\BuiltInTok{print}\NormalTok{(t1)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-['a', 'b', 'c', 'd', 'e']
-\end{verbatim}
+Note que a maior parte dos métodos de listas alteram a lista original
+mas não retornam nenhum valor. Dessa forma, atribuir a um objeto o
+resultado da aplicação de um método em uma lista não é uma boa prática.
+Se você escrever \texttt{ts\ =\ t.sort()}, por exemplo, ficará
+desapontado com o resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{t }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{]}
-\NormalTok{t.sort()}
-\BuiltInTok{print}\NormalTok{(t)}
+\NormalTok{ts }\OperatorTok{=}\NormalTok{ t.sort()}
+
+\BuiltInTok{print}\NormalTok{(ts)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-['a', 'b', 'c', 'd', 'e']
+None
 \end{verbatim}
 
 Assim como já explicamos, uma lista é uma sequência de valores e uma
@@ -3498,14 +3487,14 @@ caracteres, você pode usar o comando \texttt{list}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{}spam\textquotesingle{}}
+\NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{}aula\textquotesingle{}}
 \NormalTok{t }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(s)}
 \BuiltInTok{print}\NormalTok{(t)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-['s', 'p', 'a', 'm']
+['a', 'u', 'l', 'a']
 \end{verbatim}
 
 A função \texttt{list} quebra uma string em letras individuais. Se você
@@ -3519,26 +3508,15 @@ argumento em \texttt{split()} nesse caso?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{}pining for the fjords\textquotesingle{}}
-\NormalTok{t }\OperatorTok{=}\NormalTok{ s.split(}\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(t)}
+\NormalTok{j }\OperatorTok{=} \StringTok{\textquotesingle{}a pressa é inimiga da perfeição\textquotesingle{}}
+\NormalTok{s }\OperatorTok{=}\NormalTok{ j.split(}\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(s)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-['pining', 'for', 'the', 'fjords']
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{}spam{-}spam{-}spam\textquotesingle{}}
-\NormalTok{t }\OperatorTok{=}\NormalTok{ s.split(}\StringTok{\textquotesingle{}{-}\textquotesingle{}}\NormalTok{)}
-\NormalTok{t}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-['spam', 'spam', 'spam']
+['a', 'pressa', 'é', 'inimiga', 'da', 'perfeição']
 \end{verbatim}
 
 O método \texttt{join()} é o contrário de \texttt{split()}. Ele toma uma
@@ -3548,35 +3526,34 @@ lista de strings e concatena os elementos. \texttt{join()}, no entanto,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}spam\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}spam\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}spam\textquotesingle{}}\NormalTok{]}
-\NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{} {-} \textquotesingle{}}\NormalTok{.join(t)}
-\BuiltInTok{print}\NormalTok{(s)}
+\NormalTok{s }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}pressa\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}é\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}inimiga\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}da\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}perfeição\textquotesingle{}}\NormalTok{]}
+\NormalTok{j }\OperatorTok{=} \StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{.join(s)}
+
+\BuiltInTok{print}\NormalTok{(j)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-spam - spam - spam
+a pressa é inimiga da perfeição
 \end{verbatim}
 
 Além desses principais, existem outros vários métodos para listas. Esse
 \href{https://developers.google.com/edu/python/lists}{link} é um bom
 ponto de partida para quem quiser conhecer outros exemplos.
 
-\section{Tuplas}\label{tuplas}
+\subsection{Tuplas}\label{tuplas}
 
 Agora falaremos de mais um tipo de objeto básico do Python, a tupla. Uma
-tupla é uma sequência de valores. Os valores podem ser de qualquer tipo,
-e podem ser indexados por números inteiros, portanto, nesse sentido, as
-tuplas são muito parecidas com as listas. A diferença importante é que
-as tuplas são \textbf{imutáveis}, assim como os strings.
-
-Em resumo, uma tupla é uma lista de valores separados por vírgulas e em
-geral delimitado por parênteses (lembre que listas são delimitadas por
-colchetes):
+tupla é uma sequência de valores. Os valores podem ser de qualquer tipo
+e são indexados por números inteiros, o que faz das tuplas objetos
+bastante parecidos com as listas. A diferença crucial está no fato de
+que as tuplas são \emph{imutáveis}, assim como os strings. Em resumo,
+uma tupla é uma lista de valores separados por vírgulas e delimitado por
+parênteses (lembre que listas são delimitadas por colchetes):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=}\NormalTok{ (}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{)}
+\NormalTok{t }\OperatorTok{=}\NormalTok{ (}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{)}
 
 \BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(t))}
 \end{Highlighting}
@@ -3586,8 +3563,8 @@ colchetes):
 <class 'tuple'>
 \end{verbatim}
 
-Um único valor entre parênteses não é uma tupla. Para criar uma tupla
-com um único elemento, é preciso incluir uma vírgula final após o
+Note que um único valor entre parênteses não é uma tupla. Para criar uma
+tupla com um único elemento, é preciso incluir uma vírgula final após o
 elemento, com ou sem os parênteses.
 
 \begin{Shaded}
@@ -3615,35 +3592,30 @@ elementos da sequência:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=} \BuiltInTok{tuple}\NormalTok{()}
-\BuiltInTok{print}\NormalTok{(t)}
+\NormalTok{t1 }\OperatorTok{=} \BuiltInTok{tuple}\NormalTok{()}
+\NormalTok{t2 }\OperatorTok{=} \BuiltInTok{tuple}\NormalTok{(}\StringTok{\textquotesingle{}tupla\textquotesingle{}}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(t1)}
+\BuiltInTok{print}\NormalTok{(t2)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ()
+('t', 'u', 'p', 'l', 'a')
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=} \BuiltInTok{tuple}\NormalTok{(}\StringTok{\textquotesingle{}lupins\textquotesingle{}}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(t)}
-\end{Highlighting}
-\end{Shaded}
+\subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-2}
 
-\begin{verbatim}
-('l', 'u', 'p', 'i', 'n', 's')
-\end{verbatim}
-
-\subsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-2}
-
-A maior parte dos operadores de lista também funciona em tuplas. O
-operador de colchetes indexa um elemento e o operador de fatia seleciona
-vários elementos.
+A maior parte dos operadores de lista também funciona em tuplas. O uso
+de colchetes após o nome da tupla serve para operações de indexação e
+fatiamento, selecionando um único elemento ou uma sequência de vários
+elementos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{t }\OperatorTok{=}\NormalTok{ (}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{)}
+
 \BuiltInTok{print}\NormalTok{(t[}\DecValTok{0}\NormalTok{])}
 \BuiltInTok{print}\NormalTok{(t[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{])}
 \end{Highlighting}
@@ -3654,8 +3626,10 @@ a
 ('b', 'c')
 \end{verbatim}
 
-Entretanto, se tentar alterar um dos elementos da tupla, vai receber um
-erro:
+Entretanto, se você tentar alterar um dos elementos da tupla, vai
+receber um erro. Como tuplas são objetos imutáveis, você não pode
+alterar seus elementos diretamente. Para ``alterar'' uma tupla, é
+preciso criar uma nova tupla.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3667,55 +3641,16 @@ erro:
 \textcolor{black}{TypeError: 'tuple' object does not support item assignment}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[47]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[39]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{t}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{0}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{ = }\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{A}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: 'tuple' object does not support item assignment}
 \end{Highlighting}
 
-Como tuplas são imutáveis, você não pode alterar os elementos, mas pode
-substituir uma tupla por outra.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=}\NormalTok{ (}\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{,) }\OperatorTok{+}\NormalTok{ t[}\DecValTok{1}\NormalTok{:]}
-\BuiltInTok{print}\NormalTok{(t)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-('A', 'b', 'c', 'd', 'e')
-\end{verbatim}
-
-Os operadores relacionais funcionam com tuplas e outras sequências. O
-Python começa comparando o primeiro elemento de cada sequência. Se forem
-iguais, vai para os próximos elementos, e assim por diante, até que
-encontre elementos que sejam diferentes. Os elementos subsequentes não
-são considerados (mesmo se forem muito grandes).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{) }\OperatorTok{\textless{}}\NormalTok{ (}\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2000000}\NormalTok{) }\OperatorTok{\textless{}}\NormalTok{ (}\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\subsection{Atribuição de tuplas}\label{atribuiuxe7uxe3o-de-tuplas}
+\subsubsection{Atribuição de tuplas}\label{atribuiuxe7uxe3o-de-tuplas}
 
 Muitas vezes, é útil trocar os valores de duas variáveis. Com a
-atribuição convencional, é preciso usar uma variável temporária. Por
+atribuição convencional, é preciso usar uma variável temporária. Essa
+solução é trabalhosa; a atribuição de tuplas é mais elegante. Por
 exemplo, trocar a e b.
 
 \begin{Shaded}
@@ -3753,44 +3688,19 @@ Essa solução é trabalhosa; a atribuição de tuplas é mais elegante:
 \end{verbatim}
 
 O lado esquerdo é uma tupla de variáveis e o lado direito é uma tupla de
-expressões. Cada valor é atribuído à sua respectiva variável. Todas as
-expressões no lado direito são avaliadas antes de todas as atribuições.
-
-O número de variáveis à esquerda e o número de valores à direita
-precisam ser iguais:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{a, b }\OperatorTok{=} \DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Highlighting}
-\textcolor{black}{ValueError: too many values to unpack (expected 2)}
-\textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{ValueError}\textcolor{QuartoInternalColor2}{                                Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[53]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ a, b = }\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor3}{3}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{ValueError}\textcolor{QuartoInternalColor2}{: too many values to unpack (expected 2)}
-\end{Highlighting}
-
-De forma geral, o lado direito pode ter qualquer tipo de sequência
-(string, lista ou tupla). Por exemplo, para dividir um endereço de email
-em um nome de usuário e um domínio, você poderia escrever:
+expressões. Cada valor é atribuído à sua respectiva variável. De forma
+geral, o lado direito pode ter qualquer tipo de sequência (string, lista
+ou tupla). Por exemplo, para dividir um endereço de email em um nome de
+usuário e um domínio, você poderia escrever utilizar o método
+\texttt{split}. O valor de retorno do \texttt{split()} é uma lista com
+dois elementos; o primeiro elemento é atribuído a \texttt{uname}, o
+segundo a \texttt{domain}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{addr }\OperatorTok{=} \StringTok{\textquotesingle{}monty@python.org\textquotesingle{}}
 \NormalTok{uname, domain }\OperatorTok{=}\NormalTok{ addr.split(}\StringTok{\textquotesingle{}@\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
-O valor de retorno do \texttt{split()} é uma lista com dois elementos; o
-primeiro elemento é atribuído a \texttt{uname}, o segundo a
-\texttt{domain}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \BuiltInTok{print}\NormalTok{(uname)}
 \BuiltInTok{print}\NormalTok{(domain)}
 \end{Highlighting}
@@ -3801,81 +3711,28 @@ monty
 python.org
 \end{verbatim}
 
-\subsection{Tuplas como valores de
-retorno}\label{tuplas-como-valores-de-retorno}
-
-Falando estritamente, uma função só pode retornar um valor, mas se o
-valor for uma tupla, o efeito é o mesmo que retornar valores múltiplos.
-Por exemplo, se você quiser dividir dois números inteiros e calcular o
-quociente e resto, não é eficiente calcular \texttt{x/y} e depois
-\texttt{x\%y}. É melhor calcular ambos ao mesmo tempo. A função
-integrada \texttt{divmod} toma dois argumentos e devolve uma tupla de
-dois valores: o quociente e o resto da divisão do primeiro termo pelo
-segundo termo. Você pode guardar o resultado como uma tupla:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\DecValTok{7}\OperatorTok{//}\DecValTok{3}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\DecValTok{7}\OperatorTok{\%}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-2
-1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{t }\OperatorTok{=} \BuiltInTok{divmod}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-
-\BuiltInTok{print}\NormalTok{(t)}
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(t))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-(2, 1)
-<class 'tuple'>
-\end{verbatim}
-
-\subsection{Operações nativas com
+\subsubsection{Operações nativas com
 tuplas}\label{operauxe7uxf5es-nativas-com-tuplas}
 
-\texttt{zip} é uma função integrada que recebe duas ou mais sequências e
-devolve uma lista de tuplas onde cada tupla contém um elemento de cada
+A função nativa \texttt{zip} recebe duas ou mais sequências e devolve
+uma lista de tuplas onde cada tupla contém um elemento de cada
 sequência. O nome da função tem a ver com o zíper, que se junta e
-encaixa duas carreiras de dentes.
-
-Este exemplo encaixa uma string e uma lista:
+encaixa duas carreiras de dentes. O resultado é um objeto \texttt{zip}
+que sabe como percorrer os elementos pareados. O exemplo abaixo encaixa
+uma string e uma lista:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{s }\OperatorTok{=} \StringTok{\textquotesingle{}abc\textquotesingle{}}
 \NormalTok{t }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{]}
-\BuiltInTok{zip}\NormalTok{(s,t)}
+\NormalTok{z }\OperatorTok{=} \BuiltInTok{zip}\NormalTok{(s,t)}
+
+\BuiltInTok{print}\NormalTok{(z)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<zip at 0x1bad7434cc0>
-\end{verbatim}
-
-O resultado é um objeto \texttt{zip} que sabe como percorrer os pares. O
-uso mais comum de \texttt{zip} é em um loop \texttt{for} (falaremos
-sobre loops mais adiante no curso):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{for}\NormalTok{ pair }\KeywordTok{in} \BuiltInTok{zip}\NormalTok{(s, t):}
-    \BuiltInTok{print}\NormalTok{(pair)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-('a', 0)
-('b', 1)
-('c', 2)
+<zip object at 0x000001A244CCC340>
 \end{verbatim}
 
 Um objeto \texttt{zip} é um tipo de iterador, ou seja, qualquer objeto
@@ -3883,11 +3740,13 @@ que percorre ou itera sobre uma sequência. Iteradores são semelhantes a
 listas em alguns aspectos, mas, ao contrário de listas, não é possível
 usar um índice para selecionar um elemento de um iterador. Se quiser
 usar operadores e métodos de lista, você pode usar um objeto
-\texttt{zip} para fazer uma lista:
+\texttt{zip} para fazer uma lista. O resultado é uma lista de tuplas.
+Neste exemplo, cada tupla contém um caractere da string e o elemento
+correspondente da lista.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\BuiltInTok{list}\NormalTok{(}\BuiltInTok{zip}\NormalTok{(s, t))}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{list}\NormalTok{(z))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3895,48 +3754,32 @@ usar operadores e métodos de lista, você pode usar um objeto
 [('a', 0), ('b', 1), ('c', 2)]
 \end{verbatim}
 
-O resultado é uma lista de tuplas. Neste exemplo, cada tupla contém um
-caractere da string e o elemento correspondente da lista. Se as
-sequências não forem do mesmo comprimento, o resultado tem o comprimento
-da mais curta:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{list}\NormalTok{(}\BuiltInTok{zip}\NormalTok{(}\StringTok{\textquotesingle{}Anne\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Elk\textquotesingle{}}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[('A', 'E'), ('n', 'l'), ('n', 'k')]
-\end{verbatim}
-
-\section{Dicionários}\label{dicionuxe1rios}
+\subsection{Dicionários}\label{dicionuxe1rios}
 
 Dicionários são um outro tipo de objeto bastante importante e útil em
 nossas aplicações. Dicionários são um dos melhores recursos do Python,
 eles são os blocos de montar de muitos algoritmos eficientes e
 elegantes.
 
-Um dicionário se parece com uma lista, mas é mais geral. Em uma lista os
-índices têm que ser números inteiros, em um dicionário eles podem ser de
-(quase) qualquer tipo. Um dicionário contém uma coleção de índices, que
-se chamam \textbf{chaves} e uma coleção de valores. \textbf{Cada chave é
+Um dicionário se parece com uma lista, mas é mais geral. Em uma lista,
+os índices devem ser números inteiros, em um dicionário eles podem ser
+de (quase) qualquer tipo. Um dicionário contém uma coleção de índices,
+que se chamam chaves, e uma coleção de valores. \emph{Cada chave é
 associada com um único valor}. A associação de uma chave e um valor
 chama-se par chave-valor ou item.
 
 Em linguagem matemática, um dicionário representa um mapeamento de
 chaves a valores, para que você possa dizer que cada chave ``mostra o
 mapa'' a um valor. Como exemplo, vamos construir um dicionário que faz o
-mapa de palavras do inglês ao espanhol, portanto as chaves e os valores
-são todos strings.
-
-A função \texttt{dict} cria um novo dicionário sem itens. Como
-\texttt{dict} é o nome de uma função integrada, você deve evitar usá-lo
-como nome de variável.
+mapa de palavras do inglês ao espanhol, de forma que tanto as chaves
+quanto os valores sejam strings. A função \texttt{dict} cria um novo
+dicionário sem itens. Como \texttt{dict} é o nome de uma função
+integrada, você deve evitar usá-lo como nome de variável.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{eng2sp }\OperatorTok{=} \BuiltInTok{dict}\NormalTok{()}
+
 \NormalTok{eng2sp}
 \end{Highlighting}
 \end{Shaded}
@@ -3946,7 +3789,7 @@ como nome de variável.
 \end{verbatim}
 
 As chaves \{\} representam um dicionário vazio. Para acrescentar itens
-ao dicionário, você pode usar colchetes:
+ao dicionário, você pode usar colchetes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3973,13 +3816,13 @@ pode criar um dicionário com três itens:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{eng2sp }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}uno\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}dos\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}tres\textquotesingle{}}\NormalTok{\}}
+\NormalTok{eng2sp }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}uno\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}tres\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}dos\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}eleven\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}once\textquotesingle{}}\NormalTok{\}}
 \NormalTok{eng2sp}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-{'one': 'uno', 'two': 'dos', 'three': 'tres'}
+{'one': 'uno', 'three': 'tres', 'two': 'dos', 'eleven': 'once'}
 \end{verbatim}
 
 Ué, mas a ordem parece diferente daquela que definimos, não? Se você
@@ -4014,68 +3857,15 @@ Se a chave não estiver no dicionário, você recebe uma exceção:
 \textcolor{black}{KeyError: 'four'}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{                                  Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[67]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[50]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{eng2sp}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{four}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{: 'four'}
 \end{Highlighting}
 
-Assim como em strings e listas, a função \texttt{len} também é
-compatível com dicionários. Nesse caso ela devolve o número de pares
-chave-valor.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{len}\NormalTok{(eng2sp)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-3
-\end{verbatim}
-
-O operador \texttt{in} funciona em dicionários também. Ele acusa se algo
-aparece como chave no dicionário (aparecer como valor não é o
-suficiente).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\textquotesingle{}one\textquotesingle{}} \KeywordTok{in}\NormalTok{ eng2sp}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\textquotesingle{}uno\textquotesingle{}} \KeywordTok{in}\NormalTok{ eng2sp}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-False
-\end{verbatim}
-
-Para ver se algo aparece como um valor em um dicionário, você pode usar
-o método \texttt{values()}, que devolve uma coleção de valores, e então
-usar o operador \texttt{in}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{vals }\OperatorTok{=}\NormalTok{ eng2sp.values()}
-\CommentTok{\textquotesingle{}uno\textquotesingle{}} \KeywordTok{in}\NormalTok{ vals}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\subsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-3}
+\subsubsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas-3}
 
 Podemos adicionar um novo par de chave e valor ao dicionário usando
-colchetes, mas caso a chave já exista no dicionário, podemos atualizar o
+colchetes. Caso a chave já exista no dicionário, é possível atualizar o
 valor.
 
 \begin{Shaded}
@@ -4083,6 +3873,7 @@ valor.
 \NormalTok{y }\OperatorTok{=}\NormalTok{ \{\}}
 \NormalTok{y[}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{] }\OperatorTok{=} \DecValTok{1}
 \NormalTok{y[}\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{] }\OperatorTok{=} \DecValTok{2}
+
 \BuiltInTok{print}\NormalTok{(y)}
 \end{Highlighting}
 \end{Shaded}
@@ -4102,23 +3893,8 @@ valor.
 {'one': 1, 'two': 'dos'}
 \end{verbatim}
 
-O valor-chave deve ser um tipo de dados imutável, por essa razão, se
-você tentar definir um dicionário com um tipo de dados mutável, o Python
-levantará um erro de exceção.
-
 A instrução \texttt{del} pode ser usada para remover uma entrada (par de
 valor de chave) de um dicionário.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(y)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-{'one': 1, 'two': 2}
-\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4131,30 +3907,14 @@ valor de chave) de um dicionário.
 {'one': 1}
 \end{verbatim}
 
-Mais uma vez, podemos utilizar a função nativa \texttt{len} para
-retornar o número de entradas (pares de valor de chave) em um
-dicionário.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{0}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{len}\NormalTok{(x))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-2
-\end{verbatim}
-
 Tente acessar uma chave que não está em um dicionário e você receberá um
-erro de exceção do Python. Para lidar com essa exceção, você pode usar
-mais uma vez o operador \texttt{in} que testa se existe uma chave em um
-dicionário. Esse operador retorna \emph{True} se o dicionário tiver um
-valor armazenado sob a chave fornecida e \emph{Falso} caso contrário.
+erro de exceção do Python. Para lidar com essa exceção, você pode usar o
+operador \texttt{in} que testa se existe uma chave em um dicionário.
+Esse operador retorna \emph{True} se o dicionário tiver um valor
+armazenado sob a chave fornecida e \emph{False} caso contrário.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{y }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
 \KeywordTok{del}\NormalTok{ y[}\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -4163,9 +3923,8 @@ valor armazenado sob a chave fornecida e \emph{Falso} caso contrário.
 \textcolor{black}{KeyError: 'three'}
 \textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{                                  Traceback (most recent call last)}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[77]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 2}\textcolor{QuartoInternalColor2}{}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{      1}\textcolor{QuartoInternalColor2}{ y = \{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{one}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{: }\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{, }\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{two}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor6}{'}\textcolor{QuartoInternalColor2}{: }\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{\}}
-\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{2}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor7}{del}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{y}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{three}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[54]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor7}{del}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{y}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{[}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{three}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{]}\textcolor{QuartoInternalColor2}{}
 \textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{KeyError}\textcolor{QuartoInternalColor2}{: 'three'}
 \end{Highlighting}
 
@@ -4179,7 +3938,16 @@ valor armazenado sob a chave fornecida e \emph{Falso} caso contrário.
 False
 \end{verbatim}
 
-\subsection{Métodos de dicionários}\label{muxe9todos-de-dicionuxe1rios}
+\subsubsection{Métodos de
+dicionários}\label{muxe9todos-de-dicionuxe1rios}
+
+Considere o dicionário de exemplo abaixo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dict\_example }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{:}\DecValTok{1}\NormalTok{,}\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{:}\DecValTok{2}\NormalTok{,}\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{:}\DecValTok{3}\NormalTok{,}\StringTok{\textquotesingle{}four\textquotesingle{}}\NormalTok{:}\DecValTok{4}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 Dentre os principais métodos aplicáveis a dicionários e suas
 funcionalidades podemos citar:
@@ -4188,120 +3956,70 @@ funcionalidades podemos citar:
 \def\labelenumi{\arabic{enumi}.}
 \item
   \textbf{dict\_example.update(x)}: atualiza o dicionário
-  ``dict\_example'' com todos os pares de valor-chave de um segundo
-  dicionário ``x''. Os valores de chaves, que são comuns a ambos os
-  dicionários, do segundo dicionário irão se sobrepor aos valores das
-  chaves do primeiro dicionário.
+  \texttt{dict\_example} com todos os pares de valor-chave de um segundo
+  dicionário \texttt{dict\_update}. Os valores de chaves, que são comuns
+  a ambos os dicionários, do segundo dicionário irão se sobrepor aos
+  valores das chaves do primeiro dicionário.
+
+  ::: \{.cell execution\_count=57\} ``` \{.python .cell-code\}
+  dict\_update = \{`four':4,`five':5,`six':6\}
+
+  dict\_example.update(dict\_update) print(dict\_example) ```
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{\{\textquotesingle{}one\textquotesingle{}:\ 1,\ \textquotesingle{}two\textquotesingle{}:\ 2,\ \textquotesingle{}three\textquotesingle{}:\ 3,\ \textquotesingle{}four\textquotesingle{}:\ 4,\ \textquotesingle{}five\textquotesingle{}:\ 5,\ \textquotesingle{}six\textquotesingle{}:\ 6\}}
+  ::: :::
 \item
   \textbf{dict\_example.keys(x)}: permite que você obtenha todas as
   chaves no dicionário. Muitas vezes é usado dentro de uma série de
   instruções repetida várias vezes para iterar sobre o conteúdo de um
   dicionário.
+
+  ::: \{.cell execution\_count=58\}
+  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.keys())}
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{dict\_keys({[}\textquotesingle{}one\textquotesingle{},\ \textquotesingle{}two\textquotesingle{},\ \textquotesingle{}three\textquotesingle{},\ \textquotesingle{}four\textquotesingle{},\ \textquotesingle{}five\textquotesingle{},\ \textquotesingle{}six\textquotesingle{}{]})}
+  ::: :::
 \item
   \textbf{dict\_example.items()}: retorna todas as chaves do dicionário
-  ``dict\_example'' e seus valores associados como uma sequência de
+  \texttt{dict\_example} e seus valores associados como uma sequência de
   tuplas.
+
+  ::: \{.cell execution\_count=59\}
+  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.items())}
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{dict\_items({[}(\textquotesingle{}one\textquotesingle{},\ 1),\ (\textquotesingle{}two\textquotesingle{},\ 2),\ (\textquotesingle{}three\textquotesingle{},\ 3),\ (\textquotesingle{}four\textquotesingle{},\ 4),\ (\textquotesingle{}five\textquotesingle{},\ 5),\ (\textquotesingle{}six\textquotesingle{},\ 6){]})}
+  ::: :::
 \item
   \textbf{dict\_example.get(x,y)}: devolve o valor associado a uma chave
   ``x'' se o dicionário contiver essa chave. Caso o dicionário não
   contenha a chave, você pode especificar um segundo argumento opcional
   ``y'' para retornar um valor padrão (se o argumento não estiver
   incluído o método retornará \emph{None}).
-\item
-  \textbf{dict\_example.setdefault(x,y)}: é semelhante ao método
-  \texttt{get()}: ele retorna o valor associado a uma chave ``x'' se o
-  dicionário contiver essa chave, mas caso o dicionário não contenha a
-  chave, este método criará um novo elemento no dicionário (par de valor
-  de chave), onde o primeiro argumento neste método é a chave, e o
-  segundo argumento (``y'') é o valor. O segundo argumento é opcional,
-  mas se isso não for incluído, o valor atrelado a essa nova chave será
-  \emph{None}.
+
+  ::: \{.cell execution\_count=60\}
+  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}one\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{1} ::: :::
+
+  ::: \{.cell execution\_count=61\}
+  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}ten\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\} \texttt{None} ::: :::
+
+  ::: \{.cell execution\_count=62\}
+  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}ten\textquotesingle{},\ \textquotesingle{}The\ key\ does\ not\ exist.\textquotesingle{}))}
+
+  ::: \{.cell-output .cell-output-stdout\}
+  \texttt{The\ key\ does\ not\ exist.} ::: :::
 \end{enumerate}
 
 Além desses principais, existem outros vários métodos para dicionários.
 Esse
 \href{https://www.geeksforgeeks.org/python-dictionary-methods/}{link} é
 um bom ponto de partida para quem quiser conhecer outros exemplos.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{0}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\NormalTok{y }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{: }\DecValTok{3}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(x)}
-
-\NormalTok{x.update(y)}
-\BuiltInTok{print}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-{'one': 0, 'two': 2}
-{'one': 1, 'two': 2, 'three': 3}
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(x.keys())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-dict_keys(['one', 'two'])
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(x.items())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-dict_items([('one', 1), ('two', 2)])
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(y.get(}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(y.get(}\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(y.get(}\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}The key does not exist.\textquotesingle{}}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-1
-None
-The key does not exist.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{: }\DecValTok{2}\NormalTok{\}}
-\BuiltInTok{print}\NormalTok{(y.setdefault(}\StringTok{\textquotesingle{}three\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}3\textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(y.setdefault(}\StringTok{\textquotesingle{}two\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dos\textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(y)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-3
-2
-{'one': 1, 'two': 2, 'three': '3'}
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(y.setdefault(}\StringTok{\textquotesingle{}four\textquotesingle{}}\NormalTok{))}
-\BuiltInTok{print}\NormalTok{(y)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-None
-{'one': 1, 'two': 2, 'three': '3', 'four': None}
-\end{verbatim}
 
 \section{Conclusão}\label{conclusuxe3o-3}
 
@@ -4321,14 +4039,6 @@ construir.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Considere a seguinte lista:
-  \texttt{fruit\ =\ {[}\textquotesingle{}pear\textquotesingle{},\ \textquotesingle{}orange\textquotesingle{},\ \textquotesingle{}apple\textquotesingle{},\ \textquotesingle{}grapefruit\textquotesingle{},\ \textquotesingle{}apple\textquotesingle{},\ \textquotesingle{}pear\textquotesingle{}{]}}.
-  Use uma função de lista para dizer o índice da primeira ocorrência de
-  \texttt{apple}
-\item
-  Usando a lista do exercício anterior, use uma função de lista para
-  retornar o número de veze que \texttt{apple} ocorre.
-\item
   Considere as duas listas abaixo. Escreva um programa que as converta
   em um dicionário em que os itens de \texttt{keys} correspondam às
   chaves do dicionários e os itens de \texttt{values} os valores.
@@ -4339,6 +4049,26 @@ construir.
 \NormalTok{values }\OperatorTok{=}\NormalTok{ [}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
+\item
+  Considere as atribuições abaixo. Sem executar o código, indique o tipo
+  de cada variável. Explique por que a expressão \texttt{a\ +\ d} gera
+  um erro. Reescreva-a de forma que a soma aritmética seja realizada
+  corretamente e retorne o valor desejado \(20\).
+
+  ::: \{.cell execution\_count=63\}
+  \texttt{\{.python\ .cell-code\}\ \ a=10\ \ b=3\ \ c=10.0\ \ d=1.25\ \ e=\textquotesingle{}10\textquotesingle{}}
+  :::
+\item
+  Considere o string \texttt{Universidade\ de\ São\ Paulo}. Escreva um
+  código que acesse (i) o primeiro caractere; (ii) o último caractere
+  (sem contar manualmente o tamanho do string); (iii) o nome da cidade
+  utilizando fatiamento.
+\item
+  Discorra sobre as principais diferenças entre listas e tuplas. A
+  partir da sua resposta, discuta sobre qual das estruturas é mais
+  indicada para armazenar (i) as notas obtidas por um aluno em
+  determinadas disciplinas e (ii) as coordenadas geográficas de uma
+  cidade (latitude e longitude).
 \end{enumerate}
 
 \chapter{Controle de fluxo e iteração}\label{sec-iteracao}
@@ -4657,16 +4387,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.5365891216258812
-0.08829718222969662
-0.730657402206783
-0.3692255921913009
-0.09571238763245693
-0.5352466701057146
-0.43017316358567903
-0.5319426443236145
-0.8504395061625925
-0.7740422372797463
+0.011052294937336615
+0.4510453411302715
+0.4517884861731133
+0.4338537246486972
+0.9896484759036186
+0.6679555054333797
+0.6682476608511471
+0.2538736039825755
+0.8122059553232783
+0.12213449412125632
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4684,16 +4414,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.75
-Essa é a iteração 2 e o número sorteado foi: 0.33
-Essa é a iteração 3 e o número sorteado foi: 0.95
-Essa é a iteração 4 e o número sorteado foi: 0.97
-Essa é a iteração 5 e o número sorteado foi: 0.59
-Essa é a iteração 6 e o número sorteado foi: 0.33
-Essa é a iteração 7 e o número sorteado foi: 0.72
-Essa é a iteração 8 e o número sorteado foi: 0.40
-Essa é a iteração 9 e o número sorteado foi: 0.42
-Essa é a iteração 10 e o número sorteado foi: 0.20
+Essa é a iteração 1 e o número sorteado foi: 0.81
+Essa é a iteração 2 e o número sorteado foi: 1.00
+Essa é a iteração 3 e o número sorteado foi: 0.09
+Essa é a iteração 4 e o número sorteado foi: 0.78
+Essa é a iteração 5 e o número sorteado foi: 0.08
+Essa é a iteração 6 e o número sorteado foi: 0.41
+Essa é a iteração 7 e o número sorteado foi: 0.25
+Essa é a iteração 8 e o número sorteado foi: 0.52
+Essa é a iteração 9 e o número sorteado foi: 0.59
+Essa é a iteração 10 e o número sorteado foi: 0.28
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4998,10 +4728,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.1060 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1459 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0936 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1239 segundos
 
-A abordagem de loop demorou 37.6% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 32.4% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5309,8 +5039,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[-23.99812303 -20.88233856  29.26431657 -26.84325664   7.17425394
-  -6.82439473 -31.60784142 -21.55282856  35.21021139   2.00198912]
+[ 37.76970605  -5.37256514 -14.94521682 -15.65094009 -35.01522047
+   3.99297869 -38.72710982  14.77623422 -26.54675927  -7.00542099]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5323,8 +5053,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[-20.79341808  26.39257907  -9.79560708  29.34242418 -34.76629508
-  36.68431382  14.28519017  -0.05560947  11.89362899  26.19835807]
+[ 37.316025   -29.80603565  25.52136876 -31.91879466  15.72991807
+ -23.08182436  -3.69635685  37.41776331 -26.47093142  12.07702684]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5890,8 +5620,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[  7.01118753 -25.6619259   32.58614466  -8.82723262 -21.57478247
-  35.93620975  23.99973113  21.60767309  -9.87429815 -18.53949832]
+[-15.31010417  -8.82651216  21.2230539  -13.14478315   6.50173686
+ -24.07202442  35.13517499  23.66846268   8.17289876  -7.94053402]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7449,10 +7179,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0134 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.2959 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0123 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.3337 segundos
 
-A abordagem de listas demorou 21x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 26x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações
