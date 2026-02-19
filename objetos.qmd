@@ -4,7 +4,7 @@
 
 Este capítulo introduz os elementos fundamentais com os quais o Python trabalha: valores, tipos e objetos. Em qualquer programa, manipulamos dados -- números, textos, valores lógicos -- e precisamos compreender como esses dados são representados, armazenados e transformados. Antes de trabalhar com estruturas mais complexas, é necessário dominar os tipos primitivos e entender que, em Python, tudo é um objeto. Todo grande algoritmo e programa é construído a partir dos mesmos pequenos blocos.
 
-![Blocos que formam a Grande Pirâmide de Gizé e Pirâmide de Quéops ao fundo, 2024.](images/piramides.jpeg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+![Blocos que formam a Pirâmide de Quéops e Pirâmide de Quéfren ao fundo, 2024.](images/piramides.jpeg){#fig-olddesk width=800px max-width=100% fig-align="center"}
 
 Começaremos discutindo os tipos primitivos, que constituem a base de toda manipulação de dados e determinam a forma como a informação é armazenada, quais operações são permitidas e como o valor ocupa a memória. Em seguida, generalizaremos para a noção de objeto e discutiremos como propriedades e métodos estruturam o comportamento desses valores.
 
@@ -138,35 +138,35 @@ Dentre os principais métodos aplicáveis a strings e suas funcionalidades podem
 
 1. **str_example.upper()** e **str_example.lower()**: devolve a string `str_example` toda em letras maiúsculas ou minúsculas, respectivamente.
 
-    ```{python}
-    print(str_example.upper())
-    print(str_example.lower())
-    ```
+```{python}
+print(str_example.upper())
+print(str_example.lower())
+```
 
 2. **str_example.strip()**: devolve a string retirando possíveis espaços em branco no início e no fim da string.
 
-    ```{python}
-    print(str_example.strip())
-    ```
+```{python}
+print(str_example.strip())
+```
 
 3. **str_example.startswith('xyz')** e **str_example.endswith('xyz')**: testa se a string começa ou termina, respectivamente, com os caracteres 'xyz'.
 
-    ```{python}
-    print(str_example.startswith(' '))
-    print(str_example.endswith('d'))
-    ```
+```{python}
+print(str_example.startswith(' '))
+print(str_example.endswith('d'))
+```
 
 4. **str_example.find('xyz')**: procura a string 'xyz' dentro de `str_example` e retorna o primeiro índice onde 'xyz' começa ou retorna -1 se nada for encontrado.
 
-    ```{python}
-    print(str_example.find(','))
-    ```
+```{python}
+print(str_example.find(','))
+```
 
 5. **str_example.replace('old','new')**: retorna uma string nova onde todas as ocorrências de 'old' encontradas serão substituídas por 'new'.
 
-    ```{python}
-    print(str_example.replace('Hello','World'))
-    ```
+```{python}
+print(str_example.replace('Hello','World'))
+```
 
 Além desses principais, existem outros vários métodos para strings. Esse [link](https://docs.python.org/pt-br/3/library/stdtypes.html#textseq) é um bom ponto de partida para quem quiser conhecer outros exemplos.
 
@@ -310,36 +310,36 @@ Dentre os principais métodos aplicáveis a listas e suas funcionalidades podemo
 
 1. **lista_example.append()**: adiciona um novo elemento ao fim da lista "lista_example".
 
-    ```{python}
-    list_example.append('g')
+```{python}
+list_example.append('g')
 
-    print(list_example)
-    ```
+print(list_example)
+```
 
 2. **lista_example.extend(lista2)**: toma a lista "lista_example" como argumento e adiciona todos os elementos de lista2 como novos elementos da lista inicial.
 
-    ```{python}
-    l2 = ['e','d','f']
-    list_example.extend(l2)
+```{python}
+l2 = ['e','d','f']
+list_example.extend(l2)
 
-    print(list_example)
-    ```
+print(list_example)
+```
 
 3. **lista_example.sort()**: classifica os elementos de "lista_example" em ordem ascendente.
 
-    ```{python}
-    list_example.sort()
+```{python}
+list_example.sort()
 
-    print(list_example)
-    ```
+print(list_example)
+```
 
 4. **lista_example.remove(x)**: exclui o elemento igual a "x" de "lista_example". É um método bastante útil quando queremos excluir um elemento específico, mas não sabemos sua posição dentro da lista.
 
-    ```{python}
-    list_example.remove('e')
+```{python}
+list_example.remove('e')
 
-    print(list_example)
-    ```
+print(list_example)
+```
 
 Note que a maior parte dos métodos de listas alteram a lista original mas não retornam nenhum valor. Dessa forma, atribuir a um objeto o resultado da aplicação de um método em uma lista não é uma boa prática. Se você escrever `ts = t.sort()`, por exemplo, ficará desapontado com o resultado.
 
@@ -579,37 +579,37 @@ Dentre os principais métodos aplicáveis a dicionários e suas funcionalidades 
 
 1. **dict_example.update(x)**: atualiza o dicionário `dict_example` com todos os pares de valor-chave de um segundo dicionário `dict_update`. Os valores de chaves, que são comuns a ambos os dicionários, do segundo dicionário irão se sobrepor aos valores das chaves do primeiro dicionário.
 
-    ```{python}
-    dict_update = {'four':4,'five':5,'six':6}
-    
-    dict_example.update(dict_update)
-    print(dict_example)
-    ```
+```{python}
+dict_update = {'four':4,'five':5,'six':6}
+
+dict_example.update(dict_update)
+print(dict_example)
+```
 
 2. **dict_example.keys(x)**: permite que você obtenha todas as chaves no dicionário. Muitas vezes é usado dentro de uma série de instruções repetida várias vezes para iterar sobre o conteúdo de um dicionário.
 
-    ```{python}
-    print(dict_example.keys())
-    ```
+```{python}
+print(dict_example.keys())
+```
 
 3. **dict_example.items()**: retorna todas as chaves do dicionário `dict_example` e seus valores associados como uma sequência de tuplas.
 
-    ```{python}
-    print(dict_example.items())
-    ```
+```{python}
+print(dict_example.items())
+```
 
 4. **dict_example.get(x,y)**: devolve o valor associado a uma chave "x" se o dicionário contiver essa chave. Caso o dicionário não contenha a chave, você pode especificar um segundo argumento opcional "y" para retornar um valor padrão (se o argumento não estiver incluído o método retornará _None_).
 
-    ```{python}
-    print(dict_example.get('one'))
-    ```
-    ```{python}
-    #| error: true
-    print(dict_example.get('ten'))
-    ```
-    ```{python}
-    print(dict_example.get('ten', 'The key does not exist.'))
-    ```
+```{python}
+print(dict_example.get('one'))
+```
+```{python}
+#| error: true
+print(dict_example.get('ten'))
+```
+```{python}
+print(dict_example.get('ten', 'The key does not exist.'))
+```
 
 Além desses principais, existem outros vários métodos para dicionários. Esse [link](https://www.geeksforgeeks.org/python-dictionary-methods/) é um bom ponto de partida para quem quiser conhecer outros exemplos.
 
@@ -629,7 +629,7 @@ Neste capítulo, introduzimos os tipos primitivos do Python -- `int`, `float`, `
 
 2. Considere as atribuições abaixo. Sem executar o código, indique o tipo de cada variável. Explique por que a expressão `a + d` gera um erro. Reescreva-a de forma que a soma aritmética seja realizada corretamente e retorne o valor desejado $20$.
 
-    ```{python}
+    ```python
     a=10
     b=3
     c=10.0

@@ -217,12 +217,12 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
-\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
-\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
+\definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
+\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \makeatother
 \usepackage{bookmark}
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, rightrule=.15mm, colback=white, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-important-color-frame, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, rightrule=.15mm, toprule=.15mm]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, rightrule=.15mm, colback=white, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-tip-color-frame, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, rightrule=.15mm, toprule=.15mm]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2412,7 +2412,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, leftrule=.75mm, arc=.35mm, opacityback=0, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, bottomrule=.15mm, titlerule=0mm, coltitle=black, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, rightrule=.15mm, colback=white, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, rightrule=.15mm, toprule=.15mm]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2728,8 +2728,8 @@ blocos.
 
 }
 
-\caption{\label{fig-olddesk}Blocos que formam a Grande Pirâmide de Gizé
-e Pirâmide de Quéops ao fundo, 2024.}
+\caption{\label{fig-olddesk}Blocos que formam a Pirâmide de Quéops e
+Pirâmide de Quéfren ao fundo, 2024.}
 
 \end{figure}%
 
@@ -3046,54 +3046,105 @@ podemos citar:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{str\_example.upper()} e \textbf{str\_example.lower()}: devolve
   a string \texttt{str\_example} toda em letras maiúsculas ou
   minúsculas, respectivamente.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=11\}
-  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.upper())\ \ print(str\_example.lower())}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(str\_example.upper())}
+\BuiltInTok{print}\NormalTok{(str\_example.lower())}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{HELLO,\ WORLD\ \ \ hello,\ world} ::: :::
+\begin{verbatim}
+ HELLO, WORLD
+ hello, world
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   \textbf{str\_example.strip()}: devolve a string retirando possíveis
   espaços em branco no início e no fim da string.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=12\}
-  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.strip())}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(str\_example.strip())}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\} \texttt{Hello,\ World} :::
-  :::
+\begin{verbatim}
+Hello, World
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   \textbf{str\_example.startswith(`xyz')} e
   \textbf{str\_example.endswith(`xyz')}: testa se a string começa ou
   termina, respectivamente, com os caracteres `xyz'.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=13\}
-  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.startswith(\textquotesingle{}\ \textquotesingle{}))\ \ print(str\_example.endswith(\textquotesingle{}d\textquotesingle{}))}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(str\_example.startswith(}\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{))}
+\BuiltInTok{print}\NormalTok{(str\_example.endswith(}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\} \texttt{True\ \ True} ::: :::
+\begin{verbatim}
+True
+True
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
 \item
   \textbf{str\_example.find(`xyz')}: procura a string `xyz' dentro de
   \texttt{str\_example} e retorna o primeiro índice onde `xyz' começa ou
   retorna -1 se nada for encontrado.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=14\}
-  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.find(\textquotesingle{},\textquotesingle{}))}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(str\_example.find(}\StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\} \texttt{6} ::: :::
+\begin{verbatim}
+6
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
 \item
   \textbf{str\_example.replace(`old',`new')}: retorna uma string nova
   onde todas as ocorrências de `old' encontradas serão substituídas por
   `new'.
-
-  ::: \{.cell execution\_count=15\}
-  \texttt{\{.python\ .cell-code\}\ \ print(str\_example.replace(\textquotesingle{}Hello\textquotesingle{},\textquotesingle{}World\textquotesingle{}))}
-
-  ::: \{.cell-output .cell-output-stdout\} \texttt{World,\ World} :::
-  :::
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(str\_example.replace(}\StringTok{\textquotesingle{}Hello\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}World\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ World, World
+\end{verbatim}
 
 Além desses principais, existem outros vários métodos para strings. Esse
 \href{https://docs.python.org/pt-br/3/library/stdtypes.html\#textseq}{link}
@@ -3409,57 +3460,89 @@ podemos citar:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{lista\_example.append()}: adiciona um novo elemento ao fim da
   lista ``lista\_example''.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=27\} ``` \{.python .cell-code\}
-  list\_example.append(`g')
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list\_example.append(}\StringTok{\textquotesingle{}g\textquotesingle{}}\NormalTok{)}
 
-  print(list\_example) ```
+\BuiltInTok{print}\NormalTok{(list\_example)}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
-  ::: :::
+\begin{verbatim}
+['a', 'c', 'b', 'g']
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   \textbf{lista\_example.extend(lista2)}: toma a lista
   ``lista\_example'' como argumento e adiciona todos os elementos de
   lista2 como novos elementos da lista inicial.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=28\} ``` \{.python .cell-code\} l2 =
-  {[}`e',`d',`f'{]} list\_example.extend(l2)
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l2 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\NormalTok{list\_example.extend(l2)}
 
-  print(list\_example) ```
+\BuiltInTok{print}\NormalTok{(list\_example)}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}g\textquotesingle{},\ \textquotesingle{}e\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}f\textquotesingle{}{]}}
-  ::: :::
+\begin{verbatim}
+['a', 'c', 'b', 'g', 'e', 'd', 'f']
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   \textbf{lista\_example.sort()}: classifica os elementos de
   ``lista\_example'' em ordem ascendente.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=29\} ``` \{.python .cell-code\}
-  list\_example.sort()
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list\_example.sort()}
 
-  print(list\_example) ```
+\BuiltInTok{print}\NormalTok{(list\_example)}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}e\textquotesingle{},\ \textquotesingle{}f\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
-  ::: :::
+\begin{verbatim}
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
 \item
   \textbf{lista\_example.remove(x)}: exclui o elemento igual a ``x'' de
   ``lista\_example''. É um método bastante útil quando queremos excluir
   um elemento específico, mas não sabemos sua posição dentro da lista.
-
-  ::: \{.cell execution\_count=30\} ``` \{.python .cell-code\}
-  list\_example.remove(`e')
-
-  print(list\_example) ```
-
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{{[}\textquotesingle{}a\textquotesingle{},\ \textquotesingle{}b\textquotesingle{},\ \textquotesingle{}c\textquotesingle{},\ \textquotesingle{}d\textquotesingle{},\ \textquotesingle{}f\textquotesingle{},\ \textquotesingle{}g\textquotesingle{}{]}}
-  ::: :::
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list\_example.remove(}\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(list\_example)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+['a', 'b', 'c', 'd', 'f', 'g']
+\end{verbatim}
 
 Note que a maior parte dos métodos de listas alteram a lista original
 mas não retornam nenhum valor. Dessa forma, atribuir a um objeto o
@@ -3732,7 +3815,7 @@ uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip object at 0x000001A244CCC340>
+<zip object at 0x000001AF04DAFD40>
 \end{verbatim}
 
 Um objeto \texttt{zip} é um tipo de iterador, ou seja, qualquer objeto
@@ -3954,67 +4037,110 @@ funcionalidades podemos citar:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{dict\_example.update(x)}: atualiza o dicionário
   \texttt{dict\_example} com todos os pares de valor-chave de um segundo
   dicionário \texttt{dict\_update}. Os valores de chaves, que são comuns
   a ambos os dicionários, do segundo dicionário irão se sobrepor aos
   valores das chaves do primeiro dicionário.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=57\} ``` \{.python .cell-code\}
-  dict\_update = \{`four':4,`five':5,`six':6\}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dict\_update }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}four\textquotesingle{}}\NormalTok{:}\DecValTok{4}\NormalTok{,}\StringTok{\textquotesingle{}five\textquotesingle{}}\NormalTok{:}\DecValTok{5}\NormalTok{,}\StringTok{\textquotesingle{}six\textquotesingle{}}\NormalTok{:}\DecValTok{6}\NormalTok{\}}
 
-  dict\_example.update(dict\_update) print(dict\_example) ```
+\NormalTok{dict\_example.update(dict\_update)}
+\BuiltInTok{print}\NormalTok{(dict\_example)}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{\{\textquotesingle{}one\textquotesingle{}:\ 1,\ \textquotesingle{}two\textquotesingle{}:\ 2,\ \textquotesingle{}three\textquotesingle{}:\ 3,\ \textquotesingle{}four\textquotesingle{}:\ 4,\ \textquotesingle{}five\textquotesingle{}:\ 5,\ \textquotesingle{}six\textquotesingle{}:\ 6\}}
-  ::: :::
+\begin{verbatim}
+{'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   \textbf{dict\_example.keys(x)}: permite que você obtenha todas as
   chaves no dicionário. Muitas vezes é usado dentro de uma série de
   instruções repetida várias vezes para iterar sobre o conteúdo de um
   dicionário.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=58\}
-  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.keys())}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(dict\_example.keys())}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{dict\_keys({[}\textquotesingle{}one\textquotesingle{},\ \textquotesingle{}two\textquotesingle{},\ \textquotesingle{}three\textquotesingle{},\ \textquotesingle{}four\textquotesingle{},\ \textquotesingle{}five\textquotesingle{},\ \textquotesingle{}six\textquotesingle{}{]})}
-  ::: :::
+\begin{verbatim}
+dict_keys(['one', 'two', 'three', 'four', 'five', 'six'])
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   \textbf{dict\_example.items()}: retorna todas as chaves do dicionário
   \texttt{dict\_example} e seus valores associados como uma sequência de
   tuplas.
+\end{enumerate}
 
-  ::: \{.cell execution\_count=59\}
-  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.items())}
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(dict\_example.items())}
+\end{Highlighting}
+\end{Shaded}
 
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{dict\_items({[}(\textquotesingle{}one\textquotesingle{},\ 1),\ (\textquotesingle{}two\textquotesingle{},\ 2),\ (\textquotesingle{}three\textquotesingle{},\ 3),\ (\textquotesingle{}four\textquotesingle{},\ 4),\ (\textquotesingle{}five\textquotesingle{},\ 5),\ (\textquotesingle{}six\textquotesingle{},\ 6){]})}
-  ::: :::
+\begin{verbatim}
+dict_items([('one', 1), ('two', 2), ('three', 3), ('four', 4), ('five', 5), ('six', 6)])
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
 \item
   \textbf{dict\_example.get(x,y)}: devolve o valor associado a uma chave
   ``x'' se o dicionário contiver essa chave. Caso o dicionário não
   contenha a chave, você pode especificar um segundo argumento opcional
   ``y'' para retornar um valor padrão (se o argumento não estiver
   incluído o método retornará \emph{None}).
-
-  ::: \{.cell execution\_count=60\}
-  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}one\textquotesingle{}))}
-
-  ::: \{.cell-output .cell-output-stdout\} \texttt{1} ::: :::
-
-  ::: \{.cell execution\_count=61\}
-  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}ten\textquotesingle{}))}
-
-  ::: \{.cell-output .cell-output-stdout\} \texttt{None} ::: :::
-
-  ::: \{.cell execution\_count=62\}
-  \texttt{\{.python\ .cell-code\}\ \ print(dict\_example.get(\textquotesingle{}ten\textquotesingle{},\ \textquotesingle{}The\ key\ does\ not\ exist.\textquotesingle{}))}
-
-  ::: \{.cell-output .cell-output-stdout\}
-  \texttt{The\ key\ does\ not\ exist.} ::: :::
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(dict\_example.get(}\StringTok{\textquotesingle{}one\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(dict\_example.get(}\StringTok{\textquotesingle{}ten\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+None
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(dict\_example.get(}\StringTok{\textquotesingle{}ten\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}The key does not exist.\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+The key does not exist.
+\end{verbatim}
 
 Além desses principais, existem outros vários métodos para dicionários.
 Esse
@@ -4055,9 +4181,15 @@ construir.
   um erro. Reescreva-a de forma que a soma aritmética seja realizada
   corretamente e retorne o valor desejado \(20\).
 
-  ::: \{.cell execution\_count=63\}
-  \texttt{\{.python\ .cell-code\}\ \ a=10\ \ b=3\ \ c=10.0\ \ d=1.25\ \ e=\textquotesingle{}10\textquotesingle{}}
-  :::
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a}\OperatorTok{=}\DecValTok{10}
+\NormalTok{b}\OperatorTok{=}\DecValTok{3}
+\NormalTok{c}\OperatorTok{=}\FloatTok{10.0}
+\NormalTok{d}\OperatorTok{=}\FloatTok{1.25}
+\NormalTok{e}\OperatorTok{=}\StringTok{\textquotesingle{}10\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
 \item
   Considere o string \texttt{Universidade\ de\ São\ Paulo}. Escreva um
   código que acesse (i) o primeiro caractere; (ii) o último caractere
@@ -4387,16 +4519,16 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.011052294937336615
-0.4510453411302715
-0.4517884861731133
-0.4338537246486972
-0.9896484759036186
-0.6679555054333797
-0.6682476608511471
-0.2538736039825755
-0.8122059553232783
-0.12213449412125632
+0.5108730442279044
+0.5201612958751287
+0.5090447954478914
+0.07198345790380511
+0.7341044066863371
+0.2453842958871778
+0.9824754156507431
+0.5213278460312032
+0.629808279009165
+0.32159954688436976
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4414,16 +4546,16 @@ cabeçalho, no caso 10. Podemos ir um pouco além.
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.81
-Essa é a iteração 2 e o número sorteado foi: 1.00
-Essa é a iteração 3 e o número sorteado foi: 0.09
-Essa é a iteração 4 e o número sorteado foi: 0.78
-Essa é a iteração 5 e o número sorteado foi: 0.08
-Essa é a iteração 6 e o número sorteado foi: 0.41
-Essa é a iteração 7 e o número sorteado foi: 0.25
-Essa é a iteração 8 e o número sorteado foi: 0.52
-Essa é a iteração 9 e o número sorteado foi: 0.59
-Essa é a iteração 10 e o número sorteado foi: 0.28
+Essa é a iteração 1 e o número sorteado foi: 0.13
+Essa é a iteração 2 e o número sorteado foi: 0.70
+Essa é a iteração 3 e o número sorteado foi: 0.58
+Essa é a iteração 4 e o número sorteado foi: 0.33
+Essa é a iteração 5 e o número sorteado foi: 0.71
+Essa é a iteração 6 e o número sorteado foi: 0.66
+Essa é a iteração 7 e o número sorteado foi: 0.24
+Essa é a iteração 8 e o número sorteado foi: 0.23
+Essa é a iteração 9 e o número sorteado foi: 0.94
+Essa é a iteração 10 e o número sorteado foi: 0.92
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4728,10 +4860,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0936 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1239 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0982 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1319 segundos
 
-A abordagem de loop demorou 32.4% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 34.3% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5039,8 +5171,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[ 37.76970605  -5.37256514 -14.94521682 -15.65094009 -35.01522047
-   3.99297869 -38.72710982  14.77623422 -26.54675927  -7.00542099]
+[-33.0759842    8.38751697  18.31984273  14.28777962 -11.95961161
+ -12.90576048 -17.30396819  23.26298914  15.11659016 -14.05462976]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5053,8 +5185,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[ 37.316025   -29.80603565  25.52136876 -31.91879466  15.72991807
- -23.08182436  -3.69635685  37.41776331 -26.47093142  12.07702684]
+[-21.54972143  15.40504573  23.03558836 -38.87852492  32.53702708
+ -38.14700694 -24.15511151  36.21847301  19.21992465 -38.98585804]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5620,8 +5752,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[-15.31010417  -8.82651216  21.2230539  -13.14478315   6.50173686
- -24.07202442  35.13517499  23.66846268   8.17289876  -7.94053402]
+[-34.40903006  18.79336158   7.37898404   3.04736026   7.29081845
+  11.13608941 -18.3530536  -31.61313333  18.02433735  13.7092858 ]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7179,10 +7311,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0123 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.3337 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0137 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.3126 segundos
 
-A abordagem de listas demorou 26x mais tempo! Esqueça listas e use arrays ;)
+A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}
 
 \section{Aplicação: solução de sistema de equações
