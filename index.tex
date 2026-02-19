@@ -219,11 +219,11 @@
 \makeatletter
 \definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
-\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
-\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
-\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
 \definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
+\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
+\definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -714,7 +714,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-important-color-frame, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, rightrule=.15mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, colback=white, left=2mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, toprule=.15mm, rightrule=.15mm, breakable, coltitle=black, opacityback=0, titlerule=0mm, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +900,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-tip-color-frame, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, rightrule=.15mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, colback=white, left=2mm, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, breakable, coltitle=black, opacityback=0, titlerule=0mm, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -2412,7 +2412,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, leftrule=.75mm, left=2mm, opacityback=0, bottomrule=.15mm, coltitle=black, colback=white, titlerule=0mm, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, rightrule=.15mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, colback=white, left=2mm, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, toprule=.15mm, rightrule=.15mm, breakable, coltitle=black, opacityback=0, titlerule=0mm, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -3815,7 +3815,7 @@ uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip object at 0x000001AF04DAFD40>
+<zip object at 0x0000023A048A82C0>
 \end{verbatim}
 
 Um objeto \texttt{zip} é um tipo de iterador, ou seja, qualquer objeto
@@ -4207,28 +4207,91 @@ construir.
 
 \section{Introdução}\label{introduuxe7uxe3o-4}
 
+Até este ponto do curso, trabalhamos com objetos e operações básicas em
+Python, executando instruções de forma sequencial, isto é, uma após a
+outra. No entanto, programas reais raramente seguem apenas uma sequência
+linear de comandos. Em aplicações práticas -- como filtragem de dados,
+simulações, cálculos iterativos ou implementação de regras de decisão --
+é necessário que o programa seja capaz de executar instruções com base
+em condições e repetir determinadas operações múltiplas vezes. Essas
+tarefas são realizadas por meio das estruturas de controle de fluxo.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=7.29167in,height=\textheight,keepaspectratio]{images/old_desktop.jpg}
+
+}
+
+\caption{\label{fig-olddesk}Setup usual de um computador pessoal no
+começo dos anos 2000. Fonte: \emph{Wikimedia Commons}}
+
+\end{figure}%
+
+Neste capítulo, serão apresentados os principais mecanismos de decisão e
+repetição em Python: a construção de expressões booleanas, o uso de
+estruturas condicionais, os laçõs de repetição (\emph{loops}, em
+inglês), instruções de controle que indicam um ponto de parada ou
+continuação do código, e as chamadas \emph{list comprehensions} como
+forma compacta de iteração. Esses instrumentos formam o núcleo da
+programação imperativa no Python e são indispensáveis para qualquer
+aplicação computacional em Economia e análise de dados.
+
 \subsection{Pré-requisitos}\label{pruxe9-requisitos-4}
 
-Embora as funções e estruturas necessárias para a realização de
-\emph{loops} no Python sejam nativas na linguagem, para algumas das
-aplicações utilizaremos um dos pacotes externos que nos permitem
-trabalhar com números aleatórios.
+Embora as funções e estruturas necessárias para a implementação de
+expressões condicionais e \emph{loops} no Python sejam nativas na
+linguagem, para algumas das aplicações utilizaremos um dos pacotes
+externos que nos permitem trabalhar com números aleatórios, o
+\emph{NumPy}. Além disso, em alguma aplicações utilizaremos o pacote
+\emph{time} para contagem de tempo de máquina.
 
 \begin{itemize}
 \tightlist
 \item
   \texttt{numpy}
+\item
+  \texttt{time}
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ time }
 \end{Highlighting}
 \end{Shaded}
 
 \section{Execução condicional}\label{execuuxe7uxe3o-condicional}
 
 \subsection{Expressões booleanas}\label{expressuxf5es-booleanas}
+
+Antes de conseguirmos controlar o fluxo de execução, é preciso aprender
+a definir condições através das expressões booleanas. Essas expressões
+exprimem condições e comparações que resultam em um valor booleano,
+\emph{True} ou \emph{False}, e são resultado da combinação entre
+operadores relacionais, que comparam valores, e operadores lógicos, que
+nos permitem encadear comparações. Os operadores relacionais utilizados
+na linguagem são:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{x == y}: x é igual a y
+\item
+  \textbf{x != y}: x não é igual a y
+\item
+  \textbf{x \textgreater{} y}: x é maior que y
+\item
+  \textbf{x \textless{} y}: x é menor que y
+\item
+  \textbf{x \textgreater= y}: x é maior ou igual a y
+\item
+  \textbf{x \textless= y}: x é menor ou igual a y
+\end{itemize}
+
+Os exemplos a seguir usam o operador de igualdade para comparara dois
+operandos quaisquer, que podem ser simples valores ou mesmo objetos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4263,35 +4326,10 @@ False
 False
 \end{verbatim}
 
-O operador == é um dos operadores relacionais dentro do Python, os
-outros são:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{x != y}: x não é igual a y
-\item
-  \textbf{x \textgreater{} y}: x é maior que y
-\item
-  \textbf{x \textless{} y}: x é menor que y
-\item
-  \textbf{x \textgreater= y}: x é maior ou igual a y
-\item
-  \textbf{x \textless= y}: x é menor ou igual a y
-\end{enumerate}
-
-Embora essas operações provavelmente sejam familiares para você, os
-símbolos do Python são diferentes dos símbolos matemáticos. Um erro
-comum é usar apenas um sinal de igual (=) em vez de um sinal duplo (==).
-Lembre-se de que = é um operador de atribuição e == é um operador
-relacional. Não existe =\textgreater{} ou =\textless.
-
-Há três operadores lógicos: \texttt{and}, \texttt{or} e \texttt{not}. A
-semântica (significado) destes operadores é semelhante ao seu
-significado em inglês. Por exemplo,
-\texttt{x\textgreater{}=0\ and\ x\textless{}=10} só é verdade se x for
-maior que 0 \textbf{e} menor que 10.
+Há três operadores lógicos: \texttt{and}, \texttt{or} e \texttt{not}. O
+significado destes operadores é semelhante ao seu significado em inglês.
+Por exemplo, \texttt{x\textgreater{}=0\ and\ x\textless{}=10} só é
+verdade se x for maior que 0 e x for menor que 10.
 \texttt{n\%2\ ==\ 0\ or\ n\%3\ ==\ 0} é verdadeiro se uma ou as duas
 condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível
 por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e
@@ -4319,13 +4357,27 @@ Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas
 a ela que podem ser confusas. Assim, pode ser uma boa ideia evitá-la (a
 menos que você tenha certeza absoluta do que está fazendo).
 
-\subsection{\texorpdfstring{Operador
-\texttt{if}}{Operador if}}\label{operador-if}
+\subsection{Operador condicional}\label{operador-condicional}
 
 Para escrever programas úteis, quase sempre precisamos da capacidade de
 verificar condições e mudar o comportamento do programa de acordo com
 elas. Instruções condicionais nos dão esta capacidade. A forma mais
-simples é a instrução \texttt{if}:
+simples é a instrução \texttt{if}, que tem a seguinte sintaxe básica:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \OperatorTok{\textless{}}\NormalTok{condição}\OperatorTok{\textgreater{}}\NormalTok{:}
+    \OperatorTok{\textless{}}\NormalTok{instruções}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+A expressão booleana depois do \texttt{if} é chamada de condição. Se for
+verdadeira, o código identado e presente em
+\texttt{\textless{}instruções\textgreater{}} é executado. Caso o
+resultado da expressão booleana em
+\texttt{\textless{}condição\textgreater{}} seja \emph{False}, o código
+em \texttt{\textless{}instruções\textgreater{}} não é executado e o
+script segue.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4340,79 +4392,52 @@ simples é a instrução \texttt{if}:
 x é positivo
 \end{verbatim}
 
-A expressão booleana depois do \texttt{if} é chamada de condição. Se for
-verdadeira, a instrução indentada é executada. Se não, nada acontece.
-\emph{Aqui vale mais um adendo}: uma característica muito importante da
-sintaxe do Python é justamente a \textbf{identação}. Diferentemente de
-outras linguagens de programação, a identação exerce papel importante
-aqui, já que é através dela que se determina onde se inicia e onde
-termina um bloco de código, que pode ser uma expressão condicional ou
-mesmo uma função, como veremos mais a frente. Além de economizar várias
-chaves (``\{'' e ``\}'') e vários ``end'', a identação exerce um papel
-estético importante ao permitir uma melhor visualização do código como
-um todo.
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, colback=white, left=2mm, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, toprule=.15mm, rightrule=.15mm, breakable, coltitle=black, opacityback=0, titlerule=0mm, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white]
 
-Não há limite para o número de instruções que podem aparecer no corpo de
-uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil
-ter um corpo sem instruções (normalmente como um espaço reservado para
-código que ainda não foi escrito). Neste caso, você pode usar a
-instrução pass, que não faz nada.
+Uma característica muito importante da sintaxe do Python é justamente a
+\textbf{identação}. Diferentemente de outras linguagens de programação,
+a identação exerce papel importante aqui, já que é através dela que se
+determina onde se inicia e onde termina um bloco de código, que pode ser
+uma expressão condicional ou mesmo uma função, como veremos mais a
+frente. Além de economizar várias chaves (``\{'' e ``\}'') -- elementos
+que delimitam blocos de código em outras linguagens, como o R -- a
+identação exerce um papel estético importante ao permitir uma melhor
+visualização do código como um todo.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\textless{}} \DecValTok{0}\NormalTok{:}
-    \ControlFlowTok{pass} 
-\end{Highlighting}
-\end{Shaded}
+\end{tcolorbox}
 
-Uma segunda forma da instrução if é a ``execução alternativa'', na qual
-há duas possibilidades e a condição determina qual será executada. A
-sintaxe pode ser algo assim:
+Uma segunda forma de utilizar a instrução \texttt{if} é a chamada
+execução alternativa, na qual há duas possibilidades e a condição
+determina qual será executada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x }\OperatorTok{=} \DecValTok{5}
+\NormalTok{idade }\OperatorTok{=} \DecValTok{17}
 
-\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é par\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{ idade }\OperatorTok{\textgreater{}=} \DecValTok{18}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Indivíduo é maior de idade\textquotesingle{}}\NormalTok{)}
 \ControlFlowTok{else}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x é ímpar\textquotesingle{}}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Indivíduo é menor de idade\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-x é ímpar
+Indivíduo é menor de idade
 \end{verbatim}
 
-Se o resto quando x for dividido por 2 for 0, então sabemos que x é par
-e o programa exibe uma mensagem adequada. Se a condição for falsa, o
-segundo conjunto de instruções é executado. Como a condição deve ser
-verdadeira ou falsa, exatamente uma das alternativas será executada. As
-alternativas são chamadas de ramos (branches), porque são ramos no fluxo
-da execução.
-
-Podemos usar a instrução if para testar o tamanho de uma lista também:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]}
-
-\ControlFlowTok{if} \BuiltInTok{len}\NormalTok{(lista1) }\OperatorTok{\textgreater{}} \DecValTok{2}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem mais de dois elementos\textquotesingle{}}\NormalTok{)}
-\ControlFlowTok{else}\NormalTok{:}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}lista1 tem menos de dois elementos\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-lista1 tem mais de dois elementos
-\end{verbatim}
+Se o valor atribuído ao objeto idade for maior ou igual a 18, então
+sabemos que o indivíduo já atingiu a maioridade e o programa exibe a
+respectiva mensagem. Se a condição for falsa, o segundo conjunto de
+instruções é executado, informando que o indivíuo é menor de idade. Como
+a condição deve ser verdadeira ou falsa, exatamente uma das alternativas
+será executada. As alternativas são chamadas de ramos (\emph{branches}),
+porque são ramos no fluxo da execução.
 
 \subsection{Condicionais encadeadas}\label{condicionais-encadeadas}
 
 Às vezes, há mais de duas possibilidades e precisamos de mais que dois
-ramos. Esta forma de expressar uma operação de computação é uma
-condicional encadeada:
+ramos de condições. Esta forma de expressar uma operação de computação é
+uma condicional encadeada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4432,17 +4457,17 @@ condicional encadeada:
 x é menor do que y
 \end{verbatim}
 
-\texttt{elif} é uma abreviatura de ``else if''. Novamente, exatamente um
-ramo será executado. Não há nenhum limite para o número de instruções
-elif. Se houver uma cláusula else, ela deve estar no fim, mas não é
-preciso haver uma. Cada condição é verificada em ordem. Se a primeira
-for falsa, a próxima é verificada, e assim por diante. Se uma delas for
-verdadeira, o ramo correspondente é executado e a instrução é encerrada.
-Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro
-é executado.
+Novamente, exatamente um ramo será executado. Não há nenhum limite para
+o número de instruções \texttt{elif}\footnote{É uma abreviação da
+  expressão \emph{else if}.}. Se houver uma cláusula \texttt{else}, ela
+deve estar no fim, mas não é preciso haver uma. Cada condição é
+verificada em ordem. Se a primeira for falsa, a próxima é verificada, e
+assim por diante. Se uma delas for verdadeira, o ramo correspondente é
+executado e a instrução é encerrada. Mesmo se mais de uma condição for
+verdade, só o primeiro ramo verdadeiro é executado. Em condicionais
+encadeados, a ordem é importante.
 
-\section{\texorpdfstring{Repetição simples e a instrução
-\emph{for}}{Repetição simples e a instrução for}}\label{repetiuxe7uxe3o-simples-e-a-instruuxe7uxe3o-for}
+\section{Repetição simples}\label{repetiuxe7uxe3o-simples}
 
 Os computadores muitas vezes são usados para automatizar tarefas
 repetitivas. A repetição de tarefas idênticas ou semelhantes sem cometer
@@ -4460,10 +4485,10 @@ iniciado.
 Para atingir o objetivo proposto pela \emph{iteração definida}
 utilizaremos no Python a instrução \texttt{for}. Um loop \texttt{for}
 tem duas partes: um cabeçalho especificando a iteração, que termina em
-dois pontos, e um corpo \textbf{identado} que é executado uma vez por
-iteração. O corpo pode conter qualquer número de instruções, mas o
-Python só reconhecerá como parte do corpo o código que estiver identado
-em relação ao cabeçalho.
+dois pontos, e um corpo identado que é executado uma vez por iteração. O
+corpo pode conter qualquer número de instruções, mas o Python só
+reconhecerá como parte do corpo o código que estiver identado em relação
+ao cabeçalho.
 
 No Python o \texttt{for} tem a cara abaixo
 
@@ -4486,18 +4511,10 @@ percorrer todos os elementos pertencentes à sequência
 
 Imagine agora que estejamos interessados em criar um \texttt{for} loop
 que printa 10 números aleatórios sorteados de uma distribuição uniforme
-que vai de 0 a 1. Utilizando o objeto \texttt{range()} e a lógica de
-listas:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-range(0, 10)
-\end{verbatim}
+que vai de 0 a 1. Utilizarei para esse exemplo o objeto
+\texttt{range()}, a lógica de listas e a função \texttt{uniform} do
+NumPy, geradora de números aleatórios distribuídos de acordo com uma
+Distribuição Uniforme padrão (definida no intervalo \([0,1]\)).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4519,136 +4536,104 @@ range(0, 10)
 \end{Shaded}
 
 \begin{verbatim}
-0.5108730442279044
-0.5201612958751287
-0.5090447954478914
-0.07198345790380511
-0.7341044066863371
-0.2453842958871778
-0.9824754156507431
-0.5213278460312032
-0.629808279009165
-0.32159954688436976
+0.02882232751552749
+0.3516279097354622
+0.12726693461053218
+0.26628151395776123
+0.44664338236106493
+0.7503877917066714
+0.9432532609847457
+0.38542013204559344
+0.519114420918814
+0.9471676106679018
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
-momento, de modo que a lista nos serviu apenas para ditar o número de
-vezes que gostaríamos de rodar o bloco de instruções abaixo do
-cabeçalho, no caso 10. Podemos ir um pouco além.
+momento,a lista nos serviu apenas para ditar o número de vezes que
+gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso
+10. Podemos ir um pouco além.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{)):}
     
 \NormalTok{    u }\OperatorTok{=}\NormalTok{ np.random.uniform()}
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Essa é a iteração \textquotesingle{}}\OperatorTok{+}\BuiltInTok{str}\NormalTok{(i}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{+}\StringTok{\textquotesingle{} e o número sorteado foi: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(u)) }
+\NormalTok{    string}\OperatorTok{=}\StringTok{\textquotesingle{}Essa é a iteração }\SpecialCharTok{\{:.0f\}}\StringTok{ e o número sorteado foi: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}
+
+    \BuiltInTok{print}\NormalTok{(string.}\BuiltInTok{format}\NormalTok{(i,u)) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 1 e o número sorteado foi: 0.13
-Essa é a iteração 2 e o número sorteado foi: 0.70
-Essa é a iteração 3 e o número sorteado foi: 0.58
-Essa é a iteração 4 e o número sorteado foi: 0.33
-Essa é a iteração 5 e o número sorteado foi: 0.71
-Essa é a iteração 6 e o número sorteado foi: 0.66
+Essa é a iteração 0 e o número sorteado foi: 0.03
+Essa é a iteração 1 e o número sorteado foi: 0.70
+Essa é a iteração 2 e o número sorteado foi: 0.96
+Essa é a iteração 3 e o número sorteado foi: 0.57
+Essa é a iteração 4 e o número sorteado foi: 0.80
+Essa é a iteração 5 e o número sorteado foi: 0.01
+Essa é a iteração 6 e o número sorteado foi: 0.27
 Essa é a iteração 7 e o número sorteado foi: 0.24
-Essa é a iteração 8 e o número sorteado foi: 0.23
-Essa é a iteração 9 e o número sorteado foi: 0.94
-Essa é a iteração 10 e o número sorteado foi: 0.92
+Essa é a iteração 8 e o número sorteado foi: 0.97
+Essa é a iteração 9 e o número sorteado foi: 0.14
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
 \texttt{i}, quanto o resultado de cada sorteio individual \texttt{u}.
 
-Como dito anterioremente, o loop \texttt{for} funciona com qualquer
-sequência ou objeto pelo qual seja possível percorrer. Podemos
-trabalhar, inclusive, com strings e listas como nos exemplos abaixo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str1 }\OperatorTok{=} \StringTok{\textquotesingle{}Vou nadaaaa\textquotesingle{}}
-
-\ControlFlowTok{for}\NormalTok{ c }\KeywordTok{in}\NormalTok{ str1:}
-    \BuiltInTok{print}\NormalTok{(c)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-V
-o
-u
- 
-n
-a
-d
-a
-a
-a
-a
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lista1 }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Minha terra tem palmeiras\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}onde canta o sabiá\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}seno A cosseno B\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}seno B cosseno A\textquotesingle{}}\NormalTok{]}
-
-\ControlFlowTok{for}\NormalTok{ f }\KeywordTok{in}\NormalTok{ lista1:}
-    \BuiltInTok{print}\NormalTok{(f)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Minha terra tem palmeiras
-onde canta o sabiá
-seno A cosseno B
-seno B cosseno A
-\end{verbatim}
-
-\subsection{\texorpdfstring{\emph{for} loop e instruções
-condicionais}{for loop e instruções condicionais}}\label{for-loop-e-instruuxe7uxf5es-condicionais}
+\subsection{Iteração definida e instruções
+condicionais}\label{iterauxe7uxe3o-definida-e-instruuxe7uxf5es-condicionais}
 
 Podemos utilizar instruções condicionais dentro de um loop \texttt{for}
 também. Mais do que isso, é possível utilizar esse tipo de instrução
 para interromper a repetição do código, mesmo antes do Python percorrer
-todos os elementos da sequência alvo.
+todos os elementos da sequência alvo. Vejamos um exemplo da brincadeira
+do \emph{C e S}, em que os jogadores definem um tema e perde o primeiro
+jogador a falar uma palavra relacionada ao tema que comece com a letra c
+ou com a letra s.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ [}\StringTok{\textquotesingle{}foo\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}bar\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}baz\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}qux\textquotesingle{}}\NormalTok{]:}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ [}\StringTok{\textquotesingle{}banana\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}uva\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}cenoura\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}melão\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}salsinha\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}couve{-}flor\textquotesingle{}}\NormalTok{]:}
     
-    \ControlFlowTok{if} \StringTok{\textquotesingle{}b\textquotesingle{}} \KeywordTok{in}\NormalTok{ i:}
+\NormalTok{    cond1}\OperatorTok{=}\NormalTok{i.startswith(}\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{)}
+\NormalTok{    cond2}\OperatorTok{=}\NormalTok{i.startswith(}\StringTok{\textquotesingle{}s\textquotesingle{}}\NormalTok{)}
+
+    \ControlFlowTok{if}\NormalTok{ cond1 }\KeywordTok{or}\NormalTok{ cond2:}
         \ControlFlowTok{break}
+
     \BuiltInTok{print}\NormalTok{(i)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-foo
+banana
+uva
 \end{verbatim}
 
-Note que no caso acima, o segundo elemento da lista
-\texttt{{[}\textquotesingle{}foo\textquotesingle{},\textquotesingle{}bar\textquotesingle{},\textquotesingle{}baz\textquotesingle{},\textquotesingle{}qux\textquotesingle{}{]}}
-contém a letra `b' mas o primeiro não. A instrução \texttt{if},
-portanto, retorna \texttt{False} na primeira iteração e \texttt{True} na
-segunda. No momento em que ela retorna \texttt{True} o código identado
-\texttt{break} é executado e o loop para aí! Dessa forma, o único termo
-que a instrução print vai imprimir será o primeiro da lista, isto é,
-`foo'.
+Note que no caso acima, o terceiro elemento da lista
+\texttt{{[}\textquotesingle{}banana\textquotesingle{},\textquotesingle{}uva\textquotesingle{},\textquotesingle{}cenoura\textquotesingle{},\textquotesingle{}melão\textquotesingle{},\textquotesingle{}salsinha\textquotesingle{},\textquotesingle{}couve-flor\textquotesingle{}{]}}
+começa com a letra `c' mas os dois primeiros não. A expressão boleana
+após o \texttt{if}, portanto, retorna \texttt{False} nas duas primeiras
+iterações e \texttt{True} na segunda. No momento em que ela retorna
+\texttt{True} a instrução \texttt{break} é executada e o loop para aí!
+Dessa forma, apenas os dois primeiros termos da lista serão impressos
+pela instrução \texttt{print}.
 
-\subsection{\texorpdfstring{Usando \emph{enumerate} e
-\emph{zip}}{Usando enumerate e zip}}\label{usando-enumerate-e-zip}
+\subsection{\texorpdfstring{Usando
+\emph{enumerate}}{Usando enumerate}}\label{usando-enumerate}
 
 Às vezes pode ser útil, dentro de um loop \texttt{for}, ter uma variável
-que muda em cada iteração do loop que possibilite fazer um controle mais
-direto sobre qual iteração está sendo executada em determinado momento.
-Em vez de criar e incrementar uma variável você mesmo, você pode usar a
-função nativa \texttt{enumerate()} para obter um contador e o valor do
-objeto iterável ao mesmo tempo! Para deixar claro como funciona a
-sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
+que muda em cada iteração do loop e que possibilite fazer um controle
+mais direto sobre qual iteração está sendo executada em determinado
+momento. Em vez de criar e incrementar uma variável você mesmo, você
+pode usar a função nativa \texttt{enumerate()} para obter um contador e
+o valor do objeto iterável ao mesmo tempo. Para deixar claro como
+funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de
+strings.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{str1 }\OperatorTok{=} \StringTok{\textquotesingle{}O Tata é foota, o Tata é foota\textquotesingle{}}
+\NormalTok{str1 }\OperatorTok{=} \StringTok{\textquotesingle{}Água mole em pedra dura, tanto bate até que fura\textquotesingle{}}
 
 \CommentTok{\# Algumas linhas de código adicionais para excluir pontuação e transformar o string em uma lista de palavras}
 \NormalTok{str1 }\OperatorTok{=}\NormalTok{ str1.replace(}\StringTok{\textquotesingle{}.\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{)}
@@ -4662,14 +4647,16 @@ sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
 \end{Shaded}
 
 \begin{verbatim}
-O
-Tata
-é
-foota
-o
-Tata
-é
-foota
+Água
+mole
+em
+pedra
+dura
+tanto
+bate
+até
+que
+fura
 \end{verbatim}
 
 Utilizando o \texttt{enumerate()} podemos, em uma mesma linha de código,
@@ -4685,81 +4672,30 @@ desse string dentro da lista!
 \end{Shaded}
 
 \begin{verbatim}
-Elemento 0 = O
-Elemento 1 = Tata
-Elemento 2 = é
-Elemento 3 = foota
-Elemento 4 = o
-Elemento 5 = Tata
-Elemento 6 = é
-Elemento 7 = foota
+Elemento 0 = Água
+Elemento 1 = mole
+Elemento 2 = em
+Elemento 3 = pedra
+Elemento 4 = dura
+Elemento 5 = tanto
+Elemento 6 = bate
+Elemento 7 = até
+Elemento 8 = que
+Elemento 9 = fura
 \end{verbatim}
 
 Uma outra forma de criar esses mesmos resultados seria utilizando a
 função nativa \texttt{zip()}. Essa função nos permite iterar ao longo de
 duas ou mais sequências ao mesmo tempo, contanto que as sequências
-possuam o mesmo comprimento.
+possuam o mesmo comprimento. Porém, seu escopo de ação é muito mais
+geral já que nos permite percorrer dois objetos distintos ao mesmo
+tempo, sejam quais forem esses objetos. A única obrigatoriedade é que
+esses objetos tenham o mesmo tamanho.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(lista1)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-['O', 'Tata', 'é', 'foota', 'o', 'Tata', 'é', 'foota']
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lista2 }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\BuiltInTok{len}\NormalTok{(lista1)))}
-\BuiltInTok{print}\NormalTok{(lista2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[0, 1, 2, 3, 4, 5, 6, 7]
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{len}\NormalTok{(lista1) }\OperatorTok{==} \BuiltInTok{len}\NormalTok{(lista2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-True
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{for}\NormalTok{ count,value }\KeywordTok{in} \BuiltInTok{zip}\NormalTok{(lista2, lista1):}
-    
-    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Elemento \textquotesingle{}}\OperatorTok{+}\BuiltInTok{str}\NormalTok{(count)}\OperatorTok{+}\StringTok{\textquotesingle{} = \textquotesingle{}}\OperatorTok{+}\NormalTok{value)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Elemento 0 = O
-Elemento 1 = Tata
-Elemento 2 = é
-Elemento 3 = foota
-Elemento 4 = o
-Elemento 5 = Tata
-Elemento 6 = é
-Elemento 7 = foota
-\end{verbatim}
-
-Embora tenhamos utilizado a função \texttt{zip()} para chegar ao mesmo
-resultado de \texttt{enumerate()}, seu escopo de ação é muito mais geral
-já que nos permite percorrer dois objetos distintos ao mesmo tempo,
-sejam quais forem esses objetos. A única obrigatoriedade é que esses
-objetos tenham o mesmo tamanho, nada mais!
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{professores }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Claudio Lucinda\textquotesingle{}}\NormalTok{]}
-\NormalTok{turmas }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}2024201\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}2024202\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}2024221\textquotesingle{}}\NormalTok{]}
+\NormalTok{professores }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Danilo Souza\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Artur Viaro\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Artur Viaro\textquotesingle{}}\NormalTok{]}
+\NormalTok{turmas }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}2026101\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}2026102\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}2026121\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}2026122\textquotesingle{}}\NormalTok{]}
 
 \ControlFlowTok{for}\NormalTok{ p,t }\KeywordTok{in} \BuiltInTok{zip}\NormalTok{(professores,turmas):}
     
@@ -4768,22 +4704,22 @@ objetos tenham o mesmo tamanho, nada mais!
 \end{Shaded}
 
 \begin{verbatim}
-Nesse curso, a turma 2024201 é de responsabilidade do professor Danilo Souza
-Nesse curso, a turma 2024202 é de responsabilidade do professor Danilo Souza
-Nesse curso, a turma 2024221 é de responsabilidade do professor Claudio Lucinda
+Nesse curso, a turma 2026101 é de responsabilidade do professor Danilo Souza
+Nesse curso, a turma 2026102 é de responsabilidade do professor Danilo Souza
+Nesse curso, a turma 2026121 é de responsabilidade do professor Artur Viaro
+Nesse curso, a turma 2026122 é de responsabilidade do professor Artur Viaro
 \end{verbatim}
 
-\subsection{\texorpdfstring{\emph{For} e \emph{list
-comprehensions}}{For e list comprehensions}}\label{for-e-list-comprehensions}
+\subsection{\texorpdfstring{\emph{List
+comprehensions}}{List comprehensions}}\label{list-comprehensions}
 
 \emph{List comprehensions} é uma das várias formas que o Python nos
 oferece para de criar, alterar e manipular listas. Sua sintaxe é
 bastante concisa e nos permite olhar para um exerício de iteração
-através de algo parecido com uma fórmula.
-
-Imagine que estejamos interessados em criar uma lista que contenha a
-parte inteira da raiz quadrada de todo número de uma outra lista
-original. Usualmente faríamos isso utilizando um loop \texttt{for}:
+através de algo parecido com uma fórmula. Imagine que estejamos
+interessados em criar uma lista que contenha a parte inteira da raiz
+quadrada de todo número de uma outra lista original. Usualmente faríamos
+isso utilizando um loop \texttt{for}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4817,15 +4753,14 @@ seguinte sintaxe:
 \end{verbatim}
 
 Em termos práticos isso funciona como se fosse um loop definido dentro
-de uma única linha de código. Mas porque aprender as duas formas? Será
-que alguma delas é mais eficiente? Vamos fazer um teste para esse
-exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos
-também a função \texttt{time} do pacote \texttt{time} para calcular o
-tempo utilizado por cada um dos métodos.
+de uma única linha de código. Mas se fazem a mesma coisa, qual a
+diferença entre as duas formas? Vamos fazer um teste para esse exercicío
+da raiz quadrada, porém para uma lista maior. Utilizaremos também a
+função \texttt{time} do pacote \texttt{time} para calcular o tempo
+utilizado por cada um dos métodos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ time }
 \NormalTok{lista1 }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1000000}\NormalTok{))}
 
 \CommentTok{\# list comprehension}
@@ -4860,10 +4795,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0982 segundos
-Tempo necessário para a realização dos cálculos utilizando loop: 0.1319 segundos
+Tempo necessário para a realização dos cálculos utilizando list comprehensions: 0.0918 segundos
+Tempo necessário para a realização dos cálculos utilizando loop: 0.1314 segundos
 
-A abordagem de loop demorou 34.3% mais tempo! Dê uma chance para list comprehensions ;)
+A abordagem de loop demorou 43.1% mais tempo! Dê uma chance para list comprehensions ;)
 \end{verbatim}
 
 \section{Reatribuição e atualização de
@@ -5171,8 +5106,8 @@ probabilidade dentro de um intervalo especificado.
 \end{Shaded}
 
 \begin{verbatim}
-[-33.0759842    8.38751697  18.31984273  14.28777962 -11.95961161
- -12.90576048 -17.30396819  23.26298914  15.11659016 -14.05462976]
+[-39.93160568 -34.35875149   3.81036201  15.19504288   4.12333825
+  -7.42943458 -16.49233468  27.51700822 -26.11394842  -0.70730235]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5185,8 +5120,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[-21.54972143  15.40504573  23.03558836 -38.87852492  32.53702708
- -38.14700694 -24.15511151  36.21847301  19.21992465 -38.98585804]
+[ 28.80944079 -14.05341023  17.90232411   8.38096265 -26.52200994
+ -11.11954101  26.31431184  23.65077468 -24.49218086  -8.47010872]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar uma função
@@ -5752,8 +5687,8 @@ sorteando apenas 10 números desta distribuição:
 \end{Shaded}
 
 \begin{verbatim}
-[-34.40903006  18.79336158   7.37898404   3.04736026   7.29081845
-  11.13608941 -18.3530536  -31.61313333  18.02433735  13.7092858 ]
+[-32.00308505  10.26574671   1.88402512  24.08386395 -33.77392756
+   0.46983746  -2.20960165 -36.63779827  27.70127292  -6.59135382]
 \end{verbatim}
 
 \subsection{Elementos dentro da função:
@@ -7311,8 +7246,8 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário para a realização dos cálculos utilizando arrays: 0.0137 segundos
-Tempo necessário para a realização dos cálculos utilizando listas: 0.3126 segundos
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0134 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.3031 segundos
 
 A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
 \end{verbatim}

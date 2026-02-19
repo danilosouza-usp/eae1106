@@ -2,32 +2,49 @@
 
 ## Introdução
 
+Até este ponto do curso, trabalhamos com objetos e operações básicas em Python, executando instruções de forma sequencial, isto é, uma após a outra. No entanto, programas reais raramente seguem apenas uma sequência linear de comandos. Em aplicações práticas -- como filtragem de dados, simulações, cálculos iterativos ou implementação de regras de decisão -- é necessário que o programa seja capaz de executar instruções com base em condições e repetir determinadas operações múltiplas vezes. Essas tarefas são realizadas por meio das estruturas de controle de fluxo. 
+
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+
+Neste capítulo, serão apresentados os principais mecanismos de decisão e repetição em Python: a construção de expressões booleanas, o uso de estruturas condicionais, os laçõs de repetição (_loops_, em inglês), instruções de controle que indicam um ponto de parada ou continuação do código, e as chamadas _list comprehensions_ como forma compacta de iteração. Esses instrumentos formam o núcleo da programação imperativa no Python e são indispensáveis para qualquer aplicação computacional em Economia e análise de dados.
+
 ### Pré-requisitos
 
-Embora as funções e estruturas necessárias para a realização de _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios.
+Embora as funções e estruturas necessárias para a implementação de expressões condicionais e _loops_ no Python sejam nativas na linguagem, para algumas das aplicações utilizaremos um dos pacotes externos que nos permitem trabalhar com números aleatórios, o _NumPy_. Além disso, em alguma aplicações utilizaremos o pacote _time_ para contagem de tempo de máquina.
 
 - `numpy`
+- `time`
 
 ```{python}
 #| message: false
 #| warning: false
 
 import numpy as np
+import time 
 ```
 
 ## Execução condicional
 
 ### Expressões booleanas
 
+Antes de conseguirmos controlar o fluxo de execução, é preciso aprender a definir condições através das expressões booleanas. Essas expressões exprimem condições e comparações que resultam em um valor booleano, _True_ ou _False_, e são resultado da combinação entre operadores relacionais, que comparam valores, e operadores lógicos, que nos permitem encadear comparações. Os operadores relacionais utilizados na linguagem são:
+
+- **x == y**: x é igual a y
+- **x != y**: x não é igual a y
+- **x > y**: x é maior que y
+- **x < y**: x é menor que y
+- **x >= y**: x é maior ou igual a y
+- **x <= y**: x é menor ou igual a y
+
+Os exemplos a seguir usam o operador de igualdade para comparara dois operandos quaisquer, que podem ser simples valores ou mesmo objetos.
+
 ```{python}
 5 == 5
 ```
 
-
 ```{python}
 5 == 6
 ```
-
 
 ```{python}
 lista1 = [1,2,3,4,5]
@@ -36,20 +53,9 @@ lista2 = [5,4,3,2,1]
 lista1 == lista2
 ```
 
-O operador == é um dos operadores relacionais dentro do Python, os outros são:
-
-1. **x != y**: x não é igual a y
-2. **x > y**: x é maior que y
-3. **x < y**: x é menor que y
-4. **x >= y**: x é maior ou igual a y
-5. **x <= y**: x é menor ou igual a y
-
-Embora essas operações provavelmente sejam familiares para você, os símbolos do Python são diferentes dos símbolos matemáticos. Um erro comum é usar apenas um sinal de igual (=) em vez de um sinal duplo (==). Lembre-se de que = é um operador de atribuição e == é um operador relacional. Não existe => ou =<.
-
-Há três operadores lógicos: `and`, `or` e `not`. A semântica (significado) destes operadores é semelhante ao seu significado em inglês. Por exemplo, `x>=0 and x<=10` só é verdade se x for maior que 0 **e** menor que 10. `n%2 == 0 or n%3 == 0` é verdadeiro se uma ou as duas condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e o operador módulo, tente brincar um pouco com `//` e com `%`). Finalmente, o operador `not` nega uma expressão booleana, então `not (x > y)` é verdade se `x > y` for falso, isto é, se x for menor que ou igual a y.
+Há três operadores lógicos: `and`, `or` e `not`. O significado destes operadores é semelhante ao seu significado em inglês. Por exemplo, `x>=0 and x<=10` só é verdade se x for maior que 0 e x for menor que 10. `n%2 == 0 or n%3 == 0` é verdadeiro se uma ou as duas condição(ões) for(em) verdadeira(s), isto é, se o número n for divisível por 2 ou 3 (caso você não esteja familiarizado com a divisão pelo piso e o operador módulo, tente brincar um pouco com `//` e com `%`). Finalmente, o operador `not` nega uma expressão booleana, então `not (x > y)` é verdade se `x > y` for falso, isto é, se x for menor que ou igual a y.
 
 Falando estritamente, os operandos dos operadores lógicos devem ser expressões booleanas, mas o Python não é muito estrito. Qualquer número que não seja zero é interpretado como _True_:
-
 
 ```{python}
 42 and True
@@ -57,10 +63,16 @@ Falando estritamente, os operandos dos operadores lógicos devem ser expressões
 
 Esta flexibilidade tem sua utilidade, mas há algumas sutilezas relativas a ela que podem ser confusas. Assim, pode ser uma boa ideia evitá-la (a menos que você tenha certeza absoluta do que está fazendo).
 
-### Operador `if`
+### Operador condicional
 
-Para escrever programas úteis, quase sempre precisamos da capacidade de verificar condições e mudar o comportamento do programa de acordo com elas. Instruções condicionais nos dão esta capacidade. A forma mais simples é a instrução `if`:
+Para escrever programas úteis, quase sempre precisamos da capacidade de verificar condições e mudar o comportamento do programa de acordo com elas. Instruções condicionais nos dão esta capacidade. A forma mais simples é a instrução `if`, que tem a seguinte sintaxe básica: 
 
+```python
+if <condição>:
+    <instruções>
+```
+
+A expressão booleana depois do `if` é chamada de condição. Se for verdadeira, o código identado e presente em `<instruções>` é executado. Caso o resultado da expressão booleana em `<condição>` seja _False_, o código em `<instruções>` não é executado e o script segue.
 
 ```{python}
 x=5
@@ -69,46 +81,26 @@ if x > 0:
     print('x é positivo')
 ```
 
-A expressão booleana depois do `if` é chamada de condição. Se for verdadeira, a instrução indentada é executada. Se não, nada acontece. _Aqui vale mais um adendo_: uma característica muito importante da sintaxe do Python é justamente a **identação**. Diferentemente de outras linguagens de programação, a identação exerce papel importante aqui, já que é através dela que se determina onde se inicia e onde termina um bloco de código, que pode ser uma expressão condicional ou mesmo uma função, como veremos mais a frente. Além de economizar várias chaves ("{" e "}") e vários "end", a identação exerce um papel estético importante ao permitir uma melhor visualização do código como um todo.
+::: {.callout-important title="Importante"}
+Uma característica muito importante da sintaxe do Python é justamente a **identação**. Diferentemente de outras linguagens de programação, a identação exerce papel importante aqui, já que é através dela que se determina onde se inicia e onde termina um bloco de código, que pode ser uma expressão condicional ou mesmo uma função, como veremos mais a frente. Além de economizar várias chaves ("{" e "}") -- elementos que delimitam blocos de código em outras linguagens, como o R -- a identação exerce um papel estético importante ao permitir uma melhor visualização do código como um todo.
+:::
 
-Não há limite para o número de instruções que podem aparecer no corpo de uma instrução if, mas deve haver pelo menos uma. Ocasionalmente, é útil ter um corpo sem instruções (normalmente como um espaço reservado para código que ainda não foi escrito). Neste caso, você pode usar a instrução pass, que não faz nada.
-
-
-```{python}
-if x < 0:
-    pass 
-```
-
-Uma segunda forma da instrução if é a "execução alternativa", na qual há duas possibilidades e a condição determina qual será executada. A sintaxe pode ser algo assim:
-
+Uma segunda forma de utilizar a instrução `if` é a chamada execução alternativa, na qual há duas possibilidades e a condição determina qual será executada.
 
 ```{python}
-x = 5
+idade = 17
 
-if x % 2 == 0:
-    print('x é par')
+if idade >= 18:
+    print('Indivíduo é maior de idade')
 else:
-    print('x é ímpar')
+    print('Indivíduo é menor de idade')
 ```
 
-Se o resto quando x for dividido por 2 for 0, então sabemos que x é par e o programa exibe uma mensagem adequada. Se a condição for falsa, o segundo conjunto de instruções é executado. Como a condição deve ser verdadeira ou falsa, exatamente uma das alternativas será executada. As alternativas são chamadas de ramos (branches), porque são ramos no fluxo da execução.
-
-Podemos usar a instrução if para testar o tamanho de uma lista também:
-
-
-```{python}
-lista1 = [1,2,3,4,5]
-
-if len(lista1) > 2:
-    print('lista1 tem mais de dois elementos')
-else:
-    print('lista1 tem menos de dois elementos')
-```
+Se o valor atribuído ao objeto idade for maior ou igual a 18, então sabemos que o indivíduo já atingiu a maioridade e o programa exibe a respectiva mensagem. Se a condição for falsa, o segundo conjunto de instruções é executado, informando que o indivíuo é menor de idade. Como a condição deve ser verdadeira ou falsa, exatamente uma das alternativas será executada. As alternativas são chamadas de ramos (_branches_), porque são ramos no fluxo da execução.
 
 ### Condicionais encadeadas
 
-Às vezes, há mais de duas possibilidades e precisamos de mais que dois ramos. Esta forma de expressar uma operação de computação é uma condicional encadeada:
-
+Às vezes, há mais de duas possibilidades e precisamos de mais que dois ramos de condições. Esta forma de expressar uma operação de computação é uma condicional encadeada.
 
 ```{python}
 x = 5
@@ -122,16 +114,15 @@ else:
     print('x e y são iguais')
 ```
 
-`elif` é uma abreviatura de "else if". Novamente, exatamente um ramo será executado. Não há nenhum limite para o número de instruções elif. Se houver uma cláusula else, ela deve estar no fim, mas não é preciso haver uma. Cada condição é verificada em ordem. Se a primeira for falsa, a próxima é verificada, e assim por diante. Se uma delas for verdadeira, o ramo correspondente é executado e a instrução é encerrada. Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro é executado.
+Novamente, exatamente um ramo será executado. Não há nenhum limite para o número de instruções `elif`^[É uma abreviação da expressão _else if_.]. Se houver uma cláusula `else`, ela deve estar no fim, mas não é preciso haver uma. Cada condição é verificada em ordem. Se a primeira for falsa, a próxima é verificada, e assim por diante. Se uma delas for verdadeira, o ramo correspondente é executado e a instrução é encerrada. Mesmo se mais de uma condição for verdade, só o primeiro ramo verdadeiro é executado. Em condicionais encadeados, a ordem é importante.
 
-
-## Repetição simples e a instrução _for_
+## Repetição simples
 
 Os computadores muitas vezes são usados para automatizar tarefas repetitivas. A repetição de tarefas idênticas ou semelhantes sem cometer erros é algo que os computadores fazem muito bem e as pessoas não. Em um programa de computador, a repetição também é chamada de iteração.
 
 De maneira um pouco mais formal, iteração significa executar o mesmo bloco de código repetidamente, potencialmente muitas vezes. Uma estrutura de programação que implementa a iteração é chamada de _loop_. A forma mais simples de iteração é a chamada _iteração definida_, em que o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o _loop_ é iniciado.
 
-Para atingir o objetivo proposto pela _iteração definida_ utilizaremos no Python a instrução `for`. Um loop `for` tem duas partes: um cabeçalho especificando a iteração, que termina em dois pontos, e um corpo **identado** que é executado uma vez por iteração. O corpo pode conter qualquer número de instruções, mas o Python só reconhecerá como parte do corpo o código que estiver identado em relação ao cabeçalho.
+Para atingir o objetivo proposto pela _iteração definida_ utilizaremos no Python a instrução `for`. Um loop `for` tem duas partes: um cabeçalho especificando a iteração, que termina em dois pontos, e um corpo identado que é executado uma vez por iteração. O corpo pode conter qualquer número de instruções, mas o Python só reconhecerá como parte do corpo o código que estiver identado em relação ao cabeçalho.
 
 No Python o `for` tem a cara abaixo
 
@@ -142,18 +133,11 @@ for <elemento> in <objeto>:
 
 Note que `<objeto>` em geral se refere à uma sequência, seja ela uma lista, uma tupla, um string ou qualquer outro objeto pelo qual seja possível percorrer. Para cada `<elemento>` dentro da sequência `<objeto>` o conjunto de instruções em `<instruções>`será executado. Após percorrer todos os elementos pertencentes à sequência `<objeto>`, o Python para a execução do _loop_.
 
-Imagine agora que estejamos interessados em criar um `for` loop que printa 10 números aleatórios sorteados de uma distribuição uniforme que vai de 0 a 1. Utilizando o objeto `range()` e a lógica de listas:
-
-
-```{python}
-print(range(0,10))
-```
-
+Imagine agora que estejamos interessados em criar um `for` loop que printa 10 números aleatórios sorteados de uma distribuição uniforme que vai de 0 a 1. Utilizarei para esse exemplo o objeto `range()`, a lógica de listas e a função `uniform` do NumPy, geradora de números aleatórios distribuídos de acordo com uma Distribuição Uniforme padrão (definida no intervalo $[0,1]$).
 
 ```{python}
 print(list(range(0,10)))
 ```
-
 
 ```{python}
 for i in list(range(0,10)):
@@ -162,58 +146,43 @@ for i in list(range(0,10)):
     print(u)
 ```
 
-No _loop_ acima não utilizamos o elemento `i` em nenhum momento, de modo que a lista nos serviu apenas para ditar o número de vezes que gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso 10. Podemos ir um pouco além.
-
+No _loop_ acima não utilizamos o elemento `i` em nenhum momento,a lista nos serviu apenas para ditar o número de vezes que gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso 10. Podemos ir um pouco além.
 
 ```{python}
 for i in list(range(0,10)):
     
     u = np.random.uniform()
-    print('Essa é a iteração '+str(i+1)+' e o número sorteado foi: {:.2f}'.format(u)) 
+    string='Essa é a iteração {:.0f} e o número sorteado foi: {:.2f}'
+
+    print(string.format(i,u)) 
 ```
 
 Note que nesse caso utilizamos tanto o elemento _iterável_ `i`, quanto o resultado de cada sorteio individual `u`. 
 
-Como dito anterioremente, o loop `for` funciona com qualquer sequência ou objeto pelo qual seja possível percorrer. Podemos trabalhar, inclusive, com strings e listas como nos exemplos abaixo:
+### Iteração definida e instruções condicionais
 
-
-```{python}
-str1 = 'Vou nadaaaa'
-
-for c in str1:
-    print(c)
-```
-
+Podemos utilizar instruções condicionais dentro de um loop `for` também. Mais do que isso, é possível utilizar esse tipo de instrução para interromper a repetição do código, mesmo antes do Python percorrer todos os elementos da sequência alvo. Vejamos um exemplo da brincadeira do _C e S_, em que os jogadores definem um tema e perde o primeiro jogador a falar uma palavra relacionada ao tema que comece com a letra c ou com a letra s.
 
 ```{python}
-lista1 = ['Minha terra tem palmeiras','onde canta o sabiá','seno A cosseno B','seno B cosseno A']
-
-for f in lista1:
-    print(f)
-```
-
-### _for_ loop e instruções condicionais
-
-Podemos utilizar instruções condicionais dentro de um loop `for` também. Mais do que isso, é possível utilizar esse tipo de instrução para interromper a repetição do código, mesmo antes do Python percorrer todos os elementos da sequência alvo.
-
-
-```{python}
-for i in ['foo','bar','baz','qux']:
+for i in ['banana','uva','cenoura','melão','salsinha','couve-flor']:
     
-    if 'b' in i:
+    cond1=i.startswith('c')
+    cond2=i.startswith('s')
+
+    if cond1 or cond2:
         break
+
     print(i)
 ```
 
-Note que no caso acima, o segundo elemento da lista `['foo','bar','baz','qux']` contém a letra 'b' mas o primeiro não. A instrução `if`, portanto, retorna `False` na primeira iteração e `True` na segunda. No momento em que ela retorna `True` o código identado `break` é executado e o loop para aí! Dessa forma, o único termo que a instrução print vai imprimir será o primeiro da lista, isto é, 'foo'.
+Note que no caso acima, o terceiro elemento da lista `['banana','uva','cenoura','melão','salsinha','couve-flor']` começa com a letra 'c' mas os dois primeiros não. A expressão boleana após o `if`, portanto, retorna `False` nas duas primeiras iterações e `True` na segunda. No momento em que ela retorna `True` a instrução `break` é executada e o loop para aí! Dessa forma, apenas os dois primeiros termos da lista serão impressos pela instrução `print`.
 
-### Usando _enumerate_ e _zip_
+### Usando _enumerate_
 
-Às vezes pode ser útil, dentro de um loop `for`, ter uma variável que muda em cada iteração do loop que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa `enumerate()` para obter um contador e o valor do objeto iterável ao mesmo tempo! Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
-
+Às vezes pode ser útil, dentro de um loop `for`, ter uma variável que muda em cada iteração do loop e que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa `enumerate()` para obter um contador e o valor do objeto iterável ao mesmo tempo. Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
 
 ```{python}
-str1 = 'O Tata é foota, o Tata é foota'
+str1 = 'Água mole em pedra dura, tanto bate até que fura'
 
 # Algumas linhas de código adicionais para excluir pontuação e transformar o string em uma lista de palavras
 str1 = str1.replace('.','')
@@ -227,56 +196,26 @@ for c in lista1:
 
 Utilizando o `enumerate()` podemos, em uma mesma linha de código, printar não apenas cada string individual da lista, mas também a posição desse string dentro da lista!
 
-
 ```{python}
 for count,value in enumerate(lista1):
     
     print('Elemento '+str(count)+' = '+value)
 ```
 
-Uma outra forma de criar esses mesmos resultados seria utilizando a função nativa `zip()`. Essa função nos permite iterar ao longo de duas ou mais sequências ao mesmo tempo, contanto que as sequências possuam o mesmo comprimento.
-
-
-```{python}
-print(lista1)
-```
-
+Uma outra forma de criar esses mesmos resultados seria utilizando a função nativa `zip()`. Essa função nos permite iterar ao longo de duas ou mais sequências ao mesmo tempo, contanto que as sequências possuam o mesmo comprimento. Porém, seu escopo de ação é muito mais geral já que nos permite percorrer dois objetos distintos ao mesmo tempo, sejam quais forem esses objetos. A única obrigatoriedade é que esses objetos tenham o mesmo tamanho.
 
 ```{python}
-lista2 = list(range(0,len(lista1)))
-print(lista2)
-```
-
-
-```{python}
-len(lista1) == len(lista2)
-```
-
-
-```{python}
-for count,value in zip(lista2, lista1):
-    
-    print('Elemento '+str(count)+' = '+value)
-```
-
-Embora tenhamos utilizado a função `zip()` para chegar ao mesmo resultado de `enumerate()`, seu escopo de ação é muito mais geral já que nos permite percorrer dois objetos distintos ao mesmo tempo, sejam quais forem esses objetos. A única obrigatoriedade é que esses objetos tenham o mesmo tamanho, nada mais!
-
-
-```{python}
-professores = ['Danilo Souza','Danilo Souza','Claudio Lucinda']
-turmas = ['2024201','2024202','2024221']
+professores = ['Danilo Souza','Danilo Souza','Artur Viaro','Artur Viaro']
+turmas = ['2026101','2026102','2026121','2026122']
 
 for p,t in zip(professores,turmas):
     
     print('Nesse curso, a turma '+t+' é de responsabilidade do professor '+p)
 ```
 
-### _For_ e _list comprehensions_
+### _List comprehensions_
 
-_List comprehensions_ é uma das várias formas que o Python nos oferece para de criar, alterar e manipular listas. Sua sintaxe é bastante concisa e nos permite olhar para um exerício de iteração através de algo parecido com uma fórmula. 
-
-Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop `for`:
-
+_List comprehensions_ é uma das várias formas que o Python nos oferece para de criar, alterar e manipular listas. Sua sintaxe é bastante concisa e nos permite olhar para um exerício de iteração através de algo parecido com uma fórmula. Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop `for`:
 
 ```{python}
 lista1 = [1,4,9,16,25,36,49,64,81,100,121,144,169,196,225]
@@ -290,18 +229,16 @@ print(lista2)
 
 Alternativamente, podemos utilizar _list comprehensions_ através da seguinte sintaxe:
 
-
 ```{python}
 lista2 = [int(x**0.5) for x in lista1] 
 
 print(lista2)
 ```
 
-Em termos práticos isso funciona como se fosse um loop definido dentro de uma única linha de código. Mas porque aprender as duas formas? Será que alguma delas é mais eficiente? Vamos fazer um teste para esse exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos também a função `time` do pacote `time` para calcular o tempo utilizado por cada um dos métodos.
+Em termos práticos isso funciona como se fosse um loop definido dentro de uma única linha de código. Mas se fazem a mesma coisa, qual a diferença entre as duas formas? Vamos fazer um teste para esse exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos também a função `time` do pacote `time` para calcular o tempo utilizado por cada um dos métodos.
 
 
 ```{python}
-import time 
 lista1 = list(range(1,1000000))
 
 # list comprehension
