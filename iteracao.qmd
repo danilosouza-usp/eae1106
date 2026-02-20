@@ -237,7 +237,6 @@ print(lista2)
 
 Em termos práticos isso funciona como se fosse um loop definido dentro de uma única linha de código. Mas se fazem a mesma coisa, qual a diferença entre as duas formas? Vamos fazer um teste para esse exercicío da raiz quadrada, porém para uma lista maior. Utilizaremos também a função `time` do pacote `time` para calcular o tempo utilizado por cada um dos métodos.
 
-
 ```{python}
 lista1 = list(range(1,1000000))
 
@@ -263,73 +262,30 @@ ratio = (start_loop - end_loop) / (start_comp - end_comp)
 
 Qual abordagem será que levou menos tempo?
 
-
 ```{python}
-print('Tempo necessário para a realização dos cálculos utilizando list comprehensions: {:.4f} segundos'.format(end_comp - start_comp))
-print('Tempo necessário para a realização dos cálculos utilizando loop: {:.4f} segundos'.format(end_loop - start_loop))
-print('\nA abordagem de loop demorou {:.1%} mais tempo! Dê uma chance para list comprehensions ;)'.format(ratio - 1))
+print('Tempo necessário com list comprehensions: {:.4f} segundos'.format(end_comp - start_comp))
+print('Tempo necessário com loop: {:.4f} segundos'.format(end_loop - start_loop))
+print('\nA abordagem de loop demorou {:.1%} mais tempo!\nDê uma chance para list comprehensions ;)'.format(ratio - 1))
 ```
 
-## Reatribuição e atualização de variáveis
-
-Pode ser que você já tenha descoberto que é permitido fazer mais de uma atribuição para a mesma variável. Uma nova atribuição faz uma variável existente referir-se a um novo valor (e deixar de referir-se ao valor anterior).
-
-
-```{python}
-x = 5
-print(x)
-```
-
-
-```{python}
-x = 7
-print(7)
-```
-
-A primeira vez que exibimos x, seu valor é 5. Na segunda vez, seu valor é 7.
-
-Neste ponto quero tratar de uma fonte comum de confusão. Como o Python usa o sinal de igual (=) para atribuição, é tentador interpretar uma afirmação como `a = b` como uma proposição matemática de igualdade, isto é, a declaração de que a e b são iguais. Mas esta é uma interpretação equivocada.
-
-Em primeiro lugar, a igualdade é uma relação simétrica e a atribuição não é. Por exemplo, na matemática, se `a=7` então `7=a`. Mas no Python, a instrução `a = 7` é legal e `7 = a` não é. Além disso, na matemática, uma proposição de igualdade é verdadeira ou falsa para sempre. Se `a=b` agora, então `a` sempre será igual a `b`. No Python, uma instrução de atribuição pode tornar duas variáveis iguais, mas elas não precisam se manter assim:
-
-
-```{python}
-a = 5
-b = a # a e b agora são iguais
-
-print('Valor de a: '+str(a)+'\nValor de b: '+str(b))
-
-a = 3 # a e b não são mais iguais
-
-print('\nValor de a: '+str(a)+'\nValor de b: '+str(b))
-```
-
-Quando redefinimos o valor de `a` para 3, não mudamos o valor de `b`, de modo que as variáveis deixam de ser iguais. A reatribuição de variáveis muitas vezes é útil, mas você deve usá-la com prudência. Se os valores das variáveis mudarem frequentemente, isso pode dificultar a leitura e depuração do código.
-
-## Repetição condicional e a instrução _while_
+## Repetição condicional
 
 Em programação existem dois tipos de iteração, indefinidas e definidas:
 
-* Com **iteração definida**, o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o loop é iniciado. É o exemplo do `for` loop com o qual trabalhamos anteriormente.
+* Com _iteração definida_, o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o loop é iniciado. É o exemplo do `for` loop com o qual trabalhamos anteriormente.
 
-* Com **iteração indefinida**, o número de vezes que o loop é executado não é especificado explicitamente com antecedência. Em vez disso, o bloco designado é executado repetidamente enquanto alguma condição for atendida.
+* Com _iteração indefinida_, o número de vezes que o loop é executado não é especificado explicitamente com antecedência. Em vez disso, o bloco designado é executado repetidamente enquanto alguma condição for atendida.
 
-Para interação indefinida, a construção típica do Python é o `while`. A forma mais simples desse loop `while` é a seguinte:
+Para interação indefinida, a construção típica no Python é o loop `while`. A forma mais simples desse loop é a seguinte:
 
 ```python
-while <expr>:
+while <condição>:
     <instruções>
 ```
 
-Em que `instruções` representam uma ou mais linhas de código a serem executadas. Da mesma forma que nas outras estruturas, a **indentação** determina quais linhas vão ser executadas.
+Em que `<instruções>` representam uma ou mais linhas de código a serem executadas. Da mesma forma que nas outras estruturas, a indentação determina quais linhas vão ser executadas enquanto a expressão boleana em `<condição>` for satisfeita. Quando um loop `while` é encontrado, o primeiro passo da linguagem é avaliar `<condição>`. Se for verdadeiro, o corpo do loop é executado. Em seguida, `<condição>` é verificado novamente e, se ainda for verdadeiro, o corpo é executado novamente. Isso continua até a expressão se tornar falsa, momento em que a execução do programa prossegue para a primeira instrução além do corpo do loop. É comum, dentro do corpo do loop, ter algum objeto que atualize elementos que são avaliados na expressão booleana do loop. Por vezes, esse objeto representa ou um determinado número máximo de iterações ou algum nível de tolerância que é atualizado a cada nova iteração. É preciso ter muita atenção a esse ponto para que o loop não fique rodando para sempre.^[Uma das formas de interromper à força a execução de um loop é por meio das teclas `Ctrl+C`.]
 
-A expressão de controle, `<expr>`, normalmente envolve uma ou mais variáveis que são inicializadas antes de iniciar o loop e depois modificadas em algum lugar no corpo do loop. **Você precisa dessa expressão bem pensada, porque é ela que vai determinar o momento em que o loop para**
-
-Quando um loop `while` é encontrado, `<expr>`é avaliado primeiro no contexto booleano. Se for verdadeiro, o corpo do loop é executado. Em seguida `<expr>`, é verificado novamente e, se ainda for verdadeiro, o corpo é executado novamente. Isso continua até `<expr>` se tornar falso, momento em que a execução do programa prossegue para a primeira instrução além do corpo do loop. **Dentro de `<instruções>` você precisa ter algo que modifique algum elemento de `<expr>`. Senão ou o loop não vai rodar ou vai rodar para sempre.** Uma das formas de interromper **à força** a execução de um loop é por meio das teclas `Ctrl+C`.
-
-
-Considere o caso abaixo:
-
+Veja o que acontece no exemplo abaixo:
 
 ```{python}
 n = 5
@@ -341,41 +297,27 @@ while n > 0:
 print('\nÀ partir de agora as instruções fora do loop serão executadas.')
 ```
 
-Veja o que está acontecendo neste exemplo:
+A expressão no cabeçalho do loop é `n > 0`, o que é `True` inicialmente já que 5 é um número positivo. Dentro do corpo do loop redefinimos o valor de `n` para que seja igual ao valor anterior de `n` menos 1, e então o novo valor de `n` é impresso. Quando o corpo do loop termina, a execução do programa retorna ao topo do loop na linha 2 e a expressão é avaliada novamente. Como `n` ainda é positivo, o corpo é executado novamente. Isso continua até `n` se tornar 0. Nesse ponto, quando a expressão é testada, ela é falsa (0 não é maior do que 0) e o loop termina. A execução é retomada na primeira instrução após o corpo do loop, no caso a instrução print. 
 
-O valor inicial de `n` é 5. A expressão no cabeçalho da instrução `while` na linha 2 é `n > 0`, o que é `True`, então o corpo do loop é executado. Dentro do corpo do loop redefinimos o valor de `n` para que seja igual ao valor anterior de `n` menos 1, e então o novo valor de `n` é impresso.
-
-Quando o corpo do loop termina, a execução do programa retorna ao topo do loop na linha 2 e a expressão é avaliada novamente. Ainda é verdade, então o corpo é executado novamente e 3 é impresso. Isso continua até `n` se tornar 0. Nesse ponto, quando a expressão é testada, ela é falsa (0 não é maior do que 0) e o loop termina. A execução é retomada na primeira instrução após o corpo do loop, no caso a instrução print. Observe que a expressão de controle do loop `while` é testada primeiro, antes que qualquer outra coisa aconteça.
-
-A seguir temos um loop while que usa uma lista:
-
+A seguir temos um loop que usa uma lista como condição. Nesse caso, o Python entende, dentro de um contexto booleano, que a condição é verdadeira enquanto a lista não for vazia. Neste exemplo, `a` é uma condição verdadeira desde que a lista tenha elementos. Quando todos os itens forem removidos com o método `.pop()` e a lista estiver vazia, `a` será falsa e o loop terminará.
 
 ```{python}
-a = ['foo', 'bar', 'baz']
+a = ['Eu','Tu','Ele','Nós','Vós','Eles']
 print(a)
 
 while a:
-    
     a.pop(-1)
     print(a)
 ```
-
-Quando uma lista é avaliada em contexto booleano, ela é verdadeira se tiver elementos nela e falsa se estiver vazia. Neste exemplo, `a` é verdadeiro desde que tenha elementos nele. Quando todos os itens forem removidos com o método `.pop()` e a lista estiver vazia, `a` será falsa e o loop terminará.
 
 ### Formas de Interromper um Loop
 
 Em cada exemplo que você viu até agora, todo o corpo do loop `while` é executado em cada iteração. Python fornece duas palavras-chave que encerram uma iteração de loop prematuramente:
 
-* A instrução Python `break` imediatamente encerra um loop inteiramente. Já vimos como ela funciona no caso do `for` loop e instruções condicionais. 
-
-* A instrução `continue`, por outro lado, encerra imediatamente a iteração do loop atual. A execução salta para o topo do loop e a expressão de controle é reavaliada para determinar se o loop será executado novamente ou terminará.
-
-Um exemplo de `break`:
-
+- A instrução `break` encerra um loop imediatamente. Já vimos como ela funciona no caso do `for` loop e instruções condicionais. 
 
 ```{python}
 n = 5
-print(n)
 
 while n > 0:
     n = n - 1
@@ -386,8 +328,7 @@ while n > 0:
 print('Loop ended.')
 ```
 
-Um exemplo de `continue`:
-
+- A instrução `continue`, por outro lado, encerra imediatamente a iteração atual. A execução salta para o topo do loop e a expressão de controle é reavaliada para determinar se o loop será executado novamente ou terminará.
 
 ```{python}
 n = 5
@@ -397,56 +338,43 @@ while n > 0:
     if n == 2:
         continue
     print(n)
+
 print('Loop ended.')
 ```
 
 ## Aplicação: Teorema Central do Limite
 
-Obs: esse exercício é o mais complexo que fizemos até agora. Nele utilizamos grande parte dos conceitos que estudamos até aqui nesse curso, desde listas a loops e também a importação de bibliotecas de comandos. Você pode pular essa parte por enquanto, mas aconselho que aos poucos você tente replicá-lo, de forma a entender todas suas etapas com o tempo.
+Esse exercício é o mais complexo que fizemos até agora no curso. Nele utilizamos grande parte dos conceitos que estudamos até aqui, desde listas a loops e também a importação de bibliotecas de comandos. Você pode pular essa parte por enquanto, mas aconselho que aos poucos você tente replicá-lo, de forma a entender todas suas etapas com o tempo.
 
+O _Teorema Central do Limite_ é um resultado super importante em estatística e com aplicações nas mais diversas áreas. Em sua formulação mais simples, o teorema pode ser resumido pela caixa abaixo.
 
-<br>
+::: {.callout-tip title="Teorema Central do Limite"}
+A distribuição da média amostral da variável aleatória $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho da amostra, independentemente da distribuição original de X.   
 
-O **Teorema Central do Limite** é um resultado super importante em estatística e com aplicações nas mais diversas áreas. Em sua formulação mais simples, o teorema diz que:
-
-<div class="alert alert-block alert-success">  
-<b>A distribuição da média amostral da variável aleatória $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho da amostra, independentemente da distribuição original de X.</b>   
-</div>
-
-Suponha que estejamos amostrando de uma variável aleatória X com média finita e igual a $\mu$ e desvio padrão finito e igual a $\sigma$. Então média e desvio padrão da distribuição amostral são representados por: 
+Suponha que estejamos amostrando de uma variável aleatória $X$ com média finita e igual a $\mu$ e desvio padrão finito e igual a $\sigma$. Independentemente de qual seja a distribuição original de $X$, a distribuição da _média amostral_ de $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho das amostras para o cálculo da média. Nessa caso, média e desvio padrão da distribuição das médias amostrais são representados por: 
 
 $$\mu_{\bar{X}}=\mu$$
 
 $$\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{N}}$$
+:::
 
-Vamos apresentar uma implementação desse Teorema usando Python, em várias partes. A primeira parte mostra como tirar 10 números aleatórios entre -40 e 40, usando o `NumPy`. Mais uma vez utilizaremos a função `uniform()` já que elas sorteia números reais com igual probabilidade dentro de um intervalo especificado.
-
+Vamos apresentar uma implementação desse Teorema em várias etapas. Na primeira etapa iremos sortear uma amostra de 10 números aleatórios entre -40 e 40. Assumirei que a distribuição original de $X$ é uniforme e, portanto, utilizarei a função `uniform()` do `NumPy` para o sorteio dos números.
 
 ```{python}
-import numpy as np
-
 x = np.random.uniform(-40, 40, 10)
+
 print(x)
 ```
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
 
-
 ```{python}
 x = np.random.uniform(-40, 40, 10)
+
 print(x)
 ```
 
-Para tornar o nosso exemplo mais previsível, vamos usar uma função dentro do `NumPy` que faz com o que o sorteio dos números parta do mesmo lugar e, portanto, o resultado seja o mesmo. 
-
-
-```{python}
-np.random.seed(1)
-
-x = np.random.uniform(-40, 40, 10)
-print(x)
-```
-
+Para tornar o nosso exemplo mais previsível, vamos usar a função `seed`, também do `NumPy`, que faz com o que o sorteio dos números parta do mesmo lugar e, portanto, o resultado seja o mesmo. Isso é uma boa prática de código quando se pretende tornar os resultados facilmente replicáveis por outras pessoas.
 
 ```{python}
 np.random.seed(1)
@@ -455,24 +383,24 @@ x = np.random.uniform(-40, 40, 10)
 print(x)
 ```
 
-Feito o sorteio de números aleatórios, o próximo passo é tirar a média desse conjunto de números:
+```{python}
+# Agora que o seed já foi definido, o resultado deve ser o mesmo.
+x = np.random.uniform(-40, 40, 10)
+print(x)
+```
 
+Feito o sorteio de números aleatórios, o próximo passo é tirar a média desse conjunto de números.
 
 ```{python}
 np.mean(x)
 ```
 
-Como vocês podem notar, a média não deu igual a zero, embora a média da distribuição uniforme com números inteiros que vai de -40 a 40 seja igual a 0. E aí surge a mágica do Teorema Central do Limite. Ainda que uma amostra não tenha a média igual à média populacional, a **média das médias** vai convergindo para zero à medida em que extraímos novas amostras e calculamos novas médias.
-
-Agora vou fazer isso em um loop, sorteando 50 números aleatórios por amostra e primeiro com 10 amostras:
-
+Como vocês podem notar, a média não deu igual a zero, embora a média da distribuição uniforme com números inteiros que vai de -40 a 40 seja igual a 0. E aí surge a mágica do Teorema Central do Limite. Ainda que uma amostra não tenha a média igual à média populacional, a _média das médias_ vai convergindo para zero à medida em que extraímos novas amostras e calculamos novas médias. Vamos implementar isso através de um loop, sorteando 50 números aleatórios por amostra e primeiro com 10 amostras:
 
 ```{python}
-# number of sample
+# número de amostras
 n = 10 
 means = [] 
-
-np.random.seed(1)
 
 for j in list(range(0,n)):
     
@@ -481,15 +409,15 @@ for j in list(range(0,n)):
     means.append(x)
 
 means = [np.round(elem,2) for elem in means]
+
 print(means)
 np.mean(means)
 ```
 
-Agora com 100 amostras
-
+Agora com 100 amostras e mantendo o número de 50 sorteios por amostra:
 
 ```{python}
-# number of sample
+# número de amostras
 n = 100 
 means = [] 
 
@@ -502,12 +430,12 @@ for j in list(range(0,n)):
     means.append(x)
 
 means = [np.round(elem,2) for elem in means]
+
 print(means)
 np.mean(means)
 ```
 
-Vamos deixar essa tentativa de aproximar a média das médias de $\mu$ mais automatizada:
-
+A média das médias parece ter se aproximado da média amostral verdadeira $\mu$, que é igual a zero, conforme aumentamos de 10 para 100 amostras. Mas e se aumentarmos para 200 ou 1000 amostras? Vamos deixar essa tentativa de aproximar a média das médias de $\mu$ mais automatizada:
 
 ```{python}
 expoentes = [1,2,3,4,5,6,7,8,9,10]
@@ -537,7 +465,11 @@ for m in means:
 
 Olha só a convergência aí, minha gente!
 
-Note que até aqui a gente só mostrou que a **média das médias converge para a média populacional**. O Teorema, no entanto, é mais completo do que isso. Ele diz que a distribuição da média amostral é uma Normal e, além disso, possui aquelas características em relação à distribuição original. Ainda precisamos de mais algumas aulas para ir além e olhar essas outrs questões do Teorema, mas logo logo chegamos lá.
+Note que até aqui a gente só mostrou que a média das médias converge para a média populacional. O Teorema, no entanto, é mais completo do que isso. Ele diz que a distribuição da média amostral é uma Normal e, além disso, possui aquelas características em relação à distribuição original. Ainda precisamos de mais algumas aulas para ir além e olhar essas outrs questões do Teorema, mas logo logo chegamos lá.
+
+## Conclusão
+
+Neste capítulo, foram apresentados os principais mecanismos de controle de fluxo em Python, responsáveis por determinar como e quando determinadas instruções são executadas. Você aprendeu a utilizar estruturas condicionais com base em expressões booleanas, bem como estruturas de repetição definidas e indefinidas para executar blocos de código múltiplas vezes. Também foram discutidos recursos de controle fino de loops, além das _list comprehensions_ como forma sinteticamente mais compacta e eficiente de realizar loops no contexto de listas. Essas ferramentas constituem a base de praticamente qualquer algoritmo aplicado, permitindo automatizar cálculos, implementar regras lógicas e estruturar procedimentos repetitivos. A partir desses fundamentos, torna-se possível organizar o código de forma mais modular e reutilizável, tema que será desenvolvido no próximo capítulo por meio do estudo de funções.
 
 ## Exercícios
 
