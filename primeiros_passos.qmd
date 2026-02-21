@@ -6,7 +6,7 @@ Criado em 1989 por Guido van Rossum no Centro de Matemática e Tecnológia da In
 
 Neste momento inicial do curso, o objetivo não é compreender toda a linguagem nem escrever programas complexos. O foco desta aula é muito mais operacional: aprender a executar comandos simples, entender como o ambiente de programação funciona e desenvolver familiaridade com a lógica básica de interação com o computador por meio de código. É importante destacar que programar não é memorizar comandos, mas aprender a ler, testar e corrigir código. Erros farão parte do processo desde o início. Isso não indica falta de habilidade nem desconhecimento do conteúdo; pelo contrário, erros são a principal fonte de informação sobre como o programa está sendo interpretado pelo computador.
 
-![Meu cachorro Clayton dando seus primeiros passos em Python.](images/clayton_coding.png){#fig-clayton width=700px max-width=100% fig-align="center"}
+![Meu cachorro Clayton dando seus primeiros passos em Python.](images/clayton_coding.png){#fig-clayton width=800px max-width=100% fig-align="center"}
 
 Ao final deste capítulo, espera-se que você seja capaz de:
 

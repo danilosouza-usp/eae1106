@@ -2,6 +2,14 @@
 
 ## Introdução
 
+Até aqui, os programas escritos consistem em sequências de instruções, condicionais e laços que manipulam objetos como números, listas e dicionários. Essa forma é suficiente para resolver problemas simples, mas rapidamente se torna difícil de manter quando o código cresce ou quando a mesma lógica precisa ser reutilizada várias vezes.
+
+Funções são o principal mecanismo de abstração em programação. Elas permitem encapsular um conjunto de instruções sob um nome, definir claramente quais informações entram e quais resultados saem, e separar a lógica interna da interface externa. Em termos computacionais, funções organizam o fluxo de execução, delimitam escopos de variáveis e tornam explícita a transformação entre _inputs_ e _outputs_ -- conceito central também em Economia, onde frequentemente modelamos relações funcionais entre variáveis.
+
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+
+Neste capítulo, o objetivo é compreender o papel das funções como ferramenta de organização, reutilização e clareza lógica. Ao final, o aluno deverá ser capaz de estruturar programas de forma modular e compreender como funções são usadas extensivamente nas bibliotecas científicas que serão estudadas nas próximas aulas.
+
 ### Pré-requisitos
 
 Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
@@ -23,17 +31,13 @@ No contexto das linguagens de programação, uma função é uma sequência nome
 
 Caso o objetivo de dividir um programa em funções ainda não tenha ficado claro, saiba que:
 
-<br>
+- Criar uma nova função dá a oportunidade de nomear um grupo de instruções, o que deixa o seu programa mais fácil de ler e de depurar
 
-* Criar uma nova função dá a oportunidade de nomear um grupo de instruções, o que deixa o seu programa mais fácil de ler e de depurar
+- As funções podem tornar um programa menor, eliminando o código repetitivo. Depois, caso precise fazer alguma alteração, basta fazê-la em um lugar só.
 
-* As funções podem tornar um programa menor, eliminando o código repetitivo. Depois, caso precise fazer alguma alteração, basta fazê-la em um lugar só.
+- Dividir um programa longo em funções permite depurar as partes uma de cada vez e então reuni-las em um conjunto funcional.
 
-* Dividir um programa longo em funções permite depurar as partes uma de cada vez e então reuni-las em um conjunto funcional.
-
-* As funções bem projetadas muitas vezes são úteis para muitos programas. Uma vez escritas e depuradas, você pode reutilizar as funções em programas fora daquele para o qual elas foram originalmente construídas.
-
-<br>
+- As funções bem projetadas muitas vezes são úteis para muitos programas. Uma vez escritas e depuradas, você pode reutilizar as funções em programas fora daquele para o qual elas foram originalmente construídas.
 
 Existem várias funções nativas no Python (e.g., `type()` para encontrar o tipo de um objeto) e mesmo dentro de bibliotecas com as quais já trabalhamos um pouco (e.g., `numpy.random.uniform()` para sortear números aleatórios de acordo com uma distribuição uniforme). À partir de agora veremos como podemos criar nossas próprias funções dentro da linguagem!
 
@@ -538,6 +542,14 @@ new_list = list(map(lambda x: x * 2 , my_list))
 
 print(new_list)
 ```
+
+## Conclusão
+
+Funções representam o principal mecanismo de organização da lógica de um programa. Elas permitem decompor problemas complexos em partes menores, reutilizar código, reduzir redundância e tornar explícita a relação entre entradas e saídas. Do ponto de vista computacional, introduzem o conceito de escopo, estruturam o fluxo de execução e tornam o código mais legível e testável.
+
+No contexto da Economia aplicada, funções são particularmente relevantes porque grande parte do trabalho empírico envolve transformar dados em resultados por meio de rotinas repetidas: cálculo de estatísticas, limpeza de bases, simulações ou estimações. Escrever essas rotinas como funções facilita replicação, comparação de cenários e organização de projetos.
+
+Nos próximos capítulos, ao utilizar bibliotecas como `NumPy` e `Pandas`, veremos que praticamente todas as operações são estruturadas como chamadas de funções ou métodos. A compreensão sólida do que é uma função é condição necessária para avançar com segurança em programação numérica e análise de dados.
 
 
 ## Exercícios

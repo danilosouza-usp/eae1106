@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2026.2.8)  20 FEB 2026 13:51
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2026.2.8)  21 FEB 2026 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1461,7 +1461,7 @@ Class scrreprt Warning: \float@addtolists detected!
 File: images/old_desktop.jpg Graphic file (type bmp)
 <images/old_desktop.jpg>
 
-Overfull \hbox (80.24417pt too wide) in paragraph at lines 566--567
+Overfull \hbox (155.52524pt too wide) in paragraph at lines 566--567
  [][] 
  []
 
@@ -1608,7 +1608,7 @@ chapter 2.
 File: images/clayton_coding.png Graphic file (type bmp)
 <images/clayton_coding.png>
 
-Overfull \hbox (80.20744pt too wide) in paragraph at lines 1526--1527
+Overfull \hbox (155.48557pt too wide) in paragraph at lines 1526--1527
  [][] 
  []
 

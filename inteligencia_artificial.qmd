@@ -6,7 +6,7 @@ A incorporação recente de ferramentas de inteligência artificial ao desenvolv
 
 Neste curso, a inteligência artificial não será tratada como um atalho para "pular" a aprendizagem de programação, mas como um instrumento complementar. O objetivo é utilizá-la para apoiar o entendimento da sintaxe, acelerar tarefas mecânicas e auxiliar na identificação de erros, sempre preservando o domínio conceitual do código pelo aluno.
 
-![Turma de EAE1106 do primeiro semestre de 2072. Imagem criada por IA.](images/IA.png){#fig-ia width=700px max-width=100% fig-align="center"}
+![Turma de EAE1106 do primeiro semestre de 2072. Imagem criada por IA.](images/IA.png){#fig-ia width=800px max-width=100% fig-align="center"}
 
 Antes de discutir como usar essas ferramentas de forma produtiva, é necessário definir IA e aprender como acessar seus recursos. Só então podemos avançar para entender o que a IA faz bem, o que faz mal e quais riscos surgem quando ela é usada sem critério, especialmente em um contexto de formação em métodos computacionais.
 

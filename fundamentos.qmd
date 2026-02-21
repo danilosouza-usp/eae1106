@@ -6,7 +6,7 @@ Antes de escrever qualquer linha de código, é importante entender o ambiente n
 
 Este capítulo introduz conceitos fundamentais sobre o funcionamento de computadores, a representação de informações em bits e bytes, a organização de arquivos e a forma como interagimos com o sistema operacional via terminal. Esses elementos servirão como infraestrutura conceitual para todo o restante do curso. O foco aqui não é aprofundar detalhes técnicos de hardware ou sistemas operacionais, mas fornecer uma visão prática e funcional do ambiente computacional que será utilizado ao longo da disciplina. 
 
-![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
 
 ### Pré-requisitos
 
