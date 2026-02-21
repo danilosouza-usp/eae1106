@@ -4,7 +4,7 @@
 
 Até este ponto do curso, trabalhamos com objetos e operações básicas em Python, executando instruções de forma sequencial, isto é, uma após a outra. No entanto, programas reais raramente seguem apenas uma sequência linear de comandos. Em aplicações práticas -- como filtragem de dados, simulações, cálculos iterativos ou implementação de regras de decisão -- é necessário que o programa seja capaz de executar instruções com base em condições e repetir determinadas operações múltiplas vezes. Essas tarefas são realizadas por meio das estruturas de controle de fluxo. 
 
-![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
 
 Neste capítulo, serão apresentados os principais mecanismos de decisão e repetição em Python: a construção de expressões booleanas, o uso de estruturas condicionais, os laçõs de repetição (_loops_, em inglês), instruções de controle que indicam um ponto de parada ou continuação do código, e as chamadas _list comprehensions_ como forma compacta de iteração. Esses instrumentos formam o núcleo da programação imperativa no Python e são indispensáveis para qualquer aplicação computacional em Economia e análise de dados.
 
@@ -349,8 +349,6 @@ Esse exercício é o mais complexo que fizemos até agora no curso. Nele utiliza
 O _Teorema Central do Limite_ é um resultado super importante em estatística e com aplicações nas mais diversas áreas. Em sua formulação mais simples, o teorema pode ser resumido pela caixa abaixo.
 
 ::: {.callout-tip title="Teorema Central do Limite"}
-A distribuição da média amostral da variável aleatória $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho da amostra, independentemente da distribuição original de X.   
-
 Suponha que estejamos amostrando de uma variável aleatória $X$ com média finita e igual a $\mu$ e desvio padrão finito e igual a $\sigma$. Independentemente de qual seja a distribuição original de $X$, a distribuição da _média amostral_ de $X$ aproxima-se cada vez mais de uma distribuição normal conforme aumenta o tamanho das amostras para o cálculo da média. Nessa caso, média e desvio padrão da distribuição das médias amostrais são representados por: 
 
 $$\mu_{\bar{X}}=\mu$$
@@ -384,7 +382,8 @@ print(x)
 ```
 
 ```{python}
-# Agora que o seed já foi definido, o resultado deve ser o mesmo.
+np.random.seed(1)
+
 x = np.random.uniform(-40, 40, 10)
 print(x)
 ```
@@ -392,12 +391,14 @@ print(x)
 Feito o sorteio de números aleatórios, o próximo passo é tirar a média desse conjunto de números.
 
 ```{python}
-np.mean(x)
+print(np.mean(x))
 ```
 
 Como vocês podem notar, a média não deu igual a zero, embora a média da distribuição uniforme com números inteiros que vai de -40 a 40 seja igual a 0. E aí surge a mágica do Teorema Central do Limite. Ainda que uma amostra não tenha a média igual à média populacional, a _média das médias_ vai convergindo para zero à medida em que extraímos novas amostras e calculamos novas médias. Vamos implementar isso através de um loop, sorteando 50 números aleatórios por amostra e primeiro com 10 amostras:
 
 ```{python}
+np.random.seed(1)
+
 # número de amostras
 n = 10 
 means = [] 
@@ -411,12 +412,14 @@ for j in list(range(0,n)):
 means = [np.round(elem,2) for elem in means]
 
 print(means)
-np.mean(means)
+print(np.mean(means))
 ```
 
 Agora com 100 amostras e mantendo o número de 50 sorteios por amostra:
 
 ```{python}
+np.random.seed(1)
+
 # número de amostras
 n = 100 
 means = [] 
@@ -432,12 +435,14 @@ for j in list(range(0,n)):
 means = [np.round(elem,2) for elem in means]
 
 print(means)
-np.mean(means)
+print(np.mean(means))
 ```
 
 A média das médias parece ter se aproximado da média amostral verdadeira $\mu$, que é igual a zero, conforme aumentamos de 10 para 100 amostras. Mas e se aumentarmos para 200 ou 1000 amostras? Vamos deixar essa tentativa de aproximar a média das médias de $\mu$ mais automatizada:
 
 ```{python}
+np.random.seed(1)
+
 expoentes = [1,2,3,4,5,6,7,8,9,10]
 N = [2**exp for exp in expoentes]
 
