@@ -25,13 +25,35 @@ import numpy as np
 import time
 ```
 
+## Importância da modularização
+
+Até aqui, os programas foram escritos como sequências lineares de instruções executadas de cima para baixo. Esse modelo é suficiente quando resolvemos um único problema específico com um único conjunto de dados. No entanto, ele se torna inadequado quando precisamos aplicar a mesma regra várias vezes ou quando o código começa a crescer.
+
+Considere o seguinte exemplo. Suponha que desejamos calcular a média de diferentes conjuntos de notas:
+
+```{python}
+notas1 = [7.5, 8.0, 6.5]
+media1 = sum(notas1) / len(notas1)
+print(media1)
+
+notas2 = [9.0, 8.5, 7.0]
+media2 = sum(notas2) / len(notas2)
+print(media2)
+```
+
+O código funciona, mas a regra de cálculo aparece repetida. Se decidirmos alterar o critério -- por exemplo, aplicar um ajuste ou excluir a menor nota -- será necessário modificar todas as ocorrências manualmente. Esse padrão aumenta a probabilidade de erro e dificulta a manutenção. O problema não está no cálculo em si, mas na forma como ele está organizado. Estamos misturando duas coisas distintas: os dados, que variam, e a regra de transformação, que permanece a mesma. Uma solução mais robusta é separar essas duas dimensões.
+
+É aqui que entram as funções, que nos permitem encapsular determinado conjunto de instruções e nomeá-los. Assim, basta chamar a função pelo seu nome para aplicar em certo conjunto de dados o mesmo conjunto de instruções. O uso de funções introduz o conceito de modularização. Em vez de escrever um bloco contínuo de instruções, passamos a estruturar o programa como um conjunto de módulos (funções), cada um responsável por uma transformação específica entre entrada e saída. Do ponto de vista computacional, isso significa que isolamos partes do código, reduzimos redundância e tornamos explícita a relação entre argumentos recebidos e valores retornados.
+
+A partir desse ponto, o objetivo é compreender formalmente como funções são definidas, como recebem argumentos e como retornam resultados. O foco deixa de ser apenas executar comandos e passa a ser estruturar programas de forma lógica e reutilizável.
+
 ## O que é uma função?
 
-No contexto das linguagens de programação, uma função é uma sequência nomeada de instruções, que executa algum tipo de operação específica mas não necessariamente numérica, como é o caso das funções matemáticas. A ideia essencial por trás de uma função é a de juntar algumas tarefas comuns ou repetidas e criar uma função para que, em vez de escrever o mesmo código várias vezes, possamos chama-la pelo nome e reutilizar o conjunto de instruções nela contida sempre que necessário.
+Formalmente, no contexto das linguagens de programação, uma função é uma sequência nomeada de instruções, que executa algum tipo de operação específica mas não necessariamente numérica, como é o caso das funções matemáticas. A ideia essencial por trás de uma função é a de juntar algumas tarefas comuns ou repetidas e criar uma função para que, em vez de escrever o mesmo código várias vezes, possamos chama-la pelo nome e reutilizar o conjunto de instruções nela contida sempre que necessário.
 
 Caso o objetivo de dividir um programa em funções ainda não tenha ficado claro, saiba que:
 
-- Criar uma nova função dá a oportunidade de nomear um grupo de instruções, o que deixa o seu programa mais fácil de ler e de depurar
+- Criar uma nova função dá a oportunidade de nomear um grupo de instruções, o que deixa o seu programa mais fácil de ler e de depurar.
 
 - As funções podem tornar um programa menor, eliminando o código repetitivo. Depois, caso precise fazer alguma alteração, basta fazê-la em um lugar só.
 
@@ -39,23 +61,16 @@ Caso o objetivo de dividir um programa em funções ainda não tenha ficado clar
 
 - As funções bem projetadas muitas vezes são úteis para muitos programas. Uma vez escritas e depuradas, você pode reutilizar as funções em programas fora daquele para o qual elas foram originalmente construídas.
 
-Existem várias funções nativas no Python (e.g., `type()` para encontrar o tipo de um objeto) e mesmo dentro de bibliotecas com as quais já trabalhamos um pouco (e.g., `numpy.random.uniform()` para sortear números aleatórios de acordo com uma distribuição uniforme). À partir de agora veremos como podemos criar nossas próprias funções dentro da linguagem!
-
-No Python, a sintaxe de uma função é dada por:
+Existem várias funções nativas no Python (e.g., `type()` para encontrar o tipo de um objeto) e mesmo dentro de bibliotecas com as quais já trabalhamos um pouco (e.g., `numpy.random.uniform()` para sortear números aleatórios de acordo com uma distribuição uniforme). À partir de agora veremos como podemos criar nossas próprias funções dentro da linguagem. No Python, a sintaxe para criar uma função personalizada é dada por:
 
 ```python
 def nome_da_funcao(argumentos):
     <instruções>    
 ```
 
-Assim como nos _loops_, para definir uma nova função no Python é preciso começar com uma palavra-chave, nesse caso `def`. O nome  que daremos à função vem logo em seguida. É através desse nome, `nome_da_funcao`, que chamaremos essa função em outras partes do nosso código. Entre parênteses definimos os `argumentos` que a função recebe para realizar o conjunto de instruções em `<instruções>`.
+Assim como nos _loops_, para definir uma nova função no Python é preciso começar com uma palavra-chave, nesse caso `def`. O nome  que daremos à função vem logo em seguida. É através desse nome, que chamaremos essa função em outras partes do nosso código. Entre parênteses definimos os argumentos que a função recebe para realizar o conjunto de instruções em `<instruções>`. Note, mais uma vez, que todo o bloco de código que estiver identado e abaixo da linha de cabeçalho da função fará parte da função.
 
-Note, mais uma vez, que todo o bloco de código que estiver **identado** e abaixo da linha de cabeçalho da função fará parte da função. Assim como nos _loops_, a função termina quando passarmos a primeira linha de código não-identada.
-
-## Nossa primeira função
-
-Vamos começar criando uma função simples, que tem por objetivo printar uma das frases mais conhecidas da história do cinema:
-
+Vejamos um exemplo simples. A função `frase_cinema` apresentada a seguir tem como objetivo imprimir uma das frases mais emblemáticas da história do cinema, originalmente introduzida na série de filmes _Star Wars_, criada por George Lucas.
 
 ```{python}
 def frase_cinema():
@@ -64,80 +79,64 @@ def frase_cinema():
 
 Note que nesse caso, o parênteses logo após o nome da função está vazio. Isso quer dizer que essa função não recebe argumentos, apenas printa a frase entre aspas sempre que for chamada. Para chamá-la, basta usar o nome `frase_cinema` seguido dos parênteses vazios:
 
-
 ```{python}
 frase_cinema()
 ```
 
 ## Argumentos de uma função
 
-Na função anterior, não tínhamos nenhum argumento. Ou seja, toda vez que você chamar a função `frase_cinema`, ela vai fazer a mesma coisa. Pode até ser que seja o seu objetivo fazer exatamente isso -- é uma forma de economizar código.
-
-O ponto é que a ideia de função é muito mais poderosa do que simplesmente uma "abreviação" de um monte de linhas de código. A abstração implícita no conceito de função é poderosa o suficiente para garantir que a função retorne coisas diferentes caso você altere algum **argumento**. Vamos falar disso a seguir.
+Na função anterior, não tínhamos nenhum argumento. Ou seja, toda vez que chamarmos a função `frase_cinema`, ela fará a mesma coisa. Pode até ser que seja esse o objetivo, apenas economizar linhas de código. A ideia de função, no entanto, é muito mais poderosa do que simplesmente uma "abreviação" de um monte de linhas de código. A abstração implícita no conceito de função é poderosa o suficiente para garantir que a função retorne coisas diferentes caso você altere algum _argumento_. Vamos falar disso a seguir.
 
 ### _Keyword arguments_ e _default values_
 
-Vamos então criar uma função que tenha argumentos. 
-
+Comecemos criando uma nova função `my_func` que receba como argumentos um nome próprio e uma localização.
 
 ```{python}
 def my_func(name,place):
-    print(f"Olá {name}! Você é de {place}?")
+    strf='Olá '+name+'! Você é de '+place+'?'
+    print(strf)
 
-my_func("Emily","Paris")
+my_func('Emily','Paris')
 ```
 
-O que acontece se você especificar o `place` primeiro e depois o `name`? Vamos descobrir.
-
+Ao chamar a função `my_func`, ela combina os argumentos `Emily` e `Paris` dentro de um único string e printa esse string final. O que acontece, no entanto, se especificarmos o argumento `place` primeiro e depois o `name`?
 
 ```{python}
-my_func("Hawaii","Robert")
-
+my_func('Ribeirão Preto','Roberto')
 ```
 
-Meio bizarro, não? A razão é que aqui temos os chamados **argumentos posicionais**. Ou seja, a função vai assumir que o primeiro argumento é o `name` e o segundo é o `place` não importa o que tenhamos passado como argumento. Para lidar com isso, a gente pode atribuir um nome a cada um dos argumentos, ou **palavra-chave**, que aí vai ser a palavra-chave, e não a posição, que vai determinar qual o valor atribuído a cada argumento.
-
+Um pouco estranho, não? A razão é que nesse exemplo utilizamos os chamados _argumentos posicionais_. Ou seja, a função vai assumir que o primeiro argumento é o `name` e o segundo é o `place`, não importa o que tenhamos passado como argumento. Para lidar com isso, a podemos atribuir um nome, ou _palavra-chave, a cada um dos argumentos. Nesse caso, será a palavra-chave, e não a posição, que vai determinar qual o valor atribuído a cada argumento dentro da função.
 
 ```{python}
-my_func(place="Hawaii",name="Robert")
+my_func(place='Ribeirão Preto',name='Roberto')
 ```
 
-Vimos aqui que a posição passou a ser irrelevante porque colocamos os nomes de cada um dos argumentos. E se quiséssemos dar mais flexibilidade ainda à função, só especificando um subconjunto dos argumentos? Para que isso funcione, nós precisamos especificar os **valores-padrão** dos argumentos caso eles não sejam fornecidos.
-
-Aqui tem uma função que faz isso.
-
+Note que agora a posição passou a ser irrelevante porque colocamos os nomes de cada um dos argumentos. E se quiséssemos dar ainda mais flexibilidade à função, só especificando um subconjunto dos argumentos? Para que isso funcione, nós precisamos especificar os _valores-padrão_ dos argumentos caso eles não sejam fornecidos. Abaixo uma função que faz exatamente isso.
 
 ```{python}
 def total_calc(bill_amount,tip_perc=10):
-    
-    total = bill_amount*(1 + tip_perc/100)
-    total = round(total,2)
-    print(f"Please pay ${total}")
+    total=bill_amount*(1 + tip_perc/100)
+    total=round(total,2)
+    print('O valor final da sua conta foi: R$'.format(total))
 ```
 
-Nesse caso, o argumento `bill_amount` é obrigatório. Por outro lado, o argumento `tip_perc` vai assumir o valor de 10 toda vez que ele não for explicitamente fornecido na chamada da função.
+Nesse caso, o argumento `bill_amount` é obrigatório. Por outro lado, o argumento `tip_perc` vai assumir o valor 10 por padrão, caso não seja fornecido nenhum outro valor em seu lugar quando chamarmos a função.
 
 ### Argumentos arbitrários
 
-Vamos começar fazendo algumas perguntas:
-* E se não soubermos o número exato de argumentos de antemão?
-* Podemos criar funções que funcionem com um número variável de argumentos?
-
-A resposta é *sim*! E vamos criar essa função imediatamente. Vamos criar uma função simples `my_var_sum()` que retorna a soma de todos os números passados como argumento. No entanto, o número de argumentos pode ser potencialmente diferente cada vez que chamamos a função.
-
+Após discutir o uso de _keyword arguments_ na definição de funções em Python é natural avançar para uma questão relacionada: o que fazer quando sequer sabemos, de antemão, quantos argumentos serão fornecidos? Em outras palavras, é possível definir funções capazes de operar com um número variável de entradas? A resposta é sim! O Python permite construir funções que acomodam uma quantidade indefinida de argumentos, preservando generalidade e reutilização de código. Para ilustrar essa ideia, podemos definir uma função simples chamada `my_var_sum`, cuja finalidade é retornar a soma de todos os valores numéricos recebidos na chamada, independentemente de quantos sejam.
 
 ```{python}
 def my_var_sum(*args):
     
     sum = 0
     for arg in args:
-        sum += arg
+        sum=sum+arg
         
-    print(f"The numbers that you have add up to {sum}")
+    print('A soma total dos números fornecidos é igual a: '+str(sum))
 ```
 
-Observe como a definição da função agora tem `*args` em vez de apenas o nome do parâmetro. No corpo da função, fazemos um loop em `args` até usarmos todos os argumentos. A função `my_var_sum` retorna a soma de todos os números passados como argumentos. Olha só o que acontece quando chamamos a função com diferentes números de argumentos:
-
+Observe como a definição da função agora tem `*args` ao invés de argumentos nomeados. No corpo da função, fazemos um loop em `args` até usarmos todos os argumentos. A função `my_var_sum` retorna a soma de todos os números passados como argumentos. Olha só o que acontece quando chamamos a função com diferentes números de argumentos:
 
 ```{python}
 my_var_sum(99,10,54,23)
@@ -146,32 +145,27 @@ my_var_sum(5,21,36,79,45,65)
 my_var_sum(1)
 ```
 
-Mas e se eu quiser passar não apenas uma sequência de valores, mas uma sequência de valores *com nomes*? Não se preocupe, existe uma possibilidade de fazer isso, usando o `**kwargs` na definição dos argumentos. 
-Qual é a diferença entre `*args` e `**kwargs`? A diferença é que você vai passar uma sequência de tamanho arbitrário de parâmetros, cada um deles nomeado.
+Mas e se eu quiser passar não apenas uma sequência de valores, mas uma sequência de valores com nomes? Não se preocupe, existe uma possibilidade de fazer isso, usando o `**kwargs` na definição dos argumentos. 
 
-O Python vai entender o `**kwargs` como um dicionário. Cada elemento passado é um par chave-valor, e dentro da função você tem que desempacotar o valor da chave. Vamos seguir alguns exemplos.
-
+Qual é a diferença entre `*args` e `**kwargs`? A diferença é que você vai passar uma sequência de tamanho arbitrário de parâmetros, cada um deles nomeado. Nesse caso, o Python entende os elementos em `**kwargs` como parte de um dicionário. Cada elemento passado é um par chave-valor, e dentro da função você tem que desempacotar o valor da chave. Vamos seguir alguns exemplos.
 
 ```{python}
 def myFun(**kwargs):
     
     for key, value in kwargs.items():
-        print("%s == %s" % (key, value))
- 
- 
+        print(key+' == '+value)
+  
 myFun(first='Geeks', mid='for', last='Geeks')
 ```
 
-Podemos misturar os tipos de argumentos (posicionais versus `*args`/`*kwargs`)? Sim, como podemos ver no exemplo seguinte:
-
+Podemos misturar os tipos de argumentos (posicionais versus `*args`/`*kwargs`)? Sim!
 
 ```{python}
 def myFun(arg1, **kwargs):
     
     for key, value in kwargs.items():
-        print(arg1+" %s == %s" % (key, value))
- 
- 
+        print(arg1+key+' == '+value)
+  
 myFun("Hi - ", first='Geeks', mid='for', last='Geeks')
 ```
 

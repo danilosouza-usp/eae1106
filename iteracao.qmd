@@ -118,7 +118,7 @@ Novamente, exatamente um ramo será executado. Não há nenhum limite para o nú
 
 ## Repetição simples
 
-Os computadores muitas vezes são usados para automatizar tarefas repetitivas. A repetição de tarefas idênticas ou semelhantes sem cometer erros é algo que os computadores fazem muito bem e as pessoas não. Em um programa de computador, a repetição também é chamada de iteração.
+Estruturas condicionais permitem escolher entre caminhos alternativos de execução. No entanto, muitos problemas computacionais exigem repetir o mesmo conjunto de instruções diversas vezes, seja para percorrer dados, acumular resultados ou simular processos. Para isso, utilizamos estruturas de repetição ou iteração.
 
 De maneira um pouco mais formal, iteração significa executar o mesmo bloco de código repetidamente, potencialmente muitas vezes. Uma estrutura de programação que implementa a iteração é chamada de _loop_. A forma mais simples de iteração é a chamada _iteração definida_, em que o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o _loop_ é iniciado.
 
@@ -179,7 +179,7 @@ Note que no caso acima, o terceiro elemento da lista `['banana','uva','cenoura',
 
 ### Usando _enumerate_
 
-Às vezes pode ser útil, dentro de um loop `for`, ter uma variável que muda em cada iteração do loop e que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa `enumerate()` para obter um contador e o valor do objeto iterável ao mesmo tempo. Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
+Até aqui, utilizamos o loop `for` para percorrer sequências simples. Em aplicações práticas, é comum precisarmos acessar simultaneamente o índice de um elemento. Nesse caso, pode ser útil ter uma variável que muda em cada iteração do loop e que possibilite fazer um controle mais direto sobre qual iteração está sendo executada em determinado momento. Em vez de criar e incrementar uma variável você mesmo, você pode usar a função nativa `enumerate()` para obter um contador e o valor do objeto iterável ao mesmo tempo. Para deixar claro como funciona a sintaxe nesse caso, vamos trabalhar em cima de uma lista de strings.
 
 ```{python}
 str1 = 'Água mole em pedra dura, tanto bate até que fura'
@@ -215,7 +215,7 @@ for p,t in zip(professores,turmas):
 
 ### _List comprehensions_
 
-_List comprehensions_ é uma das várias formas que o Python nos oferece para de criar, alterar e manipular listas. Sua sintaxe é bastante concisa e nos permite olhar para um exerício de iteração através de algo parecido com uma fórmula. Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop `for`:
+Os loops `for` permitem construir listas elemento a elemento. No entanto, quando o objetivo é gerar uma nova lista a partir de outra sequência seguindo uma regra simples, Python oferece uma forma sintaticamente mais compacta: as _list comprehensions_. Sua sintaxe é bastante concisa e nos permite olhar para um exercício de iteração através de algo parecido com uma fórmula. Imagine que estejamos interessados em criar uma lista que contenha a parte inteira da raiz quadrada de todo número de uma outra lista original. Usualmente faríamos isso utilizando um loop `for`:
 
 ```{python}
 lista1 = [1,4,9,16,25,36,49,64,81,100,121,144,169,196,225]
@@ -265,16 +265,16 @@ Qual abordagem será que levou menos tempo?
 ```{python}
 print('Tempo necessário com list comprehensions: {:.4f} segundos'.format(end_comp - start_comp))
 print('Tempo necessário com loop: {:.4f} segundos'.format(end_loop - start_loop))
-print('\nA abordagem de loop demorou {:.1%} mais tempo!\nDê uma chance para list comprehensions ;)'.format(ratio - 1))
+print('\nA abordagem de loop demorou {:.1%} mais tempo!'.format(ratio - 1))
 ```
 
 ## Repetição condicional
 
-Em programação existem dois tipos de iteração, indefinidas e definidas:
+O loop `for` é especialmente adequado quando iteramos sobre uma sequência já definida. Entretanto, nem sempre sabemos previamente quantas iterações serão necessárias. Em programação existem dois tipos de iteração, indefinidas e definidas:
 
-* Com _iteração definida_, o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o loop é iniciado. É o exemplo do `for` loop com o qual trabalhamos anteriormente.
+- Com _iteração definida_, o número de vezes que o bloco designado será executado é especificado explicitamente no momento em que o loop é iniciado. É o exemplo do `for` loop com o qual trabalhamos anteriormente.
 
-* Com _iteração indefinida_, o número de vezes que o loop é executado não é especificado explicitamente com antecedência. Em vez disso, o bloco designado é executado repetidamente enquanto alguma condição for atendida.
+- Com _iteração indefinida_, o número de vezes que o loop é executado não é especificado explicitamente com antecedência. Em vez disso, o bloco designado é executado repetidamente enquanto alguma condição for atendida.
 
 Para interação indefinida, a construção típica no Python é o loop `while`. A forma mais simples desse loop é a seguinte:
 
@@ -312,7 +312,7 @@ while a:
 
 ### Formas de Interromper um Loop
 
-Em cada exemplo que você viu até agora, todo o corpo do loop `while` é executado em cada iteração. Python fornece duas palavras-chave que encerram uma iteração de loop prematuramente:
+Ao trabalhar com loops controlados por condição, pode surgir a necessidade de interromper a execução antes que a condição principal deixe de ser satisfeita. Para esses casos, Python fornece mecanismos explícitos de interrupção. São duas as principais palavras-chave que encerram uma iteração de loop prematuramente:
 
 - A instrução `break` encerra um loop imediatamente. Já vimos como ela funciona no caso do `for` loop e instruções condicionais. 
 
@@ -342,9 +342,9 @@ while n > 0:
 print('Loop ended.')
 ```
 
-## Aplicação: Teorema Central do Limite
+Até este ponto, exploramos os blocos fundamentais que permitem controlar decisões e repetições em um programa. O próximo passo é aplicá-los em um problema computacional concreto. Simulações estatísticas são um exemplo típico em que loops e estruturas condicionais são indispensáveis. Na seção seguinte, utilizaremos esses instrumentos para ilustrar computacionalmente o Teorema Central do Limite.
 
-Esse exercício é o mais complexo que fizemos até agora no curso. Nele utilizamos grande parte dos conceitos que estudamos até aqui, desde listas a loops e também a importação de bibliotecas de comandos. Você pode pular essa parte por enquanto, mas aconselho que aos poucos você tente replicá-lo, de forma a entender todas suas etapas com o tempo.
+## Aplicação: Teorema Central do Limite
 
 O _Teorema Central do Limite_ é um resultado super importante em estatística e com aplicações nas mais diversas áreas. Em sua formulação mais simples, o teorema pode ser resumido pela caixa abaixo.
 
@@ -411,7 +411,6 @@ for j in list(range(0,n)):
 
 means = [np.round(elem,2) for elem in means]
 
-print(means)
 print(np.mean(means))
 ```
 
@@ -434,7 +433,6 @@ for j in list(range(0,n)):
 
 means = [np.round(elem,2) for elem in means]
 
-print(means)
 print(np.mean(means))
 ```
 
