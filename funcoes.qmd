@@ -205,13 +205,14 @@ def clean_strings(lista_strings):
     print(result)
 
 print(states)
-print()
 clean_strings(states)
 ```
 
+Conforme as funções se tornam mais complexas, incorporando lógica condicional e laços, torna-se fundamental entender como extrair resultados de funções. Até aqui, muitos exemplos mostraram funções que apenas imprimem valores; na seção seguinte analisaremos o papel do comando `return` e sua importância na prática.
+
 ## Valor de retorno de uma função
 
-O comando `return` é usado para especificar qual será o resultado de uma função. Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado ou não tiver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
+O comando `return` é usado para especificar qual será o resultado de uma função. Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado no corpo da função ou não houver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
 
 ```{python}
 def my_func(name,place):
@@ -265,6 +266,8 @@ Essa função recebe dois argumentos, concatena-os e exibe o resultado em uma ú
 
 print(texto_concatenado)
 ```
+
+Com a base conceitual de definição, argumentos e retorno consolidada, podemos agora aplicar esses conceitos em um exemplo mais substancial. A aplicação do Teorema Central do Limite mostrará como estruturar uma rotina que recebe distribuições e parâmetros como argumentos e retorna medidas agregadas de interesse. Essa transição marca o passo do conceito para a aplicação.
 
 ## Aplicação: Teorema Central do Limite
 
@@ -320,9 +323,9 @@ for m in means_of_means:
     print(np.round(m,2))
 ```
 
-_Voilá_!
+_Voilá_! Como exercício para casa, tente fazer alterações nessa função de modo que ela receba não um valor com o número de amostras, mas uma lista de números de amostras. A função deve cuspir como resultado a lista `means_of_means` e não apenas o valor `mean_of_means`.
 
-Como exercício para casa, tente fazer alterações nessa função de modo que ela receba não um valor com o número de amostras, mas uma lista de números de amostras. A função deve cuspir como resultado a lista `means_of_means` e não apenas o valor `mean_of_means`.
+Após a aplicação prática, é oportuno discutir como documentar funções de forma que qualquer usuário (inclusive você no futuro) possa compreender rapidamente o propósito, argumentos e comportamento de uma rotina implementada. A próxima seção introduz docstrings como forma padrão de documentação no Python.
 
 ## Documentação
 
@@ -366,7 +369,7 @@ Podemos usar sempre esse atalho caso desejemos conhecer as funcionalidades que u
 
 ## Funções anônimas
 
-Em Python, uma função anônima é uma função definida sem nome. Enquanto as funções normais são definidas usando a palavra-chave `def` em Python, as funções anônimas são definidas usando a palavra-chave `lambda`. Por essa razão, funções anônimas também são chamadas de funções lambda. A estrutura usual de uma função lambda é a seguinte: 
+Uma vez familiarizado com a definição e documentação de funções nomeadas, surge a possibilidade de trabalhar com funções que não possuem nome explícito, as chamadas funções anônimas. Enquanto as funções normais são definidas usando a palavra-chave `def` no Python, as funções anônimas são definidas usando a palavra-chave `lambda`. Por essa razão, funções anônimas também são chamadas de funções lambda. A estrutura usual de uma função lambda é a seguinte: 
 
 ```python
 lambda <argumentos>: <expressão>
