@@ -268,53 +268,19 @@ print(texto_concatenado)
 
 ## Aplicação: Teorema Central do Limite
 
-Retomando a função da parte 2:
+O primeiro passo para replicarmos, na forma de uma função, a aplicação do Teorema Central do Limite da aula anterior é definir uma função que recebe como argumentos a distribuição da varíavel aleatória X, o intervalo no qual a variável está definida, o número de sorteios que faremos em cada amostra e o número de amostras realizadas. Para tal, definiremos a função `func_tcl` que recebe como argumentos nomeados `dist` (função de distribuição da variável X), `intervalo` (suporte da variável X), `n` (número de sorteios por amostra) e `samples` (número de amostras).
+
+Apesar de definir valores-padrão válidos para `intervalo`, `n` e `samples`, é atribuído ao argumento `dist` um valor padrão igual a `None`. Isso permite ao usuário ter controle direto sobre a função de distribuição utilizada para sortear X e evitar tornar a nossa função uma caixa preta. Assim, caso o usuário esqueça de definir uma distribuição válida, a função retorna um erro. 
+
+Caso defina uma função de distribuição válida, a função `func_tcl` avança e passar a realizar a sequência de sorteios de cada amostra e a média dentro de cada amostra através de um loop do tipo `for`.
 
 
 ```{python}
+# definição da função
 def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
     
     if dist == None:
-        print('Você esqueceu de carregar uma função que defina a distribuição de X!')
-    else:
-        means = []
-        for j in range(0,samples):
-            x_func_tcl = dist(intervalo[0],intervalo[1],n)
-            mean_x = sum(x_func_tcl)/len(x_func_tcl)
-            
-            means.append(mean_x)
-            mean_of_means = sum(means)/len(means)
-        
-        print('Essa é a lista de médias:')
-        print(means)
-        print('\nE essa é a média das médias:')
-        print(mean_of_means)
-```
-
-
-```{python}
-np.random.seed(1)
-
-func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
-```
-
-Como acabamos de ver, se quisermos acessar a variável `mean_of_means` o Python retornará um erro. As variáveis definidas dentro de uma função tem vida curta: elas existem apenas dentro da função!
-
-
-```{python}
-#| error: true
-
-print(mean_of_means)
-```
-
-No entanto, agora já sabemos o que a palavra-chave `return` faz dentro de uma função. Vamos utilizá-la!
-
-
-```{python}
-def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
-    
-    if dist == None:
-        print('Você esqueceu de carregar uma função que defina a distribuição de X!')
+        print('Você esqueceu de carregar uma função que defina a distribuição de X.')
     else:
         means = []
         for j in range(0,samples):
@@ -325,17 +291,15 @@ def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
             mean_of_means = sum(means)/len(means)
         
         return mean_of_means
-```
 
-
-```{python}
+# comando para garantir a reprodutibilidade
 np.random.seed(1)
 
+# uso da função
 func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
 ```
 
-Maravilha, agora a função nos retorna apenas o que é do nosso interesse: a média das médias. Para chegar, finalmente, no mesmo resultado da aula passada basta colocar essa função dentro de um loop e tacar-lhe pau nesse carrinho, Marcos!
-
+Maravilha, agora a função nos retorna apenas o que é do nosso interesse: a média das médias. Para chegar, finalmente, no mesmo resultado da aula passada basta colocar essa função dentro de um loop.
 
 ```{python}
 expoentes = [1,2,3,4,5,6,7,8,9,10]
@@ -350,7 +314,6 @@ for y in Y:
     means_of_means.append(mean_of_means)
 ```
 
-
 ```{python}
 for m in means_of_means:
     
@@ -359,7 +322,7 @@ for m in means_of_means:
 
 _Voilá_!
 
-Como exercício para casa, tente fazer alterações nessa função de modo que ela receba não um valor com o número de amostras, mas uma lista de números de amostras. A função deve cuspir como resultado a lista `means_of_means` e não apenas o valor `mean_of_means`. Pratique!
+Como exercício para casa, tente fazer alterações nessa função de modo que ela receba não um valor com o número de amostras, mas uma lista de números de amostras. A função deve cuspir como resultado a lista `means_of_means` e não apenas o valor `mean_of_means`.
 
 ## Documentação
 
