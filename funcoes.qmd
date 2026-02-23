@@ -212,36 +212,49 @@ Conforme as funções se tornam mais complexas, incorporando lógica condicional
 
 ## Valor de retorno de uma função
 
-O comando `return` é usado para especificar qual será o resultado de uma função. Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado no corpo da função ou não houver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
+A instrução `return` é o mecanismo pelo qual uma função envia um resultado de volta ao ponto em que foi chamada. Do ponto de vista lógico, uma função representa uma transformação entre entradas (argumentos) e saídas (valores retornados). O `return` explicita qual é essa saída e, além disso, encerra imediatamente a execução da função no momento em que é encontrado. Se não houver nenhuma instrução `return` no corpo da função, ou se for utilizado apenas `return` sem valor explícito, o Python devolve automaticamente o valor especial `None`.
+
+Um dos erros mais frequentes entre iniciantes é confundir `print` com `return`. Embora ambos possam produzir algo visível na tela, eles têm naturezas completamente distintas. Enquanto o `print` apenas envia uma representação do valor para a saída padrão (normalmente o terminal), o `return` produz um valor que pode ser armazenado em uma variável, reutilizado em cálculos ou passado como argumento para outra função.
+
+Vejamos um exemplo de uma função que calcula a raiz quadrada de um número:
 
 ```{python}
-def my_func(name,place):
-    
-    strf='Olá '+name+'! Você é de '+place+'?'
-    return
-
-x = my_func('Emily','Paris')
-print(x)
-```
-
-Funções que não contenham o comando `return` sempre retornarão um valor vazio. Quando queremos utilizar uma função com o objetivo de realizar algum tipo de operação e atribuir a algum objeto o valor dessa operação para uso posterior, não podemos esquecer do `return`. Vejamos o exemplo da função que calcula a raiz quadrada de um número:
-
-```{python}
-def raiz(x):
+def raiz1(x):
     fx = x**0.5
+    print(fx)
 
-y = raiz(100)
+y = raiz1(100)
 print(y)
 ```
 
+Nesse caso, a função imprime o valor calculado, mas não o retorna. Como não há `return`, o valor devolvido por `raiz1` é `None`. Assim, a variável y passa a armazenar `None`, e é exatamente isso que será impresso na última linha. Se substituirmos a instrução de impressão pela instrução de retorno, o comportamento muda estruturalmente:
+
 ```{python}
-def raiz(x):
+def raiz2(x):
     fx = x**0.5
     return fx
 
-y = raiz(100)
+y = raiz2(100)
 print(y)
 ```
+
+Agora a função devolve o valor numérico calculado. A variável y armazena esse valor, que pode ser reutilizado em outras operações. A função passa a se comportar como uma transformação matemática: recebe um número e devolve outro. Essa distinção torna-se ainda mais clara quando tentamos usar o resultado em outra operação numérica:
+
+```{python}
+#| error: true
+
+z = raiz1(100) + 5
+print(z)
+```  
+
+O código acima gera erro porque `raiz1(100)` devolve `None`, e não é possível somar None com um número. Já no caso da função que utiliza a instrução de retorno, a operação funciona normalmente:
+
+```{python}
+z = raiz2(100) + 5
+print(z)
+```  
+
+Em programação científica e análise de dados, quase sempre desejamos funções que retornem valores, pois esses resultados serão encadeados em outras operações, armazenados em estruturas de dados ou utilizados em rotinas subsequentes. A impressão na tela é útil para depuração ou visualização intermediária, mas não substitui o mecanismo formal de retorno. Em termos conceituais, a diferença pode ser resumida da seguinte forma: funções que usam apenas print produzem efeitos; funções que utilizam return produzem valores.
 
 ### Expectativa de vida de variáveis dentro da função
 
