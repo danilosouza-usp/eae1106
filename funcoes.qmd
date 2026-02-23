@@ -169,11 +169,9 @@ def myFun(arg1, **kwargs):
 myFun("Hi - ", first='Geeks', mid='for', last='Geeks')
 ```
 
-### Elementos dentro da função: execução condicional
+### Execução condicional dentro de uma função
 
-As funções podem retornar objetos booleanos também, o que pode ser conveniente para esconder testes complicados dentro de funções. Por exemplo:
-
-
+As funções podem retornar objetos booleanos também, o que pode ser conveniente para esconder testes complicados dentro de uma função. Por exemplo:
 
 ```{python}
 def is_divisible(x, y):
@@ -186,39 +184,9 @@ def is_divisible(x, y):
 is_divisible(6, 4)
 ```
 
-### Aplicação: Teorema Central do Limite - Parte 1
+### Iteração dentro de uma função
 
-O primeiro passo para replicarmos, na forma de uma função, a aplicação do Teorema Central do Limite da aula anterior é definir uma função que recebe como argumentos a distribuição da varíavel aleatória X, o intervalo no qual a variável está definida e o número de sorteios que faremos em cada amostra. Com o que aprendemos até agora podemos definir a função `func_tcl` abaixo:
-
-
-```{python}
-def func_tcl(dist=None,intervalo=(0,1),n=100):
-    
-    if dist == None:
-        print('Você esqueceu de carregar uma função que defina a distribuição de X! Volte 2 casas.')
-    else:
-        x = dist(intervalo[0],intervalo[1],n)
-        print(x)
-```
-
-Para todos os 3 argumentos definimos valores _default_ que, caso não sejam alterados a função vai utilizá-los em suas operações. Vamos rodar a função com todos os valores _default_ e ver o que acontece:
-
-
-```{python}
-func_tcl()
-```
-
-Nesse caso, a execução condicional `if` dentro da função acende já que não passamos nenhuma distribuição como default, apenas o valor `None`. Vamos então repetir o que fizemos na aula passada e utilizar a distribuição uniforme, no intervalo $\left[-40,40\right]$ e sorteando apenas 10 números desta distribuição:
-
-
-```{python}
-func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=10)
-```
-
-### Elementos dentro da função: iteração
-
-Da mesma forma que podemos ter condições lógicas dentro da função, podemos ter blocos de repetição (`for` e `while`) dentro da função, assim como no caso de `*args`. Vamos olhar para um outro exemplo em que a função recebe uma lista de strings como argumento e faz operações em cada um dos elementos, um a um:
-
+Da mesma forma que podemos ter condições lógicas dentro da função, podemos ter blocos de repetição (`for` e `while`) dentro da função, assim como no caso de argumentos arbitrários. Vamos olhar para um outro exemplo em que a função recebe uma lista de strings como argumento e faz operações em cada um dos elementos, um a um:
 
 ```{python}
 states = [' Alabama ','Georgia!','Georgia','georgia','FlOrIda','south carolina##','West virginia?']
@@ -241,78 +209,32 @@ print()
 clean_strings(states)
 ```
 
-### Aplicação: Teorema Central do Limite - Parte 2
-
-Agora podemos dar mais um passo e incorporar o loop dentro da função, passando como novo argumento da função o número de amostras com o qual queremos trabalhar:
-
-
-```{python}
-def func_tcl(dist=None,intervalo=(0,1),n=100, samples=10):
-    
-    if dist == None:
-        print('Você esqueceu de carregar uma função que defina a distribuição de X!')
-    else:
-        means = []
-        for j in range(0,samples):
-            x_func_tcl = dist(intervalo[0],intervalo[1],n)
-            mean_x = sum(x_func_tcl)/len(x_func_tcl)
-            
-            means.append(mean_x)
-        
-        print('Essa é a lista de médias:')
-        print(means)
-        print('\nE essa é a média das médias:')
-        print(sum(means)/len(means))
-```
-
-
-```{python}
-# utilizamos a função seed mais uma vez para tornar os resultados previsíveis
-np.random.seed(1)
-
-func_tcl(dist=np.random.uniform,intervalo=(-40,40),n=50,samples=10)
-```
-
-Que bacana!!!
-
-Mas note que o valor da média que nos interessa nesse caso só aparece printado quando chamamos a função. O que podemos fazer para conseguir guardá-lo como uma nova variável, por exemplo?
-
 ## Valor de retorno de uma função
 
-O comando `return` é usado para a saída de uma função de volta ao lugar no código de onde ela foi chamada. A sintaxe desse comando é simples:
-
-```python
-return <expression_list>
-```
-
-Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado ou não tiver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
-
+O comando `return` é usado para especificar qual será o resultado de uma função. Essa declaração pode ter um comando que é executado e o valor resultante devolvido. Se esse comando não for anexado ou não tiver nada além do `return`, a função é devolvida com o valor de `None`. Por exemplo:
 
 ```{python}
 def my_func(name,place):
     
-    print(f"Olá {name}! Você é de {place}?")
+    strf='Olá '+name+'! Você é de '+place+'?'
     return
 
-print(my_func("Jane","Paris"))
+x = my_func('Emily','Paris')
+print(x)
 ```
 
-Funções que não contenham o comando `return` sempre retornarão um valor vazio. Quando queremos utilizar uma função com o objetivo de realizar algum tipo de operação e **guardar** o valor dessa operação, não podemos esquecer do `return`. Vejamos o exemplo da função que calcula a raiz quadrada de um número:
-
+Funções que não contenham o comando `return` sempre retornarão um valor vazio. Quando queremos utilizar uma função com o objetivo de realizar algum tipo de operação e atribuir a algum objeto o valor dessa operação para uso posterior, não podemos esquecer do `return`. Vejamos o exemplo da função que calcula a raiz quadrada de um número:
 
 ```{python}
 def raiz(x):
-    
     fx = x**0.5
 
 y = raiz(100)
 print(y)
 ```
 
-
 ```{python}
 def raiz(x):
-    
     fx = x**0.5
     return fx
 
@@ -322,8 +244,7 @@ print(y)
 
 ### Expectativa de vida de variáveis dentro da função
 
-Quando você cria uma variável **dentro** de uma função ela é local, ou seja, só existe dentro da própria função. Por exemplo:
-
+Quando você cria uma variável dentro de uma função ela é local, ou seja, só existe dentro da própria função. Por exemplo:
 
 ```{python}
 def concat_strings(str1,str2):
@@ -331,7 +252,6 @@ def concat_strings(str1,str2):
     texto_concatenado = str1 + ' ' + str2
     print(texto_concatenado)
     
-
 texto1 = 'Que a força esteja com você,'
 texto2 = 'jovem Padawan.'
 
@@ -340,14 +260,13 @@ concat_strings(texto1,texto2)
 
 Essa função recebe dois argumentos, concatena-os e exibe o resultado em uma única linha de texto. No entanto, assim que a função é encerrada, a variável `texto_concatenado` é deletada. O que acontece se tentarmos acessá-la?
 
-
 ```{python}
 #| error: true
 
 print(texto_concatenado)
 ```
 
-### Aplicação: Teorema Central do Limite - Parte 3
+## Aplicação: Teorema Central do Limite
 
 Retomando a função da parte 2:
 
@@ -444,10 +363,7 @@ Como exercício para casa, tente fazer alterações nessa função de modo que e
 
 ## Documentação
 
-Uma **docstring** é uma string no início de uma função, definida pelo usuário, que serve como documentação do que a função faz. A docstring vem logo depois da primeira linha que define a função e é delimitada por aspas triplas, o que permite que a string se estenda por várias linhas, como vocês devem se lembrar.
-
-Vamos criar como exemplo uma função que printa o tipo do objeto que é passado como argumento:
-
+Uma _docstring_ é uma string no início de uma função, definida pelo usuário, que serve como documentação do que a função faz. A docstring vem logo depois da primeira linha que define a função e é delimitada por aspas triplas, o que permite que a string se estenda por várias linhas, como vocês devem se lembrar. Vamos criar como exemplo uma função que printa o tipo do objeto que é passado como argumento:
 
 ```{python}
 def imprime_tipo(x):
@@ -460,27 +376,16 @@ def imprime_tipo(x):
     print(type(x))
 ```
 
-Embora opcional, a documentação é uma **boa prática de programação**. A menos que você consiga se lembrar qual foi o cardápio do bandejão na semana passada, sempre documente seu código. Podemos acessar a documentação de determinada função utilizando o atributo `__doc__`.
-
+Embora opcional, a documentação é uma boa prática de programação. A menos que você consiga se lembrar qual foi o cardápio do bandejão na semana passada, sempre documente seu código. Podemos acessar a documentação de determinada função, nativa ou personalizada, utilizando o atributo `__doc__`.
 
 ```{python}
 print(imprime_tipo.__doc__)
 ```
 
-Isso vale também para funções nativas e definidas em outros pacotes do Python. Por exemplo,
-
-
 ```{python}
 # documentação da função nativa len()
 print(len.__doc__)
 ```
-
-
-```{python}
-# documentação da função time() dentro do pacote time
-print(time.time.__doc__)
-```
-
 
 ```{python}
 # documentação da função uniform() dentro do pacote NumPy
@@ -488,7 +393,6 @@ print(np.random.uniform.__doc__)
 ```
 
 Note do exemplo acima que uma docstring pode conter uma descrição detalhada do funcionamento de uma função, inclusive com exemplos de aplicação. Legal, né? Esse tipo de documentação também está disponível para as bibliotecas como um todo. Isso pode nos ajudar, por exemplo, a conhecer o conteúdo de uma determinada biblioteca.
-
 
 ```{python}
 # documentação do NumPy
@@ -499,22 +403,17 @@ Podemos usar sempre esse atalho caso desejemos conhecer as funcionalidades que u
 
 ## Funções anônimas
 
-Em Python, uma função anônima é uma função definida sem nome. Quem poderia imaginar, não é mesmo?
-
-Enquanto as funções normais são definidas usando a palavra-chave `def` em Python, as funções anônimas são definidas usando a palavra-chave `lambda`. Portanto, funções anônimas também são chamadas de **funções lambda**. A estrutura usual de uma função lambda é a seguinte: 
+Em Python, uma função anônima é uma função definida sem nome. Enquanto as funções normais são definidas usando a palavra-chave `def` em Python, as funções anônimas são definidas usando a palavra-chave `lambda`. Por essa razão, funções anônimas também são chamadas de funções lambda. A estrutura usual de uma função lambda é a seguinte: 
 
 ```python
 lambda <argumentos>: <expressão>
 ```
 
-Usualmente a gente precisa de uma função lambda porque precisamos de uma função rápida por um período de tempo e/ou quando a gente usa técnicas mais poderosas que possuem funções como argumento, como `filter` e `map`. Vou fazer um exemplo com cada uma delas.
+Usualmente, utilizamos uma função lambda porque precisamos de uma função rápida por um determinado período de tempo e/ou quando utilizamos técnicas mais poderosas que possuem funções como argumento, como `filter` e `map`. Vou fazer um exemplo com cada uma delas.
 
-<br>
-
-**Usando filter**
+### _filter_
 
 A função `filter()` em Python recebe uma função e uma lista como argumentos. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo itens para os quais a função avalia `True`. Aqui está um exemplo de uso da função para filtrar apenas números pares de uma lista.
-
 
 ```{python}
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
@@ -524,10 +423,9 @@ new_list = list(filter(lambda x: (x%2 == 0) , my_list))
 print(new_list)
 ```
 
-**Usando map**
+### _map_
 
 A função `map()` em Python recebe uma função e uma lista. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo os itens retornados por essa função para cada item. Aqui está um exemplo de uso da função `map()` para dobrar todos os itens em uma lista.
-
 
 ```{python}
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
