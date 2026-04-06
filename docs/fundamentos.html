@@ -203,8 +203,21 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Computação numérica, análise de dados e visualização</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./pacotes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computação numérica, análise de dados e visualização</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arrays, matrizes e álgebra linear</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -688,17 +701,26 @@ Figura&nbsp;1.4: Exemplo de uso do terminal para mudar o ambiente atual
 <section id="exercícios" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.7</span> Exercícios</h2>
 <ol type="1">
-<li><p>Um arquivo de dados possui 10 milhões de linhas e 80 colunas, com todas as células contendo valores numéricos. Suponha que cada valor numérico ocupe 8 bytes na memória.</p>
+<li>Um arquivo de dados possui 10 milhões de linhas e 80 colunas, com todas as células contendo valores numéricos. Suponha que cada valor numérico ocupe 8 bytes na memória.
 <ol type="a">
 <li>Faça uma estimativa aproximada da quantidade de memória RAM (em GB) necessária para carregar esse arquivo inteiro na memória.</li>
 <li>Explique por que um computador com pouca memória RAM pode ter dificuldade para trabalhar com esse arquivo, mesmo que o arquivo “caiba” no disco rígido.</li>
 </ol></li>
-<li><p>Sobre o sistema binário responda:</p>
+<li>Sobre o sistema binário responda:
 <ol type="a">
 <li>Converta o número decimal 13 para a representação binária.</li>
 <li>Converta o número binário 101101 para decimal.</li>
 <li>Argumente, em poucas linhas, sobre a vantagem de computadores utilizarem o sistema binário em vez do sistema decimal.</li>
 </ol></li>
+<li>Para que computadores possam armazenar e manipular textos, é necessário representar caracteres (letras, números, símbolos) por meio de números. O ASCII (<em>American Standard Code for Information Interchange</em>) é um dos primeiros e mais importantes padrões de codificação de caracteres. Nesse padrão, cada caractere é representado por um número inteiro entre 0 e 127. Esse número é armazenado usando 7 bits (embora, na prática, seja guardado em 1 byte = 8 bits). Por exemplo, a letra “A” corresponde ao número 65. A letra “a” corresponde ao número 97. O número “0” corresponde ao código 48. Com base nessa ideia de representação digital da informação, responda à questão abaixo.</li>
+</ol>
+<p>Um arquivo de texto possui 1 milhão de caracteres ASCII.</p>
+<ol type="a">
+<li>Quantos bytes ele ocupa? Quantos bits?</li>
+<li>Se comprimido para 40% do tamanho original, qual será o novo tamanho?</li>
+<li>Explique por que arquivos de texto costumam ocupar um pequena fração do seu tamanho original quando comprimidos.</li>
+</ol>
+<ol start="4" type="1">
 <li><p>Considere a seguinte estrutura de diretórios:</p>
 <pre class="text"><code>D:/home/usuario/projeto/
 ├── dados/

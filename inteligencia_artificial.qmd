@@ -60,11 +60,11 @@ As requisições ao modelo são gratuitas, porém, com acesso limitado às vers�
 
 No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Existem limitações importantes que, se não compreendidas, podem gerar respostas pouco eficazes, incorretas e até mesmo implicar problemas legais. Diante dessas limitações, o uso da ferramenta em qualquer aplicação deve ser precedido por três perguntas básicas, listadas abaixo. Se qualquer uma dessas condições não for satisfeita, o uso da ferramenta deve ser reavaliado ou evitado.
 
-1. **A acurácia é um requisito central da sua aplicação?** Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas $100%$ corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente. 
+1. **A acurácia é um requisito central da sua aplicação?** Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas $100\%$ corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente. 
 
 2. **Os resultados são verificáveis?** Ferramentas como o ChatGPT não substituem conhecimento humano especializado. Por serem modelos, podem produzir respostas semanticamente plausíveis, mas incorretas ou desalinhadas do objetivo pretendido. A verificação exige domínio mínimo do tema tratado. Como regra prática: evite solicitar algo que você não tenha condições de conferir, validar ou testar posteriormente.
 
-3. **Dados da apicação são sensíveis ou protegidos?** O compartilhamento de dados confidenciais com ferramentas de IAG pode implicar riscos jurídicos e, a depender da natureza da informação, pode inclusive configurar infração legal. Sempre avalie cuidadosamente se os dados utilizados estão protegidos por normas de sigilo, contratos ou legislação específica antes de inseri-los em qualquer sistema externo.
+3. **Dados da aplicação são sensíveis ou protegidos?** O compartilhamento de dados confidenciais com ferramentas de IAG pode implicar riscos jurídicos e, a depender da natureza da informação, pode inclusive configurar infração legal. Sempre avalie cuidadosamente se os dados utilizados estão protegidos por normas de sigilo, contratos ou legislação específica antes de inseri-los em qualquer sistema externo.
 
 ```{mermaid}
 %%{init: {
@@ -135,7 +135,7 @@ _Prompt Engineering_ (ou engenharia de prompt) é o processo de estruturar uma p
 
 - **Clareza**: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções. 
 
-- **Especificidade**: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.
+- **Especificidade**: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite ambiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.
 
 No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico: instruções, contexto, exemplos e formato de saída (Figura @fig-prompt). Lembre, o objetivo é ser claro e específico, orientando o modelo a responder aquilo que queremos que ele responda.
 
@@ -176,5 +176,11 @@ O domínio de programação em Python exige prática, leitura de código, compre
 1. Considere um conjunto de dados hipotético contendo informações pessoais (nomes, datas de nascimento, renda). Explique em quais etapas e como você usaria ferramentas de IA generativa para auxiliar na análise desses dados. Quais são os principais riscos legais e éticos envolvidos?
 
 2. Considere o código do exercício 4 do capítulo 3. Peça ao ChatGPT para explicar o(s) erro(s) contidos no script. Como você reescreveria o código, agora sem erros de sintaxe e/ou semântica?
+
+3. Você quer que um modelo do tipo LLM, tal qual o ChatGPT, escreva um trecho de código em Python que leia um arquivo CSV e calcule a média de uma coluna chamada "preco", retornando uma mensagem formatada com duas casas decimais. Escreva um prompt claro e específico para solicitar isso a um modelo de linguagem, incluindo:
+  - a tarefa desejada;
+  - o nome do arquivo (por exemplo: dados.csv);
+  - a coluna a ser usada;
+  - um exemplo simples da saída esperada (por exemplo: "A média de preço é R$ 23.45").
 
 3. Discorra sobre porque a atividade de programação é uma aplicação na qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a produtividade.

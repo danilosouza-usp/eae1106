@@ -217,13 +217,13 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor5}{rgb}{0.20,0.40,0.40}
+\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
+\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
 \definecolor{QuartoInternalColor6}{rgb}{0.70,0.49,0.07}
+\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
 \definecolor{QuartoInternalColor7}{rgb}{0.00,0.40,0.00}
 \definecolor{QuartoInternalColor4}{rgb}{0.70,0.17,0.19}
-\definecolor{QuartoInternalColor3}{rgb}{0.00,0.45,0.15}
-\definecolor{QuartoInternalColor1}{rgb}{0.15,0.56,0.56}
 \makeatother
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -350,6 +350,10 @@ respeito do conteúdo e incorporação de novos pacotes e atualizações.
 
 \begin{itemize}
 \tightlist
+\item
+  \textbf{06 de Abril, 2026}: Correção de typos nos primeiros 6
+  capítulos; inclusão de novos exercícios; inclusão da versão inicial do
+  capítulo 7.
 \item
   \textbf{23 de Fevereiro, 2026}: Disponibilização da primeira versão do
   material, com a integridade dos capítulos 1-6.
@@ -714,7 +718,7 @@ computador podem ser dividas em 3 partes:
   sempre que necessário.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, bottomtitle=1mm, breakable, colframe=quarto-callout-important-color-frame, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, coltitle=black, rightrule=.15mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, colback=white, toprule=.15mm, bottomrule=.15mm, titlerule=0mm, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, arc=.35mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, colback=white, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, left=2mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm]
 
 Não confunda \emph{memória} com o que chamamos de \emph{armazenamento}.
 A memória do computador, normalmente na forma da chamada memória RAM
@@ -900,7 +904,7 @@ programação, análise de dados e computação numérica compreender essas
 etapas ajuda a interpretar erros, gargalos de desempenho e limitações
 práticas do ambiente computacional.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, bottomtitle=1mm, breakable, colframe=quarto-callout-tip-color-frame, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, rightrule=.15mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, colback=white, toprule=.15mm, bottomrule=.15mm, titlerule=0mm, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{O que significam as especificações do seu computador?}, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, arc=.35mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, colback=white, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, left=2mm, colframe=quarto-callout-tip-color-frame, leftrule=.75mm]
 
 Considere um computador com processador com 16 núcleos e frequência de
 3.2 GHz, 32 GB de memória RAM e 1 TB de SSD. Esses números descrevem
@@ -1412,6 +1416,7 @@ diretamente no computador.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Um arquivo de dados possui 10 milhões de linhas e 80 colunas, com
   todas as células contendo valores numéricos. Suponha que cada valor
@@ -1442,6 +1447,37 @@ diretamente no computador.
     Argumente, em poucas linhas, sobre a vantagem de computadores
     utilizarem o sistema binário em vez do sistema decimal.
   \end{enumerate}
+\item
+  Para que computadores possam armazenar e manipular textos, é
+  necessário representar caracteres (letras, números, símbolos) por meio
+  de números. O ASCII (\emph{American Standard Code for Information
+  Interchange}) é um dos primeiros e mais importantes padrões de
+  codificação de caracteres. Nesse padrão, cada caractere é representado
+  por um número inteiro entre 0 e 127. Esse número é armazenado usando 7
+  bits (embora, na prática, seja guardado em 1 byte = 8 bits). Por
+  exemplo, a letra ``A'' corresponde ao número 65. A letra ``a''
+  corresponde ao número 97. O número ``0'' corresponde ao código 48. Com
+  base nessa ideia de representação digital da informação, responda à
+  questão abaixo.
+\end{enumerate}
+
+Um arquivo de texto possui 1 milhão de caracteres ASCII.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Quantos bytes ele ocupa? Quantos bits?
+\item
+  Se comprimido para 40\% do tamanho original, qual será o novo tamanho?
+\item
+  Explique por que arquivos de texto costumam ocupar um pequena fração
+  do seu tamanho original quando comprimidos.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
 \item
   Considere a seguinte estrutura de diretórios:
 
@@ -1905,11 +1941,12 @@ isto é, eleva um número a uma potência, como nos seguintes exemplos:
 42
 \end{verbatim}
 
-Em algumas outras linguagens, o \(^\) é usado para a exponenciação, mas
-no Python é um operador \emph{bitwise}, chamado XOR. Se não tiver
-familiaridade com operadores bitwise, o resultado o surpreenderá. Não
-abordaremos operadores bitwise neste curso, mas você pode ler sobre eles
-em http://wiki.python.org/moin/BitwiseOperators.
+Em algumas outras linguagens, o símbolo de acento circunflexo é usado
+para a exponenciação, mas no Python é um operador \emph{bitwise},
+chamado XOR. Se não tiver familiaridade com operadores bitwise, o
+resultado o surpreenderá. Não abordaremos operadores bitwise neste
+curso, mas você pode ler sobre eles em
+http://wiki.python.org/moin/BitwiseOperators.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2231,6 +2268,11 @@ operacionais estabelecidas aqui.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
+  Discuta por que Python se tornou tão popular em ciência de dados e
+  aprendizado de máquina, apesar de não ser a linguagem mais rápida em
+  execução. Cite outros contextos em que Python pode não ser a linguagem
+  mais adequada.
+\item
   Utilize o Python para responder as seguintes perguntas:
 
   \begin{enumerate}
@@ -2243,7 +2285,7 @@ operacionais estabelecidas aqui.
     quilômetro.
   \item
     Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o
-    \_pace\_\_ médio (tempo por quilômetro em minutos e segundos)?
+    \emph{pace} médio (tempo por quilômetro em minutos e segundos)?
   \end{enumerate}
 \item
   Crie uma variável chamada \texttt{salario\_mensal} com valor igual a
@@ -2288,6 +2330,14 @@ operacionais estabelecidas aqui.
   \item
     Corrija o(s) erro(s) e execute novamente.
   \end{enumerate}
+\item
+  Leia o
+  \href{https://www.freecodecamp.org/news/programming-naming-conventions-explained/}{artigo}
+  que versa sobre convenções de nomes em programação. Qual é a
+  importância de se ter um padrão de nomeação de variáveis (pense
+  especialmente em ambientes de trabalho com diversos usuários
+  manipulando as mesmas variáveis e o mesmo código), tanto na forma
+  quanto no conteúdo das palavras?
 \end{enumerate}
 
 \chapter{Programação e IA}\label{sec-inteligencia_artificial}
@@ -2412,7 +2462,7 @@ funções ou soluções incompatíveis com o nível do curso. Essa limitação
 torna essencial que o aluno atue como validador ativo de qualquer
 resposta produzida por IA.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, coltitle=black, rightrule=.15mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, colback=white, toprule=.15mm, bottomrule=.15mm, titlerule=0mm, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Curiosidade}, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, arc=.35mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, colback=white, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, left=2mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm]
 
 Você sabe o que significa GPT? É a sigla para \textbf{Generative
 Pre-trained Transformer}, que resume as características dos modelos por
@@ -2501,13 +2551,13 @@ uso da ferramenta deve ser reavaliado ou evitado.
 \item
   \textbf{A acurácia é um requisito central da sua aplicação?} Embora o
   modelo tenha sido treinado com bilhões de textos e conjuntos de dados,
-  não há garantia de respostas \(100%
-  \) corretas. Além disso, há um grau inerente de imprevisibilidade:
-  pequenas variações no prompt podem gerar respostas diferentes, e o
-  próprio modelo é não determinístico. Isso significa que, mesmo com a
-  mesma pergunta, resultados distintos podem surgir. Para aplicações que
-  exigem precisão rigorosa e consistência absoluta, essa limitação deve
-  ser considerada explicitamente.
+  não há garantia de respostas \(100\%\) corretas. Além disso, há um
+  grau inerente de imprevisibilidade: pequenas variações no prompt podem
+  gerar respostas diferentes, e o próprio modelo é não determinístico.
+  Isso significa que, mesmo com a mesma pergunta, resultados distintos
+  podem surgir. Para aplicações que exigem precisão rigorosa e
+  consistência absoluta, essa limitação deve ser considerada
+  explicitamente.
 \item
   \textbf{Os resultados são verificáveis?} Ferramentas como o ChatGPT
   não substituem conhecimento humano especializado. Por serem modelos,
@@ -2517,7 +2567,7 @@ uso da ferramenta deve ser reavaliado ou evitado.
   você não tenha condições de conferir, validar ou testar
   posteriormente.
 \item
-  \textbf{Dados da apicação são sensíveis ou protegidos?} O
+  \textbf{Dados da aplicação são sensíveis ou protegidos?} O
   compartilhamento de dados confidenciais com ferramentas de IAG pode
   implicar riscos jurídicos e, a depender da natureza da informação,
   pode inclusive configurar infração legal. Sempre avalie cuidadosamente
@@ -2559,7 +2609,7 @@ prompt: clareza e especificidade.
   direcionar a resposta do modelo, é preciso que o foco seja apenas no
   que é mais relevante para o objetivo em questão. Prompts vagos e
   ambíguos promovem respostas menos acuradas e eficientes. Nesse caso,
-  (i) seja descritivo, (ii) evite amiguidades e informações
+  (i) seja descritivo, (ii) evite ambiguidades e informações
   desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco
   deve ser em instruções do que queremos que seja feito.
 \end{itemize}
@@ -2701,6 +2751,31 @@ todas as aplicações computacionais em Economia ao longo do curso.
   Considere o código do exercício 4 do capítulo 3. Peça ao ChatGPT para
   explicar o(s) erro(s) contidos no script. Como você reescreveria o
   código, agora sem erros de sintaxe e/ou semântica?
+\item
+  Você quer que um modelo do tipo LLM, tal qual o ChatGPT, escreva um
+  trecho de código em Python que leia um arquivo CSV e calcule a média
+  de uma coluna chamada ``preco'', retornando uma mensagem formatada com
+  duas casas decimais. Escreva um prompt claro e específico para
+  solicitar isso a um modelo de linguagem, incluindo:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  a tarefa desejada;
+\item
+  o nome do arquivo (por exemplo: dados.csv);
+\item
+  a coluna a ser usada;
+\item
+  um exemplo simples da saída esperada (por exemplo: ``A média de preço
+  é R\$ 23.45'').
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
 \item
   Discorra sobre porque a atividade de programação é uma aplicação na
   qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a
@@ -3815,7 +3890,7 @@ uma string e uma lista:
 \end{Shaded}
 
 \begin{verbatim}
-<zip object at 0x000001BC6DF75F80>
+<zip object at 0x00000155CD102040>
 \end{verbatim}
 
 Um objeto \texttt{zip} é um tipo de iterador, ou seja, qualquer objeto
@@ -4177,7 +4252,7 @@ construir.
 \end{Shaded}
 \item
   Considere as atribuições abaixo. Sem executar o código, indique o tipo
-  de cada variável. Explique por que a expressão \texttt{a\ +\ d} gera
+  de cada variável. Explique por que a expressão \texttt{a\ +\ e} gera
   um erro. Reescreva-a de forma que a soma aritmética seja realizada
   corretamente e retorne o valor desejado \(20\).
 
@@ -4201,6 +4276,8 @@ construir.
   indicada para armazenar (i) as notas obtidas por um aluno em
   determinadas disciplinas e (ii) as coordenadas geográficas de uma
   cidade (latitude e longitude).
+\item
+  Por quê tuplas podem ser chaves de dicionário e listas não?
 \end{enumerate}
 
 \chapter{Controle de fluxo e iteração}\label{sec-iteracao}
@@ -4392,7 +4469,7 @@ script segue.
 x é positivo
 \end{verbatim}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, bottomtitle=1mm, breakable, colframe=quarto-callout-important-color-frame, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, coltitle=black, rightrule=.15mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, colback=white, toprule=.15mm, bottomrule=.15mm, titlerule=0mm, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, arc=.35mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, colback=white, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, left=2mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm]
 
 Uma característica muito importante da sintaxe do Python é justamente a
 \textbf{identação}. Diferentemente de outras linguagens de programação,
@@ -4537,16 +4614,16 @@ Distribuição Uniforme padrão (definida no intervalo \([0,1]\)).
 \end{Shaded}
 
 \begin{verbatim}
-0.701617375246619
-0.27641120004094333
-0.4947145172964512
-0.6145895137820256
-0.2015338310833964
-0.2346722215528999
-0.8975012262622699
-0.9762955742293882
-0.5134908791703443
-0.5479159202519687
+0.2537307874138258
+0.7084572702546833
+0.6635265309796919
+0.680889121927865
+0.43974847903068925
+0.2945212117121606
+0.12819475750067832
+0.18448207030575614
+0.0911409793641833
+0.10254112713353891
 \end{verbatim}
 
 No \emph{loop} acima não utilizamos o elemento \texttt{i} em nenhum
@@ -4566,16 +4643,16 @@ gostaríamos de rodar o bloco de instruções abaixo do cabeçalho, no caso
 \end{Shaded}
 
 \begin{verbatim}
-Essa é a iteração 0 e o número sorteado foi: 0.81
-Essa é a iteração 1 e o número sorteado foi: 0.62
-Essa é a iteração 2 e o número sorteado foi: 0.98
-Essa é a iteração 3 e o número sorteado foi: 0.69
-Essa é a iteração 4 e o número sorteado foi: 0.54
-Essa é a iteração 5 e o número sorteado foi: 0.82
-Essa é a iteração 6 e o número sorteado foi: 0.27
-Essa é a iteração 7 e o número sorteado foi: 0.02
-Essa é a iteração 8 e o número sorteado foi: 0.01
-Essa é a iteração 9 e o número sorteado foi: 0.37
+Essa é a iteração 0 e o número sorteado foi: 0.47
+Essa é a iteração 1 e o número sorteado foi: 0.71
+Essa é a iteração 2 e o número sorteado foi: 0.03
+Essa é a iteração 3 e o número sorteado foi: 0.76
+Essa é a iteração 4 e o número sorteado foi: 0.79
+Essa é a iteração 5 e o número sorteado foi: 0.60
+Essa é a iteração 6 e o número sorteado foi: 0.60
+Essa é a iteração 7 e o número sorteado foi: 0.71
+Essa é a iteração 8 e o número sorteado foi: 0.32
+Essa é a iteração 9 e o número sorteado foi: 0.44
 \end{verbatim}
 
 Note que nesse caso utilizamos tanto o elemento \emph{iterável}
@@ -4800,10 +4877,10 @@ Qual abordagem será que levou menos tempo?
 \end{Shaded}
 
 \begin{verbatim}
-Tempo necessário com list comprehensions: 0.0962 segundos
-Tempo necessário com loop: 0.1264 segundos
+Tempo necessário com list comprehensions: 0.0972 segundos
+Tempo necessário com loop: 0.1272 segundos
 
-A abordagem de loop demorou 31.4% mais tempo!
+A abordagem de loop demorou 30.9% mais tempo!
 \end{verbatim}
 
 \section{Repetição condicional}\label{repetiuxe7uxe3o-condicional}
@@ -5002,7 +5079,7 @@ O \emph{Teorema Central do Limite} é um resultado super importante em
 estatística e com aplicações nas mais diversas áreas. Em sua formulação
 mais simples, o teorema pode ser resumido pela caixa abaixo.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, bottomtitle=1mm, breakable, colframe=quarto-callout-tip-color-frame, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, rightrule=.15mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Teorema Central do Limite}, colback=white, toprule=.15mm, bottomrule=.15mm, titlerule=0mm, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Teorema Central do Limite}, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, arc=.35mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, colback=white, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, left=2mm, colframe=quarto-callout-tip-color-frame, leftrule=.75mm]
 
 Suponha que estejamos amostrando de uma variável aleatória \(X\) com
 média finita e igual a \(\mu\) e desvio padrão finito e igual a
@@ -5033,8 +5110,8 @@ o sorteio dos números.
 \end{Shaded}
 
 \begin{verbatim}
-[-15.45776623  -5.96059825  23.3094033   25.59223992  -3.15805941
-   2.93940868 -26.69267134   8.68350719  -4.72897652  21.59589387]
+[ 22.77834     13.63694085  16.75798023 -29.60992784 -34.96779749
+  17.51442948   0.6093497    8.95242978  30.30652745   8.58616112]
 \end{verbatim}
 
 Note que se sorteamos 10 números novamente, o resultado será diferente
@@ -5048,8 +5125,8 @@ Note que se sorteamos 10 números novamente, o resultado será diferente
 \end{Shaded}
 
 \begin{verbatim}
-[ 11.83110497  28.78269423  35.9182909    7.10420964  27.43274987
-  21.32671541 -32.50352069  -1.41758042 -20.91349433 -29.41673996]
+[-33.98781534 -19.82934896 -14.840974    17.49112371  15.67365607
+ -16.02678993   9.81117031  15.081256   -18.96158384  17.1798399 ]
 \end{verbatim}
 
 Para tornar o nosso exemplo mais previsível, vamos usar a função
@@ -5281,6 +5358,10 @@ do estudo de funções.
   \texttt{for} e expressões condicionais para (i) calcular a frequência
   relativa de cada face e (ii) a média dos valores obtidos dentro da
   amostra de lançamentos.
+\item
+  Escreva um \emph{loop} que parta de um número inteiro positivo e
+  retorne ao fim do código a quantidade de dígitos pares que existem no
+  número inicial.
 \item
   O último teorema de \emph{Fermat} diz que não há nenhum número inteiro
   positivo \emph{a,b,c} tal que \[ a^n + b^n = c^n \]
@@ -6369,10 +6450,62 @@ programação numérica e análise de dados.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  X
+  Escreva uma função chamada triângulo que recebe uma string como
+  argumento e retorna como output um triângulo retângulo de determinada
+  altura, usando cópias da string, como no exemplo:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{triangle(}\StringTok{\textquotesingle{}L\textquotesingle{}}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+L\
+LL\
+LLL\
+LLLL\
+LLLLL\
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \item
-  X
+  Defina uma função que retorne a quantidade de dinheiro em uma conta
+  corrente após uma transação. Os dois parâmetros para essa função são
+  saldo e transação. Ambos serão argumentos inteiros. O saldo é quanto
+  dinheiro existe atualmente na conta, e a transação quanto adicionar ou
+  subtrair da conta corrente (baseado se é um inteiro positivo ou
+  negativo). Note que essa operação é mais complicada que apenas
+  \texttt{saldo\ +\ transacao}. Isso porque se a transação for negativa
+  (saída de dinheiro da conta) e em valor absoluto maior do que o saldo
+  existente, a transação deve ser ignorada e o valor original de saldo
+  retornado pela função.
+\item
+  Escreva uma função chamada \texttt{sum\_list} que recebe uma lista de
+  números e retorna um dicionário com duas chaves e dois valores.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    O primeiro par chave-valor deve associar à chave \texttt{soma} o
+    valor numérico da soma de todos os elementos.
+  \item
+    O segundo par chave-valor deve associar à chave \texttt{elementos} o
+    número de elementos somados.
+  \end{itemize}
+\item
+  Defina uma função que recebe uma temperatura em Celsius e retorna o
+  valor convertido para Fahrenheit com duas casas decimais. Agora crie
+  uma segunda função, mais genérica, que receba como primeiro argumento
+  \texttt{CtoF} ou \texttt{FtoC} e como segundo argumento a temperatura.
+  Essa segunda função deve ser capaz de converter as escalas de
+  temperatura em ambas as direções. Por padrão, o primeiro argumento
+  deve ser definido como \texttt{CtoF}.
 \end{enumerate}
 
 \part{Computação numérica, análise de dados e visualização}
@@ -6430,6 +6563,1296 @@ análise empírica completa -- desde a organização dos dados e a
 realização de operações numéricas até a visualização e interpretação dos
 resultados -- utilizando um fluxo de trabalho coerente, reproduzível e
 adequado a aplicações empíricas em economia.
+
+\chapter{Arrays, matrizes e álgebra linear}\label{sec-numpy}
+
+\section{Introdução}\label{introduuxe7uxe3o-6}
+
+té aqui, os programas escritos consistem em sequências de instruções,
+condicionais e laços que manipulam objetos como números, listas e
+dicionários. Essa forma é suficiente para resolver problemas simples,
+mas rapidamente se torna difícil de manter quando o código cresce ou
+quando a mesma lógica precisa ser reutilizada várias vezes.
+
+Funções são o principal mecanismo de abstração em programação. Elas
+permitem encapsular um conjunto de instruções sob um nome, definir
+claramente quais informações entram e quais resultados saem, e separar a
+lógica interna da interface externa. Em termos computacionais, funções
+organizam o fluxo de execução, delimitam escopos de variáveis e tornam
+explícita a transformação entre \emph{inputs} e \emph{outputs} --
+conceito central também em Economia, onde frequentemente modelamos
+relações funcionais entre variáveis.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{images/old_desktop.jpg}
+
+}
+
+\caption{\label{fig-olddesk}Setup usual de um computador pessoal no
+começo dos anos 2000. Fonte: \emph{Wikimedia Commons}}
+
+\end{figure}%
+
+Neste capítulo, o objetivo é compreender o papel das funções como
+ferramenta de organização, reutilização e clareza lógica. Ao final, o
+aluno deverá ser capaz de estruturar programas de forma modular e
+compreender como funções são usadas extensivamente nas bibliotecas
+científicas que serão estudadas nas próximas aulas.
+
+\subsection{Pré-requisitos}\label{pruxe9-requisitos-6}
+
+O foco deste capítulo será o pacote \emph{NumPy}, que, apesar de já vir
+instalado com o Anaconda, não é nativo do Python e, portanto, é preciso
+carregá-lo. Além disso, em alguma aplicações utilizaremos o pacote
+\emph{time} para contagem de tempo de máquina e o pacote \emph{SymPy}
+para solução analítica de problemas.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{numpy}
+\item
+  \texttt{time}
+\item
+  \texttt{sympy}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ sympy}
+\ImportTok{import}\NormalTok{ time}
+\end{Highlighting}
+\end{Shaded}
+
+\section{O que é o NumPy?}\label{o-que-uxe9-o-numpy}
+
+NumPy (\textbf{Num}erical \textbf{Py}thon) é o pacote fundamental para
+computação científica em Python. Essa biblioteca é peça fundamental em
+outras bibliotecas igualmente importantes, como o Pandas e o Matplotlib.
+É uma biblioteca Python que tem como principal objeto o
+\texttt{ndarray}, um array multidimensional que guarda bastante
+semelhança com a ideia de vetores e matrizes, embora seja um objeto
+específico dentro da linguagem, com suas características e métodos
+próprios. O pacote contém também uma variedade de rotinas para operações
+rápidas em arrays, incluindo matemática, lógica, álgebra linear básica,
+operações estatísticas básicas e muito mais.
+
+Mas o que é de fato um \texttt{ndarray}? É um objeto multidimensional
+que nos permite armazenar dados de forma sequencial e que podem ser
+acessados via indexação. Ué, mas isso é muito parecido com uma lista (ou
+um conjunto de listas). Qual a diferença então?
+
+\begin{itemize}
+\item
+  NumPy arrays têm um tamanho fixo na criação, ao contrário das listas,
+  que podem crescer. Alterar o tamanho de um ndarray criará um novo
+  array e excluirá o original.
+\item
+  Todos os elementos em um array devem ser do mesmo tipo de dados,
+  diferentemente de listas, que são objetos mais genéricos. Isso
+  facilita a gestão de memória e torna operações com esse tipo de objeto
+  ordens de magnitude mais rápidas do que se utilizássemos listas.
+\item
+  A maior velocidade e eficiência de armazenamento fazem do NumPy uma
+  das bibliotecas mais utilizadas em aplicações matemáticas e
+  científicas. Saber apenas as ferramentas nativas do Python, como
+  listas, hoje já não é mais suficiente.
+\end{itemize}
+
+São muitas as qualidades do \texttt{NumPy} que fazem dele a melhor
+escolha quanto o assunto é lidar com objetos sequenciais,
+multidimensionais, e com os quais queremos operar tal qual vetores e
+matrizes. Mas chega de lenga lenga, vamos ao trabalho!
+
+\section{Elementos básicos do
+NumPy}\label{elementos-buxe1sicos-do-numpy}
+
+\subsection{Arrays unidimensionais}\label{arrays-unidimensionais}
+
+Comecemos criando um \texttt{numpy.ndarray} do zero, contendo os números
+1, 2 e 3. Podemos fazê-lo da seguinte forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(a)}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{type}\NormalTok{(a))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1 2 3]
+<class 'numpy.ndarray'>
+\end{verbatim}
+
+A sintaxe é essa mesma: um par de colchetes dentro dos parênteses. Se
+tentarmos passar sem os colchetes, o Python retornará um erro.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.array(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Highlighting}
+\textcolor{black}{TypeError: array() takes from 1 to 2 positional arguments but 3 were given}
+\textcolor{black}{}\textcolor{QuartoInternalColor4}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{Cell}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{In[3]}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{, line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{1}\textcolor{QuartoInternalColor2}{ a = }\textcolor{QuartoInternalColor2}{np}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{.}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{array}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{(}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{1}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{,}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{2}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{,}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{3}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor2}{)}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor4}{TypeError}\textcolor{QuartoInternalColor2}{: array() takes from 1 to 2 positional arguments but 3 were given}
+\end{Highlighting}
+
+Da mesma forma que uma sequência de 3 números inteiros, podemos criar um
+\texttt{numpy.ndarray} que repete 3 vezes o número 0 ou 3 vezes o número
+1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.zeros(}\DecValTok{3}\NormalTok{)}
+\NormalTok{b }\OperatorTok{=}\NormalTok{ np.ones(}\DecValTok{3}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(a)}
+\BuiltInTok{print}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[0. 0. 0.]
+[1. 1. 1.]
+\end{verbatim}
+
+Note que em ambos os casos os números aparecem com o ponto da casa
+decimal, o que é um indicativo de que estão armazenados como valores do
+tipo \texttt{float}. E se quiséssemos criar esses mesmos arrays, mas
+especificando que os números são inteiros, i.e., do tipo \texttt{int}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.zeros(}\DecValTok{3}\NormalTok{, dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+\NormalTok{b }\OperatorTok{=}\NormalTok{ np.ones(}\DecValTok{3}\NormalTok{, dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(a)}
+\BuiltInTok{print}\NormalTok{(b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[0 0 0]
+[1 1 1]
+\end{verbatim}
+
+A função \texttt{numpy.linspace(x,y,z)} nos permite criar um array que
+vai de \texttt{x} até \texttt{y}, com \texttt{z} elementos igualmente
+espaçados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.linspace(}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{5}\NormalTok{, dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[0 2 4 6 8]
+\end{verbatim}
+
+Podemos acessar os elementos de um array qualquer utilizando a mesma
+ideia de indexação de listas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Array a =\textquotesingle{}}\NormalTok{,a)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Primeiro elemento de a = \textquotesingle{}}\NormalTok{,a[}\DecValTok{0}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Segundo elemento de a = \textquotesingle{}}\NormalTok{,a[}\DecValTok{1}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Último elemento de a = \textquotesingle{}}\NormalTok{,a[}\OperatorTok{{-}}\DecValTok{1}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Dois primeiros elementos de a = \textquotesingle{}}\NormalTok{,a[}\DecValTok{0}\NormalTok{:}\DecValTok{2}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Array a = [0 2 4 6 8]
+
+Primeiro elemento de a =  0
+Segundo elemento de a =  2
+Último elemento de a =  8
+Dois primeiros elementos de a =  [0 2]
+\end{verbatim}
+
+\subsection{Arrays multidimensionais}\label{arrays-multidimensionais}
+
+Como falamos anteriormente, um objeto do tipo \texttt{numpy.ndarray} é
+um array \emph{n-dimensional} (por isso o \texttt{nd} em
+\texttt{ndarray}). Até agora trabalhamos apenas com uma dimensão, mas
+para as nossas aplicações é particularmente interessante o caso em que o
+número de dimensões é igual a 2, i.e., para o caso em que o array assume
+a forma de uma \textbf{matriz}.
+
+Podemos criar esse tipo de array usando a mesma lógica de antes, com
+pequenas alterações na sintaxe:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A\_22 }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{], [}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{]], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Matriz A =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,A\_22)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz A =
+ [[1 2]
+ [3 4]]
+\end{verbatim}
+
+O NumPy nos oferece algumas funções interessantes para criarmos matrizes
+específicas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Matriz identidade 2x2 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,np.eye(}\DecValTok{2}\NormalTok{,dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Matriz diagonal 3x3 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,np.diag([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz identidade 2x2 =
+ [[1 0]
+ [0 1]]
+
+Matriz diagonal 3x3 =
+ [[1 0 0]
+ [0 2 0]
+ [0 0 3]]
+\end{verbatim}
+
+Podemos criar a matriz \textbf{transposta} de uma dada matriz utilizando
+a função \texttt{np.transpose()} (ou apenas o método \texttt{.T}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Matriz A =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,A\_22)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Transposta da matriz A =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,np.transpose(A\_22))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Transposta da matriz A =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,A\_22.T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz A =
+ [[1 2]
+ [3 4]]
+
+Transposta da matriz A =
+ [[1 3]
+ [2 4]]
+
+Transposta da matriz A =
+ [[1 3]
+ [2 4]]
+\end{verbatim}
+
+Assim como em arrays unidimensionais, podemos acessar os elementos de
+uma matriz utilizando indexação, mas agora em 2 dimensões:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{], [}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{], [}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{]])}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Matriz A =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,A)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Elemento 11 de A = \textquotesingle{}}\NormalTok{,A[}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Elemento 23 de A = \textquotesingle{}}\NormalTok{,A[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Primeira linha de A = \textquotesingle{}}\NormalTok{,A[}\DecValTok{0}\NormalTok{,:])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Segunda coluna de A = \textquotesingle{}}\NormalTok{,A[:,}\DecValTok{1}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Submatriz de A delimitada pelos elementos 22 e 33 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,A[}\DecValTok{1}\NormalTok{:,}\DecValTok{1}\NormalTok{:])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz A =
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+Elemento 11 de A =  1
+Elemento 23 de A =  6
+Primeira linha de A =  [1 2 3]
+Segunda coluna de A =  [2 5 8]
+
+Submatriz de A delimitada pelos elementos 22 e 33 =
+ [[5 6]
+ [8 9]]
+\end{verbatim}
+
+\subsection{Propriedades de arrays}\label{propriedades-de-arrays}
+
+O NumPy fornece alguns métodos úteis que, apesar de não receberem nenhum
+argumento, nos permitem acessar algumas das características dos arrays
+que criamos.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ndim} retorna o número de dimensões do array;
+\item
+  \texttt{shape} retorna o tamanho do array em cada uma de suas
+  dimensões;
+\item
+  \texttt{dtype} retorna o tipo de dado contido no array;
+\item
+  \texttt{size} retorna o número total de elementos contidos no array.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X1 }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{], [}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{], [}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{]]) }
+\NormalTok{X2 }\OperatorTok{=}\NormalTok{ X1.flatten() }\CommentTok{\# O método flatten reduz um array de n{-}dimensões em um array de uma única dimensão}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Array X1 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X1)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Dimensões de X1 = \textquotesingle{}}\NormalTok{, X1.ndim)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Shape de X1 = \textquotesingle{}}\NormalTok{, X1.shape)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Tipo de dado em X1 = \textquotesingle{}}\NormalTok{, X1.dtype)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Número de elementos em X1 = \textquotesingle{}}\NormalTok{, X1.size)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{Array X2 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X2)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Dimensões de X2 = \textquotesingle{}}\NormalTok{, X2.ndim)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Shape de X2 = \textquotesingle{}}\NormalTok{, X2.shape)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Tipo de dado em X2 = \textquotesingle{}}\NormalTok{, X2.dtype)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Número de elementos em X2 = \textquotesingle{}}\NormalTok{, X2.size)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Array X1 =
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+Dimensões de X1 =  2
+Shape de X1 =  (3, 3)
+Tipo de dado em X1 =  int64
+Número de elementos em X1 =  9
+
+
+Array X2 =
+ [1 2 3 4 5 6 7 8 9]
+
+Dimensões de X2 =  1
+Shape de X2 =  (9,)
+Tipo de dado em X2 =  int64
+Número de elementos em X2 =  9
+\end{verbatim}
+
+Um método interessante de arrays é o \texttt{reshape(x,y)} que
+reorganiza um array existente de acordo com os argumentos \texttt{x} e
+\texttt{y}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{], [}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{], [}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{], [}\DecValTok{13}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{16}\NormalTok{]]) }
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Array X1 4x4 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{ X1 reorganizado em 2x8 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X.reshape(}\DecValTok{2}\NormalTok{,}\DecValTok{8}\NormalTok{))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{ X1 reorganizado em 8x2 =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X.reshape(}\DecValTok{8}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Array X1 4x4 =
+ [[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]
+ [13 14 15 16]]
+
+ X1 reorganizado em 2x8 =
+ [[ 1  2  3  4  5  6  7  8]
+ [ 9 10 11 12 13 14 15 16]]
+
+ X1 reorganizado em 8x2 =
+ [[ 1  2]
+ [ 3  4]
+ [ 5  6]
+ [ 7  8]
+ [ 9 10]
+ [11 12]
+ [13 14]
+ [15 16]]
+\end{verbatim}
+
+\section{Operações básicas com
+arrays}\label{operauxe7uxf5es-buxe1sicas-com-arrays}
+
+\subsection{Operações aritméticas
+simples}\label{operauxe7uxf5es-aritmuxe9ticas-simples}
+
+Dois tipos de operações que serão úteis para arrays de qualquer dimensão
+são:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Operações entre um array e um único número.
+\item
+  Operações entre dois arrays da mesma forma.
+\end{enumerate}
+
+Quando realizamos operações em um array usando um único número,
+simplesmente aplicamos essa operação a cada elemento do array. Isso vale
+tanto para arrays unidimensionais (vetores) quanto multidimensionais
+(por ex., matrizes).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"x =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 + x =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{+}\NormalTok{ x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 {-} x =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{{-}}\NormalTok{ x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 * x =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\NormalTok{ x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{x / 2 =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x }\OperatorTok{/} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+x =
+ [1 2 3]
+
+2 + x =
+ [3 4 5]
+
+2 - x =
+ [ 1  0 -1]
+
+2 * x =
+ [2 4 6]
+
+x / 2 =
+ [0.5 1.  1.5]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X }\OperatorTok{=}\NormalTok{ np.ones((}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"X =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 + X =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{+}\NormalTok{ X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 {-} X =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{{-}}\NormalTok{ X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{2 * X =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\NormalTok{ X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{X / 2 =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X }\OperatorTok{/} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+X =
+ [[1 1]
+ [1 1]]
+
+2 + X =
+ [[3 3]
+ [3 3]]
+
+2 - X =
+ [[1 1]
+ [1 1]]
+
+2 * X =
+ [[2 2]
+ [2 2]]
+
+X / 2 =
+ [[0.5 0.5]
+ [0.5 0.5]]
+\end{verbatim}
+
+Para operações entre dois arrays de mesmo tamanho, basta aplicar a
+operação elemento a elemento (\emph{elementwise}, em inglês) entre os
+arrays.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"x =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{x + y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x }\OperatorTok{+}\NormalTok{ y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{x {-} y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x }\OperatorTok{{-}}\NormalTok{ y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+x =
+ [2 4 6]
+
+y =
+ [2 2 1]
+
+x + y =
+ [4 6 7]
+
+x - y =
+ [0 2 5]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{], [}\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{]], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+\NormalTok{Y }\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{], [}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{]], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"X =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{X + Y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X }\OperatorTok{+}\NormalTok{ Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{X {-} Y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X }\OperatorTok{{-}}\NormalTok{ Y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+X =
+ [[2 4]
+ [6 8]]
+
+Y =
+ [[2 2]
+ [2 2]]
+
+X + Y =
+ [[ 4  6]
+ [ 8 10]]
+
+X - Y =
+ [[0 2]
+ [4 6]]
+\end{verbatim}
+
+As operações de multiplicação e divisão entre arrays são um pouco
+diferentes. São duas as possibilidades:
+
+\begin{itemize}
+\tightlist
+\item
+  Multiplicação e divisão elemento a elemento.
+\item
+  Multiplicação entre arrays usando a lógica de matriz e ``divisão''
+  usando a lógica de matriz inversa.
+\end{itemize}
+
+Para realizar as operações \emph{elementwise} basta utilizar os sinais
+usuais de \texttt{*} e \texttt{/}, independentemente do número de
+dimesões do array.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Vetores x e y:\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x =\textquotesingle{}}\NormalTok{,x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}y =\textquotesingle{}}\NormalTok{,y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ x * y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x }\OperatorTok{*}\NormalTok{ y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ x / y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, x }\OperatorTok{/}\NormalTok{ y)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Matrizes X e Y:\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}X =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Y =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ X * Y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X }\OperatorTok{*}\NormalTok{ Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{ X / Y =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, X }\OperatorTok{/}\NormalTok{ Y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Vetores x e y:
+x = [2 4 6]
+y = [2 2 1]
+
+ x * y =
+ [4 8 6]
+
+ x / y =
+ [1. 2. 6.]
+
+Matrizes X e Y:
+X =
+ [[2 4]
+ [6 8]]
+Y =
+ [[2 2]
+ [2 2]]
+
+ X * Y =
+ [[ 4  8]
+ [12 16]]
+
+ X / Y =
+ [[1. 2.]
+ [3. 4.]]
+\end{verbatim}
+
+A \textbf{multiplicação} de matriz com matriz, do jeito que a gente
+conhece do Ensino Médio é feita usando o símbolo \texttt{@} (ou através
+da função \texttt{np.dot()}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X}\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{], [}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{]], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+\NormalTok{Y}\OperatorTok{=}\NormalTok{ np.array([[}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{], [}\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{]], dtype}\OperatorTok{=}\BuiltInTok{int}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}X =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,X)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Y =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{X * Y =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{, X }\OperatorTok{@}\NormalTok{ Y)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{X * Y =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{, np.dot(X,Y))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+X =
+ [[1 2]
+ [3 4]]
+Y =
+ [[10 20]
+ [30 40]]
+
+X * Y =
+ [[ 70 100]
+ [150 220]]
+
+X * Y =
+ [[ 70 100]
+ [150 220]]
+\end{verbatim}
+
+Para calcular a inversa de uma matriz utilizando o NumPy é preciso um
+pouco mais de estrutura e de conhecimento acerca do subpacote
+\texttt{linalg} que nos traz funções para realizar operações de álgebra
+linear. Falaremos disso já já!
+
+\subsection{Funções universais}\label{funuxe7uxf5es-universais}
+
+As funções universais no Numpy são funções matemáticas simples. É apenas
+um termo que demos às funções matemáticas na biblioteca Numpy, que
+cobrem uma ampla variedade de operações. Essas funções incluem funções
+trigonométricas padrão, funções para operações aritméticas, manipulação
+de números complexos, funções estatísticas, etc. Essas funções possuem
+como características principais:
+
+\begin{itemize}
+\tightlist
+\item
+  Elas executam operações de array elemento por elemento.
+\item
+  Elas suportam vários recursos, como conversão de tipos.
+\item
+  As funções universais são objetos que pertencem à classe
+  \texttt{numpy.ufunc}.
+\item
+  As funções do Python também podem ser criadas como uma função
+  universal usando a função da biblioteca \texttt{frompyfunc}.
+\item
+  Algumas funções universais são chamadas automaticamente quando o
+  operador aritmético correspondente é usado em arrays. Por exemplo,
+  quando a adição de dois arrays é executada em elementos usando o
+  operador `+', então \texttt{np.add()} é chamado internamente.
+\end{itemize}
+
+Dentre as principais funções universais matemáticas estão:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{sin}, \texttt{cos}, \texttt{tan}: calcular seno, cosseno e
+  tangente de ângulos.
+\item
+  \texttt{hypot}: calcule a hipotenusa do triângulo retângulo dado.
+\item
+  \texttt{arcsinh}, \texttt{arcosh}, \texttt{arctanh}: calcular seno
+  hiperbólico inverso, cosseno e tangente.
+\item
+  \texttt{deg2rad}: converter grau em radianos.
+\item
+  \texttt{rad2deg}: converter radianos em graus.
+\end{itemize}
+
+Dentre as principais funções universais estatísticas estão:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{amin}, \texttt{amax}: retorna o mínimo ou máximo de um array
+  ou ao longo de um eixo.
+\item
+  \texttt{ptp}: retorna o intervalo de valores (máximo-mínimo) de um
+  array ou ao longo de um eixo.
+\item
+  \texttt{sum}: retorna a soma de valores de um array ao longo de um
+  eixo.
+\item
+  \texttt{percentile(a,\ p,\ eixo)}: calcular o p-ésimo percentil da
+  matriz ou ao longo do eixo especificado.
+\item
+  \texttt{median}: calcular a mediana dos dados ao longo do eixo
+  especificado.
+\item
+  \texttt{mean}: calcular a média dos dados ao longo do eixo
+  especificado.
+\item
+  \texttt{var}: calcular a variância de dados ao longo do eixo
+  especificado.
+\item
+  \texttt{log}: calcular o log dos dados ao longo do eixo especificado.
+\end{itemize}
+
+Alguns exemplos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{angulos\_notaveis\_deg }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{30}\NormalTok{,}\DecValTok{45}\NormalTok{,}\DecValTok{60}\NormalTok{])}
+\NormalTok{angulos\_notaveis\_rad }\OperatorTok{=}\NormalTok{ np.deg2rad(angulos\_notaveis\_deg)}
+
+\NormalTok{seno\_notaveis }\OperatorTok{=}\NormalTok{ [np.}\BuiltInTok{round}\NormalTok{(elem,}\DecValTok{2}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ elem }\KeywordTok{in}\NormalTok{ np.sin(angulos\_notaveis\_rad)]}
+\NormalTok{cosseno\_notaveis }\OperatorTok{=}\NormalTok{ [np.}\BuiltInTok{round}\NormalTok{(elem,}\DecValTok{2}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ elem }\KeywordTok{in}\NormalTok{ np.cos(angulos\_notaveis\_rad)]}
+\NormalTok{tangente\_notaveis }\OperatorTok{=}\NormalTok{ [np.}\BuiltInTok{round}\NormalTok{(elem,}\DecValTok{2}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ elem }\KeywordTok{in}\NormalTok{ np.tan(angulos\_notaveis\_rad)]}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Seno, cosseno e tangente de 30 graus: \textquotesingle{}}\NormalTok{,seno\_notaveis[}\DecValTok{0}\NormalTok{],}\StringTok{\textquotesingle{}, \textquotesingle{}}\NormalTok{,cosseno\_notaveis[}\DecValTok{0}\NormalTok{],}\StringTok{\textquotesingle{} e \textquotesingle{}}\NormalTok{,tangente\_notaveis[}\DecValTok{0}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Seno, cosseno e tangente de 45 graus: \textquotesingle{}}\NormalTok{,seno\_notaveis[}\DecValTok{1}\NormalTok{],}\StringTok{\textquotesingle{}, \textquotesingle{}}\NormalTok{,cosseno\_notaveis[}\DecValTok{1}\NormalTok{],}\StringTok{\textquotesingle{} e \textquotesingle{}}\NormalTok{,tangente\_notaveis[}\DecValTok{1}\NormalTok{])}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Seno, cosseno e tangente de 60 graus: \textquotesingle{}}\NormalTok{,seno\_notaveis[}\DecValTok{2}\NormalTok{],}\StringTok{\textquotesingle{}, \textquotesingle{}}\NormalTok{,cosseno\_notaveis[}\DecValTok{2}\NormalTok{],}\StringTok{\textquotesingle{} e \textquotesingle{}}\NormalTok{,tangente\_notaveis[}\DecValTok{2}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Seno, cosseno e tangente de 30 graus:  0.5 ,  0.87  e  0.58
+Seno, cosseno e tangente de 45 graus:  0.71 ,  0.71  e  1.0
+Seno, cosseno e tangente de 60 graus:  0.87 ,  0.5  e  1.73
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{])}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Array x = \textquotesingle{}}\NormalTok{,x)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Mínimo de x = \textquotesingle{}}\NormalTok{,np.amin(x))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Máximo de x = \textquotesingle{}}\NormalTok{,np.amax(x))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Intervalo de x = \textquotesingle{}}\NormalTok{,np.ptp(x))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Soma de x = \textquotesingle{}}\NormalTok{,np.}\BuiltInTok{sum}\NormalTok{(x))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Média de x = \textquotesingle{}}\NormalTok{,np.mean(x))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Log de x = \textquotesingle{}}\NormalTok{,[np.}\BuiltInTok{round}\NormalTok{(elem,}\DecValTok{2}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ elem }\KeywordTok{in}\NormalTok{ np.log(x)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Array x =  [1 2 3 4 5]
+
+Mínimo de x =  1
+Máximo de x =  5
+Intervalo de x =  4
+Soma de x =  15
+Média de x =  3.0
+Log de x =  [np.float64(0.0), np.float64(0.69), np.float64(1.1), np.float64(1.39), np.float64(1.61)]
+\end{verbatim}
+
+\subsection{Arrays e listas}\label{arrays-e-listas}
+
+Agora que já vimos um pouco de operações básicas, podemos entender um
+pouco melhor a diferença de desempenho entre arrays e listas. Considere
+um array de dez milhões de números inteiros e uma lista equivalente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_array }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{10000000}\NormalTok{)}
+\NormalTok{my\_list }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{10000000}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Agora vamos multiplicar, elemento a elemento, todos os números por 2 e
+salvar o resultado correspondente. Utilizaremos a função \texttt{time}
+do pacote \texttt{time}para fazer a medição do tempo utilizado pelos
+dois métodos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# arrays}
+\NormalTok{start\_array }\OperatorTok{=}\NormalTok{ time.time()}
+\NormalTok{my\_array2 }\OperatorTok{=}\NormalTok{ my\_array }\OperatorTok{*} \DecValTok{2}
+\NormalTok{end\_array   }\OperatorTok{=}\NormalTok{ time.time()}
+
+
+\CommentTok{\# listas}
+\NormalTok{start\_lista }\OperatorTok{=}\NormalTok{ time.time()}
+\NormalTok{my\_list2 }\OperatorTok{=}\NormalTok{ [x }\OperatorTok{*} \DecValTok{2} \ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in}\NormalTok{ my\_list] }
+\NormalTok{end\_lista   }\OperatorTok{=}\NormalTok{ time.time()}
+
+\NormalTok{ratio }\OperatorTok{=}\NormalTok{ (end\_lista }\OperatorTok{{-}}\NormalTok{ start\_lista) }\OperatorTok{/}\NormalTok{ (end\_array }\OperatorTok{{-}}\NormalTok{ start\_array)}
+\end{Highlighting}
+\end{Shaded}
+
+Qual abordagem será que levou menos tempo?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Tempo necessário para a realização dos cálculos utilizando arrays: }\SpecialCharTok{\{:.4f\}}\StringTok{ segundos\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(end\_array }\OperatorTok{{-}}\NormalTok{ start\_array))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Tempo necessário para a realização dos cálculos utilizando listas: }\SpecialCharTok{\{:.4f\}}\StringTok{ segundos\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(end\_lista }\OperatorTok{{-}}\NormalTok{ start\_lista))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{A abordagem de listas demorou }\SpecialCharTok{\{:.0f\}}\StringTok{x mais tempo! Esqueça listas e use arrays ;)\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(ratio }\OperatorTok{{-}} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Tempo necessário para a realização dos cálculos utilizando arrays: 0.0123 segundos
+Tempo necessário para a realização dos cálculos utilizando listas: 0.2862 segundos
+
+A abordagem de listas demorou 22x mais tempo! Esqueça listas e use arrays ;)
+\end{verbatim}
+
+\section{Aplicação: solução de sistema de equações
+lineares}\label{aplicauxe7uxe3o-soluuxe7uxe3o-de-sistema-de-equauxe7uxf5es-lineares}
+
+Chega de exemplos vazios, vamos usar o NumPy para resolver um problema
+concreto e que nos é muito familiar: a solução de sistemas de equações
+lineares. Considere o sistema linear de equações dado por
+
+\[ A\cdot \vec{x} = \vec{b} \]
+
+tal que \(A\) é a matriz de coeficientes, \(\vec{x}\) é o vetor de
+incógnitas e \(\vec{b}\) o vetor de constantes.
+
+\subsection{Algoritmo de eliminação de
+Gauss-Jordan}\label{algoritmo-de-eliminauxe7uxe3o-de-gauss-jordan}
+
+Segundo
+\href{https://matrixeditions.com/5thUnifiedApproach.html}{Hubbard e
+Hubbard (2015)}, uma matriz de coeficientes \(A\) é representada em sua
+forma escalonada reduzida por linhas (\emph{reduced row echelon form},
+em inglês) se
+
+\begin{itemize}
+\tightlist
+\item
+  Em toda e qualquer linha, a primeira entrada diferente de zero é igual
+  a 1 (1 \emph{pivotal}).
+\item
+  O 1 \emph{pivotal} de uma linha mais abaixo está sempre à direita de
+  um outro 1 \emph{pivotal} de alguma linha acima.
+\item
+  Em toda e qualquer coluna que contém um 1 \emph{pivotal}, todas as
+  outras entradas são iguais a zero.
+\item
+  Toda linha contendo apenas zeros está no fim da matriz.
+\end{itemize}
+
+À partir dessa definição, é possível mostrar que para qualquer matriz
+\(A\), existe uma matriz \(\tilde{A}\) na forma escalonada reduzida por
+linhas que pode ser obtida à partir de operações elementares nas linhas
+de A. Além disso, é possível mostrar também que \(\tilde{A}\) é única.
+Ao algoritmo utilizado para encontrar \(\tilde{A}\) é dado o nome de
+\textbf{Algoritmo de Eliminação de Gauss-Jordan}.
+
+ALGORITMO DE ELIMINAÇÃO DE GAUSS-JORDAN
+
+Para levar uma matriz \(A\) a sua forma escalonada reduzida por linhas
+\(\tilde{A}\) devemos seguir os seguintes passos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Encontre a primeira coluna que não é composta apenas de zeros, chame
+  isso de primeira coluna pivotal e chame sua primeira entrada diferente
+  de zero de pivô. Se o pivô não for na primeira linha, mova a linha que
+  a contém para o topo da matriz.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Divida a primeira linha inteira pelo pivô, de modo que a primeira
+  entrada da primeira coluna pivotal seja igual a 1.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Adicione múltiplos apropriados da primeira linha às outras linhas para
+  garantir que todas as outras entradas da primeira coluna pivotal sejam
+  iguais a 0. O 1 na primeira coluna é agora um pivô 1.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Escolha a próxima coluna que contém pelo menos uma entrada diferente
+  de zero abaixo da primeira linha e coloque a linha que contém o novo
+  pivô na posição da segunda linha. Faça do pivô um pivô 1: divida a
+  linha inteira pelo pivô e adicione múltiplos apropriados desta linha
+  às outras linhas abaixo, para tornar todas as outras entradas desta
+  coluna iguais a 0.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Repita o processo até que a matriz esteja em sua forma escalonada
+  reduzida por linhas.
+\end{enumerate}
+
+Assuma o caso em que a matriz de coeficiente \(A\) e o vetor de
+constantes \(b\) são tais que a matriz ampliada é dada por:
+
+\[\left[\begin{array}{ccc|c} 2 & 2 & 1 & 1 \\ 1 & 3 & 1 & 2 \\ 1 & 2 & 2 & -1 \end{array}\right] \]
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 1: Defina a matriz M
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M }\OperatorTok{=}\NormalTok{ np.array([(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+\NormalTok{              (}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{),}
+\NormalTok{              (}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\OperatorTok{{-}}\DecValTok{1}\NormalTok{)],dtype}\OperatorTok{=}\BuiltInTok{float}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Matriz ampliada =}\CharTok{\textbackslash{}n}\StringTok{\textquotesingle{}}\NormalTok{,M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Matriz ampliada =
+ [[ 2.  2.  1.  1.]
+ [ 1.  3.  1.  2.]
+ [ 1.  2.  2. -1.]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 2: Divida a linha 1 pelo primeiro elemento da primeira linha
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{/}\NormalTok{ M[}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.   1.   0.5  0.5]
+ [ 1.   3.   1.   2. ]
+ [ 1.   2.   2.  -1. ]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 3: Subtraia a linha 1 da linha 2 e da linha 3
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{0}\NormalTok{,:]}
+\NormalTok{M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{0}\NormalTok{,:]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.   1.   0.5  0.5]
+ [ 0.   2.   0.5  1.5]
+ [ 0.   1.   1.5 -1.5]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 4: Divida a linha 2 pelo segundo elemento da segunda linha
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{/}\NormalTok{ M[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.    1.    0.5   0.5 ]
+ [ 0.    1.    0.25  0.75]
+ [ 0.    1.    1.5  -1.5 ]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 5: Subtraia a linha 2 da linha 3
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{1}\NormalTok{,:]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.    1.    0.5   0.5 ]
+ [ 0.    1.    0.25  0.75]
+ [ 0.    0.    1.25 -2.25]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 6: Divida a linha 3 pelo terceiro elemento da terceira linha
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{2}\NormalTok{,:] }\OperatorTok{/}\NormalTok{ M[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.    1.    0.5   0.5 ]
+ [ 0.    1.    0.25  0.75]
+ [ 0.    0.    1.   -1.8 ]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 7: Multiplique a linha 3 pelo terceiro elemento da segunda linha
+  e subtraia da linha 2
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{1}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\NormalTok{ M[}\DecValTok{2}\NormalTok{,:]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.   1.   0.5  0.5]
+ [ 0.   1.   0.   1.2]
+ [ 0.   0.   1.  -1.8]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 8: Multiplique a linha 3 pelo terceiro elemento da primeira
+  linha e subtraia da linha 1
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{] }\OperatorTok{*}\NormalTok{ M[}\DecValTok{2}\NormalTok{,:]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.   1.   0.   1.4]
+ [ 0.   1.   0.   1.2]
+ [ 0.   0.   1.  -1.8]]
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Passo 9: Subtraia a linha 2 da linha 1
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{=}\NormalTok{ M[}\DecValTok{0}\NormalTok{,:] }\OperatorTok{{-}}\NormalTok{ M[}\DecValTok{1}\NormalTok{,:]}
+
+\BuiltInTok{print}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[[ 1.   0.   0.   0.2]
+ [ 0.   1.   0.   1.2]
+ [ 0.   0.   1.  -1.8]]
+\end{verbatim}
+
+Temos a nossa matriz em sua forma escalonada reduzida por linhas! A
+solução do sistema é tal que:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x1 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(M[}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{]))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x2 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(M[}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{]))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x3 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(M[}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+A solução de x1 é: 0.20
+A solução de x2 é: 1.20
+A solução de x3 é: -1.80
+\end{verbatim}
+
+Uma forma mais simples de chegar na forma escalonada reduzida por linhas
+é através do pacote \texttt{SymPy} e das funções \texttt{Matrix} e
+\texttt{rref}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M\_sympy }\OperatorTok{=}\NormalTok{ sympy.Matrix([(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+\NormalTok{                        (}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{),}
+\NormalTok{                        (}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\OperatorTok{{-}}\DecValTok{1}\NormalTok{)])}
+
+\NormalTok{M\_sympy.rref()[}\DecValTok{0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+$\displaystyle \left[\begin{matrix}1 & 0 & 0 & \frac{1}{5}\\0 & 1 & 0 & \frac{6}{5}\\0 & 0 & 1 & - \frac{9}{5}\end{matrix}\right]$
+
+\subsection{Solução de sistemas exatamente
+identificados}\label{soluuxe7uxe3o-de-sistemas-exatamente-identificados}
+
+Uma outra forma de resolver sistemas de equações exatamente
+identificados, quando o número de incógnitas é igual ao número de
+equações (i.e., matriz \(A\) é quadrada) é através da matriz inversa de
+\(A\). Para o caso em que \(A^{-1}\) existe, o sistema é tal que
+
+\[ \vec{x} = A^{-1} \cdot \vec{b} \]
+
+Para que seja possível fazer dessa forma, \(A\) deve ser uma matriz
+quadrada e seu determinante ser diferente de \(0\). Mais uma vez assuma
+o caso em que \(A\) e \(\vec{b}\) são dados por:
+
+\[A = \begin{bmatrix} 2 & 2 & 1 \\ 1 & 3 & 1 \\ 1 & 2 & 2 \end{bmatrix} \quad \quad \vec{b} = \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \]
+
+O primeiro passo é conferir se a matrix \(A\) é quadrada. Podemos fazer
+isso usando a função \texttt{numpy.shape()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\OperatorTok{=}\NormalTok{ np.array([}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\OperatorTok{{-}}\DecValTok{1}\NormalTok{])}
+\NormalTok{A }\OperatorTok{=}\NormalTok{ np.array([(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{), (}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{), (}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)])}
+
+\NormalTok{np.shape(A)[}\DecValTok{0}\NormalTok{] }\OperatorTok{==}\NormalTok{ np.shape(A)[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+True
+\end{verbatim}
+
+O próximo passo é ver se o determinante da matriz é igual a 0 e para
+isso usamos um função do subpacote de álgebra linera do numpy,
+\texttt{numpy.linalg.det()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A =\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(A)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Determinante = \textquotesingle{}}\NormalTok{,np.}\BuiltInTok{round}\NormalTok{(np.linalg.det(A)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+A =
+[[2 2 1]
+ [1 3 1]
+ [1 2 2]]
+
+Determinante =  5.0
+\end{verbatim}
+
+Como ambas as condições são satisfeitas, por fim basta calcular a
+inversa da matriz \(A\) com \texttt{numpy.linalg.inv()} e multiplicar
+por \(\vec{b}\) para chegar nos valores de \texttt{x}, \texttt{y} e
+\texttt{z} que solucionam o sistema de equações.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A =\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(A)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Inversa de A = "}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(np.linalg.inv(A))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+A =
+[[2 2 1]
+ [1 3 1]
+ [1 2 2]]
+
+Inversa de A = 
+[[ 0.8 -0.4 -0.2]
+ [-0.2  0.6 -0.2]
+ [-0.2 -0.4  0.8]]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{solution }\OperatorTok{=}\NormalTok{ np.linalg.inv(A) }\OperatorTok{@}\NormalTok{ b}
+\NormalTok{solution}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+array([ 0.2,  1.2, -1.8])
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x1 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(solution[}\DecValTok{0}\NormalTok{]))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x2 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(solution[}\DecValTok{1}\NormalTok{]))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A solução de x3 é: }\SpecialCharTok{\{:.2f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(solution[}\DecValTok{2}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+A solução de x1 é: 0.20
+A solução de x2 é: 1.20
+A solução de x3 é: -1.80
+\end{verbatim}
+
+Uma última alternativa para resolver o sistema
+\(A\cdot \vec{x} = \vec{b}\), é utilizar a função \texttt{solve} do
+subpacote de álgebra linear do \texttt{NumPy}. Essa função faz o
+processo de resolução do sistema de forma direta e nos cospe o vetor de
+resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.linalg.solve(A,b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+array([ 0.2,  1.2, -1.8])
+\end{verbatim}
+
+\section{Exercícios}\label{exercuxedcios-6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  X
+\item
+  X
+\end{enumerate}
 
 \part{Temas complementares}
 

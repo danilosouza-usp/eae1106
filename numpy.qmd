@@ -2,9 +2,18 @@
 
 ## Introdução
 
+té aqui, os programas escritos consistem em sequências de instruções, condicionais e laços que manipulam objetos como números, listas e dicionários. Essa forma é suficiente para resolver problemas simples, mas rapidamente se torna difícil de manter quando o código cresce ou quando a mesma lógica precisa ser reutilizada várias vezes.
+
+Funções são o principal mecanismo de abstração em programação. Elas permitem encapsular um conjunto de instruções sob um nome, definir claramente quais informações entram e quais resultados saem, e separar a lógica interna da interface externa. Em termos computacionais, funções organizam o fluxo de execução, delimitam escopos de variáveis e tornam explícita a transformação entre _inputs_ e _outputs_ -- conceito central também em Economia, onde frequentemente modelamos relações funcionais entre variáveis.
+
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+
+Neste capítulo, o objetivo é compreender o papel das funções como ferramenta de organização, reutilização e clareza lógica. Ao final, o aluno deverá ser capaz de estruturar programas de forma modular e compreender como funções são usadas extensivamente nas bibliotecas científicas que serão estudadas nas próximas aulas.
+
+
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+O foco deste capítulo será o pacote _NumPy_, que, apesar de já vir instalado com o Anaconda, não é nativo do Python e, portanto, é preciso carregá-lo. Além disso, em alguma aplicações utilizaremos o pacote _time_ para contagem de tempo de máquina e o pacote _SymPy_ para solução analítica de problemas.
 
 - `numpy`
 - `time`
@@ -327,8 +336,6 @@ Agora vamos multiplicar, elemento a elemento, todos os números por 2 e salvar o
 
 
 ```{python}
-import time 
-
 # arrays
 start_array = time.time()
 my_array2 = my_array * 2
@@ -490,8 +497,6 @@ print('A solução de x3 é: {:.2f}'.format(M[2,3]))
 Uma forma mais simples de chegar na forma escalonada reduzida por linhas é através do pacote `SymPy` e das funções `Matrix` e `rref`:
 
 ```{python}
-import sympy
-
 M_sympy = sympy.Matrix([(2, 2, 1, 1),
                         (1, 3, 1, 2),
                         (1, 2, 2, -1)])

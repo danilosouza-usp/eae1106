@@ -627,7 +627,7 @@ Neste capítulo, introduzimos os tipos primitivos do Python -- `int`, `float`, `
    values = [10, 20, 30]
    ```
 
-2. Considere as atribuições abaixo. Sem executar o código, indique o tipo de cada variável. Explique por que a expressão `a + d` gera um erro. Reescreva-a de forma que a soma aritmética seja realizada corretamente e retorne o valor desejado $20$.
+2. Considere as atribuições abaixo. Sem executar o código, indique o tipo de cada variável. Explique por que a expressão `a + e` gera um erro. Reescreva-a de forma que a soma aritmética seja realizada corretamente e retorne o valor desejado $20$.
 
     ```python
     a=10
@@ -640,3 +640,5 @@ Neste capítulo, introduzimos os tipos primitivos do Python -- `int`, `float`, `
 3. Considere o string `Universidade de São Paulo`. Escreva um código que acesse (i) o primeiro caractere; (ii) o último caractere (sem contar manualmente o tamanho do string); (iii) o nome da cidade utilizando fatiamento.
 
 4. Discorra sobre as principais diferenças entre listas e tuplas. A partir da sua resposta, discuta sobre qual das estruturas é mais indicada para armazenar (i) as notas obtidas por um aluno em determinadas disciplinas e (ii) as coordenadas geográficas de uma cidade (latitude e longitude).
+
+5. Por quê tuplas podem ser chaves de dicionário e listas não?

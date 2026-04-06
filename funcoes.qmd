@@ -425,7 +425,23 @@ Nos próximos capítulos, ao utilizar bibliotecas como `NumPy` e `Pandas`, verem
 
 ## Exercícios
 
-1. X
+1. Escreva uma função chamada triângulo que recebe uma string como argumento e retorna como output um triângulo retângulo de determinada altura, usando cópias da string, como no exemplo:
 
-2. X
+```python
+triangle('L', 5)
+```
+    L\
+    LL\
+    LLL\
+    LLLL\
+    LLLLL\
+
+2. Defina uma função que retorne a quantidade de dinheiro em uma conta corrente após uma transação. Os dois parâmetros para essa função são saldo e transação. Ambos serão argumentos inteiros. O saldo é quanto dinheiro existe atualmente na conta, e a transação quanto adicionar ou subtrair da conta corrente (baseado se é um inteiro positivo ou negativo). Note que essa operação é mais complicada que apenas `saldo + transacao`. Isso porque se a transação for negativa (saída de dinheiro da conta) e em valor absoluto maior do que o saldo existente, a transação deve ser ignorada e o valor original de saldo retornado pela função.
+
+3. Escreva uma função chamada `sum_list` que recebe uma lista de números e retorna um dicionário com duas chaves e dois valores. 
+
+    - O primeiro par chave-valor deve associar à chave `soma` o valor numérico da soma de todos os elementos. 
+    - O segundo par chave-valor deve associar à chave `elementos` o número de elementos somados.
+
+4. Defina uma função que recebe uma temperatura em Celsius e retorna o valor convertido para Fahrenheit com duas casas decimais. Agora crie uma segunda função, mais genérica, que receba como primeiro argumento `CtoF` ou `FtoC` e como segundo argumento a temperatura. Essa segunda função deve ser capaz de converter as escalas de temperatura em ambas as direções. Por padrão, o primeiro argumento deve ser definido como `CtoF`.
 

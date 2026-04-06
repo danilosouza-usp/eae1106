@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2026.2.8)  24 FEB 2026 09:15
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10) (preloaded format=xelatex 2026.2.8)  6 APR 2026 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1438,7 +1438,7 @@ No file index.toc.
 part I.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 471.
+(scrkbase)              on input line 475.
 [8
 
 ] [9] [10]
@@ -1461,7 +1461,7 @@ Class scrreprt Warning: \float@addtolists detected!
 File: images/old_desktop.jpg Graphic file (type bmp)
 <images/old_desktop.jpg>
 
-Overfull \hbox (155.52524pt too wide) in paragraph at lines 566--567
+Overfull \hbox (155.52524pt too wide) in paragraph at lines 570--571
  [][] 
  []
 
@@ -1471,7 +1471,7 @@ Overfull \hbox (155.52524pt too wide) in paragraph at lines 566--567
 File: images/arquitetura_VonNeumann.jpg Graphic file (type bmp)
 <images/arquitetura_VonNeumann.jpg>
 
-Overfull \hbox (80.22197pt too wide) in paragraph at lines 686--687
+Overfull \hbox (80.22197pt too wide) in paragraph at lines 690--691
  [][] 
  []
 
@@ -1482,41 +1482,41 @@ File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonsta
 ndard glyph set (RS)
 ) [14]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 751.
+(Font)              scaled to size 7.665pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 751.
+(Font)              scaled to size 5.475pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 751.
+(Font)              scaled to size 10.95099pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 751.
+(Font)              scaled to size 7.66568pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 751.
+(Font)              scaled to size 5.4755pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 751.
+(Font)              scaled to size 10.94882pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 751.
+(Font)              scaled to size 7.66417pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 751.
+(Font)              scaled to size 5.47441pt on input line 755.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 753.
+(Font)              scaled to size 9.0pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 753.
+(Font)              scaled to size 6.0pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 753.
+(Font)              scaled to size 5.0pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 753.
+(Font)              scaled to size 9.00082pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 753.
+(Font)              scaled to size 6.00055pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 753.
+(Font)              scaled to size 5.00046pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 753.
+(Font)              scaled to size 8.99904pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 753.
+(Font)              scaled to size 5.99936pt on input line 757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 753.
+(Font)              scaled to size 4.99947pt on input line 757.
 
-LaTeX Warning: Reference `tbl-binario' on page 15 undefined on input line 774.
+LaTeX Warning: Reference `tbl-binario' on page 15 undefined on input line 778.
 
 [15] [16] [17]
 Missing character: There is no └ in font [lmmono10-regular]:!
@@ -1545,11 +1545,11 @@ Missing character: There is no ─ in font [lmmono10-regular]:!
 [18] [19]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 1.2 on input line 1060.
+(longtable)                in table 1.2 on input line 1064.
 
 [20]
 
-LaTeX Warning: Reference `fig-terminal' on page 21 undefined on input line 1137
+LaTeX Warning: Reference `fig-terminal' on page 21 undefined on input line 1141
 .
 
 File: images/terminal_windows.jpg Graphic file (type bmp)
@@ -1557,11 +1557,11 @@ File: images/terminal_windows.jpg Graphic file (type bmp)
 File: images/terminal_macos.jpeg Graphic file (type bmp)
 <images/terminal_macos.jpeg>
 
-LaTeX Warning: Reference `fig-terminal' on page 21 undefined on input line 1172
+LaTeX Warning: Reference `fig-terminal' on page 21 undefined on input line 1176
 .
 
 
-LaTeX Warning: Reference `fig-cmd' on page 21 undefined on input line 1178.
+LaTeX Warning: Reference `fig-cmd' on page 21 undefined on input line 1182.
 
 File: images/cmd1.jpg Graphic file (type bmp)
 <images/cmd1.jpg>
@@ -1608,7 +1608,7 @@ chapter 2.
 File: images/clayton_coding.png Graphic file (type bmp)
 <images/clayton_coding.png>
 
-Overfull \hbox (155.48557pt too wide) in paragraph at lines 1526--1527
+Overfull \hbox (155.48557pt too wide) in paragraph at lines 1562--1563
  [][] 
  []
 
@@ -1618,7 +1618,7 @@ Overfull \hbox (155.48557pt too wide) in paragraph at lines 1526--1527
 File: images/pypl_index.jpg Graphic file (type bmp)
 <images/pypl_index.jpg>
 
-Overfull \hbox (80.20584pt too wide) in paragraph at lines 1590--1591
+Overfull \hbox (80.20584pt too wide) in paragraph at lines 1626--1627
  [][] 
  []
 
@@ -1626,7 +1626,7 @@ Overfull \hbox (80.20584pt too wide) in paragraph at lines 1590--1591
 File: images/anaconda_download.jpg Graphic file (type bmp)
 <images/anaconda_download.jpg>
 
-Overfull \hbox (155.51674pt too wide) in paragraph at lines 1635--1636
+Overfull \hbox (155.51674pt too wide) in paragraph at lines 1671--1672
  [][] 
  []
 
@@ -1636,23 +1636,23 @@ File: images/anaconda_install.jpg Graphic file (type bmp)
 File: images/anaconda_navigator.jpg Graphic file (type bmp)
 <images/anaconda_navigator.jpg>
 
-Overfull \hbox (155.51044pt too wide) in paragraph at lines 1699--1700
+Overfull \hbox (155.51044pt too wide) in paragraph at lines 1735--1736
  [][] 
  []
 
-[33] [34] [35] [36] [37]
-! Missing { inserted.
-<to be read again> 
-                   $
-l.1908 Em algumas outras linguagens, o \(^\)
-                                             é usado para a exponenciação, mas 
+[33] [34] [35] [36] [37] [38]
+! Undefined control sequence.
+<argument>      \textasciicaret 
+                                {}
+l.2026 ...oInternalColor2}{     \textasciicaret{}}
+                                                   
 Here is how much of TeX's memory you used:
- 40337 strings out of 410379
- 811611 string characters out of 5788255
+ 40339 strings out of 410379
+ 811631 string characters out of 5788255
  1935416 words of memory out of 5000000
- 61108 multiletter control sequences out of 15000+600000
+ 61110 multiletter control sequences out of 15000+600000
  567453 words of font info for 111 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,9n,120p,10921b,1032s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (37 pages).
+Output written on index.pdf (38 pages).

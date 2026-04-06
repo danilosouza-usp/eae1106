@@ -320,7 +320,15 @@ A partir daqui, o curso passa a utilizar Python como linguagem de trabalho. Pyth
    b. Converta o número binário 101101 para decimal.
    c. Argumente, em poucas linhas, sobre a vantagem de computadores utilizarem o sistema binário em vez do sistema decimal.
 
-3. Considere a seguinte estrutura de diretórios:
+3. Para que computadores possam armazenar e manipular textos, é necessário representar caracteres (letras, números, símbolos) por meio de números. O ASCII (_American Standard Code for Information Interchange_) é um dos primeiros e mais importantes padrões de codificação de caracteres. Nesse padrão, cada caractere é representado por um número inteiro entre 0 e 127. Esse número é armazenado usando 7 bits (embora, na prática, seja guardado em 1 byte = 8 bits). Por exemplo, a letra "A" corresponde ao número 65. A letra "a" corresponde ao número 97. O número "0" corresponde ao código 48. Com base nessa ideia de representação digital da informação, responda à questão abaixo.
+
+Um arquivo de texto possui 1 milhão de caracteres ASCII.
+
+   a. Quantos bytes ele ocupa? Quantos bits?
+   b. Se comprimido para 40% do tamanho original, qual será o novo tamanho?
+   c. Explique por que arquivos de texto costumam ocupar um pequena fração do seu tamanho original quando comprimidos.
+
+4. Considere a seguinte estrutura de diretórios:
 
    ```text
    D:/home/usuario/projeto/
@@ -339,7 +347,7 @@ A partir daqui, o curso passa a utilizar Python como linguagem de trabalho. Pyth
    a. Escreva o caminho absoluto para o acessar o arquivo `materias.csv`.
    a. Suponha que você esteja no diretório scripts. Escreva o caminho relativo para acessar `materias.csv`. Dica: a pasta dados e scripts estão no mesmo nível hierárquico.
 
-4. Considere a matemática como uma linguagem formal, com regras bem definidas de escrita (sintaxe) e de significado (semântica). Suponha que o objetivo seja calcular as raízes de uma equação do segundo grau da forma $ax^2 + bx + c = 0$. Para tal você utilizará a fórmula de Bháskara.
+5. Considere a matemática como uma linguagem formal, com regras bem definidas de escrita (sintaxe) e de significado (semântica). Suponha que o objetivo seja calcular as raízes de uma equação do segundo grau da forma $ax^2 + bx + c = 0$. Para tal você utilizará a fórmula de Bháskara.
 
    a. Suponha que você opte por programar essa fórmula tal qual apresentada abaixo em uma determinada linguagem de programação. Qual seria a saída esperada? Discuta o resultado.
 

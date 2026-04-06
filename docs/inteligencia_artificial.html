@@ -206,8 +206,21 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Computação numérica, análise de dados e visualização</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./pacotes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computação numérica, análise de dados e visualização</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arrays, matrizes e álgebra linear</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -367,9 +380,9 @@ Figura&nbsp;3.3: Planos e valores do ChatGPT. Fevereiro de 2026.
 </div>
 <p>No entanto, nem sempre as ferramentas de inteligência artificial são indicadas. Existem limitações importantes que, se não compreendidas, podem gerar respostas pouco eficazes, incorretas e até mesmo implicar problemas legais. Diante dessas limitações, o uso da ferramenta em qualquer aplicação deve ser precedido por três perguntas básicas, listadas abaixo. Se qualquer uma dessas condições não for satisfeita, o uso da ferramenta deve ser reavaliado ou evitado.</p>
 <ol type="1">
-<li><p><strong>A acurácia é um requisito central da sua aplicação?</strong> Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas <span class="math inline">\(100%\)</span> corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente.</p></li>
+<li><p><strong>A acurácia é um requisito central da sua aplicação?</strong> Embora o modelo tenha sido treinado com bilhões de textos e conjuntos de dados, não há garantia de respostas <span class="math inline">\(100\%\)</span> corretas. Além disso, há um grau inerente de imprevisibilidade: pequenas variações no prompt podem gerar respostas diferentes, e o próprio modelo é não determinístico. Isso significa que, mesmo com a mesma pergunta, resultados distintos podem surgir. Para aplicações que exigem precisão rigorosa e consistência absoluta, essa limitação deve ser considerada explicitamente.</p></li>
 <li><p><strong>Os resultados são verificáveis?</strong> Ferramentas como o ChatGPT não substituem conhecimento humano especializado. Por serem modelos, podem produzir respostas semanticamente plausíveis, mas incorretas ou desalinhadas do objetivo pretendido. A verificação exige domínio mínimo do tema tratado. Como regra prática: evite solicitar algo que você não tenha condições de conferir, validar ou testar posteriormente.</p></li>
-<li><p><strong>Dados da apicação são sensíveis ou protegidos?</strong> O compartilhamento de dados confidenciais com ferramentas de IAG pode implicar riscos jurídicos e, a depender da natureza da informação, pode inclusive configurar infração legal. Sempre avalie cuidadosamente se os dados utilizados estão protegidos por normas de sigilo, contratos ou legislação específica antes de inseri-los em qualquer sistema externo.</p></li>
+<li><p><strong>Dados da aplicação são sensíveis ou protegidos?</strong> O compartilhamento de dados confidenciais com ferramentas de IAG pode implicar riscos jurídicos e, a depender da natureza da informação, pode inclusive configurar infração legal. Sempre avalie cuidadosamente se os dados utilizados estão protegidos por normas de sigilo, contratos ou legislação específica antes de inseri-los em qualquer sistema externo.</p></li>
 </ol>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -447,7 +460,7 @@ flowchart TB
 <p><em>Prompt Engineering</em> (ou engenharia de prompt) é o processo de estruturar uma prompt de forma a auxiliar a compreensão dos modelos de linguagem e ampliar a assertividade e eficiência das respostas. Apesar de ser uma área em expansão, que conta com várias estratégias para a construção de prompts altamente personalizados para cada aplicação, são duas as características essenciais que devem estar presentes em todo prompt: clareza e especificidade.</p>
 <ul>
 <li><p><strong>Clareza</strong>: para tornar o prompt claro aos olhos do modelo, é preciso fornecer elementos que objetivos que auxiliem o modelo a fornecer respostas mais direcionadas. Para isso, é importante (i) descrever o contexto relevante, (ii) adicionar detalhes específicos ao objeto e (iii) ser preciso nas instruções.</p></li>
-<li><p><strong>Especificidade</strong>: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite amiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.</p></li>
+<li><p><strong>Especificidade</strong>: para tornar o prompt menos genérico e melhor direcionar a resposta do modelo, é preciso que o foco seja apenas no que é mais relevante para o objetivo em questão. Prompts vagos e ambíguos promovem respostas menos acuradas e eficientes. Nesse caso, (i) seja descritivo, (ii) evite ambiguidades e informações desnecessárias, (iii) evite dizer ao modelo o que não fazer; o foco deve ser em instruções do que queremos que seja feito.</p></li>
 </ul>
 <p>No fim das contas, um bom prompt é aquele que oferece as instruções corretas ao modelo, que então devolve a resposta esperada. Alguns elementos ajudam nesse processo de construir um prompt mais claro e específico: instruções, contexto, exemplos e formato de saída (Figura <a href="#fig-prompt" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-prompt</span></a>). Lembre, o objetivo é ser claro e específico, orientando o modelo a responder aquilo que queremos que ele responda.</p>
 <div id="fig-prompt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
@@ -518,7 +531,16 @@ Figura&nbsp;3.7: Justificativa do ChatGPT para a resposta anterior
 <ol type="1">
 <li><p>Considere um conjunto de dados hipotético contendo informações pessoais (nomes, datas de nascimento, renda). Explique em quais etapas e como você usaria ferramentas de IA generativa para auxiliar na análise desses dados. Quais são os principais riscos legais e éticos envolvidos?</p></li>
 <li><p>Considere o código do exercício 4 do capítulo 3. Peça ao ChatGPT para explicar o(s) erro(s) contidos no script. Como você reescreveria o código, agora sem erros de sintaxe e/ou semântica?</p></li>
-<li><p>Discorra sobre porque a atividade de programação é uma aplicação na qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a produtividade.</p></li>
+<li><p>Você quer que um modelo do tipo LLM, tal qual o ChatGPT, escreva um trecho de código em Python que leia um arquivo CSV e calcule a média de uma coluna chamada “preco”, retornando uma mensagem formatada com duas casas decimais. Escreva um prompt claro e específico para solicitar isso a um modelo de linguagem, incluindo:</p></li>
+</ol>
+<ul>
+<li>a tarefa desejada;</li>
+<li>o nome do arquivo (por exemplo: dados.csv);</li>
+<li>a coluna a ser usada;</li>
+<li>um exemplo simples da saída esperada (por exemplo: “A média de preço é R$ 23.45”).</li>
+</ul>
+<ol start="3" type="1">
+<li>Discorra sobre porque a atividade de programação é uma aplicação na qual o uso do ChatGPT é indicado e pode aumentar consideravelmente a produtividade.</li>
 </ol>
 
 

@@ -137,7 +137,7 @@ Depois do _"Hello, World"_, o próximo passo natural é a aritmética. O Python 
 6 ** 2 + 6
 ```
 
-Em algumas outras linguagens, o $^$ é usado para a exponenciação, mas no Python é um operador _bitwise_, chamado XOR. Se não tiver familiaridade com operadores bitwise, o resultado o surpreenderá. Não abordaremos operadores bitwise neste curso, mas você pode ler sobre eles em http://wiki.python.org/moin/BitwiseOperators.
+Em algumas outras linguagens, o símbolo de acento circunflexo é usado para a exponenciação, mas no Python é um operador _bitwise_, chamado XOR. Se não tiver familiaridade com operadores bitwise, o resultado o surpreenderá. Não abordaremos operadores bitwise neste curso, mas você pode ler sobre eles em http://wiki.python.org/moin/BitwiseOperators.
 
 ```{python}
 6 ^ 2
@@ -263,20 +263,22 @@ Neste capítulo, você aprendeu a executar seus primeiros comandos em Python, a 
 
 ## Exercícios
 
-1. Utilize o Python para responder as seguintes perguntas:
+1. Discuta por que Python se tornou tão popular em ciência de dados e aprendizado de máquina, apesar de não ser a linguagem mais rápida em execução. Cite outros contextos em que Python pode não ser a linguagem mais adequada.
+
+2. Utilize o Python para responder as seguintes perguntas:
 
    a. Quantos segundos há em 42 minutos e 42 segundos?
    b. Quantas milhas há em 10 quilômetros? Dica: uma milha equivale a 1,61 quilômetro.
-   c. Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o _pace__ médio (tempo por quilômetro em minutos e segundos)?
+   c. Se você correr 10 quilômetros em 42 minutos e 42 segundos, qual é o _pace_ médio (tempo por quilômetro em minutos e segundos)?
 
-2. Crie uma variável chamada `salario_mensal` com valor igual a $3500$.
+3. Crie uma variável chamada `salario_mensal` com valor igual a $3500$.
 
    a. Crie uma variável chamada `rendimento_anual` que seja construída a partir de `salario_mensal` e considere o recebimento do 13º salário no mês de dezembro. Utilize uma instrução para exibir `rendimento_anual` na tela.
    b. Calcule e exiba na tela o valor do rendimento anual após o pagamento de impostos, considerando a incidência de uma alíquota média de $16.5\%$.
 
-3. Explique, com suas próprias palavras, a diferença entre escrever código em um editor de texto simples e escrever código em uma IDE ou ambiente interativo. Sua resposta deve mencionar pelo menos dois recursos que facilitam o aprendizado em IDEs.
+4. Explique, com suas próprias palavras, a diferença entre escrever código em um editor de texto simples e escrever código em uma IDE ou ambiente interativo. Sua resposta deve mencionar pelo menos dois recursos que facilitam o aprendizado em IDEs.
 
-4. Considere o código abaixo:
+5. Considere o código abaixo:
 
    ```python
    print("Resultado:"
@@ -286,6 +288,10 @@ Neste capítulo, você aprendeu a executar seus primeiros comandos em Python, a 
    a. Execute o código e identifique o tipo e posição do(s) erro(s) no código.
    b. Explique com suas palavras o que está de errado.
    c. Corrija o(s) erro(s) e execute novamente.
+
+6. Leia o [artigo](https://www.freecodecamp.org/news/programming-naming-conventions-explained/) que versa sobre convenções de nomes em programação. Qual é a importância de se ter um padrão de nomeação de variáveis (pense especialmente em ambientes de trabalho com diversos usuários manipulando as mesmas variáveis e o mesmo código), tanto na forma quanto no conteúdo das palavras?
+
+
 
 
 
