@@ -558,9 +558,15 @@ for i in range(len(sal)):
 plt.show()
 ```
 
-Formalmente, podemos escrever a equação que representa a relação linear entre duas variáveis para um determinado indivíduo $i$ como:
+Formalmente, podemos escrever a equação que representa a relação linear entre essas duas variáveis para um determinado indivíduo $i$ como:
 
 $ y_i = \beta_0 + \beta_1 x_i + \epsilon_i $
+
+em que, $y_i$ representa o salário e $x_i$ o nível de experiência. $\beta_0$ representa a constante da equação da reta e $\beta_1$ o coeficiente de inclinação. Como essa reta nunca será perfeita, $\epsilon_i$ representa o erro dessa aproximação, isto é, a barrinha vermelha individual. Assim, estimar a reta que melhor se aproxima da nuvem de pontos de $n$ indivíduos é o mesmo que resolver o problema de otimização abaixo escolhendo os coeficientes $\beta_0$ e $\beta_1$.
+
+$ \min_{\beta_0,\beta_1} \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2 $
+
+Os coeficientes que resolvem esse problema são também conhecidos como estimadores de **Mínimos Quadrados Ordinários** (em inglês, _Ordinary Least Squares_ ou OLS).
 
 
 
