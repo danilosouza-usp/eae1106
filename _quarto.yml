@@ -40,7 +40,7 @@ book:
     - part: pacotes.qmd
       chapters:
         - numpy.qmd
-        #- pandas.qmd
+        - pandas.qmd
         #- visualizacao.qmd
         #- projeto_empirico.qmd
         
