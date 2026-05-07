@@ -560,13 +560,68 @@ plt.show()
 
 Formalmente, podemos escrever a equação que representa a relação linear entre essas duas variáveis para um determinado indivíduo $i$ como:
 
-$ y_i = \beta_0 + \beta_1 x_i + \epsilon_i $
+$$ y_i = \beta_0 + \beta_1 x_i + \epsilon_i $$
 
 em que, $y_i$ representa o salário e $x_i$ o nível de experiência. $\beta_0$ representa a constante da equação da reta e $\beta_1$ o coeficiente de inclinação. Como essa reta nunca será perfeita, $\epsilon_i$ representa o erro dessa aproximação, isto é, a barrinha vermelha individual. Assim, estimar a reta que melhor se aproxima da nuvem de pontos de $n$ indivíduos é o mesmo que resolver o problema de otimização abaixo escolhendo os coeficientes $\beta_0$ e $\beta_1$.
 
-$ \min_{\beta_0,\beta_1} \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2 $
+$$ \min_{\beta_0,\beta_1} \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2 $$
 
 Os coeficientes que resolvem esse problema são também conhecidos como estimadores de **Mínimos Quadrados Ordinários** (em inglês, _Ordinary Least Squares_ ou OLS).
+
+Uma forma equivalente de representar esse problema é através da notação matricial. E ela que vamos utilizar agora. Note que as $n$ equações representando a relação dos dados dos $n$ indivíduos podem ser representadas como:
+
+$$
+\begin{aligned}
+y_1 = \beta_0 + \beta_1 x_1 + \epsilon_1 \\
+y_2 = \beta_0 + \beta_1 x_2 + \epsilon_2 \\
+&\vdots \\
+y_{n-1} = \beta_0 + \beta_1 x_{n-1} + \epsilon_{n-1}
+y_{n} = \beta_0 + \beta_1 x_{n} + \epsilon_{n}
+\end{aligned}
+$$
+
+Em termos matriciais:
+
+$$ y = X \beta + \epsilon $$
+
+em que as matrizes $X$ e o vetor de coeficientes $\beta$ são equivalentes a
+
+$$
+X = 
+\begin{bmatrix}
+  1 & x_1 \\
+  1 & x_2 \\
+  &\vdots \\
+  1 & x_{n-1} \\
+  1 & x_{n}
+\end{bmatrix}
+\quad e \quad
+\beta = 
+\begin{bmatrix}
+  \beta_0 \\
+  \beta_1
+\end{bmatrix}
+$$
+
+Deixarei a solução do problema de otimização em representação matricial para aula de econometria. Mas podem acreditar em mim que a solução para os coeficientes $\beta_0$ e $\beta_1$ é dada por
+
+$$ \beta = (X^{'}X)^{-1}X^{'}y $$
+
+No nosso caso de experiência e salários...
+
+```{python}
+Xlist = []
+for x in exp:
+    Xlist.append([1,x])
+
+X = np.array(Xlist)
+y = sal
+
+XXinv = np.linalg.inv(X.transpose() @ X)
+
+beta = XXinv @ X.transpose() @ y
+print(beta)
+```
 
 
 
