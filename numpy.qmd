@@ -575,7 +575,7 @@ $$
 y_1 = \beta_0 + \beta_1 x_1 + \epsilon_1 \\
 y_2 = \beta_0 + \beta_1 x_2 + \epsilon_2 \\
 &\vdots \\
-y_{n-1} = \beta_0 + \beta_1 x_{n-1} + \epsilon_{n-1}
+y_{n-1} = \beta_0 + \beta_1 x_{n-1} + \epsilon_{n-1} \\
 y_{n} = \beta_0 + \beta_1 x_{n} + \epsilon_{n}
 \end{aligned}
 $$
