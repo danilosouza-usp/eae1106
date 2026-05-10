@@ -2,6 +2,13 @@
 
 ## Introdução
 
+Até agora trabalhamos principalmente com objetos isolados: números, strings, listas e arrays. Em aplicações empíricas reais, porém, os dados normalmente aparecem organizados em tabelas, nas quais cada linha representa uma observação e cada coluna representa uma variável. O pacote `Pandas` foi criado justamente para facilitar a manipulação desse tipo de estrutura. Ele fornece ferramentas para importar, filtrar, transformar, combinar e resumir bases de dados de forma eficiente.
+
+Em economia aplicada, praticamente todo trabalho empírico utiliza operações desse tipo: selecionar municípios, combinar bases administrativas, calcular médias por grupo, tratar valores ausentes e reorganizar dados antes de estimar modelos econométricos.
+
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+
+
 ### Pré-requisitos
 
 Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
@@ -70,7 +77,7 @@ Agora basta definir o DataFrame usando como argumento esse dicionários `dados`.
 dados_emprego = pd.DataFrame(data=dados,index=anos)
 
 print(type(dados_emprego),'\n')
-dados_emprego
+dados_emprego.head()
 ```
 
 ## Importação de dados externos
@@ -82,8 +89,11 @@ A ideia daqui para frente é trabalhar com os dados da [Penn World Table version
 Mas antes de aprendermos como trabalhar com um dataframe e as funcionalidades que o Pandas nos traz precisamos ler o arquivo com os nossos dados. Comecemos pela função `os.chdir` do pacote `os` para mudar o diretório base do Python para o diretório no qual o nosso arquivo se encontra:
 
 ```{python}
-import os
+#| echo: false
+os.chdir('D:/Dropbox')
+```
 
+```{python}
 # Qual o diretório no qual o Python está trabalhando? A função getcwd() nos diz isso
 print('Diretório inicial: {}'.format(os.getcwd()))
 
@@ -171,14 +181,7 @@ São várias as formas, umas mais diretas e outras mais poderosas, de realizar e
 df_pwt[0:2]
 ```
 
-No entanto, para selecionar um intervalo específico de linhas e colunas, a lógica de indexação que utilizamos com arrays de duas dimensões no NumPy não se aplica. Para tal, precisamos de alguns métodos de DataFrames.
-
-```{python}
-#| error: true
-df_pwt[0:2,2]
-```
-
-Utilizando a função `.iloc` podemos selecionar linhas e colunas com os índices numéricos. E se quisermos, por exemplo, manter todas as linhas mas apenas as colunas `country`, `currency_unit`, `year`, `pop`, `emp` e `rgdpna`? Lembre-se que quando o Python lida com intervalos, na grande maioria das vezes a linguagem inclui o índice de início do intervalo mas exclui o índice final.
+No entanto, para selecionar um intervalo específico de linhas e colunas, a lógica de indexação que utilizamos com arrays de duas dimensões no NumPy não se aplica. Para tal, precisamos de alguns métodos de DataFrames. Utilizando a função `.iloc` podemos selecionar linhas e colunas com os índices numéricos. E se quisermos, por exemplo, manter todas as linhas mas apenas as colunas `country`, `currency_unit`, `year`, `pop`, `emp` e `rgdpna`? Lembre-se que quando o Python lida com intervalos, na grande maioria das vezes a linguagem inclui o índice de início do intervalo mas exclui o índice final.
 
 ```{python}
 df_pwt.iloc[:,1:7]
@@ -345,14 +348,14 @@ df_pwtbr[columns_to_show].head()
 Suponha que queiramos calcular médias por década do PIB per capita, da razao de participação no mercado de trabalho e salvar isso em um novo dataframe. Vamos fazer isso para os dados brasileiros e norte-americanos de forma separada. Primeiro passo então é criar esses dataframes por país.
 
 ```{python}
-df_pwt2['decada'] = df_pwt2['ano'].astype(str).str[-2:]
+df_pwt2['decada'] = np.trunc(df_pwt2['ano']/10) * 10
 df_pwt2['pibpc'] = df_pwt2['PIB real em valores de 2021 (milhoes US$)'] / df_pwt2['populacao (milhoes)']
 df_pwt2['r_emppop'] = df_pwt2['pessoas empregadas (milhoes)'] / df_pwt2['populacao (milhoes)']
 
 columns_to_keep = ['pais','decada','pibpc','r_emppop']
 
-df_pwtdbr = df_pwt2[df_pwt2['pais']=='Brazil'][columns_to_keep]
-df_pwtdus = df_pwt2[df_pwt2['pais']=='United States'][columns_to_keep]
+df_pwtdbr = df_pwt2.loc[df_pwt2['pais']=='Brazil', columns_to_keep]
+df_pwtdus = df_pwt2.loc[df_pwt2['pais']=='United States', columns_to_keep]
 
 df_pwtdbr.head(2)
 ```
@@ -368,6 +371,8 @@ df_pwtdbr.head(5)
 df_pwtdus = df_pwtdus.groupby(by=['pais','decada'], as_index=False).mean()
 df_pwtdus.head(5)
 ```
+
+Note que...
 
 ### Junção e mesclagem
 
@@ -386,7 +391,7 @@ df_pwt_concat
 
 Para compreender completamente o segundo caso, é preciso entender que existem formas diferentes de adicionar novas informações às entidades existentes. E a teoria dos conjuntos nos ajuda a entender melhor como isso funciona. Utilizando uma coluna (ou colunas) que identifiquem unicamente pelo menos uma das bases de dados (A ou B) é possível unir as informações de modo a compor um único dataframe. É preciso, porém, ter claro o objetivo da mesclagem. Assim será possível definir quais dos casos que mais se encaixa ao problema em questão. A Figura @fig-merge ilustra os diferentes casos.
 
-![Tipo de união entre duas bases de dados, A e B](images/merge.png){#fig-merge width=800px max-width=100% fig-align="center"}
+![Tipo de união entre duas bases de dados, A e B](images/merge.png){#fig-merge width=500px max-width=100% fig-align="center"}
 
 Agora sim podemos dar um passo adiante e utilizar a função `merge` para unir as bases do Brasil e EUA. Essa função une duas bases de acordo com algum identificador e com algum método de união. O identificador pode vir do índice do dataframe ou mesmo de alguma coluna específica.  No nosso caso utilizaremos a coluna de década como identificadora através do parâmetro `on`. Falta definir agora como a junção será feita ou como lidar com os casos em que um valor da coluna identificadora aparece apenas em uma das bases de dados. Como desejamos manter apenas as observações que estão presentes em ambos os dataframes, utilizamos o valor `inner` no parâmetro `how`.
 
@@ -457,6 +462,10 @@ No fim das contas, parte importante da estratégia de otimização na gestão de
 
 ## Polars: uma alternativa moderna
 
+
+## Conclusão
+
+Neste capítulo introduzimos o `Pandas`, principal ferramenta de manipulação de dados em Python. Com ela, passamos a trabalhar com bases tabulares semelhantes às utilizadas em aplicações empíricas reais. As operações estudadas, como filtragem, transformação, agrupamento e combinação de bases, formam o núcleo do processo de preparação de dados em projetos de pesquisa. Nos próximos tópicos, utilizaremos essas estruturas para construir visualizações e realizar análises estatísticas mais completas.
 
 ## Exercícios
 

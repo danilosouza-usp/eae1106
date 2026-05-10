@@ -2,14 +2,11 @@
 
 ## Introdução
 
-Nesta aula, falaremos do pacote NumPy, a principal ferramenta para computação numérica em Python. Até aqui, trabalhamos com tipos básicos e estruturas como listas e dicionários. Embora essas estruturas sejam importantes para lógica de programação e para compreender os elementos mais básicos da linguagem, elas não são adequadas para operações matemáticas em larga escala.
+Até aqui, utilizamos Python principalmente como linguagem de programação geral: armazenando valores, criando listas, utilizando loops e escrevendo funções. Entretanto, em Economia e ciência de dados, frequentemente trabalhamos com vetores de observações, matrizes de dados, sistemas de equações e operações matemáticas repetidas milhares de vezes. Embora listas permitam armazenar coleções de valores, elas não foram projetadas para computação numérica eficiente e em larga escala. O NumPy resolve esse problema ao introduzir os arrays, estruturas otimizadas para operações matemáticas e manipulação de grandes volumes de dados, tanto em termos de velocidade quanto de uso de memória.
 
-Em Economia, é comum trabalhar com vetores e matrizes: séries temporais, dados em painel, sistemas de equações e regressões. O NumPy fornece uma estrutura específica -- os arrays -- que permite realizar essas operações de forma eficiente, tanto em termos de velocidade quanto de uso de memória.
+Nesta aula veremos como arrays funcionam, por que eles são mais eficientes que listas e como esses conceitos aparecem em aplicações quantitativas reais. Ao final deste capítulo, o aluno deverá ser capaz de (i) compreender a diferença entre _arrays_ e _listas_, (ii) realizar operações matemática vetorizadas, como solução de sistemas de equação e regressão linear e (iii) compreender a importância dessas estruturas e ferramentas dentro do ambiente de problemas aplicados em Economia.
 
 ![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
-
-Ao final deste capítulo, o aluno deverá ser capaz de (i) compreender a diferença entre _arrays_ e _listas_, (ii) realizar operações matemática vetorizadas, como solução de sistemas de equação e (iii) compreender a importância dessas estruturas e ferramentas dentro do ambiente de problemas aplicados em Economia.
-
 
 ### Pré-requisitos
 
@@ -34,11 +31,11 @@ NumPy (**Num**erical **Py**thon) é o pacote fundamental para computação cient
 
 Mas o que é de fato um `ndarray`? É um objeto multidimensional que nos permite armazenar dados de forma sequencial e que podem ser acessados via indexação. Ué, mas isso é muito parecido com uma lista (ou um conjunto de listas). Qual a diferença então?
 
-* NumPy arrays têm um tamanho fixo na criação, ao contrário das listas, que podem crescer. Alterar o tamanho de um ndarray criará um novo array e excluirá o original.
+- NumPy arrays têm um tamanho fixo na criação, ao contrário das listas, que podem crescer. Alterar o tamanho de um ndarray criará um novo array e excluirá o original.
 
-* Todos os elementos em um array devem ser do mesmo tipo de dados, diferentemente de listas, que são objetos mais genéricos. Isso facilita a gestão de memória e torna operações com esse tipo de objeto ordens de magnitude mais rápidas do que se utilizássemos listas.
+- Todos os elementos em um array devem ser do mesmo tipo de dados, diferentemente de listas, que são objetos mais genéricos. Isso facilita a gestão de memória e torna operações com esse tipo de objeto ordens de magnitude mais rápidas do que se utilizássemos listas.
 
-* A maior velocidade e eficiência de armazenamento fazem do NumPy uma das bibliotecas mais utilizadas em aplicações matemáticas e científicas. Saber apenas as ferramentas nativas do Python, como listas, hoje já não é mais suficiente.
+- A maior velocidade e eficiência de armazenamento fazem do NumPy uma das bibliotecas mais utilizadas em aplicações matemáticas e científicas. Saber apenas as ferramentas nativas do Python, como listas, hoje já não é mais suficiente.
 
 São muitas as qualidades do `NumPy` que fazem dele a melhor escolha quanto o assunto é lidar com objetos sequenciais, multidimensionais, e com os quais queremos operar tal qual vetores e matrizes. Mas chega de lenga lenga, vamos ao trabalho!
 
@@ -302,7 +299,9 @@ print('Log de x = ',[np.round(elem,2) for elem in np.log(x)])
 
 ### Arrays e listas
 
-Agora que já vimos um pouco de operações básicas, podemos entender um pouco melhor a diferença de desempenho entre arrays e listas. Considere um array de dez milhões de números inteiros e uma lista equivalente:
+Agora que já vimos um pouco de operações básicas, podemos entender um pouco melhor a diferença de desempenho entre arrays e listas. Em listas, operações matemáticas precisam normalmente ser implementadas manualmente utilizando loops. Arrays permitem aplicar operações diretamente sobre todos os elementos de uma só vez. Isso torna o processo muito mais eficiente em termos computacionais.
+
+Para ver isso na prática, considere um array de dez milhões de números inteiros e uma lista equivalente:
 
 ```{python}
 my_array = np.arange(10000000)
@@ -520,6 +519,8 @@ np.linalg.solve(A,b)
 
 ## Aplicação: regressão linear simples
 
+### Intuição e enunciado do problema
+
 Uma das aplicações mais importantes de álgebra linear em Economia e ciência de dados é a regressão linear. O termo regressão remete a ideia de estabelecer uma relação entre variáveis a partir de uma sequência de pares ordenados. Já o termo linear remete à forma como se pretende estabelecer essa relação: uma linha. No caso mais simples, o método tem por objetivo descobrir a linha melhor aproxima a relação entre duas variáveis a partir de uma nuvem de pontos no plano cartesiano.
 
 Considere um caso simples, em que se pretende descobrir como a experiência de um indivíduo no emprego se relaciona com o salário que ele recebe no fim do mês. Suponha que nesse caso o pesquisador tenha acesso a uma base de dados que armazena, para diferentes indivíduos, o valor tanto da experiência quanto do salário. Assim, o que o pesquisador observa é uma sequência de pares ordenados `(experiência, salário)`. Em uma amostra hipotética, essas informações são armazenadas em duas listas:
@@ -531,7 +532,7 @@ sal = [99,93,94,88,111,86,103,87,94,90,77,85,86,81,83,81,84,96]
 print('O 3º indivíduo possui experiência de {} anos e um salário igual a R${}/hora.'.format(exp[2],sal[2]))
 ```
 
-Colocando todos os pares ordenados em um gráfico, com o eixo x representando experiência e o eixo y representando salário, temos:
+Colocando todos os pares ordenados em um gráfico, com o eixo x representando experiência adquirida e o eixo y representando o salário por hora do indivíduo, temos:
 
 ```{python}
 #| echo: false
@@ -540,7 +541,7 @@ plt.scatter(exp,sal)
 plt.show()
 ```
 
-A ideia da regressão linear simples é, a partir dessa nuvem de pontos, encontrar a linha que melhor representa esses dados. Mas "melhor" é um termo muito vago, que depende de alguma avaliação relativa às alternativas. É preciso então definir algo a ser otimizado, um objetivo a ser atingido. Nesse caso, o objetivo é minimizar a soma ao quadrado das distâncias dos pontos até essa reta. No gráfico abaixo, essas distâncias são dadas pelas retas tracejadas vermelhas.
+A ideia da regressão linear simples é, a partir dessa nuvem de pontos, encontrar a reta que melhor representa esses dados. Mas "melhor" é, por definição, um conceito relativo, que depende da avaliação de determinada opção frente às alternativas. É preciso então definir algo a ser otimizado, um objetivo a ser atingido. No caso da regressão linear simples, o objetivo é minimizar a soma ao quadrado das distâncias dos pares ordenados até essa reta. No gráfico abaixo, essas distâncias são dadas pelas retas tracejadas vermelhas.
 
 ```{python}
 #| echo: false
@@ -562,11 +563,13 @@ Formalmente, podemos escrever a equação que representa a relação linear entr
 
 $$ y_i = \beta_0 + \beta_1 x_i + \epsilon_i $$
 
-em que, $y_i$ representa o salário e $x_i$ o nível de experiência. $\beta_0$ representa a constante da equação da reta e $\beta_1$ o coeficiente de inclinação. Como essa reta nunca será perfeita, $\epsilon_i$ representa o erro dessa aproximação, isto é, a barrinha vermelha individual. Assim, estimar a reta que melhor se aproxima da nuvem de pontos de $n$ indivíduos é o mesmo que resolver o problema de otimização abaixo escolhendo os coeficientes $\beta_0$ e $\beta_1$.
+em que, $y_i$ representa o salário e $x_i$ o nível de experiência. $\beta_0$ representa a constante da equação da reta e $\beta_1$ o coeficiente de inclinação. Como essa reta nunca será uma representação perfeita da nuvem de pontos--existem outros fatores que influenciam o salário que não o nível de exeperiência--, $\epsilon_i$ representa o erro dessa aproximação (a barrinha vermelha individual). Assim, estimar a reta que melhor se aproxima da nuvem de pontos de $n$ indivíduos é o mesmo que resolver o problema de otimização abaixo escolhendo os coeficientes $\beta_0$ e $\beta_1$.
 
 $$ \min_{\beta_0,\beta_1} \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2 $$
 
 Os coeficientes que resolvem esse problema são também conhecidos como estimadores de **Mínimos Quadrados Ordinários** (em inglês, _Ordinary Least Squares_ ou OLS).
+
+### Representação matricial e implementação
 
 Uma forma equivalente de representar esse problema é através da notação matricial. E ela que vamos utilizar agora. Note que as $n$ equações representando a relação dos dados dos $n$ indivíduos podem ser representadas como:
 
@@ -574,20 +577,23 @@ $$
 \begin{aligned}
 y_1 = \beta_0 + \beta_1 x_1 + \epsilon_1 \\
 y_2 = \beta_0 + \beta_1 x_2 + \epsilon_2 \\
-&\vdots \\
+\vdots \\
 y_{n-1} = \beta_0 + \beta_1 x_{n-1} + \epsilon_{n-1} \\
 y_{n} = \beta_0 + \beta_1 x_{n} + \epsilon_{n}
 \end{aligned}
 $$
 
-Em termos matriciais:
-
-$$ y = X \beta + \epsilon $$
-
-em que as matrizes $X$ e o vetor de coeficientes $\beta$ são equivalentes a
+Esse sistema de $n$ equações se parece muito com o sistema de equações lineares da aplicação anterior, mas em um caso de sobreidentificação, isto é, com mais equações do que incógnitas ou parâmetros. Podemos representar esse sistema através do uso de matrizes como:
 
 $$
-X = 
+\begin{bmatrix}
+  y_1 \\
+  y_2 \\
+  \vdots \\
+  y_{n-1} \\
+  y_{n}
+\end{bmatrix}
+=
 \begin{bmatrix}
   1 & x_1 \\
   1 & x_2 \\
@@ -595,21 +601,33 @@ X =
   1 & x_{n-1} \\
   1 & x_{n}
 \end{bmatrix}
-\quad e \quad
-\beta = 
+\cdot
 \begin{bmatrix}
   \beta_0 \\
   \beta_1
 \end{bmatrix}
++
+\begin{bmatrix}
+  \epsilon_1 \\
+  \epsilon_2 \\
+  \vdots \\
+  \epsilon_{n-1} \\
+  \epsilon_{n}
+\end{bmatrix}
 $$
 
-Deixarei a solução do problema de otimização em representação matricial para aula de econometria. Mas podem acreditar em mim que a solução para os coeficientes $\beta_0$ e $\beta_1$ é dada por
+ou, de forma equivalente,
+
+$$ y = X \beta + \epsilon $$
+
+O problema de otimização continua o mesmo daquele apresentado anteriormente, isto é, a busca pelos parâmetros que minimizam a soma dos quadrados dos desvios. Deixarei a solução do problema em representação matricial, porém, para as aulas de econometria. Mas acreditem em mim que a solução para os coeficientes $\beta_0$ e $\beta_1$ é dada por
 
 $$ \beta = (X^{'}X)^{-1}X^{'}y $$
 
-No nosso caso de experiência e salários...
+No nosso caso de experiência e salários, a implementação da solução matricial no NumPy passa primeiro por definir as matrizes X e y, para então calcular os objetos delas resultantes utilizando (i) o método que calcula a matriz transposta (`transpose`), (ii) multiplicação matricial (símbolo `@`) e o (iii) cálculo da matriz inversa através da função `inv` do subpacote `linalg`, utilizada na aplicação anterior. O código abaixo faz tudo isso.
 
 ```{python}
+# loop para a criação de uma lista de listas que servirá para a criação da matriz X
 Xlist = []
 for x in exp:
     Xlist.append([1,x])
@@ -617,16 +635,16 @@ for x in exp:
 X = np.array(Xlist)
 y = sal
 
+# Cálculo de (X'X) elevado a -1
 XXinv = np.linalg.inv(X.transpose() @ X)
 
+# Implementação da fórmula matricial que soluciona OLS
 beta = XXinv @ X.transpose() @ y
+
 print(beta)
 ```
 
-
-
-
-
+Note que isso nos diz que $\beta_0$ é igual a $72.74$ e $\beta_1$ é aproximadamente $1.51$. Isso signfica que um aumento de um ano na experiência do indivíduo está associado, em média, a um aumento de R\$ $1.5$ no salário hora do indivíduo. O sinal do coeficiente indica uma relação positiva entre as variáveis, o que já podia ser inferido pela nuvem de pontos desenhada anteriormente.
 
 
 ## Conclusão
