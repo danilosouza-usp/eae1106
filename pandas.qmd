@@ -211,10 +211,10 @@ columns_to_keep = ['country','currency_unit','year','pop','emp','rgdpna']
 df_pwt.loc[:, columns_to_keep]
 ```
 
-Uma terceira forma de fazer esse exercício de seleção de uma parte de um DataFrame já criado é através da criação de um novo DataFrame que mantenha apenas as colunas de interesse.
+Uma terceira forma de fazer esse exercício de seleção de uma parte de um DataFrame já criado é através da criação de um novo DataFrame que mantenha apenas as colunas de interesse. Importante, nesse caso, usar o método `copy` para garantir a criação de uma cópia, um novo dataframe, e evitar que alterações no dataframe original afetam o segundo dataframe e vice-versa.
 
 ```{python}
-df_pwt2 = df_pwt[columns_to_keep]
+df_pwt2 = df_pwt[columns_to_keep].copy()
 
 df_pwt2.head()
 ```
@@ -422,9 +422,11 @@ df_pwt_merge = pd.merge(df_pwtdbr, df_pwtdus, how='inner', on=['decada'])
 df_pwt_merge
 ```
 
-Mas note que existem colunas com o mesmo nome nas bases do Brasil e EUA. Por padrão o pandas renomeia essas colunas com `_x` e `_y`. Vamos renomear essas colunas utilizando dicionários, uma forma alternativa ao que fizemos anteriormente.
+Mas note que existem colunas com o mesmo nome nas bases do Brasil e EUA. Por padrão o pandas renomeia essas colunas com `_x` e `_y`. Primeiro, podemos começar excluindo as colunas `pais_x` e `pais_y`, que deixam de fazer sentido após o merge. Depois disso, podemos renomear as outras colunas utilizando dicionários, uma forma alternativa ao que fizemos anteriormente.
 
 ```{python}
+df_pwt_merge.drop(columns=['pais_x','pais_y'], inplace=True)
+
 dict_rename = {
     'pibpc_x':'pibpc_br',
     'r_emppop_x':'r_emppop_br',
