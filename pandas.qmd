@@ -26,6 +26,22 @@ import pandas as pd
 import os
 ```
 
+```{python}
+#| echo: false
+from IPython.display import display, HTML
+
+display(HTML("""
+<style>
+table.dataframe td {
+    text-align: center;
+}
+table.dataframe th {
+    text-align: center;
+}
+</style>
+"""))
+```
+
 
 ## O que é o Pandas?
 
@@ -372,7 +388,12 @@ df_pwtdus = df_pwtdus.groupby(by=['pais','decada'], as_index=False).mean()
 df_pwtdus.head(5)
 ```
 
-Note que...
+Note que... Mas como não queremos o nome do país como indice, vamos redefinir o dataframe do Brasil
+
+```{python}
+df_pwtdbr.reset_index(inplace=True)
+df_pwtdbr.head(5)
+```
 
 ### Junção e mesclagem
 
@@ -391,7 +412,7 @@ df_pwt_concat
 
 Para compreender completamente o segundo caso, é preciso entender que existem formas diferentes de adicionar novas informações às entidades existentes. E a teoria dos conjuntos nos ajuda a entender melhor como isso funciona. Utilizando uma coluna (ou colunas) que identifiquem unicamente pelo menos uma das bases de dados (A ou B) é possível unir as informações de modo a compor um único dataframe. É preciso, porém, ter claro o objetivo da mesclagem. Assim será possível definir quais dos casos que mais se encaixa ao problema em questão. A Figura @fig-merge ilustra os diferentes casos.
 
-![Tipo de união entre duas bases de dados, A e B](images/merge.png){#fig-merge width=500px max-width=100% fig-align="center"}
+![Tipo de união entre duas bases de dados, A e B](images/merge.png){#fig-merge width=400px max-width=100% fig-align="center"}
 
 Agora sim podemos dar um passo adiante e utilizar a função `merge` para unir as bases do Brasil e EUA. Essa função une duas bases de acordo com algum identificador e com algum método de união. O identificador pode vir do índice do dataframe ou mesmo de alguma coluna específica.  No nosso caso utilizaremos a coluna de década como identificadora através do parâmetro `on`. Falta definir agora como a junção será feita ou como lidar com os casos em que um valor da coluna identificadora aparece apenas em uma das bases de dados. Como desejamos manter apenas as observações que estão presentes em ambos os dataframes, utilizamos o valor `inner` no parâmetro `how`.
 
