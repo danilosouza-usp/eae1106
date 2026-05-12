@@ -30,6 +30,8 @@ import os
 #| echo: false
 from IPython.display import display, HTML
 
+pd.set_option('display.max_columns', 10)
+
 display(HTML("""
 <style>
 table.dataframe td {
@@ -100,7 +102,7 @@ dados_emprego.head()
 
 Um dos principais pontos fortes do Pandas é justamente a capacidade de importar e exportar informações nos mais diversos formatos: planilhas de Microsoft Excel (`.xlsx`), arquivos de texto separado por vírgulas (`.csv`), etc. Mais do que trabalhar com esses arquivos, o Pandas o faz de maneira eficiente e em poucas linhas de código. Funções como `read_csv` e `to_csv`, por exemplo, são essenciais para o conjunto de ferramentas do cientista de dados em Python.
 
-A ideia daqui para frente é trabalhar com os dados da [Penn World Table version 11.0](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023. Esses dados são mantidos pela Universidade de Groningen e atualizados esporadicamente. O arquivo específico com o qual trabalharemos está disponível no Moodle e deve ser baixado para a sua máquina local.
+A ideia daqui para frente é trabalhar com os dados da [Penn World Table version 11.0](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023. Esses dados são mantidos pela Universidade de Groningen e atualizados periodicamente. O arquivo específico com o qual trabalharemos está disponível no Moodle e deve ser baixado para a sua máquina local.
 
 Mas antes de aprendermos como trabalhar com um dataframe e as funcionalidades que o Pandas nos traz precisamos ler o arquivo com os nossos dados. Comecemos pela função `os.chdir` do pacote `os` para mudar o diretório base do Python para o diretório no qual o nosso arquivo se encontra:
 
@@ -124,30 +126,36 @@ Quais são os arquivos disponíveis nesse diretório? A função `os.listdir()` 
 os.listdir()
 ```
 
-Legal, Agora utilizaremos a função `pandas.read_csv` para ler o arquivo `pwt110_selected.csv`. Esse arquivo contém informações selecionadas para os 185 países da amostra. Note que, para além do nome do arquivo que será lido, passamos outros dois argumentos para a função: `sep` e `encoding`. Esse argumentos...
+Agora utilizaremos a função `pandas.read_csv` para ler o arquivo `pwt110_selected.csv`. Esse arquivo contém informações selecionadas para os 185 países da amostra. Além do nome do arquivo, passamos dois argumentos adicionais para a função: `sep` e `encoding`.
+
+O argumento `sep` define qual caractere é utilizado para separar as colunas do arquivo. Embora arquivos _CSV_ frequentemente utilizem vírgulas como separador (_Comma-Separated Values_), é bastante comum encontrar bases em que os valores são separados por ponto e vírgula ou outros caracteres especiais. Nesse caso, utilizamos `sep=';'` para informar ao pandas que as colunas devem ser identificadas a partir desse separador.
+
+Já o argumento `encoding` especifica a codificação de caracteres utilizada no arquivo. A codificação define como letras, números e símbolos são armazenados internamente no computador. Utilizar a codificação correta é particularmente importante quando a base contém acentos e outros caracteres especiais. Aqui utilizamos `encoding='utf8'`, uma das codificações mais comuns atualmente e amplamente compatível com diferentes sistemas operacionais e aplicações.
 
 ```{python}
 df_pwt = pd.read_csv('pwt110_selected.csv', sep=';', encoding='utf8')
 type(df_pwt)
 ```
 
-O poder das funções `read_` é muito grande. Voltaremos ao tema de como exportar os dados criados a partir das funções `to_` mais adiante nesse capítulo.
+A função `read_csv` faz parte de um conjunto bastante amplo de funções de importação e exportação de dados disponíveis no pandas. Mais adiante retomaremos esse tema ao estudar as funções `to_`, utilizadas para exportar tabelas e resultados produzidos durante a análise para os mais diferentes formatos disponíveis.
 
 ## _DataFrames_: o coração do Pandas
+
+A partir deste ponto começaremos a explorar com mais profundidade o objeto central da biblioteca: o DataFrame. É nele que normalmente realizamos a maior parte do trabalho empírico, como seleção de observações, criação de variáveis, agrupamentos e análises descritivas.
+
+Como dito anteriormente, um DataFrame pode ser entendido como uma tabela bidimensional semelhante a uma planilha do Excel ou a uma base de dados estatística, em que cada linha representa uma observação e cada coluna representa uma variável. O pandas fornece uma grande quantidade de métodos específicos para manipular esse tipo de estrutura de maneira eficiente e relativamente intuitiva.
 
 ### Características básicas
 
 Alguns métodos específicos ao objeto DataFrame nos são incrivelmente úteis quando queremos ter uma leitura rápida do que acabamos de gerar.
 
 - `df.info()` nos retorna algumas informações técnicas do dataframe `df`, como o formato dos dados presentes em cada coluna.
-- `df.head(n)` e `df.tail(n)` nos retornam as `n` primeiras e `n` últimas linhas, respectivamente.
-- `df.describe()` nos retorna uma tabela de estatísticas descritivas das colunas numéricas.
-
-Vejamos o que esses métodos nos retornam no nosso caso:
 
 ```{python}
 df_pwt.info(memory_usage='deep')
 ```
+
+- `df.head(n)` e `df.tail(n)` nos retornam as `n` primeiras e `n` últimas linhas, respectivamente.
 
 ```{python}
 df_pwt.head(2) # método para apresentar apenas as primeiras duas linhas do dataframe
@@ -159,6 +167,8 @@ Ué, mas não são 14 colunas? Onde estão todas elas? Por padrão o pandas most
 pd.set_option('display.max_columns', 100)
 df_pwt.head(2)
 ```
+
+- `df.describe()` nos retorna uma tabela de estatísticas descritivas das colunas numéricas.
 
 ```{python}
 df_pwt.describe()
