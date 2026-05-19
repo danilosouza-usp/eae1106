@@ -472,7 +472,14 @@ Tente exportar o dataframe em outros formatos e importá-lo em outros softwares.
 
 DataFrames podem ser objetos bastante pesados, com milhões de linhas e milhares de colunas. Isso por vezes pode ser um problemão para nós. Existem bibliotecas que servem ao propósito de trabalhar de forma mais eficiente com bases de dados muito grandes (e.g., [`Dask`](https://www.dask.org/)), mas algumas funções dentro do próprio Pandas já conseguem nos ajudar bastante em grande parte das situações.
 
-Vamos trabalhar com uma outra base de dados a partir de agora
+Vamos trabalhar com uma outra base de dados a partir de agora: [as viagens de Uber na cidade de Nova York](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data). A base de dados contém informações detalhadas sobre cada viagem realizada: número identificador do motorista, hora do início e fim da corrida, distância percorrida, gorjetas, etc. A base contém mais de 22 milhões de corridas registradas somente no mês de dezembro de 2019. Junto das mais de 20 colunas de informação, isso faz com que a memória do computador seja bastante utilizada. Apenas para lidar com o mês de dezembro de 2019, seria necessário um computador com mais de 16GB de memória RAM. Métodos que nos permitam reduzir esse uso de memória são muito bem-vindos.
+
+Vou abrir o arquivo `fhvhv_tripdata_2019-12.parquet` no meu computador local que tem 128GB de RAM só para mostrar a vocês o tamanho e como a base de dados se apresenta sem nenhum tipo de personalização na função que lê arquivos do tipo `parquet`.^[O Apache Parquet é um formato de armazenamento colunar de código aberto que aborda os desafios do processamento de big data. Ao contrário do armazenamento tradicional baseado em linhas, ele organiza os dados em colunas. Essa estrutura permite que você leia apenas as colunas necessárias, tornando as consultas de dados mais rápidas e reduzindo o consumo de recursos. Leia mais [aqui](https://www.datacamp.com/pt/tutorial/apache-parquet).]
+
+```{python}
+UberNYC_201912 = pd.read_parquet('fhvhv_tripdata_2019-12.parquet')
+UberNYC_201912.info(memory_usage='deep')
+```
 
 No entanto, os tipos de dados de cada coluna não nos parecem os mais adequados. Uma coluna do tipo `float64` consume 4x mais memória do que uma coluna do tipo `float16` e 8x mais memória do que uma coluna do tipo `int8`, por exemplo. Da mesma forma, uma coluna do tipo `object` consome muito mais memória do que uma coluna que o Pandas entende como do tipo categórica em grande parte dos casos. Mas o que são esses tipos todos?
 
