@@ -472,16 +472,16 @@ Tente exportar o dataframe em outros formatos e importá-lo em outros softwares.
 
 DataFrames podem ser objetos bastante pesados, com milhões de linhas e milhares de colunas. Isso por vezes pode ser um problemão para nós. Existem bibliotecas que servem ao propósito de trabalhar de forma mais eficiente com bases de dados muito grandes (e.g., [`Dask`](https://www.dask.org/)), mas algumas funções dentro do próprio Pandas já conseguem nos ajudar bastante em grande parte das situações.
 
-Vamos trabalhar com uma outra base de dados a partir de agora: [as viagens de Uber na cidade de Nova York](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data). A base de dados contém informações detalhadas sobre cada viagem realizada: número identificador do motorista, hora do início e fim da corrida, distância percorrida, gorjetas, etc. A base contém mais de 22 milhões de corridas registradas somente no mês de dezembro de 2019. Junto das mais de 20 colunas de informação, isso faz com que a memória do computador seja bastante utilizada. Apenas para lidar com o mês de dezembro de 2019, seria necessário um computador com mais de 16GB de memória RAM. Métodos que nos permitam reduzir esse uso de memória são muito bem-vindos.
-
-Vou abrir o arquivo `fhvhv_tripdata_2019-12.parquet` no meu computador local que tem 128GB de RAM só para mostrar a vocês o tamanho e como a base de dados se apresenta sem nenhum tipo de personalização na função que lê arquivos do tipo `parquet`.^[O Apache Parquet é um formato de armazenamento colunar de código aberto que aborda os desafios do processamento de big data. Ao contrário do armazenamento tradicional baseado em linhas, ele organiza os dados em colunas. Essa estrutura permite que você leia apenas as colunas necessárias, tornando as consultas de dados mais rápidas e reduzindo o consumo de recursos. Leia mais [aqui](https://www.datacamp.com/pt/tutorial/apache-parquet).]
+Vamos trabalhar com uma outra base de dados a partir de agora: [as viagens de Uber na cidade de Nova York](https://www.kaggle.com/datasets/jeffsinsel/nyc-fhvhv-data). A base de dados contém informações detalhadas sobre cada viagem realizada: número identificador do motorista, hora do início e fim da corrida, distância percorrida, gorjetas, etc. Vejamos o caso dos dados para o mês de dezembro de 2019, disponíveis no arquivo `fhvhv_tripdata_2019-12.parquet`. Utilizarei o meu computador local, que tem 128GB de memória RAM, só para mostrar a vocês o tamanho e como a base de dados se apresenta sem nenhum tipo de personalização na função que lê arquivos do tipo `parquet`.^[O Apache Parquet é um formato de armazenamento colunar de código aberto que aborda os desafios do processamento de big data. Ao contrário do armazenamento tradicional baseado em linhas, ele organiza os dados em colunas. Essa estrutura permite que você leia apenas as colunas necessárias, tornando as consultas de dados mais rápidas e reduzindo o consumo de recursos. Leia mais [aqui](https://www.datacamp.com/pt/tutorial/apache-parquet).]
 
 ```{python}
 UberNYC_201912 = pd.read_parquet('fhvhv_tripdata_2019-12.parquet')
 UberNYC_201912.info(memory_usage='deep')
 ```
 
-No entanto, os tipos de dados de cada coluna não nos parecem os mais adequados. Uma coluna do tipo `float64` consume 4x mais memória do que uma coluna do tipo `float16` e 8x mais memória do que uma coluna do tipo `int8`, por exemplo. Da mesma forma, uma coluna do tipo `object` consome muito mais memória do que uma coluna que o Pandas entende como do tipo categórica em grande parte dos casos. Mas o que são esses tipos todos?
+Pela leitura da saída do método `info`, é possível notar que a base contém mais de 22 milhões de corridas registradas somente no mês de dezembro de 2019. Junto das mais de 20 colunas de informação, isso faz com que a memória do computador seja bastante utilizada. Apenas para lidar com esse mês específico, seria necessário um computador com ao menos 16GB de memória RAM para abrir a base e, possivelmente, com 32GB para realizar operações mais complexas. Assim, métodos que nos permitam reduzir esse uso de memória são muito bem-vindos. Olhar para o tipo de dado de cada coluna pode ser um bom primeiro passo.
+
+Cada tipo de dado é indicado para um conjunto de informações específico: `float` e `int` representam números, `object` e `category` representam strings e `bool` dados do tipo booleano. Esses tipos ocupam quantidades diferentes na memória RAM. Uma coluna do tipo `float64`, por exemplo, demanda 64 bits (ou 8 bytes de memória) para representar um único número. Para representar 10 milhões de linhas, essa coluna consumiria 80 MB da memória RAM. Isso quer dizer, que essa mesma coluna consumiria 4x menos memória se armazenada como `float16` e 8x menos memória se armazenada como `int8`. Da mesma forma, uma coluna do tipo `object` consome muito mais memória do que uma coluna que o Pandas entende como do tipo categórica em grande parte dos casos. Mas o que são esses tipos todos?
 
 - **int8 / uint8**: consome 1 byte (8-bit) de memória, o valor numérico deve ser inteiro e estar no intervalo $[-128 , 127]$ / $[0 , 255]$
 - **int16 / uint16**: consome 2 bytes de memória, o valor numérico deve ser inteiro e estar no intervalo $[-32768 , 32768]$ / $[0,65535]$
@@ -492,16 +492,45 @@ No entanto, os tipos de dados de cada coluna não nos parecem os mais adequados.
 - **object**: o quanto consome de memória pode variar, mas, por aceitar valores numéricos e strings de todo tipo, consome ao menos 8 bytes de memória.
 - **category**: o quanto consome de memória pode variar e depende da relação entre o número de valores únicos na coluna e o número de linhas de dados.
 
-Beleza, devemos fugir do tipo `object` e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? A função `astype` é nossa companheira nesse caso.
+Beleza, devemos fugir do tipo `object` e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? Vamos começar lendo apenas as primeiras linhas do dataframe para ter uma ideia do que é possível fazer. Funções como `read_csv` possuem parâmetros, como `nrows` que nos permitem ler apenas as n primeiras linhas, o que geralmente é feito antes de tentarmos abrir a base inteira de uma vez só. A função `read_parquet` do Pandas, no entanto, não possui parâmetros parecidos. A título de exposição, vou continuar com essa base mas mostrando apenas as 5 primeiras linhas desse dataframe completo, em especial as colunas 19-23, que são colunas do tipo object.
 
+```{python}
+columns_object = ['shared_request_flag','shared_match_flag','access_a_ride_flag','wav_request_flag','wav_match_flag']
 
+UberNYC_201912.loc[0:5, columns_object]
+```
 
-Reduzimos mais um pouco o comprometimento de memória, embora a diferença não tenha sido tão grande. Em dataframes com milhões de linhas e milhares de colunas, no entanto, essa redução pode fazer toda a diferença. Dica: dê uma olhada na função `pandas.to_numeric` e no argumento `downcast` caso você não saiba para qual tipo de dado numérico deve ir.
+Interessante, todas essas 5 colunas parecem ser colunas binárias, com apenas dois valores: "Y" ou "N". Isso remete a dados do tipo booleano, que indicam a existência ou não de determinada característica. Vamos substituir o tipo de dado nessas colunas por um dado do tipo booleano então.
+
+```{python}
+for c in columns_object:
+    UberNYC_201912[c] = UberNYC_201912[c].replace({'Y':True,'N':False,' ':False})
+
+UberNYC_201912.info(memory_usage='deep')
+```
+
+As colunas 19-23 foram transformadas em colunas booleanas e sem perder informação nenhuma. Isso já reduziu enormemente o comprometimento de memória. Um próximo passo seria olhar para variáveis numéricas, tal qual `PULocationID` e `DOLocationID` que são variáveis numéricas que contém identificadores das regiões. Será que precisamos de `int64` nesses dois casos ou um número menor de bits daria conta de representar o dado sem perder informação?
+
+```{python}
+columns_int = ['PULocationID','DOLocationID']
+
+UberNYC_201912[columns_int].describe()
+```
+
+Note que ambas as variáveis tem 1 como valor mínimo e 265 como valor máximo. Já vimos no capítulo @sec-fundamentos que 8 bits dão conta de representar 256 números inteiros, indo de 0 a 255 no caso dos não-negativos. Precisamos de mais bits e, nesse caso, `int16` parece uma boa aposta. Para transformar o tipo de dado diretamente, utilizaremos a função `astype`.
+
+```{python}
+for c in columns_int:
+    UberNYC_201912[c] = UberNYC_201912[c].astype('int16')
+
+UberNYC_201912.info(memory_usage='deep')
+```
+
+Com um pouco de conhecimento sobre tipos de dados e alterações marginais no dataframe original, conseguimos reduzir em mais de $50\%$ o uso de memória RAM e o comprometimento do computador. Pode parecer simples, mas esse conhecimento é bastante poderoso.
 
 No fim das contas, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna **antes** da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função `read_csv` (ou similar) e passar uma lista de tipo de dados ao argumento `dtype` (exemplo do algoritmo [aqui](https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e)). Tente isso em casa! **E não se esqueça: fuja de dados do tipo `object`!**
 
-## Polars: uma alternativa moderna
-
+<!-- ## Polars: uma alternativa moderna -->
 
 ## Conclusão
 

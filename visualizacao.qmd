@@ -36,36 +36,11 @@ Em relação aos dados, utilizaremos mais uma vez a base com informações relac
 
 ```{python}
 # substituir esse caminho de diretório pelo caminho que você estiver utilizando no seu computador
-os.chdir('D:/Dropbox/Projetos e trabalhos/FEAUSP/Cursos/EAE1106 - Metodos Computacionais para Economistas/Aulas/2023_2')
+os.chdir('C:/Users/user/Desktop/EAE1106')
 
-columns_to_read = ['location',
-                   'date',
-                   'total_cases',
-                   'new_cases',
-                   'total_deaths',
-                   'new_deaths',
-                   'population',
-                   'people_fully_vaccinated',
-                   'median_age',
-                   'aged_65_older',
-                   'cardiovasc_death_rate',
-                   'diabetes_prevalence']
-
-df_covid = pd.read_csv('owid-covid-data_top10.csv', sep=',', encoding='utf8',usecols=columns_to_read)
-df_covid['ano_mes'] = df_covid['date'].str[0:7]
-
-df_covid_mensal = df_covid.groupby(by=['location','ano_mes'], as_index=False).agg(total_cases=('total_cases', 'max'),
-                                                                                  new_cases=('new_cases', 'sum'),
-                                                                                  total_deaths=('total_deaths', 'max'),
-                                                                                  new_deaths=('new_deaths', 'sum'),
-                                                                                  population=('population', 'mean'),
-                                                                                  people_vaccinated=('people_fully_vaccinated', 'max'),
-                                                                                  median_age=('median_age', 'mean'),
-                                                                                  aged_65_older=('aged_65_older', 'mean'),
-                                                                                  cardiovasc_death_rate=('cardiovasc_death_rate', 'mean'),
-                                                                                  diabetes_prevalence=('diabetes_prevalence', 'mean'))
-
-df_covid_mensal.info()
+columns_to_read = ['country','year','pop','emp','rgdpna','avh']
+df_pwt = pd.read_csv('pwt110_selected.csv', sep=';', encoding='utf8',usecols=columns_to_read)
+df_pwt.info()
 ```
 
 
