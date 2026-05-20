@@ -514,6 +514,7 @@ pd.set_option('future.no_silent_downcasting', True)
 ```{python}
 for c in columns_object:
     UberNYC_201912[c] = UberNYC_201912[c].replace({'Y':True,'N':False,' ':False})
+    UberNYC_201912[c] = UberNYC_201912[c].astype('bool')
 
 UberNYC_201912.info(memory_usage='deep')
 ```
