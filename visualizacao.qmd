@@ -29,10 +29,9 @@ Matplotlib é uma excelente biblioteca de ferramentas gráficas, projetada para 
 
 ## Construindo nosso 1º gráfico
 
-### Base de dados
+### Função _plot_
 
-Em relação aos dados, utilizaremos mais uma vez a base com informações relacionadas a covid-19 nos 10 países com o maior número de casos acumulados. Dessa vez, no entanto, nos concentraremos em algumas poucas colunas e na agregação mensal.
-
+Em relação aos dados, utilizaremos mais uma vez os dados da [Penn World Table version 11.0](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023.
 
 ```{python}
 # substituir esse caminho de diretório pelo caminho que você estiver utilizando no seu computador
@@ -43,22 +42,7 @@ df_pwt = pd.read_csv('pwt110_selected.csv', sep=';', encoding='utf8',usecols=col
 df_pwt.info()
 ```
 
-
-```{python}
-df_covid_mensal
-```
-
-Note que temos alguns problemas com valores missing, vamos nesse casos substituí-los por zero.
-
-
-```{python}
-df_covid_mensal.fillna(0,inplace=True)
-df_covid_mensal
-```
-
-### Função _plot_
-
-Com o dataframe criado, podemos plotar o número total de novos casos no Brasil ao longo do tempo usando uma única função: `plot`. Essa função recebe como argumento os valores do eixo `x` (no nosso caso a data) e do eixo `y` (número de novos casos) e nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Por fim é preciso chamar a função `show()` para mostrar o gráfico que criamos.
+Com o dataframe criado, podemos plotar o número médio de horas trabalhadas no Brasil ao longo do tempo usando uma única função: `plot`. Essa função recebe como argumento os valores do eixo `x` (no nosso caso o ano) e do eixo `y` (horas trabalhadas) e nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Por fim é preciso chamar a função `show()` para mostrar o gráfico que criamos.
 
 
 ```{python}

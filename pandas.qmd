@@ -492,15 +492,24 @@ Cada tipo de dado é indicado para um conjunto de informações específico: `fl
 - **object**: o quanto consome de memória pode variar, mas, por aceitar valores numéricos e strings de todo tipo, consome ao menos 8 bytes de memória.
 - **category**: o quanto consome de memória pode variar e depende da relação entre o número de valores únicos na coluna e o número de linhas de dados.
 
-Beleza, devemos fugir do tipo `object` e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? Vamos começar lendo apenas as primeiras linhas do dataframe para ter uma ideia do que é possível fazer. Funções como `read_csv` possuem parâmetros, como `nrows` que nos permitem ler apenas as n primeiras linhas, o que geralmente é feito antes de tentarmos abrir a base inteira de uma vez só. A função `read_parquet` do Pandas, no entanto, não possui parâmetros parecidos. A título de exposição, vou continuar com essa base mas mostrando apenas as 5 primeiras linhas desse dataframe completo, em especial as colunas 19-23, que são colunas do tipo object.
+Beleza, devemos fugir do tipo `object` e tentar reduzir as colunas numéricas para tipos menos demandantes em termos de memória. Como fazer isso? Vamos começar lendo apenas as primeiras linhas do dataframe para ter uma ideia do que é possível fazer. Funções como `read_csv` possuem parâmetros, como `nrows` que nos permitem ler apenas as n primeiras linhas, o que geralmente é feito antes de tentarmos abrir a base inteira de uma vez só. A função `read_parquet` do Pandas, no entanto, não possui parâmetros parecidos. A título de exposição, vou continuar com essa base mas mostrando apenas as 5 primeiras linhas desse dataframe completo, em especial para as colunas 19-23, que são colunas do tipo object.
 
 ```{python}
-columns_object = ['shared_request_flag','shared_match_flag','access_a_ride_flag','wav_request_flag','wav_match_flag']
+columns_object = ['shared_request_flag',
+                  'shared_match_flag',
+                  'access_a_ride_flag',
+                  'wav_request_flag',
+                  'wav_match_flag']
 
 UberNYC_201912.loc[0:5, columns_object]
 ```
 
-Interessante, todas essas 5 colunas parecem ser colunas binárias, com apenas dois valores: "Y" ou "N". Isso remete a dados do tipo booleano, que indicam a existência ou não de determinada característica. Vamos substituir o tipo de dado nessas colunas por um dado do tipo booleano então.
+Interessante, todas essas 5 colunas parecem ser colunas do tipo sim ou não, com apenas três valores possíveis: "Y", "N" ou " " (vazio). Isso remete a dados do tipo booleano, que indicam a existência ou não de determinada característica. Vamos substituir o tipo de dado nessas colunas por um dado do tipo booleano, mas considerando também o caso de informação faltante.
+
+```{python}
+#| echo: false
+pd.set_option('future.no_silent_downcasting', True)
+```
 
 ```{python}
 for c in columns_object:
@@ -509,7 +518,7 @@ for c in columns_object:
 UberNYC_201912.info(memory_usage='deep')
 ```
 
-As colunas 19-23 foram transformadas em colunas booleanas e sem perder informação nenhuma. Isso já reduziu enormemente o comprometimento de memória. Um próximo passo seria olhar para variáveis numéricas, tal qual `PULocationID` e `DOLocationID` que são variáveis numéricas que contém identificadores das regiões. Será que precisamos de `int64` nesses dois casos ou um número menor de bits daria conta de representar o dado sem perder informação?
+As colunas 19-23 foram transformadas em colunas booleanas sem perder nenhuma informação. Isso já reduziu enormemente o comprometimento de memória, de 11 GB para 6 GB. Um próximo passo seria olhar para variáveis numéricas, tal qual `PULocationID` e `DOLocationID` que são variáveis numéricas que contém identificadores das regiões. Será que precisamos de `int64` nesses dois casos ou um número menor de bits daria conta de representar o dado sem perder informação?
 
 ```{python}
 columns_int = ['PULocationID','DOLocationID']
@@ -526,9 +535,9 @@ for c in columns_int:
 UberNYC_201912.info(memory_usage='deep')
 ```
 
-Com um pouco de conhecimento sobre tipos de dados e alterações marginais no dataframe original, conseguimos reduzir em mais de $50\%$ o uso de memória RAM e o comprometimento do computador. Pode parecer simples, mas esse conhecimento é bastante poderoso.
+Reduzimos em mais 300 MB o uso da memória RAM. No fim das contas, com um pouco de conhecimento sobre tipos de dados e alterações marginais no dataframe original, conseguimos reduzir pela metade o uso de memória RAM e o comprometimento do computador. Pode parecer simples, mas esse conhecimento é bastante poderoso.
 
-No fim das contas, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna **antes** da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função `read_csv` (ou similar) e passar uma lista de tipo de dados ao argumento `dtype` (exemplo do algoritmo [aqui](https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e)). Tente isso em casa! **E não se esqueça: fuja de dados do tipo `object`!**
+Em resumo, parte importante da estratégia de otimização na gestão de memória de dataframes vem de conhecermos os tipos mais adequados de dados para cada coluna **antes** da leitura do dataframe. Isso pode ser feito lendo primeiro um amostra de poucas linhas (e.g., 10 ou 20) do dataframe com o qual iremos trabalhar para entender a base de dados e só a partir daí ler o dataframe completo com a função `read_csv` (ou similar) e passar uma lista de tipo de dados ao argumento `dtype` (exemplo do algoritmo [aqui](https://vincentteyssier.medium.com/optimizing-the-size-of-a-pandas-dataframe-for-low-memory-environment-5f07db3d72e)). Tente isso em casa! **E não se esqueça: fuja de dados do tipo `object`!**
 
 <!-- ## Polars: uma alternativa moderna -->
 
