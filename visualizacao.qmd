@@ -2,25 +2,25 @@
 
 ## Introdução
 
+![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+Para trabalhar com funções e todas as suas funcionalidades, utilizaremos quatro pacotes externos:
 
 - `os`
+- `numpy`
 - `pandas`
 - `matplotlib`
-- `seaborn`
-- `plotly`
 
 ```{python}
 #| message: false
 #| warning: false
 
 import os
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sbs
-import plotly as ply
 ```
 
 ## O que é o Matplotlib?
@@ -28,8 +28,6 @@ import plotly as ply
 Matplotlib é uma excelente biblioteca de ferramentas gráficas, projetada para computação científica, que nos permite um grau bastante alto de personalização sobre todos os aspectos da apresentação. Nos permite construir visualizações estáticas em 2D e 3D e exportá-las nos mais diferentes formatos. Embora existam outras bibliotecas (e.g., [altair](https://altair-viz.github.io/), [bokeh](https://bokeh.org/), [plotly](https://plotly.com/python/)) que nos permitam construir visualizações dinâmicas e mais complexas, o Matplotlib é uma excelente primeira abordagem no campo de visualização de dados dentro do Python. Para a esmagadora maioria de nossas aplicações, é essa biblioteca que iremos buscar primeiro.
 
 ## Construindo nosso 1º gráfico
-
-### Função _plot_
 
 Em relação aos dados, utilizaremos mais uma vez os dados da [Penn World Table version 11.0](https://www.rug.nl/ggdc/productivity/pwt/?lang=en), base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023.
 
@@ -42,15 +40,14 @@ df_pwt = pd.read_csv('pwt110_selected.csv', sep=';', encoding='utf8',usecols=col
 df_pwt.info()
 ```
 
-Com o dataframe criado, podemos plotar o número médio de horas trabalhadas no Brasil ao longo do tempo usando uma única função: `plot`. Essa função recebe como argumento os valores do eixo `x` (no nosso caso o ano) e do eixo `y` (horas trabalhadas) e nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Por fim é preciso chamar a função `show()` para mostrar o gráfico que criamos.
+Com o dataframe criado, podemos plotar o número médio de horas trabalhadas no Brasil ao longo do tempo usando apenas a função `plot`. Para isso utilizaremos a variável `avh`, que contabiliza o número de horas trabalhadas ao longo de um ano na média das pessoas empregadas. Para uma representação mais clara, dividirei esse número por 260, que é o número de dias de semana (segunda à sexta-feira) em um ano típico. Passamos então para a função plot como argumento os valores do eixo `x` (ano) e do eixo `y` (horas trabalhadas) e ela nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Após isso, é preciso chamar a função `show()` para mostrar o gráfico que criamos.
 
 
 ```{python}
-df_covid_br = df_covid_mensal[df_covid_mensal['location'].isin(['Brazil'])].reset_index(drop=True)
+df_pwtbr = df_pwt.loc[df_pwt['country']=='Brazil',:].reset_index(drop=True)
 
-x = df_covid_br['ano_mes']
-y = df_covid_br['new_cases']
-
+x = df_pwtbr['year']
+y = df_pwtbr['avh'] / 260 
 
 # construção do gráfico
 plt.plot(x, y, 'b-', linewidth=2)
@@ -59,47 +56,42 @@ plt.show()
 
 O gráfico tá feito, mas ficou um pouco feio. Como podemos melhorar?
 
-* Ajustar o que mostramos no eixo X.
-* Ajustar a escala do eixo Y.
-* Mudar a cor da linha para algo mais agradável.
-* Colocar um marcador em cada ponto de dado.
-* Adicionar título ao gráfico.
+- Ajustar o que mostramos no eixo X.
+- Ajustar a escala do eixo Y.
+- Mudar a cor da linha para algo mais agradável.
+- Colocar um marcador em cada ponto de dado.
+- Adicionar título ao gráfico.
 
-Sabemos que nossos dados começam em fevereiro de 2020 e vão até março de 2022. Para ajustar o eixo y, porém, é importante conhecer os limites numéricos do número de casos.
-
+Sabemos que nossos dados começam no ano de 1950 e vão até 2023. Para ajustar o eixo y, porém, é importante conhecer os limites numéricos do número médio de horas trabalhadas.
 
 ```{python}
-df_covid_br.describe()
+df_pwtbr.describe()
 ```
 
 Agora podemos usar algumas opções e métodos sobre o `plot` que criamos dentro da célula para aplicar todas essas alterações sugeridas.
 
-
 ```{python}
-x_ticks = [0,6,12,18,24]
-x_labels = ['fev/20','ago/20','fev/21','ago/21','fev/22']
-y_ticks = [0,1000000,2000000,3000000,4000000]
-y_labels = ['0','1,000,000','2,000,000','3,000,000','4,000,000']
-
+x_ticks = [1950,1960,1970,1980,1990,2000,2010,2020]
+x_labels = ['1950','1960','1970','1980','1990','2000','2010','2020']
+y_ticks = [5,6,7,8,9,10]
+y_labels = ['5','6','7','8','9','10']
 
 plt.plot(x, y, color='#1f77b4', linewidth=1, marker='o') # Saiba que o código "#1f77b4" é um código hexadecimal de cores. Para entender qual cor esse código representa acesse: https://htmlcolorcodes.com/
+
 plt.xticks(x_ticks, x_labels)
 plt.yticks(y_ticks, y_labels)
-plt.ylim([-200000, 4300000])
-plt.title('Número de novos casos mensais de Covid-19 no Brasil')
+plt.ylim([4.8, 10.2])
+plt.title('Horas médias trabalhadas por dia no Brasil')
 plt.show()
 ```
 
 Bem melhor né? Mas ainda dá para melhorar **muito**!
 
-Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. 
-
-No método que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.
+Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.
 
 ## Personalização
 
 Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores.
-
 
 ```{python}
 fig, ax = plt.subplots()
@@ -108,13 +100,10 @@ ax.plot(x, y, 'b-', linewidth=2)
 plt.show()
 ```
 
-Legal, mas o que significam todas essas coisas?
+Legal, mas o que significam todas essas coisas? Começamos utilizando a função `subplots()` do `matplotlib.pyplot`, que nos retorna dois objetos aos quais damos os nomes de `fig` e `ax`. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:
 
-Começamos utilizando a função `subplots()` do `matplotlib.pyplot`, que nos retorna dois objetos aos quais damos os nomes de `fig` e `ax`. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:
-
-* `fig` é como se fosse um fundo branco.
-* Pense em `ax` como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.
-
+- `fig` é como se fosse um fundo branco.
+- Pense em `ax` como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.
 
 ```{python}
 fig, ax = plt.subplots()
@@ -125,19 +114,13 @@ ax.set_facecolor("blue")
 plt.show()
 ```
 
-Em essência, a função `plot()` é na verdade um método de `ax`.
-
-Embora fazer esse gráfico simples dessa forma exija um pouco mais de código, o uso explícito de objetos nos dá melhor controle sobre a aparência do objeto e de todas as personalizações possíveis. Isso ficará mais claro à medida que avançarmos.
-
-Como replicar o 2º gráfico da seção anterior usando essa lógica orientada a objetos?
-
+Em essência, a função `plot()` é na verdade um método do objeto `ax`. Embora fazer esse gráfico simples dessa forma exija um pouco mais de código, o uso explícito de objetos nos dá melhor controle sobre a aparência do objeto e de todas as personalizações possíveis. Isso ficará mais claro à medida que avançarmos. Como podemos replicar o 2º gráfico da seção anterior usando essa lógica orientada a objetos?
 
 ```{python}
-x_ticks = [0,6,12,18,24]
-x_labels = ['fev/20','ago/20','fev/21','ago/21','fev/22']
-y_ticks = [0,1000000,2000000,3000000,4000000]
-y_labels = ['0','1,000,000','2,000,000','3,000,000','4,000,000']
-
+x_ticks = [1950,1960,1970,1980,1990,2000,2010,2020]
+x_labels = ['1950','1960','1970','1980','1990','2000','2010','2020']
+y_ticks = [5,6,7,8,9,10]
+y_labels = ['5','6','7','8','9','10']
 
 fig, ax = plt.subplots()
 
@@ -146,18 +129,15 @@ ax.set_xticks(x_ticks)
 ax.set_xticklabels(x_labels)
 ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels)
-ax.set_ylim(-200000, 4300000)
+ax.set_ylim(4.8, 10.2)
 
-plt.title('Número de novos casos mensais de Covid-19 no Brasil')
+plt.title('Horas médias trabalhadas por dia no Brasil')
 plt.show()
 ```
 
-Foram várias linhas de código a mais com essa abordagem mais orientada a objeto, mas que no fim nos permite muito mais personalizações. Vamos tentar deixá-lo ainda melhor?
+Foram várias linhas de código a mais com essa abordagem mais orientada a objeto, mas que no fim nos permite muito mais personalizações. Vamos tentar deixá-lo ainda melhor? A ideia por trás de uma figura é sempre a mesma: transmitir alguma informação de forma clara e direta. Seguindo essa ideia e partindo do gráfico inicial, vamos fazer mais algumas alterações uma a uma e ir comparando os resultados.
 
-A ideia por trás de uma figura é sempre a mesma: transmitir alguma informação de forma clara e direta. Seguindo essa ideia e partindo do gráfico inicial, vamos fazer mais algumas alterações uma a uma e ir comparando os resultados.
-
-* Mudar a proporção do gráfico e manter a borda apenas do eixo X
-
+- Mudar a proporção do gráfico e manter a borda apenas do eixo X
 
 ```{python}
 height = 6
@@ -177,8 +157,7 @@ ax.spines['bottom'].set_alpha(0.3)
 plt.show()
 ```
 
-* Colocar linhas de grid para os valores de Y
-
+- Colocar linhas de grid para os valores de Y
 
 ```{python}
 height = 6
@@ -201,8 +180,7 @@ ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.1)
 plt.show()
 ```
 
-* Mudar os marcadores do eixo x e do eixo y como já havíamos feito.
-
+- Mudar os marcadores do eixo x e do eixo y como já havíamos feito.
 
 ```{python}
 height = 6
@@ -228,15 +206,14 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites dos eixos
-ax.set_xlim(-1, 26)
-ax.set_ylim(-200000, 4300000)
+ax.set_xlim(1949, 2024)
+ax.set_ylim(4.8, 10.2)
 
 # Mostrar o resultado
 plt.show()
 ```
 
-* Adicionar uma linha de referência que representa a média do número de casos ao longo do tempo.
-
+- Adicionar uma linha de referência que representa a média de horas trabalhadas ao longo do tempo.
 
 ```{python}
 height = 6
@@ -262,20 +239,19 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites dos eixos
-ax.set_xlim(-1, 26)
-ax.set_ylim(-200000, 4300000)
+ax.set_xlim(1949, 2024)
+ax.set_ylim(4.8, 10.2)
 
 # Linha de referência
-ax.plot([-1, 26], [y.mean(), y.mean()], 'r--', lw=1.0)
-ax.annotate('Média de novos casos\nmensais: {:,.0f}'.format(y.mean()),xy=(-1, 1.10*y.mean()),fontsize=9.5,color='r',fontweight='normal',style='italic')
+ax.plot([1949, 2024], [y.mean(), y.mean()], 'r--', lw=1.0)
+ax.annotate('Média de horas trabalhadas\npor dia útil: {:,.2f}'.format(y.mean()),xy=(1949, 0.95*y.mean()),fontsize=9.5,color='r',fontweight='normal',style='italic')
 
 # Mostrar o resultado
 plt.show()
 ```
 
-* Deixar o título maior e um pouco afastado do início da figura, juntamente com a fonte dos dados logo abaixo.
-* Salvar a figura em formato .png
-
+- Deixar o título maior e um pouco afastado do início da figura, juntamente com a fonte dos dados logo abaixo.
+- Salvar a figura em formato .png
 
 ```{python}
 height = 6
@@ -301,19 +277,19 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites dos eixos
-ax.set_xlim(-1, 26)
-ax.set_ylim(-200000, 4300000)
+ax.set_xlim(1949, 2024)
+ax.set_ylim(4.8, 10.2)
 
 # Linha de referência
-ax.plot([-1, 26], [y.mean(), y.mean()], 'r--', lw=1.0)
-ax.annotate('Média de novos casos\nmensais: {:,.0f}'.format(y.mean()),xy=(-1, 1.10*y.mean()),fontsize=9.5,color='r',fontweight='normal',style='italic')
+ax.plot([1949, 2024], [y.mean(), y.mean()], 'r--', lw=1.0)
+ax.annotate('Média de horas trabalhadas\npor dia útil: {:,.2f}'.format(y.mean()),xy=(1949, 0.95*y.mean()),fontsize=9.5,color='r',fontweight='normal',style='italic')
 
 # Título e fonte
-plt.suptitle('Número de novos casos mensais de COVID19 - Brasil',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Horas médias trabalhadas por dia - Brasil',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=15)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('casos_covid_br.png', bbox_inches='tight')
+plt.savefig('avhbr_pwt11.png', bbox_inches='tight')
 plt.show()
 ```
 
@@ -325,30 +301,17 @@ Uma vez aprendida a forma de construção de um gráfico através da função `s
 
 ### Várias séries em um mesmo _plot_
 
-Uma vez em posse dos dados de casos de covid-19 por país, uma pergunta que surge naturalmente é: como o número de casos reportados diferiu entre os diferentes países? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo `ax.plot()`? É isso aí!
-
-Para essa análise vamos primeiro criar a coluna `new_cases_per_million`, já que comparar o número absoluto de casos entre países com populações muito distintas pode não ser a melhor saída.
-
+Uma vez em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo `ax.plot()`? É isso aí!
 
 ```{python}
-df_covid_mensal['new_cases_per_million'] = (df_covid_mensal['new_cases'] / df_covid_mensal['population']) * 1e6
-df_covid_mensal['total_cases_per_million'] = (df_covid_mensal['total_cases'] / df_covid_mensal['population']) * 1e6
-df_covid_mensal['total_deaths_per_million'] = (df_covid_mensal['total_deaths'] / df_covid_mensal['population']) * 1e6
+x_ticks = [1950,1960,1970,1980,1990,2000,2010,2020]
+x_labels = ['1950','1960','1970','1980','1990','2000','2010','2020']
+y_ticks = [5,6,7,8,9,10]
+y_labels = ['5','6','7','8','9','10']
 
-df_covid_br = df_covid_mensal[df_covid_mensal['location'].isin(['Brazil'])].reset_index(drop=True)
-df_covid_kr = df_covid_mensal[df_covid_mensal['location'].isin(['South Korea'])].reset_index(drop=True)
-
-x = df_covid_br['ano_mes'][-26:]
-y1 = df_covid_br['new_cases_per_million'][-26:]
-y2 = df_covid_kr['new_cases_per_million'][-26:]
-```
-
-
-```{python}
-x_ticks = [0,6,12,18,24]
-x_labels = ['fev/20','ago/20','fev/21','ago/21','fev/22']
-y_ticks = [0,10000,20000,30000,40000,50000]
-y_labels = ['0','10,000','20,000','30,000','40,000','50,000']
+x = df_pwt.loc[0:73,'year']
+y1 = df_pwt.loc[df_pwt['country']=='Brazil','avh'] / 260 
+y2 = df_pwt.loc[df_pwt['country']=='United States','avh'] / 260
 ```
 
 
@@ -356,7 +319,7 @@ y_labels = ['0','10,000','20,000','30,000','40,000','50,000']
 height = 6
 fig, ax = plt.subplots(1,1, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax.plot(x, y1, color='#1f77b4',linewidth=2,marker='o',markersize=4)
 ax.plot(x, y2, color='#d62728',linewidth=2,marker='s',markersize=4)
 
@@ -377,15 +340,15 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites dos eixos
-ax.set_xlim(-1, 26)
-ax.set_ylim(-1000, 55000)
+ax.set_xlim(1949, 2024)
+ax.set_ylim(4.8, 10.2)
 
 # Título e fonte
-plt.suptitle('Novos casos por 100 habitantes - Brasil e Coréia do Sul',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Horas médias trabalhadas por dia - Brasil',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=15)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('cm_covid_br.png', bbox_inches='tight')
+plt.savefig('avh_countries_pwt11.png', bbox_inches='tight')
 plt.show()
 ```
 
@@ -396,12 +359,12 @@ Super direto! Mas ainda falta a legenda. Para isso basta adicionar mais uma úni
 height = 6
 fig, ax = plt.subplots(1,1, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax.plot(x, y1, color='#1f77b4',linewidth=2,marker='o',markersize=4,label='Brasil')
-ax.plot(x, y2, color='#d62728',linewidth=2,marker='s',markersize=4,label='Coréia do Sul')
+ax.plot(x, y2, color='#d62728',linewidth=2,marker='s',markersize=4,label='Estados Unidos')
 
 # Legenda
-ax.legend(loc='center',bbox_to_anchor=(0.3,0.8),framealpha=0,ncol=2,prop={'size': 12})
+ax.legend(loc='center',bbox_to_anchor=(0.2,0.2),framealpha=0,ncol=1,prop={'size': 12})
 
 # Visibilidade das bordas
 ax.spines['top'].set_visible(False)
@@ -420,15 +383,15 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites dos eixos
-ax.set_xlim(-1, 26)
-ax.set_ylim(-1000, 55000)
+ax.set_xlim(1949, 2024)
+ax.set_ylim(4.8, 10.2)
 
 # Título e fonte
-plt.suptitle('Novos casos por 1,000,000 de habitantes',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Horas médias trabalhadas por dia - Brasil',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=15)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('casos_covid_brkr.png', bbox_inches='tight')
+plt.savefig('avh_countries_pwt11.png', bbox_inches='tight')
 plt.show()
 ```
 
@@ -440,6 +403,7 @@ Vamos tentar agora vários plots dentro da mesma figura?
 
 Uma outra alternativa ao gráfico acima seria colocar cada série em um plot separado. Para tal, basta alterar os dois primeiros argumentos da função `subplots()`, que representam o número de linhas e o número de colunas da figura final. Nesse caso, porém, o objeto `ax` deixará de ser um simples objeto do matplotlib e se torna um `numpy.ndarray` com vários objetos do matplotlib. Aqui funciona a mesma lógica de indexação de sempre.
 
+- Com uma linha e uma coluna na função subplots, ax é um objeto do matplotlib.
 
 ```{python}
 num_rows = 1
@@ -450,6 +414,7 @@ fig, ax = plt.subplots(num_rows,num_cols, figsize=(1.50*height, height))
 type(ax)
 ```
 
+- Com mais de linha e/ou coluna na função subplots, ax é um numpy array de objetos do matplotlib.
 
 ```{python}
 num_rows = 2
@@ -460,8 +425,7 @@ fig, ax = plt.subplots(num_rows,num_cols, figsize=(1.50*height, height))
 type(ax)
 ```
 
-Teremos que usar, portanto, algum tipo de loop justamente para poder lidar com as personalizações de cada plot de forma individual.
-
+Nesse mundo de múltiplos objetos gráficos, temos que usar algum tipo de loop justamente para poder lidar com as personalizações de cada plot de forma individual.
 
 ```{python}
 num_rows = 2
@@ -469,13 +433,13 @@ num_cols = 1
 height = 6
 fig, ax = plt.subplots(num_rows,num_cols, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax[0].plot(x, y1, color='#1f77b4',linewidth=2,marker='o',markersize=4,label='Brasil')
-ax[1].plot(x, y2, color='#d62728',linewidth=2,marker='s',markersize=4,label='Coréia do Sul')
+ax[1].plot(x, y2, color='#d62728',linewidth=2,marker='s',markersize=4,label='Estados Unidos')
 
 for i in range(0,2):
     # Legenda
-    ax[i].legend(loc='upper left',bbox_to_anchor=(0.05,0.9),framealpha=0,ncol=2,prop={'size': 10})
+    ax[i].legend(loc='upper left',bbox_to_anchor=(0.05,0.2),framealpha=0,ncol=1,prop={'size': 10})
 
     # Visibilidade das bordas
     ax[i].spines['top'].set_visible(False)
@@ -494,15 +458,15 @@ for i in range(0,2):
     ax[i].set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
     # Limites dos eixos
-    ax[i].set_xlim(-1, 26)
-    ax[i].set_ylim(-1000, 55000)
+    ax[i].set_xlim(1949, 2024)
+    ax[i].set_ylim(4.8, 10.2)
 
 # Título e fonte
-plt.suptitle('Novos casos por 100 habitantes',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=195)
+plt.suptitle('Horas médias trabalhadas por dia - Brasil',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=195)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('casos_covid_brkr2.png', bbox_inches='tight')
+plt.savefig('avh_countries2_pwt11.png', bbox_inches='tight')
 plt.show()
 ```
 
@@ -514,21 +478,19 @@ Como sempre, **o céu é o limite!**
 
 No entanto, gráficos de linhas não são os mais indicados quando estamos interessados em avaliar a relação entre duas variáveis e não de uma única variável ao longo do tempo, por exemplo. Para isso temos o **gráfico de dispersão** (_scatterplot_, em inglês), que nada mais é do que uma forma de representar pares ordenados de pontos ao longo de dois eixos.
 
-Vamos construir um exemplo de scatterplot utilizando as novas variáveis `total_cases_per_million` e `total_deaths_per_million`. É de se esperar que um número maior de casos por habitantes esteja relacionado diretamente com um número maior de mortes por habitantes, o que implicaria em uma relação positiva entre essas duas variáveis. Como ficaria a representação gráfica dessa relação para a média anual por país?
-
+Vamos construir um exemplo de scatterplot a partir da relação entre horas trabalhadas e PIB per capita para o ano de 2010. Se por um lado um número maior de horas trabalhadas na média pode estar associado a um PIB per capita maior de forma mecânica - mais trabalho levando a mais produção -, por outro lado países mais produtivos e desenvolvidos podem ter legislações que limitem a jornada de trabalho dos indivíduos justamente pelo fato de serem países ricos. Olhar para o gráfico de dispersão nesse caso pode nos dar uma luz em relação a qual efeito prevalece. Atenção: pela escala do PIB per capita, talvez seja melhor olhar para o log do PIB ao invés do número absoluto.
 
 ```{python}
-df_covid_mensal['ano'] = df_covid_mensal['ano_mes'].str[0:4]
-df_covid_anual = df_covid_mensal[['location','ano','total_cases_per_million','total_deaths_per_million']]
+df_pwt['pibpc'] = df_pwt['rgdpna'] / df_pwt['pop']
 
-df_covid_anual = df_covid_anual.groupby(by=['location','ano'], as_index=False).mean()
-x = df_covid_anual['total_cases_per_million']
-y = df_covid_anual['total_deaths_per_million']
+x = df_pwt.loc[df_pwt['year']==2010,'avh'] / 260
+y = df_pwt.loc[df_pwt['year']==2010,'pibpc']
+y = np.log(y)
 
-x_ticks = [0,100000,200000,300000]
-x_labels = ['0','100,000','200,000','300,000']
-y_ticks = [0,1000,2000,3000]
-y_labels = ['0','1,000','2,000','3,000']
+x_ticks = [5,7,9,11]
+x_labels = ['5','7','9','11']
+y_ticks = [5,7,9,11,13]
+y_labels = ['5','7','9','11','13']
 ```
 
 
@@ -536,7 +498,7 @@ y_labels = ['0','1,000','2,000','3,000']
 height = 6
 fig, ax = plt.subplots(1,1, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax.scatter(x,y,color='#1f77b4',marker='o',s=50)
 
 # Visibilidade das bordas
@@ -556,58 +518,57 @@ ax.set_yticks(y_ticks)
 ax.set_yticklabels(y_labels, fontsize=10, fontweight='light')
 
 # Limites e título dos eixos
-ax.set_xlim(-50000, 400000)
-ax.set_ylim(-100, 3500)
-ax.set_xlabel('Número de casos por milhão de habitantes',fontsize=12, fontweight='light', labelpad=20)
-ax.set_ylabel('Número de mortes por milhão de habitantes',fontsize=12, fontweight='light', labelpad=20)
+ax.set_xlim(4.8, 12)
+ax.set_ylim(4.8, 13.2)
+ax.set_xlabel('Número médio de horas trabalhadas por dia útil',fontsize=12, fontweight='light', labelpad=20)
+ax.set_ylabel('Log do PIB per capita (US$)',fontsize=12, fontweight='light', labelpad=20)
 
 # Título e fonte
-plt.suptitle('Casos VS Mortes - Top 10 países em casos',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Horas trabalhadas e PIB per capita, 2010',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=15)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('casos_mortes_scatter.png', bbox_inches='tight')
+plt.savefig('avh_pibpc_scatter.png', bbox_inches='tight')
 plt.show()
 ```
 
-Parece que tem uma relação positiva de fato. Para bater o martelo sobre a relação para todos os países, no entanto, seria necessário ir atrás de mais dados. Que tal refazer a análise buscando a amostra completa de países e não apenas os 10 países com o maior número absoluto de casos?
+A simples visualização do gráfico de dispersão não nos permite tirar muitas conclusões, já que não parece haver nenhuma relação clara entre as variáveis, seja positiva, seja negativa. Que tal refazer a análise olhando por grupo de país (desenvolvido _vs_ em desenvolvimento) ou olhando para um único país ao longo do tempo?
 
 ### Gráfico de barra: _bar_ e _barh_
 
-Um outro tipo de gráfico bastante interessante é o gráfico de barra, que serve muito ao propósito, por exemplo, de mostrar diferenças em uma variável de interesse, para um dado instante do tempo, entre regiões ou grupos diferentes. Dentre os 10 países com o maior número de casos, quais países tem a maior proporção da população com 65 anos ou mais?
-
-Aqui vamos usar apenas as colunas `iso_code` e `aged_65_older` para ordenar os países de acordo com a proporção de idosos em sua população. Como já vimos, os valores de `aged_65_older` são constantes ao longo do tempo no nível país. Podemos então partir da criação de um dataframe que contenha apenas os dados referentes ao último mês de dado e ficar com uma única observação por país.
-
+Um outro tipo de gráfico bastante interessante é o gráfico de barra, que serve muito ao propósito, por exemplo, de mostrar diferenças em uma variável de interesse, para um dado instante do tempo, entre regiões ou grupos diferentes. Dentre os 10 países com o maior PIB per capita em 2010, quais países tem ó maior número médio de horas trabalhadas? Aqui vamos usar o método `sort_values` e a coluna `pibpc` para ordenar os países de acordo com o PIB per capita. Atenção para o valor do parâmetro `ascending`, que ao ser definido como `False` estabelece que o ordenamento deve ser feito em ordem descendente.
 
 ```{python}
-df_covid_top10 = df_covid_mensal[df_covid_mensal['ano_mes']=='2022-03']
-df_covid_top10 = df_covid_top10[['location','aged_65_older']].reset_index(drop=True)
-df_covid_top10.sort_values(['aged_65_older'],ascending=False,ignore_index=True,inplace=True)
+df_pwt_top10 = df_pwt[df_pwt['year']==2010].copy()
+df_pwt_top10.sort_values(['pibpc'],ascending=False,ignore_index=True,inplace=True)
 
-df_covid_top10
+# Manter no dataframe apenas os países que possuem informações para todas as colunas
+df_pwt_top10.dropna(inplace=True)
+
+# Selecionar apenas os 10 países mais ricos
+df_pwt_top10 = df_pwt_top10.iloc[0:10,:].reset_index(drop=True)
+df_pwt_top10
 ```
 
 
 ```{python}
 # Para não dar problema com os labels do eixo x serem muito grandes, vamos substituir aqueles que tem nomes compostos
-df_covid_top10.loc[4,'location'] = 'United\nKingdom'
-df_covid_top10.loc[5,'location'] = 'United\nStates'
-df_covid_top10.loc[7,'location'] = 'South\nKorea'
+df_pwt_top10.loc[5,'country'] = 'United\nArab\nEmirates'
+df_pwt_top10.loc[9,'country'] = 'United\nStates'
 ```
 
 À partir desses dados, podemos construir 2 tipos de gráfico de barras:
 
-* Barra vertical
-
+- Barra vertical
 
 ```{python}
-x = df_covid_top10['location']
-y = df_covid_top10['aged_65_older']
+x = df_pwt_top10['country']
+y = df_pwt_top10['avh']
 
-height = 6
+height = 8
 fig, ax = plt.subplots(1,1, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax.bar(x,y,align='center',color='#1f77b4')
 
 # Visibilidade das bordas
@@ -621,22 +582,21 @@ ax.spines['bottom'].set_alpha(0.3)
 ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.1) 
 
 # Título e fonte
-plt.suptitle('Fração da população 65+ - Top 10 países em casos',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Número médio de horas trabalhadas nos 10 países mais ricos, 2010',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=25)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('frac65plus_bar.png', bbox_inches='tight')
+plt.savefig('avh_bar.png', bbox_inches='tight')
 plt.show()
 ```
 
-* Barra horizontal
-
+- Barra horizontal
 
 ```{python}
-height = 6
+height = 8
 fig, ax = plt.subplots(1,1, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
+# Séries a serem plotadas
 ax.barh(x,y,align='center',color='#1f77b4')
 
 # Visibilidade das bordas
@@ -650,49 +610,41 @@ ax.spines['bottom'].set_alpha(0.3)
 ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.1) 
 
 # Título e fonte
-plt.suptitle('Fração da população 65+ - Top 10 países em casos',fontsize=15,fontweight='normal')
-plt.title('Fonte: Our World in Data',fontsize=12,fontweight='normal',pad=15)
+plt.suptitle('Número médio de horas trabalhadas nos 10 países mais ricos, 2010',fontsize=15,fontweight='normal')
+plt.title('Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal',pad=25)
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('frac65plus_barh.png', bbox_inches='tight')
+plt.savefig('avh_barh.png', bbox_inches='tight')
 plt.show()
 ```
 
 ### Histograma: _hist_
 
-O Matplotlib também nos oferece um conjunto bastante grande de gráficos estatísticos, como por exemplo o _boxplot_ e o _histograma_. Vamos utilizar esse último, através da função `hist`, para plotar em uma mesma figura histogramas de 4 variáveis diferentes: `median_age`, `aged_65_older`, `cardiovasc_death_rate` e `diabetes_prevalence`.
+O Matplotlib também nos oferece um conjunto bastante grande de gráficos estatísticos, como por exemplo o _boxplot_ e o _histograma_. Vamos utilizar esse último, através da função `hist`, para plotar em uma mesma figura histogramas de 4 variáveis diferentes para o ano de 2010: `pop`, `emp`, `avh` e `pibpc`.
 
 
 ```{python}
-df_covid_top10 = df_covid_mensal[df_covid_mensal['ano_mes']=='2022-03']
+df_pwt2010 = df_pwt[df_pwt['year']==2010].copy()
+df_pwt2010.dropna(inplace=True)
+df_pwt2010['pibpc'] = np.log(df_pwt2010['pibpc'])
+# Exclusão de China e Índia, países com mais de 1 bilhão de habitantes, para melhor visualização
+df_pwt2010 = df_pwt2010.loc[df_pwt2010['pop']<1000,:]
 
-df_covid_top10 = df_covid_top10[['location',
-                                 'median_age',
-                                 'aged_65_older',
-                                 'cardiovasc_death_rate',
-                                 'diabetes_prevalence']].reset_index(drop=True)
-
-df_covid_top10
-```
-
-
-```{python}
 num_rows = 2
 num_cols = 2
-height = 6
+height = 8
 fig, ax = plt.subplots(num_rows,num_cols, figsize=(1.50*height, height))
 
-# Séries a serem plotdas
-ax[0,0].hist(df_covid_top10['median_age'],color='#1f77b4',bins=10)
-ax[0,1].hist(df_covid_top10['aged_65_older'],color='#1f77b4',bins=10)
-ax[1,0].hist(df_covid_top10['cardiovasc_death_rate'],color='#1f77b4',bins=10)
-ax[1,1].hist(df_covid_top10['diabetes_prevalence'],color='#1f77b4',bins=10)
+# Séries a serem plotadas
+ax[0,0].hist(df_pwt2010['pop'],color='#1f77b4',bins=40)
+ax[0,1].hist(df_pwt2010['emp'],color='#1f77b4',bins=40)
+ax[1,0].hist(df_pwt2010['avh'],color='#1f77b4',bins=40)
+ax[1,1].hist(df_pwt2010['pibpc'],color='#1f77b4',bins=40)
 
-ax[0,0].set_title('Idade mediana', fontsize=8, fontweight='light')
-ax[0,1].set_title('Fração pop. 65+', fontsize=8, fontweight='light')
-ax[1,0].set_title('Taxa de mort. cardiovascular', fontsize=8, fontweight='light')
-ax[1,1].set_title('Prevalência de diabetes', fontsize=8, fontweight='light')
-
+ax[0,0].set_title('População (milhões)', fontsize=8, fontweight='light')
+ax[0,1].set_title('Pessoas empregadas (milhões)', fontsize=8, fontweight='light')
+ax[1,0].set_title('Horas trabalhadas por dia útil', fontsize=8, fontweight='light')
+ax[1,1].set_title('Log do PIB per capita', fontsize=8, fontweight='light')
 
 for r in range(0,2):
     for c in range(0,2):
@@ -705,28 +657,23 @@ for r in range(0,2):
 
         # Linhas de grid
         ax[r,c].grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.1) 
-        
-        # Opções do eixo y
-        ax[r,c].set_yticks([0,1,2,3,4])
-        ax[r,c].set_yticklabels(['0','1','2','3','4'], fontsize=10, fontweight='light')
-        ax[r,c].set_ylim(0,4.5)
 
         
 # Ajuste de espaço entre os vários plots
 fig.subplots_adjust(hspace = 0.6, wspace = 0.3)
 
 # Título e fonte
-plt.suptitle('Características dos países com o maior número de casos de covid19',y=1.05,fontsize=15,fontweight='normal')
-plt.text(0, 13.3,'Fonte: Our World in Data',fontsize=12,fontweight='normal')
+plt.suptitle('Características dos países em 2010',y=1.05,fontsize=15,fontweight='normal')
+plt.text(2.7, 25.3,'Fonte: Penn World Table, Versão 11.0',fontsize=12,fontweight='normal')
 
 # Salvar a figura e mostrar o resultado
-plt.savefig('carac_covid_all.png', bbox_inches='tight')
+plt.savefig('carac_countries_all.png', bbox_inches='tight')
 plt.show()
 ```
 
-## Seaborn 
+<!-- ## Seaborn --> 
 
-## Plotly
+<!-- ## Plotly -->
 
 ## Visualização e _storytelling_
 

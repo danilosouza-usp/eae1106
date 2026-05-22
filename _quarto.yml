@@ -41,7 +41,7 @@ book:
       chapters:
         - numpy.qmd
         - pandas.qmd
-        #- visualizacao.qmd
+        - visualizacao.qmd
         #- projeto_empirico.qmd
         
     - part: complemento.qmd
