@@ -235,7 +235,6 @@ As operações de multiplicação e divisão entre arrays são um pouco diferent
 
 Para realizar as operações _elementwise_ basta utilizar os sinais usuais de `*` e `/`, independentemente do número de dimesões do array.
 
-
 ```{python}
 print('Vetores x e y:')
 print('x =',x)
@@ -653,6 +652,19 @@ Nesta aula, introduzimos os arrays do NumPy como a principal estrutura para comp
 
 ## Exercícios
 
-1. X
+1. Considere a matriz (ndarray de duas dimensões) abaixo:
+
+```python
+matriz = np.array([[ 1,  2,  3,  4],
+                   [ 5,  6,  7,  8],
+                   [ 9, 10, 11, 12],
+                   [13, 14, 15, 16]])
+```
+
+A partir desse objeto, 
+
+  a. extraia apenas a segunda linha.
+  a. extraia apenas a terceira coluna.
+  a. extraia a submatriz central $2 \times 2$ (6, 7, 10, 11).
 
 2. X

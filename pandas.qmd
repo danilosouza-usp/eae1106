@@ -544,10 +544,22 @@ Em resumo, parte importante da estratégia de otimização na gestão de memóri
 
 ## Conclusão
 
-Neste capítulo introduzimos o `Pandas`, principal ferramenta de manipulação de dados em Python. Com ela, passamos a trabalhar com bases tabulares semelhantes às utilizadas em aplicações empíricas reais. As operações estudadas, como filtragem, transformação, agrupamento e combinação de bases, formam o núcleo do processo de preparação de dados em projetos de pesquisa. Nos próximos tópicos, utilizaremos essas estruturas para construir visualizações e realizar análises estatísticas mais completas.
+Neste capítulo introduzimos o `Pandas`, principal biblioteca de manipulação de dados em Python. Com ela, passamos a trabalhar com bases tabulares semelhantes às utilizadas em aplicações empíricas reais. Ao longo da aula exploramos operações centrais do processo de análise de dados, como importação de arquivos, filtragem, criação de variáveis, agrupamento e combinação de bases. Essas ferramentas compõem a etapa de preparação de dados, parte fundamental de praticamente qualquer projeto empírico em Economia.
+
+Em aplicações reais, uma parcela significativa do trabalho é dedicada justamente à organização e transformação das bases utilizadas na análise. Dominar essas operações é essencial para construir rotinas reproduzíveis e produzir análises confiáveis. Nos próximos capítulos utilizaremos os DataFrames construídos aqui para produzir visualizações e realizar análises estatísticas mais completas.
 
 ## Exercícios
 
-1. X
+1. Considere a base de dados original da PWT, disponível [aqui](https://www.rug.nl/ggdc/productivity/pwt/?lang=en). Baixe a versão em Excel e utilize a função `read_excel` para ler os dados disponíveis na aba `Data` no formato de um DataFrame do Pandas.
 
-2. X
+    a. Quantas linhas e colunas existem na base?
+    b. Quais são os tipos de dados de cada coluna? 
+    c. Qual coluna ocupa mais memória?
+
+2. Ainda sobre a base de dados do exercício anterior:
+
+    a. Construa uma lista com os nomes dos países da América do Sul e utilize essa lista para selecionar, a partir do DataFrame original, apenas as observações referentes a esses países.
+    b. Crie uma nova coluna contendo o logaritmo do PIB per capita. A partir dos valores dessa nova coluna, crie uma coluna booleana indicando se o país possui PIB per capita acima da mediana da amostra.
+    c. Ordene a base do maior para o menor PIB per capita. Quais eram os 10 países com maior PIB per capita em 1995? E em 2019?
+
+3. X

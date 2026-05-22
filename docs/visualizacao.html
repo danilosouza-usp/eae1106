@@ -307,6 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introdução" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">9.1</span> Introdução</h2>
+<p>Até aqui trabalhamos principalmente com tabelas, vetores e operações numéricas. Entretanto, grande parte da análise empírica em Economia depende da capacidade de explorar padrões visualmente. Gráficos permitem identificar tendências, distribuições, relações entre variáveis e possíveis problemas nos dados antes mesmo de qualquer modelagem estatística.</p>
+<p>Em Python, a principal biblioteca para construção de gráficos é o <code>matplotlib</code>. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.</p>
 <div id="fig-olddesk" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-olddesk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -317,6 +319,7 @@ Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 </figcaption>
 </figure>
 </div>
+<p>Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.</p>
 <section id="pré-requisitos" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">9.1.1</span> Pré-requisitos</h3>
 <p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos quatro pacotes externos:</p>
@@ -326,7 +329,7 @@ Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <li><code>pandas</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="c06422e2" class="cell" data-message="false" data-execution_count="1">
+<div id="b3482663" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -341,7 +344,7 @@ Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <section id="construindo-nosso-1º-gráfico" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="construindo-nosso-1º-gráfico"><span class="header-section-number">9.3</span> Construindo nosso 1º gráfico</h2>
 <p>Em relação aos dados, utilizaremos mais uma vez os dados da <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en">Penn World Table version 11.0</a>, base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023.</p>
-<div id="ab19babb" class="cell" data-execution_count="2">
+<div id="146164d4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># substituir esse caminho de diretório pelo caminho que você estiver utilizando no seu computador</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'C:/Users/user/Desktop/EAE1106'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -365,7 +368,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Com o dataframe criado, podemos plotar o número médio de horas trabalhadas no Brasil ao longo do tempo usando apenas a função <code>plot</code>. Para isso utilizaremos a variável <code>avh</code>, que contabiliza o número de horas trabalhadas ao longo de um ano na média das pessoas empregadas. Para uma representação mais clara, dividirei esse número por 260, que é o número de dias de semana (segunda à sexta-feira) em um ano típico. Passamos então para a função plot como argumento os valores do eixo <code>x</code> (ano) e do eixo <code>y</code> (horas trabalhadas) e ela nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Após isso, é preciso chamar a função <code>show()</code> para mostrar o gráfico que criamos.</p>
-<div id="7951f3c9" class="cell" data-execution_count="3">
+<div id="4ae4c215" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_pwtbr <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'Brazil'</span>,:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwtbr[<span class="st">'year'</span>]</span>
@@ -391,7 +394,7 @@ memory usage: 641.8+ KB</code></pre>
 <li>Adicionar título ao gráfico.</li>
 </ul>
 <p>Sabemos que nossos dados começam no ano de 1950 e vão até 2023. Para ajustar o eixo y, porém, é importante conhecer os limites numéricos do número médio de horas trabalhadas.</p>
-<div id="6601ad92" class="cell" data-execution_count="4">
+<div id="2115ccde" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_pwtbr.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -480,7 +483,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Agora podemos usar algumas opções e métodos sobre o <code>plot</code> que criamos dentro da célula para aplicar todas essas alterações sugeridas.</p>
-<div id="aa3f0c24" class="cell" data-execution_count="5">
+<div id="015e499a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -501,13 +504,13 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 </div>
-<p>Bem melhor né? Mas ainda dá para melhorar <strong>muito</strong>!</p>
+<p>O gráfico gerado até aqui já representa corretamente os dados, mas ainda possui aparência bastante simples. Em aplicações reais, normalmente precisamos ajustar elementos visuais para melhorar legibilidade e comunicação.</p>
 <p>Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.</p>
 </section>
 <section id="personalização" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="personalização"><span class="header-section-number">9.4</span> Personalização</h2>
 <p>Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores.</p>
-<div id="c52d0756" class="cell" data-execution_count="6">
+<div id="77dd75d5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
@@ -525,7 +528,7 @@ memory usage: 641.8+ KB</code></pre>
 <li><code>fig</code> é como se fosse um fundo branco.</li>
 <li>Pense em <code>ax</code> como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.</li>
 </ul>
-<div id="9dbc4760" class="cell" data-execution_count="7">
+<div id="4627a23e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig.set_facecolor(<span class="st">"red"</span>)</span>
@@ -541,7 +544,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Em essência, a função <code>plot()</code> é na verdade um método do objeto <code>ax</code>. Embora fazer esse gráfico simples dessa forma exija um pouco mais de código, o uso explícito de objetos nos dá melhor controle sobre a aparência do objeto e de todas as personalizações possíveis. Isso ficará mais claro à medida que avançarmos. Como podemos replicar o 2º gráfico da seção anterior usando essa lógica orientada a objetos?</p>
-<div id="6827448f" class="cell" data-execution_count="8">
+<div id="7961d953" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -570,7 +573,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Mudar a proporção do gráfico e manter a borda apenas do eixo X</li>
 </ul>
-<div id="ef216dfb" class="cell" data-execution_count="9">
+<div id="d82901bb" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -597,7 +600,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Colocar linhas de grid para os valores de Y</li>
 </ul>
-<div id="27fe8a5c" class="cell" data-execution_count="10">
+<div id="a939f6bd" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -627,7 +630,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Mudar os marcadores do eixo x e do eixo y como já havíamos feito.</li>
 </ul>
-<div id="bb2f9503" class="cell" data-execution_count="11">
+<div id="8f593231" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -667,7 +670,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Adicionar uma linha de referência que representa a média de horas trabalhadas ao longo do tempo.</li>
 </ul>
-<div id="afdb71d2" class="cell" data-execution_count="12">
+<div id="30359739" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,7 +715,7 @@ memory usage: 641.8+ KB</code></pre>
 <li>Deixar o título maior e um pouco afastado do início da figura, juntamente com a fonte dos dados logo abaixo.</li>
 <li>Salvar a figura em formato .png</li>
 </ul>
-<div id="03c93bcc" class="cell" data-execution_count="13">
+<div id="0429f181" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -744,7 +747,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Média de horas trabalhadas</span><span class="ch">\n</span><span class="st">por dia útil: </span><span class="sc">{:,.2f}</span><span class="st">'</span>.<span class="bu">format</span>(y.mean()),xy<span class="op">=</span>(<span class="dv">1949</span>, <span class="fl">0.95</span><span class="op">*</span>y.mean()),fontsize<span class="op">=</span><span class="fl">9.5</span>,color<span class="op">=</span><span class="st">'r'</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,style<span class="op">=</span><span class="st">'italic'</span>)</span>
 <span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia - Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia, Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Penn World Table, Versão 11.0'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
@@ -766,7 +769,7 @@ memory usage: 641.8+ KB</code></pre>
 <section id="várias-séries-em-um-mesmo-plot" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="várias-séries-em-um-mesmo-plot"><span class="header-section-number">9.5.1</span> Várias séries em um mesmo <em>plot</em></h3>
 <p>Uma vez em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo <code>ax.plot()</code>? É isso aí!</p>
-<div id="d7a132e5" class="cell" data-execution_count="14">
+<div id="6d66568b" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -776,7 +779,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'Brazil'</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span> </span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'United States'</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="bbf26757" class="cell" data-execution_count="15">
+<div id="b84ffab7" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -805,7 +808,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">4.8</span>, <span class="fl">10.2</span>)</span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia - Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia, Brasil e Estados Unidos'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Penn World Table, Versão 11.0'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
@@ -820,7 +823,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Super direto! Mas ainda falta a legenda. Para isso basta adicionar mais uma única linha de código.</p>
-<div id="7c2f64d2" class="cell" data-execution_count="16">
+<div id="f96d1441" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -852,7 +855,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">4.8</span>, <span class="fl">10.2</span>)</span>
 <span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia - Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Penn World Table, Versão 11.0'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
@@ -875,7 +878,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Com uma linha e uma coluna na função subplots, ax é um objeto do matplotlib.</li>
 </ul>
-<div id="c625a63d" class="cell" data-execution_count="17">
+<div id="e8e8b09e" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -896,7 +899,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Com mais de linha e/ou coluna na função subplots, ax é um numpy array de objetos do matplotlib.</li>
 </ul>
-<div id="ee036291" class="cell" data-execution_count="18">
+<div id="0ddb7c8c" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -915,7 +918,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Nesse mundo de múltiplos objetos gráficos, temos que usar algum tipo de loop justamente para poder lidar com as personalizações de cada plot de forma individual.</p>
-<div id="ab873eb5" class="cell" data-execution_count="19">
+<div id="702d7460" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -950,7 +953,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    ax[i].set_ylim(<span class="fl">4.8</span>, <span class="fl">10.2</span>)</span>
 <span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Título e fonte</span></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia - Brasil'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Horas médias trabalhadas por dia'</span>,fontsize<span class="op">=</span><span class="dv">15</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Fonte: Penn World Table, Versão 11.0'</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">'normal'</span>,pad<span class="op">=</span><span class="dv">195</span>)</span>
 <span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Salvar a figura e mostrar o resultado</span></span>
@@ -973,7 +976,7 @@ memory usage: 641.8+ KB</code></pre>
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="gráfico-de-dispersão-scatter"><span class="header-section-number">9.6.1</span> Gráfico de dispersão: <em>scatter</em></h3>
 <p>No entanto, gráficos de linhas não são os mais indicados quando estamos interessados em avaliar a relação entre duas variáveis e não de uma única variável ao longo do tempo, por exemplo. Para isso temos o <strong>gráfico de dispersão</strong> (<em>scatterplot</em>, em inglês), que nada mais é do que uma forma de representar pares ordenados de pontos ao longo de dois eixos.</p>
 <p>Vamos construir um exemplo de scatterplot a partir da relação entre horas trabalhadas e PIB per capita para o ano de 2010. Se por um lado um número maior de horas trabalhadas na média pode estar associado a um PIB per capita maior de forma mecânica - mais trabalho levando a mais produção -, por outro lado países mais produtivos e desenvolvidos podem ter legislações que limitem a jornada de trabalho dos indivíduos justamente pelo fato de serem países ricos. Olhar para o gráfico de dispersão nesse caso pode nos dar uma luz em relação a qual efeito prevalece. Atenção: pela escala do PIB per capita, talvez seja melhor olhar para o log do PIB ao invés do número absoluto.</p>
-<div id="15ff664e" class="cell" data-execution_count="20">
+<div id="625a21d4" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_pwt[<span class="st">'pibpc'</span>] <span class="op">=</span> df_pwt[<span class="st">'rgdpna'</span>] <span class="op">/</span> df_pwt[<span class="st">'pop'</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span></span>
@@ -985,7 +988,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>]</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'5'</span>,<span class="st">'7'</span>,<span class="st">'9'</span>,<span class="st">'11'</span>,<span class="st">'13'</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ecec8384" class="cell" data-execution_count="21">
+<div id="886cfb1a" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1034,7 +1037,7 @@ memory usage: 641.8+ KB</code></pre>
 <section id="gráfico-de-barra-bar-e-barh" class="level3" data-number="9.6.2">
 <h3 data-number="9.6.2" class="anchored" data-anchor-id="gráfico-de-barra-bar-e-barh"><span class="header-section-number">9.6.2</span> Gráfico de barra: <em>bar</em> e <em>barh</em></h3>
 <p>Um outro tipo de gráfico bastante interessante é o gráfico de barra, que serve muito ao propósito, por exemplo, de mostrar diferenças em uma variável de interesse, para um dado instante do tempo, entre regiões ou grupos diferentes. Dentre os 10 países com o maior PIB per capita em 2010, quais países tem ó maior número médio de horas trabalhadas? Aqui vamos usar o método <code>sort_values</code> e a coluna <code>pibpc</code> para ordenar os países de acordo com o PIB per capita. Atenção para o valor do parâmetro <code>ascending</code>, que ao ser definido como <code>False</code> estabelece que o ordenamento deve ser feito em ordem descendente.</p>
-<div id="7033c805" class="cell" data-execution_count="22">
+<div id="41a8dd64" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_pwt_top10 <span class="op">=</span> df_pwt[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>].copy()</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.sort_values([<span class="st">'pibpc'</span>],ascending<span class="op">=</span><span class="va">False</span>,ignore_index<span class="op">=</span><span class="va">True</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1168,7 +1171,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="f726586e" class="cell" data-execution_count="23">
+<div id="bf0d6529" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para não dar problema com os labels do eixo x serem muito grandes, vamos substituir aqueles que tem nomes compostos</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.loc[<span class="dv">5</span>,<span class="st">'country'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">Arab</span><span class="ch">\n</span><span class="st">Emirates'</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.loc[<span class="dv">9</span>,<span class="st">'country'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">States'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1177,7 +1180,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Barra vertical</li>
 </ul>
-<div id="fb83cf78" class="cell" data-execution_count="24">
+<div id="6cc029f1" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwt_top10[<span class="st">'country'</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_pwt_top10[<span class="st">'avh'</span>]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1215,7 +1218,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Barra horizontal</li>
 </ul>
-<div id="0add3214" class="cell" data-execution_count="25">
+<div id="96a44b84" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1251,7 +1254,7 @@ memory usage: 641.8+ KB</code></pre>
 <section id="histograma-hist" class="level3" data-number="9.6.3">
 <h3 data-number="9.6.3" class="anchored" data-anchor-id="histograma-hist"><span class="header-section-number">9.6.3</span> Histograma: <em>hist</em></h3>
 <p>O Matplotlib também nos oferece um conjunto bastante grande de gráficos estatísticos, como por exemplo o <em>boxplot</em> e o <em>histograma</em>. Vamos utilizar esse último, através da função <code>hist</code>, para plotar em uma mesma figura histogramas de 4 variáveis diferentes para o ano de 2010: <code>pop</code>, <code>emp</code>, <code>avh</code> e <code>pibpc</code>.</p>
-<div id="bd506a14" class="cell" data-execution_count="26">
+<div id="afd113cf" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_pwt2010 <span class="op">=</span> df_pwt[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>].copy()</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_pwt2010.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_pwt2010[<span class="st">'pibpc'</span>] <span class="op">=</span> np.log(df_pwt2010[<span class="st">'pibpc'</span>])</span>
