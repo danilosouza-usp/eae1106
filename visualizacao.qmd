@@ -8,8 +8,6 @@ Em Python, a principal biblioteca para construção de gráficos é o `matplotli
 
 ![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento](images/dunningkruger.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
 
-<!-- trocar a imagem por algum gráfico do Dunning-Kruger Effect em portuguÊs -->
-
 Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.
 
 ### Pré-requisitos
@@ -697,11 +695,11 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 
 3. **Elementos visuais e textuais devem funcionar de forma integrada**. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele.
 
-::: {#fig-visualization layout-ncol=1 width=600px max-width=100% fig-align="center"}
+::: {#fig-visualization layout-ncol=1 width=700px max-width=100% fig-align="center"}
 
-![Gráfico original](images/vis1.jpg)
+![Gráfico original](images/vis1.jpg){width=600px}
 
-![Gráfico redesenhado, com alterações nos elementos visuais](images/vis2.jpg)
+![Gráfico redesenhado, com alterações nos elementos visuais](images/vis2.jpg){width=600px}
 
 Exemplo de mudanças na estrutura do gráfico que aumentam seu conteúdo informacional. Fonte: _Schwabish (2014)_
 :::
