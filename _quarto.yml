@@ -42,7 +42,7 @@ book:
         - numpy.qmd
         - pandas.qmd
         - visualizacao.qmd
-        #- projeto_empirico.qmd
+        - projeto_empirico.qmd
         
     - part: complemento.qmd
       #chapters:

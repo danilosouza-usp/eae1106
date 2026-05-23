@@ -11,7 +11,7 @@ Em economia aplicada, praticamente todo trabalho empírico utiliza operações d
 
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+O foco deste capítulo será o pacote _Pandas_, que, apesar de já vir instalado com o Anaconda, não é nativo do Python e, portanto, é preciso carregá-lo. Além disso, por conta de suas estrutura e lógica de operações elemento a elemento, utilizaremos também o _NumPy_. O pacote `os` serve ao propósito de gerir local de trabalho e diretórios.
 
 - `numpy`
 - `pandas`
@@ -53,7 +53,7 @@ Embora o Pandas se utilize em grande medida da estrutura e lógica do NumPy e se
 
 Você pode pensar em uma série como uma coluna de dados, como uma sequência de observações em uma única variável. Por outro lado, um DataFrame é um objeto bidimensional para armazenar colunas de dados relacionadas, assim como uma tabela do Microsoft Excel, com linhas que identificam a qual entidade as informações das colunas se referem. A Figura @fig-dataframe ilustra essa diferença.
 
-![Ilustração dos objetos do Pandas em uma mesma base de dados](images/dataframe.png){#fig-dataframe width=800px max-width=100% fig-align="center"}
+![Ilustração dos objetos do Pandas em uma mesma base de dados](images/dataframe.jpg){#fig-dataframe width=800px max-width=100% fig-align="center"}
 
 ## Objetos no Pandas
 
@@ -429,7 +429,7 @@ df_pwt_concat
 
 Para compreender completamente o segundo caso, é preciso entender que existem formas diferentes de adicionar novas informações às entidades existentes. E a teoria dos conjuntos nos ajuda a entender melhor como isso funciona. Utilizando uma coluna (ou colunas) que identifiquem unicamente pelo menos uma das bases de dados (A ou B) é possível unir as informações de modo a compor um único dataframe. É preciso, porém, ter claro o objetivo da mesclagem. Assim será possível definir quais dos casos que mais se encaixa ao problema em questão. A Figura @fig-merge ilustra os diferentes casos.
 
-![Tipo de união entre duas bases de dados, A e B](images/merge.png){#fig-merge width=400px max-width=100% fig-align="center"}
+![Tipo de união entre duas bases de dados, A e B](images/merge.jpg){#fig-merge width=400px max-width=100% fig-align="center"}
 
 Agora sim podemos dar um passo adiante e utilizar a função `merge` para unir as bases do Brasil e EUA. Essa função une duas bases de acordo com algum identificador e com algum método de união. O identificador pode vir do índice do dataframe ou mesmo de alguma coluna específica.  No nosso caso utilizaremos a coluna de década como identificadora através do parâmetro `on`. Falta definir agora como a junção será feita ou como lidar com os casos em que um valor da coluna identificadora aparece apenas em uma das bases de dados. Como desejamos manter apenas as observações que estão presentes em ambos os dataframes, utilizamos o valor `inner` no parâmetro `how`.
 

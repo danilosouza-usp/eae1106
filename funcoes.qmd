@@ -445,3 +445,20 @@ triangle('L', 5)
 
 4. Defina uma função que recebe uma temperatura em Celsius e retorna o valor convertido para Fahrenheit com duas casas decimais. Agora crie uma segunda função, mais genérica, que receba como primeiro argumento `CtoF` ou `FtoC` e como segundo argumento a temperatura. Essa segunda função deve ser capaz de converter as escalas de temperatura em ambas as direções. Por padrão, o primeiro argumento deve ser definido como `CtoF`.
 
+5. (Prova de 2024) Escreva uma função `teste_primo` que testa se um número qualquer é primo, ou seja, se ele é divisível apenas por 1 e por ele próprio. Essa função deve imprimir como resultado a frase `O número X é um número primo.` ou `O número X não é um número primo. Seu menor divisor é Y`, em que X é o argumento que a função recebe e Y é o menor valor inteiro pelo qual X é divisível. Aplique a função aos valores $523$, $991$ e $1007$.
+
+6. (Prova de 2026) Considere as duas funções abaixo:
+
+```python
+def soma1(a,b):
+    resultado = a + b
+    print(resultado)
+
+def soma2(a, b):
+    resultado = a + b
+    return resultado
+```
+
+    a. Suponha $a=10$ e $b=15.7$. Discuta a saída das funções `soma1` e `soma2`. Existe alguma diferença?
+    b. Explique o que está incorreto do ponto de vista do funcionamento esperado da função quando da aplicação de soma1. Que tipo de erro é esse?
+

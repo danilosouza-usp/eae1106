@@ -642,3 +642,14 @@ Neste capítulo, introduzimos os tipos primitivos do Python -- `int`, `float`, `
 4. Discorra sobre as principais diferenças entre listas e tuplas. A partir da sua resposta, discuta sobre qual das estruturas é mais indicada para armazenar (i) as notas obtidas por um aluno em determinadas disciplinas e (ii) as coordenadas geográficas de uma cidade (latitude e longitude).
 
 5. Por quê tuplas podem ser chaves de dicionário e listas não?
+
+6. (Prova de 2024) Suponha que você trabalhe em um banco de investimentos e seja responsável por acompanhar quando as empresas passam a ser negociadas pela primeira vez na bolsa de valores, as aberturas de capital ou IPOs. Considere as listas abaixo e responda: 
+
+```python
+empresas = ['SEQUOIA LOG','INFRACOMM ON NM','ALPHAVILLE ON NM','AERIS ON NM','DOTZ SA ON NM','ESPACOLASER ON NM','AGROGALAXY ON NM','TC ON NM','WESTWING ON NM']
+tickers = ['SEQL3','IFCM3','AVLL3','AERI3','DOTZ3','ESPA3','AGXY3','TRAD3','WEST3']
+ipo = ['07/10/2020','04/05/2021','07/12/2020','10/11/2020','31/05/2021','01/02/2021','26/07/2021','28/07/2021','11/02/2021']
+```
+
+    a. Utilize loops para criar um dicionário `dict_IPOs` que a cada novo IPO adiciona o ticker da empresa como chave e uma tupla como valor associado, em que o primeiro elemento é o nome da empresa e o segundo a data do IPO.
+    b. Adicione ao dicionário a informação a respeito da empresa `KORA SAUDE ON NM`, que tem como ticker `KRSA3` e teve seu IPO realizado no dia 13/08/2021.

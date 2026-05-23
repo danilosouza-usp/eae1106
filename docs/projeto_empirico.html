@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>Prefácio – Métodos Computacionais para Economia</title>
+<title>10&nbsp; Análise empírica integrada – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./alfabetizacao.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./complemento.html" rel="next">
+<link href="./visualizacao.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -85,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prefacio.html">Prefácio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pacotes.html">Computação numérica, análise de dados e visualização</a></li><li class="breadcrumb-item"><a href="./projeto_empirico.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Análise empírica integrada</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -122,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prefacio.html" class="sidebar-item-text sidebar-link active">
+  <a href="./prefacio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefácio</span></a>
   </div>
 </li>
@@ -202,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projeto_empirico.html" class="sidebar-item-text sidebar-link">
+  <a href="./projeto_empirico.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Análise empírica integrada</span></span></a>
   </div>
 </li>
@@ -223,15 +258,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">10.1</span> Introdução</a>
+  <ul class="collapse">
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</a></li>
+  </ul></li>
+  <li><a href="#a-estrutura-de-um-projeto-empírico" id="toc-a-estrutura-de-um-projeto-empírico" class="nav-link" data-scroll-target="#a-estrutura-de-um-projeto-empírico"><span class="header-section-number">10.2</span> A estrutura de um projeto empírico</a></li>
+  <li><a href="#etapas-de-desenvolvimento" id="toc-etapas-de-desenvolvimento" class="nav-link" data-scroll-target="#etapas-de-desenvolvimento"><span class="header-section-number">10.3</span> Etapas de desenvolvimento</a>
+  <ul class="collapse">
+  <li><a href="#pergunta-de-pesquisa-e-hipótese" id="toc-pergunta-de-pesquisa-e-hipótese" class="nav-link" data-scroll-target="#pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</a></li>
+  <li><a href="#base-de-dados-e-documentação" id="toc-base-de-dados-e-documentação" class="nav-link" data-scroll-target="#base-de-dados-e-documentação"><span class="header-section-number">10.3.2</span> Base de dados e documentação</a></li>
+  <li><a href="#análise-estatística-e-visualização" id="toc-análise-estatística-e-visualização" class="nav-link" data-scroll-target="#análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</a></li>
+  <li><a href="#interpretação-e-limitações" id="toc-interpretação-e-limitações" class="nav-link" data-scroll-target="#interpretação-e-limitações"><span class="header-section-number">10.3.4</span> Interpretação e limitações</a></li>
+  </ul></li>
+  <li><a href="#boas-práticas" id="toc-boas-práticas" class="nav-link" data-scroll-target="#boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">10.5</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">10.6</span> Exercícios</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/projeto_empirico.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pacotes.html">Computação numérica, análise de dados e visualização</a></li><li class="breadcrumb-item"><a href="./projeto_empirico.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Análise empírica integrada</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-prefacio" class="quarto-section-identifier">Prefácio</span></h1>
+<h1 class="title"><span id="sec-projeto_empirico" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Análise empírica integrada</span></span></h1>
 </div>
 
 
@@ -248,22 +303,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Este material foi desenvolvido como apoio didático para a disciplina EAE1106 – Métodos Computacionais para Economia, ministrada pelo Departamento de Economia da Universidade de São Paulo. A disciplina tem por objetivo oferecer aos estudantes uma introdução sistemática à lógica de programação e às técnicas de análise de dados utilizando linguagens de programação, com ênfase em <strong>Python</strong> e uma breve introdução a <strong>R</strong> ao final do semestre.</p>
-<p>O curso parte da motivação de que grande parte das perguntas contemporâneas em economia – desde a exploração de grandes bases de dados até a implementação de simulações e modelos numéricos – exige o uso de ferramentas computacionais para organizar, manipular, visualizar e interpretar dados de forma eficiente. Consequentemente, a capacidade de expressar uma sequência de operações de forma reproduzível e automatizada é uma competência essencial para economistas que desejam conduzir análises empíricas rigorosas e comunicar resultados de forma clara e estruturada.</p>
-<p>Este material foi concebido com duas orientações principais:</p>
+<section id="introdução" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">10.1</span> Introdução</h2>
+<section id="pré-requisitos" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</h3>
+<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
 <ul>
-<li><p><strong>Progressão pedagógica gradual</strong>. O conteúdo inicia por fundamentos de lógica de programação, tipos de dados e objetos dentro da linguagem, controle de fluxo e funções, e evolui para tópicos aplicados de manipulação de dados, álgebra linear, visualização e análise integrada de dados. A estrutura dos capítulos foi planejada para acompanhar as etapas do raciocínio computacional e da análise empírica.</p></li>
-<li><p><strong>Aplicação orientada a problemas econômicos</strong>. Sempre que possível, os exemplos e exercícios são contextualizados em questões empíricas de interesse econômico, tais como manipulação e análise de bases de dados administrativas, cálculo de estatísticas descritivas e visualização exploratória. Isso visa reforçar a conexão entre métodos computacionais e aplicações reais em pesquisa econômica.</p></li>
+<li><code>os</code></li>
+<li><code>pandas</code></li>
+<li><code>matplotlib</code></li>
 </ul>
-<p>Além dessas orientações gerais, o curso está organizado em três grandes blocos de conteúdo, que estruturam tanto as aulas quanto este material:</p>
+<div id="12560c78" class="cell" data-message="false" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="a-estrutura-de-um-projeto-empírico" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="a-estrutura-de-um-projeto-empírico"><span class="header-section-number">10.2</span> A estrutura de um projeto empírico</h2>
+</section>
+<section id="etapas-de-desenvolvimento" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="etapas-de-desenvolvimento"><span class="header-section-number">10.3</span> Etapas de desenvolvimento</h2>
+<section id="pergunta-de-pesquisa-e-hipótese" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</h3>
+</section>
+<section id="base-de-dados-e-documentação" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="base-de-dados-e-documentação"><span class="header-section-number">10.3.2</span> Base de dados e documentação</h3>
+</section>
+<section id="análise-estatística-e-visualização" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</h3>
+</section>
+<section id="interpretação-e-limitações" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="interpretação-e-limitações"><span class="header-section-number">10.3.4</span> Interpretação e limitações</h3>
+</section>
+</section>
+<section id="boas-práticas" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</h2>
+</section>
+<section id="conclusão" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.5</span> Conclusão</h2>
+</section>
+<section id="exercícios" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">10.6</span> Exercícios</h2>
 <ol type="1">
-<li><p><strong>Alfabetização computacional e lógica básica</strong>, que introduz os conceitos fundamentais de computação, a interação entre linguagens de programação e modelos de inteligência artificial, tipos primitivos e objetos básicos dentro do Python, além de como implementar controle de fluxo, iteração, funções personalizadas dentro da linguagem.</p></li>
-<li><p><strong>Computação numérica, análise de dados e visualização</strong>, com foco em estruturas matriciais e álgebra linear através do uso do pacote <code>NumPy</code>, manipulação eficiente de dados em dataframes com <code>Pandas</code>, construção e personalização de gráficos, e princípios básicos de visualização de dados, culminando em uma análise empírica integrada que enfatiza organização de projetos, reprodutibilidade e construção de pipelines completos.</p></li>
-<li><p><strong>Temas complementares</strong>, que incluem uma pequena introdução a tópicos mais avançados, como a programação orientada a objetos, e uma breve introdução à linguagem R, com o objetivo de familiarizar o estudante com outro ecossistema amplamente utilizado em análise empírica e principal linguagem utilizada ao longo da sequência de cursos obrigatórios de Econometria.</p></li>
+<li><p>X</p></li>
+<li><p>X</p></li>
 </ol>
-<p>De forma geral, o conteúdo foi organizado como um livro digital interativo, com exemplos de código e saídas esperadas, visualizações e anotações integradas. O uso de linguagens de programação neste formato permite que o leitor aprenda de forma construtiva e ativa, facilitando a compreensão da sintaxe, lógica e aprendendo a avaliar erros e como corrigí-los. Espero que este material seja útil tanto para estudantes que se aproximam pela primeira vez da programação aplicada à economia quanto para aqueles que desejam reforçar e aplicar os conceitos em trabalhos empíricos e projetos de pesquisa.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -673,13 +762,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Sobre este material">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sobre este material</span>
+      <a href="./visualizacao.html" class="pagination-link" aria-label="Visualização">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Visualização</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./alfabetizacao.html" class="pagination-link" aria-label="Alfabetização computacional e lógica básica">
-        <span class="nav-page-text">Alfabetização computacional e lógica básica</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./complemento.html" class="pagination-link" aria-label="Temas complementares">
+        <span class="nav-page-text">Temas complementares</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -691,7 +780,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/prefacio.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/projeto_empirico.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

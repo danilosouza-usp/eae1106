@@ -12,7 +12,7 @@ Mais importante do que decorar comandos específicos é compreender a lógica ge
 
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos quatro pacotes externos:
+O foco deste capítulo será o pacote _Matplotlib_, que, apesar de já vir instalado com o Anaconda, não é nativo do Python e, portanto, é preciso carregá-lo. Para carregar e trabalhar com as bases de dados que utilizaremos para a construção dos gráficos, precisamos carregar também outras bibliotecas.
 
 - `os`
 - `numpy`

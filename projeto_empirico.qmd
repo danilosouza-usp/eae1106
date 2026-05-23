@@ -9,8 +9,6 @@ Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois 
 - `os`
 - `pandas`
 - `matplotlib`
-- `seaborn`
-- `plotly`
 
 ```{python}
 #| message: false
@@ -19,14 +17,23 @@ Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois 
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sbs
-import plotly as ply
 ```
 
+## A estrutura de um projeto empírico
 
-## O que é o NumPy?
+## Etapas de desenvolvimento
 
-NumPy (**Num**erical **Py**thon) é o pacote fundamental 
+### Pergunta de pesquisa e hipótese
+
+### Base de dados e documentação
+
+### Análise estatística e visualização
+
+### Interpretação e limitações
+
+## Boas práticas
+
+## Conclusão
 
 ## Exercícios
 
