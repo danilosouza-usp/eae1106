@@ -6,7 +6,8 @@ Até aqui trabalhamos principalmente com tabelas, vetores e operações numéric
 
 Em Python, a principal biblioteca para construção de gráficos é o `matplotlib`. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.
 
-![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento](images/dunningkruger.jpeg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+
 <!-- trocar a imagem por algum gráfico do Dunning-Kruger Effect em portuguÊs -->
 
 Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.
@@ -690,18 +691,13 @@ plt.show()
 
 No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/doi/pdf/10.1257/jep.28.1.209), publicado no prestigiado _Journal of Economic Perspectives_ em 2014, o autor _Jonathan Schwabish_ fala sobre a importância de construir visualizações e gráficos que de fato chamem a atenção para aquilo que se deseja comunicar. Ele cita três princípios básicos na construção de uma boa visualização gráfica:
 
-<br>
-
 1. **Mostre os dados**. O conjunto de dados é o elemento básico por trás da história que se quer contar. Isso não quer dizer que é preciso mostrar todos os dados disponíveis, alguns gráficos mostram demais e acabam sendo pouco informativos. Mostre os dados, mas o faça da forma mais clara possível.
-
 
 2. **Reduza a sujeira e a desordem gráfica**. O uso de elementos visuais desnecessários ou que distraem, tenderá a reduzir a eficácia do gráfico em comunicar uma mensagem. Pense duas vezes antes de utilizar bordas, linhas de referências muito grossas e escuras, pontos de referência desnecessários nos eixos, cores muito próximas em conjuntos de dados distintos, texturas, etc.
 
-
 3. **Elementos visuais e textuais devem funcionar de forma integrada**. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele.
-<br>
 
-::: {#fig-visualization layout-ncol=2 width=700px max-width=100% fig-align="center"}
+::: {#fig-visualization layout-ncol=1 width=700px max-width=100% fig-align="center"}
 
 ![Gráfico original](images/vis1.jpg)
 
