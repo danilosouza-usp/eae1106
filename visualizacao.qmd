@@ -7,6 +7,7 @@ Até aqui trabalhamos principalmente com tabelas, vetores e operações numéric
 Em Python, a principal biblioteca para construção de gráficos é o `matplotlib`. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.
 
 ![Setup usual de um computador pessoal no começo dos anos 2000. Fonte: _Wikimedia Commons_](images/old_desktop.jpg){#fig-olddesk width=800px max-width=100% fig-align="center"}
+<!-- trocar a imagem por algum gráfico do Dunning-Kruger Effect em portuguÊs -->
 
 Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.
 
@@ -93,11 +94,13 @@ plt.show()
 
 O gráfico gerado até aqui já representa corretamente os dados, mas ainda possui aparência bastante simples. Em aplicações reais, normalmente precisamos ajustar elementos visuais para melhorar legibilidade e comunicação.
 
-Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.
+Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico.
 
 ## Personalização
 
-Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores.
+Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores. Mas para isso deixaremos de lado a interface rápida do `matplotlib.pyplot` para uma interface mais orientada a objetos, que nos permite um maior controle sobre todos os elementos gráficos, como eixos e as próprias séries de dados. Ao longo do restante do curso priorizaremos a interface orientada a objetos, pois ela oferece maior controle e organização. 
+
+Começamos utilizando a função `subplots()` do `matplotlib.pyplot`, que nos retorna dois objetos, os quais nomeamos como `fig` e `ax`:
 
 ```{python}
 fig, ax = plt.subplots()
@@ -106,7 +109,7 @@ ax.plot(x, y, 'b-', linewidth=2)
 plt.show()
 ```
 
-Legal, mas o que significam todas essas coisas? Começamos utilizando a função `subplots()` do `matplotlib.pyplot`, que nos retorna dois objetos aos quais damos os nomes de `fig` e `ax`. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:
+O resultado é o mesmo, mas as propriedades dos objetos utilizados para a construção do gráfico são bem diferentes. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:
 
 - `fig` é como se fosse um fundo branco.
 - Pense em `ax` como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.
@@ -301,13 +304,15 @@ plt.show()
 
 Uau, que diferença! Foram muitas linhas de código, mas esse é o preço de um bom gráfico e de uma boa visualização. O controle sobre todos os elementos que compõe uma figura é essencial para que possamos cumprir com o objetivo de tornar visualizações cada vez mais informativas e democráticas.
 
-## Gráficos múltiplos
+## Múltiplos gráficos
 
-Uma vez aprendida a forma de construção de um gráfico através da função `subplot()` é fácil construir figuras que contenham várias séries em um mesmo plot ou vários plots na mesma figura. Vamos começar pelo caso mais simples.
+Até aqui trabalhamos com figuras contendo apenas um gráfico. Em aplicações empíricas, porém, é comum comparar diferentes séries ou combinar múltiplas visualizações em uma mesma figura. Para isso, precisamos organizar vários eixos dentro de um único objeto de figura.
+
+Uma vez compreendida a lógica de construção de gráficos com a função `subplot()`, torna-se simples criar figuras com múltiplas séries em um mesmo gráfico ou distribuir diferentes gráficos lado a lado. Vamos começar pelo caso mais simples.
 
 ### Várias séries em um mesmo _plot_
 
-Uma vez em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo `ax.plot()`? É isso aí!
+Em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo `ax.plot()`? É isso aí!
 
 ```{python}
 x_ticks = [1950,1960,1970,1980,1990,2000,2010,2020]
@@ -480,11 +485,13 @@ Como sempre, **o céu é o limite!**
 
 ## Outros tipos de gráficos
 
+O gráfico de linha não é a única visualização disponível no `matplotlib`, e muitas vezes nem é a mais adequada. Quando queremos comparar categorias, analisar distribuições ou investigar a relação entre variáveis, outros tipos de gráficos podem representar os dados de forma mais clara e informativa. A seguir veremos algumas das visualizações mais comuns utilizadas em análise de dados: gráficos de dispersão, barras e histogramas.
+
 ### Gráfico de dispersão: _scatter_
 
-No entanto, gráficos de linhas não são os mais indicados quando estamos interessados em avaliar a relação entre duas variáveis e não de uma única variável ao longo do tempo, por exemplo. Para isso temos o **gráfico de dispersão** (_scatterplot_, em inglês), que nada mais é do que uma forma de representar pares ordenados de pontos ao longo de dois eixos.
+Gráficos de linha são particularmente úteis para representar a evolução de uma variável ao longo do tempo, mas menos adequados quando o objetivo é investigar a relação entre duas variáveis. Nesses casos, utilizamos o gráfico de dispersão (_scatterplot_, em inglês), que representa pares de valores ao longo de dois eixos.
 
-Vamos construir um exemplo de scatterplot a partir da relação entre horas trabalhadas e PIB per capita para o ano de 2010. Se por um lado um número maior de horas trabalhadas na média pode estar associado a um PIB per capita maior de forma mecânica - mais trabalho levando a mais produção -, por outro lado países mais produtivos e desenvolvidos podem ter legislações que limitem a jornada de trabalho dos indivíduos justamente pelo fato de serem países ricos. Olhar para o gráfico de dispersão nesse caso pode nos dar uma luz em relação a qual efeito prevalece. Atenção: pela escala do PIB per capita, talvez seja melhor olhar para o log do PIB ao invés do número absoluto.
+Vamos construir um exemplo analisando a relação entre horas trabalhadas e PIB per capita em 2010. À primeira vista, poderíamos imaginar que países nos quais as pessoas trabalham mais horas tendem a apresentar maior PIB per capita, já que um volume maior de trabalho pode gerar mais produção. Por outro lado, países mais ricos e produtivos frequentemente possuem legislações trabalhistas que limitam a jornada de trabalho, justamente porque níveis elevados de produtividade permitem produzir mais mesmo com menos horas trabalhadas. Um gráfico de dispersão pode nos ajudar a visualizar qual dessas relações parece prevalecer nos dados. Atenção: como o PIB per capita costuma apresentar valores muito assimétricos entre países, pode ser mais informativo analisar o logaritmo do PIB per capita em vez dos valores absolutos.
 
 ```{python}
 df_pwt['pibpc'] = df_pwt['rgdpna'] / df_pwt['pop']
@@ -677,10 +684,6 @@ plt.savefig('carac_countries_all.png', bbox_inches='tight')
 plt.show()
 ```
 
-<!-- ## Seaborn --> 
-
-<!-- ## Plotly -->
-
 ## Visualização e _storytelling_
 
 É parte importante do dia-a-dia de um economista - e também de grande parte do profissionais pertencentes ao grupo das ciências sociais aplicadas - ser capaz de comunicar os resultados de uma análise ou pesquisa. E como há muito tempo já se sabe, para comunicar e informar, **uma imagem vale mais do que mil palavras**.
@@ -698,8 +701,24 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 3. **Elementos visuais e textuais devem funcionar de forma integrada**. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele.
 <br>
 
+::: {#fig-visualization layout-ncol=2 width=700px max-width=100% fig-align="center"}
 
-O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível "consertá-las". Há, no entanto, outras várias fontes de informação sobre visualização (esse [link](https://datascience.quantecon.org/applications/visualization_rules.html) é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de _storytelling_, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro [Storytelling com dados](https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&qid=1668636806&qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&sprefix=story%2Caps%2C557&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. **Personalização** é a palavra chave nessa árdua tarefa de construir um bom gráfico.
+![Gráfico original](images/vis1.jpg)
+
+![Gráfico redesenhado, com alterações nos elementos visuais](images/vis2.jpg)
+
+Exemplo de mudanças na estrutura do gráfico que aumentam seu conteúdo informacional. Fonte: _Schwabish (2014)_
+:::
+
+O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível "consertá-las". Há, no entanto, outras várias fontes de informação sobre visualização (esse [link](https://datascience.quantecon.org/tools/visualization_rules.html) é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de _storytelling_, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro [Storytelling com dados](https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&qid=1668636806&qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&sprefix=story%2Caps%2C557&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. **Personalização** é a palavra chave nessa árdua tarefa de construir um bom gráfico.
+
+<!-- ## Seaborn --> 
+
+<!-- ## Plotly -->
+
+## Conclusão
+
+Neste capítulo introduzimos as principais ferramentas de visualização de dados em Python. Aprendemos a construir gráficos de linha, barras, dispersão e histogramas utilizando o `matplotlib`, além de organizar múltiplas visualizações em uma mesma figura e personalizar elementos gráficos. Mais importante do que memorizar comandos específicos é compreender que visualizações são instrumentos de análise e comunicação. Um gráfico adequado pode revelar padrões, inconsistências e relações que dificilmente seriam percebidos apenas observando tabelas de dados. As habilidades desenvolvidas neste capítulo serão utilizadas continuamente no restante do curso, especialmente em análises exploratórias, regressões e projetos empíricos aplicados à Economia.
 
 ## Exercícios
 

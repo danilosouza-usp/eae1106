@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#o-que-é-o-matplotlib" id="toc-o-que-é-o-matplotlib" class="nav-link" data-scroll-target="#o-que-é-o-matplotlib"><span class="header-section-number">9.2</span> O que é o Matplotlib?</a></li>
   <li><a href="#construindo-nosso-1º-gráfico" id="toc-construindo-nosso-1º-gráfico" class="nav-link" data-scroll-target="#construindo-nosso-1º-gráfico"><span class="header-section-number">9.3</span> Construindo nosso 1º gráfico</a></li>
   <li><a href="#personalização" id="toc-personalização" class="nav-link" data-scroll-target="#personalização"><span class="header-section-number">9.4</span> Personalização</a></li>
-  <li><a href="#gráficos-múltiplos" id="toc-gráficos-múltiplos" class="nav-link" data-scroll-target="#gráficos-múltiplos"><span class="header-section-number">9.5</span> Gráficos múltiplos</a>
+  <li><a href="#múltiplos-gráficos" id="toc-múltiplos-gráficos" class="nav-link" data-scroll-target="#múltiplos-gráficos"><span class="header-section-number">9.5</span> Múltiplos gráficos</a>
   <ul class="collapse">
   <li><a href="#várias-séries-em-um-mesmo-plot" id="toc-várias-séries-em-um-mesmo-plot" class="nav-link" data-scroll-target="#várias-séries-em-um-mesmo-plot"><span class="header-section-number">9.5.1</span> Várias séries em um mesmo <em>plot</em></a></li>
   <li><a href="#vários-plots-dentro-da-mesma-figura" id="toc-vários-plots-dentro-da-mesma-figura" class="nav-link" data-scroll-target="#vários-plots-dentro-da-mesma-figura"><span class="header-section-number">9.5.2</span> Vários <em>plots</em> dentro da mesma figura</a></li>
@@ -279,7 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#histograma-hist" id="toc-histograma-hist" class="nav-link" data-scroll-target="#histograma-hist"><span class="header-section-number">9.6.3</span> Histograma: <em>hist</em></a></li>
   </ul></li>
   <li><a href="#visualização-e-storytelling" id="toc-visualização-e-storytelling" class="nav-link" data-scroll-target="#visualização-e-storytelling"><span class="header-section-number">9.7</span> Visualização e <em>storytelling</em></a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">9.8</span> Exercícios</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">9.8</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">9.9</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/visualizacao.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -309,16 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="9.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">9.1</span> Introdução</h2>
 <p>Até aqui trabalhamos principalmente com tabelas, vetores e operações numéricas. Entretanto, grande parte da análise empírica em Economia depende da capacidade de explorar padrões visualmente. Gráficos permitem identificar tendências, distribuições, relações entre variáveis e possíveis problemas nos dados antes mesmo de qualquer modelagem estatística.</p>
 <p>Em Python, a principal biblioteca para construção de gráficos é o <code>matplotlib</code>. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.</p>
-<div id="fig-olddesk" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-olddesk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/old_desktop.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="800">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-olddesk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. Fonte: <em>Wikimedia Commons</em>
-</figcaption>
-</figure>
-</div>
+<p><img src="images/old_desktop.jpg" id="fig-olddesk" class="img-fluid quarto-figure quarto-figure-center anchored" data-max-width="100%" width="800" alt="Setup usual de um computador pessoal no começo dos anos 2000. Fonte: Wikimedia Commons"> <!-- trocar a imagem por algum gráfico do Dunning-Kruger Effect em portuguÊs --></p>
 <p>Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.</p>
 <section id="pré-requisitos" class="level3" data-number="9.1.1">
 <h3 data-number="9.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">9.1.1</span> Pré-requisitos</h3>
@@ -329,7 +321,7 @@ Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <li><code>pandas</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="b3482663" class="cell" data-message="false" data-execution_count="1">
+<div id="09e603e0" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -344,7 +336,7 @@ Figura&nbsp;9.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <section id="construindo-nosso-1º-gráfico" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="construindo-nosso-1º-gráfico"><span class="header-section-number">9.3</span> Construindo nosso 1º gráfico</h2>
 <p>Em relação aos dados, utilizaremos mais uma vez os dados da <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en">Penn World Table version 11.0</a>, base de dados com informação sobre níveis de renda, produto e produtividade de mais de 180 países durante o período de 1950 a 2023.</p>
-<div id="146164d4" class="cell" data-execution_count="2">
+<div id="9554ea5f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># substituir esse caminho de diretório pelo caminho que você estiver utilizando no seu computador</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'C:/Users/user/Desktop/EAE1106'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -368,7 +360,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Com o dataframe criado, podemos plotar o número médio de horas trabalhadas no Brasil ao longo do tempo usando apenas a função <code>plot</code>. Para isso utilizaremos a variável <code>avh</code>, que contabiliza o número de horas trabalhadas ao longo de um ano na média das pessoas empregadas. Para uma representação mais clara, dividirei esse número por 260, que é o número de dias de semana (segunda à sexta-feira) em um ano típico. Passamos então para a função plot como argumento os valores do eixo <code>x</code> (ano) e do eixo <code>y</code> (horas trabalhadas) e ela nos devolve um gráfico de linha relacionando esses dois conjuntos de dados. Após isso, é preciso chamar a função <code>show()</code> para mostrar o gráfico que criamos.</p>
-<div id="4ae4c215" class="cell" data-execution_count="3">
+<div id="76ba6799" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_pwtbr <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'Brazil'</span>,:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwtbr[<span class="st">'year'</span>]</span>
@@ -394,7 +386,7 @@ memory usage: 641.8+ KB</code></pre>
 <li>Adicionar título ao gráfico.</li>
 </ul>
 <p>Sabemos que nossos dados começam no ano de 1950 e vão até 2023. Para ajustar o eixo y, porém, é importante conhecer os limites numéricos do número médio de horas trabalhadas.</p>
-<div id="2115ccde" class="cell" data-execution_count="4">
+<div id="df5bf5b2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_pwtbr.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -483,7 +475,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Agora podemos usar algumas opções e métodos sobre o <code>plot</code> que criamos dentro da célula para aplicar todas essas alterações sugeridas.</p>
-<div id="015e499a" class="cell" data-execution_count="5">
+<div id="227a6bc7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -505,12 +497,13 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>O gráfico gerado até aqui já representa corretamente os dados, mas ainda possui aparência bastante simples. Em aplicações reais, normalmente precisamos ajustar elementos visuais para melhorar legibilidade e comunicação.</p>
-<p>Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico. E é assim que trabalharemos com gráficos daqui para frente.</p>
+<p>Uma das belezas do Python é sua lógica de programação multiparadigma, o que nos permite trabalhar também com a lógica orientada a objetos. Isso não é diferente com gráficos. Na estratégia que acabamos de utilizar, muitos dos objetos que compõe o gráfico como um todo (eixos, fundo, bordas, etc.) são criados e transmitidos sem se tornarem conhecidos pelo programador. Em geral é preferível um estilo de programação mais explícito, sob o qual teríamos mais controle sobre as várias dimensões do gráfico.</p>
 </section>
 <section id="personalização" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="personalização"><span class="header-section-number">9.4</span> Personalização</h2>
-<p>Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores.</p>
-<div id="77dd75d5" class="cell" data-execution_count="6">
+<p>Vamos começar refazendo o primeiro gráfico, antes das alterações na escala e cores. Mas para isso deixaremos de lado a interface rápida do <code>matplotlib.pyplot</code> para uma interface mais orientada a objetos, que nos permite um maior controle sobre todos os elementos gráficos, como eixos e as próprias séries de dados. Ao longo do restante do curso priorizaremos a interface orientada a objetos, pois ela oferece maior controle e organização.</p>
+<p>Começamos utilizando a função <code>subplots()</code> do <code>matplotlib.pyplot</code>, que nos retorna dois objetos, os quais nomeamos como <code>fig</code> e <code>ax</code>:</p>
+<div id="e95392a7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
@@ -523,12 +516,12 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 </div>
-<p>Legal, mas o que significam todas essas coisas? Começamos utilizando a função <code>subplots()</code> do <code>matplotlib.pyplot</code>, que nos retorna dois objetos aos quais damos os nomes de <code>fig</code> e <code>ax</code>. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:</p>
+<p>O resultado é o mesmo, mas as propriedades dos objetos utilizados para a construção do gráfico são bem diferentes. Sem entrar nos detalhes de classes e instâncias da lógica de programação orientada a objetos no Python:</p>
 <ul>
 <li><code>fig</code> é como se fosse um fundo branco.</li>
 <li>Pense em <code>ax</code> como sendo uma forma de iniciar um quadro sobre o qual construiremos a figura.</li>
 </ul>
-<div id="4627a23e" class="cell" data-execution_count="7">
+<div id="10f0e503" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig.set_facecolor(<span class="st">"red"</span>)</span>
@@ -544,7 +537,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Em essência, a função <code>plot()</code> é na verdade um método do objeto <code>ax</code>. Embora fazer esse gráfico simples dessa forma exija um pouco mais de código, o uso explícito de objetos nos dá melhor controle sobre a aparência do objeto e de todas as personalizações possíveis. Isso ficará mais claro à medida que avançarmos. Como podemos replicar o 2º gráfico da seção anterior usando essa lógica orientada a objetos?</p>
-<div id="7961d953" class="cell" data-execution_count="8">
+<div id="e6f4ad47" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -573,7 +566,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Mudar a proporção do gráfico e manter a borda apenas do eixo X</li>
 </ul>
-<div id="d82901bb" class="cell" data-execution_count="9">
+<div id="bc190d56" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -600,7 +593,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Colocar linhas de grid para os valores de Y</li>
 </ul>
-<div id="a939f6bd" class="cell" data-execution_count="10">
+<div id="15f143b4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -630,7 +623,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Mudar os marcadores do eixo x e do eixo y como já havíamos feito.</li>
 </ul>
-<div id="8f593231" class="cell" data-execution_count="11">
+<div id="968f132f" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -670,7 +663,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Adicionar uma linha de referência que representa a média de horas trabalhadas ao longo do tempo.</li>
 </ul>
-<div id="30359739" class="cell" data-execution_count="12">
+<div id="0040dbe8" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -715,7 +708,7 @@ memory usage: 641.8+ KB</code></pre>
 <li>Deixar o título maior e um pouco afastado do início da figura, juntamente com a fonte dos dados logo abaixo.</li>
 <li>Salvar a figura em formato .png</li>
 </ul>
-<div id="0429f181" class="cell" data-execution_count="13">
+<div id="da5cc30b" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -763,13 +756,14 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 <p>Uau, que diferença! Foram muitas linhas de código, mas esse é o preço de um bom gráfico e de uma boa visualização. O controle sobre todos os elementos que compõe uma figura é essencial para que possamos cumprir com o objetivo de tornar visualizações cada vez mais informativas e democráticas.</p>
 </section>
-<section id="gráficos-múltiplos" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="gráficos-múltiplos"><span class="header-section-number">9.5</span> Gráficos múltiplos</h2>
-<p>Uma vez aprendida a forma de construção de um gráfico através da função <code>subplot()</code> é fácil construir figuras que contenham várias séries em um mesmo plot ou vários plots na mesma figura. Vamos começar pelo caso mais simples.</p>
+<section id="múltiplos-gráficos" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="múltiplos-gráficos"><span class="header-section-number">9.5</span> Múltiplos gráficos</h2>
+<p>Até aqui trabalhamos com figuras contendo apenas um gráfico. Em aplicações empíricas, porém, é comum comparar diferentes séries ou combinar múltiplas visualizações em uma mesma figura. Para isso, precisamos organizar vários eixos dentro de um único objeto de figura.</p>
+<p>Uma vez compreendida a lógica de construção de gráficos com a função <code>subplot()</code>, torna-se simples criar figuras com múltiplas séries em um mesmo gráfico ou distribuir diferentes gráficos lado a lado. Vamos começar pelo caso mais simples.</p>
 <section id="várias-séries-em-um-mesmo-plot" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="várias-séries-em-um-mesmo-plot"><span class="header-section-number">9.5.1</span> Várias séries em um mesmo <em>plot</em></h3>
-<p>Uma vez em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo <code>ax.plot()</code>? É isso aí!</p>
-<div id="6d66568b" class="cell" data-execution_count="14">
+<p>Em posse dos dados de horas trabalhadas por país, uma pergunta que surge naturalmente é: como evoluiu ao longo do tempo e entre os diferentes países o número médio de horas trabalhadas por dia útil? Um aluno bem atento teria notado que no último gráfico da sessão anterior já havíamos juntado duas séries em um mesmo plot, sendo uma dessas séries a reta horizontal que representa a média de novos casos. Mas então basta adicionar mais uma linha de código com um segundo <code>ax.plot()</code>? É isso aí!</p>
+<div id="56e22c89" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x_ticks <span class="op">=</span> [<span class="dv">1950</span>,<span class="dv">1960</span>,<span class="dv">1970</span>,<span class="dv">1980</span>,<span class="dv">1990</span>,<span class="dv">2000</span>,<span class="dv">2010</span>,<span class="dv">2020</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x_labels <span class="op">=</span> [<span class="st">'1950'</span>,<span class="st">'1960'</span>,<span class="st">'1970'</span>,<span class="st">'1980'</span>,<span class="st">'1990'</span>,<span class="st">'2000'</span>,<span class="st">'2010'</span>,<span class="st">'2020'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
@@ -779,7 +773,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'Brazil'</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span> </span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'country'</span>]<span class="op">==</span><span class="st">'United States'</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b84ffab7" class="cell" data-execution_count="15">
+<div id="fa6334ad" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -823,7 +817,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Super direto! Mas ainda falta a legenda. Para isso basta adicionar mais uma única linha de código.</p>
-<div id="f96d1441" class="cell" data-execution_count="16">
+<div id="4dbc52d9" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -878,7 +872,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Com uma linha e uma coluna na função subplots, ax é um objeto do matplotlib.</li>
 </ul>
-<div id="e8e8b09e" class="cell" data-execution_count="17">
+<div id="a41b4206" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -899,7 +893,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Com mais de linha e/ou coluna na função subplots, ax é um numpy array de objetos do matplotlib.</li>
 </ul>
-<div id="0ddb7c8c" class="cell" data-execution_count="18">
+<div id="6d573124" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -918,7 +912,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 <p>Nesse mundo de múltiplos objetos gráficos, temos que usar algum tipo de loop justamente para poder lidar com as personalizações de cada plot de forma individual.</p>
-<div id="702d7460" class="cell" data-execution_count="19">
+<div id="8fd07d98" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>num_rows <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
@@ -972,11 +966,12 @@ memory usage: 641.8+ KB</code></pre>
 </section>
 <section id="outros-tipos-de-gráficos" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="outros-tipos-de-gráficos"><span class="header-section-number">9.6</span> Outros tipos de gráficos</h2>
+<p>O gráfico de linha não é a única visualização disponível no <code>matplotlib</code>, e muitas vezes nem é a mais adequada. Quando queremos comparar categorias, analisar distribuições ou investigar a relação entre variáveis, outros tipos de gráficos podem representar os dados de forma mais clara e informativa. A seguir veremos algumas das visualizações mais comuns utilizadas em análise de dados: gráficos de dispersão, barras e histogramas.</p>
 <section id="gráfico-de-dispersão-scatter" class="level3" data-number="9.6.1">
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="gráfico-de-dispersão-scatter"><span class="header-section-number">9.6.1</span> Gráfico de dispersão: <em>scatter</em></h3>
-<p>No entanto, gráficos de linhas não são os mais indicados quando estamos interessados em avaliar a relação entre duas variáveis e não de uma única variável ao longo do tempo, por exemplo. Para isso temos o <strong>gráfico de dispersão</strong> (<em>scatterplot</em>, em inglês), que nada mais é do que uma forma de representar pares ordenados de pontos ao longo de dois eixos.</p>
-<p>Vamos construir um exemplo de scatterplot a partir da relação entre horas trabalhadas e PIB per capita para o ano de 2010. Se por um lado um número maior de horas trabalhadas na média pode estar associado a um PIB per capita maior de forma mecânica - mais trabalho levando a mais produção -, por outro lado países mais produtivos e desenvolvidos podem ter legislações que limitem a jornada de trabalho dos indivíduos justamente pelo fato de serem países ricos. Olhar para o gráfico de dispersão nesse caso pode nos dar uma luz em relação a qual efeito prevalece. Atenção: pela escala do PIB per capita, talvez seja melhor olhar para o log do PIB ao invés do número absoluto.</p>
-<div id="625a21d4" class="cell" data-execution_count="20">
+<p>Gráficos de linha são particularmente úteis para representar a evolução de uma variável ao longo do tempo, mas menos adequados quando o objetivo é investigar a relação entre duas variáveis. Nesses casos, utilizamos o gráfico de dispersão (<em>scatterplot</em>, em inglês), que representa pares de valores ao longo de dois eixos.</p>
+<p>Vamos construir um exemplo analisando a relação entre horas trabalhadas e PIB per capita em 2010. À primeira vista, poderíamos imaginar que países nos quais as pessoas trabalham mais horas tendem a apresentar maior PIB per capita, já que um volume maior de trabalho pode gerar mais produção. Por outro lado, países mais ricos e produtivos frequentemente possuem legislações trabalhistas que limitam a jornada de trabalho, justamente porque níveis elevados de produtividade permitem produzir mais mesmo com menos horas trabalhadas. Um gráfico de dispersão pode nos ajudar a visualizar qual dessas relações parece prevalecer nos dados. Atenção: como o PIB per capita costuma apresentar valores muito assimétricos entre países, pode ser mais informativo analisar o logaritmo do PIB per capita em vez dos valores absolutos.</p>
+<div id="6f66919f" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_pwt[<span class="st">'pibpc'</span>] <span class="op">=</span> df_pwt[<span class="st">'rgdpna'</span>] <span class="op">/</span> df_pwt[<span class="st">'pop'</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwt.loc[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>,<span class="st">'avh'</span>] <span class="op">/</span> <span class="dv">260</span></span>
@@ -988,7 +983,7 @@ memory usage: 641.8+ KB</code></pre>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>y_ticks <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>]</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>y_labels <span class="op">=</span> [<span class="st">'5'</span>,<span class="st">'7'</span>,<span class="st">'9'</span>,<span class="st">'11'</span>,<span class="st">'13'</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="886cfb1a" class="cell" data-execution_count="21">
+<div id="df36b448" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1037,7 +1032,7 @@ memory usage: 641.8+ KB</code></pre>
 <section id="gráfico-de-barra-bar-e-barh" class="level3" data-number="9.6.2">
 <h3 data-number="9.6.2" class="anchored" data-anchor-id="gráfico-de-barra-bar-e-barh"><span class="header-section-number">9.6.2</span> Gráfico de barra: <em>bar</em> e <em>barh</em></h3>
 <p>Um outro tipo de gráfico bastante interessante é o gráfico de barra, que serve muito ao propósito, por exemplo, de mostrar diferenças em uma variável de interesse, para um dado instante do tempo, entre regiões ou grupos diferentes. Dentre os 10 países com o maior PIB per capita em 2010, quais países tem ó maior número médio de horas trabalhadas? Aqui vamos usar o método <code>sort_values</code> e a coluna <code>pibpc</code> para ordenar os países de acordo com o PIB per capita. Atenção para o valor do parâmetro <code>ascending</code>, que ao ser definido como <code>False</code> estabelece que o ordenamento deve ser feito em ordem descendente.</p>
-<div id="41a8dd64" class="cell" data-execution_count="22">
+<div id="099d883f" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_pwt_top10 <span class="op">=</span> df_pwt[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>].copy()</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.sort_values([<span class="st">'pibpc'</span>],ascending<span class="op">=</span><span class="va">False</span>,ignore_index<span class="op">=</span><span class="va">True</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1171,7 +1166,7 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="bf0d6529" class="cell" data-execution_count="23">
+<div id="29254dfd" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para não dar problema com os labels do eixo x serem muito grandes, vamos substituir aqueles que tem nomes compostos</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.loc[<span class="dv">5</span>,<span class="st">'country'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">Arab</span><span class="ch">\n</span><span class="st">Emirates'</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df_pwt_top10.loc[<span class="dv">9</span>,<span class="st">'country'</span>] <span class="op">=</span> <span class="st">'United</span><span class="ch">\n</span><span class="st">States'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1180,7 +1175,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Barra vertical</li>
 </ul>
-<div id="6cc029f1" class="cell" data-execution_count="24">
+<div id="33e84f73" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_pwt_top10[<span class="st">'country'</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_pwt_top10[<span class="st">'avh'</span>]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1218,7 +1213,7 @@ memory usage: 641.8+ KB</code></pre>
 <ul>
 <li>Barra horizontal</li>
 </ul>
-<div id="96a44b84" class="cell" data-execution_count="25">
+<div id="50183af8" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1254,7 +1249,7 @@ memory usage: 641.8+ KB</code></pre>
 <section id="histograma-hist" class="level3" data-number="9.6.3">
 <h3 data-number="9.6.3" class="anchored" data-anchor-id="histograma-hist"><span class="header-section-number">9.6.3</span> Histograma: <em>hist</em></h3>
 <p>O Matplotlib também nos oferece um conjunto bastante grande de gráficos estatísticos, como por exemplo o <em>boxplot</em> e o <em>histograma</em>. Vamos utilizar esse último, através da função <code>hist</code>, para plotar em uma mesma figura histogramas de 4 variáveis diferentes para o ano de 2010: <code>pop</code>, <code>emp</code>, <code>avh</code> e <code>pibpc</code>.</p>
-<div id="afd113cf" class="cell" data-execution_count="26">
+<div id="73ca18e2" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_pwt2010 <span class="op">=</span> df_pwt[df_pwt[<span class="st">'year'</span>]<span class="op">==</span><span class="dv">2010</span>].copy()</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_pwt2010.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_pwt2010[<span class="st">'pibpc'</span>] <span class="op">=</span> np.log(df_pwt2010[<span class="st">'pibpc'</span>])</span>
@@ -1308,8 +1303,6 @@ memory usage: 641.8+ KB</code></pre>
 </div>
 </div>
 </div>
-<!-- ## Seaborn -->
-<!-- ## Plotly -->
 </section>
 </section>
 <section id="visualização-e-storytelling" class="level2" data-number="9.7">
@@ -1322,10 +1315,43 @@ memory usage: 641.8+ KB</code></pre>
 <li><p><strong>Reduza a sujeira e a desordem gráfica</strong>. O uso de elementos visuais desnecessários ou que distraem, tenderá a reduzir a eficácia do gráfico em comunicar uma mensagem. Pense duas vezes antes de utilizar bordas, linhas de referências muito grossas e escuras, pontos de referência desnecessários nos eixos, cores muito próximas em conjuntos de dados distintos, texturas, etc.</p></li>
 <li><p><strong>Elementos visuais e textuais devem funcionar de forma integrada</strong>. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele. <br></p></li>
 </ol>
-<p>O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível “consertá-las”. Há, no entanto, outras várias fontes de informação sobre visualização (esse <a href="https://datascience.quantecon.org/applications/visualization_rules.html">link</a> é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de <em>storytelling</em>, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro <a href="https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&amp;qid=1668636806&amp;qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&amp;sprefix=story%2Caps%2C557&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1">Storytelling com dados</a> é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. <strong>Personalização</strong> é a palavra chave nessa árdua tarefa de construir um bom gráfico.</p>
+<div id="fig-visualization" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vis1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Gráfico original</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vis2.jpg" class="img-fluid figure-img"></p>
+<figcaption>Gráfico redesenhado, com alterações nos elementos visuais</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.1: Exemplo de mudanças na estrutura do gráfico que aumentam seu conteúdo informacional. Fonte: <em>Schwabish (2014)</em>
+</figcaption>
+</figure>
+</div>
+<p>O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível “consertá-las”. Há, no entanto, outras várias fontes de informação sobre visualização (esse <a href="https://datascience.quantecon.org/tools/visualization_rules.html">link</a> é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de <em>storytelling</em>, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro <a href="https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&amp;qid=1668636806&amp;qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&amp;sprefix=story%2Caps%2C557&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1">Storytelling com dados</a> é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. <strong>Personalização</strong> é a palavra chave nessa árdua tarefa de construir um bom gráfico.</p>
+<!-- ## Seaborn -->
+<!-- ## Plotly -->
 </section>
-<section id="exercícios" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">9.8</span> Exercícios</h2>
+<section id="conclusão" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">9.8</span> Conclusão</h2>
+<p>Neste capítulo introduzimos as principais ferramentas de visualização de dados em Python. Aprendemos a construir gráficos de linha, barras, dispersão e histogramas utilizando o <code>matplotlib</code>, além de organizar múltiplas visualizações em uma mesma figura e personalizar elementos gráficos. Mais importante do que memorizar comandos específicos é compreender que visualizações são instrumentos de análise e comunicação. Um gráfico adequado pode revelar padrões, inconsistências e relações que dificilmente seriam percebidos apenas observando tabelas de dados. As habilidades desenvolvidas neste capítulo serão utilizadas continuamente no restante do curso, especialmente em análises exploratórias, regressões e projetos empíricos aplicados à Economia.</p>
+</section>
+<section id="exercícios" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">9.9</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>

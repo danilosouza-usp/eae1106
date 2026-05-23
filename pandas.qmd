@@ -186,6 +186,13 @@ As opções `normalize` e `dropna` nos permitem, respectivamente, olhar para fre
 df_pwt['country'].value_counts(normalize=True,dropna=False)
 ```
 
+::: {.callout-important title="Missing não é a mesma coisa que zero"}
+
+Em bases de dados reais, valores ausentes (_missing values_) são extremamente comuns. No pandas, eles normalmente aparecem como `NaN` (_Not a Number_). É importante não confundir um valor ausente com o número zero. Um salário igual a zero significa que a informação existe e vale zero. Já um `NaN` indica que a informação está ausente, indisponível ou não foi observada.
+
+Muitas funções do pandas ignoram automaticamente valores _missing_ em cálculos estatísticos. Por exemplo, médias calculadas com `mean()` normalmente desconsideram observações com `NaN`. Antes de remover ou substituir valores ausentes, é importante entender por que eles aparecem na base e como podem afetar a análise.
+:::
+
 ### Seleção e filtragem
 
 Por vezes pode ser interessante selecionar e filtrar os dados que temos de acordo com algum interesse específico.
