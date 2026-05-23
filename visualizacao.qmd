@@ -6,7 +6,7 @@ Até aqui trabalhamos principalmente com tabelas, vetores e operações numéric
 
 Em Python, a principal biblioteca para construção de gráficos é o `matplotlib`. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.
 
-![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento](images/dunningkruger.jpeg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento](images/dunningkruger.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
 
 <!-- trocar a imagem por algum gráfico do Dunning-Kruger Effect em portuguÊs -->
 
@@ -697,7 +697,7 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 
 3. **Elementos visuais e textuais devem funcionar de forma integrada**. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele.
 
-::: {#fig-visualization layout-ncol=1 width=700px max-width=100% fig-align="center"}
+::: {#fig-visualization layout-ncol=1 width=600px max-width=100% fig-align="center"}
 
 ![Gráfico original](images/vis1.jpg)
 
