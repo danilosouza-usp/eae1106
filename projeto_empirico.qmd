@@ -2,6 +2,14 @@
 
 ## Introdução
 
+Até este ponto do curso, introduzimos separadamente os principais componentes de um fluxo moderno de trabalho em ciência de dados aplicada à Economia: manipulação de objetos em Python, estruturas de controle, funções, programação numérica, manipulação de bases de dados e visualização de informações. No entanto, aplicações reais raramente aparecem de forma fragmentada. Em projetos empíricos concretos, todas essas ferramentas precisam ser combinadas de maneira organizada, coerente e replicável.
+
+O objetivo deste capítulo é integrar os conteúdos estudados anteriormente em um projeto empírico completo, simulando as etapas normalmente encontradas em trabalhos acadêmicos, relatórios técnicos, pesquisas aplicadas e análises de dados no mercado de trabalho. A proposta não é apenas “rodar códigos”, mas desenvolver uma estrutura organizada de trabalho computacional capaz de produzir resultados confiáveis, interpretáveis e reproduzíveis.
+
+Em Economia aplicada, grande parte do trabalho empírico consiste em transformar dados brutos em evidência quantitativa. Isso envolve decisões metodológicas, organização de arquivos, documentação adequada, limpeza de dados, análise estatística e comunicação de resultados. Pequenos erros em qualquer uma dessas etapas podem comprometer completamente uma análise. Por esse motivo, projetos empíricos exigem não apenas conhecimento estatístico, mas também boas práticas de programação e gestão computacional.
+
+Ao longo deste capítulo, construiremos um fluxo de trabalho simplificado, mas representativo, de um projeto empírico completo. A estrutura seguirá quatro etapas principais:
+
 ### Pré-requisitos
 
 Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
@@ -25,13 +33,32 @@ import matplotlib.pyplot as plt
 
 ### Pergunta de pesquisa e hipótese
 
+Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. FALAR DO EXEMPLO ENTRE POLICIA E CRIME
+
+Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.
+
 ### Base de dados e documentação
+
+Após definir a pergunta de pesquisa, o próximo passo é obter e compreender os dados. Em aplicações empíricas, raramente trabalhamos com bases ``prontas para análise''. Em geral, os dados precisam ser baixados, organizados, documentados e limpos antes que qualquer análise possa ser realizada. Nessa etapa, é fundamental responder perguntas como:
+
+- Qual é a unidade de observação?
+- O que representa cada linha da base?
+- O que representa cada coluna?
+- Existem valores faltantes?
+- Como as variáveis foram construídas?
+- Qual é o período temporal da base?
+
+Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas.
+
+Além disso, nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.
 
 ### Análise estatística e visualização
 
 ### Interpretação e limitações
 
 ## Boas práticas
+
+Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.
 
 ## Conclusão
 

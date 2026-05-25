@@ -449,15 +449,15 @@ triangle('L', 5)
 
 6. (Prova de 2026) Considere as duas funções abaixo:
 
-```python
-def soma1(a,b):
-    resultado = a + b
-    print(resultado)
+    ```python
+    def soma1(a,b):
+        resultado = a + b
+        print(resultado)
 
-def soma2(a, b):
-    resultado = a + b
-    return resultado
-```
+    def soma2(a, b):
+        resultado = a + b
+        return resultado
+    ```
 
     a. Suponha $a=10$ e $b=15.7$. Discuta a saída das funções `soma1` e `soma2`. Existe alguma diferença?
     b. Explique o que está incorreto do ponto de vista do funcionamento esperado da função quando da aplicação de soma1. Que tipo de erro é esse?

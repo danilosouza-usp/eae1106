@@ -305,6 +305,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introdução" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">10.1</span> Introdução</h2>
+<p>Até este ponto do curso, introduzimos separadamente os principais componentes de um fluxo moderno de trabalho em ciência de dados aplicada à Economia: manipulação de objetos em Python, estruturas de controle, funções, programação numérica, manipulação de bases de dados e visualização de informações. No entanto, aplicações reais raramente aparecem de forma fragmentada. Em projetos empíricos concretos, todas essas ferramentas precisam ser combinadas de maneira organizada, coerente e replicável.</p>
+<p>O objetivo deste capítulo é integrar os conteúdos estudados anteriormente em um projeto empírico completo, simulando as etapas normalmente encontradas em trabalhos acadêmicos, relatórios técnicos, pesquisas aplicadas e análises de dados no mercado de trabalho. A proposta não é apenas “rodar códigos”, mas desenvolver uma estrutura organizada de trabalho computacional capaz de produzir resultados confiáveis, interpretáveis e reproduzíveis.</p>
+<p>Em Economia aplicada, grande parte do trabalho empírico consiste em transformar dados brutos em evidência quantitativa. Isso envolve decisões metodológicas, organização de arquivos, documentação adequada, limpeza de dados, análise estatística e comunicação de resultados. Pequenos erros em qualquer uma dessas etapas podem comprometer completamente uma análise. Por esse motivo, projetos empíricos exigem não apenas conhecimento estatístico, mas também boas práticas de programação e gestão computacional.</p>
+<p>Ao longo deste capítulo, construiremos um fluxo de trabalho simplificado, mas representativo, de um projeto empírico completo. A estrutura seguirá quatro etapas principais:</p>
 <section id="pré-requisitos" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</h3>
 <p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
@@ -313,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>pandas</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="12560c78" class="cell" data-message="false" data-execution_count="1">
+<div id="82818e87" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -327,9 +331,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="10.3" class="anchored" data-anchor-id="etapas-de-desenvolvimento"><span class="header-section-number">10.3</span> Etapas de desenvolvimento</h2>
 <section id="pergunta-de-pesquisa-e-hipótese" class="level3" data-number="10.3.1">
 <h3 data-number="10.3.1" class="anchored" data-anchor-id="pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</h3>
+<p>Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. FALAR DO EXEMPLO ENTRE POLICIA E CRIME</p>
+<p>Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.</p>
 </section>
 <section id="base-de-dados-e-documentação" class="level3" data-number="10.3.2">
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="base-de-dados-e-documentação"><span class="header-section-number">10.3.2</span> Base de dados e documentação</h3>
+<p>Após definir a pergunta de pesquisa, o próximo passo é obter e compreender os dados. Em aplicações empíricas, raramente trabalhamos com bases ``prontas para análise’’. Em geral, os dados precisam ser baixados, organizados, documentados e limpos antes que qualquer análise possa ser realizada. Nessa etapa, é fundamental responder perguntas como:</p>
+<ul>
+<li>Qual é a unidade de observação?</li>
+<li>O que representa cada linha da base?</li>
+<li>O que representa cada coluna?</li>
+<li>Existem valores faltantes?</li>
+<li>Como as variáveis foram construídas?</li>
+<li>Qual é o período temporal da base?</li>
+</ul>
+<p>Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas.</p>
+<p>Além disso, nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.</p>
 </section>
 <section id="análise-estatística-e-visualização" class="level3" data-number="10.3.3">
 <h3 data-number="10.3.3" class="anchored" data-anchor-id="análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</h3>
@@ -340,6 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="boas-práticas" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</h2>
+<p>Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.</p>
 </section>
 <section id="conclusão" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.5</span> Conclusão</h2>

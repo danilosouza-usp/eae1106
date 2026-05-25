@@ -654,14 +654,14 @@ Nesta aula, introduzimos os arrays do NumPy como a principal estrutura para comp
 
 1. Considere a matriz (ndarray de duas dimensões) abaixo:
 
-```python
-matriz = np.array([[ 1,  2,  3,  4],
-                   [ 5,  6,  7,  8],
-                   [ 9, 10, 11, 12],
-                   [13, 14, 15, 16]])
-```
-
-A partir desse objeto, 
+  ```python
+  matriz = np.array([[ 1,  2,  3,  4],
+                    [ 5,  6,  7,  8],
+                    [ 9, 10, 11, 12],
+                    [13, 14, 15, 16]])
+  ```
+  
+  A partir desse objeto, 
 
   a. extraia apenas a segunda linha.
   a. extraia apenas a terceira coluna.

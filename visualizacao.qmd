@@ -6,7 +6,7 @@ Até aqui trabalhamos principalmente com tabelas, vetores e operações numéric
 
 Em Python, a principal biblioteca para construção de gráficos é o `matplotlib`. Ela fornece controle detalhado sobre praticamente todos os elementos visuais de uma figura: eixos, títulos, legendas, cores, escalas e múltiplos gráficos. Neste capítulo aprenderemos a construir gráficos progressivamente, começando por gráficos simples de linha e avançando para figuras mais complexas com múltiplos painéis e diferentes tipos de visualização.
 
-![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento](images/dunningkruger.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
+![Efeito Dunning-Kruger e a tendência de pessoas pouco experientes superestimarem seu próprio nível de conhecimento. Para saber mais sobre esse efeito, ver a [matéria no Jornal da USP.](https://jornal.usp.br/radio-usp/o-que-e-o-efeito-dunning-kruger/)](images/dunningkruger.jpg){#fig-olddesk width=700px max-width=100% fig-align="center"}
 
 Mais importante do que decorar comandos específicos é compreender a lógica geral de construção de gráficos a partir de perguntas como (i) quais dados serão representados, (ii) qual tipo de gráfico é adequado, (iii) como organizar visualmente a informação, (iv) como tornar a comunicação clara e interpretável. Ao final do capítulo, você será capaz de produzir gráficos adequados para análises exploratórias, trabalhos acadêmicos e projetos empíricos em Economia.
 
@@ -695,6 +695,8 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 
 3. **Elementos visuais e textuais devem funcionar de forma integrada**. O gráfico não pode ser poluído de texto e se transformar naquilo que não é, mas elementos textuais podem ajudar bastante na tarefa de chamar a atenção para aquele que é o ponto principal da mensagem. O gráfico deve funcionar como um complemento ao texto, mas ao mesmo tempo deve se sustentar sem ele.
 
+A Figura @fig-visualization replica um dos exemplos apresentados no artigo, partindo de um gráfico ``sujo'', com elementos visuais demais, confuso e que pouco comunica. O autor propõe algumas mudanças, na linha dos três princípios básicos acima, que, a partir do mesmo conjunto de dados, informa muito mais ao leitor.
+
 ::: {#fig-visualization layout-ncol=1 width=700px max-width=100% fig-align="center"}
 
 ![Gráfico original](images/vis1.jpg){width=600px}
@@ -704,7 +706,7 @@ No artigo [_An Economist's Guide to Visualizing Data_](https://pubs.aeaweb.org/d
 Exemplo de mudanças na estrutura do gráfico que aumentam seu conteúdo informacional. Fonte: _Schwabish (2014)_
 :::
 
-O artigo vai muito além desses 3 princípios básicos e mostra exemplos de visualizações ruins e de como é possível "consertá-las". Há, no entanto, outras várias fontes de informação sobre visualização (esse [link](https://datascience.quantecon.org/tools/visualization_rules.html) é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de _storytelling_, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro [Storytelling com dados](https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&qid=1668636806&qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&sprefix=story%2Caps%2C557&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. **Personalização** é a palavra chave nessa árdua tarefa de construir um bom gráfico.
+Apesar de ir além desses 3 princípios básicos, o artigo é apenas uma referência e exemplo do poder de visualizações construídas de forma ``correta''. Há outras várias fontes de informação sobre visualização (esse [link](https://datascience.quantecon.org/tools/visualization_rules.html) é uma ótima referência) e de como construir gráficos e visualizações a partir de uma ideia de _storytelling_, de utilizar dados e ferramentas gráficas para contar uma história e comunicar uma mensagem (o livro [Storytelling com dados](https://www.amazon.com.br/Storytelling-com-Dados-Visualiza%C3%A7%C3%A3o-Profissionais/dp/8550804681/ref=sr_1_1_sspa?keywords=storytelling+com+dados&qid=1668636806&qu=eyJxc2MiOiIxLjY5IiwicXNhIjoiMC45NiIsInFzcCI6IjAuNzYifQ%3D%3D&sprefix=story%2Caps%2C557&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) é outra ótima referência). Em resumo, construir um bom gráfico, uma visualização eficiente, é um trabalho de criatividade e de muita tentativa e erro. Uma determinada visualização pode funcionar muito bem para um certo tipo de dado e não funcionar para outros vários tipos. **Personalização** é a palavra chave nessa árdua tarefa de construir um bom gráfico.
 
 <!-- ## Seaborn --> 
 
