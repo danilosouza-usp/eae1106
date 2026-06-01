@@ -30,14 +30,10 @@ Um sistema computacional é resultado da integração de componentes atuando com
    - Memória RAM
    - Disco rígido de armazenamento
 
-<br>
-
 - **Software**: componente lógico de um sistema de computação, isto é, séries de instruções que fazem o computador funcionar. São os famosos programas de computador, que podem ser (i) proprietários e utilizáveis a partir da compra de uma licença ou (ii) gratuitos. Exemplos:
    - Editores de texto (e.g., Microsoft Word)
    - Editor de planilhas (e.g., Microsoft Excel)
    - Browsers para navegação na internet (e.g., Safari e Google Chrome)
-
-<br>
 
 - **Componente humano**: as pessoas, que utilizam o computador basicamente como ferramenta para atingir determinado fim, para resolver problemas. Sem a ação de um indivíduo o sistema computacional não funciona, já que (ainda) depende das instruções e direcionamento humano para definir o que o software deve fazer e como deve interagir com o hardware.
 
@@ -49,11 +45,11 @@ A arquitetura de um computador define como os componentes estão interconectados
 
 Essencialmente, o hadware que compõe as partes da arquitetura de um computador podem ser dividas em 3 partes:
 
-* **Dispositivos de entrada e saída**: é através deles que o usuário dialoga com a máquina. Através do teclado e mouse, por exemplo, o usuário fornece informações ao computador a partir das quais processos serão realizados e seus resultados serão percebidos pelos dispositivos de saída (monitor e impressora, por exemplo).
+- **Dispositivos de entrada e saída**: é através deles que o usuário dialoga com a máquina. Através do teclado e mouse, por exemplo, o usuário fornece informações ao computador a partir das quais processos serão realizados e seus resultados serão percebidos pelos dispositivos de saída (monitor e impressora, por exemplo).
 
-* **Processador ou CPU**: é o cérebro do sistema computacional, é nele que serão executados cálculos e instruções lógicas dos usuários. 
+- **Processador ou CPU**: é o cérebro do sistema computacional, é nele que serão executados cálculos e instruções lógicas dos usuários. 
 
-* **Memória**: aqui são armazenados temporariamente os resultados dos cálculos, dados e instruções. Esse armazenamento na memória, porém, não é feito de forma permanente, ele serve apenas como suporte ao processador. É como se o processador utilizasse a memória de caderno de anotações, retomando o resultado dos cálculos já realizados sempre que necessário. 
+- **Memória**: aqui são armazenados temporariamente os resultados dos cálculos, dados e instruções. Esse armazenamento na memória, porém, não é feito de forma permanente, ele serve apenas como suporte ao processador. É como se o processador utilizasse a memória de caderno de anotações, retomando o resultado dos cálculos já realizados sempre que necessário. 
 
 ::: {.callout-important title="Importante"}
 Não confunda _memória_ com o que chamamos de _armazenamento_. A memória do computador, normalmente na forma da chamada memória RAM (sigla para _Random Access Memory_), é responsável por armazenar temporariamente os dados de dos programas que estão em uso, permitindo acesso rápido pelo processador. É também chamada de memória volátil: todo o seu conteúdo é perdido quando o computador é desligado.

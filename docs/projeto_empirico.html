@@ -308,30 +308,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Até este ponto do curso, introduzimos separadamente os principais componentes de um fluxo moderno de trabalho em ciência de dados aplicada à Economia: manipulação de objetos em Python, estruturas de controle, funções, programação numérica, manipulação de bases de dados e visualização de informações. No entanto, aplicações reais raramente aparecem de forma fragmentada. Em projetos empíricos concretos, todas essas ferramentas precisam ser combinadas de maneira organizada, coerente e replicável.</p>
 <p>O objetivo deste capítulo é integrar os conteúdos estudados anteriormente em um projeto empírico completo, simulando as etapas normalmente encontradas em trabalhos acadêmicos, relatórios técnicos, pesquisas aplicadas e análises de dados no mercado de trabalho. A proposta não é apenas “rodar códigos”, mas desenvolver uma estrutura organizada de trabalho computacional capaz de produzir resultados confiáveis, interpretáveis e reproduzíveis.</p>
 <p>Em Economia aplicada, grande parte do trabalho empírico consiste em transformar dados brutos em evidência quantitativa. Isso envolve decisões metodológicas, organização de arquivos, documentação adequada, limpeza de dados, análise estatística e comunicação de resultados. Pequenos erros em qualquer uma dessas etapas podem comprometer completamente uma análise. Por esse motivo, projetos empíricos exigem não apenas conhecimento estatístico, mas também boas práticas de programação e gestão computacional.</p>
-<p>Ao longo deste capítulo, construiremos um fluxo de trabalho simplificado, mas representativo, de um projeto empírico completo. A estrutura seguirá quatro etapas principais:</p>
 <section id="pré-requisitos" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">10.1.1</span> Pré-requisitos</h3>
-<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
+<p>Para implementar um projeto empírico no Python são vários os pacotes que serão utilizados. E essa é justamente uma das belezas de linguagens com uma comunidade tão ativa e produtiva como do Python: independente do tipo e complexidade do projeto, é alta a chance de pacotes específicos ao propósito do projeto em questão já terem sido desenvolvidos. No exemplo do capítulo, farei uso de pacotes básicos de gestão de sistema, bases de dados, análise estatística e visualização.</p>
 <ul>
 <li><code>os</code></li>
 <li><code>pandas</code></li>
+<li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="82818e87" class="cell" data-message="false" data-execution_count="1">
+<div id="240a2079" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="a-estrutura-de-um-projeto-empírico" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="a-estrutura-de-um-projeto-empírico"><span class="header-section-number">10.2</span> A estrutura de um projeto empírico</h2>
+<p>Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.</p>
+<p>Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.</p>
+<p>Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.</p>
+<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/fluxo_projeto.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
+</figcaption>
+</figure>
+</div>
+<p>Além das técnicas estatísticas propriamente ditas, um projeto empírico também exige organização e planejamento computacional. A forma como arquivos são armazenados, scripts são estruturados e resultados são documentados influencia diretamente a eficiência do trabalho e a capacidade de reproduzir a análise no futuro. Por esse motivo, boas práticas de programação e gestão de projetos são componentes fundamentais da pesquisa empírica moderna.</p>
+<p>Nas próximas seções, examinaremos cada uma das etapas que compõem um projeto empírico típico, desde a formulação da pergunta de pesquisa até a interpretação dos resultados obtidos.</p>
 </section>
 <section id="etapas-de-desenvolvimento" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="etapas-de-desenvolvimento"><span class="header-section-number">10.3</span> Etapas de desenvolvimento</h2>
 <section id="pergunta-de-pesquisa-e-hipótese" class="level3" data-number="10.3.1">
 <h3 data-number="10.3.1" class="anchored" data-anchor-id="pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</h3>
-<p>Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. FALAR DO EXEMPLO ENTRE POLICIA E CRIME</p>
+<p>Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. Um bom exemplo é entender a relação entre policiamento e crime. De acordo com os modelos de escolha racional da atividade criminosa, propostos inicialmente com as contribuições seminais de Becker (1968) e Ehrlich (1971), um policiamento maior aumenta a probabilidade de captura e o custo esperado de se envolver em atividades ilícitas. No entanto, ao olharmos para os dados, a relação entre polícia e crime pode apontar tanto na direção proposta pela teoria (mais polícia levando a menos crime) quanto para uma relação inversa (mais polícia levando a mais crime), já que a decisão de alocação policial também responde às taxas de criminalidade. Em ultima instância, responder a essa pergunta é uma questão empírica.</p>
 <p>Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.</p>
 </section>
 <section id="base-de-dados-e-documentação" class="level3" data-number="10.3.2">
@@ -350,6 +366,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="análise-estatística-e-visualização" class="level3" data-number="10.3.3">
 <h3 data-number="10.3.3" class="anchored" data-anchor-id="análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Além do Statsmodels: uma alternativa moderna">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Além do Statsmodels: uma alternativa moderna
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Neste capítulo utilizamos o <code>statsmodels</code>, uma das bibliotecas mais tradicionais para análise estatística em Python. Ela oferece ferramentas para estimação de regressões lineares e diversos outros modelos estatísticos, sendo amplamente utilizada em pesquisa acadêmica.</p>
+<p>Nos últimos anos, entretanto, surgiu uma nova geração de bibliotecas voltadas especificamente para economistas aplicados. Uma das mais promissoras é o <code>PyFixest</code>, inspirado no pacote <code>fixest</code> do R. Além de regressões lineares tradicionais, o <code>PyFixest</code> possui suporte para diversas técnicas amplamente utilizadas em pesquisas empíricas contemporâneas, incluindo modelos com efeitos fixos, estudos de evento e outros métodos de identificação causal, como Diferenças-em-Diferenças. Embora essas ferramentas estejam além do escopo deste curso, vale saber que o ecossistema Python continua evoluindo e hoje oferece alternativas cada vez mais sofisticadas para pesquisa aplicada em Economia.</p>
+</div>
+</div>
 </section>
 <section id="interpretação-e-limitações" class="level3" data-number="10.3.4">
 <h3 data-number="10.3.4" class="anchored" data-anchor-id="interpretação-e-limitações"><span class="header-section-number">10.3.4</span> Interpretação e limitações</h3>

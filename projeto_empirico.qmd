@@ -8,14 +8,13 @@ O objetivo deste capítulo é integrar os conteúdos estudados anteriormente em 
 
 Em Economia aplicada, grande parte do trabalho empírico consiste em transformar dados brutos em evidência quantitativa. Isso envolve decisões metodológicas, organização de arquivos, documentação adequada, limpeza de dados, análise estatística e comunicação de resultados. Pequenos erros em qualquer uma dessas etapas podem comprometer completamente uma análise. Por esse motivo, projetos empíricos exigem não apenas conhecimento estatístico, mas também boas práticas de programação e gestão computacional.
 
-Ao longo deste capítulo, construiremos um fluxo de trabalho simplificado, mas representativo, de um projeto empírico completo. A estrutura seguirá quatro etapas principais:
-
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+Para implementar um projeto empírico no Python são vários os pacotes que serão utilizados. E essa é justamente uma das belezas de linguagens com uma comunidade tão ativa e produtiva como do Python: independente do tipo e complexidade do projeto, é alta a chance de pacotes específicos ao propósito do projeto em questão já terem sido desenvolvidos. No exemplo do capítulo, farei uso de pacotes básicos de gestão de sistema, bases de dados, análise estatística e visualização.
 
 - `os`
 - `pandas`
+- `statsmodels`
 - `matplotlib`
 
 ```{python}
@@ -24,16 +23,29 @@ Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois 
 
 import os
 import pandas as pd
+import statsmodels.api as sm
 import matplotlib.pyplot as plt
 ```
 
 ## A estrutura de um projeto empírico
 
+Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.
+
+Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.
+
+Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.
+
+![Fluxo padrão de um projeto de análise empírica](images/fluxo_projeto.jpg){#fig-projeto width=700px max-width=100% fig-align="center"}
+
+Além das técnicas estatísticas propriamente ditas, um projeto empírico também exige organização e planejamento computacional. A forma como arquivos são armazenados, scripts são estruturados e resultados são documentados influencia diretamente a eficiência do trabalho e a capacidade de reproduzir a análise no futuro. Por esse motivo, boas práticas de programação e gestão de projetos são componentes fundamentais da pesquisa empírica moderna.
+
+Nas próximas seções, examinaremos cada uma das etapas que compõem um projeto empírico típico, desde a formulação da pergunta de pesquisa até a interpretação dos resultados obtidos.
+
 ## Etapas de desenvolvimento
 
 ### Pergunta de pesquisa e hipótese
 
-Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. FALAR DO EXEMPLO ENTRE POLICIA E CRIME
+Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente "usar uma base de dados", mas responder a uma questão específica utilizando evidência quantitativa. Um bom exemplo é entender a relação entre policiamento e crime. De acordo com os modelos de escolha racional da atividade criminosa, propostos inicialmente com as contribuições seminais de Becker (1968) e Ehrlich (1971), um policiamento maior aumenta a probabilidade de captura e o custo esperado de se envolver em atividades ilícitas. No entanto, ao olharmos para os dados, a relação entre polícia e crime pode apontar tanto na direção proposta pela teoria (mais polícia levando a menos crime) quanto para uma relação inversa (mais polícia levando a mais crime), já que a decisão de alocação policial também responde às taxas de criminalidade. Em ultima instância, responder a essa pergunta é uma questão empírica.
 
 Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.
 
@@ -53,6 +65,12 @@ Por esse motivo, documentação é parte essencial de qualquer projeto empírico
 Além disso, nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.
 
 ### Análise estatística e visualização
+
+::: {.callout-tip title="Além do Statsmodels: uma alternativa moderna"}
+Neste capítulo utilizamos o `statsmodels`, uma das bibliotecas mais tradicionais para análise estatística em Python. Ela oferece ferramentas para estimação de regressões lineares e diversos outros modelos estatísticos, sendo amplamente utilizada em pesquisa acadêmica.
+
+Nos últimos anos, entretanto, surgiu uma nova geração de bibliotecas voltadas especificamente para economistas aplicados. Uma das mais promissoras é o `PyFixest`, inspirado no pacote `fixest` do R. Além de regressões lineares tradicionais, o `PyFixest` possui suporte para diversas técnicas amplamente utilizadas em pesquisas empíricas contemporâneas, incluindo modelos com efeitos fixos, estudos de evento e outros métodos de identificação causal, como Diferenças-em-Diferenças. Embora essas ferramentas estejam além do escopo deste curso, vale saber que o ecossistema Python continua evoluindo e hoje oferece alternativas cada vez mais sofisticadas para pesquisa aplicada em Economia.
+:::
 
 ### Interpretação e limitações
 
