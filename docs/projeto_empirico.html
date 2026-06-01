@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="7c56e830" class="cell" data-message="false" data-execution_count="1">
+<div id="84db6908" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.</p>
 <p>Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.</p>
 <p>Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.</p>
-<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/fluxo_projeto.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -411,40 +411,28 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <h2 data-number="10.4" class="anchored" data-anchor-id="boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</h2>
 <p>Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.</p>
 <ol type="1">
-<li>Nunca altere diretamente os dados brutos.</li>
-</ol>
-<p>Os arquivos originais devem permanecer intactos. Toda limpeza ou transformação deve gerar novos arquivos em uma pasta separada, como <code>dados/secundarios/</code>. Isso permite reproduzir integralmente o processo de construção da base final.</p>
-<ol start="2" type="1">
-<li><p>Utilize nomes claros e padronizados para arquivos, scripts e variáveis. Quando não for possível, documente.</p></li>
-<li><p>Organize o projeto em diretórios.</p></li>
-</ol>
-<p>Misturar scripts, figuras, tabelas e bases de dados em uma única pasta rapidamente torna o projeto difícil de navegar. Estruturas organizadas reduzem erros e facilitam manutenção futura.</p>
-<ol start="4" type="1">
-<li>Documente o projeto.</li>
-</ol>
-<p>Comentários e documentação são essenciais. Um código escrito hoje pode se tornar incompreensível algumas semanas depois, inclusive para o próprio autor. Explique o objetivo do script, origem dos dados, significado e forma de construção de variáveis importantes, etapas principais da limpeza e da análise.</p>
-<ol start="5" type="1">
-<li>Evite caminhos absolutos em seus scripts.</li>
-</ol>
-<p>Evite utilizar em seus scripts caminhos como <code>C:/Users/user/Desktop/projeto/dados/base.csv</code>, que funcionam apenas em computadores específicos. Prefira caminhos relativos como <code>dados/brutos/base.csv</code> que funcionam a partir de um diretório base, isso melhora portabilidade e replicabilidade.</p>
-<ol start="6" type="1">
-<li>Mantenha scripts separados por função.</li>
-</ol>
-<p>Projetos maiores devem separar tarefas em scripts diferentes, i.e., um script para limpeza de dados e outro para análise estatística, por exemplo. Isso reduz complexidade e facilita depuração.</p>
-<ol start="7" type="1">
-<li>Salve figuras e tabelas automaticamente.</li>
-</ol>
-<p>Evite copiar manualmente resultados para relatórios. Sempre que possível, exporte gráficos e tabelas diretamente pelos scripts. Isso reduz erros e garante consistência entre análise e relatório final.</p>
-<ol start="8" type="1">
-<li>Pense no projeto como um sistema completo.</li>
-</ol>
+<li><p><strong>Nunca altere diretamente os dados brutos.</strong></p>
+<p>Os arquivos originais devem permanecer intactos. Toda limpeza ou transformação deve gerar novos arquivos em uma pasta separada, como <code>dados/secundarios/</code>. Isso permite reproduzir integralmente o processo de construção da base final.</p></li>
+<li><p><strong>Utilize nomes claros e padronizados para arquivos, scripts e variáveis. Quando não for possível, documente.</strong></p></li>
+<li><p><strong>Organize o projeto em diretórios.</strong></p>
+<p>Misturar scripts, figuras, tabelas e bases de dados em uma única pasta rapidamente torna o projeto difícil de navegar. Estruturas organizadas reduzem erros e facilitam manutenção futura.</p></li>
+<li><p><strong>Documente o projeto.</strong></p>
+<p>Comentários e documentação são essenciais. Um código escrito hoje pode se tornar incompreensível algumas semanas depois, inclusive para o próprio autor. Explique o objetivo do script, origem dos dados, significado e forma de construção de variáveis importantes, etapas principais da limpeza e da análise.</p></li>
+<li><p><strong>Evite caminhos absolutos em seus scripts.</strong></p>
+<p>Evite utilizar em seus scripts caminhos como <code>C:/Users/user/Desktop/projeto/dados/base.csv</code>, que funcionam apenas em computadores específicos. Prefira caminhos relativos como <code>dados/brutos/base.csv</code> que funcionam a partir de um diretório base, isso melhora portabilidade e replicabilidade.</p></li>
+<li><p><strong>Mantenha scripts separados por função.</strong></p>
+<p>Projetos maiores devem separar tarefas em scripts diferentes, i.e., um script para limpeza de dados e outro para análise estatística, por exemplo. Isso reduz complexidade e facilita depuração.</p></li>
+<li><p><strong>Salve figuras e tabelas automaticamente.</strong></p>
+<p>Evite copiar manualmente resultados para relatórios. Sempre que possível, exporte gráficos e tabelas diretamente pelos scripts. Isso reduz erros e garante consistência entre análise e relatório final.</p></li>
+<li><p><strong>Pense no projeto como um sistema completo.</strong></p>
 <p>Projetos empíricos não consistem apenas em “rodar um código”. Eles envolvem:</p>
 <ul>
 <li>organização e documentação;</li>
 <li>tratamento de dados;</li>
 <li>análise, interpretação e comunicação de resultados.</li>
 </ul>
-<p>Uma boa gestão computacional reduz erros, economiza tempo e aumenta a confiabilidade da análise.</p>
+<p>Uma boa gestão computacional reduz erros, economiza tempo e aumenta a confiabilidade da análise.</p></li>
+</ol>
 </section>
 <section id="conclusão" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.5</span> Conclusão</h2>
