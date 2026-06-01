@@ -66,17 +66,79 @@ Além disso, nesta etapa também organizamos a estrutura do projeto no computado
 
 ### Análise estatística e visualização
 
+Com os dados organizados, iniciamos a etapa de análise. Em projetos empíricos, a análise normalmente começa com estatísticas descritivas e visualizações. Antes de aplicar modelos estatísticos mais sofisticados, é importante compreender o comportamento geral das variáveis. Nessa etapa, investigamos questões como:
+
+- distribuição dos dados;
+- presença de outliers;
+- valores inconsistentes;
+- correlações;
+- padrões temporais;
+- diferenças entre grupos.
+
+Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.
+
+Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados.
+
 ::: {.callout-tip title="Além do Statsmodels: uma alternativa moderna"}
 Neste capítulo utilizamos o `statsmodels`, uma das bibliotecas mais tradicionais para análise estatística em Python. Ela oferece ferramentas para estimação de regressões lineares e diversos outros modelos estatísticos, sendo amplamente utilizada em pesquisa acadêmica.
 
 Nos últimos anos, entretanto, surgiu uma nova geração de bibliotecas voltadas especificamente para economistas aplicados. Uma das mais promissoras é o `PyFixest`, inspirado no pacote `fixest` do R. Além de regressões lineares tradicionais, o `PyFixest` possui suporte para diversas técnicas amplamente utilizadas em pesquisas empíricas contemporâneas, incluindo modelos com efeitos fixos, estudos de evento e outros métodos de identificação causal, como Diferenças-em-Diferenças. Embora essas ferramentas estejam além do escopo deste curso, vale saber que o ecossistema Python continua evoluindo e hoje oferece alternativas cada vez mais sofisticadas para pesquisa aplicada em Economia.
 :::
 
-### Interpretação e limitações
+### Discussão dos resultados e limitações
+
+Produzir resultados numéricos não é o objetivo final de um projeto empírico. Os resultados precisam ser interpretados cuidadosamente. Em aplicações reais, análises quantitativas quase sempre possuem limitações. Algumas fontes comuns incluem:
+
+- dados incompletos;
+- erros de medição;
+- variáveis omitidas;
+- tamanho reduzido da amostra;
+- problemas de causalidade;
+- viés de seleção.
+
+Por esse motivo, resultados empíricos devem ser discutidos com cautela. Uma regressão estatisticamente significativa não implica automaticamente uma relação causal.
+
+Além disso, diferentes escolhas metodológicas podem produzir resultados diferentes. Pequenas alterações em filtros, variáveis ou amostras podem modificar substancialmente as conclusões de uma análise. Um bom projeto empírico reconhece explicitamente essas limitações em vez de ignorá-las. Em Economia aplicada, a credibilidade de uma análise depende não apenas da sofisticação técnica, mas também da transparência metodológica.
 
 ## Boas práticas
 
 Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.
+
+1. Nunca altere diretamente os dados brutos.
+
+Os arquivos originais devem permanecer intactos. Toda limpeza ou transformação deve gerar novos arquivos em uma pasta separada, como `dados/secundarios/`. Isso permite reproduzir integralmente o processo de construção da base final.
+
+2. Utilize nomes claros e padronizados para arquivos, scripts e variáveis. Quando não for possível, documente.
+
+3. Organize o projeto em diretórios.
+
+Misturar scripts, figuras, tabelas e bases de dados em uma única pasta rapidamente torna o projeto difícil de navegar. Estruturas organizadas reduzem erros e facilitam manutenção futura.
+
+4. Documente o projeto.
+
+Comentários e documentação são essenciais. Um código escrito hoje pode se tornar incompreensível algumas semanas depois, inclusive para o próprio autor. Explique o objetivo do script, origem dos dados, significado e forma de construção de variáveis importantes, etapas principais da limpeza e da análise.
+
+5. Evite caminhos absolutos em seus scripts.
+
+Evite utilizar em seus scripts caminhos como `C:/Users/user/Desktop/projeto/dados/base.csv`, que funcionam apenas em computadores específicos. Prefira caminhos relativos como `dados/brutos/base.csv` que funcionam a partir de um diretório base, isso melhora portabilidade e replicabilidade.
+
+6. Mantenha scripts separados por função.
+
+Projetos maiores devem separar tarefas em scripts diferentes, i.e., um script para limpeza de dados e outro para análise estatística, por exemplo. Isso reduz complexidade e facilita depuração. 
+
+7. Salve figuras e tabelas automaticamente. 
+
+Evite copiar manualmente resultados para relatórios. Sempre que possível, exporte gráficos e tabelas diretamente pelos scripts. Isso reduz erros e garante consistência entre análise e relatório final.
+
+8. Pense no projeto como um sistema completo.
+
+Projetos empíricos não consistem apenas em "rodar um código". Eles envolvem:
+
+- organização e documentação;
+- tratamento de dados;
+- análise, interpretação e comunicação de resultados.
+
+Uma boa gestão computacional reduz erros, economiza tempo e aumenta a confiabilidade da análise.
 
 ## Conclusão
 

@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pergunta-de-pesquisa-e-hipótese" id="toc-pergunta-de-pesquisa-e-hipótese" class="nav-link" data-scroll-target="#pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</a></li>
   <li><a href="#base-de-dados-e-documentação" id="toc-base-de-dados-e-documentação" class="nav-link" data-scroll-target="#base-de-dados-e-documentação"><span class="header-section-number">10.3.2</span> Base de dados e documentação</a></li>
   <li><a href="#análise-estatística-e-visualização" id="toc-análise-estatística-e-visualização" class="nav-link" data-scroll-target="#análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</a></li>
-  <li><a href="#interpretação-e-limitações" id="toc-interpretação-e-limitações" class="nav-link" data-scroll-target="#interpretação-e-limitações"><span class="header-section-number">10.3.4</span> Interpretação e limitações</a></li>
+  <li><a href="#discussão-dos-resultados-e-limitações" id="toc-discussão-dos-resultados-e-limitações" class="nav-link" data-scroll-target="#discussão-dos-resultados-e-limitações"><span class="header-section-number">10.3.4</span> Discussão dos resultados e limitações</a></li>
   </ul></li>
   <li><a href="#boas-práticas" id="toc-boas-práticas" class="nav-link" data-scroll-target="#boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</a></li>
   <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">10.5</span> Conclusão</a></li>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="240a2079" class="cell" data-message="false" data-execution_count="1">
+<div id="7c56e830" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.</p>
 <p>Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.</p>
 <p>Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.</p>
-<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/fluxo_projeto.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -366,6 +366,17 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 </section>
 <section id="análise-estatística-e-visualização" class="level3" data-number="10.3.3">
 <h3 data-number="10.3.3" class="anchored" data-anchor-id="análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</h3>
+<p>Com os dados organizados, iniciamos a etapa de análise. Em projetos empíricos, a análise normalmente começa com estatísticas descritivas e visualizações. Antes de aplicar modelos estatísticos mais sofisticados, é importante compreender o comportamento geral das variáveis. Nessa etapa, investigamos questões como:</p>
+<ul>
+<li>distribuição dos dados;</li>
+<li>presença de outliers;</li>
+<li>valores inconsistentes;</li>
+<li>correlações;</li>
+<li>padrões temporais;</li>
+<li>diferenças entre grupos.</li>
+</ul>
+<p>Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.</p>
+<p>Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Além do Statsmodels: uma alternativa moderna">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,13 +392,59 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 </div>
 </div>
 </section>
-<section id="interpretação-e-limitações" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="interpretação-e-limitações"><span class="header-section-number">10.3.4</span> Interpretação e limitações</h3>
+<section id="discussão-dos-resultados-e-limitações" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="discussão-dos-resultados-e-limitações"><span class="header-section-number">10.3.4</span> Discussão dos resultados e limitações</h3>
+<p>Produzir resultados numéricos não é o objetivo final de um projeto empírico. Os resultados precisam ser interpretados cuidadosamente. Em aplicações reais, análises quantitativas quase sempre possuem limitações. Algumas fontes comuns incluem:</p>
+<ul>
+<li>dados incompletos;</li>
+<li>erros de medição;</li>
+<li>variáveis omitidas;</li>
+<li>tamanho reduzido da amostra;</li>
+<li>problemas de causalidade;</li>
+<li>viés de seleção.</li>
+</ul>
+<p>Por esse motivo, resultados empíricos devem ser discutidos com cautela. Uma regressão estatisticamente significativa não implica automaticamente uma relação causal.</p>
+<p>Além disso, diferentes escolhas metodológicas podem produzir resultados diferentes. Pequenas alterações em filtros, variáveis ou amostras podem modificar substancialmente as conclusões de uma análise. Um bom projeto empírico reconhece explicitamente essas limitações em vez de ignorá-las. Em Economia aplicada, a credibilidade de uma análise depende não apenas da sofisticação técnica, mas também da transparência metodológica.</p>
 </section>
 </section>
 <section id="boas-práticas" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="boas-práticas"><span class="header-section-number">10.4</span> Boas práticas</h2>
 <p>Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.</p>
+<ol type="1">
+<li>Nunca altere diretamente os dados brutos.</li>
+</ol>
+<p>Os arquivos originais devem permanecer intactos. Toda limpeza ou transformação deve gerar novos arquivos em uma pasta separada, como <code>dados/secundarios/</code>. Isso permite reproduzir integralmente o processo de construção da base final.</p>
+<ol start="2" type="1">
+<li><p>Utilize nomes claros e padronizados para arquivos, scripts e variáveis. Quando não for possível, documente.</p></li>
+<li><p>Organize o projeto em diretórios.</p></li>
+</ol>
+<p>Misturar scripts, figuras, tabelas e bases de dados em uma única pasta rapidamente torna o projeto difícil de navegar. Estruturas organizadas reduzem erros e facilitam manutenção futura.</p>
+<ol start="4" type="1">
+<li>Documente o projeto.</li>
+</ol>
+<p>Comentários e documentação são essenciais. Um código escrito hoje pode se tornar incompreensível algumas semanas depois, inclusive para o próprio autor. Explique o objetivo do script, origem dos dados, significado e forma de construção de variáveis importantes, etapas principais da limpeza e da análise.</p>
+<ol start="5" type="1">
+<li>Evite caminhos absolutos em seus scripts.</li>
+</ol>
+<p>Evite utilizar em seus scripts caminhos como <code>C:/Users/user/Desktop/projeto/dados/base.csv</code>, que funcionam apenas em computadores específicos. Prefira caminhos relativos como <code>dados/brutos/base.csv</code> que funcionam a partir de um diretório base, isso melhora portabilidade e replicabilidade.</p>
+<ol start="6" type="1">
+<li>Mantenha scripts separados por função.</li>
+</ol>
+<p>Projetos maiores devem separar tarefas em scripts diferentes, i.e., um script para limpeza de dados e outro para análise estatística, por exemplo. Isso reduz complexidade e facilita depuração.</p>
+<ol start="7" type="1">
+<li>Salve figuras e tabelas automaticamente.</li>
+</ol>
+<p>Evite copiar manualmente resultados para relatórios. Sempre que possível, exporte gráficos e tabelas diretamente pelos scripts. Isso reduz erros e garante consistência entre análise e relatório final.</p>
+<ol start="8" type="1">
+<li>Pense no projeto como um sistema completo.</li>
+</ol>
+<p>Projetos empíricos não consistem apenas em “rodar um código”. Eles envolvem:</p>
+<ul>
+<li>organização e documentação;</li>
+<li>tratamento de dados;</li>
+<li>análise, interpretação e comunicação de resultados.</li>
+</ul>
+<p>Uma boa gestão computacional reduz erros, economiza tempo e aumenta a confiabilidade da análise.</p>
 </section>
 <section id="conclusão" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.5</span> Conclusão</h2>
