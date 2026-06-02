@@ -210,10 +210,10 @@ ax.set_yticklabels(ytickslabel, fontsize=12, fontweight='light')
 ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.05)
 ax.scatter(x,y,alpha=1.0,color='#1f77b4', s=120)
 
-ax.set_xlabel('Log do número de policiais por $100{,}000$ habitantes',fontsize=14, fontweight='light', labelpad=10, ha='center')
-ax.set_ylabel('Log de homicídios por $100{,}000$ habitantes',fontsize=14, fontweight='light', labelpad=10, ha='center')
-ax.xaxis.set_label_coords(0.69,-0.09)
-ax.yaxis.set_label_coords(-0.09,0.58)
+ax.set_xlabel('Log do número de policiais por $100{,}000$ habitantes',fontsize=12, fontweight='light', labelpad=10, ha='center')
+ax.set_ylabel('Log de homicídios por $100{,}000$ habitantes',fontsize=12, fontweight='light', labelpad=10, ha='center')
+ax.xaxis.set_label_coords(0.50,-0.09)
+ax.yaxis.set_label_coords(-0.09,0.50)
 
 plt.savefig('resultados/policia_crime.pdf', bbox_inches='tight')
 plt.show()
@@ -253,7 +253,7 @@ Por esse motivo, resultados empíricos devem ser discutidos com cautela. Uma reg
 ::: {.callout-important title="Correlação não implica causalidade"}
 Uma simples relação entre duas séries de dados não quer dizer necessariamente muita coisa. Amálise empírica vai muito além de uma simples análise de regressão ou de um gráfico de dispersão. Ou você acha que existe uma relação de causa e efeito entre a [taxa anual de divórcios no Reino Unido e o número de novos filmes lançados pela Disney](https://tylervigen.com/spurious/correlation/1205_divorce-rates-in-the-united-kingdom_correlates-with_disney-movies-released)?
 
-![Exemplo de correlação entre variáveis não relacionadas. Fonte: https://tylervigen.com/spurious-correlations](images/disney_divorce.png){#fig-correlation width=450px max-width=100% fig-align="center"}
+![Exemplo de correlação entre variáveis não relacionadas. Fonte: https://tylervigen.com/spurious-correlations](images/disney_divorce.png){#fig-correlation width=500px max-width=100% fig-align="center"}
 
 No nosso exemplo da relação entre atividade criminosa e policiamento, são várias as variáveis não observáveis e outros problemas de seleção nos dados que podem confundir bla bla bla. Mesmo que municípios com mais policiais apresentem mais crimes, isso não significa que a presença policial aumente a criminalidade. É possível que municípios mais violentos recebam mais policiais justamente porque possuem mais crimes.
 :::
