@@ -136,6 +136,8 @@ df_pol = df_pol[['Iso3_code','VALUE']].reset_index(drop=True)
 df_pol.columns = ['country_code','police']
 
 df_polh = pd.merge(df_hrate, df_pol, on=['country_code'],how='inner')
+df_polh['police_log'] = np.log(df_polh['police'])
+df_polh['hrate_log'] = np.log(df_polh['hrate'])
 df_polh = df_polh.dropna(how='any',axis=0)
 
 ## base final
@@ -177,17 +179,16 @@ Visualizações possuem papel central nesse processo porque permitem identificar
 No nosso caso da relação entre polícia e crime, uma primeira análise é a de correlação simples, a partir do cálculo do índice de correlação e da análise do gráfico de dispersão.
 
 ```{python}
+#| warning: false
 xticks=[4,5,6,7,8]
 yticks=[-2,0,2,4,6]
 xtickslabel=['$4$','$5$','$6$','$7$','$8$']
 ytickslabel=['$-2$','$0$','$2$','$4$','$6$']
 
-HomicidioPolicia2015['police_log'] = np.log(HomicidioPolicia2015['police'])
-HomicidioPolicia2015['hrate_log'] = np.log(HomicidioPolicia2015['hrate'])
 x = HomicidioPolicia2015['police_log']
 y = HomicidioPolicia2015['hrate_log']
 
-height = 8
+height = 5
 fig, ax = plt.subplots(1, 1, figsize=(1.50*height, height))
 
 ax.spines['top'].set_visible(False)
@@ -217,8 +218,7 @@ plt.savefig('resultados/policia_crime.pdf', bbox_inches='tight')
 plt.show()
 ```
 
-
-Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados. Vejamos o caso simples de uma regressão com o log da taxa de criminalidade com variável dependente e o log do efetivo policial como regressor. Para isso, utilizamos o pacote `statsmodels` e a função `OLS`, que remete a _Ordinary Least Squares_.
+Embora o gráfico de dispersão seja uma ferramenta útil para uma inspeção inicial dos dados, ele nem sempre permite identificar claramente a existência ou a intensidade de uma relação entre duas variáveis. Em situações como esta, em que a nuvem de pontos não revela um padrão evidente, é comum recorrer a métodos estatísticos mais estruturados para quantificar a associação observada nos dados. Uma das abordagens mais utilizadas para esse fim é a regressão linear, que busca estimar como variações em uma variável estão associadas, em média, a variações em outra. No nosso caso, estimaremos uma regressão em que o logaritmo da taxa de homicídios é utilizado como variável dependente e o logaritmo do efetivo policial como variável explicativa. Para isso, utilizaremos o pacote `statsmodels` e a função `OLS`, sigla para _Ordinary Least Squares_ (Mínimos Quadrados Ordinários), um dos métodos mais tradicionais para estimação de modelos lineares e que discutimos brevemente na aplicação do capítulo @sec-numpy.
 
 ```{python}
 HomicidioPolicia2015['constante'] = 1
@@ -228,7 +228,7 @@ result = sm.OLS(y,X).fit()
 print(result.summary())
 ```
 
-Note que 
+A saída da regressão apresenta diversas estatísticas sobre o modelo estimado, mas nosso foco principal está no coeficiente associado à variável `police_log`. Esse coeficiente mede a associação entre o efetivo policial e a taxa de homicídios na amostra analisada. Como ambas as variáveis foram transformadas em logaritmos, o coeficiente pode ser interpretado aproximadamente como uma elasticidade: ele indica a variação percentual esperada na taxa de homicídios associada a um aumento de $1\%$ no efetivo policial. A tabela também informa o erro-padrão da estimativa, a estatística t e o p-valor, que ajudam a avaliar a precisão do coeficiente estimado. Embora essas estatísticas permitam resumir quantitativamente a relação observada nos dados, é importante lembrar que a regressão identifica apenas uma associação estatística entre as variáveis, não necessariamente uma relação causal entre policiamento e criminalidade.
 
 ::: {.callout-tip title="Além do Statsmodels: uma alternativa moderna"}
 Neste capítulo utilizamos o `statsmodels`, uma das bibliotecas mais tradicionais para análise estatística em Python. Ela oferece ferramentas para estimação de regressões lineares e diversos outros modelos estatísticos, sendo amplamente utilizada em pesquisa acadêmica.
@@ -261,7 +261,7 @@ Além disso, diferentes escolhas metodológicas podem produzir resultados difere
 
 ## Boas práticas
 
-Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas computacionais tornam-se fundamentais para garantir organização, eficiência e replicabilidade.
+As etapas apresentadas até aqui descrevem o fluxo básico de um projeto empírico, mas a qualidade de uma análise depende também da forma como os dados, os códigos e os resultados são organizados. Em projetos maiores, a ausência de boas práticas pode dificultar a identificação de erros, a atualização dos resultados e até mesmo a reprodução da análise pelo próprio pesquisador alguns meses depois. Por esse motivo, pesquisadores e cientistas de dados costumam seguir um conjunto de princípios que tornam o trabalho mais organizado, transparente e replicável. A seguir, apresentamos algumas recomendações simples que podem ser adotadas desde os primeiros projetos.
 
 1. **Nunca altere diretamente os dados brutos.**
 
@@ -299,7 +299,13 @@ Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas compu
 
     Uma boa gestão computacional reduz erros, economiza tempo e aumenta a confiabilidade da análise.
 
+Nenhuma dessas práticas é obrigatória, e diferentes pesquisadores podem adotar estruturas de trabalho distintas. Ainda assim, todas compartilham o mesmo objetivo: tornar a análise mais fácil de entender, revisar e reproduzir. À medida que os projetos se tornam maiores e mais complexos, investir tempo em organização e replicabilidade deixa de ser apenas uma questão de conveniência e passa a ser um componente fundamental da qualidade da pesquisa empírica.
+
 ## Conclusão
+
+Neste capítulo, reunimos os principais elementos de um projeto empírico em um único fluxo de trabalho. Partindo de uma pergunta de pesquisa e de uma hipótese, mostramos como obter e documentar dados, construir uma base de análise, explorar estatísticas descritivas, produzir visualizações e estimar uma regressão simples. Embora a aplicação tenha utilizado dados sobre policiamento e criminalidade, as etapas apresentadas são comuns à maioria dos trabalhos empíricos em Economia.
+
+Mais importante do que os resultados obtidos foi compreender a lógica que organiza uma investigação empírica. Projetos bem estruturados dependem não apenas de técnicas estatísticas, mas também de boas práticas de organização, documentação e replicabilidade. À medida que os problemas analisados se tornam mais complexos, essas práticas tornam-se cada vez mais importantes para garantir análises transparentes, confiáveis e passíveis de reprodução.
 
 ## Exercícios
 
