@@ -14,6 +14,7 @@ Para implementar um projeto empírico no Python são vários os pacotes que ser�
 
 - `os`
 - `pathlib`
+- `numpy`
 - `pandas`
 - `statsmodels`
 - `matplotlib`
@@ -24,6 +25,7 @@ Para implementar um projeto empírico no Python são vários os pacotes que ser�
 
 import os
 import pathlib
+import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
@@ -137,7 +139,7 @@ df_polh = pd.merge(df_hrate, df_pol, on=['country_code'],how='inner')
 df_polh = df_polh.dropna(how='any',axis=0)
 
 ## base final
-df_polh.to_csv('dados/secundario/UNDOC_HomicidioPolicia2015.csv', sep=',', encoding='utf8')
+df_polh.to_csv('dados/secundario/UNDOC_HomicidioPolicia2015.csv', sep=',', encoding='utf8',index=False)
 ```
 
 Uma vez construída a base de dados que será utilizada na análise, o próximo passo é compreender sua estrutura. Antes de produzir gráficos, calcular estatísticas ou estimar modelos, é importante verificar quais variáveis estão disponíveis, quantas observações existem e se há problemas evidentes nos dados. Em projetos empíricos reais, essa etapa costuma ser iterativa: frequentemente descobrimos inconsistências ou limitações que nos levam a retornar ao código de limpeza e realizar ajustes adicionais.
@@ -149,13 +151,15 @@ HomicidioPolicia2015 = pd.read_csv('dados/secundario/UNDOC_HomicidioPolicia2015.
 HomicidioPolicia2015.info()
 ```
 
-Nesse caso, percebemos que são X as observações na base, Y variáveis disponíveis e Z valores faltantes. Note que, nesse último caso, fomos nós que levamos a isso, já que o uso do método `dropna()` antes de salvar o dataframe final já corrigiu potenciais problemas, embora tenha nos deixado com uma amostra de apenas Z países. Em seguida, podemos utilizar o método `describe()`, que produz um resumo estatístico das variáveis numéricas presentes no dataframe.
+Nesse caso, observamos que a base contém 73 observações (países) e 5 variáveis, sem a presença de valores faltantes (_missing values_). É importante notar que esse resultado não surgiu naturalmente dos dados originais. Durante a etapa de preparação da base, utilizamos o método `dropna()` para remover observações com informações incompletas, eliminando potenciais problemas que poderiam comprometer as análises posteriores. Como consequência, passamos a trabalhar com uma amostra menor, composta apenas pelos países para os quais havia informações disponíveis tanto sobre homicídios quanto sobre efetivo policial em 2015.
+
+Uma vez verificada a estrutura geral da base, podemos utilizar o método `describe()`, que produz um resumo estatístico das variáveis numéricas presentes no dataframe. Esse tipo de inspeção permite compreender melhor a distribuição dos dados e identificar possíveis valores extremos ou padrões que mereçam investigação adicional.
 
 ```{python}
 HomicidioPolicia2015.describe()
 ```
 
-Essas estatísticas ajudam a identificar possíveis problemas nos dados e fornecem uma primeira visão sobre a variabilidade das variáveis analisadas. Por exemplo, podemos verificar se existem países com taxas de homicídio excepcionalmente altas ou se há grande heterogeneidade no efetivo policial entre os países da amostra.
+Essas estatísticas revelam uma considerável heterogeneidade entre os países da amostra. Enquanto a taxa de homicídios variou de $0$ a aproximadamente $107$ homicídios por $100$ mil habitantes, o efetivo policial oscilou entre cerca de $83$ e $25{,}000$ policiais por $100$ mil habitantes. Além de fornecer uma primeira visão sobre a distribuição das variáveis, esse tipo de resumo estatístico também ajuda a identificar possíveis problemas nos dados, como valores extremos ou inconsistências. No nosso caso, os resultados sugerem que existem diferenças substanciais tanto nos níveis de criminalidade quanto na intensidade do policiamento entre os países analisados, uma característica que poderá ser explorada nas etapas seguintes da análise.
 
 ### Análise estatística e visualização
 
@@ -170,11 +174,61 @@ Com os dados organizados, iniciamos a etapa de análise. Em projetos empíricos,
 
 Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.
 
-No nosso caso da relação entre polícia e crime
+No nosso caso da relação entre polícia e crime, uma primeira análise é a de correlação simples, a partir do cálculo do índice de correlação e da análise do gráfico de dispersão.
+
+```{python}
+xticks=[4,5,6,7,8]
+yticks=[-2,0,2,4,6]
+xtickslabel=['$4$','$5$','$6$','$7$','$8$']
+ytickslabel=['$-2$','$0$','$2$','$4$','$6$']
+
+HomicidioPolicia2015['police_log'] = np.log(HomicidioPolicia2015['police'])
+HomicidioPolicia2015['hrate_log'] = np.log(HomicidioPolicia2015['hrate'])
+x = HomicidioPolicia2015['police_log']
+y = HomicidioPolicia2015['hrate_log']
+
+height = 8
+fig, ax = plt.subplots(1, 1, figsize=(1.50*height, height))
+
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(True)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(True)
+ax.spines['bottom'].set_alpha(0.3)
+ax.spines['left'].set_alpha(0.3)
+
+ax.set_xlim(3.9, 8.1)
+ax.set_ylim(-2.1,6.4)
+
+ax.set_xticks(xticks)
+ax.set_yticks(yticks)
+ax.set_xticklabels(xtickslabel, fontsize=16, fontweight='light')
+ax.set_yticklabels(ytickslabel, fontsize=16, fontweight='light')
+
+ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.05)
+ax.scatter(x,y,alpha=1.0,color='#1f77b4', s=120)
+
+ax.set_xlabel('Log do número de policiais por $100{,}000$ habitantes',fontsize=18, fontweight='light', labelpad=10, ha='center')
+ax.set_ylabel('Log de homicídios por $100{,}000$ habitantes',fontsize=18, fontweight='light', labelpad=10, ha='center')
+ax.xaxis.set_label_coords(0.69,-0.09)
+ax.yaxis.set_label_coords(-0.09,0.58)
+
+plt.savefig('resultados/policia_crime.pdf', bbox_inches='tight')
+plt.show()
+```
 
 
+Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados. Vejamos o caso simples de uma regressão com o log da taxa de criminalidade com variável dependente e o log do efetivo policial como regressor. Para isso, utilizamos o pacote `statsmodels` e a função `OLS`, que remete a _Ordinary Least Squares_.
 
-Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados.
+```{python}
+HomicidioPolicia2015['constante'] = 1
+
+X = HomicidioPolicia2015[['constante','police_log']]
+result = sm.OLS(y,X).fit()
+print(result.summary())
+```
+
+Note que 
 
 ::: {.callout-tip title="Além do Statsmodels: uma alternativa moderna"}
 Neste capítulo utilizamos o `statsmodels`, uma das bibliotecas mais tradicionais para análise estatística em Python. Ela oferece ferramentas para estimação de regressões lineares e diversos outros modelos estatísticos, sendo amplamente utilizada em pesquisa acadêmica.
