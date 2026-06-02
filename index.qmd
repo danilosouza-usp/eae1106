@@ -26,6 +26,7 @@ Este material não foi pensado para ser lido do início ao fim de forma linear, 
 
 Este website é atualizado continuamente, refletindo _feedbacks_ a respeito do conteúdo e incorporação de novos pacotes e atualizações.
 
+- **02 de Junho, 2026**: Inclusão da versão inicial do capítulo 10.
 - **22 de Maio, 2026**: Inclusão de novos exercícios; inclusão da versão inicial do capítulo 9.
 - **11 de Maio, 2026**: Inclusão de novos exercícios; inclusão da versão inicial do capítulo 8.
 - **06 de Abril, 2026**: Correção de typos nos primeiros 6 capítulos; inclusão de novos exercícios; inclusão da versão inicial do capítulo 7.

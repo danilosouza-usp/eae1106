@@ -81,7 +81,7 @@ Após definir a pergunta de pesquisa, o próximo passo é obter e compreender os
 
 Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas. Nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.
 
-No nosso exemplo de polícia trabalharemos com uma estrutura de 3 subdiretórios a partir de um diretório raiz: `dados`, `scripts` e `resultados`. O subdiretório de dados será subdividido em dois, um para armazenar os dados brutos e o outro para armazenar a base de dados já trabalhada e a partir da qual desenvolveremos a análise. Tudo isso pode ser feito através do pacote `os` e suas funções.
+No nosso exemplo de polícia trabalharemos com uma estrutura de 3 subdiretórios a partir de um diretório raiz: `dados`, `scripts` e `resultados`. O subdiretório de dados será subdividido em dois, um para armazenar os dados brutos e o outro para armazenar a base de dados já trabalhada e a partir da qual desenvolveremos a análise. Tudo isso pode ser feito através dos pacotes `os`, `pathlib` e suas funções.
 
 ```python
 # Diretório raiz do projeto
@@ -109,6 +109,7 @@ os.chdir('C:/Users/user/Desktop/EAE1106/projeto_empirico')
 Os dados utilizados nesta aplicação foram obtidos junto à _United Nations Office on Drugs and Crime_ (UNODC), órgão das Nações Unidas responsável pela compilação e divulgação de estatísticas internacionais sobre criminalidade, sistema de justiça criminal e drogas. As bases originais podem ser acessadas diretamente por meio do portal de dados da UNODC, disponível em [UNODC Data Portal](https://data.unodc.org/). Como o objetivo deste capítulo é ilustrar as etapas de um projeto empírico e não discutir os detalhes do tratamento dos dados, não analisaremos linha a linha o código utilizado para preparar a base. Todas as operações empregadas já foram apresentadas em capítulos anteriores. Em essência, o código a seguir realiza três tarefas: seleciona, dentre as diversas informações disponíveis na base original, os dados referentes às taxas de homicídio e ao efetivo policial; filtra as observações correspondentes ao ano de 2015; e, por fim, combina essas informações em uma única base de dados por meio de uma operação de merge. O resultado é um conjunto de dados que permite analisar conjuntamente a relação entre policiamento e criminalidade para os países disponíveis naquele ano.
 
 ```{python}
+#| warning: false
 ## homicidios
 df_hrate = pd.read_excel('dados/original/UNDOC CTS - Homicides.xlsx',sheet_name='data_cts_intentional_homicide')
 df_hrate = df_hrate.loc[(df_hrate['Indicator']=='Victims of intentional homicide') & 
@@ -179,7 +180,6 @@ Visualizações possuem papel central nesse processo porque permitem identificar
 No nosso caso da relação entre polícia e crime, uma primeira análise é a de correlação simples, a partir do cálculo do índice de correlação e da análise do gráfico de dispersão.
 
 ```{python}
-#| warning: false
 xticks=[4,5,6,7,8]
 yticks=[-2,0,2,4,6]
 xtickslabel=['$4$','$5$','$6$','$7$','$8$']
