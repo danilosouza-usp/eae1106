@@ -104,8 +104,7 @@ os.chdir('projeto_empirico')
 os.chdir('C:/Users/user/Desktop/EAE1106/projeto_empirico')
 ```
 
-
-A base de dados original vem da _United Nations Office on Drugs and Crime (UNODC)_, divisão das Nações Unidas que trata de temas relacionados à drogas e crimes no âmbito internacional. Não entrarei nos detalhes do código para ajustar a base original, mas tudo que está presente ali já foi discutido em capítulos anteriores.
+Os dados utilizados nesta aplicação foram obtidos junto à _United Nations Office on Drugs and Crime_ (UNODC), órgão das Nações Unidas responsável pela compilação e divulgação de estatísticas internacionais sobre criminalidade, sistema de justiça criminal e drogas. As bases originais podem ser acessadas diretamente por meio do portal de dados da UNODC, disponível em [UNODC Data Portal](https://data.unodc.org/). Como o objetivo deste capítulo é ilustrar as etapas de um projeto empírico e não discutir os detalhes do tratamento dos dados, não analisaremos linha a linha o código utilizado para preparar a base. Todas as operações empregadas já foram apresentadas em capítulos anteriores. Em essência, o código a seguir realiza três tarefas: seleciona, dentre as diversas informações disponíveis na base original, os dados referentes às taxas de homicídio e ao efetivo policial; filtra as observações correspondentes ao ano de 2015; e, por fim, combina essas informações em uma única base de dados por meio de uma operação de merge. O resultado é um conjunto de dados que permite analisar conjuntamente a relação entre policiamento e criminalidade para os países disponíveis naquele ano.
 
 ```{python}
 ## homicidios
@@ -118,8 +117,8 @@ df_hrate = df_hrate.loc[(df_hrate['Indicator']=='Victims of intentional homicide
                         (df_hrate['Year']==2015) & 
                         (df_hrate['Unit of measurement']=='Rate per 100,000 population')]
 
-df_hrate = df_hrate[['Iso3_code','Country','VALUE']].reset_index(drop=True)
-df_hrate.columns = ['country_code','country_name','hrate']
+df_hrate = df_hrate[['Iso3_code','Country','Subregion','VALUE']].reset_index(drop=True)
+df_hrate.columns = ['country_code','country_name','region','hrate']
 
 ## efetivo policial
 df_pol = pd.read_excel('dados/original/UNDOC CTS - Police.xlsx',sheet_name='data_cts_access_and_functioning')
@@ -141,6 +140,23 @@ df_polh = df_polh.dropna(how='any',axis=0)
 df_polh.to_csv('dados/secundario/UNDOC_HomicidioPolicia2015.csv', sep=',', encoding='utf8')
 ```
 
+Uma vez construída a base de dados que será utilizada na análise, o próximo passo é compreender sua estrutura. Antes de produzir gráficos, calcular estatísticas ou estimar modelos, é importante verificar quais variáveis estão disponíveis, quantas observações existem e se há problemas evidentes nos dados. Em projetos empíricos reais, essa etapa costuma ser iterativa: frequentemente descobrimos inconsistências ou limitações que nos levam a retornar ao código de limpeza e realizar ajustes adicionais.
+
+Como visto anteriormente, uma das formas mais rápidas de obter uma visão geral da base é utilizar o método `info()`. Ele fornece informações sobre o número de observações, os nomes das variáveis, seus tipos de dados e a quantidade de valores não ausentes em cada coluna.
+
+```{python}
+HomicidioPolicia2015 = pd.read_csv('dados/secundario/UNDOC_HomicidioPolicia2015.csv', sep=',', encoding='utf8')
+HomicidioPolicia2015.info()
+```
+
+Nesse caso, percebemos que são X as observações na base, Y variáveis disponíveis e Z valores faltantes. Note que, nesse último caso, fomos nós que levamos a isso, já que o uso do método `dropna()` antes de salvar o dataframe final já corrigiu potenciais problemas, embora tenha nos deixado com uma amostra de apenas Z países. Em seguida, podemos utilizar o método `describe()`, que produz um resumo estatístico das variáveis numéricas presentes no dataframe.
+
+```{python}
+HomicidioPolicia2015.describe()
+```
+
+Essas estatísticas ajudam a identificar possíveis problemas nos dados e fornecem uma primeira visão sobre a variabilidade das variáveis analisadas. Por exemplo, podemos verificar se existem países com taxas de homicídio excepcionalmente altas ou se há grande heterogeneidade no efetivo policial entre os países da amostra.
+
 ### Análise estatística e visualização
 
 Com os dados organizados, iniciamos a etapa de análise. Em projetos empíricos, a análise normalmente começa com estatísticas descritivas e visualizações. Antes de aplicar modelos estatísticos mais sofisticados, é importante compreender o comportamento geral das variáveis. Nessa etapa, investigamos questões como:
@@ -153,6 +169,10 @@ Com os dados organizados, iniciamos a etapa de análise. Em projetos empíricos,
 - diferenças entre grupos.
 
 Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.
+
+No nosso caso da relação entre polícia e crime
+
+
 
 Após essa etapa exploratória, o projeto pode avançar para análises mais estruturadas, como regressões lineares simples, comparações entre grupos ou modelos econométricos mais sofisticados.
 
@@ -205,7 +225,7 @@ Ao longo do desenvolvimento de projetos empíricos, algumas boas práticas compu
 
 5. **Evite caminhos absolutos em seus scripts.**
 
-    Evite utilizar em seus scripts caminhos como `C:/Users/user/Desktop/projeto/dados/base.csv`, que funcionam apenas em computadores específicos. Prefira caminhos relativos como `dados/brutos/base.csv` que funcionam a partir de um diretório base, isso melhora portabilidade e replicabilidade.
+    Evite utilizar em seus scripts caminhos como `C:/Users/user/Desktop/EAE1106/projeto_empirico/dados/original/base.csv`, que funcionam apenas em computadores específicos. Prefira caminhos relativos como `dados/original/base.csv` que funcionam a partir do diretório base `projeto_empirico`, isso melhora portabilidade e replicabilidade.
 
 6. **Mantenha scripts separados por função.**
 
