@@ -137,6 +137,7 @@ df_pol = df_pol[['Iso3_code','VALUE']].reset_index(drop=True)
 df_pol.columns = ['country_code','police']
 
 df_polh = pd.merge(df_hrate, df_pol, on=['country_code'],how='inner')
+df_polh = df_polh.loc[(df_polh['hrate']>0) & (df_polh['police']>0),:].reset_index(drop=True)
 df_polh['police_log'] = np.log(df_polh['police'])
 df_polh['hrate_log'] = np.log(df_polh['hrate'])
 df_polh = df_polh.dropna(how='any',axis=0)
@@ -188,7 +189,7 @@ ytickslabel=['$-2$','$0$','$2$','$4$','$6$']
 x = HomicidioPolicia2015['police_log']
 y = HomicidioPolicia2015['hrate_log']
 
-height = 5
+height = 6
 fig, ax = plt.subplots(1, 1, figsize=(1.50*height, height))
 
 ax.spines['top'].set_visible(False)
@@ -203,14 +204,14 @@ ax.set_ylim(-2.1,6.4)
 
 ax.set_xticks(xticks)
 ax.set_yticks(yticks)
-ax.set_xticklabels(xtickslabel, fontsize=16, fontweight='light')
-ax.set_yticklabels(ytickslabel, fontsize=16, fontweight='light')
+ax.set_xticklabels(xtickslabel, fontsize=14, fontweight='light')
+ax.set_yticklabels(ytickslabel, fontsize=14, fontweight='light')
 
 ax.grid(visible=True, which='major',axis='y', ls='-',lw=0.5,c='k',alpha=0.05)
 ax.scatter(x,y,alpha=1.0,color='#1f77b4', s=120)
 
-ax.set_xlabel('Log do número de policiais por $100{,}000$ habitantes',fontsize=18, fontweight='light', labelpad=10, ha='center')
-ax.set_ylabel('Log de homicídios por $100{,}000$ habitantes',fontsize=18, fontweight='light', labelpad=10, ha='center')
+ax.set_xlabel('Log do número de policiais por $100{,}000$ habitantes',fontsize=16, fontweight='light', labelpad=10, ha='center')
+ax.set_ylabel('Log de homicídios por $100{,}000$ habitantes',fontsize=16, fontweight='light', labelpad=10, ha='center')
 ax.xaxis.set_label_coords(0.69,-0.09)
 ax.yaxis.set_label_coords(-0.09,0.58)
 

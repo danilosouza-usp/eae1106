@@ -365,7 +365,7 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <li><code>numpy</code></li>
 <li><code>time</code></li>
 </ul>
-<div id="4900f2ba" class="cell" data-message="false" data-execution_count="1">
+<div id="44e7023c" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -375,7 +375,7 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <h2 data-number="6.2" class="anchored" data-anchor-id="importância-da-modularização"><span class="header-section-number">6.2</span> Importância da modularização</h2>
 <p>Até aqui, os programas foram escritos como sequências lineares de instruções executadas de cima para baixo. Esse modelo é suficiente quando resolvemos um único problema específico com um único conjunto de dados. No entanto, ele se torna inadequado quando precisamos aplicar a mesma regra várias vezes ou quando o código começa a crescer.</p>
 <p>Considere o seguinte exemplo. Suponha que desejamos calcular a média de diferentes conjuntos de notas:</p>
-<div id="7d3711da" class="cell" data-execution_count="2">
+<div id="e3856255" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>notas1 <span class="op">=</span> [<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>media1 <span class="op">=</span> <span class="bu">sum</span>(notas1) <span class="op">/</span> <span class="bu">len</span>(notas1)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(media1)</span>
@@ -407,12 +407,12 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>instruções<span class="op">&gt;</span>    </span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Assim como nos <em>loops</em>, para definir uma nova função no Python é preciso começar com uma palavra-chave, nesse caso <code>def</code>. O nome que daremos à função vem logo em seguida. É através desse nome, que chamaremos essa função em outras partes do nosso código. Entre parênteses definimos os argumentos que a função recebe para realizar o conjunto de instruções em <code>&lt;instruções&gt;</code>. Note, mais uma vez, que todo o bloco de código que estiver identado e abaixo da linha de cabeçalho da função fará parte da função.</p>
 <p>Vejamos um exemplo simples. A função <code>frase_cinema</code> apresentada a seguir tem como objetivo imprimir uma das frases mais emblemáticas da história do cinema, originalmente introduzida na série de filmes <em>Star Wars</em>, criada por George Lucas.</p>
-<div id="8d6dd7ab" class="cell" data-execution_count="3">
+<div id="9f5b8c88" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> frase_cinema():</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Que a força esteja com você!'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Note que nesse caso, o parênteses logo após o nome da função está vazio. Isso quer dizer que essa função não recebe argumentos, apenas printa a frase entre aspas sempre que for chamada. Para chamá-la, basta usar o nome <code>frase_cinema</code> seguido dos parênteses vazios:</p>
-<div id="ad74f3ea" class="cell" data-execution_count="4">
+<div id="bd12201a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>frase_cinema()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Que a força esteja com você!</code></pre>
@@ -425,7 +425,7 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <section id="keyword-arguments-e-default-values" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="keyword-arguments-e-default-values"><span class="header-section-number">6.4.1</span> <em>Keyword arguments</em> e <em>default values</em></h3>
 <p>Comecemos criando uma nova função <code>my_func</code> que receba como argumentos um nome próprio e uma localização.</p>
-<div id="e2fadf14" class="cell" data-execution_count="5">
+<div id="095dd0f7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_func(name,place):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    strf<span class="op">=</span><span class="st">'Olá '</span><span class="op">+</span>name<span class="op">+</span><span class="st">'! Você é de '</span><span class="op">+</span>place<span class="op">+</span><span class="st">'?'</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(strf)</span>
@@ -436,21 +436,21 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 </div>
 </div>
 <p>Ao chamar a função <code>my_func</code>, ela combina os argumentos <code>Emily</code> e <code>Paris</code> dentro de um único string e printa esse string final. O que acontece, no entanto, se especificarmos o argumento <code>place</code> primeiro e depois o <code>name</code>?</p>
-<div id="ce644c11" class="cell" data-execution_count="6">
+<div id="55a1312c" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_func(<span class="st">'Ribeirão Preto'</span>,<span class="st">'Roberto'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Olá Ribeirão Preto! Você é de Roberto?</code></pre>
 </div>
 </div>
 <p>Um pouco estranho, não? A razão é que nesse exemplo utilizamos os chamados <em>argumentos posicionais</em>. Ou seja, a função vai assumir que o primeiro argumento é o <code>name</code> e o segundo é o <code>place</code>, não importa o que tenhamos passado como argumento. Para lidar com isso, a podemos atribuir um nome, ou _palavra-chave, a cada um dos argumentos. Nesse caso, será a palavra-chave, e não a posição, que vai determinar qual o valor atribuído a cada argumento dentro da função.</p>
-<div id="1fb9010e" class="cell" data-execution_count="7">
+<div id="20f0c16f" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_func(place<span class="op">=</span><span class="st">'Ribeirão Preto'</span>,name<span class="op">=</span><span class="st">'Roberto'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Olá Roberto! Você é de Ribeirão Preto?</code></pre>
 </div>
 </div>
 <p>Note que agora a posição passou a ser irrelevante porque colocamos os nomes de cada um dos argumentos. E se quiséssemos dar ainda mais flexibilidade à função, só especificando um subconjunto dos argumentos? Para que isso funcione, nós precisamos especificar os <em>valores-padrão</em> dos argumentos caso eles não sejam fornecidos. Abaixo uma função que faz exatamente isso.</p>
-<div id="569fd472" class="cell" data-execution_count="8">
+<div id="d490b698" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total_calc(bill_amount,tip_perc<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    total<span class="op">=</span>bill_amount<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> tip_perc<span class="op">/</span><span class="dv">100</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    total<span class="op">=</span><span class="bu">round</span>(total,<span class="dv">2</span>)</span>
@@ -461,7 +461,7 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <section id="argumentos-arbitrários" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="argumentos-arbitrários"><span class="header-section-number">6.4.2</span> Argumentos arbitrários</h3>
 <p>Após discutir o uso de <em>keyword arguments</em> na definição de funções em Python é natural avançar para uma questão relacionada: o que fazer quando sequer sabemos, de antemão, quantos argumentos serão fornecidos? Em outras palavras, é possível definir funções capazes de operar com um número variável de entradas? A resposta é sim! O Python permite construir funções que acomodam uma quantidade indefinida de argumentos, preservando generalidade e reutilização de código. Para ilustrar essa ideia, podemos definir uma função simples chamada <code>my_var_sum</code>, cuja finalidade é retornar a soma de todos os valores numéricos recebidos na chamada, independentemente de quantos sejam.</p>
-<div id="43082fe1" class="cell" data-execution_count="9">
+<div id="fabcb1fa" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_var_sum(<span class="op">*</span>args):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
@@ -471,7 +471,7 @@ Figura&nbsp;6.1: Setup usual de um computador pessoal no começo dos anos 2000. 
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'A soma total dos números fornecidos é igual a: '</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">sum</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Observe como a definição da função agora tem <code>*args</code> ao invés de argumentos nomeados. No corpo da função, fazemos um loop em <code>args</code> até usarmos todos os argumentos. A função <code>my_var_sum</code> retorna a soma de todos os números passados como argumentos. Olha só o que acontece quando chamamos a função com diferentes números de argumentos:</p>
-<div id="95a74148" class="cell" data-execution_count="10">
+<div id="504c656f" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_var_sum(<span class="dv">99</span>,<span class="dv">10</span>,<span class="dv">54</span>,<span class="dv">23</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>my_var_sum(<span class="dv">9</span>,<span class="dv">87</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>my_var_sum(<span class="dv">5</span>,<span class="dv">21</span>,<span class="dv">36</span>,<span class="dv">79</span>,<span class="dv">45</span>,<span class="dv">65</span>)</span>
@@ -485,7 +485,7 @@ A soma total dos números fornecidos é igual a: 1</code></pre>
 </div>
 <p>Mas e se eu quiser passar não apenas uma sequência de valores, mas uma sequência de valores com nomes? Não se preocupe, existe uma possibilidade de fazer isso, usando o <code>**kwargs</code> na definição dos argumentos.</p>
 <p>Qual é a diferença entre <code>*args</code> e <code>**kwargs</code>? A diferença é que você vai passar uma sequência de tamanho arbitrário de parâmetros, cada um deles nomeado. Nesse caso, o Python entende os elementos em <code>**kwargs</code> como parte de um dicionário. Cada elemento passado é um par chave-valor, e dentro da função você tem que desempacotar o valor da chave. Vamos seguir alguns exemplos.</p>
-<div id="025f1207" class="cell" data-execution_count="11">
+<div id="b30de437" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myFun(<span class="op">**</span>kwargs):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kwargs.items():</span>
@@ -499,7 +499,7 @@ last == Geeks</code></pre>
 </div>
 </div>
 <p>Podemos misturar os tipos de argumentos (posicionais versus <code>*args</code>/<code>*kwargs</code>)? Sim!</p>
-<div id="4c90c1ef" class="cell" data-execution_count="12">
+<div id="592cb3a8" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myFun(arg1, <span class="op">**</span>kwargs):</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kwargs.items():</span>
@@ -516,7 +516,7 @@ Hi - last == Geeks</code></pre>
 <section id="execução-condicional-dentro-de-uma-função" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="execução-condicional-dentro-de-uma-função"><span class="header-section-number">6.4.3</span> Execução condicional dentro de uma função</h3>
 <p>As funções podem retornar objetos booleanos também, o que pode ser conveniente para esconder testes complicados dentro de uma função. Por exemplo:</p>
-<div id="984b16e5" class="cell" data-execution_count="13">
+<div id="39ba799e" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_divisible(x, y):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">%</span> y <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -533,7 +533,7 @@ Hi - last == Geeks</code></pre>
 <section id="iteração-dentro-de-uma-função" class="level3" data-number="6.4.4">
 <h3 data-number="6.4.4" class="anchored" data-anchor-id="iteração-dentro-de-uma-função"><span class="header-section-number">6.4.4</span> Iteração dentro de uma função</h3>
 <p>Da mesma forma que podemos ter condições lógicas dentro da função, podemos ter blocos de repetição (<code>for</code> e <code>while</code>) dentro da função, assim como no caso de argumentos arbitrários. Vamos olhar para um outro exemplo em que a função recebe uma lista de strings como argumento e faz operações em cada um dos elementos, um a um:</p>
-<div id="0407c097" class="cell" data-execution_count="14">
+<div id="d03bc4a3" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">' Alabama '</span>,<span class="st">'Georgia!'</span>,<span class="st">'Georgia'</span>,<span class="st">'georgia'</span>,<span class="st">'FlOrIda'</span>,<span class="st">'south carolina##'</span>,<span class="st">'West virginia?'</span>]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_strings(lista_strings):</span>
@@ -564,7 +564,7 @@ Hi - last == Geeks</code></pre>
 <p>A instrução <code>return</code> é o mecanismo pelo qual uma função envia um resultado de volta ao ponto em que foi chamada. Do ponto de vista lógico, uma função representa uma transformação entre entradas (argumentos) e saídas (valores retornados). O <code>return</code> explicita qual é essa saída e, além disso, encerra imediatamente a execução da função no momento em que é encontrado. Se não houver nenhuma instrução <code>return</code> no corpo da função, ou se for utilizado apenas <code>return</code> sem valor explícito, o Python devolve automaticamente o valor especial <code>None</code>.</p>
 <p>Um dos erros mais frequentes entre iniciantes é confundir <code>print</code> com <code>return</code>. Embora ambos possam produzir algo visível na tela, eles têm naturezas completamente distintas. Enquanto o <code>print</code> apenas envia uma representação do valor para a saída padrão (normalmente o terminal), o <code>return</code> produz um valor que pode ser armazenado em uma variável, reutilizado em cálculos ou passado como argumento para outra função.</p>
 <p>Vejamos um exemplo de uma função que calcula a raiz quadrada de um número:</p>
-<div id="91fb0a60" class="cell" data-execution_count="15">
+<div id="291fc6ee" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raiz1(x):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    fx <span class="op">=</span> x<span class="op">**</span><span class="fl">0.5</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(fx)</span>
@@ -577,7 +577,7 @@ None</code></pre>
 </div>
 </div>
 <p>Nesse caso, a função imprime o valor calculado, mas não o retorna. Como não há <code>return</code>, o valor devolvido por <code>raiz1</code> é <code>None</code>. Assim, a variável y passa a armazenar <code>None</code>, e é exatamente isso que será impresso na última linha. Se substituirmos a instrução de impressão pela instrução de retorno, o comportamento muda estruturalmente:</p>
-<div id="dbe76c2a" class="cell" data-execution_count="16">
+<div id="5f76f56c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raiz2(x):</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    fx <span class="op">=</span> x<span class="op">**</span><span class="fl">0.5</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fx</span>
@@ -589,7 +589,7 @@ None</code></pre>
 </div>
 </div>
 <p>Agora a função devolve o valor numérico calculado. A variável y armazena esse valor, que pode ser reutilizado em outras operações. A função passa a se comportar como uma transformação matemática: recebe um número e devolve outro. Essa distinção torna-se ainda mais clara quando tentamos usar o resultado em outra operação numérica:</p>
-<div id="b4f64776" class="cell" data-execution_count="17">
+<div id="714505ee" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> raiz1(<span class="dv">100</span>) <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -608,7 +608,7 @@ None</code></pre>
 </div>
 </div>
 <p>O código acima gera erro porque <code>raiz1(100)</code> devolve <code>None</code>, e não é possível somar None com um número. Já no caso da função que utiliza a instrução de retorno, a operação funciona normalmente:</p>
-<div id="12667db8" class="cell" data-execution_count="18">
+<div id="07ac176b" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> raiz2(<span class="dv">100</span>) <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -619,7 +619,7 @@ None</code></pre>
 <section id="expectativa-de-vida-de-variáveis-dentro-da-função" class="level3" data-number="6.5.1">
 <h3 data-number="6.5.1" class="anchored" data-anchor-id="expectativa-de-vida-de-variáveis-dentro-da-função"><span class="header-section-number">6.5.1</span> Expectativa de vida de variáveis dentro da função</h3>
 <p>Quando você cria uma variável dentro de uma função ela é local, ou seja, só existe dentro da própria função. Por exemplo:</p>
-<div id="b74d7c15" class="cell" data-execution_count="19">
+<div id="5fa978ce" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> concat_strings(str1,str2):</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    texto_concatenado <span class="op">=</span> str1 <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> str2</span>
@@ -634,7 +634,7 @@ None</code></pre>
 </div>
 </div>
 <p>Essa função recebe dois argumentos, concatena-os e exibe o resultado em uma única linha de texto. No entanto, assim que a função é encerrada, a variável <code>texto_concatenado</code> é deletada. O que acontece se tentarmos acessá-la?</p>
-<div id="66a20349" class="cell" data-execution_count="20">
+<div id="cda15612" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(texto_concatenado)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -655,7 +655,7 @@ None</code></pre>
 <p>O primeiro passo para replicarmos, na forma de uma função, a aplicação do Teorema Central do Limite da aula anterior é definir uma função que recebe como argumentos a distribuição da varíavel aleatória X, o intervalo no qual a variável está definida, o número de sorteios que faremos em cada amostra e o número de amostras realizadas. Para tal, definiremos a função <code>func_tcl</code> que recebe como argumentos nomeados <code>dist</code> (função de distribuição da variável X), <code>intervalo</code> (suporte da variável X), <code>n</code> (número de sorteios por amostra) e <code>samples</code> (número de amostras).</p>
 <p>Apesar de definir valores-padrão válidos para <code>intervalo</code>, <code>n</code> e <code>samples</code>, é atribuído ao argumento <code>dist</code> um valor padrão igual a <code>None</code>. Isso permite ao usuário ter controle direto sobre a função de distribuição utilizada para sortear X e evitar tornar a nossa função uma caixa preta. Assim, caso o usuário esqueça de definir uma distribuição válida, a função retorna um erro.</p>
 <p>Caso defina uma função de distribuição válida, a função <code>func_tcl</code> avança e passar a realizar a sequência de sorteios de cada amostra e a média dentro de cada amostra através de um loop do tipo <code>for</code>.</p>
-<div id="5a4fe666" class="cell" data-execution_count="21">
+<div id="642a4c71" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># definição da função</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func_tcl(dist<span class="op">=</span><span class="va">None</span>,intervalo<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">1</span>),n<span class="op">=</span><span class="dv">100</span>, samples<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -682,7 +682,7 @@ None</code></pre>
 </div>
 </div>
 <p>Maravilha, agora a função nos retorna apenas o que é do nosso interesse: a média das médias. Para chegar, finalmente, no mesmo resultado da aula passada basta colocar essa função dentro de um loop.</p>
-<div id="b1bfb4db" class="cell" data-execution_count="22">
+<div id="3e52733c" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>expoentes <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> [<span class="dv">2</span><span class="op">**</span>exp <span class="cf">for</span> exp <span class="kw">in</span> expoentes]</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -694,7 +694,7 @@ None</code></pre>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    mean_of_means <span class="op">=</span> func_tcl(dist<span class="op">=</span>np.random.uniform,intervalo<span class="op">=</span>(<span class="op">-</span><span class="dv">40</span>,<span class="dv">40</span>),n<span class="op">=</span><span class="dv">100</span>,samples<span class="op">=</span>y)</span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    means_of_means.append(mean_of_means)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b5a567f1" class="cell" data-execution_count="23">
+<div id="f640bedf" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> means_of_means:</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(np.<span class="bu">round</span>(m,<span class="dv">2</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -717,7 +717,7 @@ None</code></pre>
 <section id="documentação" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="documentação"><span class="header-section-number">6.7</span> Documentação</h2>
 <p>Uma <em>docstring</em> é uma string no início de uma função, definida pelo usuário, que serve como documentação do que a função faz. A docstring vem logo depois da primeira linha que define a função e é delimitada por aspas triplas, o que permite que a string se estenda por várias linhas, como vocês devem se lembrar. Vamos criar como exemplo uma função que printa o tipo do objeto que é passado como argumento:</p>
-<div id="527cf2e6" class="cell" data-execution_count="24">
+<div id="bff9b83b" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> imprime_tipo(x):</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
@@ -728,7 +728,7 @@ None</code></pre>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">type</span>(x))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Embora opcional, a documentação é uma boa prática de programação. A menos que você consiga se lembrar qual foi o cardápio do bandejão na semana passada, sempre documente seu código. Podemos acessar a documentação de determinada função, nativa ou personalizada, utilizando o atributo <code>__doc__</code>.</p>
-<div id="f84bd155" class="cell" data-execution_count="25">
+<div id="0817e62e" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imprime_tipo.__doc__)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -737,14 +737,14 @@ Objetivo: função simples que imprime o tipo do objeto recebido como argumento.
 </code></pre>
 </div>
 </div>
-<div id="0f2ca8c3" class="cell" data-execution_count="26">
+<div id="3fa4a8a2" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># documentação da função nativa len()</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>.__doc__)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Return the number of items in a container.</code></pre>
 </div>
 </div>
-<div id="2e915fae" class="cell" data-execution_count="27">
+<div id="0d9f8e71" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># documentação da função uniform() dentro do pacote NumPy</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.random.uniform.__doc__)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -843,7 +843,7 @@ Objetivo: função simples que imprime o tipo do objeto recebido como argumento.
 </div>
 </div>
 <p>Note do exemplo acima que uma docstring pode conter uma descrição detalhada do funcionamento de uma função, inclusive com exemplos de aplicação. Legal, né? Esse tipo de documentação também está disponível para as bibliotecas como um todo. Isso pode nos ajudar, por exemplo, a conhecer o conteúdo de uma determinada biblioteca.</p>
-<div id="7cd38fa8" class="cell" data-execution_count="28">
+<div id="02c8a40b" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># documentação do NumPy</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.__doc__)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -946,7 +946,7 @@ Exceptions to this rule are documented.
 <section id="filter" class="level3" data-number="6.8.1">
 <h3 data-number="6.8.1" class="anchored" data-anchor-id="filter"><span class="header-section-number">6.8.1</span> <em>filter</em></h3>
 <p>A função <code>filter()</code> em Python recebe uma função e uma lista como argumentos. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo itens para os quais a função avalia <code>True</code>. Aqui está um exemplo de uso da função para filtrar apenas números pares de uma lista.</p>
-<div id="e12905f4" class="cell" data-execution_count="29">
+<div id="a94b48d3" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">12</span>]</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>new_list <span class="op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: (x<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) , my_list))</span>
@@ -960,7 +960,7 @@ Exceptions to this rule are documented.
 <section id="map" class="level3" data-number="6.8.2">
 <h3 data-number="6.8.2" class="anchored" data-anchor-id="map"><span class="header-section-number">6.8.2</span> <em>map</em></h3>
 <p>A função <code>map()</code> em Python recebe uma função e uma lista. A função é chamada com todos os itens da lista e uma nova lista é retornada contendo os itens retornados por essa função para cada item. Aqui está um exemplo de uso da função <code>map()</code> para dobrar todos os itens em uma lista.</p>
-<div id="cbdabc9b" class="cell" data-execution_count="30">
+<div id="ca18c002" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">12</span>]</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>new_list <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x <span class="op">*</span> <span class="dv">2</span> , my_list))</span>

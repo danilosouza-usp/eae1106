@@ -371,7 +371,7 @@ window.Quarto = {
 <li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="a1783f5f" class="cell" data-message="false" data-execution_count="1">
+<div id="3f4fde8a" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -386,7 +386,7 @@ window.Quarto = {
 <p>Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.</p>
 <p>Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.</p>
 <p>Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.</p>
-<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/fluxo_projeto.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -474,7 +474,7 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'projeto_empirico'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Os dados utilizados nesta aplicação foram obtidos junto à <em>United Nations Office on Drugs and Crime</em> (UNODC), órgão das Nações Unidas responsável pela compilação e divulgação de estatísticas internacionais sobre criminalidade, sistema de justiça criminal e drogas. As bases originais podem ser acessadas diretamente por meio do portal de dados da UNODC, disponível em <a href="https://data.unodc.org/">UNODC Data Portal</a>. Como o objetivo deste capítulo é ilustrar as etapas de um projeto empírico e não discutir os detalhes do tratamento dos dados, não analisaremos linha a linha o código utilizado para preparar a base. Todas as operações empregadas já foram apresentadas em capítulos anteriores. Em essência, o código a seguir realiza três tarefas: seleciona, dentre as diversas informações disponíveis na base original, os dados referentes às taxas de homicídio e ao efetivo policial; filtra as observações correspondentes ao ano de 2015; e, por fim, combina essas informações em uma única base de dados por meio de uma operação de merge. O resultado é um conjunto de dados que permite analisar conjuntamente a relação entre policiamento e criminalidade para os países disponíveis naquele ano.</p>
-<div id="a1be3ef1" class="cell" data-execution_count="3">
+<div id="a452d188" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## homicidios</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> pd.read_excel(<span class="st">'dados/original/UNDOC CTS - Homicides.xlsx'</span>,sheet_name<span class="op">=</span><span class="st">'data_cts_intentional_homicide'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> df_hrate.loc[(df_hrate[<span class="st">'Indicator'</span>]<span class="op">==</span><span class="st">'Victims of intentional homicide'</span>) <span class="op">&amp;</span> </span>
@@ -502,38 +502,39 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>df_pol.columns <span class="op">=</span> [<span class="st">'country_code'</span>,<span class="st">'police'</span>]</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> pd.merge(df_hrate, df_pol, on<span class="op">=</span>[<span class="st">'country_code'</span>],how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>df_polh[<span class="st">'police_log'</span>] <span class="op">=</span> np.log(df_polh[<span class="st">'police'</span>])</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>df_polh[<span class="st">'hrate_log'</span>] <span class="op">=</span> np.log(df_polh[<span class="st">'hrate'</span>])</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> df_polh.dropna(how<span class="op">=</span><span class="st">'any'</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">## base final</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>df_polh.to_csv(<span class="st">'dados/secundario/UNDOC_HomicidioPolicia2015.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>,index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> df_polh.loc[(df_polh[<span class="st">'hrate'</span>]<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">&amp;</span> (df_polh[<span class="st">'police'</span>]<span class="op">&gt;</span><span class="dv">0</span>),:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>df_polh[<span class="st">'police_log'</span>] <span class="op">=</span> np.log(df_polh[<span class="st">'police'</span>])</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>df_polh[<span class="st">'hrate_log'</span>] <span class="op">=</span> np.log(df_polh[<span class="st">'hrate'</span>])</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> df_polh.dropna(how<span class="op">=</span><span class="st">'any'</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">## base final</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>df_polh.to_csv(<span class="st">'dados/secundario/UNDOC_HomicidioPolicia2015.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>,index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Uma vez construída a base de dados que será utilizada na análise, o próximo passo é compreender sua estrutura. Antes de produzir gráficos, calcular estatísticas ou estimar modelos, é importante verificar quais variáveis estão disponíveis, quantas observações existem e se há problemas evidentes nos dados. Em projetos empíricos reais, essa etapa costuma ser iterativa: frequentemente descobrimos inconsistências ou limitações que nos levam a retornar ao código de limpeza e realizar ajustes adicionais.</p>
 <p>Como visto anteriormente, uma das formas mais rápidas de obter uma visão geral da base é utilizar o método <code>info()</code>. Ele fornece informações sobre o número de observações, os nomes das variáveis, seus tipos de dados e a quantidade de valores não ausentes em cada coluna.</p>
-<div id="18bfe852" class="cell" data-execution_count="4">
+<div id="7d2ddca9" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015 <span class="op">=</span> pd.read_csv(<span class="st">'dados/secundario/UNDOC_HomicidioPolicia2015.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015.info()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 73 entries, 0 to 72
+RangeIndex: 70 entries, 0 to 69
 Data columns (total 7 columns):
  #   Column        Non-Null Count  Dtype  
 ---  ------        --------------  -----  
- 0   country_code  73 non-null     object 
- 1   country_name  73 non-null     object 
- 2   region        73 non-null     object 
- 3   hrate         73 non-null     float64
- 4   police        73 non-null     float64
- 5   police_log    73 non-null     float64
- 6   hrate_log     73 non-null     float64
+ 0   country_code  70 non-null     object 
+ 1   country_name  70 non-null     object 
+ 2   region        70 non-null     object 
+ 3   hrate         70 non-null     float64
+ 4   police        70 non-null     float64
+ 5   police_log    70 non-null     float64
+ 6   hrate_log     70 non-null     float64
 dtypes: float64(4), object(3)
-memory usage: 4.1+ KB</code></pre>
+memory usage: 4.0+ KB</code></pre>
 </div>
 </div>
 <p>Nesse caso, observamos que a base contém 73 observações (países) e 5 variáveis, sem a presença de valores faltantes (<em>missing values</em>). É importante notar que esse resultado não surgiu naturalmente dos dados originais. Durante a etapa de preparação da base, utilizamos o método <code>dropna()</code> para remover observações com informações incompletas, eliminando potenciais problemas que poderiam comprometer as análises posteriores. Como consequência, passamos a trabalhar com uma amostra menor, composta apenas pelos países para os quais havia informações disponíveis tanto sobre homicídios quanto sobre efetivo policial em 2015.</p>
 <p>Uma vez verificada a estrutura geral da base, podemos utilizar o método <code>describe()</code>, que produz um resumo estatístico das variáveis numéricas presentes no dataframe. Esse tipo de inspeção permite compreender melhor a distribuição dos dados e identificar possíveis valores extremos ou padrões que mereçam investigação adicional.</p>
-<div id="35cb7df2" class="cell" data-execution_count="5">
+<div id="5387a453" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -552,58 +553,58 @@ memory usage: 4.1+ KB</code></pre>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">count</th>
-<td>73.000000</td>
-<td>73.000000</td>
-<td>73.000000</td>
-<td>73.000000</td>
+<td>70.000000</td>
+<td>70.000000</td>
+<td>70.000000</td>
+<td>70.000000</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">mean</th>
-<td>6.789811</td>
-<td>725.264483</td>
-<td>5.895706</td>
-<td>-inf</td>
+<td>7.080803</td>
+<td>385.264197</td>
+<td>5.839334</td>
+<td>0.942007</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">std</th>
-<td>15.246657</td>
-<td>2927.807060</td>
-<td>0.701554</td>
-<td>NaN</td>
+<td>15.507328</td>
+<td>186.332107</td>
+<td>0.498558</td>
+<td>1.303586</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">min</th>
-<td>0.000000</td>
+<td>0.160725</td>
 <td>82.654955</td>
 <td>4.414675</td>
-<td>-inf</td>
+<td>-1.828058</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">25%</th>
-<td>0.898916</td>
-<td>263.742253</td>
-<td>5.574972</td>
-<td>-0.106566</td>
+<td>0.930628</td>
+<td>263.606393</td>
+<td>5.574457</td>
+<td>-0.071899</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">50%</th>
-<td>1.699005</td>
-<td>359.880621</td>
-<td>5.885772</td>
-<td>0.530043</td>
+<td>1.730742</td>
+<td>361.825049</td>
+<td>5.891146</td>
+<td>0.548448</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">75%</th>
-<td>5.919269</td>
-<td>460.091604</td>
-<td>6.131426</td>
-<td>1.778213</td>
+<td>6.206944</td>
+<td>458.016614</td>
+<td>6.126874</td>
+<td>1.825303</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">max</th>
 <td>107.638231</td>
-<td>25349.650350</td>
-<td>10.140520</td>
+<td>1034.750450</td>
+<td>6.941916</td>
 <td>4.678776</td>
 </tr>
 </tbody>
@@ -627,7 +628,7 @@ memory usage: 4.1+ KB</code></pre>
 </ul>
 <p>Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.</p>
 <p>No nosso caso da relação entre polícia e crime, uma primeira análise é a de correlação simples, a partir do cálculo do índice de correlação e da análise do gráfico de dispersão.</p>
-<div id="ea55f093" class="cell" data-execution_count="6">
+<div id="565af967" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>xticks<span class="op">=</span>[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>yticks<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>xtickslabel<span class="op">=</span>[<span class="st">'$4$'</span>,<span class="st">'$5$'</span>,<span class="st">'$6$'</span>,<span class="st">'$7$'</span>,<span class="st">'$8$'</span>]</span>
@@ -636,7 +637,7 @@ memory usage: 4.1+ KB</code></pre>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> HomicidioPolicia2015[<span class="st">'police_log'</span>]</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> HomicidioPolicia2015[<span class="st">'hrate_log'</span>]</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="fl">1.50</span><span class="op">*</span>height, height))</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>ax.spines[<span class="st">'top'</span>].set_visible(<span class="va">False</span>)</span>
@@ -651,14 +652,14 @@ memory usage: 4.1+ KB</code></pre>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(xticks)</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(yticks)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(xtickslabel, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(ytickslabel, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(xtickslabel, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(ytickslabel, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'light'</span>)</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>ax.grid(visible<span class="op">=</span><span class="va">True</span>, which<span class="op">=</span><span class="st">'major'</span>,axis<span class="op">=</span><span class="st">'y'</span>, ls<span class="op">=</span><span class="st">'-'</span>,lw<span class="op">=</span><span class="fl">0.5</span>,c<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.05</span>)</span>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>ax.scatter(x,y,alpha<span class="op">=</span><span class="fl">1.0</span>,color<span class="op">=</span><span class="st">'#1f77b4'</span>, s<span class="op">=</span><span class="dv">120</span>)</span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Log do número de policiais por $100{,}000$ habitantes'</span>,fontsize<span class="op">=</span><span class="dv">18</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">10</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Log de homicídios por $100{,}000$ habitantes'</span>,fontsize<span class="op">=</span><span class="dv">18</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">10</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Log do número de policiais por $100{,}000$ habitantes'</span>,fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">10</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Log de homicídios por $100{,}000$ habitantes'</span>,fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'light'</span>, labelpad<span class="op">=</span><span class="dv">10</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_label_coords(<span class="fl">0.69</span>,<span class="op">-</span><span class="fl">0.09</span>)</span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.09</span>,<span class="fl">0.58</span>)</span>
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
@@ -667,13 +668,13 @@ memory usage: 4.1+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="projeto_empirico_files/figure-html/cell-7-output-1.png" width="654" height="449" class="figure-img"></p>
+<p><img src="projeto_empirico_files/figure-html/cell-7-output-1.png" width="773" height="527" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Embora o gráfico de dispersão seja uma ferramenta útil para uma inspeção inicial dos dados, ele nem sempre permite identificar claramente a existência ou a intensidade de uma relação entre duas variáveis. Em situações como esta, em que a nuvem de pontos não revela um padrão evidente, é comum recorrer a métodos estatísticos mais estruturados para quantificar a associação observada nos dados. Uma das abordagens mais utilizadas para esse fim é a regressão linear, que busca estimar como variações em uma variável estão associadas, em média, a variações em outra. No nosso caso, estimaremos uma regressão em que o logaritmo da taxa de homicídios é utilizado como variável dependente e o logaritmo do efetivo policial como variável explicativa. Para isso, utilizaremos o pacote <code>statsmodels</code> e a função <code>OLS</code>, sigla para <em>Ordinary Least Squares</em> (Mínimos Quadrados Ordinários), um dos métodos mais tradicionais para estimação de modelos lineares e que discutimos brevemente na aplicação do capítulo <a href="numpy.html" class="quarto-xref"><span>Capítulo 7</span></a>.</p>
-<div id="eea48801" class="cell" data-execution_count="7">
+<div id="27042ca2" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> HomicidioPolicia2015[[<span class="st">'constante'</span>,<span class="st">'police_log'</span>]]</span>
@@ -682,39 +683,29 @@ memory usage: 4.1+ KB</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
-Dep. Variable:              hrate_log   R-squared:                         nan
-Model:                            OLS   Adj. R-squared:                    nan
-Method:                 Least Squares   F-statistic:                       nan
-Date:                Tue, 02 Jun 2026   Prob (F-statistic):                nan
-Time:                        13:08:11   Log-Likelihood:                    nan
-No. Observations:                  73   AIC:                               nan
-Df Residuals:                      71   BIC:                               nan
+Dep. Variable:              hrate_log   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                 -0.015
+Method:                 Least Squares   F-statistic:                  0.007910
+Date:                Tue, 02 Jun 2026   Prob (F-statistic):              0.929
+Time:                        13:14:52   Log-Likelihood:                -117.38
+No. Observations:                  70   AIC:                             238.8
+Df Residuals:                      68   BIC:                             243.2
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-constante         nan        nan        nan        nan         nan         nan
-police_log        nan        nan        nan        nan         nan         nan
+constante      0.7773      1.858      0.418      0.677      -2.930       4.485
+police_log     0.0282      0.317      0.089      0.929      -0.604       0.661
 ==============================================================================
-Omnibus:                          nan   Durbin-Watson:                     nan
-Prob(Omnibus):                    nan   Jarque-Bera (JB):                  nan
-Skew:                             nan   Prob(JB):                          nan
-Kurtosis:                         nan   Cond. No.                         52.0
+Omnibus:                        5.790   Durbin-Watson:                   2.051
+Prob(Omnibus):                  0.055   Jarque-Bera (JB):                5.371
+Skew:                           0.676   Prob(JB):                       0.0682
+Kurtosis:                       3.118   Cond. No.                         71.4
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\ProgramData\anaconda3\Lib\site-packages\statsmodels\regression\linear_model.py:341: RuntimeWarning:
-
-invalid value encountered in dot
-
-C:\ProgramData\anaconda3\Lib\site-packages\statsmodels\regression\linear_model.py:1733: RuntimeWarning:
-
-invalid value encountered in subtract
-</code></pre>
 </div>
 </div>
 <p>A saída da regressão apresenta diversas estatísticas sobre o modelo estimado, mas nosso foco principal está no coeficiente associado à variável <code>police_log</code>. Esse coeficiente mede a associação entre o efetivo policial e a taxa de homicídios na amostra analisada. Como ambas as variáveis foram transformadas em logaritmos, o coeficiente pode ser interpretado aproximadamente como uma elasticidade: ele indica a variação percentual esperada na taxa de homicídios associada a um aumento de <span class="math inline">\(1\%\)</span> no efetivo policial. A tabela também informa o erro-padrão da estimativa, a estatística t e o p-valor, que ajudam a avaliar a precisão do coeficiente estimado. Embora essas estatísticas permitam resumir quantitativamente a relação observada nos dados, é importante lembrar que a regressão identifica apenas uma associação estatística entre as variáveis, não necessariamente uma relação causal entre policiamento e criminalidade.</p>
@@ -756,7 +747,7 @@ invalid value encountered in subtract
 </div>
 <div class="callout-body-container callout-body">
 <p>Uma simples relação entre duas séries de dados não quer dizer necessariamente muita coisa. Amálise empírica vai muito além de uma simples análise de regressão ou de um gráfico de dispersão. Ou você acha que existe uma relação de causa e efeito entre a <a href="https://tylervigen.com/spurious/correlation/1205_divorce-rates-in-the-united-kingdom_correlates-with_disney-movies-released">taxa anual de divórcios no Reino Unido e o número de novos filmes lançados pela Disney</a>?</p>
-<div id="fig-correlation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
+<div id="fig-correlation" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/disney_divorce.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
