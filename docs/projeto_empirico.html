@@ -333,15 +333,17 @@ div.csl-indent {
 <p>Para implementar um projeto empírico no Python são vários os pacotes que serão utilizados. E essa é justamente uma das belezas de linguagens com uma comunidade tão ativa e produtiva como do Python: independente do tipo e complexidade do projeto, é alta a chance de pacotes específicos ao propósito do projeto em questão já terem sido desenvolvidos. No exemplo do capítulo, farei uso de pacotes básicos de gestão de sistema, bases de dados, análise estatística e visualização.</p>
 <ul>
 <li><code>os</code></li>
+<li><code>pathlib</code></li>
 <li><code>pandas</code></li>
 <li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="2586dfcb" class="cell" data-message="false" data-execution_count="1">
+<div id="502901ee" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -350,7 +352,7 @@ div.csl-indent {
 <p>Projetos empíricos são o principal instrumento utilizado por economistas para transformar dados em evidência quantitativa. Seja em pesquisas acadêmicas, relatórios técnicos, estudos de mercado ou avaliações de políticas públicas, o objetivo central é utilizar informações observáveis para responder a uma pergunta de interesse e produzir conclusões fundamentadas.</p>
 <p>Embora os detalhes variem de acordo com o problema analisado, a disponibilidade de dados e os métodos empregados, a maioria dos projetos empíricos segue uma estrutura relativamente semelhante. Em geral, o trabalho começa com a definição de uma pergunta de pesquisa e de uma hipótese a ser investigada. Em seguida, é necessário obter, compreender e organizar os dados relevantes para a análise. Com a base preparada, realizam-se análises estatísticas e visualizações que permitam explorar padrões e relações entre as variáveis. Por fim, os resultados são interpretados à luz da pergunta original, reconhecendo as limitações dos dados e dos métodos utilizados.</p>
 <p>Essa sequência de etapas não deve ser vista como um processo completamente linear. Frequentemente, descobertas feitas durante a análise exigem revisões na definição da hipótese ou motivam novas consultas à documentação da base de dados. Em outras palavras, projetos empíricos envolvem um processo iterativo de investigação, no qual perguntas, dados e resultados são continuamente confrontados.</p>
-<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<div id="fig-projeto" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-projeto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/fluxo_projeto.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
@@ -367,7 +369,9 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <h2 data-number="10.3" class="anchored" data-anchor-id="etapas-de-desenvolvimento"><span class="header-section-number">10.3</span> Etapas de desenvolvimento</h2>
 <section id="pergunta-de-pesquisa-e-hipótese" class="level3" data-number="10.3.1">
 <h3 data-number="10.3.1" class="anchored" data-anchor-id="pergunta-de-pesquisa-e-hipótese"><span class="header-section-number">10.3.1</span> Pergunta de pesquisa e hipótese</h3>
-<p>Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente “usar uma base de dados”, mas responder a uma questão específica utilizando evidência quantitativa. Um bom exemplo é entender a relação entre policiamento e crime. De acordo com os modelos de escolha racional da atividade criminosa, propostos inicialmente com as contribuições seminais de <span class="citation" data-cites="becker1968">Becker (<a href="references.html#ref-becker1968" role="doc-biblioref">1968</a>)</span> e <span class="citation" data-cites="ehrlich1973">Ehrlich (<a href="references.html#ref-ehrlich1973" role="doc-biblioref">1973</a>)</span>, um policiamento maior aumenta a probabilidade de captura e o custo esperado de se envolver em atividades ilícitas. No entanto, ao olharmos para os dados, a relação entre polícia e crime pode apontar tanto na direção proposta pela teoria (mais polícia levando a menos crime) quanto para uma relação inversa (mais polícia levando a mais crime), já que a decisão de alocação policial também responde às taxas de criminalidade. Em ultima instância, responder a essa pergunta é uma questão empírica.</p>
+<p>Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente utilizar uma base de dados, mas responder a uma questão específica com base em evidência quantitativa. A partir dessa pergunta, o pesquisador formula uma ou mais hipóteses, isto é, previsões sobre o comportamento das variáveis que serão confrontadas com os dados.</p>
+<p>As hipóteses normalmente são fundamentadas em teorias, evidências anteriores, modelos ou mecanismos econômicos que sugerem uma possível relação entre variáveis observáveis. Elas servem como um guia inicial para a análise, ajudando a definir quais variáveis serão coletadas, quais relações serão investigadas e quais resultados esperamos encontrar.</p>
+<p>Ao longo deste capítulo, utilizaremos como exemplo a relação entre policiamento e criminalidade. A teoria econômica do crime, desenvolvida a partir dos trabalhos seminais de <span class="citation" data-cites="becker1968">Becker (<a href="references.html#ref-becker1968" role="doc-biblioref">1968</a>)</span> e <span class="citation" data-cites="ehrlich1973">Ehrlich (<a href="references.html#ref-ehrlich1973" role="doc-biblioref">1973</a>)</span>, sugere que um aumento do efetivo policial eleva a probabilidade de detecção e punição, aumentando o custo esperado da atividade criminosa e reduzindo os incentivos à prática de crimes. Com base nessa teoria, podemos formular hipóteses sobre como mudanças no policiamento ou na severidade das punições afetam as taxas de criminalidade.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 35%">
@@ -390,7 +394,8 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 </tr>
 </tbody>
 </table>
-<p>Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.</p>
+<p>Naturalmente, formular uma hipótese não significa que ela seja verdadeira. No exemplo do policiamento, embora a teoria sugira uma relação negativa entre polícia e crime, os dados podem revelar um padrão mais complexo. Regiões com maiores níveis de criminalidade frequentemente recebem mais recursos policiais, de modo que municípios com mais policiais também podem apresentar maiores taxas de crime. Determinar qual dessas forças predomina é justamente o objetivo da análise empírica.</p>
+<p>Uma boa pergunta de pesquisa deve ser (i) clara, (ii) específica, (iii) empiricamente observável e (iv) compatível com os dados disponíveis. Essa etapa orienta todas as decisões posteriores do projeto, desde a escolha da base de dados até os métodos estatísticos utilizados. Em aplicações reais, uma parcela significativa do trabalho consiste em refinar a pergunta inicial e avaliar se ela pode ser adequadamente respondida com os dados existentes.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Atenção">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -416,8 +421,58 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <li>Como as variáveis foram construídas?</li>
 <li>Qual é o período temporal da base?</li>
 </ul>
-<p>Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas.</p>
-<p>Nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.</p>
+<p>Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas. Nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.</p>
+<p>No nosso exemplo de polícia trabalharemos com uma estrutura de 3 subdiretórios a partir de um diretório raiz: <code>dados</code>, <code>scripts</code> e <code>resultados</code>. O subdiretório de dados será subdividido em dois, um para armazenar os dados brutos e o outro para armazenar a base de dados já trabalhada e a partir da qual desenvolveremos a análise. Tudo isso pode ser feito através do pacote <code>os</code> e suas funções.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diretório raiz do projeto</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'C:/Users/user/Desktop/EAE1106'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>raiz <span class="op">=</span> pathlib.Path(<span class="st">'projeto_empirico'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estrutura de diretórios</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>diretorios <span class="op">=</span> [raiz <span class="op">/</span> <span class="st">'dados'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>              raiz <span class="op">/</span> <span class="st">'dados'</span> <span class="op">/</span> <span class="st">'original'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              raiz <span class="op">/</span> <span class="st">'dados'</span> <span class="op">/</span> <span class="st">'secundario'</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              raiz <span class="op">/</span> <span class="st">'scripts'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>              raiz <span class="op">/</span> <span class="st">'resultados'</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Criação dos diretórios</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">dir</span> <span class="kw">in</span> diretorios:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dir</span>.mkdir(parents<span class="op">=</span><span class="va">True</span>,exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'projeto_empirico'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A base de dados original vem da <em>United Nations Office on Drugs and Crime (UNODC)</em>, divisão das Nações Unidas que trata de temas relacionados à drogas e crimes no âmbito internacional. Não entrarei nos detalhes do código para ajustar a base original, mas tudo que está presente ali já foi discutido em capítulos anteriores.</p>
+<div id="95bfe7a1" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## homicidios</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> pd.read_excel(<span class="st">'dados/original/UNDOC CTS - Homicides.xlsx'</span>,sheet_name<span class="op">=</span><span class="st">'data_cts_intentional_homicide'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> df_hrate.loc[(df_hrate[<span class="st">'Indicator'</span>]<span class="op">==</span><span class="st">'Victims of intentional homicide'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Dimension'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Category'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Sex'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Age'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Year'</span>]<span class="op">==</span><span class="dv">2015</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                        (df_hrate[<span class="st">'Unit of measurement'</span>]<span class="op">==</span><span class="st">'Rate per 100,000 population'</span>)]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> df_hrate[[<span class="st">'Iso3_code'</span>,<span class="st">'Country'</span>,<span class="st">'VALUE'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>df_hrate.columns <span class="op">=</span> [<span class="st">'country_code'</span>,<span class="st">'country_name'</span>,<span class="st">'hrate'</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">## efetivo policial</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>df_pol <span class="op">=</span> pd.read_excel(<span class="st">'dados/original/UNDOC CTS - Police.xlsx'</span>,sheet_name<span class="op">=</span><span class="st">'data_cts_access_and_functioning'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>df_pol <span class="op">=</span> df_pol.loc[(df_pol[<span class="st">'Indicator'</span>]<span class="op">==</span><span class="st">'Criminal Justice Personnel'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Dimension'</span>]<span class="op">==</span><span class="st">'by type of personnel'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Category'</span>]<span class="op">==</span><span class="st">'Police personel'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Sex'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Age'</span>]<span class="op">==</span><span class="st">'Total'</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Year'</span>]<span class="op">==</span><span class="dv">2015</span>) <span class="op">&amp;</span> </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    (df_pol[<span class="st">'Unit of measurement'</span>]<span class="op">==</span><span class="st">'Rate per 100,000 population'</span>)]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>df_pol <span class="op">=</span> df_pol[[<span class="st">'Iso3_code'</span>,<span class="st">'VALUE'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>df_pol.columns <span class="op">=</span> [<span class="st">'country_code'</span>,<span class="st">'police'</span>]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> pd.merge(df_hrate, df_pol, on<span class="op">=</span>[<span class="st">'country_code'</span>],how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>df_polh <span class="op">=</span> df_polh.dropna(how<span class="op">=</span><span class="st">'any'</span>,axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">## base final</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>df_polh.to_csv(<span class="st">'dados/secundario/UNDOC_HomicidioPolicia2015.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="análise-estatística-e-visualização" class="level3" data-number="10.3.3">
 <h3 data-number="10.3.3" class="anchored" data-anchor-id="análise-estatística-e-visualização"><span class="header-section-number">10.3.3</span> Análise estatística e visualização</h3>
@@ -470,10 +525,10 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 </div>
 <div class="callout-body-container callout-body">
 <p>Uma simples relação entre duas séries de dados não quer dizer necessariamente muita coisa. Amálise empírica vai muito além de uma simples análise de regressão ou de um gráfico de dispersão. Ou você acha que existe uma relação de causa e efeito entre a <a href="https://tylervigen.com/spurious/correlation/1205_divorce-rates-in-the-united-kingdom_correlates-with_disney-movies-released">taxa anual de divórcios no Reino Unido e o número de novos filmes lançados pela Disney</a>?</p>
-<div id="fig-correlation" class="quarto-float quarto-figure quarto-figure-center anchored" data-max-width="100%" data-fig-align="center">
+<div id="fig-correlation" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-max-width="100%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/disney_divorce.png.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
+<img src="images/disney_divorce.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-max-width="100%" width="700">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;10.2: Exemplo de correlação entre variáveis não relacionadas. Fonte: https://tylervigen.com/spurious-correlations

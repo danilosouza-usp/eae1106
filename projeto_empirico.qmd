@@ -13,6 +13,7 @@ Em Economia aplicada, grande parte do trabalho empírico consiste em transformar
 Para implementar um projeto empírico no Python são vários os pacotes que serão utilizados. E essa é justamente uma das belezas de linguagens com uma comunidade tão ativa e produtiva como do Python: independente do tipo e complexidade do projeto, é alta a chance de pacotes específicos ao propósito do projeto em questão já terem sido desenvolvidos. No exemplo do capítulo, farei uso de pacotes básicos de gestão de sistema, bases de dados, análise estatística e visualização.
 
 - `os`
+- `pathlib`
 - `pandas`
 - `statsmodels`
 - `matplotlib`
@@ -22,6 +23,7 @@ Para implementar um projeto empírico no Python são vários os pacotes que ser�
 #| warning: false
 
 import os
+import pathlib
 import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
@@ -45,14 +47,20 @@ Nas próximas seções, examinaremos cada uma das etapas que compõem um projeto
 
 ### Pergunta de pesquisa e hipótese
 
-Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente "usar uma base de dados", mas responder a uma questão específica utilizando evidência quantitativa. Um bom exemplo é entender a relação entre policiamento e crime. De acordo com os modelos de escolha racional da atividade criminosa, propostos inicialmente com as contribuições seminais de @becker1968 e @ehrlich1973, um policiamento maior aumenta a probabilidade de captura e o custo esperado de se envolver em atividades ilícitas. No entanto, ao olharmos para os dados, a relação entre polícia e crime pode apontar tanto na direção proposta pela teoria (mais polícia levando a menos crime) quanto para uma relação inversa (mais polícia levando a mais crime), já que a decisão de alocação policial também responde às taxas de criminalidade. Em ultima instância, responder a essa pergunta é uma questão empírica.
+Todo projeto empírico começa com uma pergunta bem definida. Em aplicações reais, o objetivo da análise não é simplesmente utilizar uma base de dados, mas responder a uma questão específica com base em evidência quantitativa. A partir dessa pergunta, o pesquisador formula uma ou mais hipóteses, isto é, previsões sobre o comportamento das variáveis que serão confrontadas com os dados.
+
+As hipóteses normalmente são fundamentadas em teorias, evidências anteriores, modelos ou mecanismos econômicos que sugerem uma possível relação entre variáveis observáveis. Elas servem como um guia inicial para a análise, ajudando a definir quais variáveis serão coletadas, quais relações serão investigadas e quais resultados esperamos encontrar.
+
+Ao longo deste capítulo, utilizaremos como exemplo a relação entre policiamento e criminalidade. A teoria econômica do crime, desenvolvida a partir dos trabalhos seminais de @becker1968 e @ehrlich1973, sugere que um aumento do efetivo policial eleva a probabilidade de detecção e punição, aumentando o custo esperado da atividade criminosa e reduzindo os incentivos à prática de crimes. Com base nessa teoria, podemos formular hipóteses sobre como mudanças no policiamento ou na severidade das punições afetam as taxas de criminalidade.
 
 | Pergunta                                                  | Hipótese                                                                                                  |
 |:---------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
 | O número de policiais afeta o crime local?                | Um aumento do efetivo policial está associado a menores taxas de criminalidade [@becker1968;@ehrlich1973] |
 | Duração da pena afeta a decisão de envolvimento no crime? | Um tempo maior na prisão está associado a menores taxas de criminalidade [@becker1968;@ehrlich1973]       |
 
-Uma boa pergunta de pesquisa precisa ser (i) clara, (ii) específica, (iii) empiricamente observável, e (iv) compatível com os dados disponíveis. Essa etapa é importante porque orienta todas as decisões posteriores: quais variáveis serão utilizadas, quais filtros serão aplicados, quais gráficos serão produzidos e quais métodos estatísticos serão empregados. Em projetos reais, grande parte do tempo é gasto refinando a pergunta de pesquisa e verificando se ela pode ser adequadamente respondida com os dados existentes.
+Naturalmente, formular uma hipótese não significa que ela seja verdadeira. No exemplo do policiamento, embora a teoria sugira uma relação negativa entre polícia e crime, os dados podem revelar um padrão mais complexo. Regiões com maiores níveis de criminalidade frequentemente recebem mais recursos policiais, de modo que municípios com mais policiais também podem apresentar maiores taxas de crime. Determinar qual dessas forças predomina é justamente o objetivo da análise empírica.
+
+Uma boa pergunta de pesquisa deve ser (i) clara, (ii) específica, (iii) empiricamente observável e (iv) compatível com os dados disponíveis. Essa etapa orienta todas as decisões posteriores do projeto, desde a escolha da base de dados até os métodos estatísticos utilizados. Em aplicações reais, uma parcela significativa do trabalho consiste em refinar a pergunta inicial e avaliar se ela pode ser adequadamente respondida com os dados existentes.
 
 ::: {.callout-important title="Atenção"}
 Uma hipótese não precisa estar correta. O objetivo da análise empírica não é confirmar crenças prévias, mas confrontá-las com os dados.
@@ -69,9 +77,69 @@ Após definir a pergunta de pesquisa, o próximo passo é obter e compreender os
 - Como as variáveis foram construídas?
 - Qual é o período temporal da base?
 
-Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas.
+Por esse motivo, documentação é parte essencial de qualquer projeto empírico. Bases de dados normalmente acompanham notas metodológicas que descrevem as variáveis e o que representam, além dos questionários aplicados quando as bases derivam de pesquisas amostrais. Ignorar essa documentação é uma das principais fontes de erros em análises empíricas. Nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.
 
-Nesta etapa também organizamos a estrutura do projeto no computador. Um projeto desorganizado rapidamente se torna difícil de manter, especialmente quando múltiplos arquivos, scripts e bases de dados são utilizados simultaneamente.
+No nosso exemplo de polícia trabalharemos com uma estrutura de 3 subdiretórios a partir de um diretório raiz: `dados`, `scripts` e `resultados`. O subdiretório de dados será subdividido em dois, um para armazenar os dados brutos e o outro para armazenar a base de dados já trabalhada e a partir da qual desenvolveremos a análise. Tudo isso pode ser feito através do pacote `os` e suas funções.
+
+```python
+# Diretório raiz do projeto
+os.chdir('C:/Users/user/Desktop/EAE1106')
+raiz = pathlib.Path('projeto_empirico')
+
+# Estrutura de diretórios
+diretorios = [raiz / 'dados',
+              raiz / 'dados' / 'original',
+              raiz / 'dados' / 'secundario',
+              raiz / 'scripts',
+              raiz / 'resultados']
+
+# Criação dos diretórios
+for dir in diretorios:
+    dir.mkdir(parents=True,exist_ok=True)
+
+os.chdir('projeto_empirico')
+```
+```{python}
+#| echo: false
+os.chdir('C:/Users/user/Desktop/EAE1106/projeto_empirico')
+```
+
+
+A base de dados original vem da _United Nations Office on Drugs and Crime (UNODC)_, divisão das Nações Unidas que trata de temas relacionados à drogas e crimes no âmbito internacional. Não entrarei nos detalhes do código para ajustar a base original, mas tudo que está presente ali já foi discutido em capítulos anteriores.
+
+```{python}
+## homicidios
+df_hrate = pd.read_excel('dados/original/UNDOC CTS - Homicides.xlsx',sheet_name='data_cts_intentional_homicide')
+df_hrate = df_hrate.loc[(df_hrate['Indicator']=='Victims of intentional homicide') & 
+                        (df_hrate['Dimension']=='Total') & 
+                        (df_hrate['Category']=='Total') & 
+                        (df_hrate['Sex']=='Total') & 
+                        (df_hrate['Age']=='Total') & 
+                        (df_hrate['Year']==2015) & 
+                        (df_hrate['Unit of measurement']=='Rate per 100,000 population')]
+
+df_hrate = df_hrate[['Iso3_code','Country','VALUE']].reset_index(drop=True)
+df_hrate.columns = ['country_code','country_name','hrate']
+
+## efetivo policial
+df_pol = pd.read_excel('dados/original/UNDOC CTS - Police.xlsx',sheet_name='data_cts_access_and_functioning')
+df_pol = df_pol.loc[(df_pol['Indicator']=='Criminal Justice Personnel') & 
+                    (df_pol['Dimension']=='by type of personnel') & 
+                    (df_pol['Category']=='Police personel') & 
+                    (df_pol['Sex']=='Total') & 
+                    (df_pol['Age']=='Total') & 
+                    (df_pol['Year']==2015) & 
+                    (df_pol['Unit of measurement']=='Rate per 100,000 population')]
+
+df_pol = df_pol[['Iso3_code','VALUE']].reset_index(drop=True)
+df_pol.columns = ['country_code','police']
+
+df_polh = pd.merge(df_hrate, df_pol, on=['country_code'],how='inner')
+df_polh = df_polh.dropna(how='any',axis=0)
+
+## base final
+df_polh.to_csv('dados/secundario/UNDOC_HomicidioPolicia2015.csv', sep=',', encoding='utf8')
+```
 
 ### Análise estatística e visualização
 
@@ -110,7 +178,7 @@ Por esse motivo, resultados empíricos devem ser discutidos com cautela. Uma reg
 ::: {.callout-important title="Correlação não implica causalidade"}
 Uma simples relação entre duas séries de dados não quer dizer necessariamente muita coisa. Amálise empírica vai muito além de uma simples análise de regressão ou de um gráfico de dispersão. Ou você acha que existe uma relação de causa e efeito entre a [taxa anual de divórcios no Reino Unido e o número de novos filmes lançados pela Disney](https://tylervigen.com/spurious/correlation/1205_divorce-rates-in-the-united-kingdom_correlates-with_disney-movies-released)?
 
-![Exemplo de correlação entre variáveis não relacionadas. Fonte: https://tylervigen.com/spurious-correlations](images/disney_divorce.png.png){#fig-correlation width=700px max-width=100% fig-align="center"}
+![Exemplo de correlação entre variáveis não relacionadas. Fonte: https://tylervigen.com/spurious-correlations](images/disney_divorce.png){#fig-correlation width=700px max-width=100% fig-align="center"}
 
 No nosso exemplo da relação entre atividade criminosa e policiamento, são várias as variáveis não observáveis e outros problemas de seleção nos dados que podem confundir bla bla bla. Mesmo que municípios com mais policiais apresentem mais crimes, isso não significa que a presença policial aumente a criminalidade. É possível que municípios mais violentos recebam mais policiais justamente porque possuem mais crimes.
 :::
