@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>11&nbsp; Introdução à programação orientada a objetos (OOP) – Métodos Computacionais para Economia</title>
+<title>12&nbsp; Introdução ao R – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intror.html" rel="next">
-<link href="./complemento.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./oop.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./oop.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./intror.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -254,13 +254,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./oop.html" class="sidebar-item-text sidebar-link active">
+  <a href="./oop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intror.html" class="sidebar-item-text sidebar-link">
+  <a href="./intror.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></span></a>
   </div>
 </li>
@@ -282,34 +282,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">11.1</span> Introdução</a>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">12.1</span> Introdução</a>
   <ul class="collapse">
-  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">11.1.1</span> Pré-requisitos</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">12.1.1</span> RStudio</a></li>
+  <li><a href="#pacotes-de-terceiros" id="toc-pacotes-de-terceiros" class="nav-link" data-scroll-target="#pacotes-de-terceiros"><span class="header-section-number">12.1.2</span> Pacotes de terceiros</a></li>
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</a></li>
   </ul></li>
-  <li><a href="#por-que-estudar-oop" id="toc-por-que-estudar-oop" class="nav-link" data-scroll-target="#por-que-estudar-oop"><span class="header-section-number">11.2</span> Por que estudar OOP?</a></li>
-  <li><a href="#objetos-e-suas-características" id="toc-objetos-e-suas-características" class="nav-link" data-scroll-target="#objetos-e-suas-características"><span class="header-section-number">11.3</span> Objetos e suas características</a>
+  <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</a>
   <ul class="collapse">
-  <li><a href="#tipo-e-identidade" id="toc-tipo-e-identidade" class="nav-link" data-scroll-target="#tipo-e-identidade"><span class="header-section-number">11.3.1</span> Tipo e identidade</a></li>
-  <li><a href="#atributos" id="toc-atributos" class="nav-link" data-scroll-target="#atributos"><span class="header-section-number">11.3.2</span> Atributos</a></li>
-  <li><a href="#métodos" id="toc-métodos" class="nav-link" data-scroll-target="#métodos"><span class="header-section-number">11.3.3</span> Métodos</a></li>
+  <li><a href="#diferenças-de-sintaxe-em-relação-ao-python" id="toc-diferenças-de-sintaxe-em-relação-ao-python" class="nav-link" data-scroll-target="#diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</a></li>
+  <li><a href="#r-como-calculadora" id="toc-r-como-calculadora" class="nav-link" data-scroll-target="#r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</a></li>
   </ul></li>
-  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes"><span class="header-section-number">11.4</span> Classes</a>
+  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">12.3</span> Objetos</a>
   <ul class="collapse">
-  <li><a href="#definição" id="toc-definição" class="nav-link" data-scroll-target="#definição"><span class="header-section-number">11.4.1</span> Definição</a></li>
-  <li><a href="#classes-personalizadas" id="toc-classes-personalizadas" class="nav-link" data-scroll-target="#classes-personalizadas"><span class="header-section-number">11.4.2</span> Classes personalizadas</a></li>
-  <li><a href="#dataclasses" id="toc-dataclasses" class="nav-link" data-scroll-target="#dataclasses"><span class="header-section-number">11.4.3</span> Dataclasses</a></li>
+  <li><a href="#vetores-e-matrizes" id="toc-vetores-e-matrizes" class="nav-link" data-scroll-target="#vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">12.3.2</span> Dataframes</a></li>
   </ul></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">11.5</span> Conclusão</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">11.6</span> Exercícios</a></li>
+  <li><a href="#iteração" id="toc-iteração" class="nav-link" data-scroll-target="#iteração"><span class="header-section-number">12.4</span> Iteração</a></li>
+  <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções"><span class="header-section-number">12.5</span> Funções</a></li>
+  <li><a href="#gestão-e-análise-de-dados" id="toc-gestão-e-análise-de-dados" class="nav-link" data-scroll-target="#gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</a>
+  <ul class="collapse">
+  <li><a href="#manipulação-e-pipelines" id="toc-manipulação-e-pipelines" class="nav-link" data-scroll-target="#manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</a></li>
+  <li><a href="#visualização" id="toc-visualização" class="nav-link" data-scroll-target="#visualização"><span class="header-section-number">12.6.2</span> Visualização</a></li>
+  </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">12.7</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">12.8</span> Exercícios</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/oop.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/intror.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./oop.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./intror.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-oop" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span></h1>
+<h1 class="title"><span id="sec-intror" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></span></h1>
 </div>
 
 
@@ -326,59 +332,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introdução" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">11.1</span> Introdução</h2>
-<p>Até este ponto do curso, trabalhamos principalmente com funções e estruturas de dados como listas, dicionários, arrays e dataframes. Essa abordagem já é suficiente para resolver uma grande variedade de problemas encontrados em aplicações empíricas na Economia.</p>
-<p>No entanto, muitas das bibliotecas mais importantes do ecossistema Python utilizam um paradigma conhecido como programação orientada a objetos (<em>Object-Oriented Programming</em>, ou OOP). Na prática, objetos estão presentes em praticamente todos os programas escritos em Python. Um DataFrame do Pandas, um array do NumPy ou uma figura criada com Matplotlib são exemplos de objetos que armazenam informações e disponibilizam operações específicas para manipulá-las.</p>
-<p>Por esse motivo, mesmo que você não pretenda desenvolver sistemas complexos ou trabalhar profissionalmente com engenharia de software, compreender os conceitos básicos de orientação a objetos é importante para utilizar Python de forma mais eficiente e entender melhor a estrutura das bibliotecas que empregamos em análise de dados. Neste capítulo faremos uma breve introdução ao tema. O objetivo não é explorar todos os recursos da programação orientada a objetos, mas compreender como criar classes simples, armazenar atributos e definir comportamentos associados a um objeto.</p>
-<section id="pré-requisitos" class="level3" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">11.1.1</span> Pré-requisitos</h3>
-<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
+<section id="introdução" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">12.1</span> Introdução</h2>
+<section id="rstudio" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">12.1.1</span> RStudio</h3>
+<p>Assim como no Python, programar em R depende de um ambiente que pode ser configurado de várias formas. Você pode trabalhar com o R em sua forma pura, mas usualmente utilizamos alguma IDE que facilite o processo. E no mundo das IDEs que suportam o R, o <code>RStudio</code> talvez seja a principal. Para instalar o <code>RStudio</code> é preciso primeiro instalar o R. A partir daí, basta baixar o programa para o seu sistema operacional e seguir as configurações padrão do instalador para que o <code>RStudio</code> se torne o programa padrão para arquivos vinculados à linguagem.</p>
+<p>Em termos de layout, o <code>RStudio</code> se parece muito com o <code>Spyder</code>: um ambiente integrado que nos permite escrever o código e acompanhar de maneira simultânea os objetos criados e o resultado daquilo que rodamos.</p>
+</section>
+<section id="pacotes-de-terceiros" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="pacotes-de-terceiros"><span class="header-section-number">12.1.2</span> Pacotes de terceiros</h3>
+<p>Bla bla bla</p>
+</section>
+<section id="pré-requisitos" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</h3>
+<p>Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyverse, que não é nativo do R, e inclui todo um conjunto de pacotes que facilitam a vida daqueles que trabalham com análise e gestão de dados.</p>
 <ul>
-<li><code>rich</code></li>
-<li><code>dataclasses</code></li>
+<li><code>tidyverse</code></li>
+<li><code>summarytools</code></li>
+<li><code>data.table</code></li>
+<li><code>ggplot2</code></li>
 </ul>
-<div id="d8362022" class="cell" data-message="false" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rich</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dataclasses</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="por-que-estudar-oop" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="por-que-estudar-oop"><span class="header-section-number">11.2</span> Por que estudar OOP?</h2>
-<p>Ao aprender Python, é comum ter a impressão de que programação orientada a objetos é um tópico avançado e distante das aplicações empíricas. Em parte, essa percepção é correta: muitas análises econômicas podem ser realizadas utilizando apenas funções e estruturas de dados tradicionais. Ainda assim, a orientação a objetos desempenha um papel importante no ecossistema Python. Bibliotecas amplamente utilizadas em ciência de dados foram construídas com base nesse paradigma. Quando executamos comandos como <code>df.info()</code> ou <code>df.describe()</code> estamos utilizando métodos associados a objetos específicos, no caso dataframes de Pandas.</p>
-<p>A principal ideia da orientação a objetos é reunir, em uma única estrutura, tanto os dados quanto as operações relacionadas a esses dados. Em vez de armazenar informações em várias variáveis independentes e utilizar funções separadas para manipulá-las, podemos criar um objeto que encapsula essas informações e os comportamentos associados. Essa forma de organização se torna especialmente útil quando trabalhamos com entidades que possuem várias características e operações relacionadas. Por exemplo, podemos representar um município por meio de um objeto contendo informações como população, renda per capita e número de crimes, além de métodos capazes de calcular indicadores derivados dessas variáveis.</p>
-<p>Embora não seja um tema central deste curso, uma compreensão básica desses conceitos ajudará você a interpretar documentações, utilizar bibliotecas modernas e compreender melhor como programas em Python são estruturados.</p>
+<section id="primeiros-passos" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</h2>
+<section id="diferenças-de-sintaxe-em-relação-ao-python" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</h3>
 </section>
-<section id="objetos-e-suas-características" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="objetos-e-suas-características"><span class="header-section-number">11.3</span> Objetos e suas características</h2>
-<section id="tipo-e-identidade" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="tipo-e-identidade"><span class="header-section-number">11.3.1</span> Tipo e identidade</h3>
-</section>
-<section id="atributos" class="level3" data-number="11.3.2">
-<h3 data-number="11.3.2" class="anchored" data-anchor-id="atributos"><span class="header-section-number">11.3.2</span> Atributos</h3>
-</section>
-<section id="métodos" class="level3" data-number="11.3.3">
-<h3 data-number="11.3.3" class="anchored" data-anchor-id="métodos"><span class="header-section-number">11.3.3</span> Métodos</h3>
+<section id="r-como-calculadora" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</h3>
 </section>
 </section>
-<section id="classes" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="classes"><span class="header-section-number">11.4</span> Classes</h2>
-<section id="definição" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="definição"><span class="header-section-number">11.4.1</span> Definição</h3>
+<section id="objetos" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="objetos"><span class="header-section-number">12.3</span> Objetos</h2>
+<section id="vetores-e-matrizes" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</h3>
 </section>
-<section id="classes-personalizadas" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="classes-personalizadas"><span class="header-section-number">11.4.2</span> Classes personalizadas</h3>
-</section>
-<section id="dataclasses" class="level3" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="dataclasses"><span class="header-section-number">11.4.3</span> Dataclasses</h3>
+<section id="dataframes" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">12.3.2</span> Dataframes</h3>
 </section>
 </section>
-<section id="conclusão" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">11.5</span> Conclusão</h2>
+<section id="iteração" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="iteração"><span class="header-section-number">12.4</span> Iteração</h2>
 </section>
-<section id="exercícios" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">11.6</span> Exercícios</h2>
+<section id="funções" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="funções"><span class="header-section-number">12.5</span> Funções</h2>
+</section>
+<section id="gestão-e-análise-de-dados" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</h2>
+<section id="manipulação-e-pipelines" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</h3>
+</section>
+<section id="visualização" class="level3" data-number="12.6.2">
+<h3 data-number="12.6.2" class="anchored" data-anchor-id="visualização"><span class="header-section-number">12.6.2</span> Visualização</h3>
+</section>
+</section>
+<section id="conclusão" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">12.7</span> Conclusão</h2>
+</section>
+<section id="exercícios" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">12.8</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>
@@ -795,13 +814,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./complemento.html" class="pagination-link" aria-label="Temas complementares">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Temas complementares</span>
+      <a href="./oop.html" class="pagination-link" aria-label="Introdução à programação orientada a objetos (OOP)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intror.html" class="pagination-link" aria-label="Introdução ao R">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introdução ao R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Bibliografia">
+        <span class="nav-page-text">Bibliografia</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -813,7 +832,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/oop.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/intror.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

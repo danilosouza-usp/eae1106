@@ -47,7 +47,7 @@ book:
     - part: complemento.qmd
       chapters:
         - oop.qmd
-        #- intror.qmd
+        - intror.qmd
       
     - references.qmd
 

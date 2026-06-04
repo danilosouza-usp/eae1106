@@ -2,6 +2,12 @@
 
 ## Introdução
 
+Até este ponto do curso, trabalhamos principalmente com funções e estruturas de dados como listas, dicionários, arrays e dataframes. Essa abordagem já é suficiente para resolver uma grande variedade de problemas encontrados em aplicações empíricas na Economia.
+
+No entanto, muitas das bibliotecas mais importantes do ecossistema Python utilizam um paradigma conhecido como programação orientada a objetos (_Object-Oriented Programming_, ou OOP). Na prática, objetos estão presentes em praticamente todos os programas escritos em Python. Um DataFrame do Pandas, um array do NumPy ou uma figura criada com Matplotlib são exemplos de objetos que armazenam informações e disponibilizam operações específicas para manipulá-las.
+
+Por esse motivo, mesmo que você não pretenda desenvolver sistemas complexos ou trabalhar profissionalmente com engenharia de software, compreender os conceitos básicos de orientação a objetos é importante para utilizar Python de forma mais eficiente e entender melhor a estrutura das bibliotecas que empregamos em análise de dados. Neste capítulo faremos uma breve introdução ao tema. O objetivo não é explorar todos os recursos da programação orientada a objetos, mas compreender como criar classes simples, armazenar atributos e definir comportamentos associados a um objeto.
+
 ### Pré-requisitos
 
 Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
@@ -16,6 +22,14 @@ Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois 
 import rich
 import dataclasses
 ```
+
+## Por que estudar OOP?
+
+Ao aprender Python, é comum ter a impressão de que programação orientada a objetos é um tópico avançado e distante das aplicações empíricas. Em parte, essa percepção é correta: muitas análises econômicas podem ser realizadas utilizando apenas funções e estruturas de dados tradicionais. Ainda assim, a orientação a objetos desempenha um papel importante no ecossistema Python. Bibliotecas amplamente utilizadas em ciência de dados foram construídas com base nesse paradigma. Quando executamos comandos como `df.info()` ou `df.describe()` estamos utilizando métodos associados a objetos específicos, no caso dataframes de Pandas.
+
+A principal ideia da orientação a objetos é reunir, em uma única estrutura, tanto os dados quanto as operações relacionadas a esses dados. Em vez de armazenar informações em várias variáveis independentes e utilizar funções separadas para manipulá-las, podemos criar um objeto que encapsula essas informações e os comportamentos associados. Essa forma de organização se torna especialmente útil quando trabalhamos com entidades que possuem várias características e operações relacionadas. Por exemplo, podemos representar um município por meio de um objeto contendo informações como população, renda per capita e número de crimes, além de métodos capazes de calcular indicadores derivados dessas variáveis.
+
+Embora não seja um tema central deste curso, uma compreensão básica desses conceitos ajudará você a interpretar documentações, utilizar bibliotecas modernas e compreender melhor como programas em Python são estruturados.
 
 ## Objetos e suas características
 
