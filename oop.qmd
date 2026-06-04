@@ -6,23 +6,34 @@
 
 Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
 
-- `os`
-- `pandas`
-- `matplotlib`
-- `seaborn`
-- `plotly`
+- `rich`
+- `dataclasses`
 
 ```{python}
 #| message: false
 #| warning: false
 
-import os
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sbs
-import plotly as ply
+import rich
+import dataclasses
 ```
 
+## Objetos e suas características
+
+### Tipo e identidade
+
+### Atributos
+
+### Métodos
+
+## Classes
+
+### Definição
+
+### Classes personalizadas
+
+### Dataclasses  
+
+## Conclusão
 
 ## Exercícios
 

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Danilo Souza">
 
-<title>Bibliografia – Métodos Computacionais para Economia</title>
+<title>11&nbsp; Introdução à programação orientada a objetos (OOP) – Métodos Computacionais para Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,26 +21,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -50,7 +66,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./oop.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./complemento.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -103,7 +120,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Bibliografia</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./oop.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -237,7 +254,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./oop.html" class="sidebar-item-text sidebar-link">
+  <a href="./oop.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span></a>
   </div>
 </li>
@@ -245,7 +262,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografia</span></a>
   </div>
 </li>
@@ -254,15 +271,38 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">11.1</span> Introdução</a>
+  <ul class="collapse">
+  <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">11.1.1</span> Pré-requisitos</a></li>
+  </ul></li>
+  <li><a href="#objetos-e-suas-características" id="toc-objetos-e-suas-características" class="nav-link" data-scroll-target="#objetos-e-suas-características"><span class="header-section-number">11.2</span> Objetos e suas características</a>
+  <ul class="collapse">
+  <li><a href="#tipo-e-identidade" id="toc-tipo-e-identidade" class="nav-link" data-scroll-target="#tipo-e-identidade"><span class="header-section-number">11.2.1</span> Tipo e identidade</a></li>
+  <li><a href="#atributos" id="toc-atributos" class="nav-link" data-scroll-target="#atributos"><span class="header-section-number">11.2.2</span> Atributos</a></li>
+  <li><a href="#métodos" id="toc-métodos" class="nav-link" data-scroll-target="#métodos"><span class="header-section-number">11.2.3</span> Métodos</a></li>
+  </ul></li>
+  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes"><span class="header-section-number">11.3</span> Classes</a>
+  <ul class="collapse">
+  <li><a href="#definição" id="toc-definição" class="nav-link" data-scroll-target="#definição"><span class="header-section-number">11.3.1</span> Definição</a></li>
+  <li><a href="#classes-personalizadas" id="toc-classes-personalizadas" class="nav-link" data-scroll-target="#classes-personalizadas"><span class="header-section-number">11.3.2</span> Classes personalizadas</a></li>
+  <li><a href="#dataclasses" id="toc-dataclasses" class="nav-link" data-scroll-target="#dataclasses"><span class="header-section-number">11.3.3</span> Dataclasses</a></li>
+  </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">11.4</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">11.5</span> Exercícios</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/oop.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./complemento.html">Temas complementares</a></li><li class="breadcrumb-item"><a href="./oop.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-bibliografia" class="quarto-section-identifier">Bibliografia</span></h1>
+<h1 class="title"><span id="sec-oop" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span></h1>
 </div>
 
 
@@ -279,20 +319,57 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-becker1968" class="csl-entry" role="listitem">
-Becker, Gary S. 1968. <span>“Crime and Punishment: An Economic
-Approach.”</span> <em>Journal of Political Economy</em> Vol. 76 (No. 2):
-pp. 169–217.
+<section id="introdução" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">11.1</span> Introdução</h2>
+<section id="pré-requisitos" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">11.1.1</span> Pré-requisitos</h3>
+<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
+<ul>
+<li><code>rich</code></li>
+<li><code>dataclasses</code></li>
+</ul>
+<div id="10fbadd3" class="cell" data-message="false" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rich</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dataclasses</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ref-ehrlich1973" class="csl-entry" role="listitem">
-Ehrlich, Isaac. 1973. <span>“Participation in Illegitimate Activities: A
-Theoretical and Empirical Investigation.”</span> <em>Journal of
-Political Economy</em> Vol. 81 (No. 3): pp. 521–565.
-</div>
-</div>
+</section>
+</section>
+<section id="objetos-e-suas-características" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="objetos-e-suas-características"><span class="header-section-number">11.2</span> Objetos e suas características</h2>
+<section id="tipo-e-identidade" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="tipo-e-identidade"><span class="header-section-number">11.2.1</span> Tipo e identidade</h3>
+</section>
+<section id="atributos" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="atributos"><span class="header-section-number">11.2.2</span> Atributos</h3>
+</section>
+<section id="métodos" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="métodos"><span class="header-section-number">11.2.3</span> Métodos</h3>
+</section>
+</section>
+<section id="classes" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="classes"><span class="header-section-number">11.3</span> Classes</h2>
+<section id="definição" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="definição"><span class="header-section-number">11.3.1</span> Definição</h3>
+</section>
+<section id="classes-personalizadas" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="classes-personalizadas"><span class="header-section-number">11.3.2</span> Classes personalizadas</h3>
+</section>
+<section id="dataclasses" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="dataclasses"><span class="header-section-number">11.3.3</span> Dataclasses</h3>
+</section>
+</section>
+<section id="conclusão" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">11.4</span> Conclusão</h2>
+</section>
+<section id="exercícios" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">11.5</span> Exercícios</h2>
+<ol type="1">
+<li><p>X</p></li>
+<li><p>X</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -702,11 +779,14 @@ Political Economy</em> Vol. 81 (No. 3): pp. 521–565.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./oop.html" class="pagination-link" aria-label="Introdução à programação orientada a objetos (OOP)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introdução à programação orientada a objetos (OOP)</span></span>
+      <a href="./complemento.html" class="pagination-link" aria-label="Temas complementares">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Temas complementares</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Bibliografia">
+        <span class="nav-page-text">Bibliografia</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -717,7 +797,7 @@ Political Economy</em> Vol. 81 (No. 3): pp. 521–565.
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/references.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/oop.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Material da disciplina <strong>EAE1106 — Métodos Computacionais para Economia</strong> · Feito com <a href="https://quarto.org/">Quarto</a></p>
 </div>

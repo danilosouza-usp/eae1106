@@ -45,8 +45,8 @@ book:
         - projeto_empirico.qmd
         
     - part: complemento.qmd
-      #chapters:
-        #- oop.qmd
+      chapters:
+        - oop.qmd
         #- intror.qmd
       
     - references.qmd
