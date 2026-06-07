@@ -10,9 +10,10 @@ Por esse motivo, mesmo que você não pretenda desenvolver sistemas complexos ou
 
 ### Pré-requisitos
 
-Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:
+Neste capítulo utilizaremos três bibliotecas adicionais. O pacote `pandas` será empregado para criar e manipular objetos do tipo `DataFrame`, permitindo ilustrar conceitos como atributos e métodos em uma estrutura de dados já familiar. O módulo `dataclasses`, disponível na biblioteca padrão do Python, será utilizado para simplificar a criação de classes cujos objetos servem principalmente para armazenar dados. Por fim, o pacote `rich` será utilizado apenas para melhorar a formatação e a visualização de alguns resultados no terminal, tornando os exemplos mais legíveis.
 
 - `rich`
+- `pandas`
 - `dataclasses`
 
 ```{python}
@@ -78,9 +79,11 @@ print(id(lista2))
 
 Embora `lista1` e `lista2` possuam exatamente o mesmo conteúdo, elas são objetos diferentes armazenados em locais distintos da memória. Essa distinção entre conteúdo e identidade é importante porque dois objetos podem parecer iguais para o usuário, mas serem tratados como entidades independentes pelo Python.
 
+Saber que um objeto possui um tipo e uma identidade nos ajuda a entender como o Python o representa internamente. No entanto, essas características não são as que normalmente utilizamos ao programar. Na prática, interagimos com objetos principalmente por meio de seus atributos e métodos, que definem as informações armazenadas e as operações disponíveis.
+
 ### Atributos
 
-Além do tipo e da identidade, objetos também são compostos por informações chamadas atributos. Um atributo é simplesmente uma característica associada ao objeto. Dependendo do tipo do objeto, esses atributos podem guardar informações úteis sobre seu estado ou sua estrutura. Em Python, qualquer nome acessado após o operador ponto (`.`) é denominado um atributo do objeto que aparece à esquerda desse operador. 
+Um atributo é simplesmente uma característica associada ao objeto. Dependendo do tipo do objeto, esses atributos podem guardar informações úteis sobre seu estado ou sua estrutura. Em Python, qualquer nome acessado após o operador ponto (`.`) é denominado um atributo do objeto que aparece à esquerda desse operador. 
 
 ```{python}
 dados = pd.DataFrame({"nome": ["Ana", "Bruno", "Carlos"],"idade": [20, 25, 30]})
@@ -148,17 +151,21 @@ rich.inspect(lista1, methods=True)
 
 ## Classes
 
-Uma classe reúne, em uma única estrutura, um conjunto de dados e métodos responsáveis por manipular esses dados. Cada objeto criado a partir da classe possui seus próprios dados, mas compartilha os mesmos comportamentos definidos pela classe. Por exemplo, números inteiros pertencem à classe `int`, listas pertencem à classe `list` e dataframes pertencem à classe `DataFrame`. Embora tenhamos até agora trabalhado apenas com objetos fornecidos pela própria linguagem ou por bibliotecas externas, o Python também permite que criemos nossos próprios tipos de objetos através da definição de novas classes.
+Até agora vimos que objetos possuem atributos e métodos. No entanto, todos os exemplos utilizados até aqui envolveram objetos já existentes na linguagem ou fornecidos por bibliotecas externas. Isso levanta uma questão natural: e se quisermos criar nossos próprios tipos de objetos?
+
+Em muitos problemas econômicos trabalhamos com entidades que possuem diversas características associadas. Municípios possuem população, área territorial e renda per capita. Empresas possuem faturamento, número de empregados e setor de atividade. Famílias possuem renda, consumo e tamanho. Poderíamos armazenar essas informações utilizando dicionários ou múltiplas variáveis separadas. Entretanto, quando várias informações e operações estão relacionadas à mesma entidade, pode ser conveniente agrupá-las em uma única estrutura. É justamente esse o papel das classes.
+
+Uma classe reúne, em uma única estrutura, um conjunto de dados e métodos responsáveis por manipular esses dados. Cada objeto criado a partir da classe possui seus próprios dados, mas compartilha os mesmos comportamentos definidos pela classe. Por exemplo, números inteiros pertencem à classe `int`, listas pertencem à classe `list` e dataframes pertencem à classe `DataFrame`.
 
 ### Classes personalizadas
 
-Por exemplo, suponha que desejamos representar municípios brasileiros em um programa a partir dos dados do Censo Populacional de 2022. Cada município possui características como nome, estado ao qual pertence, área total e população no ano de coleta do censo. Em vez de armazenar essas informações em estruturas separadas para cada novo objeto, podemos criar uma classe que reúna todos esses elementos como atributos do objeto criado. 
+Suponha que desejamos representar municípios brasileiros em um programa utilizando informações do Censo Demográfico de 2022. Cada município possui características como nome, unidade da federação, área territorial e população. Uma possibilidade seria armazenar essas informações em dicionários ou variáveis separadas. No entanto, quando vários dados estão associados à mesma entidade, pode ser conveniente agrupá-los em uma única estrutura. Para isso, podemos criar uma classe que reúna essas informações como atributos dos objetos que serão criados.
 
-Para criar uma nova classe utilizamos a palavra chave `class` em conjunto com uma estrutura padrão de métodos e parâmetros, em especial o método `__init__` e o parâmetro `self`.
+Em Python, novas classes são definidas por meio da palavra-chave class. Além do nome da classe, dois elementos aparecem com frequência em praticamente todas as definições: o método `__init__` e o parâmetro `self`.
 
-- O método `__init__` é o primeiro e obrigatório. Não entrarei muito no detalhe, mas esse método é responsável por iniciar a classe e permitir que outros métodos sejam implementados nessa estrutura a partir dos parametros iniciados em `__init__`.
+- O método `__init__` é é executado automaticamente sempre que um novo objeto é criado. Sua principal função é inicializar os atributos do objeto, armazenando as informações que serão utilizadas posteriormente por outros métodos da classe.
 
-- O parâmetro `self` funciona como um prefixo necessário dentro da sintaxe de classes no Python. Para além da presença em `__init__`, todo novo método criado dentro da classe deve ter `self` como primeiro argumento.
+- O parâmetro `self` representa o próprio objeto que está sendo criado ou utilizado. Por convenção, ele deve aparecer como primeiro parâmetro de todos os métodos definidos na classe. É por meio de `self` que podemos acessar e modificar os atributos associados a cada objeto individualmente.
 
 
 ```{python}
@@ -213,7 +220,7 @@ print(sp.densidade_pop())
 
 ### Dataclasses 
 
-O pacote `dataclasses` é uma alternativa interessante para reduzir a carga de sintaxe na definição de classes e tornar suas personalizações mais intuitivas. No caso da classe `Municipio` definida anteriormente, podemos utilizar a função `dataclass` e o decorador `@dataclass` na linha exatamente anterior à definição da classe para reescrever o código como:
+Embora a definição anterior funcione perfeitamente, ela exige uma quantidade considerável de código repetitivo. Em aplicações reais, muitas classes servem apenas para armazenar dados e não realizam operações complexas. Como essa situação é muito comum, Python oferece o módulo `dataclasses`, que automatiza a criação de parte desse código. Com ele podemos definir os atributos de uma classe de forma mais compacta, sem precisar escrever explicitamente o método `__init__`. No caso da classe `Municipio` definida anteriormente, podemos utilizar a função `dataclass` e o decorador `@dataclass` na linha exatamente anterior à definição da classe para reescrever o código:
 
 ```{python}
 @dataclasses.dataclass
@@ -227,7 +234,7 @@ class Municipio:
         return self.pop / self.km2
 ```
 
-Nesse caso, não é preciso definir o método `__init__` e encher o início da classe com um monte de `self`. Além disso, é possível definir de cara o tipo de dado associado a cada atributo do objeto. Finalmente, nada muda quando da necessidade de definir novos métodos.
+Observe que os atributos são definidos diretamente abaixo do nome da classe. A partir dessas informações, Python cria automaticamente o método construtor e outras funcionalidades úteis. Para classes simples que servem principalmente para armazenar dados, essa abordagem costuma produzir códigos mais curtos e legíveis. Nada muda, porém, quando da necessidade de definir novos métodos dentro da classe.
 
 ```{python}
 dracena = Municipio('Dracena','SP',487.688,45474)
@@ -244,6 +251,21 @@ Também introduzimos o conceito de classe, que permite criar novos tipos de obje
 
 ## Exercícios
 
-1. X
+1. Considere a base de dados original da PWT, disponível [aqui](https://www.rug.nl/ggdc/productivity/pwt/?lang=en). Baixe a versão em Excel e utilize a função `read_excel` para ler os dados disponíveis na aba `Data` no formato de um DataFrame do Pandas.
 
-2. X
+    a. Verifique o tipo do objeto criado.
+    b. Utilize pelo menos dois atributos para obter informações sobre o dataframe.
+    c. Utilize pelo menos dois métodos para explorar os dados.
+    d. Explique brevemente a diferença entre atributos e métodos com base nos exemplos utilizados.
+
+2. Considere o código abaixo:
+
+    ```{python}
+    universidade = 'Universidade de São Paulo'
+    ```
+
+    a. Utilize as funções `type()` e `id()` para verificar o tipo e a identidade do objeto armazenado em `universidade`.
+    b. Liste três métodos disponíveis para objetos do tipo `str`.
+    c. Utilize um desses métodos para transformar o texto em letras maiúsculas.
+
+3. X

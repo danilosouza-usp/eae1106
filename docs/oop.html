@@ -335,12 +335,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Por esse motivo, mesmo que você não pretenda desenvolver sistemas complexos ou trabalhar profissionalmente com engenharia de software, compreender os conceitos básicos de orientação a objetos é importante para utilizar Python de forma mais eficiente e entender melhor a estrutura das bibliotecas que empregamos em análise de dados. Neste capítulo faremos uma breve introdução ao tema. O objetivo não é explorar todos os recursos da programação orientada a objetos, mas compreender como criar classes simples, armazenar atributos e definir comportamentos associados a um objeto.</p>
 <section id="pré-requisitos" class="level3" data-number="11.1.1">
 <h3 data-number="11.1.1" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">11.1.1</span> Pré-requisitos</h3>
-<p>Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois pacotes externos:</p>
+<p>Neste capítulo utilizaremos três bibliotecas adicionais. O pacote <code>pandas</code> será empregado para criar e manipular objetos do tipo <code>DataFrame</code>, permitindo ilustrar conceitos como atributos e métodos em uma estrutura de dados já familiar. O módulo <code>dataclasses</code>, disponível na biblioteca padrão do Python, será utilizado para simplificar a criação de classes cujos objetos servem principalmente para armazenar dados. Por fim, o pacote <code>rich</code> será utilizado apenas para melhorar a formatação e a visualização de alguns resultados no terminal, tornando os exemplos mais legíveis.</p>
 <ul>
 <li><code>rich</code></li>
+<li><code>pandas</code></li>
 <li><code>dataclasses</code></li>
 </ul>
-<div id="94d76ee0" class="cell" data-message="false" data-execution_count="1">
+<div id="74ac30f5" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rich</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dataclasses</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -367,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="tipo-e-identidade" class="level3" data-number="11.3.1">
 <h3 data-number="11.3.1" class="anchored" data-anchor-id="tipo-e-identidade"><span class="header-section-number">11.3.1</span> Tipo e identidade</h3>
 <p>Você deve se lembrar do capítulo <a href="objetos.html" class="quarto-xref"><span>Capítulo 4</span></a> que no Python os tipos determinam quais informações podem ser armazenadas no objeto e quais operações podem ser realizadas sobre ele. Por exemplo, os números inteiros pertencem ao tipo <em>int</em>, enquanto textos pertencem ao tipo <em>str</em>. O tipo funciona como uma espécie de “categoria” do objeto. É ele que informa ao Python como aquele objeto deve ser tratado internamente.</p>
-<div id="7c4370fb" class="cell" data-execution_count="2">
+<div id="ff4c452b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">'Danilo'</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -380,32 +381,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>O tipo também é importante porque determina como determinadas operações devem ser interpretadas pelo Python. Por exemplo, o operador <code>+</code> possui significados diferentes dependendo do tipo dos objetos envolvidos: quando aplicado a strings, ele realiza uma concatenação de textos, enquanto, quando aplicado a números, ele executa uma operação de adição. Como Python é uma linguagem de tipagem forte e dinâmica, cada objeto possui um tipo bem definido, mas esse tipo normalmente não precisa ser declarado explicitamente pelo usuário. Em vez disso, o próprio Python identifica e atribui automaticamente o tipo apropriado no momento em que o objeto é criado.</p>
 <p>Além do tipo, todo objeto possui uma identidade única. Essa identidade corresponde ao endereço de memória utilizado pelo Python para localizar o objeto durante a execução do programa. Podemos visualizar essa identidade utilizando a função <code>id()</code>.</p>
-<div id="a336197d" class="cell" data-execution_count="3">
+<div id="aa274d2d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(x))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(y))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>140730417259720
-1728163227728</code></pre>
+<pre><code>140730376234184
+1504781461968</code></pre>
 </div>
 </div>
 <p>É importante distinguir, porém, entre identidade e conteúdo. Vejamos o caso das listas abaixo:</p>
-<div id="7443334b" class="cell" data-execution_count="4">
+<div id="32695fe2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lista2 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(lista1))</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(lista2))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1728084482560
-1728084614784</code></pre>
+<pre><code>1504702358208
+1504702355072</code></pre>
 </div>
 </div>
 <p>Embora <code>lista1</code> e <code>lista2</code> possuam exatamente o mesmo conteúdo, elas são objetos diferentes armazenados em locais distintos da memória. Essa distinção entre conteúdo e identidade é importante porque dois objetos podem parecer iguais para o usuário, mas serem tratados como entidades independentes pelo Python.</p>
+<p>Saber que um objeto possui um tipo e uma identidade nos ajuda a entender como o Python o representa internamente. No entanto, essas características não são as que normalmente utilizamos ao programar. Na prática, interagimos com objetos principalmente por meio de seus atributos e métodos, que definem as informações armazenadas e as operações disponíveis.</p>
 </section>
 <section id="atributos" class="level3" data-number="11.3.2">
 <h3 data-number="11.3.2" class="anchored" data-anchor-id="atributos"><span class="header-section-number">11.3.2</span> Atributos</h3>
-<p>Além do tipo e da identidade, objetos também são compostos por informações chamadas atributos. Um atributo é simplesmente uma característica associada ao objeto. Dependendo do tipo do objeto, esses atributos podem guardar informações úteis sobre seu estado ou sua estrutura. Em Python, qualquer nome acessado após o operador ponto (<code>.</code>) é denominado um atributo do objeto que aparece à esquerda desse operador.</p>
-<div id="938fc37c" class="cell" data-execution_count="5">
+<p>Um atributo é simplesmente uma característica associada ao objeto. Dependendo do tipo do objeto, esses atributos podem guardar informações úteis sobre seu estado ou sua estrutura. Em Python, qualquer nome acessado após o operador ponto (<code>.</code>) é denominado um atributo do objeto que aparece à esquerda desse operador.</p>
+<div id="0b8a6cd8" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> pd.DataFrame({<span class="st">"nome"</span>: [<span class="st">"Ana"</span>, <span class="st">"Bruno"</span>, <span class="st">"Carlos"</span>],<span class="st">"idade"</span>: [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>]})</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dados.shape)</span>
@@ -423,7 +425,7 @@ RangeIndex(start=0, stop=3, step=1)</code></pre>
 <h3 data-number="11.3.3" class="anchored" data-anchor-id="métodos"><span class="header-section-number">11.3.3</span> Métodos</h3>
 <p>Esse aqui a gente já utilizou bastante ao longo do curso: métodos são funções associadas e aplicáveis a um objeto específico. Formalmente, eles correspondem a atributos que podem ser chamados como funções. É por isso que os métodos são acessados com a notação de ponto e seguidos por parênteses.</p>
 <p>Tipicamente, métodos agem sobre os dados contidos no objeto ao qual pertencem ou combinam esses dados com outros dados.</p>
-<div id="aff91c7b" class="cell" data-execution_count="6">
+<div id="73f4c9e4" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">'Esse é um string'</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># operação sobre os dados contidos no string 's'</span></span>
@@ -437,7 +439,7 @@ Este é um string</code></pre>
 </div>
 </div>
 <p>Já sabemos que o Python é uma linguagem multiparadigma, que funciona de forma procedural, imperativa ou mesmo sob a lógica da programação orientada a objetos. Porém, mesmo quando estamos utilizando uma sintaxe que não aquela associada a OOP, i.e., sem o uso explicito de atributos e métodos ligados a um objeto específico, por trás das cortinas o Python muitas vezes está fazendo dessa forma. Vejamos o exemplo abaixo, de substituição de um valor armazenado em uma lista simples.</p>
-<div id="ec6b08fa" class="cell" data-execution_count="7">
+<div id="efabf1ee" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lista1[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'primeiro elemento'</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -447,7 +449,7 @@ Este é um string</code></pre>
 </div>
 </div>
 <p>Utilizamos a lógica de indexação e o fato de listas serem objetos mutáveis para fazer a substituição do primeiro elemento. Para realizar essa operação não utilizamos nenhum tipo de método associado ao objeto lista, certo? Errado. Por de trás das cortinas, a atribuição de um novo valor a um elemento existente da lista através da lógica de indexação e da sintaxe de colchetes é apenas uma interface amigável para o uso do método <code>__setitem__</code> em uma lista.</p>
-<div id="c871b508" class="cell" data-execution_count="8">
+<div id="9caa1de0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lista2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lista2.<span class="fu">__setitem__</span>(<span class="dv">0</span>,<span class="st">'primeiro elemento'</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -457,7 +459,7 @@ Este é um string</code></pre>
 </div>
 </div>
 <p>O mesmo vale para quando utilizamos a função nativa <code>len()</code> para descobrir o número de elementos presentes em uma sequência, como uma lista. O uso dessa função é apenas uma interface amigável para a aplicação do método <code>__len__()</code>.</p>
-<div id="eae8cc85" class="cell" data-execution_count="9">
+<div id="e3c8f4de" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uso da função nativa</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(lista2))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,7 +481,7 @@ Este é um string</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>O pacote <code>rich</code> traz funções bastante interessantes para que possamos entender um pouco mais de um objeto no próprio console do Python. É possível, por exemplo, extrair o tipo do dado e os métodos disponíveis para aquele objeto. Para o caso de uma lista como <code>lista1 = [1,2,3]</code>, a função <code>inspect</code> nos permite inspecionar os métodos disponíveis para aplicação nesse tipo de objeto.</p>
-<div id="bb7f5d6a" class="cell" data-execution_count="10">
+<div id="3a2a1597" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rich.inspect(lista1, methods<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -511,16 +513,18 @@ Este é um string</code></pre>
 </section>
 <section id="classes" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="classes"><span class="header-section-number">11.4</span> Classes</h2>
-<p>Uma classe reúne, em uma única estrutura, um conjunto de dados e métodos responsáveis por manipular esses dados. Cada objeto criado a partir da classe possui seus próprios dados, mas compartilha os mesmos comportamentos definidos pela classe. Por exemplo, números inteiros pertencem à classe <code>int</code>, listas pertencem à classe <code>list</code> e dataframes pertencem à classe <code>DataFrame</code>. Embora tenhamos até agora trabalhado apenas com objetos fornecidos pela própria linguagem ou por bibliotecas externas, o Python também permite que criemos nossos próprios tipos de objetos através da definição de novas classes.</p>
+<p>Até agora vimos que objetos possuem atributos e métodos. No entanto, todos os exemplos utilizados até aqui envolveram objetos já existentes na linguagem ou fornecidos por bibliotecas externas. Isso levanta uma questão natural: e se quisermos criar nossos próprios tipos de objetos?</p>
+<p>Em muitos problemas econômicos trabalhamos com entidades que possuem diversas características associadas. Municípios possuem população, área territorial e renda per capita. Empresas possuem faturamento, número de empregados e setor de atividade. Famílias possuem renda, consumo e tamanho. Poderíamos armazenar essas informações utilizando dicionários ou múltiplas variáveis separadas. Entretanto, quando várias informações e operações estão relacionadas à mesma entidade, pode ser conveniente agrupá-las em uma única estrutura. É justamente esse o papel das classes.</p>
+<p>Uma classe reúne, em uma única estrutura, um conjunto de dados e métodos responsáveis por manipular esses dados. Cada objeto criado a partir da classe possui seus próprios dados, mas compartilha os mesmos comportamentos definidos pela classe. Por exemplo, números inteiros pertencem à classe <code>int</code>, listas pertencem à classe <code>list</code> e dataframes pertencem à classe <code>DataFrame</code>.</p>
 <section id="classes-personalizadas" class="level3" data-number="11.4.1">
 <h3 data-number="11.4.1" class="anchored" data-anchor-id="classes-personalizadas"><span class="header-section-number">11.4.1</span> Classes personalizadas</h3>
-<p>Por exemplo, suponha que desejamos representar municípios brasileiros em um programa a partir dos dados do Censo Populacional de 2022. Cada município possui características como nome, estado ao qual pertence, área total e população no ano de coleta do censo. Em vez de armazenar essas informações em estruturas separadas para cada novo objeto, podemos criar uma classe que reúna todos esses elementos como atributos do objeto criado.</p>
-<p>Para criar uma nova classe utilizamos a palavra chave <code>class</code> em conjunto com uma estrutura padrão de métodos e parâmetros, em especial o método <code>__init__</code> e o parâmetro <code>self</code>.</p>
+<p>Suponha que desejamos representar municípios brasileiros em um programa utilizando informações do Censo Demográfico de 2022. Cada município possui características como nome, unidade da federação, área territorial e população. Uma possibilidade seria armazenar essas informações em dicionários ou variáveis separadas. No entanto, quando vários dados estão associados à mesma entidade, pode ser conveniente agrupá-los em uma única estrutura. Para isso, podemos criar uma classe que reúna essas informações como atributos dos objetos que serão criados.</p>
+<p>Em Python, novas classes são definidas por meio da palavra-chave class. Além do nome da classe, dois elementos aparecem com frequência em praticamente todas as definições: o método <code>__init__</code> e o parâmetro <code>self</code>.</p>
 <ul>
-<li><p>O método <code>__init__</code> é o primeiro e obrigatório. Não entrarei muito no detalhe, mas esse método é responsável por iniciar a classe e permitir que outros métodos sejam implementados nessa estrutura a partir dos parametros iniciados em <code>__init__</code>.</p></li>
-<li><p>O parâmetro <code>self</code> funciona como um prefixo necessário dentro da sintaxe de classes no Python. Para além da presença em <code>__init__</code>, todo novo método criado dentro da classe deve ter <code>self</code> como primeiro argumento.</p></li>
+<li><p>O método <code>__init__</code> é é executado automaticamente sempre que um novo objeto é criado. Sua principal função é inicializar os atributos do objeto, armazenando as informações que serão utilizadas posteriormente por outros métodos da classe.</p></li>
+<li><p>O parâmetro <code>self</code> representa o próprio objeto que está sendo criado ou utilizado. Por convenção, ele deve aparecer como primeiro parâmetro de todos os métodos definidos na classe. É por meio de <code>self</code> que podemos acessar e modificar os atributos associados a cada objeto individualmente.</p></li>
 </ul>
-<div id="a442a71d" class="cell" data-execution_count="11">
+<div id="0937577a" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Municipio:</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,nome,estado,area,populacao):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        </span>
@@ -530,7 +534,7 @@ Este é um string</code></pre>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pop <span class="op">=</span> populacao</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Agora podemos criar municípios diferentes como objetos da classe <code>Municipio</code> e acessar seus atributos a partir da notação e sintaxe usual de OOP no Python.</p>
-<div id="a2a39577" class="cell" data-execution_count="12">
+<div id="de9c966d" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dracena <span class="op">=</span> Municipio(<span class="st">'Dracena'</span>,<span class="st">'SP'</span>,<span class="fl">487.688</span>,<span class="dv">45474</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> Municipio(<span class="st">'São Paulo'</span>,<span class="st">'SP'</span>,<span class="fl">1521.202</span>,<span class="dv">11451999</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -539,7 +543,7 @@ Este é um string</code></pre>
 <pre><code>&lt;class '__main__.Municipio'&gt;</code></pre>
 </div>
 </div>
-<div id="3f57eaf1" class="cell" data-execution_count="13">
+<div id="2e570b0a" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dracena.nome)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dracena.km2)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sp.pop)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -550,7 +554,7 @@ Este é um string</code></pre>
 </div>
 </div>
 <p>Interessante, não? Fica ainda mais interessante quando criamos nossos próprios métodos para além do método obrigatório <code>__init__</code>. Suponha que você queira criar um método que calcule a densidade populacional, dividindo a população pela área do município.</p>
-<div id="cfab9c79" class="cell" data-execution_count="14">
+<div id="92d8ff3b" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Municipio:</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,nome,estado,area,populacao):</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        </span>
@@ -563,7 +567,7 @@ Este é um string</code></pre>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.pop <span class="op">/</span> <span class="va">self</span>.km2   </span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Como redefinimos a classe, é importante redefinir os objetos. Após isso, é possível aplicar o novo método <code>densidade_pop</code> para calcular a densidade populacional de ambos os municípios.</p>
-<div id="deb1f0f8" class="cell" data-execution_count="15">
+<div id="deb49f87" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dracena <span class="op">=</span> Municipio(<span class="st">'Dracena'</span>,<span class="st">'SP'</span>,<span class="fl">487.688</span>,<span class="dv">45474</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> Municipio(<span class="st">'São Paulo'</span>,<span class="st">'SP'</span>,<span class="fl">1521.202</span>,<span class="dv">11451999</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -577,8 +581,8 @@ Este é um string</code></pre>
 </section>
 <section id="dataclasses" class="level3" data-number="11.4.2">
 <h3 data-number="11.4.2" class="anchored" data-anchor-id="dataclasses"><span class="header-section-number">11.4.2</span> Dataclasses</h3>
-<p>O pacote <code>dataclasses</code> é uma alternativa interessante para reduzir a carga de sintaxe na definição de classes e tornar suas personalizações mais intuitivas. No caso da classe <code>Municipio</code> definida anteriormente, podemos utilizar a função <code>dataclass</code> e o decorador <code>@dataclass</code> na linha exatamente anterior à definição da classe para reescrever o código como:</p>
-<div id="f631891d" class="cell" data-execution_count="16">
+<p>Embora a definição anterior funcione perfeitamente, ela exige uma quantidade considerável de código repetitivo. Em aplicações reais, muitas classes servem apenas para armazenar dados e não realizam operações complexas. Como essa situação é muito comum, Python oferece o módulo <code>dataclasses</code>, que automatiza a criação de parte desse código. Com ele podemos definir os atributos de uma classe de forma mais compacta, sem precisar escrever explicitamente o método <code>__init__</code>. No caso da classe <code>Municipio</code> definida anteriormente, podemos utilizar a função <code>dataclass</code> e o decorador <code>@dataclass</code> na linha exatamente anterior à definição da classe para reescrever o código:</p>
+<div id="7019474a" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dataclasses.dataclass</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Municipio:</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    nome: <span class="bu">str</span></span>
@@ -589,8 +593,8 @@ Este é um string</code></pre>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> densidade_pop(<span class="va">self</span>):</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.pop <span class="op">/</span> <span class="va">self</span>.km2</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Nesse caso, não é preciso definir o método <code>__init__</code> e encher o início da classe com um monte de <code>self</code>. Além disso, é possível definir de cara o tipo de dado associado a cada atributo do objeto. Finalmente, nada muda quando da necessidade de definir novos métodos.</p>
-<div id="b6be245e" class="cell" data-execution_count="17">
+<p>Observe que os atributos são definidos diretamente abaixo do nome da classe. A partir dessas informações, Python cria automaticamente o método construtor e outras funcionalidades úteis. Para classes simples que servem principalmente para armazenar dados, essa abordagem costuma produzir códigos mais curtos e legíveis. Nada muda, porém, quando da necessidade de definir novos métodos dentro da classe.</p>
+<div id="09941f48" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dracena <span class="op">=</span> Municipio(<span class="st">'Dracena'</span>,<span class="st">'SP'</span>,<span class="fl">487.688</span>,<span class="dv">45474</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dracena.nome)</span>
@@ -610,7 +614,20 @@ Este é um string</code></pre>
 <section id="exercícios" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">11.6</span> Exercícios</h2>
 <ol type="1">
-<li><p>X</p></li>
+<li><p>Considere a base de dados original da PWT, disponível <a href="https://www.rug.nl/ggdc/productivity/pwt/?lang=en">aqui</a>. Baixe a versão em Excel e utilize a função <code>read_excel</code> para ler os dados disponíveis na aba <code>Data</code> no formato de um DataFrame do Pandas.</p>
+<ol type="a">
+<li>Verifique o tipo do objeto criado.</li>
+<li>Utilize pelo menos dois atributos para obter informações sobre o dataframe.</li>
+<li>Utilize pelo menos dois métodos para explorar os dados.</li>
+<li>Explique brevemente a diferença entre atributos e métodos com base nos exemplos utilizados.</li>
+</ol></li>
+<li><p>Considere o código abaixo:</p>
+<p>::: {#56e6ef5c .cell execution_count=18} <code>{.python .cell-code}  universidade = 'Universidade de São Paulo'</code> :::</p>
+<ol type="a">
+<li>Utilize as funções <code>type()</code> e <code>id()</code> para verificar o tipo e a identidade do objeto armazenado em <code>universidade</code>.</li>
+<li>Liste três métodos disponíveis para objetos do tipo <code>str</code>.</li>
+<li>Utilize um desses métodos para transformar o texto em letras maiúsculas.</li>
+</ol></li>
 <li><p>X</p></li>
 </ol>
 

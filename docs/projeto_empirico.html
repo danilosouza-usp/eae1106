@@ -390,7 +390,7 @@ window.Quarto = {
 <li><code>statsmodels</code></li>
 <li><code>matplotlib</code></li>
 </ul>
-<div id="2e99b3d9" class="cell" data-message="false" data-execution_count="1">
+<div id="8e14d650" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -493,7 +493,7 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'projeto_empirico'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Os dados utilizados nesta aplicação foram obtidos junto à <em>United Nations Office on Drugs and Crime</em> (UNODC), órgão das Nações Unidas responsável pela compilação e divulgação de estatísticas internacionais sobre criminalidade, sistema de justiça criminal e drogas. As bases originais podem ser acessadas diretamente por meio do portal de dados da UNODC, disponível em <a href="https://data.unodc.org/">UNODC Data Portal</a>. Como o objetivo deste capítulo é ilustrar as etapas de um projeto empírico e não discutir os detalhes do tratamento dos dados, não analisaremos linha a linha o código utilizado para preparar a base. Todas as operações empregadas já foram apresentadas em capítulos anteriores. Em essência, o código a seguir realiza três tarefas: seleciona, dentre as diversas informações disponíveis na base original, os dados referentes às taxas de homicídio e ao efetivo policial; filtra as observações correspondentes ao ano de 2015; e, por fim, combina essas informações em uma única base de dados por meio de uma operação de merge. O resultado é um conjunto de dados que permite analisar conjuntamente a relação entre policiamento e criminalidade para os países disponíveis naquele ano.</p>
-<div id="3be98a33" class="cell" data-execution_count="3">
+<div id="04625a6b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## homicidios</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> pd.read_excel(<span class="st">'dados/original/UNDOC CTS - Homicides.xlsx'</span>,sheet_name<span class="op">=</span><span class="st">'data_cts_intentional_homicide'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_hrate <span class="op">=</span> df_hrate.loc[(df_hrate[<span class="st">'Indicator'</span>]<span class="op">==</span><span class="st">'Victims of intentional homicide'</span>) <span class="op">&amp;</span> </span>
@@ -531,7 +531,7 @@ Figura&nbsp;10.1: Fluxo padrão de um projeto de análise empírica
 </div>
 <p>Uma vez construída a base de dados que será utilizada na análise, o próximo passo é compreender sua estrutura. Antes de produzir gráficos, calcular estatísticas ou estimar modelos, é importante verificar quais variáveis estão disponíveis, quantas observações existem e se há problemas evidentes nos dados. Em projetos empíricos reais, essa etapa costuma ser iterativa: frequentemente descobrimos inconsistências ou limitações que nos levam a retornar ao código de limpeza e realizar ajustes adicionais.</p>
 <p>Como visto anteriormente, uma das formas mais rápidas de obter uma visão geral da base é utilizar o método <code>info()</code>. Ele fornece informações sobre o número de observações, os nomes das variáveis, seus tipos de dados e a quantidade de valores não ausentes em cada coluna.</p>
-<div id="89717ab2" class="cell" data-execution_count="4">
+<div id="4d958244" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015 <span class="op">=</span> pd.read_csv(<span class="st">'dados/secundario/UNDOC_HomicidioPolicia2015.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'utf8'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015.info()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -553,7 +553,7 @@ memory usage: 4.0+ KB</code></pre>
 </div>
 <p>Nesse caso, observamos que a base contém 70 observações (países) e 5 variáveis, sem a presença de valores faltantes (<em>missing values</em>). É importante notar que esse resultado não surgiu naturalmente dos dados originais. Durante a etapa de preparação da base, utilizamos o método <code>dropna()</code> para remover observações com informações incompletas, eliminando potenciais problemas que poderiam comprometer as análises posteriores. Como consequência, passamos a trabalhar com uma amostra menor, composta apenas pelos países para os quais havia informações disponíveis tanto sobre homicídios quanto sobre efetivo policial em 2015.</p>
 <p>Uma vez verificada a estrutura geral da base, podemos utilizar o método <code>describe()</code>, que produz um resumo estatístico das variáveis numéricas presentes no dataframe. Esse tipo de inspeção permite compreender melhor a distribuição dos dados e identificar possíveis valores extremos ou padrões que mereçam investigação adicional.</p>
-<div id="d52e8a66" class="cell" data-execution_count="5">
+<div id="52138e6a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015.describe()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -647,7 +647,7 @@ memory usage: 4.0+ KB</code></pre>
 </ul>
 <p>Visualizações possuem papel central nesse processo porque permitem identificar padrões que frequentemente não são evidentes apenas olhando tabelas numéricas. Além disso, análises estatísticas descritivas servem como uma primeira verificação da qualidade dos dados. Muitas inconsistências são descobertas justamente durante a exploração inicial da base.</p>
 <p>No nosso caso da relação entre polícia e crime, uma primeira análise é a de correlação simples, a partir do cálculo do índice de correlação e da análise do gráfico de dispersão.</p>
-<div id="124559b2" class="cell" data-execution_count="6">
+<div id="b31f292f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>xticks<span class="op">=</span>[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>yticks<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>xtickslabel<span class="op">=</span>[<span class="st">'$4$'</span>,<span class="st">'$5$'</span>,<span class="st">'$6$'</span>,<span class="st">'$7$'</span>,<span class="st">'$8$'</span>]</span>
@@ -693,7 +693,7 @@ memory usage: 4.0+ KB</code></pre>
 </div>
 </div>
 <p>Embora o gráfico de dispersão seja uma ferramenta útil para uma inspeção inicial dos dados, ele nem sempre permite identificar claramente a existência ou a intensidade de uma relação entre duas variáveis. Em situações como esta, em que a nuvem de pontos não revela um padrão evidente, é comum recorrer a métodos estatísticos mais estruturados para quantificar a associação observada nos dados. Uma das abordagens mais utilizadas para esse fim é a regressão linear, que busca estimar como variações em uma variável estão associadas, em média, a variações em outra. No nosso caso, estimaremos uma regressão em que o logaritmo da taxa de homicídios é utilizado como variável dependente e o logaritmo do efetivo policial como variável explicativa. Para isso, utilizaremos o pacote <code>statsmodels</code> e a função <code>OLS</code>, sigla para <em>Ordinary Least Squares</em> (Mínimos Quadrados Ordinários), um dos métodos mais tradicionais para estimação de modelos lineares e que discutimos brevemente na aplicação do capítulo <a href="numpy.html" class="quarto-xref"><span>Capítulo 7</span></a>.</p>
-<div id="64a9f39b" class="cell" data-execution_count="7">
+<div id="5fc1e65b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>HomicidioPolicia2015[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> HomicidioPolicia2015[[<span class="st">'constante'</span>,<span class="st">'police_log'</span>]]</span>
@@ -706,7 +706,7 @@ Dep. Variable:              hrate_log   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                 -0.015
 Method:                 Least Squares   F-statistic:                  0.007910
 Date:                Sun, 07 Jun 2026   Prob (F-statistic):              0.929
-Time:                        14:01:25   Log-Likelihood:                -117.38
+Time:                        15:34:13   Log-Likelihood:                -117.38
 No. Observations:                  70   AIC:                             238.8
 Df Residuals:                      68   BIC:                             243.2
 Df Model:                           1                                         
