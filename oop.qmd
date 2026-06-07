@@ -21,6 +21,7 @@ Para trabalhar com funções e todas as suas funcionalidades, utilizaremos dois 
 
 import rich
 import dataclasses
+import pandas as pd
 ```
 
 ## Por que estudar OOP?
@@ -33,11 +34,117 @@ Embora não seja um tema central deste curso, uma compreensão básica desses co
 
 ## Objetos e suas características
 
+Ao longo do curso utilizamos diversos tipos de objetos em Python, como números, textos, listas, arrays do NumPy e dataframes do Pandas. Mas, afinal, o que é um objeto? Embora esses comandos já façam parte da nossa rotina de programação, ainda não discutimos com detalhes o que exatamente é um objeto. De maneira simplificada, um objeto é uma entidade armazenada na memória do computador que reúne informações e comportamentos. Sempre que criamos uma variável em Python, estamos na verdade criando uma referência para algum objeto armazenado na memória.
+
+Por trás dos bastidores, todo objeto possui algumas características fundamentais. Em particular, podemos pensar em um objeto como sendo composto por quatro elementos principais:
+
+- um tipo, que determina sua categoria;
+- uma identidade, que permite distingui-lo dos demais objetos existentes na memória;
+- um conjunto de atributos, que armazenam informações sobre o objeto;
+- um conjunto de métodos, que definem operações que podem ser realizadas sobre ele.
+
+Esses elementos aparecem constantemente durante a programação, mesmo que implicitamente. Antes de aprendermos a criar novos tipos de objetos, porém, é preciso entender melhor o que cada uma dessas características representa.
+
 ### Tipo e identidade
+
+Você deve se lembrar do capítulo @sec-fundamentos que no Python os tipos determinam quais informações podem ser armazenadas no objeto e quais operações podem ser realizadas sobre ele. Por exemplo, os números inteiros pertencem ao tipo _int_, enquanto textos pertencem ao tipo _str_. O tipo funciona como uma espécie de "categoria" do objeto. É ele que informa ao Python como aquele objeto deve ser tratado internamente.
+
+```{python}
+x = 10
+y = 'Danilo'
+
+print(type(x))
+print(type(y))
+```
+
+O tipo também é importante porque determina como determinadas operações devem ser interpretadas pelo Python. Por exemplo, o operador `+` possui significados diferentes dependendo do tipo dos objetos envolvidos: quando aplicado a strings, ele realiza uma concatenação de textos, enquanto, quando aplicado a números, ele executa uma operação de adição. Como Python é uma linguagem de tipagem forte e dinâmica, cada objeto possui um tipo bem definido, mas esse tipo normalmente não precisa ser declarado explicitamente pelo usuário. Em vez disso, o próprio Python identifica e atribui automaticamente o tipo apropriado no momento em que o objeto é criado.
+
+Além do tipo, todo objeto possui uma identidade única. Essa identidade corresponde ao endereço de memória utilizado pelo Python para localizar o objeto durante a execução do programa. Podemos visualizar essa identidade utilizando a função `id()`.
+
+```{python}
+print(id(x))
+print(id(y))
+```
+
+É importante distinguir, porém, entre identidade e conteúdo. Vejamos o caso das listas abaixo:
+
+```{python}
+lista1 = [1, 2, 3]
+lista2 = [1, 2, 3]
+
+print(id(lista1))
+print(id(lista2))
+```
+
+Embora `lista1` e `lista2` possuam exatamente o mesmo conteúdo, elas são objetos diferentes armazenados em locais distintos da memória. Essa distinção entre conteúdo e identidade é importante porque dois objetos podem parecer iguais para o usuário, mas serem tratados como entidades independentes pelo Python.
 
 ### Atributos
 
+Além do tipo e da identidade, objetos também são compostos por informações chamadas atributos. Um atributo é simplesmente uma característica associada ao objeto. Dependendo do tipo do objeto, esses atributos podem guardar informações úteis sobre seu estado ou sua estrutura. Em Python, qualquer nome acessado após o operador ponto (`.`) é denominado um atributo do objeto que aparece à esquerda desse operador. 
+
+```{python}
+dados = pd.DataFrame({"nome": ["Ana", "Bruno", "Carlos"],"idade": [20, 25, 30]})
+
+print(dados.shape)
+print(dados.columns)
+print(dados.index)
+```
+
+Observe que não utilizamos parênteses após `shape`, `columns` ou `index`. Isso ocorre porque esses elementos armazenam informações sobre o objeto e não executam nenhuma ação. De forma geral, atributos representam características ou propriedades associadas a um objeto. No caso de um dataframe, os atributos podem informar o número de linhas e colunas, os nomes das variáveis ou o índice utilizado para identificar as observações.
+
 ### Métodos
+
+Esse aqui a gente já utilizou bastante ao longo do curso: métodos são funções associadas e aplicáveis a um objeto específico. Formalmente, eles correspondem a atributos que podem ser chamados como funções. É por isso que os métodos são acessados com a notação de ponto e seguidos por parênteses.
+
+Tipicamente, métodos agem sobre os dados contidos no objeto ao qual pertencem ou combinam esses dados com outros dados. 
+
+```{python}
+s = 'Esse é um string'
+
+# operação sobre os dados contidos no string 's'
+print(s.upper())
+
+# operação através da combinação do string 's' com o outro string
+print(s.replace('Esse','Este'))
+```
+
+Já sabemos que o Python é uma linguagem multiparadigma, que funciona de forma procedural, imperativa ou mesmo sob a lógica da programação orientada a objetos. Porém, mesmo quando estamos utilizando uma sintaxe que não aquela associada a OOP, i.e., sem o uso explicito de atributos e métodos ligados a um objeto específico, por trás das cortinas o Python muitas vezes está fazendo dessa forma. Vejamos o exemplo abaixo, de substituição de um valor armazenado em uma lista simples.
+
+```{python}
+lista1 = [1,2,3]
+lista1[0] = 'primeiro elemento'
+
+print(lista1)
+```
+
+Utilizamos a lógica de indexação e o fato de listas serem objetos mutáveis para fazer a substituição do primeiro elemento. Para realizar essa operação não utilizamos nenhum tipo de método associado ao objeto lista, certo? Errado. Por de trás das cortinas, a atribuição de um novo valor a um elemento existente da lista através da lógica de indexação e da sintaxe de colchetes é apenas uma interface amigável para o uso do método `__setitem__` em uma lista.
+
+```{python}
+lista2 = [1,2,3]
+lista2.__setitem__(0,'primeiro elemento')
+
+print(lista2)
+```
+
+O mesmo vale para quando utilizamos a função nativa `len()` para descobrir o número de elementos presentes em uma sequência, como uma lista. O uso dessa função é apenas uma interface amigável para a aplicação do método `__len__()`.
+
+```{python}
+# uso da função nativa
+print(len(lista2))
+
+# uso do método
+print(lista2.__len__())
+```
+
+::: {.callout-tip title="Inspeção de métodos"}
+O pacote `rich` traz funções bastante interessantes para que possamos entender um pouco mais de um objeto no próprio console do Python. É possível, por exemplo, extrair o tipo do dado e os métodos disponíveis para aquele objeto. Para o caso de uma lista como `lista1 = [1,2,3]`, a função `inspect` nos permite inspecionar os métodos disponíveis para aplicação nesse tipo de objeto.
+
+```{python}
+lista1 = [1,2,3]
+rich.inspect(lista1, methods=True)
+```
+:::
+
 
 ## Classes
 
