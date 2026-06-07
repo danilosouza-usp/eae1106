@@ -70,9 +70,76 @@ print(X)
 
 ### R como calculadora
 
+Depois do `Hello, World!`, entender como realizar operações aritméticas simples é o próximo passo em qualquer linguagem de programação. Comecemos por soma, subtração, divisão e multiplicação.
+
+```{r}
+40 + 2
+```
+
+```{r}
+43 - 1
+```
+
+```{r}
+6 * 7
+```
+
+```{r}
+84 / 2
+```
+
+O próximo passo é a potenciação. Diferentemente do Python, aqui a operação é realizada com o símbolo usual de acento circunflexo e não com a sequência de dois asteriscos seguidos.
+
+```{r}
+2 ^ 4
+```
+
+Assim como no Python, a ordem de preferência das operações pode ser feita com o uso de uma sequência de parênteses.
+
+```{r}
+((38 + 2) * (2 + 2)) / 16
+```
+
 ## Objetos
 
+### Tipos primitivos
+
+Antes de entrar nos objetos principais da linguagem, convém falar dos principais tipos de dados: `character`, `numeric`, `integer` e `logical`. A correspondência com o Python é exata, com o primeiro tipo representando um string, o segundo um número com precisão decimal, o terceiro um número inteiro e por fim um dado do tipo booleano, que aceita apenas os valores `TRUE` ou `FALSE`. O tipo de um objeto qualquer pode ser obtido através da função primitiva `class`.
+
+```{r}
+x <- 'tipo de dado: character'
+y <- 10
+
+class(x)
+class(y)
+```
+
 ### Vetores e matrizes
+
+Aqui temos uma distinção clara em relação ao Python. Se antes lista era talvez o objeto mais genérico da linguagem e que funcionava como um container de objetos dos mais variados tipos, aqui esse papel é representado pelo vetor `c()`. A diferença é que vetores nativos do R são objetos de um tipo único, contendo apenas dados numéricos ou do tipo character. Nesse sentido, o vetor primitivo do R pode ser entendido como uma mistura de listas e de arrays do Numpy.
+
+```{r}
+v <- c(10,20,30)
+
+class(v)
+```
+
+Para a criação de matrizes, usamos a função nativa `matrix()` em conjunto com `c()`. O tamanho de cada dimensão da matriz é definido através dos parâmetros `nrow` e `ncol`, com `byrow` determinando a partir de qual dimensão a matriz começara a ser preenchida.
+
+```{r}
+m <- matrix(c(10,20,30,
+              40,50,60,
+              70,80,90), nrow=3, ncol=3, byrow=TRUE)
+
+class(m)
+```
+
+Já a seleção de elementos de vetores e matrizes no R é feita de forma identica a sintaxe utilizada no Numpy. O detalhe relevante aqui é que o R começa a contagem de qualquer sequência no índice 1 e não no índice 0. Assim, para selecionar o primeiro elemento de um vetor utiliza o índice 1, enquanto para selecionar o terceiro elemento da terceira linha de uma matriz é preciso fazer referência à linha de índice 3 e coluna também de índice 3.
+
+```{r}
+v[2]
+m[3,3]
+```
 
 ### Dataframes
 

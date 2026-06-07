@@ -295,8 +295,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">12.3</span> Objetos</a>
   <ul class="collapse">
-  <li><a href="#vetores-e-matrizes" id="toc-vetores-e-matrizes" class="nav-link" data-scroll-target="#vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">12.3.2</span> Dataframes</a></li>
+  <li><a href="#tipos-primitivos" id="toc-tipos-primitivos" class="nav-link" data-scroll-target="#tipos-primitivos"><span class="header-section-number">12.3.1</span> Tipos primitivos</a></li>
+  <li><a href="#vetores-e-matrizes" id="toc-vetores-e-matrizes" class="nav-link" data-scroll-target="#vetores-e-matrizes"><span class="header-section-number">12.3.2</span> Vetores e matrizes</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">12.3.3</span> Dataframes</a></li>
   </ul></li>
   <li><a href="#iteração" id="toc-iteração" class="nav-link" data-scroll-target="#iteração"><span class="header-section-number">12.4</span> Iteração</a></li>
   <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções"><span class="header-section-number">12.5</span> Funções</a></li>
@@ -390,15 +391,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="r-como-calculadora" class="level3" data-number="12.2.2">
 <h3 data-number="12.2.2" class="anchored" data-anchor-id="r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</h3>
+<p>Depois do <code>Hello, World!</code>, entender como realizar operações aritméticas simples é o próximo passo em qualquer linguagem de programação. Comecemos por soma, subtração, divisão e multiplicação.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">40</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">43</span> <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">*</span> <span class="dv">7</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">84</span> <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+<p>O próximo passo é a potenciação. Diferentemente do Python, aqui a operação é realizada com o símbolo usual de acento circunflexo e não com a sequência de dois asteriscos seguidos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">4</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<p>Assim como no Python, a ordem de preferência das operações pode ser feita com o uso de uma sequência de parênteses.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>((<span class="dv">38</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>)) <span class="sc">/</span> <span class="dv">16</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="objetos" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="objetos"><span class="header-section-number">12.3</span> Objetos</h2>
-<section id="vetores-e-matrizes" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="vetores-e-matrizes"><span class="header-section-number">12.3.1</span> Vetores e matrizes</h3>
+<section id="tipos-primitivos" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="tipos-primitivos"><span class="header-section-number">12.3.1</span> Tipos primitivos</h3>
+<p>Antes de entrar nos objetos principais da linguagem, convém falar dos principais tipos de dados: <code>character</code>, <code>numeric</code>, <code>integer</code> e <code>logical</code>. A correspondência com o Python é exata, com o primeiro tipo representando um string, o segundo um número com precisão decimal, o terceiro um número inteiro e por fim um dado do tipo booleano, que aceita apenas os valores <code>TRUE</code> ou <code>FALSE</code>. O tipo de um objeto qualquer pode ser obtido através da função primitiva <code>class</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">'tipo de dado: character'</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
 </section>
-<section id="dataframes" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">12.3.2</span> Dataframes</h3>
+<section id="vetores-e-matrizes" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="vetores-e-matrizes"><span class="header-section-number">12.3.2</span> Vetores e matrizes</h3>
+<p>Aqui temos uma distinção clara em relação ao Python. Se antes lista era talvez o objeto mais genérico da linguagem e que funcionava como um container de objetos dos mais variados tipos, aqui esse papel é representado pelo vetor <code>c()</code>. A diferença é que vetores nativos do R são objetos de um tipo único, contendo apenas dados numéricos ou do tipo character. Nesse sentido, o vetor primitivo do R pode ser entendido como uma mistura de listas e de arrays do Numpy.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Para a criação de matrizes, usamos a função nativa <code>matrix()</code> em conjunto com <code>c()</code>. O tamanho de cada dimensão da matriz é definido através dos parâmetros <code>nrow</code> e <code>ncol</code>, com <code>byrow</code> determinando a partir de qual dimensão a matriz começara a ser preenchida.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(m)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+<p>Já a seleção de elementos de vetores e matrizes no R é feita de forma identica a sintaxe utilizada no Numpy. O detalhe relevante aqui é que o R começa a contagem de qualquer sequência no índice 1 e não no índice 0. Assim, para selecionar o primeiro elemento de um vetor utiliza o índice 1, enquanto para selecionar o terceiro elemento da terceira linha de uma matriz é preciso fazer referência à linha de índice 3 e coluna também de índice 3.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">2</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>m[<span class="dv">3</span>,<span class="dv">3</span>]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 90</code></pre>
+</div>
+</div>
+</section>
+<section id="dataframes" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">12.3.3</span> Dataframes</h3>
 </section>
 </section>
 <section id="iteração" class="level2" data-number="12.4">
