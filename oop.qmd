@@ -47,7 +47,7 @@ Esses elementos aparecem constantemente durante a programação, mesmo que impli
 
 ### Tipo e identidade
 
-Você deve se lembrar do capítulo @sec-fundamentos que no Python os tipos determinam quais informações podem ser armazenadas no objeto e quais operações podem ser realizadas sobre ele. Por exemplo, os números inteiros pertencem ao tipo _int_, enquanto textos pertencem ao tipo _str_. O tipo funciona como uma espécie de "categoria" do objeto. É ele que informa ao Python como aquele objeto deve ser tratado internamente.
+Você deve se lembrar do capítulo @sec-objetos que no Python os tipos determinam quais informações podem ser armazenadas no objeto e quais operações podem ser realizadas sobre ele. Por exemplo, os números inteiros pertencem ao tipo _int_, enquanto textos pertencem ao tipo _str_. O tipo funciona como uma espécie de "categoria" do objeto. É ele que informa ao Python como aquele objeto deve ser tratado internamente.
 
 ```{python}
 x = 10
@@ -148,13 +148,99 @@ rich.inspect(lista1, methods=True)
 
 ## Classes
 
-### Definição
+Uma classe reúne, em uma única estrutura, um conjunto de dados e métodos responsáveis por manipular esses dados. Cada objeto criado a partir da classe possui seus próprios dados, mas compartilha os mesmos comportamentos definidos pela classe. Por exemplo, números inteiros pertencem à classe `int`, listas pertencem à classe `list` e dataframes pertencem à classe `DataFrame`. Embora tenhamos até agora trabalhado apenas com objetos fornecidos pela própria linguagem ou por bibliotecas externas, o Python também permite que criemos nossos próprios tipos de objetos através da definição de novas classes.
 
 ### Classes personalizadas
 
-### Dataclasses  
+Por exemplo, suponha que desejamos representar municípios brasileiros em um programa a partir dos dados do Censo Populacional de 2022. Cada município possui características como nome, estado ao qual pertence, área total e população no ano de coleta do censo. Em vez de armazenar essas informações em estruturas separadas para cada novo objeto, podemos criar uma classe que reúna todos esses elementos como atributos do objeto criado. 
+
+Para criar uma nova classe utilizamos a palavra chave `class` em conjunto com uma estrutura padrão de métodos e parâmetros, em especial o método `__init__` e o parâmetro `self`.
+
+- O método `__init__` é o primeiro e obrigatório. Não entrarei muito no detalhe, mas esse método é responsável por iniciar a classe e permitir que outros métodos sejam implementados nessa estrutura a partir dos parametros iniciados em `__init__`.
+
+- O parâmetro `self` funciona como um prefixo necessário dentro da sintaxe de classes no Python. Para além da presença em `__init__`, todo novo método criado dentro da classe deve ter `self` como primeiro argumento.
+
+
+```{python}
+class Municipio:
+    def __init__(self,nome,estado,area,populacao):
+        
+        self.nome = nome
+        self.uf = estado
+        self.km2 = area
+        self.pop = populacao
+```
+
+Agora podemos criar municípios diferentes como objetos da classe `Municipio` e acessar seus atributos a partir da notação e sintaxe usual de OOP no Python.
+
+```{python}
+dracena = Municipio('Dracena','SP',487.688,45474)
+sp = Municipio('São Paulo','SP',1521.202,11451999)
+
+print(type(dracena))
+```
+
+```{python}
+print(dracena.nome)
+print(dracena.km2)
+print(sp.pop)
+```
+
+Interessante, não? Fica ainda mais interessante quando criamos nossos próprios métodos para além do método obrigatório `__init__`. Suponha que você queira criar um método que calcule a densidade populacional, dividindo a população pela área do município.
+
+```{python}
+class Municipio:
+    def __init__(self,nome,estado,area,populacao):
+        
+        self.nome = nome
+        self.uf = estado
+        self.km2 = area
+        self.pop = populacao
+
+    def densidade_pop(self):
+        return self.pop / self.km2   
+```
+
+Como redefinimos a classe, é importante redefinir os objetos. Após isso, é possível aplicar o novo método `densidade_pop` para calcular a densidade populacional de ambos os municípios.
+
+```{python}
+dracena = Municipio('Dracena','SP',487.688,45474)
+sp = Municipio('São Paulo','SP',1521.202,11451999)
+
+print(dracena.densidade_pop())
+print(sp.densidade_pop())
+```
+
+### Dataclasses 
+
+O pacote `dataclasses` é uma alternativa interessante para reduzir a carga de sintaxe na definição de classes e tornar suas personalizações mais intuitivas. No caso da classe `Municipio` definida anteriormente, podemos utilizar a função `dataclass` e o decorador `@dataclass` na linha exatamente anterior à definição da classe para reescrever o código como:
+
+```{python}
+@dataclasses.dataclass
+class Municipio:
+    nome: str
+    uf: str
+    km2: float
+    pop: int
+
+    def densidade_pop(self):
+        return self.pop / self.km2
+```
+
+Nesse caso, não é preciso definir o método `__init__` e encher o início da classe com um monte de `self`. Além disso, é possível definir de cara o tipo de dado associado a cada atributo do objeto. Finalmente, nada muda quando da necessidade de definir novos métodos.
+
+```{python}
+dracena = Municipio('Dracena','SP',487.688,45474)
+
+print(dracena.nome)
+print(dracena.densidade_pop())
+```
 
 ## Conclusão
+
+Neste capítulo apresentamos os conceitos fundamentais da programação orientada a objetos em Python. Vimos que todo objeto possui um tipo, uma identidade, atributos e métodos, e que esses elementos estão presentes em diversos objetos que utilizamos ao longo do curso, como listas, arrays e dataframes.
+
+Também introduzimos o conceito de classe, que permite criar novos tipos de objetos reunindo dados e comportamentos em uma única estrutura. Embora a orientação a objetos não seja o foco principal desta disciplina, compreender seus fundamentos ajuda a entender melhor o funcionamento do Python e das bibliotecas utilizadas em análise de dados.
 
 ## Exercícios
 
