@@ -260,7 +260,7 @@ Também introduzimos o conceito de classe, que permite criar novos tipos de obje
 
 2. Considere o código abaixo:
 
-    ```{python}
+    ```python
     universidade = 'Universidade de São Paulo'
     ```
 

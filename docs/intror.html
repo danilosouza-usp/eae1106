@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</a>
   <ul class="collapse">
-  <li><a href="#diferenças-de-sintaxe-em-relação-ao-python" id="toc-diferenças-de-sintaxe-em-relação-ao-python" class="nav-link" data-scroll-target="#diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</a></li>
+  <li><a href="#hello-world-e-instrução-de-atribuição" id="toc-hello-world-e-instrução-de-atribuição" class="nav-link" data-scroll-target="#hello-world-e-instrução-de-atribuição"><span class="header-section-number">12.2.1</span> <em>Hello, World!</em> e instrução de atribuição</a></li>
   <li><a href="#r-como-calculadora" id="toc-r-como-calculadora" class="nav-link" data-scroll-target="#r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</a></li>
   </ul></li>
   <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">12.3</span> Objetos</a>
@@ -334,36 +334,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introdução" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">12.1</span> Introdução</h2>
+<p>Até este ponto do curso, utilizamos Python como principal ferramenta para aprender programação, manipular dados, produzir visualizações e realizar análises empíricas. Python é atualmente uma das linguagens mais populares do mundo e possui aplicações que vão muito além da análise de dados, sendo amplamente utilizada em áreas como desenvolvimento de software, automação, inteligência artificial e computação científica.</p>
+<p>No entanto, Python não é a única linguagem relevante para o trabalho de economistas. Em diversos programas de pós-graduação, centros de pesquisa, órgãos governamentais e equipes de ciência de dados, o R continua sendo uma das ferramentas mais utilizadas para análise estatística e econométrica. Muitas bibliotecas de ponta para métodos estatísticos, visualização de dados e inferência causal são desenvolvidas inicialmente em R e posteriormente adaptadas para outras linguagens.</p>
+<p>Por esse motivo, mesmo que Python seja suficiente para grande parte das tarefas que realizamos ao longo deste curso, é importante que economistas tenham familiaridade com o ecossistema do R. O objetivo deste capítulo não é formar especialistas na linguagem, mas apresentar seus principais conceitos, sua lógica de funcionamento e as semelhanças e diferenças em relação ao Python. Ao final, você deverá ser capaz de ler códigos simples em R, realizar operações básicas de manipulação de dados e compreender a estrutura das bibliotecas mais utilizadas na pesquisa aplicada em Economia.</p>
 <section id="rstudio" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">12.1.1</span> RStudio</h3>
-<p>Assim como no Python, programar em R depende de um ambiente que pode ser configurado de várias formas. Você pode trabalhar com o R em sua forma pura, mas usualmente utilizamos alguma IDE que facilite o processo. E no mundo das IDEs que suportam o R, o <code>RStudio</code> talvez seja a principal. Para instalar o <code>RStudio</code> é preciso primeiro instalar o R. A partir daí, basta baixar o programa para o seu sistema operacional e seguir as configurações padrão do instalador para que o <code>RStudio</code> se torne o programa padrão para arquivos vinculados à linguagem.</p>
-<p>Em termos de layout, o <code>RStudio</code> se parece muito com o <code>Spyder</code>: um ambiente integrado que nos permite escrever o código e acompanhar de maneira simultânea os objetos criados e o resultado daquilo que rodamos.</p>
+<p>Assim como no Python, existem diferentes maneiras de escrever e executar códigos em R. Embora seja possível utilizar a linguagem diretamente por meio de um terminal ou interpretador simples, a prática mais comum é trabalhar com uma IDE. No ecossistema do R, a IDE mais popular é o <code>RStudio</code>. Desenvolvido especificamente para a linguagem, ele se tornou o ambiente de trabalho padrão para grande parte dos pesquisadores, analistas de dados e economistas que utilizam R em suas atividades profissionais e acadêmicas.</p>
+<p>Para utilizá-lo, é necessário instalar primeiro o próprio <a href="https://cran.rstudio.com/">R</a>, que funciona como o mecanismo responsável por interpretar e executar os códigos. Em seguida, instala-se o <a href="https://posit.co/download/rstudio-desktop">RStudio</a>, que fornece uma interface gráfica mais amigável para interagir com a linguagem. Do ponto de vista da organização da tela, o RStudio será bastante familiar para quem já trabalhou com o Spyder durante este curso. O ambiente normalmente é dividido em painéis que permitem editar scripts, executar comandos de forma interativa, visualizar objetos armazenados na memória, acompanhar gráficos gerados pelo código e navegar pelos arquivos do projeto. Essa integração facilita o desenvolvimento de análises empíricas ao concentrar em um único local praticamente todas as ferramentas utilizadas no fluxo de trabalho de um pesquisador.</p>
+<p>Ao longo deste capítulo utilizaremos o RStudio como ambiente principal. Como os conceitos fundamentais de programação já foram apresentados em Python, nosso foco será compreender a sintaxe do R e a lógica das ferramentas mais utilizadas pelos economistas, e não os detalhes de configuração do ambiente.</p>
 </section>
 <section id="pacotes-de-terceiros" class="level3" data-number="12.1.2">
 <h3 data-number="12.1.2" class="anchored" data-anchor-id="pacotes-de-terceiros"><span class="header-section-number">12.1.2</span> Pacotes de terceiros</h3>
-<p>Bla bla bla</p>
+<p>Assim como ocorre no Python, a instalação básica do R fornece apenas um conjunto limitado de funcionalidades. Grande parte das tarefas realizadas por pesquisadores e analistas depende de bibliotecas desenvolvidas pela comunidade. A instalação de um pacote normalmente é feita apenas uma vez por computador utilizando a função <code>install.packages()</code>. Por exemplo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Após instalado, o pacote deve ser carregado em cada nova sessão de trabalho por meio da função <code>library()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Essa separação entre instalação e carregamento é uma das primeiras diferenças que usuários de Python costumam notar. Enquanto no Python geralmente utilizamos comandos como <code>pip install</code> no terminal e <code>import</code> dentro do código, no R tanto a instalação quanto o carregamento podem ser realizados diretamente a partir do próprio ambiente da linguagem. O ecossistema do R possui atualmente dezenas de milhares de pacotes disponíveis gratuitamente, com destaque para os pacotes estatísticos e econométricos. Essa enorme coleção de bibliotecas é um dos principais motivos para a ampla adoção da linguagem em pesquisa acadêmica e análise aplicada.</p>
 </section>
 <section id="pré-requisitos" class="level3" data-number="12.1.3">
 <h3 data-number="12.1.3" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</h3>
-<p>Utilizaremos muito o conjunto de funcionalidades que vem com o ambiente tidyverse, que não é nativo do R, e inclui todo um conjunto de pacotes que facilitam a vida daqueles que trabalham com análise e gestão de dados.</p>
+<p>Neste capítulo utilizaremos alguns dos pacotes mais populares do ecossistema do R. O pacote <code>tidyverse</code> será empregado para manipulação e transformação de dados, reunindo diversas ferramentas amplamente utilizadas por economistas e cientistas de dados. Também utilizaremos o <code>data.table</code>, uma alternativa voltada para operações eficientes em bases de dados de grande porte. Por fim, o pacote <code>ggplot2</code> será utilizado para a construção de gráficos e visualizações, sendo atualmente uma das bibliotecas mais utilizadas para análise exploratória de dados e produção de figuras em trabalhos acadêmicos.</p>
 <ul>
 <li><code>tidyverse</code></li>
-<li><code>summarytools</code></li>
 <li><code>data.table</code></li>
 <li><code>ggplot2</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="primeiros-passos" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">12.2</span> Primeiros passos</h2>
-<section id="diferenças-de-sintaxe-em-relação-ao-python" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="diferenças-de-sintaxe-em-relação-ao-python"><span class="header-section-number">12.2.1</span> Diferenças de sintaxe em relação ao Python</h3>
+<section id="hello-world-e-instrução-de-atribuição" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="hello-world-e-instrução-de-atribuição"><span class="header-section-number">12.2.1</span> <em>Hello, World!</em> e instrução de atribuição</h3>
+<p>Assim como fizemos no Python, a caminhada no R em geral começa com a estruturação do código necessário para implementar um programa que realiza apenas uma operação: mostrar a frase <code>Hello, World!</code> no console da linguagem. No R isso é feito também através da instrução <code>print()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Função 'print' imprime o texto entre aspas no console do RStudio</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Hello, World!'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hello, World!"</code></pre>
+</div>
+</div>
+<p>Podemos realizar a mesma operação primeiro definindo um objeto e atribuindo a ele o texto <code>Hello, World!</code>. Basta então utilizar a instrução <code>print()</code>, que passa a receber como parâmetro o objeto definido. Atenção: em R, apesar do sinal de igualdade funcionar normalmente, a instrução de atribuição padrão da linguagem é a sequência de caracteres <code>&lt;-</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="st">'Hello, World!'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(X)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Hello, World!"</code></pre>
+</div>
+</div>
 </section>
 <section id="r-como-calculadora" class="level3" data-number="12.2.2">
 <h3 data-number="12.2.2" class="anchored" data-anchor-id="r-como-calculadora"><span class="header-section-number">12.2.2</span> R como calculadora</h3>
