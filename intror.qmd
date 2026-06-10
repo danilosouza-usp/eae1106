@@ -160,9 +160,9 @@ m[3,3]
 
 ### Dataframes
 
-Ao longo do curso utilizamos extensivamente objetos do tipo DataFrame do pandas para armazenar e manipular dados usando Python. Em R existe uma estrutura equivalente, conhecida como `data.frame`, que também organiza as informações em linhas e colunas. Embora o objeto `data.frame` seja nativo do R, grande parte do ecossistema moderno da linguagem utiliza uma versão chamada _tibble_, adotada pelos pacotes do ambiente `tidyverse`. Como veremos ao longo deste capítulo, os _tibbles_ funcionam de maneira muito semelhante aos DataFrames do pandas e constituem a principal estrutura de dados utilizada em análises empíricas realizadas em R.
+Ao longo do curso utilizamos extensivamente objetos do tipo DataFrame do pandas para armazenar e manipular dados usando Python. Em R existe uma estrutura equivalente, conhecida como `data.frame`, que também organiza as informações em linhas e colunas. Embora o objeto `data.frame` seja nativo do R, grande parte do ecossistema moderno da linguagem utiliza uma versão chamada _tibble_, adotada pelos pacotes do ambiente Tidyverse. Como veremos ao longo deste capítulo, os _tibbles_ funcionam de maneira muito semelhante aos DataFrames do pandas e constituem a principal estrutura de dados utilizada em análises empíricas realizadas em R.
 
-Tanto no R base quanto no ambiente `tidyverse`, é possível criar um dataframe de forma bastante parecida com o que fizemos na hora de criar um dataframe no Pandas. A diferença principal está na forma de armazenamento e, principalmente, na eficiência da interação entre um dataframe do tipo _tibble_ com as outras funcionalidades do `tidyverse`.
+Tanto no R base quanto no ambiente Tidyverse, é possível criar um dataframe de forma bastante parecida com o que fizemos na hora de criar um dataframe no Pandas. A diferença principal está na forma de armazenamento e, principalmente, na eficiência da interação entre um dataframe do tipo _tibble_ com as outras funcionalidades do Tidyverse.
 
 ```{r}
 nomes_mun <- c('Dracena','São Paulo','Guarulhos')
@@ -177,6 +177,8 @@ municipios2 <- tibble(nome=nomes_mun,populacao=pop_mun)
 print(municipios1)
 print(municipios2)
 ```
+
+Para todos os fins práticos desta aula, um tibble desempenha o mesmo papel que um DataFrame do pandas. Ele é a estrutura que concentra a maior parte do trabalho empírico realizado em R, servindo como ponto de partida para operações de filtragem, transformação, agregação e visualização.
 
 ## Controle de fluxo e iteração
 
@@ -288,7 +290,7 @@ Interessante, não? São várias as outras funções disponíveis no `dplyr` par
 
 ## Visualização
 
-No ecossistema do R, a ferramenta mais popular para visualização de dados é o `ggplot2`, um pacote integrante do Tidyverse amplamente utilizado em pesquisa acadêmica, relatórios técnicos e análise exploratória de dados. A principal característica do `ggplot2` é sua abordagem declarativa. Em vez de especificar passo a passo como cada elemento do gráfico deve ser desenhado, descrevemos quais dados serão utilizados e como as variáveis devem ser representadas visualmente. A partir dessas informações, o pacote constrói a visualização automaticamente.
+Depois de organizar e transformar os dados, o próximo passo natural é comunicar resultados. No ecossistema do R, a ferramenta mais popular para visualização de dados é o `ggplot2`, um pacote integrante do Tidyverse amplamente utilizado em pesquisa acadêmica, relatórios técnicos e análise exploratória de dados. A principal característica do `ggplot2` é sua abordagem declarativa. Em vez de especificar passo a passo como cada elemento do gráfico deve ser desenhado, descrevemos quais dados serão utilizados e como as variáveis devem ser representadas visualmente. A partir dessas informações, o pacote constrói a visualização automaticamente.
 
 Outra característica importante é que os gráficos são construídos por camadas. Começamos definindo a base do gráfico e, em seguida, adicionamos elementos como linhas, pontos, títulos, legendas e escalas. Essa lógica torna o código relativamente fácil de ler e permite criar visualizações complexas a partir da combinação de componentes simples. Nesta seção utilizaremos um exemplo básico apenas para ilustrar a sintaxe do ggplot2. O objetivo não é explorar todas as suas funcionalidades, mas mostrar como construir gráficos simples e compreender a lógica geral da biblioteca.
 
@@ -302,12 +304,14 @@ ggplot(df, aes(x=ano,y=taxa_desemp)) +
 
 A função `ggplot()` define o conjunto de dados utilizado e o mapeamento entre variáveis e elementos visuais. No exemplo acima, a variável ano foi associada ao eixo horizontal e a variável desemprego ao eixo vertical por meio do argumento `aes()`. Em seguida, a camada `geom_line()` informa que os dados devem ser representados por uma linha. Por fim, a função `labs()` adiciona títulos e rótulos aos eixos.
 
-A construção de um gráfico de barras é bastante parecida, apenas com a substituição de `geom_line()` por `geom_col`.
+A construção de um gráfico de barras é bastante parecida, apenas com a substituição de `geom_line()` por `geom_col()`. Nesse caso vou adicionar algumas outras personalizações, como a definição de um tema padrão (`theme_classic`), de limites para o eixo y (`scale_y_continuous()`), e da cor das barras através da inclusão do parâmetro `fill` dentro de `geom_col()`.
 
 ```{r}
 ggplot(df, aes(x=ano,y=razao_part)) +
-  geom_col() +
-  labs(title='Evolução da taxa de desemprego no Brasil',x='Ano')
+  geom_col(fill='#1f77b4') +
+  theme_classic() +
+  scale_y_continuous(limits=c(0,0.80))
+  labs(title='Evolução da razão de participação no Brasil',x='Ano')
 ```
 
 Observe que em ambos os casos a construção do gráfico segue uma lógica incremental: começamos definindo o objeto que contém o dataframe dos dados e seguimos adicionando novas camadas com o operador `+`. Essa estrutura é uma das marcas registradas do `ggplot2` e aparece na maior parte dos gráficos produzidos com a biblioteca.
