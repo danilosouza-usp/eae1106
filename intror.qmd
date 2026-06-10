@@ -100,6 +100,26 @@ Assim como no Python, a ordem de preferência das operações pode ser feita com
 ((38 + 2) * (2 + 2)) / 16
 ```
 
+### Operadores lógicos e relacionais
+
+Operadores relacionais, como o símbolo matemático de maior ou menor, servem para comparar objetos definidos e retornam valores lógicos (`TRUE` ou `FALSE`) como resultado. Além disso, tal qual no Python, é possível construir expressões condicionais utilizando operadores lógicos: 
+
+- `&` é o equivalente no R ao `and` do Python
+- `|` é o equivalente no R ao `or` do Python
+- `!` é o equivalente no R ao `not` do Python
+
+```{r}
+x <- 10
+y <- 200
+
+# teste condicional único
+x > 20
+
+# expressões condicionais
+x > 20 & y > 20
+x > 20 | y > 20
+```
+
 ## Objetos
 
 ### Tipos primitivos
@@ -143,9 +163,87 @@ m[3,3]
 
 ### Dataframes
 
-## Iteração
+Ao longo do curso utilizamos extensivamente objetos do tipo DataFrame do pandas para armazenar e manipular dados usando Python. Em R existe uma estrutura equivalente, conhecida como `data.frame`, que também organiza as informações em linhas e colunas. Embora o objeto `data.frame` seja nativo do R, grande parte do ecossistema moderno da linguagem utiliza uma versão chamada _tibble_, adotada pelos pacotes do ambiente `tidyverse`. Como veremos ao longo deste capítulo, os _tibbles_ funcionam de maneira muito semelhante aos DataFrames do pandas e constituem a principal estrutura de dados utilizada em análises empíricas realizadas em R.
+
+Tanto no R base quanto no ambiente `tidyverse`, é possível criar um dataframe de forma bastante parecida com o que fizemos na hora de criar um dataframe no Pandas. A diferença principal está na forma de armazenamento e, principalmente, na eficiência da interação entre um dataframe do tipo _tibble_ com as outras funcionalidades do `tidyverse`.
+
+```{r}
+nomes_mun <- c('Dracena','São Paulo','Guarulhos')
+pop_mun <- c(45474,11451999,1291784)
+
+# R base
+municipios1 <- data.frame(nome=nomes_mun,populacao=pop_mun)
+
+# tidyverse
+municipios2 <- tibble(nome=nomes_mun,populacao=pop_mun)
+
+print(municipios1)
+print(municipios2)
+```
+
+## Controle de fluxo e iteração
+
+O R também possui estruturas de controle que permitem alterar o fluxo de execução de um programa. Essas estruturas são fundamentais quando desejamos executar diferentes ações dependendo de uma condição ou repetir um mesmo conjunto de instruções várias vezes. A principal diferença de comandos como `if`, `for` e `while` está na sintaxe utilizada pelo R.
+
+- Execução condicional
+
+```{r}
+idade <- 20
+
+if (idade >= 18) {
+  print('Maior de idade')
+} else {
+  print('Menor de idade')
+}
+```
+
+- Iteração definida
+
+```{r}
+for (i in 1:5) {
+  print(i)
+}
+```
+
+- Iteração indefinida
+
+```{r}
+contador <- 0
+
+while (contador <= 5) {
+  print(contador)
+  contador <- contador + 1
+}
+```
 
 ## Funções
+
+Seja no R ou no Python, funções personalizadas representam um passo importante na organização do código. Elas permitem agrupar um conjunto de instruções sob um único nome, facilitando a reutilização de tarefas frequentes e reduzindo a repetição de código. Além disso, a divisão de um programa em funções torna o código mais legível, mais fácil de depurar e mais simples de manter, já que eventuais alterações precisam ser feitas em apenas um local.
+
+Seguindo o exemplo do Capítulo @sec-funcoes, vamos criar uma função no R que tem como único objetivo imprimir uma das frases mais emblemáticas da história do cinema:
+
+```{r}
+frase_cinema <- function() {
+    print('Que a força esteja com você!')
+}
+
+frase_cinema()
+```
+
+Da mesma forma que o Python, é possível adicionar argumentos posicionais, argumentos com palavras-chave, além do uso de valores _default_.
+
+```{r}
+total_calc <- function(bill_amount,tip_perc=10){
+    total <- bill_amount*(1 + tip_perc/100)
+    print(paste('O valor final da sua conta foi: R$ ',total))
+}
+
+# Cálculo do valor final da conta utilizando a gorjeta padrão de 10%
+total_calc(bill_amount=10)
+
+# Cálculo do valor final da conta utilizando uma gorjeta de 17%
+total_calc(bill_amount=10,tip_perc=17)
+```
 
 ## Gestão e análise de dados
 
