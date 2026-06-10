@@ -302,13 +302,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#controle-de-fluxo-e-iteração" id="toc-controle-de-fluxo-e-iteração" class="nav-link" data-scroll-target="#controle-de-fluxo-e-iteração"><span class="header-section-number">12.4</span> Controle de fluxo e iteração</a></li>
   <li><a href="#funções" id="toc-funções" class="nav-link" data-scroll-target="#funções"><span class="header-section-number">12.5</span> Funções</a></li>
-  <li><a href="#gestão-e-análise-de-dados" id="toc-gestão-e-análise-de-dados" class="nav-link" data-scroll-target="#gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</a>
-  <ul class="collapse">
-  <li><a href="#manipulação-e-pipelines" id="toc-manipulação-e-pipelines" class="nav-link" data-scroll-target="#manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</a></li>
-  <li><a href="#visualização" id="toc-visualização" class="nav-link" data-scroll-target="#visualização"><span class="header-section-number">12.6.2</span> Visualização</a></li>
-  </ul></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">12.7</span> Conclusão</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">12.8</span> Exercícios</a></li>
+  <li><a href="#gestão-e-análise-de-dados" id="toc-gestão-e-análise-de-dados" class="nav-link" data-scroll-target="#gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</a></li>
+  <li><a href="#visualização" id="toc-visualização" class="nav-link" data-scroll-target="#visualização"><span class="header-section-number">12.7</span> Visualização</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">12.8</span> Conclusão</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">12.9</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/danilosouza-usp/eae1106/edit/main/intror.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/danilosouza-usp/eae1106/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -355,17 +352,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pré-requisitos" class="level3" data-number="12.1.3">
 <h3 data-number="12.1.3" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">12.1.3</span> Pré-requisitos</h3>
-<p>Neste capítulo utilizaremos alguns dos pacotes mais populares do ecossistema do R. O pacote <code>tidyverse</code> será empregado para manipulação e transformação de dados, reunindo diversas ferramentas amplamente utilizadas por economistas e cientistas de dados. Também utilizaremos o <code>data.table</code>, uma alternativa voltada para operações eficientes em bases de dados de grande porte. Por fim, o pacote <code>ggplot2</code> será utilizado para a construção de gráficos e visualizações, sendo atualmente uma das bibliotecas mais utilizadas para análise exploratória de dados e produção de figuras em trabalhos acadêmicos.</p>
+<p>Neste capítulo utilizaremos duas das bibliotecas mais populares do ecossistema do R. O pacote <code>dplyr</code> será empregado para manipulação e transformação de dados, oferecendo ferramentas para filtrar observações, selecionar variáveis, criar novas colunas e produzir estatísticas agregadas. Já o pacote <code>ggplot2</code> será utilizado para a construção de gráficos e visualizações, sendo atualmente uma das ferramentas mais utilizadas para análise exploratória de dados e apresentação de resultados em trabalhos acadêmicos. Ambos fazem parte do ecossistema <em>Tidyverse</em>, amplamente adotado por pesquisadores e cientistas de dados.</p>
 <ul>
-<li><code>tidyverse</code></li>
-<li><code>data.table</code></li>
+<li><code>dplyr</code></li>
 <li><code>ggplot2</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -584,26 +578,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Iteração indefinida</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>contador <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>contador <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (contador <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (contador <span class="sc">&lt;=</span> <span class="dv">3</span>) {</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(contador)</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  contador <span class="ot">&lt;-</span> contador <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0
-[1] 1
+<pre><code>[1] 1
 [1] 2
-[1] 3
-[1] 4
-[1] 5</code></pre>
+[1] 3</code></pre>
 </div>
 </div>
 </section>
 <section id="funções" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="funções"><span class="header-section-number">12.5</span> Funções</h2>
 <p>Seja no R ou no Python, funções personalizadas representam um passo importante na organização do código. Elas permitem agrupar um conjunto de instruções sob um único nome, facilitando a reutilização de tarefas frequentes e reduzindo a repetição de código. Além disso, a divisão de um programa em funções torna o código mais legível, mais fácil de depurar e mais simples de manter, já que eventuais alterações precisam ser feitas em apenas um local.</p>
-<p>Seguindo o exemplo do Capítulo <a href="funcoes.html" class="quarto-xref"><span>Capítulo 6</span></a>, vamos criar uma função no R que tem como único objetivo imprimir uma das frases mais emblemáticas da história do cinema:</p>
+<p>Seguindo o exemplo do <a href="funcoes.html" class="quarto-xref"><span>Capítulo 6</span></a>, vamos criar uma função no R que tem como único objetivo imprimir uma das frases mais emblemáticas da história do cinema:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>frase_cinema <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">'Que a força esteja com você!'</span>)</span>
@@ -635,18 +626,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gestão-e-análise-de-dados" class="level2" data-number="12.6">
 <h2 data-number="12.6" class="anchored" data-anchor-id="gestão-e-análise-de-dados"><span class="header-section-number">12.6</span> Gestão e análise de dados</h2>
-<section id="manipulação-e-pipelines" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="manipulação-e-pipelines"><span class="header-section-number">12.6.1</span> Manipulação e pipelines</h3>
+<p>Assim como utilizamos o pandas para manipular dados em Python, o ecossistema do R oferece um conjunto de ferramentas voltadas para transformação e análise de tabelas. Entre elas, o pacote <code>dplyr</code>, integrante do Tidyverse, tornou-se uma das opções mais populares entre pesquisadores e cientistas de dados. A ideia central do <code>dplyr</code> é tratar a análise de dados como uma sequência de transformações aplicadas a uma tabela. Em vez de executar operações isoladas e armazenar diversos objetos intermediários, descrevemos um fluxo de trabalho no qual os dados passam por etapas sucessivas de filtragem, seleção, criação de variáveis, agrupamento e sumarização.</p>
+<p>Para tornar esse processo mais legível, o Tidyverse utiliza o operador pipe (<code>|&gt;</code> ou <code>%&gt;%</code>), que permite encadear operações de forma semelhante a uma linha de produção. Cada etapa recebe o resultado da etapa anterior, produzindo um fluxo de transformação fácil de ler e interpretar. Essa abordagem é conhecida como pipeline e constitui uma das características mais marcantes do ecossistema moderno do R. Ao longo desta seção veremos como construir pipelines simples para organizar e transformar dados de maneira clara, reproduzível e eficiente.</p>
+<p>Vamos considerar o exemplo da aula de Pandas, com dados do número de pessoas ocupadas, desocupadas, dentro e fora da força de trabalho no Brasil entre os anos de 2012 e 2021.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>ocupadas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">90593</span>,<span class="dv">92170</span>,<span class="dv">92962</span>,<span class="dv">92366</span>,<span class="dv">90174</span>,<span class="dv">92228</span>,<span class="dv">93534</span>,<span class="dv">95515</span>,<span class="dv">87225</span>,<span class="dv">95747</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>desocupadas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6730</span>,<span class="dv">6151</span>,<span class="dv">6555</span>,<span class="dv">9222</span>,<span class="dv">12476</span>,<span class="dv">12453</span>,<span class="dv">12413</span>,<span class="dv">11903</span>,<span class="dv">14412</span>,<span class="dv">12011</span>)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>na_forca <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">97322</span>,<span class="dv">98321</span>,<span class="dv">99516</span>,<span class="dv">101588</span>,<span class="dv">102650</span>,<span class="dv">104682</span>,<span class="dv">105947</span>,<span class="dv">107418</span>,<span class="dv">101637</span>,<span class="dv">107758</span>)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>fora_da_forca <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">58007</span>,<span class="dv">59244</span>,<span class="dv">60162</span>,<span class="dv">60092</span>,<span class="dv">60953</span>,<span class="dv">60777</span>,<span class="dv">61299</span>,<span class="dv">61579</span>,<span class="dv">69042</span>,<span class="dv">64525</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>ano <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2012</span>,<span class="dv">2021</span>)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ano=</span>ano,</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">ocupadas=</span>ocupadas,</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">desocupadas=</span>desocupadas,</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">na_forca=</span>na_forca,</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">fora_da_forca=</span>fora_da_forca)</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dados)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [10 × 5] (S3: tbl_df/tbl/data.frame)
+ $ ano          : int [1:10] 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
+ $ ocupadas     : num [1:10] 90593 92170 92962 92366 90174 ...
+ $ desocupadas  : num [1:10] 6730 6151 6555 9222 12476 ...
+ $ na_forca     : num [1:10] 97322 98321 99516 101588 102650 ...
+ $ fora_da_forca: num [1:10] 58007 59244 60162 60092 60953 ...</code></pre>
+</div>
+</div>
+<p>Suponha que estejamos interessados em uma sequência de operações, nessa ordem: (i) criar uma nova coluna com o cálculo da taxa anual de desemprego, (ii) criar uma nova coluna com a razão de participação no mercado de trabalho, (iii) selecionar apenas os dados para o período a partir de 2014, e (iv) manter apenas as colunas de ano, taxa de desemprego e razão de participação. Faremos tudo isso dentro de um pipeline, que deve sempre se iniciar com o dataframe e depois seguir, em ordem, as operações desejadas. Nesse caso, utilizaremos as funções</p>
+<ul>
+<li><code>mutate()</code>, para a criação de variáveis;</li>
+<li><code>filter()</code>, para a seleção de linhas de acordo com alguma condição;</li>
+<li><code>select()</code>, para a seleção apenas das colunas desejadas.</li>
+</ul>
+<p>O código abaixo realiza essa sequência toda e salva em um novo dataframe o resultado das operações ordenadas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">taxa_desemp =</span> desocupadas <span class="sc">/</span> (ocupadas <span class="sc">+</span> desocupadas)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">razao_part =</span> na_forca <span class="sc">/</span> (na_forca <span class="sc">+</span> fora_da_forca)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(ano<span class="sc">&gt;=</span><span class="dv">2014</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(ano, taxa_desemp, razao_part)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+    ano taxa_desemp razao_part
+  &lt;int&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+1  2014      0.0659      0.623
+2  2015      0.0908      0.628
+3  2016      0.122       0.627
+4  2017      0.119       0.633
+5  2018      0.117       0.633
+6  2019      0.111       0.636
+7  2020      0.142       0.595
+8  2021      0.111       0.625</code></pre>
+</div>
+</div>
+<p>Interessante, não? São várias as outras funções disponíveis no <code>dplyr</code> para operações de gestão de bases de dados. Como o foco desse capítulo é apenas apresentar a ferramenta, deixo a cargo do leitor a busca por mais informações. Uma ótima fonte é o livro <em>R for Data Science</em>, disponível <a href="https://r4ds.hadley.nz/">aqui</a>.</p>
 </section>
-<section id="visualização" class="level3" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="visualização"><span class="header-section-number">12.6.2</span> Visualização</h3>
+<section id="visualização" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="visualização"><span class="header-section-number">12.7</span> Visualização</h2>
+<p>No ecossistema do R, a ferramenta mais popular para visualização de dados é o <code>ggplot2</code>, um pacote integrante do Tidyverse amplamente utilizado em pesquisa acadêmica, relatórios técnicos e análise exploratória de dados. A principal característica do <code>ggplot2</code> é sua abordagem declarativa. Em vez de especificar passo a passo como cada elemento do gráfico deve ser desenhado, descrevemos quais dados serão utilizados e como as variáveis devem ser representadas visualmente. A partir dessas informações, o pacote constrói a visualização automaticamente.</p>
+<p>Outra característica importante é que os gráficos são construídos por camadas. Começamos definindo a base do gráfico e, em seguida, adicionamos elementos como linhas, pontos, títulos, legendas e escalas. Essa lógica torna o código relativamente fácil de ler e permite criar visualizações complexas a partir da combinação de componentes simples. Nesta seção utilizaremos um exemplo básico apenas para ilustrar a sintaxe do ggplot2. O objetivo não é explorar todas as suas funcionalidades, mas mostrar como construir gráficos simples e compreender a lógica geral da biblioteca.</p>
+<p>Suponha, mais uma vez que o interesse esteja em avaliação a evolução da taxa anual de desemprego e da razão de participação no mercado de trabalho brasileiro desde 2014.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>ano,<span class="at">y=</span>taxa_desemp)) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Evolução da taxa de desemprego no Brasil'</span>,<span class="at">x=</span><span class="st">'Ano'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intror_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A função <code>ggplot()</code> define o conjunto de dados utilizado e o mapeamento entre variáveis e elementos visuais. No exemplo acima, a variável ano foi associada ao eixo horizontal e a variável desemprego ao eixo vertical por meio do argumento <code>aes()</code>. Em seguida, a camada <code>geom_line()</code> informa que os dados devem ser representados por uma linha. Por fim, a função <code>labs()</code> adiciona títulos e rótulos aos eixos.</p>
+<p>A construção de um gráfico de barras é bastante parecida, apenas com a substituição de <code>geom_line()</code> por <code>geom_col</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>ano,<span class="at">y=</span>razao_part)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">'Evolução da taxa de desemprego no Brasil'</span>,<span class="at">x=</span><span class="st">'Ano'</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intror_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Observe que em ambos os casos a construção do gráfico segue uma lógica incremental: começamos definindo o objeto que contém o dataframe dos dados e seguimos adicionando novas camadas com o operador <code>+</code>. Essa estrutura é uma das marcas registradas do <code>ggplot2</code> e aparece na maior parte dos gráficos produzidos com a biblioteca.</p>
 </section>
+<section id="conclusão" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">12.8</span> Conclusão</h2>
+<p>Neste capítulo conhecemos os principais elementos do ecossistema do R sob a perspectiva de quem já possui experiência com Python. Vimos que conceitos como objetos, funções, estruturas de controle e tabelas de dados permanecem essencialmente os mesmos, embora a linguagem utilize sintaxe e ferramentas próprias.</p>
+<p>O objetivo não foi substituir Python por R, mas facilitar a transição entre os dois ambientes. Ao ampliar sua familiaridade com diferentes linguagens, você aumenta sua capacidade de trabalhar com ferramentas utilizadas em ciência de dados, aprendizado de máquina, econometria, inferência causal e outras áreas da pesquisa aplicada. Em muitos contextos profissionais e acadêmicos, a escolha da linguagem é secundária em relação à capacidade de compreender problemas, manipular dados e implementar métodos quantitativos. Quanto maior a sua caixa de ferramentas computacionais, maior a sua flexibilidade para lidar com diferentes desafios analíticos.</p>
 </section>
-<section id="conclusão" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">12.7</span> Conclusão</h2>
-</section>
-<section id="exercícios" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">12.8</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">12.9</span> Exercícios</h2>
 <ol type="1">
 <li><p>X</p></li>
 <li><p>X</p></li>
