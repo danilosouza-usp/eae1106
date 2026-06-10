@@ -299,7 +299,9 @@ Suponha, mais uma vez que o interesse esteja em avaliação a evolução da taxa
 ```{r}
 ggplot(df, aes(x=ano,y=taxa_desemp)) +
   geom_line() +
-  labs(title='Evolução da taxa de desemprego no Brasil',x='Ano')
+  labs(title='Evolução da taxa de desemprego no Brasil',
+       x='Ano',
+       y='')
 ```
 
 A função `ggplot()` define o conjunto de dados utilizado e o mapeamento entre variáveis e elementos visuais. No exemplo acima, a variável ano foi associada ao eixo horizontal e a variável desemprego ao eixo vertical por meio do argumento `aes()`. Em seguida, a camada `geom_line()` informa que os dados devem ser representados por uma linha. Por fim, a função `labs()` adiciona títulos e rótulos aos eixos.
@@ -310,8 +312,10 @@ A construção de um gráfico de barras é bastante parecida, apenas com a subst
 ggplot(df, aes(x=ano,y=razao_part)) +
   geom_col(fill='#1f77b4') +
   theme_classic() +
-  scale_y_continuous(limits=c(0,0.80))
-  labs(title='Evolução da razão de participação no Brasil',x='Ano')
+  scale_y_continuous(limits=c(0,0.80)) +
+  labs(title='Evolução da razão de participação no Brasil',
+       x='Ano',
+       y='')
 ```
 
 Observe que em ambos os casos a construção do gráfico segue uma lógica incremental: começamos definindo o objeto que contém o dataframe dos dados e seguimos adicionando novas camadas com o operador `+`. Essa estrutura é uma das marcas registradas do `ggplot2` e aparece na maior parte dos gráficos produzidos com a biblioteca.
