@@ -306,7 +306,7 @@ ggplot(df, aes(x=ano,y=taxa_desemp)) +
 
 A função `ggplot()` define o conjunto de dados utilizado e o mapeamento entre variáveis e elementos visuais. No exemplo acima, a variável ano foi associada ao eixo horizontal e a variável desemprego ao eixo vertical por meio do argumento `aes()`. Em seguida, a camada `geom_line()` informa que os dados devem ser representados por uma linha. Por fim, a função `labs()` adiciona títulos e rótulos aos eixos.
 
-A construção de um gráfico de barras é bastante parecida, apenas com a substituição de `geom_line()` por `geom_col()`. Nesse caso vou adicionar algumas outras personalizações, como a definição de um tema padrão (`theme_classic`), de limites para o eixo y (`scale_y_continuous()`), e da cor das barras através da inclusão do parâmetro `fill` dentro de `geom_col()`.
+A construção de um gráfico de barras é bastante parecida, apenas com a substituição de `geom_line()` por `geom_col()`. Nesse caso vou adicionar algumas outras personalizações, como a definição de um tema padrão^[A lista oficial de temas pré-definidos presentes no ggplot2 pode ser acessada [aqui](https://ggplot2.tidyverse.org/reference/ggtheme.html)], de limites para o eixo y (`scale_y_continuous()`), e da cor das barras através da inclusão do parâmetro `fill` dentro de `geom_col()`.
 
 ```{r}
 ggplot(df, aes(x=ano,y=razao_part)) +
